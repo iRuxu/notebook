@@ -1,79 +1,1445 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+<title>iRuxu NoteBook</title>
+<meta charset="utf-8"/>
+<meta name="keywords" content="javascript,css,html,nodejs,swift,mongoDB" />
+<meta name="description" content="iruxu's Notebook for web develope" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<base target="_blank">
+<!--[if lt IE 9]>
+<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<style>
+	@font-face{font-family:'Nikefont';src: url('img/nikefont.ttf') format('truetype');}
+	html,body,p,ul,ol,li{margin:0;padding:0;}
+	ul,li{list-style: none;}
+	h1,h2,h3,h4,h5,h6{cursor:pointer;font-style:normal;font-weight:normal;margin:0;padding:0;}
+	html,body{background: #fff;width:100%;font-family: Consolas,Verdana,Helvetica,Arial,sans-serif;font-size:12px;color:#000;line-height: 180%;position: relative;}
+	.clearfix { *zoom:1; }
+	.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
+	a{color:#369;text-decoration: none;}
+	a:hover{color:#ff3399;}
+	table{border-collapse: collapse;border-spacing:0;}
+	table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Notebook : iruxu&#39;s notebook for web develop">
+	header{box-shadow:0 1px 1px #ccc;border-bottom: 1px solid #888;position: relative;background:url(img/iruxu.png) no-repeat left center;}
+	footer{box-shadow:0 -1px 1px #ccc;border-top:1px solid #777;}
+	header,footer{padding:10px 20px;color:#fff;background-color:#222;}
+	header a,footer a{color:#ccc;}
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	@-webkit-keyframes tada{
+	0%{-webkit-transform:scale(1)}
+	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
+	100%{-webkit-transform:scale(1) rotate(0)}
+	}
+	@-moz-keyframes tada{
+	0%{-moz-transform:scale(1)}
+	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
+	100%{-moz-transform:scale(1) rotate(0)}
+	}
 
-    <title>Notebook</title>
-  </head>
+	h1,h5{font-family:"Nikefont";-webkit-font-smoothing: antialiased;}
+	h1{font-size:48px;padding:6px 0 6px 88px;display:inline-block;line-height:42px;text-shadow:2px 2px 2px #000;transition:0.6s;color:#ddd;}
+	h1:hover{color:#00ccff;-webkit-animation:tada 1s .2s ease both;-moz-animation:tada 1s .2s ease both;}
+	h5{border-bottom:1px dotted #777;margin:10px;padding:0;font-size:28px;line-height:38px;letter-spacing:1px;}
+	header ul{display:inline-block;position: absolute;left:280px;top:30px;}
+	h2{display: inline-block;background:#222;width:100px;height:42px;border:1px solid #333;box-shadow:1px -1px 1px #000;border-top-left-radius:4px;border-top-right-radius:4px;line-height:44px;text-align: center;color:#ccc;}
+	h2:hover,.ctcat{color:#00ccff;background:#181818;border:1px solid #00ccff;border-bottom:none;text-shadow:0px 0px 8px #0099ff;}
+	header p{position: absolute;right:10px;top:15px;text-align: right;}
+	header p a:hover{color:#00ccff;}
+	
+	.content{padding:20px;}
+	.content>ul{float:left;display:inline;width:220px;margin-right:10px;overflow:hidden;}
+	@media (max-device-width:720px){.content>ul{width:88%;margin:0 auto;float:none;}}
+	.content>ul>li{margin-bottom:10px;}
+	h3{background:#333;color:#fff;text-indent:5px;color:#f2f2f2;font-weight:normal;font-size:12px;margin:5px 0;}
+	h3:hover{color:#00ccff;}
+	h3 span{float:right;padding-right:10px;display:inline-block;}
+	.content ul>li div{padding:0 5px;}
+	h4{color:#666;margin:0;padding:0;font-weight:normal;}
+	h4:hover{color:#9933ff !important;font-weight:bold !important;}
+	.content ul>li div ul li {color:#888;border-top:1px dashed transparent;border-bottom:1px dashed transparent;}
+	.content ul>li div ul li:hover {background:#ffe5ff;color:#9933ff;cursor:pointer;border-top:1px dashed #ff3399;border-bottom:1px dashed #ff3399;}
+	.content ul>li div ul li:hover a{color:#ff3399;}
+	.content ul>li div ul li a{text-decoration: none;padding-right:2px;}
+	.content ul>li div ul li span{display:none;min-width:180px;padding:5px;position:absolute;background:rgba(220,255,255,0.88);border:1px solid #0099ff;color:#333;font-weight:normal;}
+	.content ul>li div ul li span span{position: static;}
+	#snippet{width:600px;height:280px;border:1px solid #00ccff;padding:10px;position:fixed;top:50%;left:50%;margin-left:-300px;margin-top:-140px;background: #333;box-shadow: 0px 0px 6px #000;color:#fff;display:none;}
+	@media (max-device-width:720px){
+		#snippet{width:100%;height:100%;top:0;left:0;margin:0;z-index:999;box-sizing:border-box;}
+	}
+	#snippet a{color:#00ccff;}
+	#snippet a:hover{display:inline-block;color:#ff3399;}
+	#snippet>span{position: absolute;right:8px;top:5px;cursor:pointer;font-size:24px;}
+	h6{border-bottom: 1px dashed #fff;margin:0;padding:0;color:#00ccff;}
+	#box{margin-top:5px;max-height: 255px;overflow-y:auto;color:#ccc;}
+	@media (max-device-width:720px){
+		#box{box-sizing:border-box;height:100%;margin-bottom:20px;}
+		#box table{width:95%;margin:10px auto 28px auto;}
+	}
+	#box b{color:#ffff00;}
+	#box strong{color:#ff0000;}
+</style>
+<script>
+	$(function(){
+		//内容切换
+		$("h2").click(function(){
+			$(".content").css('display','none');
+			$("h2").removeClass('ctcat')
+			var i = $(this).index('h2');
+			var num = $(".content").eq(i);
+			$(num).css('display','block');
+			$(this).addClass('ctcat');
+		})
+		
+		//h3开关
+		$("#main").on('click','h3',function(){
+			$(this).next('div').slideToggle('slow');
+			var tg3 = $(this).children('span').html();
+			if(tg3=='-'){
+				$(this).children('span').html('+');}
+			else if(tg3=='+'){
+				$(this).children('span').html('-');;
+			};
+		});
 
-  <body>
+		//h4开关
+		$("#main").on('click','h4',function(){
+			$(this).next('ul').slideToggle('slow');
+			var tg4 = $(this).children('span').html();
+			if(tg4=='-'){
+				$(this).children('span').html('+');}
+			else if(tg4=='+'){
+				$(this).children('span').html('-');;
+			};
+		})
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/iRuxu/notebook">View on GitHub</a>
+		//tips显示
+		$("#main").on('mouseover','h4+ul>li',function(e){
+			$(this).children('span').css({
+					left:e.pageX+12+'px',
+					top:e.pageY+8+'px',
+					display:'block'
+				})
+			}).on('mouseout','h4+ul>li',function(){
+				$(this).children('span').css({
+					display:'none'
+				})
+			})
 
-          <h1 id="project_title">Notebook</h1>
-          <h2 id="project_tagline">iruxu&#39;s notebook for web develop</h2>
+		//关闭片段盒子
+		$("#closebox").click(function(){
+			$("#snippet").css('display','none');
+		})
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/iRuxu/notebook/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/iRuxu/notebook/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+		//tips添加至snippet box
+		$("#main").on('click','h4+ul>li',function(){
+			var infos = $(this).children('span').html();
+			$("#snippet").css('display','block');
+			$("#box").html(infos);
+		})
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+		//阻止默认行为
+		$("not([href^=http])").each(function(){
+			$(this).click(function(e){
+				e.preventDefault();
+			})
+		})
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+		//直接link
+		$("li>a[href^=http]").each(function(){
+			$(this).css('display','block');
+			$(this).click(function(e){
+				e.stopPropagation();
+			})
+		})
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+	})
+</script>
+</head>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<body>
+<div id="snippet">
+	<h6>iRuxu's Snippet Box </h6>
+	<span id="closebox">×</span>
+	<p id="box">
+		<!-- some snippet will be show-->
+	</p>
+</div>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<header>
+	<h1 title="iRuxu's notebook">NOTEBOOK</h1>
+	<ul>
+		<h2 class="ctcat">CSS</h2>
+		<h2>HTML</h2>
+	</ul>
+	<p>
+		<a href="http://iruxu.com">[ 最新 ]</a> 
+		<span style="background:#fff;border-radius:8px;padding:0 10px"><a href="http://weibo.com/yuanzi0512"><img src="img/sina.png" width="12px" alt="iruxu的微博" title="Follow me on 微博"></a> <a href="mailto:17229398@qq.com"><img src="img/email.png" width="12px" alt="iruxu的电子邮件" title="email:17229398@qq.com"></a></span>
+		<br><a href="http://iruxu.com/notebook">http://iruxu.com/notebook</a>
+	</p>	
+</header>
+<div id="main" class="clearfix">
+	<div id="CSS" class="content clearfix">
+		<ul>
+			<li>
+				<h3>选择器<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]常用选择符</h4>
+					<ul>
+						<li><a href="">*</a><span>通配符</span></li>
+						<li><a href="">tagName</a><span>元素标签名</span></li>
+						<li><a href="">#id</a><span>#id选择器,也可以ele#id</span></li>
+						<li><a href="">.class</a><span>类选择器,可以连缀.class1.class2</span></li>
+						<li><a href="">E F</a><span>后代选择器</span></li>
+						<li><a href="">E>F</a><span>子选择器</span></li>
+						<li><a href="">E+F</a><span>相邻选择器</span></li>
+						<li><a href="">E~F</a><span>兄弟选择器</span></li>
+					</ul>
+					<h4>[<span>-</span>]伪类选择符</h4>
+					<ul>
+						<li><a href="">:link/:visited/:hover/:active</a><span>
+								a:hover 必须位于 a:link 和 a:visited 之后，a:active 必须位于 a:hover 之后
+								<br>a:link{}
+								<br>a:visited{}
+								<br>a:hover{}
+								<br>a:active{}
+								<br>目前hover可用于任何元素,例如li:hover{},也可以用为li:hover a{}
+								<br>IE6中:hover只对a元素有效,可通过JS控制
+							</span></li>
+						<li><a href="">:not</a>(selector)<span>匹配不含有s选择符的元素E</span></li>
+						<li><a href="">:first-child</a>
+							<span>:first-child 第一个子元素,前缀为被选元素,必须是第一个子元素而非第一个本类子元素
+							<br>:first-of-type 该选择符总是能命中父元素的第1个为E的子元素，不论第1个子元素是否为E
+							</span></li>
+						<li><a href="">:last-child</a>
+							<span>:last-child 最后一个子元素
+							<br>:last-of-type 最后一个此类元素</span></li>
+						<li><a href="">:nth-child(n)</a>
+							<span>:nth-child(n) 第N个子元素
+							<br>:nth-of-type(n) 第N个此类子元素
+							</span></li>
+						<li><a href="">:only-child</a>
+							<span>:only-child 唯一一个子元素
+							<br>:only-of-type 为父元素中唯一元素的此类元素
+							</span></li>
+						<li><a href="">:focus</a><span>设置对象在成为输入焦点（该对象的onfocus事件发生）时的样式。<br>webkit内核浏览器会默认给:focus状态的元素加上outline的样式,设置:focus{outline:0}<br></span></li>
+						<li><a href="">:empty</a><span>匹配没有任何子元素（包括text节点）的元素E。</span></li>
+						<li><a href="">:target</a><span>匹配相关URL指向的HASH目标元素。</span></li>
+					</ul>
+					<h4>[<span>-</span>]属性选择符</h4>
+					<ul>
+						<li><a href="">[att]</a><span>含有属性</span></li>
+						<li><a href="">[att='val']</a><span>属性值为指定</span></li>
+						<li><a href="">[att~='val']</a><span>选择具有att属性且属性值为一用空格分隔的字词列表，其中一个等于val的E元素（包含只有一个值且该值等于val的情况）。完整包含,而非字符串。</span></li>
+						<li><a href="">[att^='val']</a><span>属性值以..开头</span></li>
+						<li><a href="">[att$='val']</a><span>属性值以..结尾</span></li>
+						<li><a href="">[att*='val']</a><span>属性值包含..字符串</span></li>
+						<li><a href="">[att|='val']</a><span>属性值以val开头并用连接符"-"分隔的字符串的元素</span></li>
+					</ul>
+					<h4>[<span>+</span>]其他选择符</h4>
+					<ul style="display:none">
+						<li><a href="">:lang(zh-cn)</a><span>匹配使用特殊语言的E元素。</span></li>
+						<li><a href="">:root</a><span>匹配E元素在文档的根元素。在HTML中，根元素永远是HTML</span></li>
+						<li><a href="">:checked</a><span>匹配用户界面上处于选中状态的元素E。(用于input type为radio与checkbox时)，不包含下拉菜单</span></li>
+						<li><a href="">:enabled</a><span>匹配用户界面上处于可用状态的元素E。</span></li>
+						<li><a href="">:disabled</a><span>匹配用户界面上处于禁用状态的元素E。</span></li>
+					</ul>
+					<h4>[<span>-</span>]规则</h4>
+					<ul>
+						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
+							<br>但在IE6中有BUG,需要分开写在2个选择符中
+							<br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span></li>
+						<li><a href="">@charset</a><span>@charset "utf-8";
+							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
+							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
+						<li><a href="">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持,可载入JS文件<a href="http://selectivizr.com/">selectivizr</a></span></li>
+					</ul>
+					<h4>[<span>-</span>]HACK</h4>
+					<ul>
+						<li><a href="">if IE</a>
+							<span>条件HACK
+							<br><textarea name="" id="" cols="30" rows="10"><!--[if IE]>
+								指定载入相关JS/CSS或其他文件
+								<![endif]--></textarea>
+								<br>参考资料：<a href="http://css.doyoe.com/hack/conditions.htm">GO TO!</a></span></li>
+						<li><a href="">_property</a>
+							<span>属性级HACK
+							<br> _key: IE6及以下,-亦可
+							<br> *key: IE7及以下,+或#亦可
+							<br> value\0; Oprea
+							<br> [;property:value;]; webkit(Chrome,Safari)
+							<br>参考资料：<a href="http://css.doyoe.com/">GO TO!</a></span></li>
+						<li><a href="">*selector</a><span>选择符级HACK
+							<br> * selector: IE6及以下
+							<br> * + selector : IE7
+						</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>文本<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]字体</h4>
+					<ul>
+						<li><a href="">font</a>([i b]size/lh family)<span>【简写】font:italic bold 18px/22px 'Consolas' （简写时font-size和font-family属性不可省略）</span></li>
+						<li><a href="">font-size</a><span>字体大小,浏览器默认大小为1em（一般为16px）,移动端则使用rem<br>工具：<a href="http://pxtoem.com/">PX转EM快速工具</a></span></li>
+						<li><a href="">px/em/rem</a><span>
+							px:像素,相对长度单位。1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px;
+							<br>em:相对长度单位.相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+							<br>rem:相对长度单位。相对于根元素(即html元素)font-size计算值的倍数
+						</span></li>
+						<li><a href="">line-height</a>(Npx/180%)<span>行高,可为百分比</span></li>
+						<li><a href="">font-weight</a>(bold/normal)<span>粗体,normal正常=400,bold粗体=700,取值100~900</span></li>
+						<li><a href="">font-style</a>(italic/normal)<span>normal正常,italic字体自带斜体,oblique人为斜体</span></li>
+						<li><a href="">font-variant</a>(small-caps)<span>normal正常的字体,small-caps小型的大写字母字体</span></li>
+						<li><a href="">font-family</a>
+								<span>按优先顺序排列。以逗号隔开。如果字体名称包含空格或中文，则应使用引号括起。<br>常用字体：Helvetica,Verdana,Arial,Consolas,Georgia,Impact,Trebuchet MS,Comic Sans MS,Tahoma,Time News Roman,微软雅黑,宋体
+								<br>参考<a href="http://cssfontstack.com/">常用字体预览</a></span></li>
+						<li><a href="">@font-face</a>{f:'n',src:'url'}
+								<span><b>@font-face 必须在字体使用前引入</b>
+									<br>@font-face {
+									<br>    font-family: 'diyfont';
+									<br>    src: url('diyfont.eot'); /* IE9+ */
+									<br>    src: url('diyfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+									<br>         url('diyfont.woff') format('woff'), /* chrome、firefox */
+									<br>         url('diyfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+									<br>         url('diyfont.svg#fontname') format('svg'); /* iOS 4.1- */
+									<br>}
+									<br>图标字体 <a href="http://iconfont.cn/repositories/10">alibaba</a> / <a href="http://www.w3cschool.cc/try/demo_source/bootstrap-glyph-customization.htm">Glyphicons </a> / <a href="https://icomoon.io/app/#/select">icomoon</a>
+									<br>更多字体 <a href="http://zh.fonts2u.com/index.html">Get it!</a>
+									<br>字体转换 <a href="http://www.fontsquirrel.com/tools/webfont-generator">将一种字体转为网页所需的所有格式</a>
+								</span></li>
+					</ul>
+					<h4>[<span>-</span>]文本</h4>
+					<ul>
+						<li><a href="">text-align</a>(l/r/c/j)<span>水平对齐:center居中,left左,right右,justify两端对齐</span></li>
+						<li><a href="">vertical-align</a>(t/b/m)<span>垂直对齐：middle居中,top顶部,bottom底部,默认baseline底部
+						<br />例如让文本垂直对齐文本输入框 input{vertical-align:middle;}http://www.w3.org/</span></li>
+						<li><a href="">text-indent</a>([+-]Npx)
+										<span>
+											缩进,可为负值.
+											<br>div内部的第一行及每个强制换行的首行都拥有2em的缩进：text-indent:2em each-line;【CSS3】
+											<br>技巧：对于要保留html文字,但不显示的文字,可设置text-indent:-999px
+										</span></li>
+						<li><a href="">letter-spacing</a>(Npx)<span>字母/中文字间隔</span></li>
+						<li><a href="">word-spacing</a>(Npx)<span>单词间隔</span></li>
+						<li><a href="">unicode-bidi</a>(bidi-override)<span>
+								normal：对象不打开附加的嵌入层，对于内联元素，隐式重排序跨对象边界进行工作。
+								<br>embed：对象打开附加的嵌入层，direction属性的值指定嵌入层，在对象内部进行隐式重排序。
+								<hr>bidi-override：严格按照direction属性的值重排序。忽略隐式双向运算规则。
+								<br>用于同一个页面里存在从不同方向读进的文本显示。与direction属性一起使用
+						</span></li>
+						<li><a href="">direction</a>(ltr/rtl)
+							<span>ltr：文本流从左到右。
+								<br>rtl：文本流从右到左。
+								<br>设置direction:rtl;unicode-bidi:bidi-override;实现古文排字效果</span></li>
+						<li><a href="">writing-mode</a><span>书写模式
+							<br>horizontal-tb：水平方向自上而下的书写方式。即 left-right-top-bottom（类似IE私有值lr-tb）
+							<br>lr-tb：左-右，上-下。对象中的内容在水平方向上从左向右流入，后一行在前一行的下面。 所有的字形都是竖直向上的。这种布局是罗马语系使用的（IE）
+							<hr>vertical-rl：垂直方向自右而左的书写方式。即 top-bottom-right-left（类似IE私有值tb-rl）
+							<br>vertical-lr：垂直方向自左而右的书写方式。即 top-bottom-left-right
+							<br>tb-rl：上-下，右-左。对象中的内容在垂直方向上从上向下流入，自右向左。后一竖行在前一竖行的左面。全角字符是竖直向上的，半角字符如拉丁字母或片假名顺时针旋转90度
+							<br></span></li>
+						<li><a href="">text-overflow</a>(ellipsis/str)<span>文本溢出:clip剪裁掉/ellipsis点点点/string指定字符串【CSS3】</span></li>
+						<li><a href="">white-space</a>(Npx)
+								<span>normal：默认处理方式。
+								<br>nowrap： 强制在同一行内显示所有文本，合并文本间的多余空白，直到文本结束或者遭遇br对象。
+								<br>常用片段（设置宽度）：white-space:nowrap;text-overflow:ellipsis;overflow:hidden;</span></li>
+						<li><a href="">text-transform</a>(c/u/l)
+								<span>none： 无转换 
+								<br>capitalize： 将每个单词的第一个字母转换成大写 
+								<br>uppercase： 将每个单词转换成大写 
+								<br>lowercase： 将每个单词转换成小写 </span></li>
+						<li><a href="">text-decoration</a>(n/u/o/t)<span>none：无
+							<br>underline：下划线
+							<br>overline：上划线
+							<br>line-through：删除线</span></li>
+						<li><a href="">text-shadow</a>(1px 1px 2px #248)<span>文本阴影:1px 1px 5px #000; （水平,垂直,模糊半径,颜色）<br>在线生成3DCSS文字<a href="http://www.3dcsstext.com/">GO TO!</a></span></li>
+					</ul>
+					<h4>[<span>-</span>]伪对象</h4>
+					<ul>
+						<li><a href="">:first-letter</a><span>对象内第一个字符<br>选择符与包含规则的花括号之间不能紧挨着，需留有空格或换行。<br>例 p:first-letter[_]{}  （[_]处保留空格）</span></li>
+						<li><a href="">:first-line</a><span>对象内第一行<br>选择符与包含规则的花括号之间不能紧挨着，需留有空格或换行</span></li>
+						<li><a href="">::selection</a><span>对象被选择时的样式,必须使用双冒号【CSS】<br>::selection只能定义被选择时的background-color及color</span></li>
+						<li><a href="">:before</a><span>设置在对象前（依据对象树的逻辑结构）发生的内容。<br>用来和content属性一起使用，并且必须定义content属性 </span></li>
+						<li><a href="">:after</a><span>设置在对象后（依据对象树的逻辑结构）发生的内容。<br>用来和content属性一起使用，并且必须定义content属性 </span></li>
+					</ul>
+					<h4>[<span>-</span>]内容</h4>
+					<ul>
+						<li><a href="">content</a>(str/attr/url/count)
+								<span>
+									content:'str' 一个字符串或符号,需加引号,例如 '&raquo;'
+								<br>content:attr(标签名) 载入此标签的一个属性节点上的内容,例如title
+								<br>content:url('文件地址') 使用指定的绝对或相对地址插入一个外部资源（图像，声频，视频或浏览器支持的其他任何资源）
+								<br>content:counter(name,list-style-type)使用一个已命名的计数器
+								<br>参考资料：<a href="http://www.w3cfuns.com/article-5592215-1-1.html">GO TO!</a>
+								</span></li>
+						<li><a href="">counter-increment</a>(name [N])
+								<span>
+									定义一个计数器,并设定累加值,默认为1,可以为负值。
+								<br>在要计数的对象上设置 li{counter-increment:test 1}
+								<br>在起始伪对象上启用 li:before{content:counter(test)'.'}
+								<br>参考资料：<a href="http://css.doyoe.com/properties/content/counter-increment.htm">GO TO!</a>
+								<br>实例演示：<a href="http://www.w3cfuns.com/article-5592152-1-1.html">GO TO!</a>
+								</span></li>
+						<li><a href="">counter-reset</a>(name [N])
+								<span>
+									复位计数器,默认为0.
+								<br>在要复位的对象(伪元素)上设置 li:before{counter-reset:test -1}
+								<br>参考资料：<a href="http://css.doyoe.com/properties/content/counter-reset.htm">GO TO!</a>
+								<br>复杂嵌套：<a href="http://www.w3cfuns.com/article-5592229-1-1.html">GO TO!</a>
+								<br>嵌套原理：
+								<br>1级列表设置计数器1,1级列表的before伪元素启用计数器1
+								<br>2级列表设置2计数器2,2级列表的before伪元素启用计数器2
+								<br>1级列表设置清空技术器2（无参数）
+								</span></li>
+						<li><a href="">quotes</a>('['*4)
+								<span>
+									设置或检索对象内使用的嵌套标记。
+								<br>设置标签的包围符号：q{quotes:'外层左标记' '外层右标记' '内层左标记' '内层右标记'}
+								<br>参考资料：<a href="http://css.doyoe.com/properties/content/quotes.htm">GO TO!</a>
+								</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>盒属性<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]尺寸</h4>
+					<ul>
+						<li><a href="">calc()</a><span>长度计算,width:calc(100% - 50px) <strong>中间必须有空格！</strong></span></li>
+						<li><a href="">width</a><span>宽度<br />
+						IE6的1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a></span></li>
+						<li><a href="">height</a><span>高度<br>在IE6下，如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%;。</span></li>
+						<li><a href="">max-width</a><span>最大宽度
+							<br>IE6不支持 min-width/height | max-width/height
+							<br>但IE6中溢出高度容易会随之一起增长,故对IE6使用属性HACK _height即可。
+							<br>.test{min-height:200px;_height:200px;}
+							</span></li>
+						<li><a href="">max-height</a><span>最大高度</span></li>
+						<li><a href="">min-width</a><span>最小宽度</span></li>
+						<li><a href="">min-height</a><span>最小高度</span></li>
+					</ul>
+					<h4>[<span>-</span>]边框</h4>
+					<ul>
+						<li><a href="">border</a><span>[简写]border:1px solid #ccc;
+							<hr>border-width宽度：
+							<br>指定一个宽度,此宽度在双线时等于其间隔.
+							<hr>border-style样式：
+							<br>none：无轮廓（等价border-width:0）
+							<br>dotted：点状轮廓。IE6下显示为dashed效果
+							<br>dashed：虚线轮廓。
+							<br>solid：实线轮廓
+							<br>double：双线轮廓。两条单线与其间隔的和等于指定的border-width值
+							<br>groove：3D凹槽轮廓。
+							<br>ridge：3D凸槽轮廓。
+							<br>inset：3D凹边轮廓。
+							<br>outset：3D凸边轮廓。
+							<hr>border-color颜色：
+							<br>如果想在hover上做边框显示不发生抖动,应将默认状态添加如1px solid transparent
+							<br>三角制作：<a href="http://apps.eky.hk/css-triangle-generator/">在线生成</a>（利用宽高0,设置1个夹角边框大值）
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+							</span></li>
+						<li><a href="">border-top</a><span>
+							单边:border-top/border-bottom/border-left/border-right
+							<br>取消某一边:border:1px solid #ccc;border-bottom:none;
+							</span></li>
+						<li><a href="">border-radius</a>
+							<span>[边框圆角简写]border-radius:5px 4px 3px 2px;
+							<br>四个半径值分别是左上角、右上角、右下角和左下角,可以设置百分比.
+							<br>改变形状：
+							<br>正方形->圆：radius=width|height/2
+							<br>叶子-> 左上+右下,注意书写方式与简写代表
+							<br>在线生成：<a href="http://www.css3maker.com/border-radius.html">GO TO!</a>
+							</span></li>
+						<li><a href="">border-top-left-radius</a>
+								<span>
+									单角圆角,注意书写格式
+								</span></li>
+						<li><a href="">box-shadow</a>
+								<span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
+								<br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
+								<br>可用逗号分隔多个阴影,制作复杂重叠阴影效果
+								<br>在线阴影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
+								<br>在线长阴影：<a href="http://www.shadowsky.cn/i/tools/longshadows/index.htm">GO TO!</a>
+								<br>投影彩带：<a href="http://www.css3d.net/ribbon-generator/">GO TO!</a>
+								</span></li>
+						<li><a href="">border-image</a>
+								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
+								<br>在线图片边框生成：<a href="http://www.shadowsky.cn/i/tools/borderimage/index.htm">GO TO!</a></span></li>
+						<li><a href="">outline</a><span>轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考</span></li>
+						<li><a href="">outline-offset</a><span>用长度值来定义轮廓偏移。允许负值。0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
+					</ul>
+					<h4>[<span>-</span>]颜色</h4>
+					<ul>
+						<li><a href="">color</a>
+								<span>颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
+								<br>transparent  透明（IE8-不支持）
+								<br>rgba(255,255,255,0.8) 带Alpha通道的颜色模式,可以半透明（IE8-不支持）
+								<br>让IE8-通过IE滤镜来实现rgba效果
+								<br><textarea name="" id="" cols="30" rows="10">
+									background: rgba(0,0,0,.92);
+									_background: #000;
+									filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#CC000000', endColorstr='#CC000000');
+								</textarea>
+								<br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
+								<br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
+								<br>常用透明度对应16进制关系：
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">0（00）</td>
+								<td valign="top">0.05（0C）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.1（19）</td>
+								<td valign="top">0.15（26）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.2（33）</td>
+								<td valign="top">0.25（3F）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.3（4C）</td>
+								<td valign="top">0.35（59）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.4（66）</td>
+								<td valign="top">0.45（72）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.5（7F）</td>
+								<td valign="top">0.55（8C）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.6（99）</td>
+								<td valign="top">0.65（A5）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.7（B2）</td>
+								<td valign="top">0.75（BF）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.8（CC）</td>
+								<td valign="top">0.85（D8）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.9（E5）</td>
+								<td valign="top">0.95（F2）</td>
+								</tr>
+								</tbody>
+								</table>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+								</span></li>
+						<li><a href="">opacity</a>
+							<span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
+							<br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
+							<br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
+							<br><textarea name="" id="" cols="30" rows="10">
+								filter:alpha(opacity=80);opacity:0.8;
+							</textarea></span></li>
+						<li><a href="">filter</a>
+								<span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
+								<br><textarea name="" id="" cols="30" rows="10">
+									background:url(../images/ex.png) no-repeat;
+									_background:none;
+									_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
+								</textarea>
+								<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件
+								<br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
+								<br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
+								</span></li>
+					</ul>
+					<h4>[<span>-</span>]背景</h4>
+					<ul>
+						<li><a href="">background</a><span>
+							[简写]background:#222 url() Xpx Ypx/size repeat attachment clip origin,...
+							<br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
+							<br>分解写法时，background-color只能设置一个。</span></li>
+						<li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
+						<li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.
+							<br>雪碧图：<a href="http://cn.spritegen.website-performance.org/">GO TO!</a>
+							<br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
+						<li><a href="">background-size</a><span>
+							background-size: Xpx Ypx / A% B% / cover / contain / auto
+							<br>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；
+							<br>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
+							<br>Xpx固定大小,a%百分比大小,auto真实大小
+							</span></li>
+						<li><a href="">background-repeat</a><span>平铺方式：
+							<br>repeat-x：背景图像在横向上平铺
+							<br>repeat-y：背景图像在纵向上平铺
+							<br>repeat：背景图像在横向和纵向平铺
+							<br>no-repeat：背景图像不平铺
+							<br>round：背景图像自动缩放直到适应且填充满整个容器。</span></li>
+						<li><a href="">background-attachment</a><span>
+							fixed【相对浏览器固定】背景图像相对于窗体固定。
+							<br>scroll【相对元素固定】背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
+							<br>local【相对元素内容固定】背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。
+							</span></li>
+						<li><a href="">background-clip</a><span>
+							padding-box：从padding区域（不含padding）开始向外裁剪背景。
+							<br>border-box：从border区域（不含border）开始向外裁剪背景。(默认)
+							<br>content-box：从content区域开始向外裁剪背景。
+							<br>text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。
+							<br>TEXT剪裁方式的遮罩效果：<a href="http://demo.doyoe.com/css3/background-clip/mask-text2.htm">GO TO!</a>
+							</span></li>
+						<li><a href="">background-origin</a><span>
+								padding-box：从padding区域（含padding）开始显示背景图像。(默认)
+							<br>border-box：从border区域（含border）开始显示背景图像。
+							<br>content-box：从content区域开始显示背景图像。
+						</span></li>
+						<li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
+						<li>[img]<a href="">linear-grandient</a><span>
+							(重复)线性渐变linear-gradient,repeating-linear-gradient
+							<br>background:linear-gradient(to 方向/Ndeg,#color1,#color2……#colorN) 线性渐变
+							<br>以圆盘为参考，垂直向上为0度。
+							<br>技巧应用实例：
+							<br><textarea name="" id="" cols="30" rows="10">
+							使用1像素背景渐变绘制分割线
+							/*使用伪元素制作导航列表项分隔线*/
+							.nav li:after{
+							content:""; 
+							width:1px;
+							height:15px;
+							position:absolute;
+							right:0;
+							top:20px;
+							background:linear-gradient(0deg,#990000,#ff0000,#990000);
+							}
+							/*删除第一项和最后一项导航分隔线*/
+							.nav li:last-child:after{
+							width:0;
+							height:0;
+							}
+							</textarea>
+							<br>渐变按钮生成：<a href="http://www.cssbuttongenerator.com/">简洁</a> / 
+							<a href="http://www.glassybuttons.com/glassy.php">玻璃</a> / <a href="http://jirox.net/AsButtonGen/">水晶</a> / <a href="http://www.bestcssbuttongenerator.com/">简单</a> / <a href="http://www.cssbutton.me/browse">质感</a>
+						</span></li>
+						<li>[img]<a href="">radial-grandient</a><span>
+							(重复)径向渐变radial-grandient,repeating-radial-grandient
+							<br>background:radial-gradient(center/A% B%,ellipse/circle,#color1,#color2……#colorN) 径向渐变
+							<br>可以使用rgba色，设置从透明到渐变效果！
+							<br>渐变生成工具：<a href="http://www.colorzilla.com/gradient-editor/">GO TO!</a>
+						</span></li>
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>布局I<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]列表</h4>
+					<ul>
+						<li><a href="">list-style</a><span>[简写] img position type,无序列表ul,有序列表ol,自定义列表dl
+								<br>可以用列表来进行布局,清除列表样式ul设置list-style:none,ul{padding:0,margin:0}
+								<br>如标记为图片时一般用背景图来替代
+								</span></li>
+						<li><a href="">list-style-type</a>
+								<span><br>仅作用于具有display值等于list-item的对象（如li对象）,如修改display值后不再显示(设置为块或其他特性均消失标记).
+								<br>注意：ol,ul,dl对象的type特性为其后的所有列表项目（如li对象）指明列表属性。
+								<br>此样式也可应用于counter计数器样式
+								<table>
+								<tbody>
+								<tr>
+								<th>值</th>
+								<th>描述</th>
+								</tr>
+								<tr>
+								<td>none</td>
+								<td>无标记。</td>
+								</tr>
+								<tr>
+								<td>disc（默认）</td>
+								<td>实心圆。</td>
+								</tr>
+								<tr>
+								<td>circle</td>
+								<td>空心圆。</td>
+								</tr>
+								<tr>
+								<td>square</td>
+								<td>实心方块。</td>
+								</tr>
+								<tr>
+								<td>decimal</td>
+								<td>数字。( 1,2,3…… )</td>
+								</tr>
+								<tr>
+								<td>decimal-leading-zero</td>
+								<td>0开头的数字标记。( 01,02,03…… )</td>
+								</tr>
+								<tr>
+								<td>lower-roman</td>
+								<td>小写罗马数字(i, ii, iii, iv, v, 等。)</td>
+								</tr>
+								<tr>
+								<td>upper-roman</td>
+								<td>大写罗马数字(I, II, III, IV, V, 等。)</td>
+								</tr>
+								<tr>
+								<td>lower-alpha</td>
+								<td>小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)</td>
+								</tr>
+								<tr>
+								<td>upper-alpha</td>
+								<td>大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)</td>
+								</tr>
+								<tr>
+								<td>lower-greek</td>
+								<td>小写希腊字母(alpha, beta, gamma, 等。)</td>
+								</tr>
+								<tr>
+								<td>lower-latin</td>
+								<td>小写拉丁字母(a, b, c, d, e, 等。)</td>
+								</tr>
+								<tr>
+								<td>upper-latin</td>
+								<td>大写拉丁字母(A, B, C, D, E, 等。)</td>
+								</tr>
+								<tr>
+								<td>hebrew</td>
+								<td>传统的希伯来编号方式</td>
+								</tr>
+								<tr>
+								<td>armenian</td>
+								<td>传统的亚美尼亚编号方式</td>
+								</tr>
+								<tr>
+								<td>georgian</td>
+								<td>传统的乔治亚编号方式(an, ban, gan, 等。)</td>
+								</tr>
+								<tr>
+								<td>cjk-ideographic</td>
+								<td>简单的表意数字</td>
+								</tr>
+								<tr>
+								<td>hiragana</td>
+								<td>标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）</td>
+								</tr>
+								<tr>
+								<td>katakana</td>
+								<td>标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）</td>
+								</tr>
+								<tr>
+								<td>hiragana-iroha</td>
+								<td>标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）</td>
+								</tr>
+								<tr>
+								<td>katakana-iroha</td>
+								<td>标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）</td>
+								</tr>
+								</tbody>
+								</table>
+									
+								</span></li>
+						<li><a href="">list-style-image</a>
+								<span>list-style-image:url(img.png) 
+								<br>定位位置上会有问题.以文字中线开始显示图片.
+								<br>并且也只当li依旧为list-item特性时才有效.
+								<br>一般使用背景图来制作列表背景.</span></li>
+						<li><a href="">list-style-position</a><span>
+								<strong>指标记的内外方式,而非(图片)标记坐标位置</strong>
+								<br><b>outside</b>：列表项目标记放置在文本以外，且环绕文本不根据标记对齐（默认值）
+								<br>1.当type在outside时,如RESET样式中设置ul的padding:0,则会看不到type图标(无论li是否设置padding);如设置ul的padding(例如)小于20,则type图标将会溢出在ul之外.
+								<br>2.如设置li的padding-left,则标记位置不更改,而标记与内容之间拉开间距
+								<br>3.如设置li的margin-left,则margin继承到标记之外,标记与父级拉开间距
+								<hr><b>inside</b>：列表项目标记放置在文本以内，且环绕文本根据标记对齐。<a href="http://css.doyoe.com/properties/list/list-style-position.htm">[查看演示]</a>
+								<br>1.当type在inside时,type会和文字一起距离浏览器默认padding缩进,设置padding:0时,则会贴边显示.
+								<br>2.设置li的padding-left和margin-left视觉表现都为标记之外与父级拉开间距
+								</span></li>
+					</ul>
+					<h4>[<span>-</span>]表格</h4>
+					<ul>
+						<li><a href="">table-layout</a><span>
+							适用于：table系元素。
+							<br>auto:默认的自动算法。布局将基于各单元格的内容，换言之，可能你给某个单元格定义宽度为100px，但结果可能并不是100px。表格在每一单元格读取计算之后才会显示出来，速度很慢
+							<br>fixed：固定布局的算法。在这算法中，水平布局是仅仅基于表格的宽度，表格边框的宽度，单元格间距，列的宽度，而和表格内容无关。也就是说，内容可能被裁切
+						</span></li>
+						<li><a href="">border-collapse</a><span>
+								separate：边框独立
+								<br>collapse：相邻边被合并
+								<br>只有当表格边框独立（即border-collapse属性等于separate时），border-spacing和empty-cells才起作用。
+						</span></li>
+						<li><a href="">border-spacing</a><span>
+							该属性作用等同于标签属性cellspacing(单元格边距)。border-spacing:0等同于cellspacing="0"
+							<br>如果提供全部两个length值时，第一个作用于横向间距，第二个作用于纵向间距。
+							<br>如果只提供一个length值时，这个值将作用于横向和纵向上的间距。
+							<br>*一般将此值与表格内标签属性cellpadding,cellspacing均设为0,通过CSS边距来控制.
+						</span></li>
+						<li><a href="">caption-side</a><span>
+							top：指定caption在表格上边（默认）
+							<br>bottom：指定caption在表格下边
+							<br>要在IE7及以下浏览器中实现top与bottom参数值的效果，可直接在caption标签内定义标签属性valign为top和bottom。
+						</span></li>
+						<li><a href="">empty-cells</a>
+							<span>show：指定当表格的单元格无内容时，显示该单元格的边框。（默认）
+							<br>hide：指定当表格的单元格无内容时，隐藏该单元格的边框。
+							<br>IE7及以下浏览器中默认隐藏无内容的单元格边框，要想使其获得与show参数值相同的效果，可以变相给该空单元格加个占位且不可见的元素，例如全角空格或\&nbsp;等等。
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]多列</h4>
+					<ul>
+						<li><a href="">columns</a>(Npx [M])
+								<span>多列,简写时注意加<strong>s</strong>,简写中只含宽度(带单位,不能百分比)和列数.Chrome需要前缀-webkit-
+								<br>应用于除table外的非替换块级元素，display:table-cell 元素, 内联块元素。
+								<br>实现多列的是里面的内容,而非自身.
+								<br>简写方式一：设置width,column:200px 3（固定3列200宽。）
+								<br>简写方式二：column:200px （自动根据父级宽度生成X列）
+								<br>同时指定2个值时，优先先按列数来分配宽.例如浏览器宽度1800px,指定3列200px宽,结果为分配为3列600px宽,忽略200宽指定值;如果指定宽度200px,未指定列数,则按宽度自动平分为9列
+								<br>参考资料：<a href="http://wenku.baidu.com/view/76a20b60011ca300a6c3909d.html">替换/非替换块级/内联元素</a></span></li>
+						<li><a href="">column-width</a>(Npx)<span>列宽</span></li>
+						<li><a href="">column-count</a>(N)<span>列数</span></li>
+						<li><a href="">column-gap</a>(Npx)<span>列间隔</span></li>
+						<li><a href="">column-rule</a>(1px solid #ccc)<span>列间隔边框 1px solid #ccc <br>column-rule-style等同于border样式</span></li>
+						<li><a href="">column-span</a>(N/all)<span>列横跨,适用于：除浮动和绝对定位之外的块级元素
+								<br>是否横跨全部,all和none,不可设置数值非表格,此属性应设置在被应用多列属性的子元素上,多列无继承性,对于不想被继承多列的元素应写在多列父元素之外,而非去设置多列横跨.</span></li>
+					</ul>
+					<h4>[<span>-</span>]用户外观</h4>
+					<ul>
+						<li><a href="">cursor</a><span>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。
+							<br>格式：使用自定义图像作为光标类型，IE, Opera只支持*.cur等特定的图片格式；Firefox, Chrome, Safari既支持特定图片类型也支持常见的*.jpg, *.gif, *.jpg等图片格式。
+							<br>兼容：cursor的属性值可以是一个序列,用逗号分隔地址,优先级递降。
+							<br><textarea name="" id="" cols="60" rows="10">
+								示例代码：
+								:link,:visited{
+								    cursor:url(example.svg#linkcursor),
+								            url(hyper.cur),
+								            url(hyper.png) 2 3,
+								            pointer;
+								}
+								本例用来给所有的超链接定义光标类型，客户端如果不支持SVG类型的光标，则使用下个"hyper.cur"；如果cur类型也不支持，则使用下个"hyper.png"；依次类推。
+							</textarea>
+							<br>附录：
+							<table width="95%">
+							<tbody>
+							<tr>
+							<th>值</th>
+							<th>描述</th>
+							</tr>
+							<tr>
+							<td><i>url</i></td>
+							<td>需使用的自定义光标的 URL。
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+							注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。</td>
+							</tr>
+							<tr>
+							<td>default</td>
+							<td>默认光标（通常是一个箭头）</td>
+							</tr>
+							<tr>
+							<td>auto</td>
+							<td>默认。浏览器设置的光标。</td>
+							</tr>
+							<tr>
+							<td>crosshair</td>
+							<td>光标呈现为十字线。</td>
+							</tr>
+							<tr>
+							<td>pointer</td>
+							<td>光标呈现为指示链接的指针（一只手）</td>
+							</tr>
+							<tr>
+							<td>move</td>
+							<td>此光标指示某对象可被移动。</td>
+							</tr>
+							<tr>
+							<td>e-resize</td>
+							<td>此光标指示矩形框的边缘可被向右（东）移动。</td>
+							</tr>
+							<tr>
+							<td>ne-resize</td>
+							<td>此光标指示矩形框的边缘可被向上及向右移动（北/东）。</td>
+							</tr>
+							<tr>
+							<td>nw-resize</td>
+							<td>此光标指示矩形框的边缘可被向上及向左移动（北/西）。</td>
+							</tr>
+							<tr>
+							<td>n-resize</td>
+							<td>此光标指示矩形框的边缘可被向上（北）移动。</td>
+							</tr>
+							<tr>
+							<td>se-resize</td>
+							<td>此光标指示矩形框的边缘可被向下及向右移动（南/东）。</td>
+							</tr>
+							<tr>
+							<td>sw-resize</td>
+							<td>此光标指示矩形框的边缘可被向下及向左移动（南/西）。</td>
+							</tr>
+							<tr>
+							<td>s-resize</td>
+							<td>此光标指示矩形框的边缘可被向下移动（北/西）。</td>
+							</tr>
+							<tr>
+							<td>w-resize</td>
+							<td>此光标指示矩形框的边缘可被向左移动（西）。</td>
+							</tr>
+							<tr>
+							<td>text</td>
+							<td>此光标指示文本。</td>
+							</tr>
+							<tr>
+							<td>wait</td>
+							<td>此光标指示程序正忙（通常是一只表或沙漏）。</td>
+							</tr>
+							<tr>
+							<td>help</td>
+							<td>此光标指示可用的帮助（通常是一个问号或一个气球）。</td>
+							</tr>
+							</tbody>
+							</table>
+							</span></li>
+						<li><a href="">ime-mode</a><span>输入法状态：设置或检索是否允许用户激活输入中文，韩文，日文等的输入法（IME）状态。
+						<br>auto：不影响IME的状态。
+						<br>normal：正常的IME状态
+						<br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
+						<br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
+						<br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
+						<li><a href="">resize</a><span>设置或检索对象的区域是否允许用户缩放，调节元素尺寸大小。
+						<br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
+						<br>none：不允许用户调整元素大小。
+						<br>both：用户可以调节元素的宽度和高度。
+						<br>horizontal：用户可以调节元素的宽度
+						<br>vertical：用户可以调节元素的高度。</span></li>
+					</ul>
+					<h4>[<span>-</span>]滚动条</h4>
+					<ul>
+						<li><a href="">behavior</a><span>IE:使用绝对或相对地址指定DHTML行为组件（.htc） </span></li>
+						<li><a href="">scrollbar-3dlight-color</a><span>亮色阴影边框颜色</span></li>
+						<li><a href="">scrollbar-darkshadow-color</a><span>暗色阴影边框颜色</span></li>
+						<li><a href="">scrollbar-highlight-color</a><span>高亮边框颜色</span></li>
+						<li><a href="">scrollbar-shadow-color</a><span>阴影边框颜色</span></li>
+						<li><a href="">scrollbar-arrow-color</a><span>方向箭头的颜色</span></li>
+						<li><a href="">scrollbar-face-color</a><span>表面的颜色</span></li>
+						<li><a href="">scrollbar-track-color</a><span>拖动区域的颜色</span></li>
+						<li><a href="">scrollbar-base-color</a><span>基准颜色</span></li>
+						<li><a href="">jScroll</a><span>JQ插件实现模拟 <a href="http://jscroll.com/">GO TO!</a></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>布局II<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]盒模型</h4>
+					<ul>
+						<li><a href="">box-sizing</a>
+							<span>
+								content-box：padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding ) 此属性表现为标准模式下的盒模型。 
+							<br>border-box：padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。 
+							</span></li>
+						<li><a href="">display</a>
+							<span>
+								完整参考资料：<a href="http://www.w3.org/TR/css-display/">W3C</a>
+								<br>当元素float,fixed,abosulte或者为根元素时,总是表现为块级元素
+								<table border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">none</td>
+								<td valign="top">隐藏对象,不保留物理空间</td>
+								</tr>
+								<tr>
+								<td valign="top">inline</td>
+								<td valign="top">内联元素 a,span,文字标签(b+),form,ul</td>
+								</tr>
+								<tr>
+								<td valign="top">block</td>
+								<td valign="top">块级元素 div,p,h1~h6,h5新元素</td>
+								</tr>
+								<tr>
+								<td valign="top">inline-block</td>
+								<td valign="top">表单内部元素(input+)</td>
+								</tr>
+								<tr>
+								<td valign="top">list-item</td>
+								<td valign="top">列表项目li</td>
+								</tr>
+								<tr>
+								<td valign="top">table</td>
+								<td valign="top">块级元素级的表格</td>
+								</tr>
+								<tr>
+								<td valign="top">inline-table</td>
+								<td valign="top">内联元素级的表格</td>
+								</tr>
+								<tr>
+								<td valign="top">flex</td>
+								<td valign="top">弹性伸缩盒</td>
+								</tr>
+								<tr>
+								<td valign="top">inline-flex</td>
+								<td valign="top">内联块级弹性伸缩盒</td>
+								</tr>
+								<tr>
+								<td valign="top">run-in</td>
+								<td valign="top">根据上下文决定对象是内联对象还是块级对象</td>
+								</tr>
+								</tbody>
+								</table>
+								关于inline-block:
+								<br>IE6,7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
+								<br>解决方案：
+								<br>div{display:inline-block;*display:inline;*zoom:1;}
+								<hr>全部属性：display：none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | run-in | box | inline-box | flexbox | inline-flexbox | flex | inline-flex
+							</span></li>
+						<li><a href="">zoom</a><span>
+								设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
+								<br>可用于触发IE6的haslayout.  <a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]层属性</h4>
+					<ul>
+						<li><a href="">padding</a>
+							<span>内部补白
+							<br>[简写]依次设置上右下左padding:1px 2px 3px 4px;
+							<br>[单边]padding-top/right/bottom/left
+							<br>[缩写]如果只提供一个，将用于全部的四边;如果提供两个，第一个用于上、下，第二个用于左、右;如果提供三个，第一个用于上，第二个用于左、右，第三个用于下。 
+							<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的内补丁；若要设置上、下两边的内补丁，必须先使该对象表现为块级或内联块级。
+							<br>*即内联元素(a等)设置padding水平有效,垂直无效,除非转换display值。
+							<br>默认背景图片的平铺是包含在padding区域的</span></li>
+						<li><a href="">margin</a><span>外部补白.
+							<br>margin-left/right:num/%/auto. 当margin-left/right为auto时水平居中
+							<br>1.内联元素垂直无效
+							<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的外补丁；若要设置上、下两边的外补丁，必须先使该对象表现为块级或内联块级。 
+							<br>2.外边距合并 <a href="http://www.w3school.com.cn/css/css_margin_collapsing.asp">参考文档</a>
+							<br>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。
+							<br>当一个元素包含在另一个元素中时【假设没有内边距或边框把外边距分隔开】，它们的上和/或下外边距也会发生合并。
+							<br>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并
+							<br>如果这个外边距遇到另一个元素的外边距，它还会发生合并
+							<br>2+.margin折叠常规认知：
+							<br>margin折叠只发生在块级元素上； 
+							<br>浮动元素的margin不与任何margin发生折叠； 
+							<br>设置了属性overflow且值不为visible的块级元素，将不与它的子元素发生margin折叠； 
+							<br>绝对定位元素的margin不与任何margin发生折叠； 
+							<br>根元素的margin不与其它任何margin发生折叠； 
+							<br>3.IE6双倍margin
+							<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
+							<br>解决方法：
+							<br>设置BUG元素：display:inline;
+							<br>由于当元素float的时候，display样式的值就会自动转换为“block”
+							<br>无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
+						</span></li>
+						<li><a href="">visibility</a><span>			此属性为隐藏的对象保留其占据的物理空间如果希望对象为可视，其父对象也必须是可视的。 
+							<br>visible： 设置对象可视 
+							<br>hidden： 设置对象隐藏 
+							<br>collapse： 主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。对于表格外的其他对象，其作用等同于hidden。
+						</span></li>
+						<li><a href="">overflow</a><span>溢出
+							<br>visible： 对溢出内容不做处理，内容可能会超出容器。 
+							<br>hidden： 隐藏溢出容器的内容且不出现滚动条。 
+							<br>scroll： 隐藏溢出容器的内容，溢出的内容将以卷动滚动条的方式呈现。 
+							<br>auto： 当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。此为body对象和textarea的默认值。
+							<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。</span></li>
+						<li><a href="">overflow-x</a><span>横向溢出处理</span></li>
+						<li><a href="">overflow-y</a><span>纵向溢出处理</span></li>
+					</ul>
+					<h4>[<span>-</span>]定位</h4>
+					<ul>
+						<li><a href="">float</a><span>浮动
+							<br>1.浮动内置设置：设置了float的元素则自动转换display为block.只有块级元素具有宽高等特性.
+							<br>举例说明：
+							<br><textarea name="" id="" cols="60" rows="10">//无效
+							a{width:50px;height:50px;}<a href="">111</a><a href="">222</a>
+							//有效
+							a{display:float;width:50px;height:50px;}<a href="">111</a><a href="">222</a>
+							</textarea>
+							<hr>2.浮动原理1.环绕特性本质，2.脱离文本流特性
+							<br>举例说明：
+							<br><textarea name="" id="" cols="60" rows="10"><div class="ok" style="width:100px;height:100px;background:#00ccff;float:left;margin-right:10px">浮动的margin不折叠，就算没border&padding</div>
+							<div class="ok" style="width:120px;height:120px;background:#ff3399;margin-left:10px;float:left;margin-right:20px">我不浮动掉下面去</div>
+							<h2 style="background:#ccc;margin-left:10px;padding-left:20px;"><div>含内部布局的又一块级元素<br>包围他们</div></h2></textarea>
+							<br>当右侧浮动内容超出剩余宽度时,会整体换行,此时可以指定右侧宽度或利用函数动态计算可用空间calc(100%-left)
+							<hr>3.浮动闭合问题
+							<br>解决方案：
+							<br>.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
+							<br>.clearfix { *zoom:1; }
+							<br><a href="http://www.w3cfuns.com/article-1287-1.html">完整参考资料</a>
+							<hr>4:IE6 双倍margin BUG
+							<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
+							<br>解决方法：
+							<br>设置BUG元素：display:inline;
+							<br>由于当元素float的时候，display样式的值就会自动转换为“block”
+							<br>无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
+							<br>5.IE6下3像素bug：
+							<br>当浮动元素与非浮动元素相邻时,会发生3像素间隙,可设置浮动元素_margin-right:-3px;或使非浮动元素浮动.
+							<br><a href="http://pewper.blog.163.com/blog/static/2970860820126261195866/">详细参考资料</a>
+							<br>6.IE7-li浮动的空白间隙
+							<br>当li中出现2个或以上的浮动时,li之间产生的空白间隙,设置li的vertical-align属性,例如li{vertical-align:top;}
+						</span></li>
+						<li><a href="">clear</a><span>清除浮动：none,left,right,both</span></li>
+						<li><a href="">position:static</a><span>对象遵循常规流</span></li>
+						<li><a href="">position:relative</a><span>相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素</span></li>
+						<li><a href="">position:absolute</a><span>绝对定位：
+							<br>1.对象脱离常规流，使用top，right，bottom，left等属性进行绝对定位，盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。
+							<br>2.未定义坐标：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。
+							<br>3.坐标总是以最近的被定位的父级元素为基准,如没有则以window窗口.</span></li>
+						<li><a href="">position:fixed</a><span>窗口定位：
+							<br>对象脱离常规流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。
+							<br>IE6不支持fixed定位
+							<br>解决方案：
+							<br><textarea name="" id="" cols="60" rows="10">* html,* html body{background-image:url(about:blank);background-attachment:fixed;}
+							* html Element{
+							position:absolute;
+							top:expression(((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+100+'px');
+							}</textarea>
+							<br><a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
+						</span></li>
+						<li><a href="">top/bottom/left/right</a><span>配合定位属性进行定位,可为负值.
+							<br>通过绝对定位实现内容页面居中：position:aboslute,top:50%-height/2,left:50%-width/2
+							<br>通过固定定位实现内容窗口居中：position:fixed,top:50%-height/2,left:50%-width/2</span></li>
+						<li><a href="">z-index</a><span>Z轴设定,可以为负值.
+							<br>同一个层叠上下文中，层叠级别相同的两个元素，依据它们在HTML文档流中的顺序，写在后面的将会覆盖前面的。 
+							<br>不同层叠上下文中，元素的显示顺序依据祖先的层叠级别来决定，与自身的层叠级别无关。 
+							<br>在IE浏览器中，定位元素的z-index层级是相对于各自的父级容器，所以会导致z-index出现错误的表现。解决方法是给其父级元素定义z-index，有些情况下还需要定义position:relative。
+							<br><a href="http://css.doyoe.com/properties/positioning/z-index.htm">实例参考</a>
+						</span></li>
+						<li><a href="">clip</a><span>剪裁,绝对定位元素.
+							<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁. <a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a>
+						</span></li>
+					</ul>
+					<h4>[<span>+</span>]Box</h4>
+					<ul style="display:none">
+						<li><a href="">display:-webkit-box</a><span>旧手机浏览器</span></li>
+						<li><a href="">-webkit-box-orient</a><span>设置或检索伸缩盒对象的子元素的排列方式。
+							<br>horizontal：设置伸缩盒对象的子元素从左到右水平排列
+							<br>vertical：设置伸缩盒对象的子元素从上到下纵向排列
+							<br>inline-axis：设置伸缩盒对象的子元素沿行轴排列
+							<br>block-axis：设置伸缩盒对象的子元素沿块轴排列
+						</span></li>
+						<li><a href="">-webkit-box-pack</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
+							<br>start：设置伸缩盒对象的子元素从开始位置对齐（大部分情况等同于左对齐，受）
+							<br>center：设置伸缩盒对象的子元素居中对齐
+							<br>end：设置伸缩盒对象的子元素从结束位置对齐（大部分情况等同于右对齐）
+							<br>justify：设置或伸缩盒对象的子元素两端对齐</span></li>
+						<li><a href="">-webkit-box-align</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
+							<br>start：设置伸缩盒对象的子元素从开始位置对齐
+							<br>center：设置伸缩盒对象的子元素居中对齐
+							<br>end：设置伸缩盒对象的子元素从结束位置对齐
+							<br>baseline：设置伸缩盒对象的子元素基线对齐
+							<br>stretch：设置伸缩盒对象的子元素自适应父元素尺寸</span></li>
+						<li><a href="">-webkit-box-flex</a><span>使用浮点数指定对象所分配其父元素剩余空间的比例。
+						</span></li>
+						<li><a href="">-webkit-box-flex-group</a><span>用整数值来定义伸缩盒对象的子元素所在的组。</span></li>
+						<li><a href="">-webkit-box-ordinal-group</a><span>用整数值来定义伸缩盒对象的子元素显示顺序。</span></li>
+						<li><a href="">-webkit-box-direction</a><span>设置或检索伸缩盒对象的子元素的排列顺序是否反转。normal | reverse</span></li>
+						<li><a href="">-webkit-box-lines</a><span>设置或检索伸缩盒对象的子元素是否可以换行显示。single | multiple</span></li>
+					</ul>
+					<h4>[<span>-</span>]Flex</h4>
+					<ul>
+						<li><a href="">flex</a><span>
+						<a href="http://demo.agektmr.com/flexbox/">在线调试flexbox布局效果</a>
+						<li><a href="">flex-grow</a>
+								<span>剩余空间的扩展比例,默认值0</span></li>
+						<li><a href="">flex-shrink</a>
+								<span>剩余空间的收缩比例,默认1</span></li>
+						<li><a href="">flex-basis</a><span>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</span></li>
+						
+						<li><a href="">flex-direction</a><span>
+							row：横向从左到右排列（左对齐），默认的排列方式。
+							<br>row-reverse：反转横向排列（右对齐，从后往前排，最后一项排在最前面。
+							<br>column：纵向排列。
+							<br>row-reverse：反转纵向排列，从后往前排，最后一项排在最上面。
+						</span></li>
+						<li><a href="">flex-flow</a><span></span></li>
+						<li><a href="">flex-wrap</a><span></span></li>
+						<li><a href="">align-content</a><span></span></li>
+						<li><a href="">align-items</a><span>
+							flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+							flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+							center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+							baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+							stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+						</span></li>
+						<li><a href="">align-self</a><span>
+							auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
+							flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+							flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+							center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+							baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+							stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+						</span></li>
+						<li><a href="">justify-content</a><span>
+							flex-start：弹性盒子元素将向行起始位置对齐。该行的第一个子元素的主起始位置的边界将与该行的主起始位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
+							<br>flex-end：弹性盒子元素将向行结束位置对齐。该行的第一个子元素的主结束位置的边界将与该行的主结束位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
+							<br>center：弹性盒子元素将向行中间位置对齐。该行的子元素将相互对齐并在行中居中对齐，同时第一个元素与行的主起始位置的边距等同与最后一个元素与行的主结束位置的边距（如果剩余空间是负数，则保持两端相等长度的溢出）。
+							<br>space-between：弹性盒子元素会平均地分布在行里。如果最左边的剩余空间是负数，或该行只有一个子元素，则该值等效于'flex-start'。在其它情况下，第一个元素的边界与行的主起始位置的边界对齐，同时最后一个元素的边界与行的主结束位置的边距对齐，而剩余的伸缩盒项目则平均分布，并确保两两之间的空白空间相等。
+							<br>space-around：弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半。如果最左边的剩余空间是负数，或该行只有一个伸缩盒项目，则该值等效于'center'。在其它情况下，伸缩盒项目则平均分布，并确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半。
+						</span></li>
+						<li><a href="">order</a><span>用整数值来定义排列顺序，数值小的排在前面。可以为负值。</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>动画<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]2D/3D</h4>
+					<ul>
+						<li><a href="">transform</a><span>可以用空格分隔多个操作,被定义的元素必须为对外表现块级的元素.</span></li>
+						<li><a href="">transform-origin</a><span>设置或检索对象以某个原点进行转换,数值或百分比.
+							<br>如果提供两个，第一个用于横坐标，第二个用于纵坐标。 
+							<br>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%。 
+							</span></li>
+						<li>transform:<a href="">rotate</a><span>旋转[n deg度数]
+							<br>transform:rotate(Ndeg)  / rotateX(n) / rotateY(n) / rotateZ(n)
+							<br>transform:rotate3d(x,y,z,角度)</span></li>
+						<li>transform:<a href="">skew</a><span>倾斜[n deg度数]
+							<br>transform:skew(Ndeg / Xdeg,Ydeg) / skewX(n) / skewY(n)</span></li>
+						<li>transform:<a href="">scale</a><span>缩放[n倍数]
+							<br>transform:scale(x,y) / scaleX(n) / scaleY(n) / scaleZ(n)
+							<br>transform:scale3d(x,y,z)</span></li>
+						<li>transform:<a href="">translate</a><span>位移/滑动[n px长度]
+							<br>transform:translate(x,y)  / translateX(n) / translateY(n)
+							<br>transform:translate3d:(x,y,z) <a href="http://www.imooc.com/video/1898">案例演示</a></span></li>
+						<li>transform:<a href="">matrix</a><span>矩阵
+							<br>transform: matrix(6n)
+							<br>transform: matrix3d(16n)</span></li>
+						<li><a href="">transform-style</a><span>规定被嵌套元素如何在 3D 空间中显示。
+						<br>flat,子元素将不保留其 3D 位置。
+						<br>preserve-3d	子元素将保留其 3D 位置。</span></li>
+						<li><a href="">backface-visibility</a><span>定义元素在不面对屏幕时是否可见。
+						<br>取值背面可见/不可见visible|hidden;</span></li>
+						<li><a href="">perspective</a>(n)<span>定义 3D 转换元素的透视视图。
+						<br>取值number|none,常用500; <a href="http://www.imooc.com/video/1048">参考资料</a></span></li>
+						<li><a href="">perspective-origin</a>(x,y)<span>规定 3D 元素的底部位置。
+						<br>50% 50%默认值,取值left,center,right,length,%</span></li>
+					</ul>
+					<h4>[<span>-</span>]过渡</h4>
+					<ul>
+						<li><a href="">transition</a><span>过渡,简写,属性-时间-缓动-延迟<br />
+						在Chrome下，使用过渡效果transition时有时会出现页面闪动<br />
+						设置：-webkit-transform-style:preserve-3d;或-webkit-backface-visibility:hidden;</span></li>
+						<li><a href="">transition-property</a><span>过渡的属性,以逗号分割多个</span></li>
+						<li><a href="">transition-duration</a><span>过度所需的时间</span></li>
+						<li><a href="">transition-timing-function</a><span>缓动线：
+							<br>linear： 线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0) 
+							<br>ease： 平滑过渡。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0) 
+							<br>ease-in： 由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0) 
+							<br>ease-out： 由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0) 
+							<br>ease-in-out： 由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0) 
+							<br>cubic-bezier(<number>, <number>, <number>, <number>)： 特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内 </span></li>
+						<li><a href="">transition-delay</a><span>延迟时间</span></li>
+					</ul>
+					<h4>[<span>-</span>]动画</h4>
+					<ul>
+						<li><a href="">@keyframes</a><span>定义动画
+							<br>keyframes 名称{
+							<br>from{}
+							<br>to{}
+							<br>}
+							<br>@keyframes 名称{
+							<br>0% {}
+							<br>25%{}
+							<br>75% {}
+							<br>100% {}
+							<br>}
+							<br>注意写前缀
+							</span></li>
+						<li><a href="">animation</a><span>执行动画
+						<br>简写：animation:aniname 5s infinite;(名称 时间 重复次数)
+						<br>完整简写：[[ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ] || [ animation-direction ]] [ , [ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ] || [ animation-direction ]]*
+						<br>
+						<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
+						<a href="http://cssanimate.com/">cssanimate</a> / 
+						<a href="http://ademilter.com/lab/liffect/">liffect</a> / 
+						<a href="http://jeremyckahn.github.io/stylie/">jeremyckahn</a> / 
+						<a href="http://cssload.net/">cssload</a> / 
+						<a href="http://cssarrowplease.com/">cssarrowplease</a> / 
+						<a href="http://leaverou.github.io/animatable/">动画制作</a> / 
+						<a href="http://www.w3cfuns.com/blog-5421655-5400318.html">loading动画</a>
+						</span></li>
+						<li><a href="">animation-name</a><span>动画名称</span></li>
+						<li><a href="">animation-duration</a><span>时间</span></li>
+						<li><a href="">animation-timing-function</a><span>缓动函数</span></li>
+						<li><a href="">animation-delay</a><span>延迟时间</span></li>
+						<li><a href="">animation-iteration-count</a><span>执行次数</span></li>
+						<li><a href="">animation-direction</a><span>animation-direction:reverse / alternate /  alternate-reverse （反向,奇正偶反,偶正奇反）</span></li>
+						<li><a href="">animation-play-state</a><span>animation-play-state: running / paused 运行/暂停</span></li>
+						<li><a href="">animation-fill-mode</a><span>animation-fill-mode:none / forwards / backwords / both (返回初始,停留末尾,应用初始,两者)</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>多媒体<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]媒体查询</h4>
+					<ul>
+						<li><a href="">@import</a><span>指定导入的外部样式表及目标媒体。
+							<br>@import url('demo.css') screen and (min-width:800px);
+							<br>该规则必须在样式表头部最先声明,并且其后的分号是必需的.IE9以前不支持.
+						</span></li>
+						<li><a href="">@media</a><span><a href="http://css.doyoe.com/rules/@media.htm">详细资料</a>
+							<br>@media [only/not] 媒体类型 [and (媒体特性表达式)] {你的样式}
+							<br>例：@media only/not print and (max-width: 1200px){样式代码}
+							<br>IE8及以下只能实现CSS2中的部分，即只可以设置媒体类型。
+							<br>其中部分支持max&min
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]常用尺寸</h4>
+					<ul>
+						<li><a href="">320*480</a> (Android)</li>
+						<li><a href="">480*800</a> (Android)</li>
+						<li><a href="">640*960</a> (iPhone4/4S)</li>
+						<li><a href="">720*1280</a> (Android)</li>
+						<li><a href="">768*1024</a> (iPad2/mini)</li>
+						<li><a href="">1536*2048</a> (iPad3/4)</li>
+					</ul>
+					<h4>[<span>+</span>]媒体特性</h4>
+					<ul style="display:none">
+						<li><a href="">width</a><span>定义输出设备中的页面可见区域宽度</span></li>
+						<li><a href="">height</a><span>定义输出设备中的页面可见区域高度</span></li>
+						<li><a href="">device-width</a><span>定义输出设备的屏幕可见宽度</span></li>
+						<li><a href="">device-height</a><span>定义输出设备的屏幕可见高度</span></li>
+						<li><a href="">orientation</a><span>定义'height'是否大于或等于'width'。值portrait代表是(竖屏)，landscape代表否(横屏)</span></li>
+						<li><a href="">aspect-ratio</a><span>定义'width'与'height'的比率</span></li>
+						<li><a href="">device-aspect-ratio</a><span>定义'device-width'与'device-height'的比率。如常见的显示器比率：4/3, 16/9, 16/10</span></li>
+						<li><a href="">color</a><span>定义每一组输出设备的彩色原件个数。如果不是彩色设备，则值等于0</span></li>
+						<li><a href="">color-index</a><span>定义在输出设备的彩色查询表中的条目数。如果没有使用彩色查询表，则值等于0</span></li>
+						<li><a href="">monochrome</a><span>定义在一个单色框架缓冲区中每像素包含的单色原件个数。如果不是单色设备，则值等于0</span></li>
+						<li><a href="">resolution</a><span>定义设备的分辨率。如：96dpi, 300dpi, 118dpcm</span></li>
+						<li><a href="">scan</a><span>定义电视类设备的扫描工序</span></li>
+						<li><a href="">grid</a><span>用来查询输出设备是否使用栅格或点阵。只有1和0才是有效值，1代表是，0代表否</span></li>
+					</ul>
+					<h4>[<span>+</span>]媒体类型</h4>
+					<ul style="display:none">
+						<li><a href="">all</a><span>用于所有媒体设备类型</span></li>
+						<li><a href="">screen</a><span>用于计算机显示器</span></li>
+						<li><a href="">print</a><span>用于打印机</span></li>
+						<li><a href="">handheld</a><span>用于小型或手持设备</span></li>
+						<li><a href="">tv</a><span>用于电视类设备(oprea)</span></li>
+						<li><a href="">aural</a><span>用于语音和音乐合成器(oprea)</span></li>
+						<li><a href="">braille</a><span>用于触觉反馈设备(oprea)</span></li>
+						<li><a href="">projection</a><span>用于投影图像，如幻灯片(oprea)</span></li>
+						<li><a href="">tty</a><span>用于使用固定间距字符格的设备。如电传打字机和终端(oprea)</span></li>
+						<li><a href="">embossed</a><span>用于凸点字符（盲文）印刷设备(oprea)</span></li>
+					</ul>
+					<h4>[<span>+</span>]打印</h4>
+					<ul style="display:none">
+						<li><a href="">@page</a><span>设置页面容器的版式，方向，边空等。可增加@page name</span></li>
+						<li><a href="">@page:first</a><span>设置在打印时页面容器第一页使用的样式。</span></li>
+						<li><a href="">@page:left</a><span>设置页面容器位于装订线左边的所有页面使用的样式。</span></li>
+						<li><a href="">@page:right</a><span>设置页面容器位于装订线右边的所有页面使用的样式。</span></li>
+						<li><a href="">page</a><span>检索或指定显示对象容器时使用的页面类型。需要先用@page定义name，调用ele{page:name;}</span></li>
+						<li><a href="">page-break-before</a><span>检索或设置对象之前出现的页分割符。</span></li>
+						<li><a href="">page-break-after</a><span>检索或设置对象之后出现的页分割符。</span></li>
+						<li><a href="">page-break-inside</a><span>检索或设置对象容器内部出现的页分割符。</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>LESS<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]LESS</h4>
+					<ul>
+						<li><a href="">@var</a><span>变量,集中定义基色等,字符串定义基url(需加引号)</span></li>
+						<li><a href="">.inherit</a><span>继承,集中定义重复样式或组合HACK</span></li>
+						<li><a href="">parent{child{}}</a><span>嵌套,层级嵌套,&引用for伪类</span></li>
+						<li><a href="">运算</a><span>数字,颜色,变量都可以参与运算</span></li>
+						<li><a href="">when</a><span>switch与条件判断</span></li>
+						<li><a href="">color函数</a><span>
+								<table border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">lighten(@color,10%)</td>
+								<td valign="top">明/亮度</td>
+								</tr>
+								<tr>
+								<td valign="top">darken(@color,10%)</td>
+								<td valign="top">加深</td>
+								</tr>
+								<tr>
+								<td valign="top">saturate(@color,10%)</td>
+								<td valign="top">饱和度</td>
+								</tr>
+								<tr>
+								<td valign="top">desaturate(@color,10%)</td>
+								<td valign="top">去色</td>
+								</tr>
+								<tr>
+								<td valign="top">fadein(@color,10%)</td>
+								<td valign="top">减少透明度</td>
+								</tr>
+								<tr>
+								<td valign="top">fadeout(@color,10%)</td>
+								<td valign="top">增加透明度</td>
+								</tr>
+								<tr>
+								<td valign="top">fade(@color,10%)</td>
+								<td valign="top">取透明度</td>
+								</tr>
+								<tr>
+								<td valign="top">spin(@color,10/-10)</td>
+								<td valign="top">色盘色调</td>
+								</tr>
+								<tr>
+								<td valign="top">mix(@color1,@color2)</td>
+								<td valign="top">混色</td>
+								</tr>
+								<tr>
+								<td valign="top">multiply(@color1,@color2)</td>
+								<td valign="top">正片叠底</td>
+								</tr>
+								<tr>
+								<td valign="top">screen(@color1,@color2)</td>
+								<td valign="top">滤色</td>
+								</tr>
+								<tr>
+								<td valign="top">overlay(@color1,@color2)</td>
+								<td valign="top">叠加</td>
+								</tr>
+								<tr>
+								<td valign="top">softlight(@color1,@color2)</td>
+								<td valign="top">柔光</td>
+								</tr>
+								</tbody>
+								</table>
+						</span></li>
+						<li><a href="">避免编译</a><span>~"特殊内容"</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>参考资料<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]参考资料</h4>
+					<ul>
+						<li><a href="http://www.w3.org/TR/">W3C</a></li>
+						<li><a href="http://www.w3cplus.com/">W3C PLUS</a></li>
+						<li><a href="http://www.w3cfuns.com/portal.php">W3C FUNS</a></li>
+						<li><a href="http://www.css3.info/">CSS3 INFO</a></li>
+						<li><a href="http://css.doyoe.com/">CSS中文手册</a></li>
+						<li><a href="http://lesscss.net/">LESS中文</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul></div>
+	</div>
+</div>
+<footer>
+	<h5>BOOKMARK</h5>
+</footer>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Notebook maintained by <a href="https://github.com/iRuxu">iRuxu</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</body>
 </html>
