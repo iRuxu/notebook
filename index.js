@@ -1,3 +1,7 @@
+/*JS File for notebook
+http://iruxu.com/notebook
+iRuxu 2014.10.30
+*/
 
 	$(function(){
 		//内容切换
@@ -82,4 +86,36 @@
 			};
 		})
 
+		//顶部菜单简易响应
+		var media_width = $(window).width();
+		var media_height = $(window).height();
+		var h2_lineheight = media_height/7;
+		if(media_width>1140){
+			$("#showmenu").css('display','none')
+		}else{
+			$("#showmenu").css('display','block')
+			$("#nav").css('display','none');
+			$("#showmenu").click(function(){
+				$("#nav").css('display','block');
+				$(".content").css('display','none');
+				$("h2").removeClass('ctcat');
+				$("#nav>ul").css({
+					'width':media_width,
+					'height':media_height,
+					'left':0,
+					'top':0,
+					'z-index':999999
+				})
+				$("#nav>ul>h2").css({
+					'width':media_width,
+					'height':'15%',
+					'line-height':h2_lineheight+'px',
+					'display':'block',
+					'border':'none'
+				})
+			})
+			$("h2").click(function(){
+				$("#nav").css('display','none');
+			})
+		}
 	})
