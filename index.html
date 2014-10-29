@@ -15,169 +15,8 @@
 <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
 <![endif]-->
 <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-<style>
-	@font-face{font-family:'Nikefont';src: url('img/nikefont.ttf') format('truetype');}
-	html,body,p,ul,ol,li{margin:0;padding:0;}
-	ul,li{list-style: none;}
-	h1,h2,h3,h4,h5,h6{cursor:pointer;font-style:normal;font-weight:normal;margin:0;padding:0;}
-	html,body{background: #f1f1f1;width:100%;font-family: Consolas,Verdana,Helvetica,Arial,sans-serif;font-size:12px;color:#000;line-height: 180%;position: relative;}
-	.clearfix { *zoom:1; }
-	.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
-	a{color:#369;text-decoration: none;}
-	a:hover{color:#ff3399;}
-	table{border-collapse: collapse;border-spacing:0;}
-	table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
-
-	header{box-shadow:0 1px 1px #ccc;border-bottom: 1px solid #888;position: relative;background:url(img/iruxu.png) no-repeat left center;}
-	footer{box-shadow:0 -1px 1px #ccc;border-top:1px solid #777;}
-	header,footer{padding:10px 20px;color:#fff;background-color:#222;}
-	header a,footer a{color:#ccc;}
-
-	@-webkit-keyframes tada{
-	0%{-webkit-transform:scale(1)}
-	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
-	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
-	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
-	100%{-webkit-transform:scale(1) rotate(0)}
-	}
-	@-moz-keyframes tada{
-	0%{-moz-transform:scale(1)}
-	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
-	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
-	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
-	100%{-moz-transform:scale(1) rotate(0)}
-	}
-
-	h1,h5{font-family:"Nikefont";-webkit-font-smoothing: antialiased;}
-	h1{font-size:48px;padding:6px 0 6px 88px;display:inline-block;line-height:42px;text-shadow:2px 2px 2px #000;transition:0.6s;color:#ddd;}
-	h1:hover{color:#00ccff;-webkit-animation:tada 1s .2s ease both;-moz-animation:tada 1s .2s ease both;}
-	h5{border-bottom:1px dotted #777;margin:10px;padding:0;font-size:28px;line-height:38px;letter-spacing:1px;}
-	header ul{display:inline-block;position: absolute;left:280px;top:30px;}
-  header ul li{display:inline-block;}
-	h2{display: inline-block;padding:0 20px;background:#222;height:42px;border:1px solid #333;box-shadow:1px -1px 1px #000;border-top-left-radius:4px;border-top-right-radius:4px;line-height:44px;text-align: center;color:#ccc;}
-	h2:hover,.ctcat{color:#00ccff;background:#181818;border:1px solid #00ccff;border-bottom:none;text-shadow:0px 0px 8px #0099ff;}
-	header p{position: absolute;right:10px;top:15px;text-align: right;}
-	header p a:hover{color:#00ccff;}
-  @media (max-width:760px){
-    header p{position:static;text-align:left;padding-left:90px;}
-    header ul{display:none;}
-  }
-	
-	.content{padding:20px;}
-	.content>ul{float:left;display:inline;width:220px;margin-right:10px;overflow:hidden;}
-  @media (max-width:1640px) and (min-width:1438px){.content>ul:nth-child(7){clear:left;}}
-  @media (max-width:1430px) and (min-width:1200px){.content>ul:nth-child(6){clear:left;}}
-  @media (max-width:1190px) and (min-width:962px){.content>ul:nth-child(5){clear:left;}}
-  @media (max-width:960px) and (min-width:728px) {.content>ul:nth-child(4),.content>ul:nth-child(7){clear:left;}}
-  @media (max-width:720px){.content>ul{width:88%;margin:0 auto;float:none;}}
-
-
-	.content>ul>li{margin-bottom:10px;}
-	h3{background:#333;color:#fff;text-indent:5px;color:#f2f2f2;font-weight:normal;font-size:12px;margin:5px 0;}
-	h3:hover{color:#00ccff;}
-	h3 span{float:right;padding-right:10px;display:inline-block;}
-	.content ul>li div{padding:0 5px;}
-	h4{color:#666;margin:0;padding:0;font-weight:normal;}
-	h4:hover{color:#9933ff !important;font-weight:bold !important;}
-	.content ul>li div ul li {color:#888;border-top:1px dashed transparent;border-bottom:1px dashed transparent;}
-	.content ul>li div ul li:hover {background:#ffe5ff;color:#9933ff;cursor:pointer;border-top:1px dashed #ff3399;border-bottom:1px dashed #ff3399;}
-	.content ul>li div ul li:hover a{color:#ff3399;}
-	.content ul>li div ul li>a{padding-right:2px;}
-  .content ul>li div ul li>a[href^=http]{display:block;width:100%;height:100%;}
-	.content ul>li div ul li span{display:none;min-width:180px;padding:5px;position:absolute;background:rgba(34,34,34,0.88);border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;}
-	.content ul>li div ul li>span table{max-width:98%;}
-	.content ul>li div ul li span span{position: static;}
-	#snippet{width:600px;height:280px;border:1px solid #00ccff;padding:10px;position:fixed;top:50%;left:50%;margin-left:-300px;margin-top:-140px;background: #333;box-shadow: 0px 0px 6px #000;color:#fff;display:none;}
-	@media (max-width:760px){
-		#snippet{width:100%;height:100%;top:0;left:0;margin:0;z-index:999;box-sizing:border-box;}
-	}
-	#snippet a{color:#00ccff;}
-	#snippet a:hover{display:inline-block;color:#ff3399;}
-	#snippet>span{position: absolute;right:8px;top:5px;cursor:pointer;font-size:24px;}
-	h6{border-bottom: 1px dashed #fff;margin:0;padding:0;color:#00ccff;}
-	#box{margin-top:5px;max-height: 255px;overflow-y:auto;color:#ccc;}
-	@media (max-width:760px){
-		#box{box-sizing:border-box;height:100%;margin-bottom:20px;}
-		#box table{width:95%;margin:10px auto 28px auto;}
-	}
-	#box b{color:#ffff00;}
-	#box strong{color:#ff0000;}
-</style>
-<script>
-	$(function(){
-		//内容切换
-		$("h2").click(function(){
-			$(".content").css('display','none');
-			$("h2").removeClass('ctcat');
-			var i = $(this).index('h2');
-			var num = $(".content").eq(i);
-			$(num).css('display','block');
-			$(this).addClass('ctcat');
-		})
-		
-		//h3开关
-		$("#main").on('click','h3',function(){
-			$(this).next('div').slideToggle('slow');
-			var tg3 = $(this).children('span').html();
-			if(tg3=='-'){
-				$(this).children('span').html('+');}
-			else if(tg3=='+'){
-				$(this).children('span').html('-');;
-			};
-		});
-
-		//h4开关
-		$("#main").on('click','h4',function(){
-			$(this).next('ul').slideToggle('slow');
-			var tg4 = $(this).children('span').html();
-			if(tg4=='-'){
-				$(this).children('span').html('+');}
-			else if(tg4=='+'){
-				$(this).children('span').html('-');;
-			};
-		})
-
-		//tips显示
-		$("#main").on('mouseover','h4+ul>li',function(e){
-			$(this).children('span').css({
-					left:e.pageX+12+'px',
-					top:e.pageY+8+'px',
-					display:'block'
-				})
-			}).on('mouseout','h4+ul>li',function(){
-				$(this).children('span').css({
-					display:'none'
-				})
-			})
-
-		//关闭片段盒子
-		$("#closebox").click(function(){
-			$("#snippet").css('display','none');
-		})
-
-		//tips添加至snippet box
-		$("#main").on('click','h4+ul>li',function(){
-			var infos = $(this).children('span').html();
-			$("#snippet").css('display','block');
-			$("#box").html(infos);
-		})
-
-		//阻止默认行为
-		$("a:not([href^=http])").each(function(){
-			$(this).click(function(e){
-				e.preventDefault();
-			})
-		})
-
-		//直接link阻止冒泡
-		$("a[href^='http']").each(function(){
-			$(this).click(function(e){
-				e.stopPropagation();
-			})
-		})
-
-	})
-</script>
+<link rel="stylesheet" href="style.css" />
+<script src="js/index.js"></script>
 </head>
 
 <body>
@@ -196,6 +35,7 @@
 		<h2 class="ctcat">CSS</h2>
 		<h2>HTML</h2>
 		<h2>jQuery</h2>
+		<h2>jqPlugin</h2>
 	</ul>
   </div>
 	<p>
@@ -210,6 +50,50 @@
 			<li>
 				<h3>选择器<span>-</span></h3>
 				<div>
+					<h4>[<span>-</span>]规则</h4>
+					<ul>
+						<li><a href="">选择器优先级</a><span>
+								基本原则：
+							　　<br />一般而言，选择器越特殊，它的优先级越高。也就是选择器指向的越准确，它的优先级就越高。
+							　　<br />复杂的计算方法：
+							　　<br />●用1表示派生选择器(用HTML标签申明)的优先级
+							　　<br />●用10表示类选择器(用一个样式类名申明)的优先级
+							　　<br />●用100标示ID选择器(用DOM的ID申明)的优先级
+							　　<br />●div.test1 .span var 优先级 1+10 +10 +1
+							　　<br />●span#xxx .songs li 优先级1+100 + 10 + 1
+							　　<br />●#xxx li 优先级 100 +1
+								<br />样式在html中的先后顺序不决定样式优先级,由CSS中定义的先后和优先级有关 <a href="http://www.imooc.com/wenda/detail/218832">参考资料</a>
+						</span></li>
+						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
+							<br>但在IE6中有BUG,需要分开写在2个选择符中
+							<br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span></li>
+						<li><a href="">@charset</a><span>@charset "utf-8";
+							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
+							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
+						<li><a href="">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持,可载入JS文件<a href="http://selectivizr.com/">selectivizr</a></span></li>
+						<li><a href="https://github.com/necolas/normalize.css">normalize.css</a></li>
+					</ul>
+					<h4>[<span>-</span>]HACK</h4>
+					<ul>
+						<li><a href="">if IE</a>
+							<span>条件HACK
+							<br><textarea name="" id="" cols="30" rows="10"><!--[if IE]>
+								指定载入相关JS/CSS或其他文件
+								<![endif]--></textarea>
+								<br>参考资料：<a href="http://css.doyoe.com/hack/conditions.htm">GO TO!</a></span></li>
+						<li><a href="">_property</a>
+							<span>属性级HACK
+							<br> value\9; All IE
+							<br> value\0; Oprea+IE8
+							<br> *key: IE7及以下,+或#亦可
+							<br> _key: IE6及以下,-亦可
+							<br> [;property:value;]; webkit(Chrome,Safari)
+							<br>参考资料：<a href="http://css.doyoe.com/">GO TO!</a></span></li>
+						<li><a href="">*selector</a><span>选择符级HACK
+							<br> * selector: IE6及以下
+							<br> * + selector : IE7
+						</span></li>
+					</ul>
 					<h4>[<span>-</span>]常用选择符</h4>
 					<ul>
 						<li><a href="">*</a><span>通配符</span></li>
@@ -224,7 +108,7 @@
 					<h4>[<span>-</span>]伪类选择符</h4>
 					<ul>
 						<li><a href="">:link/:visited/:hover/:active</a><span>
-								a:hover 必须位于 a:link 和 a:visited 之后，a:active 必须位于 a:hover 之后
+								a:hover 必须位于 a:link 和 a:visited 之后，a:active 必须位于 a:hover 之后（LVHA）
 								<br>a:link{}
 								<br>a:visited{}
 								<br>a:hover{}
@@ -270,36 +154,6 @@
 						<li><a href="">:enabled</a><span>匹配用户界面上处于可用状态的元素E。</span></li>
 						<li><a href="">:disabled</a><span>匹配用户界面上处于禁用状态的元素E。</span></li>
 					</ul>
-					<h4>[<span>-</span>]规则</h4>
-					<ul>
-						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
-							<br>但在IE6中有BUG,需要分开写在2个选择符中
-							<br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span></li>
-						<li><a href="">@charset</a><span>@charset "utf-8";
-							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
-							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
-						<li><a href="">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持,可载入JS文件<a href="http://selectivizr.com/">selectivizr</a></span></li>
-					</ul>
-					<h4>[<span>-</span>]HACK</h4>
-					<ul>
-						<li><a href="">if IE</a>
-							<span>条件HACK
-							<br><textarea name="" id="" cols="30" rows="10"><!--[if IE]>
-								指定载入相关JS/CSS或其他文件
-								<![endif]--></textarea>
-								<br>参考资料：<a href="http://css.doyoe.com/hack/conditions.htm">GO TO!</a></span></li>
-						<li><a href="">_property</a>
-							<span>属性级HACK
-							<br> _key: IE6及以下,-亦可
-							<br> *key: IE7及以下,+或#亦可
-							<br> value\0; Oprea
-							<br> [;property:value;]; webkit(Chrome,Safari)
-							<br>参考资料：<a href="http://css.doyoe.com/">GO TO!</a></span></li>
-						<li><a href="">*selector</a><span>选择符级HACK
-							<br> * selector: IE6及以下
-							<br> * + selector : IE7
-						</span></li>
-					</ul>
 				</div>
 			</li>
 		</ul>
@@ -314,7 +168,7 @@
 						<li><a href="">px/em/rem</a><span>
 							px:像素,相对长度单位。1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px;
 							<br>em:相对长度单位.相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
-							<br>rem:相对长度单位。相对于根元素(即html元素)font-size计算值的倍数
+							<br>rem:相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px
 						</span></li>
 						<li><a href="">line-height</a>(Npx/180%)<span>行高,可为百分比</span></li>
 						<li><a href="">font-weight</a>(bold/normal)<span>粗体,normal正常=400,bold粗体=700,取值100~900</span></li>
@@ -974,15 +828,15 @@
 								</tr>
 								<tr>
 								<td valign="top">inline</td>
-								<td valign="top">内联元素 a,span,文字标签(b+),form,ul</td>
+								<td valign="top">内联元素 a,span,文本格式化(b,strong,i,em,sub,sup)</td>
 								</tr>
 								<tr>
 								<td valign="top">block</td>
-								<td valign="top">块级元素 div,p,h1~h6,h5新元素</td>
+								<td valign="top">块级元素 div,p,h1~h6,h5,form,ul,ol新元素</td>
 								</tr>
 								<tr>
 								<td valign="top">inline-block</td>
-								<td valign="top">表单内部元素(input+)</td>
+								<td valign="top">表单内部元素(input,button,textarea,label),img</td>
 								</tr>
 								<tr>
 								<td valign="top">list-item</td>
@@ -990,7 +844,7 @@
 								</tr>
 								<tr>
 								<td valign="top">table</td>
-								<td valign="top">块级元素级的表格</td>
+								<td valign="top">块级元素级的表格table,表格内部元素表现为对应的table-cell等</td>
 								</tr>
 								<tr>
 								<td valign="top">inline-table</td>
@@ -1057,6 +911,10 @@
 							<br>visible： 设置对象可视 
 							<br>hidden： 设置对象隐藏 
 							<br>collapse： 主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。对于表格外的其他对象，其作用等同于hidden。
+							<hr>使得一个DOM元素不显示在浏览器可视范围内的方法：
+							<br />display:none
+							<br />visibility:hidden
+							<br />width:0;height:0;opacity:0;z-index:-1000
 						</span></li>
 						<li><a href="">overflow</a><span>溢出
 							<br>visible： 对溢出内容不做处理，内容可能会超出容器。 
@@ -1119,8 +977,14 @@
 							<br><a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
 						</span></li>
 						<li><a href="">top/bottom/left/right</a><span>配合定位属性进行定位,可为负值.
-							<br>通过绝对定位实现内容页面居中：position:aboslute,top:50%-height/2,left:50%-width/2
-							<br>通过固定定位实现内容窗口居中：position:fixed,top:50%-height/2,left:50%-width/2</span></li>
+							垂直居中一个元素，已知元素尺寸：
+							<br>通过绝对定位实现内容页面居中：position:absplute,top:50%-height/2,left:50%-width/2
+							<br>通过固定定位实现内容窗口居中：position:fixed,top:50%-height/2,left:50%-width/2
+							<br />未知元素尺寸：
+							<br />position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;
+							<br />垂直居中一个图片
+							<br />#container{display:table-cell;text-align:center;vertical-align:middle;}
+							</span></li>
 						<li><a href="">z-index</a><span>Z轴设定,可以为负值.
 							<br>同一个层叠上下文中，层叠级别相同的两个元素，依据它们在HTML文档流中的顺序，写在后面的将会覆盖前面的。 
 							<br>不同层叠上下文中，元素的显示顺序依据祖先的层叠级别来决定，与自身的层叠级别无关。 
@@ -1637,8 +1501,6 @@
 					</ul>
 				</div>
 			</li>
-		</ul>
-		<ul>
 			<li>
 				<h3>内容<span>-</span></h3>
 				<div>
@@ -1905,7 +1767,85 @@
 						<li><a href="">onvolumechange</a><span>件在音量发生改变时触发。	</span></li>
 						<li><a href="">onwaiting</a><span>事件在视频由于要播放下一帧而需要缓冲时触发。</span></li>
 					</ul>
-
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>SVG<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]SVG</h4>
+					<ul>
+						<li><a href="">About SVG</a><span>
+							1.直接在浏览器中打开
+							<br />2.使用img标签引入<input type="text" style="width:200px" value='<img src="demo.svg" alt=""/>'/>
+							<br />3.直接使用svg标签
+							<br />4.作为css背景
+							<br /><textarea name="" id="" cols="60" rows="10">
+							<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+							  <polygon points="100,10 40,180 190,60 10,60 160,180"
+							  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" />
+							</svg></textarea>
+							<br /><svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+							  <polygon points="100,10 40,180 190,60 10,60 160,180"
+							  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" />
+							</svg>
+						</span></li>
+						<li><a href="http://www.w3cschool.cc/svg/svg-reference.html">Reference Manual - w3school</a></li>
+						<li><a href="http://www.imooc.com/learn/143">Into SVG - techird</a></li>
+						<li><a href="http://msdn.microsoft.com/zh-cn/library/ie/ff971903(v=vs.85).aspx">SVG Browser API</a></li>
+						<li><a href="http://www.w3.org/TR/SVG11/">W3C Recommendation</a></li>
+					</ul>
+					<h4>[<span>-</span>]Tools</h4>
+					<ul>
+						<li><a href="http://filterfactory.mobi/">SVG Filter生成</a></li>
+						<li><a href="http://cssplant.com/clip-path-generator">SVG Path生成</a></li>
+					</ul>
+					<h4>[<span>-</span>]Basic shapes</h4>
+					<ul>
+						<li><a href="">rect</a><span>矩形 x,y,width,height,rx,ry</span></li>
+						<li><a href="">circle</a><span>圆形 cx,cy,r</span></li>
+						<li><a href="">ellipse</a><span>椭圆 cx,cy,rx,ry</span></li>
+						<li><a href="">line</a><span>直线 x1,y1,x2,y2</span></li>
+						<li><a href="">polygon</a><span>多边形 points(x1,y1 x2,y2 ...,xN,yN)每一组点之间用空格分开<br />fill-ruleFillStroke演示属性的部分</span></li>
+						<li><a href="">polyline</a><span>折线 points(x1,y1 x2,y2 ...,xN,yN)</span></li>
+						<li><a href="">path</a><span>路径</span></li>
+						<li><a href="">text</a><span>文字 x,y</span></li>
+					</ul>
+					<h4>[<span>-</span>]Attributes</h4>
+					<ul>
+						
+						<li><a href="">stroke</a>(color)<span>轮廓颜色</span></li>
+						<li><a href="">stroke-width</a><span>轮廓宽度</span></li>
+						<li><a href="">stroke-linecap</a><span>轮廓终结样式</span></li>
+						<li><a href="">stroke-dasharray</a><span>轮廓线条样式</span></li>
+						<li><a href="">stroke-opacity</a><span>轮廓线透明度</span></li>
+						<li><a href="">fill</a>(color)<span>填充</span></li>
+						<li><a href="">fill-opacity</a>(0-1)<span>填充透明度</span></li>
+					</ul>
+					<h4>[<span>-</span>]Other Elements</h4>
+					<ul>
+						
+						<li><a href="">animate</a><span></span></li>
+						<li><a href="">a</a><span></span></li>
+						<li><a href="">defs</a><span></span></li>
+						<li><a href="">filter</a><span></span></li>
+						<li><a href="">linearGradient</a><span></span></li>
+						<li><a href="">radialGradient</a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Javascript API</h4>
+					<ul>
+						<li><a href="">creatElementNS(ns,tagName)</a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+					
 				</div>
 			</li>
 		</ul>
@@ -2639,9 +2579,10 @@
 						    on('itype',...,fn).trigger() 绑定一个自定义事件加载时默认触发一次<br/>
 						    <b>事件委托</b>：<br/>
 						    $(parent).on('type','selector',[data],fn)<br/>
-						    *依旧绑定在指定父元素上,触发目标写在第2个参数,data数据在第3个参数 
+						    *<strong>事件委托时的selector为parent的子元素选择器</strong><br/>
+						    *依旧绑定在指定父元素上,触发目标写在第2个参数,data数据在第3个参数 <br />
 						    <b>*selector必须为选择器字符串,不可传递冗余复杂的CSS表达式变量!内部this是指选择器触发元素!</b></span></li>
-												<li><a href="">off</a>(type,[sel],[fn])<span><b>事件移除</b>：<br/>
+						<li><a href="">off</a>(type,[sel],[fn])<span><b>事件移除</b>：<br/>
 						    off() 无参数删除所有事件绑定<br/>
 						    off('type') 删除某个事件<br/>
 						    off('type',fn) 删除指定事件和处理函数<br/>
@@ -3115,11 +3056,57 @@
 					</ul>
 				</div>
 			</li>
+		</ul></div>
+	<div id="jQueryPlugin" class="content clearfix" style="display:none">
+		<ul>
+			<li>
+				<h3>用户界面<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]界面组件</h4>
+					<ul>
+						<li><a href="http://colpick.com/plugin">Color Picker</a><span>取色器</span></li>
+					</ul>
+				</div>
+			</li>
 		</ul>
 	</div>
+	
 </div>
-<footer>
+<footer class="clearfix">
 	<h5>BOOKMARK</h5>
+	<div>
+		<h6>Team<span>-</span></h6>
+		<ul>
+		<li><a href="http://fex.baidu.com/">Baidu FEX</a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		</ul>
+	</div>
+
+
+	<div>
+		<h6>Tutorial<span>-</span></h6>
+		<ul>
+		<li><a href="http://www.w3schools.com/">w3school (EN)</a></li>
+		<li><a href="http://www.w3cschool.cc/">w3school (CN)</a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		</ul>
+	</div>
+
+
+	
+
+	
 </footer> 
 <div style="display:none"><script src="http://s6.cnzz.com/z_stat.php?id=1253473928&web_id=1253473928" language="JavaScript"></script></div>
 </body>
