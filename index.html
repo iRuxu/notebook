@@ -47,7 +47,7 @@
   <div id="nav" class="clearfix">
 		<ul>
 			<h2 class="ctcat">CSS</h2>
-			<h2>HTML</h2>
+			 <h2>HTML</h2>
 			<h2>Javascript</h2>
 			<h2>jQuery</h2>
 			<h2>Plugin</h2>
@@ -84,6 +84,7 @@
 						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
 							<br>但在IE6中有BUG,需要分开写在2个选择符中
 							<br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span></li>
+						<li><a href="">expression</a><span>表达式</span></li>
 						<li><a href="">@charset</a><span>@charset "utf-8";
 							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
 							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
@@ -181,13 +182,16 @@
 					<h4>[<span>-</span>]字体</h4>
 					<ul>
 						<li><a href="">font</a>([i b]size/lh family)<span>【简写】font:italic bold 18px/22px 'Consolas' （简写时font-size和font-family属性不可省略）</span></li>
-						<li><a href="">font-size</a><span>字体大小,浏览器默认大小为1em（一般为16px）,移动端则使用rem<br>工具：<a href="http://pxtoem.com/">PX转EM快速工具</a></span></li>
+						<li><a href="">font-size</a>
+							<span>字体大小,浏览器默认大小为1em（一般为16px）,移动端则使用rem
+							<br>页面元素中font-size使用百分比时，以body字体定义大小进行百分比扩展而非父级继承。
+							<br />工具：<a href="http://pxtoem.com/">PX转EM快速工具</a></span></li>
 						<li><a href="">px/em/rem</a><span>
 							px:像素,相对长度单位。1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px;
 							<br>em:相对长度单位.相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
 							<br>rem:相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px
 						</span></li>
-						<li><a href="">line-height</a>(Npx/180%)<span>行高,可为百分比。<br />*当为百分比时，是以浏览器默认字体16px的高度进行百分比扩展，而非自身高度!</span></li>
+						<li><a href="">line-height</a>(Npx/180%)<span>行高,可为百分比。<br />*当为百分比时，是以自身文字大小的百分比!</span></li>
 						<li><a href="">font-weight</a>(bold/normal)<span>粗体,normal正常=400,bold粗体=700,取值100~900</span></li>
 						<li><a href="">font-style</a>(italic/normal)<span>normal正常,italic字体自带斜体,oblique人为斜体</span></li>
 						<li><a href="">font-variant</a>(small-caps)<span>normal正常的字体,small-caps小型的大写字母字体</span></li>
@@ -244,6 +248,15 @@
 								<span>normal：默认处理方式。
 								<br>nowrap： 强制在同一行内显示所有文本，合并文本间的多余空白，直到文本结束或者遭遇br对象。
 								<br>常用片段（设置宽度）：white-space:nowrap;text-overflow:ellipsis;overflow:hidden;</span></li>
+						<li><a href="">word-wrap</a><span>当内容超过指定容器的边界时是否断行
+						<br />normal：允许内容顶开或溢出指定的容器边界。
+						<br />break-word：内容将在边界内换行。如果需要，单词内部允许断行。
+						<br />断行控制片段word-wrap: break-word;word-break: break-all;</span></li>
+						<li><a href="">word-break</a><span>对象内文本的字内换行行为
+							normal：依照亚洲语言和非亚洲语言的文本规则，允许在字内换行。
+							<br />keep-all：与所有非亚洲语言的normal相同。对于中文，韩文，日文，不允许字断开。适合包含少量亚洲文本的非亚洲文本。
+							<br />break-all：该行为与亚洲语言的normal相同。也允许非亚洲语言文本行的任意字内断开。该值适合包含一些非亚洲文本的亚洲文本，比如使连续的英文字母间断行。
+						</span></li>
 						<li><a href="">text-transform</a>(c/u/l)
 								<span>none： 无转换 
 								<br>capitalize： 将每个单词的第一个字母转换成大写 
@@ -254,6 +267,11 @@
 							<br>overline：上划线
 							<br>line-through：删除线</span></li>
 						<li><a href="">text-shadow</a>(1px 1px 2px #248)<span>文本阴影:1px 1px 5px #000; （水平,垂直,模糊半径,颜色）<br>在线生成3DCSS文字<a href="http://www.3dcsstext.com/">GO TO!</a></span></li>
+						<li><a href="">-webkit-text-fill-color</a><span>文字的填充颜色,默认值transparent</span></li>
+						<li><a href="">-webkit-text-stroke</a><span>文字的描边,1px #ff3399</span></li>
+						<li><a href="">-webkit-text-stroke-width</a><span>文字描边厚度</span></li>
+						<li><a href="">-webkit-text-stroke-color</a><span>文字描边颜色</span></li>
+						<li><a href="http://www.document-write.com/html/xhtml-css/42.html">-webkit-text-size-adjust:100%</a><span>开启文字调整（WEBKIT默认最小只支持12px大小字）</span></li>
 					</ul>
 					<h4>[<span>-</span>]伪对象</h4>
 					<ul>
@@ -357,19 +375,30 @@
 								<span>
 									单角圆角,注意书写格式
 								</span></li>
+						<li><a href="">border-image</a>
+								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
+								<br>在线图片边框生成：<a href="http://www.shadowsky.cn/i/tools/borderimage/index.htm">GO TO!</a></span></li>
 						<li><a href="">box-shadow</a>
 								<span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
 								<br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
 								<br>可用逗号分隔多个阴影,制作复杂重叠阴影效果
-								<br>在线阴影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
-								<br>在线长阴影：<a href="http://www.shadowsky.cn/i/tools/longshadows/index.htm">GO TO!</a>
+								<br>投影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
+								<br>长阴影：<a href="http://iruxu.com/to-be-css/shadow_longshadows.html">GO TO!</a>
 								<br>投影彩带：<a href="http://www.css3d.net/ribbon-generator/">GO TO!</a>
 								</span></li>
-						<li><a href="">border-image</a>
-								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
-								<br>在线图片边框生成：<a href="http://www.shadowsky.cn/i/tools/borderimage/index.htm">GO TO!</a></span></li>
-						<li><a href="">outline</a><span>轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考</span></li>
-						<li><a href="">outline-offset</a><span>用长度值来定义轮廓偏移。允许负值。0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
+						<li><a href="">-webkit-box-reflect</a><span>
+							-webkit-box-reflect:none/direction offset mask
+							<br />可应用于盒子或者直接应用于图片
+							<br />direction(倒影方向): above / below / left / right
+							<br />offset(倒影与源间隔): length / %
+							<br />mask(蒙版): url() / gradient
+							</span></li>
+						<li><a href="">outline</a>
+								<span>轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考</span></li>
+						<li><a href="">outline-offset</a>
+								<span>用长度值来定义轮廓偏移。允许负值。
+								<br />0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.
+								<br />可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
 					</ul>
 					<h4>[<span>-</span>]颜色</h4>
 					<ul>
@@ -381,7 +410,7 @@
 								<br><textarea name="" id="" cols="30" rows="10">
 									background: rgba(0,0,0,.92);
 									_background: #000;
-									filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#CC000000', endColorstr='#CC000000');
+									filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#CC000000, endColorstr=#CC000000);
 								</textarea>
 								<br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
 								<br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
@@ -446,7 +475,7 @@
 									_background:none;
 									_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
 								</textarea>
-								<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件
+								<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。
 								<br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
 								<br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
 								</span></li>
@@ -491,10 +520,10 @@
 							<br>content-box：从content区域开始显示背景图像。
 						</span></li>
 						<li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
-						<li>[img]<a href="">linear-grandient</a><span>
-							(重复)线性渐变linear-gradient,repeating-linear-gradient
-							<br>background:linear-gradient(to 方向/Ndeg,#color1,#color2……#colorN) 线性渐变
-							<br>以圆盘为参考，垂直向上为0度。
+						<li>[img]<a href="">linear-grandient()</a><span>
+							<br>background:linear-gradient(point,#colorA lengthA/A%,……#colorB lengthB/B%) 线性渐变
+							<br>point:left/right/top/bottom/N deg 方向或角度
+							<br />默认以垂直上方点为0度向下
 							<br>技巧应用实例：
 							<br><textarea name="" id="" cols="30" rows="10">
 							使用1像素背景渐变绘制分割线
@@ -517,13 +546,15 @@
 							<br>渐变按钮生成：<a href="http://www.cssbuttongenerator.com/">简洁</a> / 
 							<a href="http://www.glassybuttons.com/glassy.php">玻璃</a> / <a href="http://jirox.net/AsButtonGen/">水晶</a> / <a href="http://www.bestcssbuttongenerator.com/">简单</a> / <a href="http://www.cssbutton.me/browse">质感</a>
 						</span></li>
-						<li>[img]<a href="">radial-grandient</a><span>
-							(重复)径向渐变radial-grandient,repeating-radial-grandient
-							<br>background:radial-gradient(center/A% B%,ellipse/circle,#color1,#color2……#colorN) 径向渐变
+						<li>[img]<a href="">repeating-linear-gradient()</a></li>
+						<li>[img]<a href="">radial-grandient()</a><span>
+							<br>background:radial-gradient(position,shape,#colorA lengthA/A%,……#colorB lengthB/B%)径向渐变
+							<br />position:left~center/lengthA lengthB/A% 5% 指定圆心位置
+							<br />shape:ellipse/circle形状
 							<br>可以使用rgba色，设置从透明到渐变效果！
 							<br>渐变生成工具：<a href="http://www.colorzilla.com/gradient-editor/">GO TO!</a>
 						</span></li>
-						
+						<li>[img]<a href="">repeating-radial-gradient()</a></li>
 					</ul>
 				</div>
 			</li>
@@ -698,7 +729,12 @@
 						<li><a href="">column-span</a>(N/all)<span>列横跨,适用于：除浮动和绝对定位之外的块级元素
 								<br>是否横跨全部,all和none,不可设置数值非表格,此属性应设置在被应用多列属性的子元素上,多列无继承性,对于不想被继承多列的元素应写在多列父元素之外,而非去设置多列横跨.</span></li>
 					</ul>
-					<h4>[<span>-</span>]用户外观</h4>
+				</div>
+			</li>
+			<li>
+				<h3>界面<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]用户界面</h4>
 					<ul>
 						<li><a href="">cursor</a><span>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。
 							<br>格式：使用自定义图像作为光标类型，IE, Opera只支持*.cur等特定的图片格式；Firefox, Chrome, Safari既支持特定图片类型也支持常见的*.jpg, *.gif, *.jpg等图片格式。
@@ -794,21 +830,31 @@
 							</table>
 							</span></li>
 						<li><a href="">ime-mode</a><span>输入法状态：设置或检索是否允许用户激活输入中文，韩文，日文等的输入法（IME）状态。
-						<br>auto：不影响IME的状态。
-						<br>normal：正常的IME状态
-						<br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
-						<br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
-						<br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
+								<br>auto：不影响IME的状态。
+								<br>normal：正常的IME状态
+								<br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
+								<br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
+								<br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
 						<li><a href="">resize</a><span>设置或检索对象的区域是否允许用户缩放，调节元素尺寸大小。
-						<br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
-						<br>none：不允许用户调整元素大小。
-						<br>both：用户可以调节元素的宽度和高度。
-						<br>horizontal：用户可以调节元素的宽度
-						<br>vertical：用户可以调节元素的高度。</span></li>
-					</ul>
-					<h4>[<span>-</span>]滚动条</h4>
-					<ul>
+								<br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
+								<br>none：不允许用户调整元素大小。
+								<br>both：用户可以调节元素的宽度和高度。
+								<br>horizontal：用户可以调节元素的宽度
+								<br>vertical：用户可以调节元素的高度。</span></li>
 						<li><a href="">behavior</a><span>IE:使用绝对或相对地址指定DHTML行为组件（.htc） </span></li>
+					</ul>
+					<h4>[<span>-</span>]表单</h4>
+					<ul>
+					<li><a href="http://www.w3cplus.com/blog/271.html">-webkit-appearance</a><span>webkit移动表单控件重置</span></li>
+					<li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+					<li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search-..</a><span>webkit搜索默认样式</span></li>
+					</ul>
+					<h4>[<span>-</span>]图片</h4>
+					<ul>
+						<li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
+					</ul>
+					<h4>[<span>+</span>]滚动条</h4>
+					<ul style="display:none">
 						<li><a href="">scrollbar-3dlight-color</a><span>亮色阴影边框颜色</span></li>
 						<li><a href="">scrollbar-darkshadow-color</a><span>暗色阴影边框颜色</span></li>
 						<li><a href="">scrollbar-highlight-color</a><span>高亮边框颜色</span></li>
@@ -941,6 +987,7 @@
 							<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。</span></li>
 						<li><a href="">overflow-x</a><span>横向溢出处理</span></li>
 						<li><a href="">overflow-y</a><span>纵向溢出处理</span></li>
+						<li><a href="http://blog.csdn.net/hursing/article/details/9186199">-webkit-overflow-scrolling:touch</a><span>区域快速回滚</span></li>
 					</ul>
 					<h4>[<span>-</span>]定位</h4>
 					<ul>
@@ -980,7 +1027,7 @@
 						<li><a href="">position:relative</a><span>相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素</span></li>
 						<li><a href="">position:absolute</a><span>绝对定位：
 							<br>1.对象脱离常规流，使用top，right，bottom，left等属性进行绝对定位，盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。
-							<br>2.未定义坐标：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。
+							<br>2.未定义坐标：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。如无兄弟元素则贴在父元素起点。
 							<br>3.坐标总是以最近的被定位的父级元素为基准,如没有则以window窗口.</span></li>
 						<li><a href="">position:fixed</a><span>窗口定位：
 							<br>对象脱离常规流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。
@@ -1192,7 +1239,8 @@
 							<br>IE8及以下只能实现CSS2中的部分，即只可以设置媒体类型。
 							<br>其中部分支持max&min
 						</span></li>
-						<li><a href="http://screensiz.es/phone">Screen Size View</a></li>
+						<li><a href="http://www.w3cplus.com/css3/media-query-snippets.html">media queries snippets</a><span>媒体查询片段</span></li>
+						<li><a href="http://screensiz.es/phone">Screen Size View</a><span>屏幕尺寸一览</span></li>
 					</ul>
 					<h4>[<span>-</span>]移动尺寸</h4>
 					<ul>
@@ -1256,15 +1304,24 @@
 				</div>
 			</li>
 			<li>
-				<h3>LESS<span>-</span></h3>
-				<div>
+				<h3>LESS<span>+</span></h3>
+				<div style="display:none">
 					<h4>[<span>-</span>]LESS</h4>
 					<ul>
-						<li><a href="">@var</a><span>变量,集中定义基色等,字符串定义基url(需加引号)</span></li>
-						<li><a href="">.inherit</a><span>继承,集中定义重复样式或组合HACK</span></li>
-						<li><a href="">parent{child{}}</a><span>嵌套,层级嵌套,&引用for伪类</span></li>
-						<li><a href="">运算</a><span>数字,颜色,变量都可以参与运算</span></li>
-						<li><a href="">when</a><span>switch与条件判断</span></li>
+						<li><a href="">@var</a>(color,url)<span>变量(嵌套中识别作用域),集中定义基色等,字符串定义基url(需加引号)</span></li>
+						<li><a href="">.inherit(@var1,@var2)</a><span>继承,集中定义重复样式或组合HACK,带参数继承时,多个参数之间用逗号分隔</span></li>
+						<li><a href="">parent{child{} &:hover{}}</a><span>嵌套,层级嵌套,&引用for伪类</span></li>
+						<li><a href="http://www.bootcss.com/p/lesscss/#-operations">运算</a><span>数字,颜色,变量都可以参与运算，另外定义一个中间变量接受参数 @a = @b*100 , .some{@a/2}
+							</span></li>
+						<li><a href="http://www.bootcss.com/p/lesscss/#-parametric-mixins">swith & when</a><span>条件判断,@_所有switch条件公共拥有属性
+							<br />iscolor
+							<br />isnumber
+							<br />isstring
+							<br />iskeyword
+							<br />isurl
+							<br />ispixel
+							<br />ispercentage
+							<br />isem</span></li>
 						<li><a href="">color函数</a><span>
 								<table border="1" cellspacing="0" cellpadding="2">
 								<tbody>
@@ -1324,12 +1381,13 @@
 								</table>
 						</span></li>
 						<li><a href="">避免编译</a><span>~"特殊内容"</span></li>
+						<li><a href="">Javascript表达式</a><span>`反单引号`</span></li>
 					</ul>
 				</div>
 			</li>
 			<li>
-				<h3>参考资料<span>-</span></h3>
-				<div>
+				<h3>参考资料<span>+</span></h3>
+				<div style="display:none">
 					<h4>[<span>-</span>]参考资料</h4>
 					<ul>
 						<li><a href="http://www.w3.org/TR/">W3C</a></li>
@@ -1347,7 +1405,7 @@
 			<li>
 				<h3>基础<span>-</span></h3>
 				<div>
-					<h4>[<span>-</span>]结构与语法</h4>
+					<h4>[<span>-</span>]Common</h4>
 					<ul>
 						<li><a href="">!doctype html</a><span>
 							HTML5 
@@ -1357,31 +1415,55 @@
 							<br />HTML4有框架
 							<br /><textarea name="" id="" cols="60" rows="4"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"></textarea>
 						</span></li>
-						<li><a href="">html</a><span>语言 lang="zh-CN"
+						<li><a href="">html</a><span>根元素
+						<br />语言 lang="zh-CN"
 						<br />缓存 manifest="demo.appcache"
 						</span></li>
-						<li><a href="">head</a><span></span></li>
-						<li><a href="">title</a><span>标题</span></li>
-						<li><a href="">body</a><span>内容</span></li>
+						<li><a href="">head</a><span>头部信息</span></li>
+						<li><a href="">body</a><span>内容区域</span></li>
 						<li><a href="">注释</a><span><input type="text" style="width:380px" value='<!--注释-->'/></span></li>
-						<li><a href="">script</a><span>也可以写在body区域或底部,推荐放在底部加载<br />
-						<input type="text" style="width:380px" value='<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>'/>
-						</span></li>
-						<li><a href="">noscript</a><span>禁用脚本提示</span></li>
-						<li><a href="">style</a><span>可配合条件注释或指定媒体<br />
-						<input type="text" style="width:380px" value='<link rel="stylesheet" href="" type="text/css" media="screen"/>'/></span></li>
 					</ul>
-					<h4>[<span>-</span>]头部信息</h4>
+					<h4>[<span>-</span>]Meta</h4>
 					<ul>
-						<li><a href="">base</a><span>定义页面中所有链接的默认地址或默认目标。
-						<br />注释：如果使用了 <base> 标签，则必须具备 href 属性或者 target 属性或者两个属性都具备。</span></li>
+						<li><a href="http://zhi.hu/XyIa">lang</a>
+								<span>简体中文 html lang="zh-cmn-Hans"
+								<br />繁体中文 html lang="zh-cmn-Hant"</span></li>
+						<li><a href="">title</a><span>标题</span></li>
 						<li><a href="">charset</a><span>
 							HTML5
 							<br /><input type="text" style="width:380px" value='<meta charset="utf-8">'/>
 							<br />HTML4
 							<br /><input type="text" style="width:380px" value='<meta http-equiv="content-type" content="text/html; charset=utf-8">'/>
 						</span></li>
-						<li><a href="">name</a><span>
+						<li><a href="">base</a>
+							<span>定义页面中所有链接的默认地址或默认目标。
+							<br />注释：如果使用了base标签，则必须具备 href 属性或者 target 属性或者两个属性都具备。</span></li>
+						<li><a href="">viewport</a>
+								<span><input type="text" style="width:380px" value='<meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui"/>'/>
+								<br />width viewport 宽度(数值/device-width)
+								<br />height viewport 高度(数值/device-height)
+								<br />initial-scale 初始缩放比例
+								<br />maximum-scale 最大缩放比例
+								<br />minimum-scale 最小缩放比例
+								<br /><a href="http://bigc.at/ios-webapp-viewport-meta.orz">user-scalable 是否允许用户缩放(yes/no)</a>
+								<br />minimal-ui 在页面加载时最小化上下状态栏(iOS7.1)
+								</span></li>
+						<li><a href="">X-UA-Compatible</a><span>
+							<textarea name="" id="" cols="60" rows="10">
+								强制使用IE最高版本及谷歌内核
+								<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+								360安全浏览器默认使用极速模式渲染
+								<meta name="renderer" content="webkit">
+							</textarea>
+							<br /><a href="http://se.360.cn/v6/help/meta.html">360浏览器内核控制 Meta 标签说明文档</a></span></li>
+						<li><a href="">Cache-Control</a><span>不允许百度转码 
+								<br />旧写法：
+								<br /><input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-transform"/>'/>
+								<br />新写法：
+								<br /><input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-siteapp"/>'/>
+								<br /><a href="http://m.baidu.com/pub/help.php?pn=22&ssid=0&from=844b&bd_page_type=1">参考资料</a>
+								</span></li>
+						<li><a href="">name</a>(SEO)<span>
 							<table border="1" cellspacing="0" cellpadding="2">
 							<tbody>
 							<tr>
@@ -1412,14 +1494,14 @@
 								<br />设定为index：文件将被检索；
 								<br />设定为follow：页面上的链接可以被查询；
 								<br />设定为noindex：文件将不被检索，但页面上的链接可以被查询；
-								<br />设定为nofollow：文件将不被检索，页面上的链接可以被查询。</li>
+								<br />设定为nofollow：文件将不被检索，页面上的链接可以被查询。
+								<br /><a href="http://msdn.microsoft.com/zh-cn/library/ff724037(v=expression.40).aspx">参考资料</a></li>
 							</ul>
 							</td>
 							</tr>
 							</tbody>
 							</table>
 						</span></li>
-						<li><a href="">viewport</a><span><input type="text" style="width:380px" value='<meta name="viewport" content="width=device-width,initial-scale=1.0"/>'/></span></li>
 						<li><a href="">http-equiv</a><span>
 							<table  border="1" cellspacing="0" cellpadding="2">
 							<tbody>
@@ -1504,28 +1586,148 @@
 							</tbody>
 							</table>
 						</span></li>
-						<li><a href="">X-UA-Compatible</a><span>
-						<textarea name="" id="" cols="60" rows="10">
-							强制使用IE最高版本及谷歌内核
-							<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-							360安全浏览器默认使用极速模式渲染
-							<meta name="renderer" content="webkit">
-						</textarea></span></li>
-						<li><a href="">Cache-Control</a><span>不允许百度转码 <input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-transform"/>'/></span></li>
-						<li><a href="">dns-prefetch</a><span>提前域名解析<input type="text" style="width:380px" value='<link rel="dns-prefetch" href="//www.domain1.com">'/></span></li>
-						<li><a href="">favicon</a><span>小ICON图标<input type="text" style="width:380px" value='<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />'/></span></li>
 					</ul>
-					<h4>[<span>-</span>]兼容库</h4>
+					<h4>[<span>-</span>]Link</h4>
 					<ul>
-						<li><a href="">IE9-支持HTML5</a><span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
-						<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-						<![endif]-->
-						</textarea></span></li>
-						<li><a href="">IE9-支持CSS3选择器</a><span><a href="http://selectivizr.com/">http://selectivizr.com/</a></span></li>
-						<li><a href="">IE9-支持媒体查询</a><span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
-						<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
-						<![endif]-->
-						</textarea></span></li>
+						<li><a href="">dns-prefetch</a><span>提前域名解析<input type="text" style="width:380px" value='<link rel="dns-prefetch" href="//www.domain1.com">'/></span></li>
+						<li><a href="">style</a><span>可配合条件注释或指定media媒体查询引入样式表<br />
+						<input type="text" style="width:380px" value='<link rel="stylesheet" href="" type="text/css" media="screen"/>'/></span></li>
+						<li><a href="https://github.com/audreyr/favicon-cheat-sheet">favicon</a>
+							<span>小ICON图标<input type="text" style="width:380px" value='<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />'/></span></li>
+						<li><a href="">RSS订阅</a><span>RSS订阅input
+						<br /><input type="text" style="width:380px" value='<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />'/>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]Script</h4>
+					<ul>
+						<li><a href="">script</a><span>也可以写在body区域或底部,推荐放在底部加载<br />
+								<input type="text" style="width:380px" value='<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>'/><br />
+								defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】 
+								</span></li>
+						<li><a href="">noscript</a><span>禁用脚本提示</span></li>
+						<li><a href="">IE9-支持HTML5</a>
+								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
+								<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+								<![endif]-->
+								</textarea></span></li>
+						<li><a href="http://selectivizr.com/">IE9-支持CSS3选择器</a></li>
+						<li><a href="">IE9-支持媒体查询</a>
+								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
+								<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+								<![endif]-->
+								</textarea></span></li>
+					</ul>
+					<h4>[<span>-</span>]Win8/WinPhone</h4>
+					<ul>
+						<li><a href="">msapplication-TileColor</a><span>
+							Windows 8 磁贴颜色<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<meta name="msapplication-TileColor" content="#000"/>
+							</textarea></span></li>
+						<li><a href="">msapplication-TileImage</a><span>
+							Windows 8 磁贴图标<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<meta name="msapplication-TileImage" content="icon.png"/
+							</textarea>
+						</span></li>
+						<li><a href="">msapplication-tap-highlight</a><span>
+							windows phone 点击无高光<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<meta name="msapplication-tap-highlight" content="no">
+							</textarea>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]iOS</h4>
+					<ul>
+						<li><a href="">apple-mobile-web-app-capable</a><span>
+							启用 WebApp 全屏模式<br />
+							<textarea name="" id="" cols="60" rows="12">
+								<meta name="apple-mobile-web-app-capable" content="yes" />
+							</textarea>
+						</span></li>
+						<li><a href="">format-detection</a><span>
+							禁止识别电话号码/邮件<br />
+							<textarea name="" id="" cols="60" rows="12">
+								<meta name="format-detection" content="telphone=no, email=no" />
+							</textarea>
+						</span></li>
+						<li><a href="">apple-mobile-web-app-title</a><span>
+							添加到主屏后的标题（iOS 6 新增）<br />
+							<textarea name="" id="" cols="60" rows="12">
+								<meta name="apple-mobile-web-app-title" content="标题">
+							</textarea>
+						</span></li>
+						<li><a href="">apple-touch-icon-precomposed</a><span>
+							iOS图标,rel 参数： 
+							<br />apple-touch-icon 图片自动处理成圆角和高光等效果。 
+							<br />apple-touch-icon-precomposed 禁止系统自动添加效果，直接显示设计原图。 
+							<br />iPhone 和 iTouch，默认 57x57 像素，必须有.
+							<br /><textarea name="" id="" cols="60" rows="20">
+								默认 57x57 像素，必须有
+								<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png" /> 
+								iPad，72x72 像素，可以没有，但推荐有
+								<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png" /> 
+								Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有
+								<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png" />
+								Retina iPad，144x144 像素，可以没有，但推荐有
+								<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png" /> 
+								IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段
+								<link rel="apple-touch-icon-precomposed" sizes="180x180" href="retinahd_icon.png">
+							</textarea>
+						</span></li>
+						<li><a href="">apple-touch-startup-image</a><span>
+							iOS 启动画面,<a href="https://developer.apple.com/library/ios/qa/qa1686/_index.html">官方文档</a> <br />
+							iPad 的启动画面是不包括状态栏区域的。<br />
+							<textarea name="" id="" cols="60" rows="20">
+								iPad 竖屏 768 x 1004（标准分辨率）
+								<link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png" /> 
+								iPad 竖屏 1536x2008（Retina）
+								<link rel="apple-touch-startup-image" sizes="1536x2008" href="/splash-screen-1536x2008.png" /> 
+								iPad 横屏 1024x748（标准分辨率）
+								<link rel="apple-touch-startup-image" sizes="1024x748" href="/Default-Portrait-1024x748.png" /> 
+								iPad 横屏 2048x1496（Retina）
+								<link rel="apple-touch-startup-image" sizes="2048x1496" href="/splash-screen-2048x1496.png" />
+							</textarea>
+							iPhone 和 iPod touch 的启动画面是包含状态栏区域的。<br />
+							<textarea name="" id="" cols="60" rows="20">
+								iPhone/iPod Touch 竖屏 320x480 (标准分辨率)
+								<link rel="apple-touch-startup-image" href="/splash-screen-320x480.png" /> 
+								iPhone/iPod Touch 竖屏 640x960 (Retina)
+								<link rel="apple-touch-startup-image" sizes="640x960" href="/splash-screen-640x960.png" /> 
+								iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina)
+								<link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png" /> 
+								添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
+								<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+								iPhone 6对应的图片大小是750×1294，iPhone 6 Plus 对应的是1242×2148 。
+								<link rel="apple-touch-startup-image" href="launch6.png" media="(device-width: 375px)">
+								<link rel="apple-touch-startup-image" href="launch6plus.png" media="(device-width: 414px)">
+							</textarea>
+						</span></li>
+						<li><a href="http://www.uisdc.com/ios8-ten-new-feature">iOS8</a></li>
+					</ul>
+					<h4>[<span>-</span>]Mobile</h4>
+					<ul>
+						<li><a href="">UC</a><span>
+							<textarea name="" id="" cols="60" rows="12">
+								UC强制竖屏
+								<meta name="screen-orientation" content="portrait">
+								UC强制全屏
+								<meta name="full-screen" content="yes">
+								UC应用模式
+								<meta name="browsermode" content="application">
+							</textarea>
+						</span></li>
+						<li><a href="">QQ</a><span>
+							<textarea name="" id="" cols="60" rows="12">
+								QQ强制竖屏
+								<meta name="x5-orientation" content="portrait">
+								QQ强制全屏
+								<meta name="x5-fullscreen" content="true">
+								QQ应用模式
+								<meta name="x5-page-mode" content="app">
+							</textarea>
+						</span></li>
+						<li><a href="http://code.lancepollard.com/complete-list-of-html-meta-tags/">other</a></li>
 					</ul>
 				</div>
 			</li>
@@ -5091,6 +5293,7 @@
 					  			<li><a href=""></a></li>
 					  		</ul>
 					  	</div></div></div>
+	
 </div>
 <footer class="clearfix">
 	<h5>BOOKMARK</h5>
@@ -5143,21 +5346,23 @@
 	<div>
 		<h6>Blog<span>-</span></h6>
 		<ul>
+		<li><a href="http://www.qianduan.net/">前端观察</a></li>
+		<li><a href="http://himeters.com/">himeters</a></li>
 		<li><a href="http://tympanus.net/codrops/">Codrops</a></li>
 		<li><a href="http://tutorialzine.com/">Tutorial Zine</a></li>
-		<li><a href="http://www.w3cplus.com/">W3C PLUS</a></li>
-		<li><a href="http://www.css88.com/">CSS88</a></li>
+		<li><a href="http://demosthenes.info/">demosthenes</a></li>
 		<li><a href="http://fex.baidu.com/">Baidu FEX</a></li>
 		<li><a href="http://ued.taobao.org/blog/">Taobao UED</a></li>
 		<li><a href="http://isux.tencent.com/">Tencent ISUX</a></li>
 		<li><a href="http://www.css3.info/">CSS Info</a></li>
+		<li><a href="http://www.w3cplus.com/">W3C PLUS</a></li>
+		<li><a href="http://www.css88.com/">CSS88</a></li>
 		</ul>
 	</div>
 
 	<div>
 		<h6>[CD]Toolbox<span>-</span></h6>
 		<ul>
-		<li><a href="http://tool.oschina.net/jscompress">代码压缩</a></li>
 		<li><a href="http://tool.oschina.net/encode">编码转换</a></li>
 		<li><a href="http://www.bejson.com/go.html?u=http://www.bejson.com/jshtml_fmt.html">JS-HTML互转</a></li>
 		<li><a href="http://www.bejson.com/go.html?u=http://www.bejson.com/xml2json">JSON-JS互转</a></li>
