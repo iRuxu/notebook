@@ -12,7 +12,7 @@
 <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 <base target="_blank">
 <!--[if lt IE 9]>
-<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
 <![endif]-->
 <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 <link rel="stylesheet" href="style.css" />
@@ -20,17 +20,6 @@
 </head>
 
 <body>
-<div style="display:none">
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<defs>
-	<symbol id="icon-menu" viewBox="0 0 1024 1024">
-		<title>menu</title>
-		<path class="path1" style="fill:#fff" d="M64 192h896v192h-896zM64 448h896v192h-896zM64 704h896v192h-896z" />
-	</symbol>
-	</defs>
-	</svg>
-</div>
-
 <div id="snippet">
 	<h6>iRuxu's Snippet Box </h6>
 	<span id="closebox">×</span>
@@ -39,28 +28,29 @@
 	</p>
 </div>
 
-<header>
+<div class="header clearfix">
 	<a href="http://iruxu.com/notebook" target="_self"><h1 title="iRuxu's notebook">NOTEBOOK</h1></a>
-	<div id="showmenu">
-		<svg class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
-	</div>
-  <div id="nav" class="clearfix">
+	<div id="nav" class="clearfix">
 		<ul>
-			<h2 class="ctcat">CSS</h2>
-			 <h2>HTML</h2>
-			<h2>Javascript</h2>
-			<h2>jQuery</h2>
-			<h2>Plugin</h2>
-			<h2>RegEXP</h2>
-			<h2><a href="http://iruxu.com/to-be-css/" target="_self">ToolBox</a></h2>
+			<li class="ctcat">CSS</li>
+			<li>HTML</li>
+			<li>Javascript</li>
+			<li>jQuery</li>
+			<li>Plugin</li>
+			<li>RegEXP</li>
+			<li><a href="http://iruxu.com/to-be-css/" target="_self">ToolBox</a></li>
 		</ul>
-  </div>
+	</div>
+	<div id="showmenu"></div>
 	<p>
 		<a href="http://iruxu.com">[ 最新 ]</a> 
-		<span style="background:#fff;border-radius:8px;padding:0 10px"><a href="http://weibo.com/yuanzi0512"><img src="img/sina.png" width="12px" alt="iruxu的微博" title="Follow me on 微博"></a> <a href="mailto:17229398@qq.com"><img src="img/email.png" width="12px" alt="iruxu的电子邮件" title="email:17229398@qq.com"></a></span>
+		<span style="background:#fff;border-radius:8px;padding:0 10px">
+			<a href="http://weibo.com/yuanzi0512"><img src="img/sina.png" width="12px" alt="iruxu的微博" title="Follow me on 微博"></a> 
+			<a href="mailto:17229398@qq.com"><img src="img/email.png" width="12px" alt="iruxu的电子邮件" title="email:17229398@qq.com"></a>
+		</span>
 		<br><a href="http://iruxu.com/notebook">http://iruxu.com/notebook</a>
 	</p>	
-</header>
+</div>
 <div id="main" class="main clearfix">
 	<div id="CSS" class="content clearfix" >
 		<ul>
@@ -88,8 +78,13 @@
 						<li><a href="">@charset</a><span>@charset "utf-8";
 							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
 							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
-						<li><a href="">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持,可载入JS文件<a href="http://selectivizr.com/">selectivizr</a></span></li>
-						<li><a href="https://github.com/necolas/normalize.css">normalize.css</a></li>
+						<li><a href="http://labs.qianduan.net/css-selector/">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持.
+						<br />Selectivizr需要注意以下几点：
+							<br />Selectivizr会自动检测最好的JS框架，如果你当前页面中正在使用如JQuery框架，但是它对Selectivizr的支持并不太好，你只需要在页面中再调用另一个（如Mootools）即可。
+							<br />CSS样式必须使用link标签引入，还可以使用@import，但不能在页面里使用style来定义。
+							<br />Selectivizr必须运行在标准模式，所以你要确保你有一个DTD在你的页面顶部。
+							</span></li>
+						<li><a href="https://github.com/necolas/normalize.css">Normalize.css</a></li>
 					</ul>
 					<h4>[<span>-</span>]HACK</h4>
 					<ul>
@@ -1309,6 +1304,7 @@
 					<h4>[<span>-</span>]LESS</h4>
 					<ul>
 						<li><a href="">@var</a>(color,url)<span>变量(嵌套中识别作用域),集中定义基色等,字符串定义基url(需加引号)</span></li>
+						<li><a href="">@url:'path'->@{'path/..'}</a><span>字符串变量的引用</span></li>
 						<li><a href="">.inherit(@var1,@var2)</a><span>继承,集中定义重复样式或组合HACK,带参数继承时,多个参数之间用逗号分隔</span></li>
 						<li><a href="">parent{child{} &:hover{}}</a><span>嵌套,层级嵌套,&引用for伪类</span></li>
 						<li><a href="http://www.bootcss.com/p/lesscss/#-operations">运算</a><span>数字,颜色,变量都可以参与运算，另外定义一个中间变量接受参数 @a = @b*100 , .some{@a/2}
@@ -1610,12 +1606,13 @@
 								<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
 								<![endif]-->
 								</textarea></span></li>
-						<li><a href="http://selectivizr.com/">IE9-支持CSS3选择器</a></li>
 						<li><a href="">IE9-支持媒体查询</a>
 								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
 								<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
 								<![endif]-->
 								</textarea></span></li>
+						<li><a href="http://modernizr.com/">modernizr</a></li>
+						<li><a href="http://selectivizr.com/">IE9-支持CSS3选择器</a></li>
 					</ul>
 					<h4>[<span>-</span>]Win8/WinPhone</h4>
 					<ul>
@@ -2002,14 +1999,11 @@
 				</div>
 			</li>
 			<li>
-				<h3>地理定位<span>-</span></h3>
+				<h3>拖放<span>-</span></h3>
 				<div>
-					<h4>[<span>-</span>]Geolocation</h4>
+					<h4>[<span>-</span>]拖放</h4>
 					<ul>
-						<li><a href="">position.coords.latitude</a> (纬度)</li>
-						<li><a href="">position.coords.longitude</a> (经度)</li>
-						<li><a href="">getCurrentPosition()</a><span><a href="http://www.w3cschool.cc/html/html5-geolocation.html"></a></span>参考资料</li>
-						<li><a href="http://developer.baidu.com/map/index.php?title=open/library">百度地图</a></li>
+						
 					</ul>
 				</div>
 			</li>
@@ -2217,14 +2211,18 @@
 				</div>
 			</li>
 			<li>
-				<h3>拖放<span>-</span></h3>
+				<h3>地理定位<span>-</span></h3>
 				<div>
-					<h4>[<span>-</span>]拖放</h4>
+					<h4>[<span>-</span>]Geolocation</h4>
 					<ul>
-						
+						<li><a href="">position.coords.latitude</a> (纬度)</li>
+						<li><a href="">position.coords.longitude</a> (经度)</li>
+						<li><a href="">getCurrentPosition()</a><span><a href="http://www.w3cschool.cc/html/html5-geolocation.html"></a></span>参考资料</li>
+						<li><a href="http://developer.baidu.com/map/index.php?title=open/library">百度地图</a></li>
 					</ul>
 				</div>
 			</li>
+			
 		</ul>
 		<ul>
 			<li>
@@ -2821,8 +2819,8 @@
 			</ul>
 			<ul>
 				<li>
-					<h3>BOM<span>+</span></h3>
-					<div style="display:none">
+					<h3>BOM<span>-</span></h3>
+					<div>
 						<h4>[<span>-</span>]Window</h4>
 						<ul>
 							<li><a href="">window properties</a><span>
@@ -3023,39 +3021,8 @@
 						</ul>
 					</div>
 				</li>
-				<li>
-					<h3>事件<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]动画</h4>
-						<ul>
-							<li><a href="">手机端需添加-webkit-前缀</a><span></span></li>
-							<li><a href="">transitionend</a><span>CSS 完成过渡后触发</span></li>
-							<li><a href="">animationend</a><span>CSS动画结束播放时触发</span></li>
-							<li><a href="">animationiteration</a><span>CSS 动画重复播放时触发</span></li>
-							<li><a href="">animationstart</a><span>CSS 动画开始播放时触发</span></li>
-						</ul>
-						<h4>[<span>-</span>]移动端</h4>
-						<ul>
-							<li><a href="">touchstart</a><span>当手指接触屏幕时触发</span></li>
-							<li><a href="">touchmove</a><span>当已经接触屏幕的手指开始移动后触发</span></li>
-							<li><a href="">touchend</a><span>当手指离开屏幕时触发</span></li>
-							<li><a href="">gesturestart</a><span>当两个手指接触屏幕时触发</span></li>
-							<li><a href="">gesturechange</a><span>当两个手指接触屏幕后开始移动时触发</span></li>
-							<li><a href="">gestureend</a><span>当两个手指离开屏幕时触发</span></li>
-							<li><a href="">onorientationchange </a><span>屏幕旋转事件</span></li>
-							<li><a href="">orientationchange </a><span>检测触摸屏幕的手指何时改变方向</span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-						</ul>
-					</div>
-				</li>
-				
 			</ul>
 			<ul>
-				
 				<li>
 					<h3>DOM<span>-</span></h3>
 					<div>
@@ -3101,7 +3068,37 @@
 						</ul>
 					</div>
 				</li>
-				
+			</ul>
+			<ul>
+				<li>
+					<h3>事件<span>-</span></h3>
+					<div>
+						<h4>[<span>-</span>]动画</h4>
+						<ul>
+							<li><a href="">手机端需添加-webkit-前缀</a><span></span></li>
+							<li><a href="">transitionend</a><span>CSS 完成过渡后触发</span></li>
+							<li><a href="">animationend</a><span>CSS动画结束播放时触发</span></li>
+							<li><a href="">animationiteration</a><span>CSS 动画重复播放时触发</span></li>
+							<li><a href="">animationstart</a><span>CSS 动画开始播放时触发</span></li>
+						</ul>
+						<h4>[<span>-</span>]移动端</h4>
+						<ul>
+							<li><a href="">touchstart</a><span>当手指接触屏幕时触发</span></li>
+							<li><a href="">touchmove</a><span>当已经接触屏幕的手指开始移动后触发</span></li>
+							<li><a href="">touchend</a><span>当手指离开屏幕时触发</span></li>
+							<li><a href="">gesturestart</a><span>当两个手指接触屏幕时触发</span></li>
+							<li><a href="">gesturechange</a><span>当两个手指接触屏幕后开始移动时触发</span></li>
+							<li><a href="">gestureend</a><span>当两个手指离开屏幕时触发</span></li>
+							<li><a href="">onorientationchange </a><span>屏幕旋转事件</span></li>
+							<li><a href="">orientationchange </a><span>检测触摸屏幕的手指何时改变方向</span></li>
+							<li><a href=""></a><span></span></li>
+							<li><a href=""></a><span></span></li>
+							<li><a href=""></a><span></span></li>
+							<li><a href=""></a><span></span></li>
+							<li><a href=""></a><span></span></li>
+						</ul>
+					</div>
+				</li>
 			</ul>
 			<ul>
 				<li>
@@ -3162,8 +3159,6 @@
 						</ul> -->
 					</div>
 				</li>
-			</ul>
-			<ul>
 				<li>
 					<h3>语法<span>-</span></h3>
 					<div>
@@ -3329,6 +3324,19 @@
 										</div>
 										</div></span></li>
 							<li><a href="">javascript:void(0)</a></li>
+							<li><a href="">补充说明</a><span>
+								文件载入 
+								<br>1.尽量使用外置文件，且放置在末尾
+								<br>2.defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】
+								<br>3.页内时引入闭合标签需要转义，页内时以防低版本的解析问题，用cdata片段包含
+								<input value="<![CDATA[ --- ]]>">  </input>
+								<br>4. noscript 脚本禁用时的替代提醒 /noscript
+								<br> 
+								<br>语法细节
+								<br>1.在函数内部定义的变量退出函数无效，在函数内部不用var声明的变量，则为全局变量
+								<br>2.同时一次性定义多个变量，用逗号分隔，不需要再写var
+								<br>  var i=0;var j=1;   ==>    var i=0,j=0
+								</span></li>
 						</ul>
 						<h4>[<span>+</span>]运算</h4>
 						<ul style="display:none;">
@@ -3667,8 +3675,8 @@
 					</div>
 				</li>
 				<li>
-					<h3>面向对象<span>-</span></h3>
-					<div>
+					<h3>面向对象<span>+</span></h3>
+					<div style="display:none">
 						<h4>[<span>-</span>]基础概念</h4>
 						<ul>
 							<li><a href="">对象创建方法</a><span>
@@ -3807,40 +3815,11 @@
 					</div>
 				</li>
 				<li>
-					<h3>HTML5 API<span>+</span></h3>
-					<div style="display:none">
-						<!-- <h4>[<span>-</span>]类型检测</h4>
-						<ul>
-							<li></li>
-						</ul>
-						<h4>[<span>-</span>]类型转换</h4>
-						<ul>
-							<li></li>
-						</ul> -->
-					</div>
-				</li>
-				<li>
 					<h3>参考资料<span>-</span></h3>
 					<div>
-						<h4>[<span>-</span>]书籍教程</h4>
+						<h4>[<span>-</span>]参考资料</h4>
 						<ul>
-							<li></li>
-						</ul>
-						<h4>[<span>-</span>]补充说明</h4>
-						<ul>
-							<li><a href="">书写注意</a><span>
-								文件载入 
-								<br>1.尽量使用外置文件，且放置在末尾
-								<br>2.defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】
-								<br>3.页内时引入闭合标签需要转义，页内时以防低版本的解析问题，用cdata片段包含
-								<input value="<![CDATA[ --- ]]>">  </input>
-								<br>4. noscript 脚本禁用时的替代提醒 /noscript
-								<br> 
-								<br>语法细节
-								<br>1.在函数内部定义的变量退出函数无效，在函数内部不用var声明的变量，则为全局变量
-								<br>2.同时一次性定义多个变量，用逗号分隔，不需要再写var
-								<br>  var i=0;var j=1;   ==>    var i=0,j=0
-								</span></li>
+							
 						</ul>
 					</div>
 				</li>
@@ -4642,13 +4621,10 @@
 							<li><a href="">$.globalEval(code)</a><span>
 								此方法的表现不同于正常使用的JavaScript eval()，因为它是在全局上下文下执行（这对加载外部动态脚本很重要）。
 								<br><a href="http://jquery.bootcss.com/jQuery.globalEval/">more info &raquo;</a>
-							</span></li>
-
-
-								
+							</span></li>		
 						<h4>[<span>-</span>] JSON/JSONP</h4>
 						<ul>
-								<li><a href="">Response Examples</a>(PHP)
+							<li><a href="">Response Examples</a>(PHP)
 								<span>
 									<b>GET：test.php?name=value</b><br>
 									<textarea name="" id="" cols="60" rows="10"><?php
@@ -4676,23 +4652,20 @@
 										$callback = $_GET['callback'];
 										echo $callback."($result)";
 										?></textarea>
-
-									</span></li>
-
-
+								</span></li>
 							<li><a href="">JSON/JSONP</a>
-								<span>
-									对于PHP文件输出的JSON格式数据,需要强制设置dataType为json类型<br>
-									//$.ajax()方法跨域获取 JSON<br>
-									$.ajax({<br>
-									url : 'http://www.li.cc/test.php<b>?callback=?</b>',<br>
-									<b>dataType : 'jsonp',</b><br>
-									success : function (response, status, xhr) {<br>
-									console.log(response);<br>
-									alert(response.a);<br>
-									}<br>
-									});<br>
-
+								<span>对于PHP文件输出的JSON格式数据,需要强制设置dataType为json类型<br />
+									<textarea name="" id="" cols="60" rows="12">
+										//$.ajax()方法跨域获取 JSON
+										$.ajax({
+										url : 'http://www.li.cc/test.php?callback=?',
+										dataType : 'jsonp',
+										success : function (response, status, xhr) {
+										console.log(response);
+										alert(response.a);
+										}
+										});
+									</textarea>
 								</span></li></ul>
 							<li><a href="">serializeArray()</a>
 								<span>表单序列化：创建一个对象组成的javascript数组，用来编码成一个JSON一样的字符串。<br>
@@ -4895,7 +4868,7 @@
 			</li>
 		</ul></div>
 	<div id="RegEXP" class="content clearfix" style="display:none">
-			<div style="float:left;width:720px;">
+			<div class="exp_info">
 					<div><b><span style="font-size: small;">字符类：单个字符和数字</span></b></div>
 					<div>
 					<table width="100%" border="1" cellspacing="0" cellpadding="2">
@@ -5295,7 +5268,7 @@
 					  	</div></div></div>
 	
 </div>
-<footer class="clearfix">
+<div class="footer clearfix">
 	<h5>BOOKMARK</h5>
 	<div>
 		<h6>Document<span>-</span></h6>
@@ -5422,7 +5395,7 @@
 	
 
 	
-</footer> 
+</div> 
 <div style="display:none"><script src="http://s6.cnzz.com/z_stat.php?id=1253473928&web_id=1253473928" language="JavaScript"></script></div>
 </body>
 </html>

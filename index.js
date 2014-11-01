@@ -4,14 +4,18 @@ iRuxu 2014.10.30
 */
 
 	$(function(){
+		//动态样式（ie6-ie8选择器hack）
+		$(".content>ul").addClass('col');
+		$(".content ul>li>div>ul>li>span").addClass('tips');
+		
+
 		//内容切换
-		$("h2").click(function(){
+		$(".header").on('click','#nav>ul>li',function(){
 			$(".content").css('display','none');
-			$("h2").removeClass('ctcat');
-			var i = $(this).index('h2');
-			var num = $(".content").eq(i);
-			$(num).css('display','block');
+			$("#nav>ul>li").removeClass('ctcat');
+			var i = $(this).index();
 			$(this).addClass('ctcat');
+			$(".content").eq(i).css('display','block');
 		})
 		
 		//h3开关
@@ -98,15 +102,15 @@ iRuxu 2014.10.30
 			$("#showmenu").click(function(){
 				$("#nav").css('display','block');
 				$(".content").css('display','none');
-				$("h2").removeClass('ctcat');
-				$("#nav>ul").css({
+				$("#nav>ul>li").removeClass('ctcat');
+				$("#nav").css({
 					'width':media_width,
 					'height':media_height,
 					'left':0,
 					'top':0,
 					'z-index':999999
 				})
-				$("#nav>ul>h2").css({
+				$("#nav>ul>li").css({
 					'width':media_width,
 					'height':'15%',
 					'line-height':h2_lineheight+'px',
@@ -114,7 +118,7 @@ iRuxu 2014.10.30
 					'border':'none'
 				})
 			})
-			$("h2").click(function(){
+			$("#nav>ul>li").click(function(){
 				$("#nav").css('display','none');
 			})
 		}
