@@ -390,35 +390,35 @@ h1:hover {
 .content {
   padding: 20px;
 }
-* .content ul {
-  width: 220px;
-  margin-right: 10px;
-  display: inline-block;
+.content ul {
+  _width: 220px;
+  _margin-right: 10px;
+  _display: inline-block;
   *display: inline;
   *zoom: 1;
   _float: left;
-  overflow: hidden;
+  _overflow: hidden;
 }
-* .content span {
-  display: none;
-  overflow: hidden;
+.content span {
+  _display: none;
+  _overflow: hidden;
 }
-* .content ul li ul li span {
+.content ul li ul li span {
   _width: 280px;
-  display: none;
+  _display: none;
   padding: 5px;
   position: absolute;
-  background-color: #222;
-  border: 1px solid #111;
-  color: #ccc;
-  font-weight: normal;
-  border-radius: 4px;
+  _background-color: #222;
+  _border: 1px solid #111;
+  _color: #ccc;
+  _font-weight: normal;
+  _border-radius: 4px;
 }
-* .content h4 span {
-  display: inline;
+.content h4 span {
+  _display: inline;
 }
-* .content h3 span,
-*.footer h6 span {
+.content h3 span,
+.footer h6 span {
   _position: relative;
   _top: -22px;
 }
