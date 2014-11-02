@@ -614,7 +614,12 @@
 							<br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
 							<br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
 							<br><textarea name="" id="" cols="30" rows="10">
-								filter:alpha(opacity=80);opacity:0.8;
+								.tm(@tm){
+								    @alpha:@tm*100;
+								    opacity:@tm;
+								    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{alpha})";
+								    filter:alpha(opacity=@alpha);
+								}
 							</textarea></span></li>
 						<li><a href="">filter</a>
 								<span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
@@ -1177,6 +1182,8 @@
 							<br><a href="http://pewper.blog.163.com/blog/static/2970860820126261195866/">详细参考资料</a>
 							<br>6.IE7-li浮动的空白间隙
 							<br>当li中出现2个或以上的浮动时,li之间产生的空白间隙,设置li的vertical-align属性,例如li{vertical-align:top;}
+							<br />7.IE6下块级元素中的内联元素浮动，会下沉。
+							<br />8.IE6下的转换inline-block元素不会自带间距，需要主动设置，并需要设置float以对齐
 						</span></li>
 						<li><a href="">clear</a><span>清除浮动：none,left,right,both</span></li>
 						<li><a href="">position:static</a><span>对象遵循常规流</span></li>
