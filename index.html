@@ -52,7 +52,7 @@
 	</p>	
 </div>
 <div id="main" class="main clearfix">
-	<div id="CSS" class="content clearfix" >
+	<div id="CSS" class="content clearfix">
 		<ul>
 			<li>
 				<h3>选择器<span>-</span></h3>
@@ -74,20 +74,20 @@
 						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
 							<br>但在IE6中有BUG,需要分开写在2个选择符中
 							<br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span></li>
-						<li><a href="">expression</a><span>表达式</span></li>
 						<li><a href="">@charset</a><span>@charset "utf-8";
 							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
 							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
-						<li><a href="http://labs.qianduan.net/css-selector/">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持.
-						<br />Selectivizr需要注意以下几点：
-							<br />Selectivizr会自动检测最好的JS框架，如果你当前页面中正在使用如JQuery框架，但是它对Selectivizr的支持并不太好，你只需要在页面中再调用另一个（如Mootools）即可。
-							<br />CSS样式必须使用link标签引入，还可以使用@import，但不能在页面里使用style来定义。
-							<br />Selectivizr必须运行在标准模式，所以你要确保你有一个DTD在你的页面顶部。
-							</span></li>
+						
 						<li><a href="https://github.com/necolas/normalize.css">Normalize.css</a></li>
 					</ul>
 					<h4>[<span>-</span>]HACK</h4>
 					<ul>
+						<li><a href="http://labs.qianduan.net/css-selector/">CSS3 Selector</a><span>使用CSS3选择器,IE6-8不支持.
+							<br />Selectivizr需要注意以下几点：
+							<br />Selectivizr会自动检测最好的JS框架，如果你当前页面中正在使用如JQuery框架，但是它对Selectivizr的支持并不太好，你只需要在页面中再调用另一个（如Mootools）即可。
+							<br />CSS样式必须使用link标签引入，还可以使用@import，但不能在页面里使用style来定义。
+							<br />Selectivizr必须运行在标准模式，所以你要确保你有一个DTD在你的页面顶部。
+							</span></li>
 						<li><a href="">if IE</a>
 							<span>条件HACK
 							<br><textarea name="" id="" cols="30" rows="10"><!--[if IE]>
@@ -101,11 +101,160 @@
 							<br> *key: IE7及以下,+或#亦可
 							<br> _key: IE6及以下,-亦可
 							<br> [;property:value;]; webkit(Chrome,Safari)
-							<br>参考资料：<a href="http://css.doyoe.com/">GO TO!</a></span></li>
+							<br>参考资料：<a href="http://css.doyoe.com/">GO TO!</a>
+							<br />属性级HACK一览
+							<br /><table cellspacing="0">
+									<tbody>
+									<tr>
+									<td>hack</td>
+									<td>写法</td>
+									<td>实例</td>
+									<td>IE6(S)</td>
+									<td>IE6(Q)</td>
+									<td>IE7(S)</td>
+									<td>IE7(Q)</td>
+									<td>IE8(S)</td>
+									<td>IE8(Q)</td>
+									<td>IE9(S)</td>
+									<td>IE9(Q)</td>
+									<td>IE10(S)</td>
+									<td>IE10(Q)</td>
+									</tr>
+									<tr>
+									<td>*</td>
+									<td>*color</td>
+									<td>青色</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									</tr>
+									<tr>
+									<td>+</td>
+									<td>+color</td>
+									<td>绿色</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									</tr>
+									<tr>
+									<td>-</td>
+									<td>-color</td>
+									<td>黄色</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									</tr>
+									<tr>
+									<td>_</td>
+									<td>_color</td>
+									<td>蓝色</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>N</td>
+									</tr>
+									<tr>
+									<td>#</td>
+									<td>#color</td>
+									<td>紫色</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									</tr>
+									<tr>
+									<td>\0</td>
+									<td>color:red\0</td>
+									<td>红色</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									</tr>
+									<tr>
+									<td>\9\0</td>
+									<td>color:red\9\0</td>
+									<td>粉色</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									</tr>
+									<tr>
+									<td>!important</td>
+									<td>color:blue !important;color:green;</td>
+									<td>棕色</td>
+									<td>N</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>N</td>
+									<td>Y</td>
+									<td>Y</td>
+									</tr>
+									</tbody>
+									</table>
+							<br>说明：在标准模式中
+								<br>“-″减号是IE6专有的hack
+								<br>“\9″ IE6/IE7/IE8/IE9/IE10都生效
+								<br>“\0″ IE8/IE9/IE10都生效，是IE8/9/10的hack
+								<br>“\9\0″ 只对IE9/IE10生效，是IE9/10的hack
+								<br><a href="http://blog.csdn.net/freshlover/article/details/12132801">参考资料</a>
+							</span></li>
 						<li><a href="">*selector</a><span>选择符级HACK
 							<br> * selector: IE6及以下
-							<br> * + selector : IE7
+							<br> *+ selector : IE7
+							<br><a href="http://img.blog.csdn.net/20130928162104078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnJlc2hsb3Zlcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">结合选择器能力</a>
 						</span></li>
+						<li><a href="">expression</a><span>表达式</span></li>
 					</ul>
 					<h4>[<span>-</span>]常用选择符</h4>
 					<ul>
@@ -326,13 +475,17 @@
 						IE6的1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a></span></li>
 						<li><a href="">height</a><span>高度<br>在IE6下，如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%;。</span></li>
 						<li><a href="">max-width</a><span>最大宽度
-							<br>IE6不支持 min-width/height | max-width/height
-							<br>但IE6中溢出高度容易会随之一起增长,故对IE6使用属性HACK _height即可。
-							<br>.test{min-height:200px;_height:200px;}
 							</span></li>
 						<li><a href="">max-height</a><span>最大高度</span></li>
-						<li><a href="">min-width</a><span>最小宽度</span></li>
-						<li><a href="">min-height</a><span>最小高度</span></li>
+						<li><a href="">min-width</a><span>最小宽度
+							<br />IE6不支持 min-width
+							<br />使用表达式
+							<br /><textarea name="" id="" cols="60" rows="10">expression(eval(document.documentElement.clientWidth||document.body.clientWidth)<280?'280px':''</textarea>
+							</span></li>
+						<li><a href="">min-height</a><span>最小高度
+							<br>IE6不支持 min-height
+							<br>但IE6中溢出高度容易会随之一起增长,故对IE6使用属性HACK _height即可。
+							<br>.test{min-height:200px;_height:200px;}</span></li>
 					</ul>
 					<h4>[<span>-</span>]边框</h4>
 					<ul>
@@ -399,7 +552,7 @@
 					<ul>
 						<li><a href="">color</a>
 								<span>颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
-								<br>transparent  透明（IE8-不支持）
+								<br>transparent,IE6及更早浏览器只有background-color接受transparent取值。IE7及IE8除了background-color，还有border-color也开始接受transparent取值。
 								<br>rgba(255,255,255,0.8) 带Alpha通道的颜色模式,可以半透明（IE8-不支持）
 								<br>让IE8-通过IE滤镜来实现rgba效果
 								<br><textarea name="" id="" cols="30" rows="10">
@@ -871,67 +1024,71 @@
 					<ul>
 						<li><a href="">box-sizing</a>
 							<span>
-								content-box：padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding ) 此属性表现为标准模式下的盒模型。 
-							<br>border-box：padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。 
-							</span></li>
+							<b>content-box</b>：padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding ) 此属性表现为标准模式下的盒模型。 
+							<br>
+							<b>border-box</b>：padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。 
+							</span>
+						</li>
 						<li><a href="">display</a>
 							<span>
 								完整参考资料：<a href="http://www.w3.org/TR/css-display/">W3C</a>
 								<br>当元素float,fixed,abosulte或者为根元素时,总是表现为块级元素
 								<table border="1" cellspacing="0" cellpadding="2">
-								<tbody>
-								<tr>
-								<td valign="top">none</td>
-								<td valign="top">隐藏对象,不保留物理空间</td>
-								</tr>
-								<tr>
-								<td valign="top">inline</td>
-								<td valign="top">内联元素 a,span,文本格式化(b,strong,i,em,sub,sup)</td>
-								</tr>
-								<tr>
-								<td valign="top">block</td>
-								<td valign="top">块级元素 div,p,h1~h6,h5,form,ul,ol新元素</td>
-								</tr>
-								<tr>
-								<td valign="top">inline-block</td>
-								<td valign="top">表单内部元素(input,button,textarea,label),img</td>
-								</tr>
-								<tr>
-								<td valign="top">list-item</td>
-								<td valign="top">列表项目li</td>
-								</tr>
-								<tr>
-								<td valign="top">table</td>
-								<td valign="top">块级元素级的表格table,表格内部元素表现为对应的table-cell等</td>
-								</tr>
-								<tr>
-								<td valign="top">inline-table</td>
-								<td valign="top">内联元素级的表格</td>
-								</tr>
-								<tr>
-								<td valign="top">flex</td>
-								<td valign="top">弹性伸缩盒</td>
-								</tr>
-								<tr>
-								<td valign="top">inline-flex</td>
-								<td valign="top">内联块级弹性伸缩盒</td>
-								</tr>
-								<tr>
-								<td valign="top">run-in</td>
-								<td valign="top">根据上下文决定对象是内联对象还是块级对象</td>
-								</tr>
-								</tbody>
+									<tbody>
+									<tr>
+									<td valign="top">none</td>
+									<td valign="top">隐藏对象,不保留物理空间</td>
+									</tr>
+									<tr>
+									<td valign="top">inline</td>
+									<td valign="top">内联元素 a,span,文本格式化(b,strong,i,em,sub,sup)</td>
+									</tr>
+									<tr>
+									<td valign="top">block</td>
+									<td valign="top">块级元素 div,p,h1~h6,h5,form,ul,ol新元素</td>
+									</tr>
+									<tr>
+									<td valign="top">inline-block</td>
+									<td valign="top">表单内部元素(input,button,textarea,label),img</td>
+									</tr>
+									<tr>
+									<td valign="top">list-item</td>
+									<td valign="top">列表项目li</td>
+									</tr>
+									<tr>
+									<td valign="top">table</td>
+									<td valign="top">块级元素级的表格table,表格内部元素表现为对应的table-cell等</td>
+									</tr>
+									<tr>
+									<td valign="top">inline-table</td>
+									<td valign="top">内联元素级的表格</td>
+									</tr>
+									<tr>
+									<td valign="top">flex</td>
+									<td valign="top">弹性伸缩盒</td>
+									</tr>
+									<tr>
+									<td valign="top">inline-flex</td>
+									<td valign="top">内联块级弹性伸缩盒</td>
+									</tr>
+									<tr>
+									<td valign="top">run-in</td>
+									<td valign="top">根据上下文决定对象是内联对象还是块级对象</td>
+									</tr>
+									</tbody>
 								</table>
 								关于inline-block:
 								<br>IE6,7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
 								<br>解决方案：
 								<br>div{display:inline-block;*display:inline;*zoom:1;}
 								<hr>全部属性：display：none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | run-in | box | inline-box | flexbox | inline-flexbox | flex | inline-flex
-							</span></li>
-						<li><a href="">zoom</a><span>
-								设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
-								<br>可用于触发IE6的haslayout.  <a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
-						</span></li>
+							</span>
+						</li>
+						<li><a href="">zoom</a>
+							<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
+								<br>可用于触发IE6的haslayout.<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
+							</span>
+						</li>
 					</ul>
 					<h4>[<span>-</span>]层属性</h4>
 					<ul>
@@ -996,9 +1153,13 @@
 							</textarea>
 							<hr>2.浮动原理1.环绕特性本质，2.脱离文本流特性
 							<br>举例说明：
-							<br><textarea name="" id="" cols="60" rows="10"><div class="ok" style="width:100px;height:100px;background:#00ccff;float:left;margin-right:10px">浮动的margin不折叠，就算没border&padding</div>
-							<div class="ok" style="width:120px;height:120px;background:#ff3399;margin-left:10px;float:left;margin-right:20px">我不浮动掉下面去</div>
-							<h2 style="background:#ccc;margin-left:10px;padding-left:20px;"><div>含内部布局的又一块级元素<br>包围他们</div></h2></textarea>
+							<br>
+							<textarea name="" id="" cols="60" rows="10">
+								<div class="ok" style="width:100px;height:100px;background:#00ccff;float:left;margin-right:10px">浮动的margin不折叠，就算没border&padding</div>
+								<div class="ok" style="width:120px;height:120px;background:#ff3399;margin-left:10px;float:left;margin-right:20px">我不浮动掉下面去</div>
+								<h2 style="background:#ccc;margin-left:10px;padding-left:20px;">
+								<div>含内部布局的又一块级元素<br>包围他们</div></h2>
+							</textarea>
 							<br>当右侧浮动内容超出剩余宽度时,会整体换行,此时可以指定右侧宽度或利用函数动态计算可用空间calc(100%-left)
 							<hr>3.浮动闭合问题
 							<br>解决方案：
@@ -1022,7 +1183,7 @@
 						<li><a href="">position:relative</a><span>相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素</span></li>
 						<li><a href="">position:absolute</a><span>绝对定位：
 							<br>1.对象脱离常规流，使用top，right，bottom，left等属性进行绝对定位，盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。
-							<br>2.未定义坐标：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。如无兄弟元素则贴在父元素起点。
+							<br>2.未定义坐标：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。如无兄弟元素则贴在父元素起点。<b>即绝对定位在不赋值位置属性时，可作为脱离文档流的相对定位。</b>
 							<br>3.坐标总是以最近的被定位的父级元素为基准,如没有则以window窗口.</span></li>
 						<li><a href="">position:fixed</a><span>窗口定位：
 							<br>对象脱离常规流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。
@@ -1050,9 +1211,10 @@
 							<br>在IE浏览器中，定位元素的z-index层级是相对于各自的父级容器，所以会导致z-index出现错误的表现。解决方法是给其父级元素定义z-index，有些情况下还需要定义position:relative。
 							<br><a href="http://css.doyoe.com/properties/positioning/z-index.htm">实例参考</a>
 						</span></li>
-						<li><a href="">clip</a><span>剪裁,绝对定位元素.
-							<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁. <a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a>
-						</span></li>
+						<li><a href="">clip</a>
+								<span>剪裁,绝对定位元素.
+								<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁. <a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a>
+								</span></li>
 					</ul>
 					<h4>[<span>+</span>]Box</h4>
 					<ul style="display:none">
@@ -1083,8 +1245,8 @@
 					</ul>
 					<h4>[<span>-</span>]Flex</h4>
 					<ul>
-						<li><a href="">flex</a><span>
-						<a href="http://demo.agektmr.com/flexbox/">在线调试flexbox布局效果</a>
+						<li><a href="">flex</a>
+								<span><a href="http://demo.agektmr.com/flexbox/">在线调试flexbox布局效果</a></span></li>
 						<li><a href="">flex-grow</a>
 								<span>剩余空间的扩展比例,默认值0</span></li>
 						<li><a href="">flex-shrink</a>
@@ -1102,18 +1264,18 @@
 						<li><a href="">align-content</a><span></span></li>
 						<li><a href="">align-items</a><span>
 							flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
-							flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
-							center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
-							baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
-							stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+							<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+							<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+							<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+							<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
 						</span></li>
 						<li><a href="">align-self</a><span>
 							auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
-							flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
-							flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
-							center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
-							baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
-							stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+							<br>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+							<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+							<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+							<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+							<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
 						</span></li>
 						<li><a href="">justify-content</a><span>
 							flex-start：弹性盒子元素将向行起始位置对齐。该行的第一个子元素的主起始位置的边界将与该行的主起始位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
@@ -1376,8 +1538,8 @@
 								</tbody>
 								</table>
 						</span></li>
-						<li><a href="">避免编译</a><span>~"特殊内容"</span></li>
-						<li><a href="">Javascript表达式</a><span>`反单引号`</span></li>
+						<li><a href="">~避免编译</a><span>~特殊内容</span></li>
+						<li><a href="">`JS表达式</a><span>`反单引号`</span></li>
 					</ul>
 				</div>
 			</li>
@@ -1395,7 +1557,8 @@
 					</ul>
 				</div>
 			</li>
-		</ul></div>
+		</ul>
+	</div>
 	<div id="HTML" class="content clearfix" style="display:none">
 		<ul>
 			<li>
@@ -1633,6 +1796,7 @@
 								<meta name="msapplication-tap-highlight" content="no">
 							</textarea>
 						</span></li>
+						<li><a href="http://blog.csdn.net/freshlover/article/details/25322839">window8</a></li>
 					</ul>
 					<h4>[<span>-</span>]iOS</h4>
 					<ul>
@@ -1960,8 +2124,8 @@
 						<li><a href="">video</a><span>定义一个音频或者视频</span></li>
 						<li><a href="">source</a><span>定义media元素 (video 和 audio)的媒体资源</span></li>
 						<li><a href="">track</a><span>为媒体(video 和 audio)元素定义外部文本轨道。</span></li>
-						<li><a href="">object</a><span>定义了一个容器，用来嵌入外部应用或者互动程序（插件）。</span></li></span></li>
-						<li><a href="">embed</a><span>定义嵌入的对象。
+						<li><a href="">object</a><span>定义了一个容器，用来嵌入外部应用或者互动程序（插件）。</span></li>
+						<li><a href="">embed</a><span>定义嵌入的对象。</span></li>
 						<li><a href="">param</a><span>定义对象的参数。</span></li>
 					</ul>
 				</div>
@@ -1990,7 +2154,7 @@
 						<li><a href="">onratechange</a><span>播放速度发送改变时触发</span></li>
 						<li><a href="">onseeked</a><span>重新定位视频/音频（audio/video）的播放位置后触发</span></li>
 						<li><a href="">onseeking</a><span>开始重新定位视频/音频（audio/video）时触发</span></li>
-						<li><a href="">onstalled</a><span>事件在浏览器获取媒体数据，但媒体数据不可用时触发。	</span></li>
+						<li><a href="">onstalled</a><span>事件在浏览器获取媒体数据，但媒体数据不可用时触发。</span></li>
 						<li><a href="">onsuspend</a><span>事件在浏览器读取媒体数据中止时触发。</span></li>
 						<li><a href="">ontimeupdate</a><span>事件在当前的播放位置发送改变时触发。</span></li>
 						<li><a href="">onvolumechange</a><span>件在音量发生改变时触发。	</span></li>
@@ -2052,7 +2216,6 @@
 					</ul>
 					<h4>[<span>-</span>]Attributes</h4>
 					<ul>
-						
 						<li><a href="">stroke</a>(color)<span>轮廓颜色</span></li>
 						<li><a href="">stroke-width</a><span>轮廓宽度</span></li>
 						<li><a href="">stroke-linecap</a><span>轮廓终结样式</span></li>
@@ -2063,7 +2226,6 @@
 					</ul>
 					<h4>[<span>-</span>]Other Elements</h4>
 					<ul>
-						
 						<li><a href="">animate</a><span></span></li>
 						<li><a href="">a</a><span></span></li>
 						<li><a href="">defs</a><span></span></li>
@@ -2083,7 +2245,6 @@
 						<li><a href=""></a><span></span></li>
 						<li><a href=""></a><span></span></li>
 					</ul>
-					
 				</div>
 			</li>
 		</ul>
@@ -2222,7 +2383,6 @@
 					</ul>
 				</div>
 			</li>
-			
 		</ul>
 		<ul>
 			<li>
@@ -2253,860 +2413,810 @@
 				<div style="display:none">
 					<h4>[<span>-</span>]接口</h4>
 					<ul>
-					<li><a href="http://tongji.baidu.com/web/welcome/login">百度统计</a></li>
-					<li><a href="http://shang.qq.com/v3/widget.html">QQ(群)推广</a></li>
-					<li><a href="https://mp.weixin.qq.com/">微信公众平台</a></li>
-					<li><a href="http://open.weibo.com/developers">新浪微博开放平台</a></li>
-					<li><a href="http://dev.open.t.qq.com/websites/">腾讯微博开放平台</a></li>
-					<li><a href="https://www.dnspod.cn/Domain">DNSPOD</a></li>
+						<li><a href="http://tongji.baidu.com/web/welcome/login">百度统计</a></li>
+						<li><a href="http://shang.qq.com/v3/widget.html">QQ(群)推广</a></li>
+						<li><a href="https://mp.weixin.qq.com/">微信公众平台</a></li>
+						<li><a href="http://open.weibo.com/developers">新浪微博开放平台</a></li>
+						<li><a href="http://dev.open.t.qq.com/websites/">腾讯微博开放平台</a></li>
+						<li><a href="https://www.dnspod.cn/Domain">DNSPOD</a></li>
 					</ul>
 					<h4>[<span>-</span>]其他</h4>
 					<ul>
-					<li><a href="http://top.baidu.com/index.php">百度搜索风云榜</a></li>
-					<li><a href="http://www.sojump.com/">问卷星</a></li>
-					<li><a href="http://share.baidu.com/">百度分享</a></li>
-					<li><a href="http://www.wumii.com/widget/relatedItems.htm">无觅关联</a></li>
-					<li><a href="http://exmail.qq.com/login">腾讯企业邮箱</a></li>
+						<li><a href="http://top.baidu.com/index.php">百度搜索风云榜</a></li>
+						<li><a href="http://www.sojump.com/">问卷星</a></li>
+						<li><a href="http://share.baidu.com/">百度分享</a></li>
+						<li><a href="http://www.wumii.com/widget/relatedItems.htm">无觅关联</a></li>
+						<li><a href="http://exmail.qq.com/login">腾讯企业邮箱</a></li>
 					</ul>
 				</div>
 			</li>
 		</ul>
-		</div>
+	</div>
 	<div id="javascript" class="content clearfix" style="display:none">
-			<ul>
-				<li>
-					<h3>数据类型<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]类型检测</h4>
-						<ul>
-							<li><a href="">Javscript data types</a><span>
-								JS数据类型:
-								<br>Undefined Null Boolean Number String Object 
-								<br>其中Array,function都属于Object
-								<br>一切皆为对象，new Object / new Boolean() / new Number() / new String() / new <br>Array()  / new Function() / new 构造函数名()</span></li>
-							<li><a href="">typeof</a> value
-									<span><div>typeof数据类型测试返回值（返回的是字符串）</div>
-										<div>
-										<table border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top">undefined</td>
-										<td valign="top">未定义</td>
-										</tr>
-										<tr>
-										<td valign="top">boolean</td>
-										<td valign="top">布尔值</td>
-										</tr>
-										<tr>
-										<td valign="top">string</td>
-										<td valign="top">字符串/JSON</td>
-										</tr>
-										<tr>
-										<td valign="top">number</td>
-										<td valign="top">数值</td>
-										</tr>
-										<tr>
-										<td valign="top">object</td>
-										<td valign="top">对象/null</td>
-										</tr>
-										<tr>
-										<td valign="top">function</td>
-										<td valign="top">function</td>
-										</tr>
-										</tbody>
-										</table>
-										</div>
-										<div></div>
-										<ol>
-											<li>
-										不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
-											<li>
-										Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样， 当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
-											<li>
-										undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
-										</ol></span></li>
-							<li>value <a href="">instanceof</a> types
-									<span>instanceof引用类型数据测试
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top">value instanceof Array</td>
-										<td valign="top">数组</td>
-										</tr>
-										<tr>
-										<td valign="top">value instanceof Obj</td>
-										<td valign="top">构造函数实例</td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div>value instanceof Date</div></td>
-										<td valign="top">日期时间</td>
-										</tr>
-										<tr>
-										<td valign="top">value instanceof RegExp</td>
-										<td valign="top">正则表达式</td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div>value instanceof Math</div></td>
-										<td valign="top">数学</td>
-										</tr>
-										</tbody>
-										</table></span></li>
-							<li><a href="">isNaN</a>(value)<span>是否为非数值,转换后非数值为true，数值false
-								<br>1. 非数值执行运算，会隐藏自动转型（除+）
-								<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
-							<li><a href="">isFinite</a>(value)<span>判断是否为无穷值超出计算范围</span></li>
-							<li><a href="">Array.isArray</a>(value)<span>检测是否为数组（EC5）</span></li>
-						</ul>
-						<h4>[<span>-</span>]类型转换</h4>
-						<ul>
-							
-							<li><a href="">Boolean</a>(value)<span>
-									Boolean(value)布尔转换规则 （控制流会自动转换）
-									<div>
-										<div>Boolean(value) 布尔转换规则 （控制流会自动转换）</div>
-										<div>
-										<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top">Boolean(value)</td>
-										<td valign="top">true</td>
-										<td valign="top">false</td>
-										</tr>
-										<tr>
-										<td valign="top">undefined</td>
-										<td valign="top"></td>
-										<td valign="top">undefined</td>
-										</tr>
-										<tr>
-										<td valign="top">boolean</td>
-										<td valign="top">true</td>
-										<td valign="top">false</td>
-										</tr>
-										<tr>
-										<td valign="top">string</td>
-										<td valign="top">非空</td>
-										<td valign="top">空</td>
-										</tr>
-										<tr>
-										<td valign="top">number</td>
-										<td valign="top">非零数值</td>
-										<td valign="top">0与NaN</td>
-										</tr>
-										<tr>
-										<td valign="top">object</td>
-										<td valign="top">对象（包括空的对象）</td>
-										<td valign="top">null（空对象）</td>
-										</tr>
-										</tbody>
-										</table>
-										<div></div>
-										</div>
-										</div></span></li>
-							<li><a href="">Number</a>(value)<span>
-									用于任何数据类型
-									<br>number=number
-									<br>boolean=1 / 0
-									<br>undefined=NaN
-									<br>null=0
-									<br>空字符串=0
-									<br>非数值(string+/object)=NaN</span></li>
-							<li><a href="">parseInt</a>(str)<span>
-									用于字符串，自动判定进制
-									<br>忽略空格，空字符串=NaN
-									<br>第一个非空字符不是数值或负号=NaN
-									<br>第一个非空字符是数值，遇到非数值时停止解析=number</span></li>
-							<li><a href="">parseFloat</a>(str)<span>
-								用于字符串
-								<br>第一个小数点有效，第二个无效</span></li>
-							<li>all.<a href="">toString</a>([16])<span>所有类型（除Null,undefined）,数值转成字符串的时候，可以传递进制参数，默认10进制</span></li>
-							<li><a href="">String</a>(value)
-									<span>不确定null和undefined时,返回null和undefined</span></li>
-							<li>str.<a href="">split</a>(符号,num)
-									<span>字符串=>数组，符号+次数，多次分割，子项分割</span></li>
-							<li>arr.<a href="">join</a>(符号)
-									<span>数组=>字符串，把数组的所有元素放入一个字符串，元素通过指定的分隔符进行串联。</span></li>
-							<li><a href="">JSON.parse</a>(json)<span>JSON=>JS对象</span></li>
-							<li><a href="">JSON.stringify</a>(obj)<span>JS对象=>JSON</span></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3>数字<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]数字</h4>
-						<ul>
-							<li><a href="">Finity</a><span>
-								Finity isFinite(---) 判断是否为无穷
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<ul>
+			<li>
+				<h3>数据类型<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]类型检测</h4>
+					<ul>
+						<li><a href="">Javscript data types</a><span>
+							JS数据类型:
+							<br>Undefined Null Boolean Number String Object 
+							<br>其中Array,function都属于Object
+							<br>一切皆为对象，new Object / new Boolean() / new Number() / new String() / new <br>Array()  / new Function() / new 构造函数名()</span></li>
+						<li><a href="">typeof</a> value
+								<span>typeof数据类型测试返回值（返回的是字符串
+									<table border="1" cellspacing="0" cellpadding="2">
 									<tbody>
 									<tr>
-									<td valign="top">
-									<div>最大值</div></td>
-									<td valign="top">
-									<div>Number.MAX_VALUE 1.79e+308</div></td>
+									<td valign="top">undefined</td>
+									<td valign="top">未定义</td>
 									</tr>
 									<tr>
-									<td valign="top">
-									<div>最小值</div></td>
-									<td valign="top">
-									<div>Number.MIN_VALUE 5e-324</div></td>
+									<td valign="top">boolean</td>
+									<td valign="top">布尔值</td>
 									</tr>
 									<tr>
-									<td valign="top">
-									<div>正无穷</div></td>
-									<td valign="top">
-									<div>Number.POSITIVE_INFINITY</div></td>
+									<td valign="top">string</td>
+									<td valign="top">字符串/JSON</td>
 									</tr>
 									<tr>
-									<td valign="top">
-									<div>负无穷</div></td>
-									<td valign="top">
-									<div>Number.NEGATIVE_INFINITY</div></td>
+									<td valign="top">number</td>
+									<td valign="top">数值</td>
+									</tr>
+									<tr>
+									<td valign="top">object</td>
+									<td valign="top">对象/null</td>
+									</tr>
+									<tr>
+									<td valign="top">function</td>
+									<td valign="top">function</td>
 									</tr>
 									</tbody>
 									</table>
-									<div>
-									<ul>
-										<li>科学计数法，浮点数+e+10的指数</li>
-										<li>0/0=NaN，正数/0=正无穷，负数/0=负无穷</li>
-										<li>正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN</li>
-										<li>无穷乘法操作得到无穷，无穷除法与求余操作得到NaN</li>
-									</ul>
-									</div>
-									</div>
-							</span></li>
-							<li><a href="">NaN</a><span>
-									<div>NaN isNaN(---) 判断是否为NaN</div>
-										<div>
-										<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top">Number.NaN</td>
-										<td valign="top">
-										<div>得到 NaN 值</div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div>var box = 0 / 0; //NaN
-										var box = 12 / 0; //Infinity
-										var box = 12 / 0 * 0; //NaN</div></td>
-										<td valign="top">
-										<div>任何与 NaN 进行运算的结果均为 NaN</div></td>
-										</tr>
-										<tr>
-										<td valign="top">alert(NaN == NaN) //false</td>
-										<td valign="top">NaN 与自身不相等(NaN 不与任何值相等)</td>
-										</tr>
-										</tbody>
-										</table>
-										<div></div>
-										</div>
-										<div>
-										<ul>
-											<li>isNaN()函数也适用于对象。</li>
-											<li>在调用 isNaN()函数过程中，首先会调用 valueOf()方法， 然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</li>
-											<li>只要NaN参与的运算均为NaN</li>
-										</ul>
-										</div>
-										<div></div>
-							</span></li>
-							<li><a href="">toFixed(N)</a><span>把数字转换为字符串，结果的小数点后有指定位数的数字。</span></li>
-							<li><a href="">toString(进制)</a><span>把数字转换为字符串，使用指定的基数。</span></li>
-							<li><a href="">toLocaleString()</a><span>根据本地数字格式转换为字符串 1,000.789</span></li>
-							<li><a href="">toExponential(N)</a><span>把对象的值转换为指数计数法。N小数点后位数</span></li>
-							<li><a href="">toPrecision(N)</a><span>把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。</span></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3>数学<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]Math</h4>
-						<ul>
-							<li><a href="">random()</a></li>
-							<li><a href="">ceil()</a></li>
-							<li><a href="">floor()</a></li>
-							<li><a href="">round()</a></li>
-							<li><a href="">sqrt()</a></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<h3>字符串<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]字符位置</h4>
-						<ul>
-							<li><a href="">charAt(N)</a><span>返回索引上的字符</span></li>
-							<li><a href="">charCodeAt(N)</a><span>返回在指定的位置的字符的 Unicode 编码</span></li>
-							<li><a href="">indexOf("A",n)</a><span>返回索引位置，正向查找字符所在的索引</span></li>
-							<li><a href="">lastIndexOf("A",n)</a><span>返回索引位置，逆向查找</span></li>
-						</ul>
-						<h4>[<span>-</span>]位置筛选</h4>
-						<ul>
-							<li><a href="">slice / substring(n,m)</a><span>显示索引范围内的字符串，返回新字符串，包含起始不包含结尾</span></li>
-							<li><a href="">substr(n,x)</a><span>显示指定索引起范围内的字符串，返回新字符串
-								<div>
-									<blockquote>
-									<div>
-									<ul>
-										<li>slice / substring / substr 负数</li>
-									</ul>
-									</div></blockquote>
-									</div>
-									<blockquote>
-									<div>
-									<blockquote>
-									<div>单个负数：</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>alert(box.slice(-3)); //Lee，6+(-3)=3 位开始           length-n</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>alert(box.substring(-3)); //Mr.Lee 负数返回全部      返回全部</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>alert(box.substr(-3)); //Lee，6+(-3)=3 位开始        length-n</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>第二位负数：</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>alert(box.slice(3, -1)); //Le 6+(-1)=5, (3,5)             a,length-n</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>alert(box.substring(3, -1)); //Mr. 第二参为负，直接转 0，并且方法会把较小的数字提前，(0,3)     a,0</div></blockquote>
-									</div>
-									<div>
-									<blockquote>
-									<div>alert(box.substr(3, -1)); //'' 第二参数为负，直接转 0 ，(3,0)   a,0</div>
-									<div></div></blockquote>
-									</div></blockquote></span></li>
-						</ul>
-						<h4>[<span>-</span>]匹配替换</h4>
-						<ul>
-							<li><a href="">match(正则/匹配值)</a><span>返回数组，没找到则返回null，正则识别全局</span></li>
-							<li><a href="">search(正则/匹配值)</a><span>返回起始的索引，没找到则返回-1，始终从头开始找，找到一个即返回，正则无需全局设置 strt </span></li>
-							<li><a href="">replace(正则/匹配值,"替换目标") </a><span>返回新字符串对象，识别正则全局，function可内含一个switch控制流</span></li>
-						</ul>
-						<h4>[<span>-</span>]串联分割</h4>
-						<ul>
-							<li><a href="">concat()</a><span>返回新字符串，串联</span></li>
-							<li><a href="">split(*/正则,N)</a><span>返回数组，把字符串按指定符号或正则分割为字符串数组</span></li>
-						</ul>
-						<h4>[<span>-</span>]其他方法</h4>
-						<ul>
-							<li><a href="">trim()</a><span>返回新字符串，删除前置与后置空格</span></li>
-							<li><a href="">toUpperCase()</a><span>返回新字符串，转换大写 toLocaleUpperCase()</span></li>
-							<li><a href="">toLowerCase()</a><span>返回新字符串，转换小写 toLocaleLowerCase()  </span></li>
-							<li><a href="">localeCompare()</a><span>大写小写，在之后（大于），返回1，在之前（小于），返回-1，相等，返回0</span></li>
-							<li><a href="">String.fromCharCode(编码)</a><span>返回编码转回的字符串</span></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3>正则表达式<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]RegEXP</h4>
-						<ul>
-							<li><a href="">test()</a><span>在字符串中测试模式匹配，返回 true 或 false</span></li>
-							<li><a href="">exec()</a><span>在字符串中执行匹配搜索，返回结果数组或null</span></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3>日期<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]Date</h4>
-						<ul>
-							<li><a href="">getFullYear()</a></li>
-							<li><a href="">getMonth()</a>[0-11]</li>
-							<li><a href="">getDate()</a></li>
-							<li><a href="">getDay()</a>[0-6]</li>
-							<li><a href="">getHours()</a></li>
-							<li><a href="">getMinutes()</a></li>
-							<li><a href="">getSeconds()</a></li>
-							<li><a href="">getMilliseconds()</a></li>
-							<li><a href="">getTime()</a></li>
-							<li><a href="">parse()</a></li>
-							<li><a href="">toString</a></li>
-							<li><a href="">toUTCString</a></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-			<ul>
-				<li>
-				<h3>数组<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]基本概念</h4>
-						<ul>
-							<li><a href="">创建方法</a><span><strong><span style="font-size: small;">创建方式</span></strong>
-									<div>
-									<div>
-									<table width="88%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top"><span style="font-size: small;">构造函数</span></td>
-									<td valign="top">
-									<div><span style="font-size: small;">var arr = new Array();</span></div>
-									<div><span style="font-size: small;">arr[0]=value<strong>;</strong> </span></div>
-									<div>
-									<pre xml:space="preserve"></pre>
-									<div><span style="font-size: small;">var arr = new Array(<em>element0</em>, <em>element1</em>, ..., <em>elementn</em>);</span></div>
-									</div>
-									<div><span style="font-size: small;">var arr = new Array(<em>size</em>);  [size=数组项目的个数,只写1位,且必须是数字]</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top"><span style="font-size: small;">字面量</span></td>
-									<td valign="top"><span style="font-size: small;">var arr = [66,80,90,77,59]</span></td>
-									</tr>
-									</tbody>
-									</table>
-									</div>
-									<div><span style="font-size: small;"> </span></div>
-									<div>
-									<div><span style="font-size: small;"><strong>注意：</strong><br clear="none" />1. ECMAScript中的数组每个元素可以保存任何类型</span></div>
-									<div><span style="font-size: small;">2. ECMAScript 中数组的大小也是可以调整的。</span></div>
-									<div><span style="font-size: small;">3. var arr = new Array(<em>10</em>)  不等于 var arr = [10]</span></div>
-									</div>
-									</div></span></li>
-							<li><a href="">.length</a><span><div><b><span style="font-size: small;">数组属性·长度Length</span></b></div>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top"><span style="font-size: small;">str.length</span></td>
-									<td valign="top"><span style="font-size: small;">字符串长度</span></td>
-									</tr>
-									<tr>
-									<td valign="top"><b><span style="font-size: small;">arr.length</span></b></td>
-									<td valign="top"><span style="font-size: small;">数组长度</span></td>
-									</tr>
-									<tr>
-									<td valign="top"><span style="font-size: small;">function.length</span></td>
-									<td valign="top"><span style="font-size: small;">参数长度/个数</span></td>
-									</tr>
-									<tr>
-									<td valign="top"><span style="font-size: small;">object &amp; number类型无length</span></td>
-									<td valign="top"></td>
-									</tr>
-									</tbody>
-									</table>
-									<div><span style="font-size: small;"> </span></div>
-									</div>
-									<div><span style="font-size: small;"> </span></div></span></li>
-							<li><a href="">[index]</a><span><div><b><span style="font-size: small;">数组下标</span></b></div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">var  box =[];</span></div>
-									<div><span style="font-size: small;">box['name']=iRuxu;</span></div>
-									<div><span style="font-size: small;">alert(box);  </span><a><span style="font-size: small;">//空</span></a></div>
-									<div><span style="font-size: small;">alert(box['name']); </span><a><span style="font-size: small;">//iRuxu</span></a></div>
-									<div><span style="font-size: small;">alert(box[0]); </span><a><span style="font-size: small;">//iRuxu</span></a><span style="font-size: small;"> </span></div></td>
-									</tr>
-									</tbody>
-									</table>
-									<div><span style="font-size: small;">如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印</span></div>
-									<div><span style="font-size: small;"> </span></div>
-									<div><b><span style="font-size: small;">数组方法I</span></b></div></span></li>
-						</ul>
-						<h4>[<span>-</span>]添加移除</h4>
-						<ul>
-							<li><a href="">push()</a><span>栈：后方添加项目，返回总数。</span></li>
-							<li><a href="">pop()</a><span>栈：后方移除项目，返回移除项。</span></li>
-							<li><a href="">unshift()</a><span>队列：前方添加项目，返回总数。</span></li>
-							<li><a href="">shift()</a><span>队列：前方移除项目，返回移除项。</span></li>
-						</ul>
-						<h4>[<span>-</span>]串联分割</h4>
-						<ul>
-							<li><a href="">concat()</a><span>连接两个或更多的数组，并返回结果，返回新数组。（合并数组->新）</span></li>
-							<li><a href="">slice</a>(n,m)<span>从某个已有的数组返回选定的元素，返回新数组。（过滤数组->新）
-									<br>当含1个参数时，起始到末尾全部：slice(1)——索引为1开始到末尾
-									<br>当含2个参数时，起始到末尾-1：slice(1,4)——索引为1~3，不包含4</span></li>
-							<li><a href="">splice</a>(n,m,[val])<span>
-										方法向/从数组中添加/删除/替换项目，然后返回被删除的项目。
-										<br>注释：请注意，splice() 方法与 slice() 方法的作用是不同的，splice()方法会直接对数组进行修改。
-										<br>第1个参数为起始索引位置，第2个参数为删除的数目，当数目为0时则为添加项目，第3个参数开始为添加新的项目（如只删除无此参数）。
-										<br>splice(0,1)——位置0删除1项
-										<br>splice(2,0,arr1,arr2) ——位置2开始添加2项
-										<br>splice(1,1,100) —— 位置1删除并添加1项 
-							</span></li>
-							<li><a href="">join</a>(符号)<span>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</span></li>
-						</ul>
-						<h4>[<span>-</span>]排序</h4>
-						<ul>
-							<li><a href="">reverse()</a><span>反转</span></li>
-							<li><a href="">sort()</a><span>默认升序排列</span></li>
-							<li><a href="">sort</a>(fn)<span>严格升序或降序排列
-								<br>function sortNumber(a,b){return a - b  //降序b-a}
-								<br>sort方法参数如果提供一个函数，那么该函数必须返回以下值之一：
-								<br>负值，所传递的第一个参数比第二个参数小；
-								<br>正值，所传递的第一个参数比第二个参数大；
-								<br>零，两个参数相等。</span></li>
-							</ul>
-						<h4>[<span>-</span>]查找位置</h4>
-						<ul>
-							<li><a href="">indexOf</a>(value,n)<span>正向查找,n为起始索引,如查找不到则返回-1</span></li>
-							<li><a href="">lastIndexOf</a>(value,n)<span>逆向查找 </span></li>
-						</ul>
-						<h4>[<span>-</span>]迭代方法</h4>
-						<ul>
-							<li><a href="">every</a>(fn[item,index,arr])<span>每一项为true，返回true
-									<br>arr.every(function(item,index,array){
-									<br>要求
-									<br>})</span></li>
-							<li><a href="">some</a>(fn[item,index,arr])<span>某一项为true，返回true
-									<br>arr.some(function(item,index,array){
-									<br>要求
-									<br>})</span></li>
-							<li><a href="">filter</a>(fn[item,index,arr])<span>			
-									返回为true的新数组，按某个函数方法过滤
-									<br>arr.filter(function(item,index,array){
-									<br>要求
-									<br>})</span></li>
-							<li><a href="">map</a>(fn[item,index,arr])<span>返回执行函数后的新数组
-									<br>arr.map(function(item,index,array){
-									要求
-									<br>})</span></li>
-							<li><a href="">forEach</a>(fn[item,index,arr])<span>遍历数组去执行某个函数，无返回值
-									<br>arr.forEach(function(item,index,array){
-									<br>要求
-									<br>})</span></li>
-
-						</ul>
-						<h4>[<span>-</span>]递归方法</h4>
-						<ul>
-							<li><a href="">reduce</a><span>返回正向函数执行后的归并值
-										arr.reduce(function(prev,cur,index,array){
-										<br>return prev+cur;
-										<br>})</span></li>
-							<li><a href="">reduceRight</a><span>
-										<br>var arr=[1,2,3]
-										<br>var sum=arr.reduce(function(prev,cur,index,array){
-										<br>return prev+cur;
-										<br>})
-										<br>alert(sum); //6 
-							</span></li>
-						</ul>
-						<h4>[<span>-</span>]多维数组</h4>
-						<ul>
-							<li><a href="">二维数组</a><span>
-							<textarea name="" id="" cols="60" rows="10">声明1维，1维循环（声明2维，2维循环），循环条件中参数使用分号，索引号与长度关系。
-								var myarr=new Array(); //先声明一维 
-								for(var i=0;i<x;i++){ //一维长度
-								myarr[i]=new Array(); //在声明二维 
-								for(var j=0;j<y;j++){ //二维长度
-								myarr[i][j]=i+j; // 赋值，每个数组元素的值为i+j
-								}
-								} </textarea>
-							</span></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<h3>BOM<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]Window</h4>
-						<ul>
-							<li><a href="">window properties</a><span>
-								
-									<div>
 									<ol>
-										<li><span style="font-size: small;">window 对象有一系列的属性，这些属性本身也是对象。</span></li>
-										<li><span style="font-size: small;">window 下的属性和方法，可以使用 window.属性、window.方法()或者直接属性、方法()的方式调用。例如：window.alert()和 alert()是一个意思。</span></li>
-										<li><span style="font-size: small;">全局变量不能通过delete操作符删除，而直接在window对象上定义的属性可以，但实际上全局定义归属于对window定义</span></li>
-										<li><span style="font-size: small;">尝试访问未声明的变量会抛出错误，但是可以通过查询window对象知道某个可能未声明的变量是否存在。</span></li>
+										<li>
+									不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
+										<li>
+									Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样， 当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
+										<li>
+									undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
 									</ol>
-									</div>
-									<div><span style="font-size: small;"> </span></div>
-									<div>
-									<ul>
-										<li><b><span style="font-size: small;">window 对象的属性</span></b></li>
-									</ul>
-									</div>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top"><span style="font-size: small;">内容</span></td>
-									<td valign="top"></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="font-size: small;">document</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">窗口中当前显示的文档对象</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="font-size: small;">location</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">当前窗口的 URL</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="font-size: small;">history</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">保存有窗口最近加载的 URL</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="color: #0000ff; font-size: small;">screen</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">显示屏幕相关信息，如高度、宽度（以像素为单位）</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">Navigator</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">对 Navigator 对象的只读引用 navigator.userAgent</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">offscreenBuffering</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">用于绘制新窗口内容并在完成后复制已存在的内容，控制屏幕更新</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top"><span style="font-size: small;">层级</span></td>
-									<td valign="top"></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="font-size: small;">name</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">窗口名</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="font-size: small;">opener</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">打开当前窗口的窗口</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">self / <b>window</b></span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">指示当前窗口 / 指示当前窗口，与 self 等效</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">frames</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">窗口中的框架对象数组</span></div>
-									<div><span style="font-size: small;">frames[]    frames.length 存放数组 frames[] 中含有的元素个数    top.frames[n] 页面第几个框架</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">length</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">窗口中的框架数</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">parent</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">指向包含另一个窗口的窗口（由框架使用）</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">top</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">包含特定窗口的最顶层窗口（由框架使用）</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top"><span style="font-size: small;">状态</span></td>
-									<td valign="top"></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><b><span style="font-size: small;">closed</span></b></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">当窗口关闭时为真</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">defaultStatus</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">窗口底部状态栏显示的默认状态消息（IE）</span></div></td>
-									</tr>
-									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">status</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">描述由用户交互导致的状态栏的临时消息（IE）</span></div></td>
-									</tr>
-									</tbody>
-									</table>
-									<div><span style="font-size: small;"> </span></div>
-									</div>
-							</span></li>
-							<li><a href="">alert/confirm/prompt()</a><span>
+								</span></li>
+						<li>value <a href="">instanceof</a> types
+								<span>instanceof引用类型数据测试
 								<table width="100%" border="1" cellspacing="0" cellpadding="2">
 									<tbody>
 									<tr>
-									<td valign="top"><span style="font-size: small;">系统对话框</span></td>
-									<td valign="top"><span style="font-size: small;"> </span></td>
+									<td valign="top">value instanceof Array</td>
+									<td valign="top">数组</td>
+									</tr>
+									<tr>
+									<td valign="top">value instanceof Obj</td>
+									<td valign="top">构造函数实例</td>
 									</tr>
 									<tr>
 									<td valign="top">
-									<div><span style="font-size: small;"><b>alert</b>(text)</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">警告</span></div></td>
+									<div>value instanceof Date</div></td>
+									<td valign="top">日期时间</td>
+									</tr>
+									<tr>
+									<td valign="top">value instanceof RegExp</td>
+									<td valign="top">正则表达式</td>
 									</tr>
 									<tr>
 									<td valign="top">
-									<div><span style="font-size: small;"><b>confirm</b>(text)</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">确认/取消  返回布尔值：true,false</span></div></td>
+									<div>value instanceof Math</div></td>
+									<td valign="top">数学</td>
+									</tr>
+									</tbody>
+									</table></span></li>
+						<li><a href="">isNaN</a>(value)<span>是否为非数值,转换后非数值为true，数值false
+							<br>1. 非数值执行运算，会隐藏自动转型（除+）
+							<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
+						<li><a href="">isFinite</a>(value)<span>判断是否为无穷值超出计算范围</span></li>
+						<li><a href="">Array.isArray</a>(value)<span>检测是否为数组（EC5）</span></li>
+					</ul>
+					<h4>[<span>-</span>]类型转换</h4>
+					<ul>
+						<li><a href="">Boolean</a>(value)
+							<span>Boolean(value)布尔转换规则 （控制流会自动转换）
+									<table border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top">Boolean(value)</td>
+									<td valign="top">true</td>
+									<td valign="top">false</td>
 									</tr>
 									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;"><b>prompt</b>(text,defaultInput)</span></div></td>
-									<td valign="top">
-									<div><span style="font-size: small;">输入框 返回值：确认&gt;内容，取消&gt;null</span></div></td>
+									<td valign="top">undefined</td>
+									<td valign="top"></td>
+									<td valign="top">undefined</td>
 									</tr>
 									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">print()</span></div></td>
-									<td valign="top"><span style="font-size: small;">打印</span></td>
+									<td valign="top">boolean</td>
+									<td valign="top">true</td>
+									<td valign="top">false</td>
 									</tr>
 									<tr>
-									<td valign="top">
-									<div><span style="font-size: small;">find()</span></div></td>
-									<td valign="top"><span style="font-size: small;">查找</span></td>
+									<td valign="top">string</td>
+									<td valign="top">非空</td>
+									<td valign="top">空</td>
+									</tr>
+									<tr>
+									<td valign="top">number</td>
+									<td valign="top">非零数值</td>
+									<td valign="top">0与NaN</td>
+									</tr>
+									<tr>
+									<td valign="top">object</td>
+									<td valign="top">对象（包括空的对象）</td>
+									<td valign="top">null（空对象）</td>
 									</tr>
 									</tbody>
 									</table>
+								</span></li>
+						<li><a href="">Number</a>(value)<span>
+								用于任何数据类型
+								<br>number=number
+								<br>boolean=1 / 0
+								<br>undefined=NaN
+								<br>null=0
+								<br>空字符串=0
+								<br>非数值(string+/object)=NaN</span></li>
+						<li><a href="">parseInt</a>(str)<span>
+								用于字符串，自动判定进制
+								<br>忽略空格，空字符串=NaN
+								<br>第一个非空字符不是数值或负号=NaN
+								<br>第一个非空字符是数值，遇到非数值时停止解析=number</span></li>
+						<li><a href="">parseFloat</a>(str)<span>
+							用于字符串
+							<br>第一个小数点有效，第二个无效</span></li>
+						<li>all.<a href="">toString</a>([16])<span>所有类型（除Null,undefined）,数值转成字符串的时候，可以传递进制参数，默认10进制</span></li>
+						<li><a href="">String</a>(value)
+								<span>不确定null和undefined时,返回null和undefined</span></li>
+						<li>str.<a href="">split</a>(符号,num)
+								<span>字符串=>数组，符号+次数，多次分割，子项分割</span></li>
+						<li>arr.<a href="">join</a>(符号)
+								<span>数组=>字符串，把数组的所有元素放入一个字符串，元素通过指定的分隔符进行串联。</span></li>
+						<li><a href="">JSON.parse</a>(json)<span>JSON=>JS对象</span></li>
+						<li><a href="">JSON.stringify</a>(obj)<span>JS对象=>JSON</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>数字<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]数字</h4>
+					<ul>
+						<li><a href="">Finity</a><span>
+							Finity isFinite(---) 判断是否为无穷
+								<table border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">
+								最大值</td>
+								<td valign="top">
+								Number.MAX_VALUE 1.79e+308</td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div>最小值</div></td>
+								<td valign="top">
+								Number.MIN_VALUE 5e-324</td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div>正无穷</div></td>
+								<td valign="top">
+								Number.POSITIVE_INFINITY</td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div>负无穷</div></td>
+								<td valign="top">
+								Number.NEGATIVE_INFINITY</td>
+								</tr>
+								</tbody>
+								</table>
+								<ul>
+									<li>科学计数法，浮点数+e+10的指数</li>
+									<li>0/0=NaN，正数/0=正无穷，负数/0=负无穷</li>
+									<li>正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN</li>
+									<li>无穷乘法操作得到无穷，无穷除法与求余操作得到NaN</li>
+								</ul>
+						</span></li>
+						<li><a href="">NaN</a><span>
+								NaN isNaN(---) 判断是否为NaN
+									<table border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top">Number.NaN</td>
+									<td valign="top">
+									得到 NaN 值</td>
+									</tr>
+									<tr>
+									<td valign="top">
+									var box = 0 / 0; //NaN
+									var box = 12 / 0; //Infinity
+									var box = 12 / 0 * 0; //NaN</td>
+									<td valign="top">
+									任何与 NaN 进行运算的结果均为 NaN</td>
+									</tr>
+									<tr>
+									<td valign="top">alert(NaN == NaN) //false</td>
+									<td valign="top">NaN 与自身不相等(NaN 不与任何值相等)</td>
+									</tr>
+									</tbody>
+									</table>
+									<ul>
+										<li>isNaN()函数也适用于对象。</li>
+										<li>在调用 isNaN()函数过程中，首先会调用 valueOf()方法， 然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</li>
+										<li>只要NaN参与的运算均为NaN</li>
+									</ul>
+						</span></li>
+						<li><a href="">toFixed(N)</a><span>把数字转换为字符串，结果的小数点后有指定位数的数字。</span></li>
+						<li><a href="">toString(进制)</a><span>把数字转换为字符串，使用指定的基数。</span></li>
+						<li><a href="">toLocaleString()</a><span>根据本地数字格式转换为字符串 1,000.789</span></li>
+						<li><a href="">toExponential(N)</a><span>把对象的值转换为指数计数法。N小数点后位数</span></li>
+						<li><a href="">toPrecision(N)</a><span>把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>数学<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Math</h4>
+					<ul>
+						<li><a href="">random()</a></li>
+						<li><a href="">ceil()</a></li>
+						<li><a href="">floor()</a></li>
+						<li><a href="">round()</a></li>
+						<li><a href="">sqrt()</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>字符串<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]字符位置</h4>
+					<ul>
+						<li><a href="">charAt(N)</a><span>返回索引上的字符</span></li>
+						<li><a href="">charCodeAt(N)</a><span>返回在指定的位置的字符的 Unicode 编码</span></li>
+						<li><a href="">indexOf("A",n)</a><span>返回索引位置，正向查找字符所在的索引</span></li>
+						<li><a href="">lastIndexOf("A",n)</a><span>返回索引位置，逆向查找</span></li>
+					</ul>
+					<h4>[<span>-</span>]位置筛选</h4>
+					<ul>
+						<li><a href="">slice / substring(n,m)</a><span>显示索引范围内的字符串，返回新字符串，包含起始不包含结尾</span></li>
+						<li><a href="">substr(n,x)</a><span>显示指定索引起范围内的字符串，返回新字符串
+							<br>slice / substring / substr 负数
+							<br>单个负数：
+							<br>alert(box.slice(-3)); //Lee，6+(-3)=3 位开始 length-n
+							<br>alert(box.substring(-3)); //Mr.Lee 负数返回全部 返回全部
+							<br>alert(box.substr(-3)); //Lee，6+(-3)=3 位开始 length-n
+							<br>第二位负数：
+							<br>alert(box.slice(3, -1)); //Le 6+(-1)=5, (3,5) a,length-n
+							<br>alert(box.substring(3, -1)); //Mr. 第二参为负，直接转 0，并且方法会把较小的数字提前，(0,3) a,0
+							<br>alert(box.substr(3, -1)); //'' 第二参数为负，直接转 0 ，(3,0) a,0
 							</span></li>
-							<li><a href="">open</a>(url,name,[options])<span>
-								window.open(url,name,[options]) 打开一个新窗口并返回新 window 对象，将open()赋值给一个变量，对变量可以执行对子窗口的设置 
-								<br>■open方法  window.open("URL", "位置", "属性","历史记录");
-								<br>使用 window.open()方法可以导航到一个特定的 URL， 也可以打开一个新的浏览器窗口 。它可以接受四个参数：
-								<br>1.URL   http://www.baidu.com
-								<br>2.窗口名称或窗口目标  _target   /   _parent  /  somename
-								<br>3.一个特性字符串，见下表
-								<br>4.一个表示新页面是否取代浏览器记录中当前加载页面的布尔值：true替换历史记录，false创建新历史记录
-							</span></li>
+					</ul>
+					<h4>[<span>-</span>]匹配替换</h4>
+					<ul>
+						<li><a href="">match(正则/匹配值)</a><span>返回数组，没找到则返回null，正则识别全局</span></li>
+						<li><a href="">search(正则/匹配值)</a><span>返回起始的索引，没找到则返回-1，始终从头开始找，找到一个即返回，正则无需全局设置 strt </span></li>
+						<li><a href="">replace(正则/匹配值,"替换目标") </a><span>返回新字符串对象，识别正则全局，function可内含一个switch控制流</span></li>
+					</ul>
+					<h4>[<span>-</span>]串联分割</h4>
+					<ul>
+						<li><a href="">concat()</a><span>返回新字符串，串联</span></li>
+						<li><a href="">split(*/正则,N)</a><span>返回数组，把字符串按指定符号或正则分割为字符串数组</span></li>
+					</ul>
+					<h4>[<span>-</span>]其他方法</h4>
+					<ul>
+						<li><a href="">trim()</a><span>返回新字符串，删除前置与后置空格</span></li>
+						<li><a href="">toUpperCase()</a><span>返回新字符串，转换大写 toLocaleUpperCase()</span></li>
+						<li><a href="">toLowerCase()</a><span>返回新字符串，转换小写 toLocaleLowerCase()  </span></li>
+						<li><a href="">localeCompare()</a><span>大写小写，在之后（大于），返回1，在之前（小于），返回-1，相等，返回0</span></li>
+						<li><a href="">String.fromCharCode(编码)</a><span>返回编码转回的字符串</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>正则表达式<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]RegEXP</h4>
+					<ul>
+						<li><a href="">test()</a><span>在字符串中测试模式匹配，返回 true 或 false</span></li>
+						<li><a href="">exec()</a><span>在字符串中执行匹配搜索，返回结果数组或null</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>日期<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Date</h4>
+					<ul>
+						<li><a href="">getFullYear()</a></li>
+						<li><a href="">getMonth()</a>[0-11]</li>
+						<li><a href="">getDate()</a></li>
+						<li><a href="">getDay()</a>[0-6]</li>
+						<li><a href="">getHours()</a></li>
+						<li><a href="">getMinutes()</a></li>
+						<li><a href="">getSeconds()</a></li>
+						<li><a href="">getMilliseconds()</a></li>
+						<li><a href="">getTime()</a></li>
+						<li><a href="">parse()</a></li>
+						<li><a href="">toString</a></li>
+						<li><a href="">toUTCString</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+			<h3>数组<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]基本概念</h4>
+					<ul>
+						<li><a href="">创建方法</a><span><strong><span style="font-size: small;">创建方式</span></strong>
+								<div>
+								<div>
+								<table width="88%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">构造函数</span></td>
+								<td valign="top">
+								<div><span style="font-size: small;">var arr = new Array();</span></div>
+								<div><span style="font-size: small;">arr[0]=value<strong>;</strong> </span></div>
+								<div>
+								<pre xml:space="preserve"></pre>
+								<div><span style="font-size: small;">var arr = new Array(<em>element0</em>, <em>element1</em>, ..., <em>elementn</em>);</span></div>
+								</div>
+								<div><span style="font-size: small;">var arr = new Array(<em>size</em>);  [size=数组项目的个数,只写1位,且必须是数字]</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top"><span style="font-size: small;">字面量</span></td>
+								<td valign="top"><span style="font-size: small;">var arr = [66,80,90,77,59]</span></td>
+								</tr>
+								</tbody>
+								</table>
+								</div>
+								<div><span style="font-size: small;"> </span></div>
+								<div>
+								<div><span style="font-size: small;"><strong>注意：</strong><br clear="none" />1. ECMAScript中的数组每个元素可以保存任何类型</span></div>
+								<div><span style="font-size: small;">2. ECMAScript 中数组的大小也是可以调整的。</span></div>
+								<div><span style="font-size: small;">3. var arr = new Array(<em>10</em>)  不等于 var arr = [10]</span></div>
+								</div>
+								</div></span></li>
+						<li><a href="">.length</a><span><div><b><span style="font-size: small;">数组属性·长度Length</span></b></div>
+								<div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">str.length</span></td>
+								<td valign="top"><span style="font-size: small;">字符串长度</span></td>
+								</tr>
+								<tr>
+								<td valign="top"><b><span style="font-size: small;">arr.length</span></b></td>
+								<td valign="top"><span style="font-size: small;">数组长度</span></td>
+								</tr>
+								<tr>
+								<td valign="top"><span style="font-size: small;">function.length</span></td>
+								<td valign="top"><span style="font-size: small;">参数长度/个数</span></td>
+								</tr>
+								<tr>
+								<td valign="top"><span style="font-size: small;">object &amp; number类型无length</span></td>
+								<td valign="top"></td>
+								</tr>
+								</tbody>
+								</table>
+								<div><span style="font-size: small;"> </span></div>
+								</div>
+								<div><span style="font-size: small;"> </span></div></span></li>
+						<li><a href="">[index]</a><span><div><b><span style="font-size: small;">数组下标</span></b></div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">var  box =[];</span></div>
+								<div><span style="font-size: small;">box['name']=iRuxu;</span></div>
+								<div><span style="font-size: small;">alert(box);  </span><a><span style="font-size: small;">//空</span></a></div>
+								<div><span style="font-size: small;">alert(box['name']); </span><a><span style="font-size: small;">//iRuxu</span></a></div>
+								<div><span style="font-size: small;">alert(box[0]); </span><a><span style="font-size: small;">//iRuxu</span></a><span style="font-size: small;"> </span></div></td>
+								</tr>
+								</tbody>
+								</table>
+								<div><span style="font-size: small;">如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印</span></div>
+								<div><span style="font-size: small;"> </span></div>
+								<div><b><span style="font-size: small;">数组方法I</span></b></div></span></li>
+					</ul>
+					<h4>[<span>-</span>]添加移除</h4>
+					<ul>
+						<li><a href="">push()</a><span>栈：后方添加项目，返回总数。</span></li>
+						<li><a href="">pop()</a><span>栈：后方移除项目，返回移除项。</span></li>
+						<li><a href="">unshift()</a><span>队列：前方添加项目，返回总数。</span></li>
+						<li><a href="">shift()</a><span>队列：前方移除项目，返回移除项。</span></li>
+					</ul>
+					<h4>[<span>-</span>]串联分割</h4>
+					<ul>
+						<li><a href="">concat()</a><span>连接两个或更多的数组，并返回结果，返回新数组。（合并数组->新）</span></li>
+						<li><a href="">slice</a>(n,m)<span>从某个已有的数组返回选定的元素，返回新数组。（过滤数组->新）
+								<br>当含1个参数时，起始到末尾全部：slice(1)——索引为1开始到末尾
+								<br>当含2个参数时，起始到末尾-1：slice(1,4)——索引为1~3，不包含4</span></li>
+						<li><a href="">splice</a>(n,m,[val])<span>
+									方法向/从数组中添加/删除/替换项目，然后返回被删除的项目。
+									<br>注释：请注意，splice() 方法与 slice() 方法的作用是不同的，splice()方法会直接对数组进行修改。
+									<br>第1个参数为起始索引位置，第2个参数为删除的数目，当数目为0时则为添加项目，第3个参数开始为添加新的项目（如只删除无此参数）。
+									<br>splice(0,1)——位置0删除1项
+									<br>splice(2,0,arr1,arr2) ——位置2开始添加2项
+									<br>splice(1,1,100) —— 位置1删除并添加1项 
+						</span></li>
+						<li><a href="">join</a>(符号)<span>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</span></li>
+					</ul>
+					<h4>[<span>-</span>]排序</h4>
+					<ul>
+						<li><a href="">reverse()</a><span>反转</span></li>
+						<li><a href="">sort()</a><span>默认升序排列</span></li>
+						<li><a href="">sort</a>(fn)<span>严格升序或降序排列
+							<br>function sortNumber(a,b){return a - b  //降序b-a}
+							<br>sort方法参数如果提供一个函数，那么该函数必须返回以下值之一：
+							<br>负值，所传递的第一个参数比第二个参数小；
+							<br>正值，所传递的第一个参数比第二个参数大；
+							<br>零，两个参数相等。</span></li>
+						</ul>
+					<h4>[<span>-</span>]查找位置</h4>
+					<ul>
+						<li><a href="">indexOf</a>(value,n)<span>正向查找,n为起始索引,如查找不到则返回-1</span></li>
+						<li><a href="">lastIndexOf</a>(value,n)<span>逆向查找 </span></li>
+					</ul>
+					<h4>[<span>-</span>]迭代方法</h4>
+					<ul>
+						<li><a href="">every</a>(fn[item,index,arr])<span>每一项为true，返回true
+								<br>arr.every(function(item,index,array){
+								<br>要求
+								<br>})</span></li>
+						<li><a href="">some</a>(fn[item,index,arr])<span>某一项为true，返回true
+								<br>arr.some(function(item,index,array){
+								<br>要求
+								<br>})</span></li>
+						<li><a href="">filter</a>(fn[item,index,arr])<span>			
+								返回为true的新数组，按某个函数方法过滤
+								<br>arr.filter(function(item,index,array){
+								<br>要求
+								<br>})</span></li>
+						<li><a href="">map</a>(fn[item,index,arr])<span>返回执行函数后的新数组
+								<br>arr.map(function(item,index,array){
+								要求
+								<br>})</span></li>
+						<li><a href="">forEach</a>(fn[item,index,arr])<span>遍历数组去执行某个函数，无返回值
+								<br>arr.forEach(function(item,index,array){
+								<br>要求
+								<br>})</span></li>
+
+					</ul>
+					<h4>[<span>-</span>]递归方法</h4>
+					<ul>
+						<li><a href="">reduce</a><span>返回正向函数执行后的归并值
+									arr.reduce(function(prev,cur,index,array){
+									<br>return prev+cur;
+									<br>})</span></li>
+						<li><a href="">reduceRight</a><span>
+									<br>var arr=[1,2,3]
+									<br>var sum=arr.reduce(function(prev,cur,index,array){
+									<br>return prev+cur;
+									<br>})
+									<br>alert(sum); //6 
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]多维数组</h4>
+					<ul>
+						<li><a href="">二维数组</a><span>
+						<textarea name="" id="" cols="60" rows="10">声明1维，1维循环（声明2维，2维循环），循环条件中参数使用分号，索引号与长度关系。
+							var myarr=new Array(); //先声明一维 
+							for(var i=0;i<x;i++){ //一维长度
+							myarr[i]=new Array(); //在声明二维 
+							for(var j=0;j<y;j++){ //二维长度
+							myarr[i][j]=i+j; // 赋值，每个数组元素的值为i+j
+							}
+							} </textarea>
+						</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>BOM<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Window</h4>
+					<ul>
+						<li><a href="">window properties</a><span>
 							
-						</ul>
-						<h4>[<span>-</span>]定时器</h4>
-						<ul>
-							<li><a href="">setTimeout</a>(fn,time)<span>设置延迟多久执行，一次性行为</span></li>
-							<li><a href="">clearTimeout(x)</a></li>
-							<li><a href="">setInterval</a>(fn,time)<span>设置间隔多久执行</span></li>
-							<li><a href="">clearInterval(x)</a></li>
-						</ul>
-						<h4>[<span>-</span>]其他</h4>
-						<ul>
-							<li><a href="">Location</a>.href<span></span></li>
-							<li><a href="">encodeURIComponent</a>(url)<span></span></li>
-							<li><a href="">decodeRUIComponent</a>(url)<span></span></li>
-							<li><a href="">history.go(n)</a><span></span></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<h3>DOM<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]Document</h4>
-						<ul>
-							<li><a href="">.cookie</a><span></span></li>
-							<li><a href="">.lastModified</a><span></span></li>
-							<li><a href="">.readyState</a><span></span></li>
-							<li><a href="">createElement()</a><span></span></li>
-							<li><a href="">createTextNode()</a><span></span></li>
-							<li><a href="">createAttribute()</a><span></span></li>
-							<li><a href="">normalize()</a><span></span></li>
-							<li><a href="">getElementById()</a><span></span></li>
-							<li><a href="">getElementsByName()</a><span></span></li>
-							<li><a href="">getElementsByTagName()</a><span></span></li>
-							<li><a href="">write()</a><span></span></li>
-						</ul>
-						<h4>[<span>-</span>]Element</h4>
-						<ul>
-							<li><a href="">getAttribute()</a><span></span></li>
-							<li><a href="">setAttribute()</a><span></span></li>
-							<li><a href="">.innerHTML</a><span></span></li>
-							<li><a href="">.nodeName</a><span></span></li>
-							<li><a href="">.nodeValue</a><span></span></li>
-							<li><a href="">.nodeType</a><span></span></li>
-							<li><a href="">.attributes</a><span></span></li>
-							<li><a href="">.children[n]</a><span></span></li>
-							<li><a href="">.childNodes</a><span></span></li>
-							<li><a href="">.firstChild</a><span></span></li>
-							<li><a href="">.lastChild</a><span></span></li>
-							<li><a href="">.parentNode</a><span></span></li>
-							<li><a href="">appendChild()</a><span></span></li>
-							<li><a href="">createTextNode()</a><span></span></li>
-							<li><a href="">insertBefore</a>(key,参照节点)<span></span></li>
-							<li><a href="">repalceChild</a>(key,被替换)<span></span></li>
-							<li><a href="">cloneNode</a>(true)<span></span></li>
-							<li><a href="">removeChild()</a><span></span></li>
-							<li><a href=""></a><span></span></li>
-						</ul>
-						<h4>[<span>-</span>]Form</h4>
-						<ul>
-							<li><a href=""></a><span></span></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<h3>事件<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]动画</h4>
-						<ul>
-							<li><a href="">手机端需添加-webkit-前缀</a><span></span></li>
-							<li><a href="">transitionend</a><span>CSS 完成过渡后触发</span></li>
-							<li><a href="">animationend</a><span>CSS动画结束播放时触发</span></li>
-							<li><a href="">animationiteration</a><span>CSS 动画重复播放时触发</span></li>
-							<li><a href="">animationstart</a><span>CSS 动画开始播放时触发</span></li>
-						</ul>
-						<h4>[<span>-</span>]移动端</h4>
-						<ul>
-							<li><a href="">touchstart</a><span>当手指接触屏幕时触发</span></li>
-							<li><a href="">touchmove</a><span>当已经接触屏幕的手指开始移动后触发</span></li>
-							<li><a href="">touchend</a><span>当手指离开屏幕时触发</span></li>
-							<li><a href="">gesturestart</a><span>当两个手指接触屏幕时触发</span></li>
-							<li><a href="">gesturechange</a><span>当两个手指接触屏幕后开始移动时触发</span></li>
-							<li><a href="">gestureend</a><span>当两个手指离开屏幕时触发</span></li>
-							<li><a href="">onorientationchange </a><span>屏幕旋转事件</span></li>
-							<li><a href="">orientationchange </a><span>检测触摸屏幕的手指何时改变方向</span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-							<li><a href=""></a><span></span></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<h3>函数<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]内部属性/对象</h4>
-						<ul>
-							<li><a href="">arguments</a><span>函数的参数对象
+								<div>
+								<ol>
+									<li><span style="font-size: small;">window 对象有一系列的属性，这些属性本身也是对象。</span></li>
+									<li><span style="font-size: small;">window 下的属性和方法，可以使用 window.属性、window.方法()或者直接属性、方法()的方式调用。例如：window.alert()和 alert()是一个意思。</span></li>
+									<li><span style="font-size: small;">全局变量不能通过delete操作符删除，而直接在window对象上定义的属性可以，但实际上全局定义归属于对window定义</span></li>
+									<li><span style="font-size: small;">尝试访问未声明的变量会抛出错误，但是可以通过查询window对象知道某个可能未声明的变量是否存在。</span></li>
+								</ol>
+								</div>
+								<div><span style="font-size: small;"> </span></div>
+								<div>
+								<ul>
+									<li><b><span style="font-size: small;">window 对象的属性</span></b></li>
+								</ul>
+								</div>
+								<div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">内容</span></td>
+								<td valign="top"></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="font-size: small;">document</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">窗口中当前显示的文档对象</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="font-size: small;">location</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">当前窗口的 URL</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="font-size: small;">history</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">保存有窗口最近加载的 URL</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="color: #0000ff; font-size: small;">screen</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">显示屏幕相关信息，如高度、宽度（以像素为单位）</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">Navigator</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">对 Navigator 对象的只读引用 navigator.userAgent</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">offscreenBuffering</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">用于绘制新窗口内容并在完成后复制已存在的内容，控制屏幕更新</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top"><span style="font-size: small;">层级</span></td>
+								<td valign="top"></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="font-size: small;">name</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">窗口名</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="font-size: small;">opener</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">打开当前窗口的窗口</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">self / <b>window</b></span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">指示当前窗口 / 指示当前窗口，与 self 等效</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">frames</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">窗口中的框架对象数组</span></div>
+								<div><span style="font-size: small;">frames[]    frames.length 存放数组 frames[] 中含有的元素个数    top.frames[n] 页面第几个框架</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">length</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">窗口中的框架数</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">parent</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">指向包含另一个窗口的窗口（由框架使用）</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">top</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">包含特定窗口的最顶层窗口（由框架使用）</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top"><span style="font-size: small;">状态</span></td>
+								<td valign="top"></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><b><span style="font-size: small;">closed</span></b></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">当窗口关闭时为真</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">defaultStatus</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">窗口底部状态栏显示的默认状态消息（IE）</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">status</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">描述由用户交互导致的状态栏的临时消息（IE）</span></div></td>
+								</tr>
+								</tbody>
+								</table>
+								<div><span style="font-size: small;"> </span></div>
+								</div>
+						</span></li>
+						<li><a href="">alert/confirm/prompt()</a><span>
+							<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">系统对话框</span></td>
+								<td valign="top"><span style="font-size: small;"> </span></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;"><b>alert</b>(text)</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">警告</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;"><b>confirm</b>(text)</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">确认/取消  返回布尔值：true,false</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;"><b>prompt</b>(text,defaultInput)</span></div></td>
+								<td valign="top">
+								<div><span style="font-size: small;">输入框 返回值：确认&gt;内容，取消&gt;null</span></div></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">print()</span></div></td>
+								<td valign="top"><span style="font-size: small;">打印</span></td>
+								</tr>
+								<tr>
+								<td valign="top">
+								<div><span style="font-size: small;">find()</span></div></td>
+								<td valign="top"><span style="font-size: small;">查找</span></td>
+								</tr>
+								</tbody>
+								</table>
+						</span></li>
+						<li><a href="">open</a>(url,name,[options])<span>
+							window.open(url,name,[options]) 打开一个新窗口并返回新 window 对象，将open()赋值给一个变量，对变量可以执行对子窗口的设置 
+							<br>■open方法  window.open("URL", "位置", "属性","历史记录");
+							<br>使用 window.open()方法可以导航到一个特定的 URL， 也可以打开一个新的浏览器窗口 。它可以接受四个参数：
+							<br>1.URL   http://www.baidu.com
+							<br>2.窗口名称或窗口目标  _target   /   _parent  /  somename
+							<br>3.一个特性字符串，见下表
+							<br>4.一个表示新页面是否取代浏览器记录中当前加载页面的布尔值：true替换历史记录，false创建新历史记录
+						</span></li>
+						
+					</ul>
+					<h4>[<span>-</span>]定时器</h4>
+					<ul>
+						<li><a href="">setTimeout</a>(fn,time)<span>设置延迟多久执行，一次性行为</span></li>
+						<li><a href="">clearTimeout(x)</a></li>
+						<li><a href="">setInterval</a>(fn,time)<span>设置间隔多久执行</span></li>
+						<li><a href="">clearInterval(x)</a></li>
+					</ul>
+					<h4>[<span>-</span>]其他</h4>
+					<ul>
+						<li><a href="">Location</a>.href<span></span></li>
+						<li><a href="">encodeURIComponent</a>(url)<span></span></li>
+						<li><a href="">decodeRUIComponent</a>(url)<span></span></li>
+						<li><a href="">history.go(n)</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>DOM<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Document</h4>
+					<ul>
+						<li><a href="">.cookie</a><span></span></li>
+						<li><a href="">.lastModified</a><span></span></li>
+						<li><a href="">.readyState</a><span></span></li>
+						<li><a href="">createElement()</a><span></span></li>
+						<li><a href="">createTextNode()</a><span></span></li>
+						<li><a href="">createAttribute()</a><span></span></li>
+						<li><a href="">normalize()</a><span></span></li>
+						<li><a href="">getElementById()</a><span></span></li>
+						<li><a href="">getElementsByName()</a><span></span></li>
+						<li><a href="">getElementsByTagName()</a><span></span></li>
+						<li><a href="">write()</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Element</h4>
+					<ul>
+						<li><a href="">getAttribute()</a><span></span></li>
+						<li><a href="">setAttribute()</a><span></span></li>
+						<li><a href="">.innerHTML</a><span></span></li>
+						<li><a href="">.nodeName</a><span></span></li>
+						<li><a href="">.nodeValue</a><span></span></li>
+						<li><a href="">.nodeType</a><span></span></li>
+						<li><a href="">.attributes</a><span></span></li>
+						<li><a href="">.children[n]</a><span></span></li>
+						<li><a href="">.childNodes</a><span></span></li>
+						<li><a href="">.firstChild</a><span></span></li>
+						<li><a href="">.lastChild</a><span></span></li>
+						<li><a href="">.parentNode</a><span></span></li>
+						<li><a href="">appendChild()</a><span></span></li>
+						<li><a href="">createTextNode()</a><span></span></li>
+						<li><a href="">insertBefore</a>(key,参照节点)<span></span></li>
+						<li><a href="">repalceChild</a>(key,被替换)<span></span></li>
+						<li><a href="">cloneNode</a>(true)<span></span></li>
+						<li><a href="">removeChild()</a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Form</h4>
+					<ul>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>事件<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]动画</h4>
+					<ul>
+						<li><a href="">手机端需添加-webkit-前缀</a><span></span></li>
+						<li><a href="">transitionend</a><span>CSS 完成过渡后触发</span></li>
+						<li><a href="">animationend</a><span>CSS动画结束播放时触发</span></li>
+						<li><a href="">animationiteration</a><span>CSS 动画重复播放时触发</span></li>
+						<li><a href="">animationstart</a><span>CSS 动画开始播放时触发</span></li>
+					</ul>
+					<h4>[<span>-</span>]移动端</h4>
+					<ul>
+						<li><a href="">touchstart</a><span>当手指接触屏幕时触发</span></li>
+						<li><a href="">touchmove</a><span>当已经接触屏幕的手指开始移动后触发</span></li>
+						<li><a href="">touchend</a><span>当手指离开屏幕时触发</span></li>
+						<li><a href="">gesturestart</a><span>当两个手指接触屏幕时触发</span></li>
+						<li><a href="">gesturechange</a><span>当两个手指接触屏幕后开始移动时触发</span></li>
+						<li><a href="">gestureend</a><span>当两个手指离开屏幕时触发</span></li>
+						<li><a href="">onorientationchange </a><span>屏幕旋转事件</span></li>
+						<li><a href="">orientationchange </a><span>检测触摸屏幕的手指何时改变方向</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>函数<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]内部属性/对象</h4>
+					<ul>
+						<li><a href="">arguments</a><span>函数的参数对象
 							<div><span style="font-size: small;"><b>argument<span style="color: #e30000;">s</span>对象</b> （类数组对象，但检测不是数组类型）</span></div>
 								<div>
 								<table width="100%" border="1" cellspacing="0" cellpadding="2">
@@ -3133,199 +3243,199 @@
 								</table>
 								<div><strong> </strong></div>
 								</div></span></li>
-							<li><a href="">this</a><span>函数执行的环境对象</span></li>
-							<li><a href="">caller</a><span>调用当前函数的函数</span></li>
-							<li><a href="">length</a><span>函数希望接收的命名参数的个数</span></li>
-							<li><a href="">prototype</a><span>原型属性，不可枚举</span></li>
-						</ul>
-						<h4>[<span>-</span>]方法</h4>
-						<ul>
-							<li>fn<a href="">.apply</a>(obj,arg)<span>func.apply(作用域，[传递参数]/arguments)</span></li>
-							<li>fn<a href="">.call</a>(obj,arg)<span>func.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域<br>call必须明确传入每一个参数</span></li>
-							<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
-						</ul>
-					</div>
-				</li>		
-				<li>
-					<h3>Ajax<span>+</span></h3>
-					<div style="display:none">
-						<!-- <h4>[<span>-</span>]类型检测</h4>
-						<ul>
-							<li></li>
-						</ul>
-						<h4>[<span>-</span>]类型转换</h4>
-						<ul>
-							<li></li>
-						</ul> -->
-					</div>
-				</li>
-				<li>
-					<h3>语法<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]语句</h4>
-						<ul>
-							<li><a href="">Statement</a><span>
+						<li><a href="">this</a><span>函数执行的环境对象</span></li>
+						<li><a href="">caller</a><span>调用当前函数的函数</span></li>
+						<li><a href="">length</a><span>函数希望接收的命名参数的个数</span></li>
+						<li><a href="">prototype</a><span>原型属性，不可枚举</span></li>
+					</ul>
+					<h4>[<span>-</span>]方法</h4>
+					<ul>
+						<li>fn<a href="">.apply</a>(obj,arg)<span>func.apply(作用域，[传递参数]/arguments)</span></li>
+						<li>fn<a href="">.call</a>(obj,arg)<span>func.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域<br>call必须明确传入每一个参数</span></li>
+						<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
+					</ul>
+				</div>
+			</li>		
+			<li>
+				<h3>Ajax<span>+</span></h3>
+				<div style="display:none">
+					<!-- <h4>[<span>-</span>]类型检测</h4>
+					<ul>
+						<li></li>
+					</ul>
+					<h4>[<span>-</span>]类型转换</h4>
+					<ul>
+						<li></li>
+					</ul> -->
+				</div>
+			</li>
+			<li>
+				<h3>语法<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]语句</h4>
+					<ul>
+						<li><a href="">Statement</a><span>
+								<table>
+									<tbody>
+									<tr>
+									<td width="189"><span style="font-size: small;">类型</span></td>
+									<td width="189"><span style="font-size: small;">子类型</span></td>
+									<td width="189"><span style="font-size: small;">语法</span></td>
+									</tr>
+									<tr>
+									<td rowspan="2" width="189"><span style="font-size: small;">声明语句</span></td>
+									<td width="189"><span style="font-size: small;">变量声明语句</span></td>
+									<td width="189"><span style="font-size: small;">var box = 100;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">标签声明语句</span></td>
+									<td width="189"><span style="font-size: small;">label : box;</span></td>
+									</tr>
+									<tr>
+									<td rowspan="4" width="189"><span style="font-size: small;">表达式语句</span></td>
+									<td width="189"><span style="font-size: small;">变量赋值语句</span></td>
+									<td width="189"><span style="font-size: small;">box = 100;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">函数调用语句</span></td>
+									<td width="189"><span style="font-size: small;">box();</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">属性赋值语句</span></td>
+									<td width="189"><span style="font-size: small;">box.property = 100;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">方法调用语句</span></td>
+									<td width="189"><span style="font-size: small;">box.method();</span></td>
+									</tr>
+									<tr>
+									<td rowspan="2" width="189"><span style="font-size: small;">分支语句</span></td>
+									<td width="189"><span style="font-size: small;">条件分支语句</span></td>
+									<td width="189"><span style="font-size: small;">if () {} else {}</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">多重分支语句</span></td>
+									<td width="189"><span style="font-size: small;">switch () { case n : ...};</span></td>
+									</tr>
+									<tr>
+									<td rowspan="4" width="189"><span style="font-size: small;">循环语句</span></td>
+									<td width="189"><span style="font-size: small;">for </span></td>
+									<td width="189"><span style="font-size: small;">for (;;;) {}</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">for ... in</span></td>
+									<td width="189"><span style="font-size: small;">for ( x in x) {}</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">while</span></td>
+									<td width="189"><span style="font-size: small;">while () {};</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">do ... while</span></td>
+									<td width="189"><span style="font-size: small;">do {} while ();</span></td>
+									</tr>
+									<tr>
+									<td rowspan="5" width="189"><span style="font-size: small;">控制结构</span></td>
+									<td width="189"><span style="font-size: small;">继续执行子句</span></td>
+									<td width="189"><span style="font-size: small;">continue ;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">终端执行子句</span></td>
+									<td width="189"><span style="font-size: small;">break ;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">函数返回子句</span></td>
+									<td width="189"><span style="font-size: small;">return ;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">异常触发子句</span></td>
+									<td width="189"><span style="font-size: small;">throw ;</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">异常捕获与处理</span></td>
+									<td width="189"><span style="font-size: small;">try {} catch () {} finally {}</span></td>
+									</tr>
+									<tr>
+									<td width="189"><span style="font-size: small;">其他</span></td>
+									<td width="189"><span style="font-size: small;">空语句</span></td>
+									<td width="189"><span style="font-size: small;">;</span></td>
+									</tr>
+									<tr>
+									<td width="189">&nbsp;</td>
+									<td width="189"><span style="font-size: small;">with语句</span></td>
+									<td width="189"><span style="font-size: small;">with () {}</span></td>
+									</tr>
+									</tbody>
+									</table></span></li>
+						<li><a href="">Global Functions</a><span>
+								<div>
+									<div>全局函数
 									<table>
-										<tbody>
-										<tr>
-										<td width="189"><span style="font-size: small;">类型</span></td>
-										<td width="189"><span style="font-size: small;">子类型</span></td>
-										<td width="189"><span style="font-size: small;">语法</span></td>
-										</tr>
-										<tr>
-										<td rowspan="2" width="189"><span style="font-size: small;">声明语句</span></td>
-										<td width="189"><span style="font-size: small;">变量声明语句</span></td>
-										<td width="189"><span style="font-size: small;">var box = 100;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">标签声明语句</span></td>
-										<td width="189"><span style="font-size: small;">label : box;</span></td>
-										</tr>
-										<tr>
-										<td rowspan="4" width="189"><span style="font-size: small;">表达式语句</span></td>
-										<td width="189"><span style="font-size: small;">变量赋值语句</span></td>
-										<td width="189"><span style="font-size: small;">box = 100;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">函数调用语句</span></td>
-										<td width="189"><span style="font-size: small;">box();</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">属性赋值语句</span></td>
-										<td width="189"><span style="font-size: small;">box.property = 100;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">方法调用语句</span></td>
-										<td width="189"><span style="font-size: small;">box.method();</span></td>
-										</tr>
-										<tr>
-										<td rowspan="2" width="189"><span style="font-size: small;">分支语句</span></td>
-										<td width="189"><span style="font-size: small;">条件分支语句</span></td>
-										<td width="189"><span style="font-size: small;">if () {} else {}</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">多重分支语句</span></td>
-										<td width="189"><span style="font-size: small;">switch () { case n : ...};</span></td>
-										</tr>
-										<tr>
-										<td rowspan="4" width="189"><span style="font-size: small;">循环语句</span></td>
-										<td width="189"><span style="font-size: small;">for </span></td>
-										<td width="189"><span style="font-size: small;">for (;;;) {}</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">for ... in</span></td>
-										<td width="189"><span style="font-size: small;">for ( x in x) {}</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">while</span></td>
-										<td width="189"><span style="font-size: small;">while () {};</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">do ... while</span></td>
-										<td width="189"><span style="font-size: small;">do {} while ();</span></td>
-										</tr>
-										<tr>
-										<td rowspan="5" width="189"><span style="font-size: small;">控制结构</span></td>
-										<td width="189"><span style="font-size: small;">继续执行子句</span></td>
-										<td width="189"><span style="font-size: small;">continue ;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">终端执行子句</span></td>
-										<td width="189"><span style="font-size: small;">break ;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">函数返回子句</span></td>
-										<td width="189"><span style="font-size: small;">return ;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">异常触发子句</span></td>
-										<td width="189"><span style="font-size: small;">throw ;</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">异常捕获与处理</span></td>
-										<td width="189"><span style="font-size: small;">try {} catch () {} finally {}</span></td>
-										</tr>
-										<tr>
-										<td width="189"><span style="font-size: small;">其他</span></td>
-										<td width="189"><span style="font-size: small;">空语句</span></td>
-										<td width="189"><span style="font-size: small;">;</span></td>
-										</tr>
-										<tr>
-										<td width="189">&nbsp;</td>
-										<td width="189"><span style="font-size: small;">with语句</span></td>
-										<td width="189"><span style="font-size: small;">with () {}</span></td>
-										</tr>
-										</tbody>
-										</table></span></li>
-							<li><a href="">Global Functions</a><span>
-									<div>
-										<div>全局函数
-										<table>
-										<tbody>
-										<tr>
-										<th align="left" width="32%">函数</th>
-										<th align="left" width="68%">描述</th>
-										</tr>
-										<tr>
-										<td>decodeURI()</td>
-										<td>解码某个编码的 URI。</td>
-										</tr>
-										<tr>
-										<td>decodeURIComponent()</td>
-										<td>解码一个编码的 URI 组件。</td>
-										</tr>
-										<tr>
-										<td>encodeURI()</td>
-										<td>把字符串编码为 URI。</td>
-										</tr>
-										<tr>
-										<td>encodeURIComponent()</td>
-										<td>把字符串编码为 URI 组件。</td>
-										</tr>
-										<tr>
-										<td>escape()</td>
-										<td>对字符串进行编码。</td>
-										</tr>
-										<tr>
-										<td>unescape()</td>
-										<td>对由 escape() 编码的字符串进行解码。</td>
-										</tr>
-										<tr>
-										<td>isFinite()</td>
-										<td>检查某个值是否为有穷大的数。</td>
-										</tr>
-										<tr>
-										<td>isNaN()</td>
-										<td>检查某个值是否是数字。</td>
-										</tr>
-										<tr>
-										<td>Number()</td>
-										<td>把对象的值转换为数字。</td>
-										</tr>
-										<tr>
-										<td>parseFloat()</td>
-										<td>解析一个字符串并返回一个浮点数。</td>
-										</tr>
-										<tr>
-										<td>parseInt()</td>
-										<td>解析一个字符串并返回一个整数。</td>
-										</tr>
-										<tr>
-										<td>String()</td>
-										<td>把对象的值转换为字符串。
-										.toString / valueOf除undefined,null</td>
-										</tr>
-										<tr>
-										<td>eval()</td>
-										<td>计算 JavaScript 字符串，并把它作为脚本代码来执行。</td>
-										</tr>
-										</tbody>
-										</table>
-										</div>
-										</div></span></li>
-							<li><a href="">javascript:void(0)</a></li>
-							<li><a href="">补充说明</a><span>
-								文件载入 
+									<tbody>
+									<tr>
+									<th align="left" width="32%">函数</th>
+									<th align="left" width="68%">描述</th>
+									</tr>
+									<tr>
+									<td>decodeURI()</td>
+									<td>解码某个编码的 URI。</td>
+									</tr>
+									<tr>
+									<td>decodeURIComponent()</td>
+									<td>解码一个编码的 URI 组件。</td>
+									</tr>
+									<tr>
+									<td>encodeURI()</td>
+									<td>把字符串编码为 URI。</td>
+									</tr>
+									<tr>
+									<td>encodeURIComponent()</td>
+									<td>把字符串编码为 URI 组件。</td>
+									</tr>
+									<tr>
+									<td>escape()</td>
+									<td>对字符串进行编码。</td>
+									</tr>
+									<tr>
+									<td>unescape()</td>
+									<td>对由 escape() 编码的字符串进行解码。</td>
+									</tr>
+									<tr>
+									<td>isFinite()</td>
+									<td>检查某个值是否为有穷大的数。</td>
+									</tr>
+									<tr>
+									<td>isNaN()</td>
+									<td>检查某个值是否是数字。</td>
+									</tr>
+									<tr>
+									<td>Number()</td>
+									<td>把对象的值转换为数字。</td>
+									</tr>
+									<tr>
+									<td>parseFloat()</td>
+									<td>解析一个字符串并返回一个浮点数。</td>
+									</tr>
+									<tr>
+									<td>parseInt()</td>
+									<td>解析一个字符串并返回一个整数。</td>
+									</tr>
+									<tr>
+									<td>String()</td>
+									<td>把对象的值转换为字符串。
+									.toString / valueOf除undefined,null</td>
+									</tr>
+									<tr>
+									<td>eval()</td>
+									<td>计算 JavaScript 字符串，并把它作为脚本代码来执行。</td>
+									</tr>
+									</tbody>
+									</table>
+									</div>
+									</div></span></li>
+						<li><a href="">javascript:void(0)</a></li>
+						<li><a href="">补充说明</a>
+								<span>文件载入 
 								<br>1.尽量使用外置文件，且放置在末尾
 								<br>2.defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】
 								<br>3.页内时引入闭合标签需要转义，页内时以防低版本的解析问题，用cdata片段包含
@@ -3337,494 +3447,494 @@
 								<br>2.同时一次性定义多个变量，用逗号分隔，不需要再写var
 								<br>  var i=0;var j=1;   ==>    var i=0,j=0
 								</span></li>
-						</ul>
-						<h4>[<span>+</span>]运算</h4>
-						<ul style="display:none;">
-							<li><a href="">一元运算符</a><span>
-								<h2>一元运算符</h2>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top">i++后置递增，++i前置递增，i--后置递减，--i前置递减，+i取正，-i取负</td>
-									</tr>
-									</tbody>
-									</table>
-									<div></div>
-									</div>
-									<ul>
-										<li>只能操作一个值的运算符叫做一元运算符</li>
-										<li>递增++和递减--、取正+、取负-</li>
-										<li>递增递减中前置和后置的区别</li>
-									</ul>
-									<div>
-									<blockquote>
-									<div>在没有赋值操作， 前置和后置是一样的。 但在赋值操作时， 如果递增或递减运算符前置 ，
-									那么前置的运算符会先累加或累减再赋值，如果是后置运算符则先赋值再累加或累减。</div>
-									<div>var box = 100;
-									var age = ++box; //age 值为 101
-									var height = box++; //height 值为 100</div></blockquote>
-									</div>
-									<div>
-									<ul>
-										<li>非数值执行运算，会隐藏自动转型为数值（除+）</li>
-									</ul>
-									其他类型应用一元运算符的规则</div>
-									<blockquote>
-									<div>var box = '89'; box++; //90，数值字符串自动转换成数值</div>
-									<div>var box = 'ab'; box++; //NaN，字符串包含非数值转成 NaN</div>
-									<div>var box = false; box++; //1，false 转成数值是 0，累加就是 1</div>
-									<div>var box = 2.3; box++; //3.3，直接加 1</div>
-									<div>var box = { //1，不设置 toString 或 valueOf 即为 NaN</div>
-									<div>toString : function() {</div>
-									<div>return 1;</div>
-									<div>}</div>
-									<div>}; box++;</div></blockquote>
-								</span></li>
-							<li><a href="">算数运算符</a><span>
-									<div><b><span style="font-size: small;">算术运算符</span></b></div>
-											<div>
-											<table width="100%" border="1" cellspacing="0" cellpadding="2">
-											<tbody>
-											<tr>
-											<td valign="top"><span style="font-size: small;">+加法，-减法，*乘法，/除法，%求模</span></td>
-											</tr>
-											</tbody>
-											</table>
-											<div></div>
-											</div>
-											<ul>
-												<li><span style="color: #e30000; font-size: small;"><b>加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</b></span></li>
-												<li><span style="font-size: small;">加法操作中，非数值字符串与数值运算，会串联字符串，减法中，则会得到NaN</span></li>
-												<li><span style="font-size: small;">加法操作中，数值+object类型=字符串（Num[object]），减法中，则会得到NaN</span></li>
-												<li><span style="font-size: small;">乘法操作中，数值*非数值字符串或对象返回NaN，除法与求模同NaN</span></li>
-											</ul>
-											<div></div></span></li>
-							<li><a href="">关系运算符</a><span><div><b><span style="font-size: small;">关系运算符 <span style="color: #e30000;">（返回一个布尔值）</span></span></b></div>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top"><span style="font-size: small;">&gt;大于，&lt;小于，&gt;=大于等于，&lt;=小于等于，==相等，!=不等，===全等，!==不全等</span></td>
-									</tr>
-									</tbody>
-									</table>
-									<div></div>
-									</div>
-									<div>
-									<ul>
-										<li><span style="font-size: small;">两个操作数都是数值，则数值比较；</span></li>
-										<li><span style="color: #0000ff; font-size: small;">两个操作数都是字符串，则比较两个字符串对应的字符编码值；</span></li>
-										<li><span style="font-size: small;">两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</span></li>
-										<li><span style="font-size: small;">两个操作数有一个是对象，则先调用 valueOf()方法或 toString()方法，再用结果比较；</span></li>
-										<li><span style="font-size: small;">不需要任何转换的情况下，null 和 undefined 是相等的；</span></li>
-										<li><span style="font-size: small;">一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；</span></li>
-										<li><span style="font-size: small;">两个操作数都是对象，则比较他们是否是同一个对象，如果都指向同一个对象，则返回 true，否则返回 false。</span></li>
-									</ul>
-									</div>
-									<blockquote>
-									<div><span style="font-size: small;">var box = {} == {}; //false，比较的是他们的地址，每个新创建对象的</span></div>
-									<div><span style="font-size: small;">引用地址都不同</span></div>
-									<div><span style="font-size: small;">var age = {};</span></div>
-									<div><span style="font-size: small;">var height = age;</span></div>
-									<div><span style="font-size: small;">var box = age == height; </span><a><span style="font-size: small;">//true，引用地址一样，所以相等</span></a></div>
-									<div><span style="font-size: small;"> </span></div></blockquote></span></li>
-							<li><a href="">逻辑运算符</a><span>
-									<div><span style="font-size: small;"><b>逻辑运算符</b><span style="color: #0000ff;">（通常用于布尔值的操作）</span></span></div>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top"><span style="font-size: small;">&amp;&amp;逻辑与(AND)、||逻辑或(OR)、!逻辑非(NOT)。</span></td>
-									</tr>
-									</tbody>
-									</table>
-									<div><span style="font-size: small;"> </span></div>
-									</div>
-									<blockquote>
-									<div><span style="font-size: small;"><span style="color: #e30000;">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值</span>，此时，遵循已下规则：</span></div>
-									<div><span style="font-size: small;"> </span></div>
-									<div><b><span style="font-size: small;">&amp;&amp;逻辑与</span></b></div></blockquote>
-									<div>
-									<ul>
-										<li>
-									<ul>
-										<li><span style="font-size: small;">第一个操作数是对象，则返回第二个操作数；</span></li>
-										<li><span style="font-size: small;">第二个操作数是对象，则第一个操作数返回 true， 才返回第二个操作数， 否则返回 false;</span></li>
-										<li><span style="font-size: small;">有一个操作数是 null，则返回 null；</span></li>
-										<li><span style="font-size: small;">有一个操作数是 undefined，则返回 undefined。</span></li>
-									</ul>
-									</li>
-									</ul>
-									</div>
-									<blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = 对象 &amp;&amp; (5 &gt; 4); //true，返回第二个操作数</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = (5 &gt; 4) &amp;&amp; 对象; //[object Object]</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = (3 &gt; 4) &amp;&amp; 对象; //false</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = (5 &gt; 4) &amp;&amp; null; </span><a><span style="font-size: small;">//null</span></a></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;"> </span></div></blockquote>
-									<div><b><span style="font-size: small;">||逻辑或</span></b></div></blockquote>
-									<div>
-									<ul>
-										<li>
-									<ul>
-										<li><span style="font-size: small;">第一个操作数是对象，则返回第一个操作数</span></li>
-										<li><span style="font-size: small;">第一个操作数的求值结果为 false，则返回第二个操作数；</span></li>
-										<li><span style="font-size: small;">两个操作数都是对象，则返回第一个操作数；</span></li>
-										<li><span style="font-size: small;">两个操作数都是 null，则返回 null；</span></li>
-										<li><span style="font-size: small;">两个操作数都是 NaN，则返回 NaN；</span></li>
-										<li><span style="font-size: small;">两个操作数都是 undefined，则返回 undefined；</span></li>
-									</ul>
-									</li>
-									</ul>
-									</div>
-									<blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = 对象 || (5 &gt; 3); //[object Object]</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = (5 &gt; 3) || 对象; //true</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = 对象 1 || 对象 2; //[object Object]</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = null || null; //null</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = NaN || NaN; //NaN</span></div></blockquote>
-									<blockquote>
-									<div><span style="font-size: small;">var box = undefined || undefined; //undefined</span></div></blockquote>
-									<div><span style="font-size: small;"> </span></div>
-									<div><b><span style="font-size: small;">!逻辑非 </span></b></div>
-									<div><span style="font-size: small;">逻辑非运算符可以用于任何值。 无论这个值是什么数据类型， 这个运算符都会<b><span style="color: #0000ff;">返回一个布尔值</span></b>。它的流程是：先将这个值转换成布尔值，然后取反。</span></div>
-									<div><span style="font-size: small;">通常来说， 使用一个逻辑非运算符和两个逻辑非运算符可以得到相应的布尔值。</span></div></blockquote>
-									<ul>
-										<li>
-									<ul>
-										<li><span style="font-size: small;">操作数是一个对象，返回 false；</span></li>
-										<li><span style="font-size: small;">操作数是一个空字符串，返回 true；</span></li>
-										<li><span style="font-size: small;">操作数是一个非空字符串，返回 false；</span></li>
-										<li><span style="font-size: small;">操作数是数值 0，返回 true；</span></li>
-										<li><span style="font-size: small;">操作数是任意非 0 数值(包括 Infinity)，false；</span></li>
-										<li><span style="font-size: small;">操作数是 null，返回 true；</span></li>
-										<li><span style="font-size: small;">操作数是 NaN，返回 true；</span></li>
-										<li><span style="font-size: small;">操作数是 undefined，返回 true；</span></li>
-									</ul>
-									</li>
-									</ul>
-									<div></div>
-							</span></li>
-							<li><a href="">其他运算符</a><span>
-									<h2><span style="font-size: small;">赋值运算符</span></h2>
-										<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top"><span style="font-size: small;">乘/赋(*=)  除/赋(/=)  模/赋(%=)  加/赋(+=)  减/赋(-=)  左移/赋(&lt;&lt;=)  有符号右移/赋(&gt;&gt;=)  无符号有移/赋(&gt;&gt;&gt;=)</span></td>
-										</tr>
-										</tbody>
-										</table>
-										<div><span style="font-size: small;"> </span></div>
-										<div>
-
-										<hr />
-
-										</div>
-										<h2><span style="font-size: small;">位操作符</span></h2>
-										<div>
-										<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top"><span style="font-size: small;">~按位非，&amp;按位与，|按位或，^按位异或，&lt;&lt;左移，&gt;&gt;有符号右移，&gt;&gt;&gt;无符号右移</span></td>
-										</tr>
-										</tbody>
-										</table>
-										<div><span style="font-size: small;">
-										</span><span style="font-size: small;">
-										</span></div>
-										</div>
-										<div>
-
-										<hr />
-
-										<span style="font-size: small;"> </span></div>
-										<div><b><span style="font-size: small;">其他运算符</span></b></div>
-										<div>
-										<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top"><span style="font-size: small;">+ 字符串运算符 、 ,逗号运算符 、三元运算符</span></td>
-										</tr>
-										</tbody>
-										</table>
-										<div><span style="font-size: small;"> </span></div>
-										</div>
-										<div><span style="font-size: small;">字符串运算符只有一个，即："+"。它的作用是将两个字符串相加。</span></div>
-										<div><span style="font-size: small;">逗号运算符可以在一条语句中执行多个操作。</span></div>
-										<div><span style="font-size: small;">三元条件运算符 a ? b : c</span></div>
-							</span></li>
-							<li><a href="">运算符优先级</a><span>
-								<div><b><span style="font-size: small;">运算符优先级</span></b></div>
-										<div><span style="font-size: small;"><span>如果没有使用<strong>圆括号强制优先级</strong>，我们必须遵循以下顺序：
-										</span><strong>算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号</strong></span></div>
-										<div>
-										<table width="100%" border="1" cellspacing="0" cellpadding="2">
-										<tbody>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">运算符</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">描述</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">. [] () </span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">对象成员存取、数组下标、函数调用等</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">++ -- ~ ! delete new typeof void</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">一元运算符</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">* / %</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">乘法、除法、去模</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">+ - +</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">加法、减法、字符串连接</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">&lt;&lt; &gt;&gt; &gt;&gt;&gt;</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">移位</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">&lt; &lt;= &gt; &gt;= instanceof </span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">关系比较、检测类实例</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">== != === !==</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">恒等(全等)</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">&amp; </span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">位与</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">^ </span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">位异或</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">|</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">位或</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">&amp;&amp;</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">逻辑与</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">||</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">逻辑或</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">?:</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">三元条件</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">= x=</span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">赋值、运算赋值</span></div></td>
-										</tr>
-										<tr>
-										<td valign="top">
-										<div><span style="font-size: small;">, </span></div></td>
-										<td valign="top">
-										<div><span style="font-size: small;">多重赋值、数组元素</span></div></td>
-										</tr>
-										</tbody>
-										</table>
-										</div>
-							</span></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3>面向对象<span>+</span></h3>
-					<div style="display:none">
-						<h4>[<span>-</span>]基础概念</h4>
-						<ul>
-							<li><a href="">对象创建方法</a><span>
-								当对象的属性必须为变量时，则只能使用方括号！
-								<br>in遍历访问对象的属性/属性值
-								<br>for(var property in obj) {
-								<br>console.log(property);  //遍历对象的全部属性
-								<br>console.log(obj[property]); //遍历所有对象的值
-								<br>} 
+					</ul>
+					<h4>[<span>+</span>]运算</h4>
+					<ul style="display:none;">
+						<li><a href="">一元运算符</a><span>
+							<h2>一元运算符</h2>
 								<div>
-									<div>创建对象</div>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top">var obj = new Object()
-									obj.key = value
-									obj.key = function(){}</td>
-									<td valign="top">new 运算符</td>
-									</tr>
-									<tr>
-									<td valign="top">var obj ={
-									key:value,
-									key:function(){}
-									}</td>
-									<td valign="top">字面量</td>
-									</tr>
-									</tbody>
-									</table>
-									</div>
-									<div>
-									<ol>
-										<li>new可以省略，字面量方式中属性key可以有或去掉引号</li>
-										<li>对象属性间，不要忘记加逗号分隔</li>
-										<li>函数应用于对象时，对象名不需要加引号  function(obj){}</li>
-									</ol>
-									</div>
-									</div>
-									<div><b><span style="font-size: small;">对象属性</span></b></div>
-									<div>
-									<table width="100%" border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top"><span style="font-size: small;">obj.key</span></td>
-									<td valign="top"><span style="font-size: small;">点表示法</span></td>
-									</tr>
-									<tr>
-									<td valign="top"><span style="font-size: small;">obj['key']</span></td>
-									<td valign="top"><span style="font-size: small;">中括号表示法</span></td>
-									</tr>
-									</tbody>
-									</table>
-									</div>
-									<div>
-									<ol>
-										<li><span style="color: #e30000; font-size: small;"><strong>中括号表示法时，key需要加上引号法</strong></span></li>
-										<li><b><span style="color: #e30000; font-size: small;">当属性含空格、关键字或为变量时，只能用中括号表示</span></b></li>
-										<li><span style="color: #e30000; font-size: small;"><b>删除属性delete obj.key</b></span></li>
-									</ol>
-									</div>
-							</span></li>
-							<li><a href="">对象内部属性</a><span>
-								<div>
-								<div>
-								<div>
-								<div>
-								<div>
-								<table width="88%" border="1" cellspacing="0" cellpadding="2">
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
 								<tbody>
 								<tr>
-								<td valign="top"><span style="font-size: small;">数据属性</span></td>
-								<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
+								<td valign="top">i++后置递增，++i前置递增，i--后置递减，--i前置递减，+i取正，-i取负</td>
+								</tr>
+								</tbody>
+								</table>
+								<div></div>
+								</div>
+								<ul>
+									<li>只能操作一个值的运算符叫做一元运算符</li>
+									<li>递增++和递减--、取正+、取负-</li>
+									<li>递增递减中前置和后置的区别</li>
+								</ul>
+								<div>
+								<blockquote>
+								<div>在没有赋值操作， 前置和后置是一样的。 但在赋值操作时， 如果递增或递减运算符前置 ，
+								那么前置的运算符会先累加或累减再赋值，如果是后置运算符则先赋值再累加或累减。</div>
+								<div>var box = 100;
+								var age = ++box; //age 值为 101
+								var height = box++; //height 值为 100</div></blockquote>
+								</div>
+								<div>
+								<ul>
+									<li>非数值执行运算，会隐藏自动转型为数值（除+）</li>
+								</ul>
+								其他类型应用一元运算符的规则</div>
+								<blockquote>
+								<div>var box = '89'; box++; //90，数值字符串自动转换成数值</div>
+								<div>var box = 'ab'; box++; //NaN，字符串包含非数值转成 NaN</div>
+								<div>var box = false; box++; //1，false 转成数值是 0，累加就是 1</div>
+								<div>var box = 2.3; box++; //3.3，直接加 1</div>
+								<div>var box = { //1，不设置 toString 或 valueOf 即为 NaN</div>
+								<div>toString : function() {</div>
+								<div>return 1;</div>
+								<div>}</div>
+								<div>}; box++;</div></blockquote>
+							</span></li>
+						<li><a href="">算数运算符</a><span>
+								<div><b><span style="font-size: small;">算术运算符</span></b></div>
+										<div>
+										<table width="100%" border="1" cellspacing="0" cellpadding="2">
+										<tbody>
+										<tr>
+										<td valign="top"><span style="font-size: small;">+加法，-减法，*乘法，/除法，%求模</span></td>
+										</tr>
+										</tbody>
+										</table>
+										<div></div>
+										</div>
+										<ul>
+											<li><span style="color: #e30000; font-size: small;"><b>加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</b></span></li>
+											<li><span style="font-size: small;">加法操作中，非数值字符串与数值运算，会串联字符串，减法中，则会得到NaN</span></li>
+											<li><span style="font-size: small;">加法操作中，数值+object类型=字符串（Num[object]），减法中，则会得到NaN</span></li>
+											<li><span style="font-size: small;">乘法操作中，数值*非数值字符串或对象返回NaN，除法与求模同NaN</span></li>
+										</ul>
+										<div></div></span></li>
+						<li><a href="">关系运算符</a><span><div><b><span style="font-size: small;">关系运算符 <span style="color: #e30000;">（返回一个布尔值）</span></span></b></div>
+								<div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">&gt;大于，&lt;小于，&gt;=大于等于，&lt;=小于等于，==相等，!=不等，===全等，!==不全等</span></td>
+								</tr>
+								</tbody>
+								</table>
+								<div></div>
+								</div>
+								<div>
+								<ul>
+									<li><span style="font-size: small;">两个操作数都是数值，则数值比较；</span></li>
+									<li><span style="color: #0000ff; font-size: small;">两个操作数都是字符串，则比较两个字符串对应的字符编码值；</span></li>
+									<li><span style="font-size: small;">两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</span></li>
+									<li><span style="font-size: small;">两个操作数有一个是对象，则先调用 valueOf()方法或 toString()方法，再用结果比较；</span></li>
+									<li><span style="font-size: small;">不需要任何转换的情况下，null 和 undefined 是相等的；</span></li>
+									<li><span style="font-size: small;">一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；</span></li>
+									<li><span style="font-size: small;">两个操作数都是对象，则比较他们是否是同一个对象，如果都指向同一个对象，则返回 true，否则返回 false。</span></li>
+								</ul>
+								</div>
+								<blockquote>
+								<div><span style="font-size: small;">var box = {} == {}; //false，比较的是他们的地址，每个新创建对象的</span></div>
+								<div><span style="font-size: small;">引用地址都不同</span></div>
+								<div><span style="font-size: small;">var age = {};</span></div>
+								<div><span style="font-size: small;">var height = age;</span></div>
+								<div><span style="font-size: small;">var box = age == height; </span><a><span style="font-size: small;">//true，引用地址一样，所以相等</span></a></div>
+								<div><span style="font-size: small;"> </span></div></blockquote></span></li>
+						<li><a href="">逻辑运算符</a><span>
+								<div><span style="font-size: small;"><b>逻辑运算符</b><span style="color: #0000ff;">（通常用于布尔值的操作）</span></span></div>
+								<div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">&amp;&amp;逻辑与(AND)、||逻辑或(OR)、!逻辑非(NOT)。</span></td>
+								</tr>
+								</tbody>
+								</table>
+								<div><span style="font-size: small;"> </span></div>
+								</div>
+								<blockquote>
+								<div><span style="font-size: small;"><span style="color: #e30000;">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值</span>，此时，遵循已下规则：</span></div>
+								<div><span style="font-size: small;"> </span></div>
+								<div><b><span style="font-size: small;">&amp;&amp;逻辑与</span></b></div></blockquote>
+								<div>
+								<ul>
+									<li>
+								<ul>
+									<li><span style="font-size: small;">第一个操作数是对象，则返回第二个操作数；</span></li>
+									<li><span style="font-size: small;">第二个操作数是对象，则第一个操作数返回 true， 才返回第二个操作数， 否则返回 false;</span></li>
+									<li><span style="font-size: small;">有一个操作数是 null，则返回 null；</span></li>
+									<li><span style="font-size: small;">有一个操作数是 undefined，则返回 undefined。</span></li>
+								</ul>
+								</li>
+								</ul>
+								</div>
+								<blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = 对象 &amp;&amp; (5 &gt; 4); //true，返回第二个操作数</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = (5 &gt; 4) &amp;&amp; 对象; //[object Object]</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = (3 &gt; 4) &amp;&amp; 对象; //false</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = (5 &gt; 4) &amp;&amp; null; </span><a><span style="font-size: small;">//null</span></a></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;"> </span></div></blockquote>
+								<div><b><span style="font-size: small;">||逻辑或</span></b></div></blockquote>
+								<div>
+								<ul>
+									<li>
+								<ul>
+									<li><span style="font-size: small;">第一个操作数是对象，则返回第一个操作数</span></li>
+									<li><span style="font-size: small;">第一个操作数的求值结果为 false，则返回第二个操作数；</span></li>
+									<li><span style="font-size: small;">两个操作数都是对象，则返回第一个操作数；</span></li>
+									<li><span style="font-size: small;">两个操作数都是 null，则返回 null；</span></li>
+									<li><span style="font-size: small;">两个操作数都是 NaN，则返回 NaN；</span></li>
+									<li><span style="font-size: small;">两个操作数都是 undefined，则返回 undefined；</span></li>
+								</ul>
+								</li>
+								</ul>
+								</div>
+								<blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = 对象 || (5 &gt; 3); //[object Object]</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = (5 &gt; 3) || 对象; //true</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = 对象 1 || 对象 2; //[object Object]</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = null || null; //null</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = NaN || NaN; //NaN</span></div></blockquote>
+								<blockquote>
+								<div><span style="font-size: small;">var box = undefined || undefined; //undefined</span></div></blockquote>
+								<div><span style="font-size: small;"> </span></div>
+								<div><b><span style="font-size: small;">!逻辑非 </span></b></div>
+								<div><span style="font-size: small;">逻辑非运算符可以用于任何值。 无论这个值是什么数据类型， 这个运算符都会<b><span style="color: #0000ff;">返回一个布尔值</span></b>。它的流程是：先将这个值转换成布尔值，然后取反。</span></div>
+								<div><span style="font-size: small;">通常来说， 使用一个逻辑非运算符和两个逻辑非运算符可以得到相应的布尔值。</span></div></blockquote>
+								<ul>
+									<li>
+								<ul>
+									<li><span style="font-size: small;">操作数是一个对象，返回 false；</span></li>
+									<li><span style="font-size: small;">操作数是一个空字符串，返回 true；</span></li>
+									<li><span style="font-size: small;">操作数是一个非空字符串，返回 false；</span></li>
+									<li><span style="font-size: small;">操作数是数值 0，返回 true；</span></li>
+									<li><span style="font-size: small;">操作数是任意非 0 数值(包括 Infinity)，false；</span></li>
+									<li><span style="font-size: small;">操作数是 null，返回 true；</span></li>
+									<li><span style="font-size: small;">操作数是 NaN，返回 true；</span></li>
+									<li><span style="font-size: small;">操作数是 undefined，返回 true；</span></li>
+								</ul>
+								</li>
+								</ul>
+								<div></div>
+						</span></li>
+						<li><a href="">其他运算符</a><span>
+								<h2><span style="font-size: small;">赋值运算符</span></h2>
+									<table width="100%" border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top"><span style="font-size: small;">乘/赋(*=)  除/赋(/=)  模/赋(%=)  加/赋(+=)  减/赋(-=)  左移/赋(&lt;&lt;=)  有符号右移/赋(&gt;&gt;=)  无符号有移/赋(&gt;&gt;&gt;=)</span></td>
+									</tr>
+									</tbody>
+									</table>
+									<div><span style="font-size: small;"> </span></div>
+									<div>
+
+									<hr />
+
+									</div>
+									<h2><span style="font-size: small;">位操作符</span></h2>
+									<div>
+									<table width="100%" border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top"><span style="font-size: small;">~按位非，&amp;按位与，|按位或，^按位异或，&lt;&lt;左移，&gt;&gt;有符号右移，&gt;&gt;&gt;无符号右移</span></td>
+									</tr>
+									</tbody>
+									</table>
+									<div><span style="font-size: small;">
+									</span><span style="font-size: small;">
+									</span></div>
+									</div>
+									<div>
+
+									<hr />
+
+									<span style="font-size: small;"> </span></div>
+									<div><b><span style="font-size: small;">其他运算符</span></b></div>
+									<div>
+									<table width="100%" border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top"><span style="font-size: small;">+ 字符串运算符 、 ,逗号运算符 、三元运算符</span></td>
+									</tr>
+									</tbody>
+									</table>
+									<div><span style="font-size: small;"> </span></div>
+									</div>
+									<div><span style="font-size: small;">字符串运算符只有一个，即："+"。它的作用是将两个字符串相加。</span></div>
+									<div><span style="font-size: small;">逗号运算符可以在一条语句中执行多个操作。</span></div>
+									<div><span style="font-size: small;">三元条件运算符 a ? b : c</span></div>
+						</span></li>
+						<li><a href="">运算符优先级</a><span>
+							<div><b><span style="font-size: small;">运算符优先级</span></b></div>
+									<div><span style="font-size: small;"><span>如果没有使用<strong>圆括号强制优先级</strong>，我们必须遵循以下顺序：
+									</span><strong>算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号</strong></span></div>
+									<div>
+									<table width="100%" border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">运算符</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">描述</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">. [] () </span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">对象成员存取、数组下标、函数调用等</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">++ -- ~ ! delete new typeof void</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">一元运算符</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">* / %</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">乘法、除法、去模</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">+ - +</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">加法、减法、字符串连接</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">&lt;&lt; &gt;&gt; &gt;&gt;&gt;</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">移位</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">&lt; &lt;= &gt; &gt;= instanceof </span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">关系比较、检测类实例</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">== != === !==</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">恒等(全等)</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">&amp; </span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">位与</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">^ </span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">位异或</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">|</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">位或</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">&amp;&amp;</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">逻辑与</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">||</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">逻辑或</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">?:</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">三元条件</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">= x=</span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">赋值、运算赋值</span></div></td>
+									</tr>
+									<tr>
+									<td valign="top">
+									<div><span style="font-size: small;">, </span></div></td>
+									<td valign="top">
+									<div><span style="font-size: small;">多重赋值、数组元素</span></div></td>
+									</tr>
+									</tbody>
+									</table>
+									</div>
+						</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>面向对象<span>+</span></h3>
+				<div style="display:none">
+					<h4>[<span>-</span>]基础概念</h4>
+					<ul>
+						<li><a href="">对象创建方法</a><span>
+							当对象的属性必须为变量时，则只能使用方括号！
+							<br>in遍历访问对象的属性/属性值
+							<br>for(var property in obj) {
+							<br>console.log(property);  //遍历对象的全部属性
+							<br>console.log(obj[property]); //遍历所有对象的值
+							<br>} 
+							<div>
+								<div>创建对象</div>
+								<div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">var obj = new Object()
+								obj.key = value
+								obj.key = function(){}</td>
+								<td valign="top">new 运算符</td>
 								</tr>
 								<tr>
-								<td valign="top"></td>
-								<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
-								</tr>
-								<tr>
-								<td valign="top"></td>
-								<td valign="top"><span style="font-size: small;">writable 属性值是否可写 true/false</span></td>
-								</tr>
-								<tr>
-								<td valign="top"></td>
-								<td valign="top"><span style="font-size: small;">value 包含属性的数据值 undefined</span></td>
-								</tr>
-								<tr>
-								<td valign="top"><span style="font-size: small;">访问属性</span></td>
-								<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
-								</tr>
-								<tr>
-								<td valign="top"></td>
-								<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
-								</tr>
-								<tr>
-								<td valign="top"></td>
-								<td valign="top"><span style="font-size: small;">get: 读取属性时调用的函数 undefined</span></td>
-								</tr>
-								<tr>
-								<td valign="top"></td>
-								<td valign="top"><span style="font-size: small;">set: 写入属性时调用的函数 undefined</span></td>
-								</tr>
-								<tr>
-								<td valign="top"><span style="font-size: small;">设置某类属性</span></td>
-								<td valign="top"><strong><span style="font-size: small;">Object.defineProperty(对象名,属性名,{设置块})</span></strong></td>
-								</tr>
-								<tr>
-								<td valign="top"><span style="font-size: small;">设置两类属性</span></td>
-								<td valign="top">
-								<div><strong><span style="font-size: small;">Object.defineProperties(对象名,{</span></strong></div>
-								<div><strong><span style="font-size: small;">属性名:{设置块},</span></strong></div>
-								<div><strong><span style="font-size: small;">})</span></strong></div></td>
+								<td valign="top">var obj ={
+								key:value,
+								key:function(){}
+								}</td>
+								<td valign="top">字面量</td>
 								</tr>
 								</tbody>
 								</table>
 								</div>
-								<div><span style="font-size: small;">configurable，enumerable，writable等默认属性为true，<strong>一旦启用设置函数即使没定义也全部设置为false.</strong></span></div>
+								<div>
+								<ol>
+									<li>new可以省略，字面量方式中属性key可以有或去掉引号</li>
+									<li>对象属性间，不要忘记加逗号分隔</li>
+									<li>函数应用于对象时，对象名不需要加引号  function(obj){}</li>
+								</ol>
 								</div>
 								</div>
+								<div><b><span style="font-size: small;">对象属性</span></b></div>
+								<div>
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top"><span style="font-size: small;">obj.key</span></td>
+								<td valign="top"><span style="font-size: small;">点表示法</span></td>
+								</tr>
+								<tr>
+								<td valign="top"><span style="font-size: small;">obj['key']</span></td>
+								<td valign="top"><span style="font-size: small;">中括号表示法</span></td>
+								</tr>
+								</tbody>
+								</table>
 								</div>
+								<div>
+								<ol>
+									<li><span style="color: #e30000; font-size: small;"><strong>中括号表示法时，key需要加上引号法</strong></span></li>
+									<li><b><span style="color: #e30000; font-size: small;">当属性含空格、关键字或为变量时，只能用中括号表示</span></b></li>
+									<li><span style="color: #e30000; font-size: small;"><b>删除属性delete obj.key</b></span></li>
+								</ol>
 								</div>
-							</span></li>
-							<li><a href="">函数创建方法</a><span>
-							</span></li>
-							<li><a href="">函数特征说明</a><span>
-							</span></li>
-							<li><a href="">变量与作用域</a><span>
-							</span></li>
-							<li><a href="">匿名函数与块级作用域</a><span>
-							</span></li>
-							<li><a href="">闭包与内存泄露</a><span>
-							</span></li>
-							<li><a href="">私有变量与模块模式</a></li>
-							<li><a href="">构造方法</a></li>
-							<li><a href="">继承方法</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3>参考资料<span>-</span></h3>
-					<div>
-						<h4>[<span>-</span>]参考资料</h4>
-						<ul>
-							
-						</ul>
-					</div>
-				</li>
-
-			</ul></div>
+						</span></li>
+						<li><a href="">对象内部属性</a><span>
+							<div>
+							<div>
+							<div>
+							<div>
+							<div>
+							<table width="88%" border="1" cellspacing="0" cellpadding="2">
+							<tbody>
+							<tr>
+							<td valign="top"><span style="font-size: small;">数据属性</span></td>
+							<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
+							</tr>
+							<tr>
+							<td valign="top"></td>
+							<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
+							</tr>
+							<tr>
+							<td valign="top"></td>
+							<td valign="top"><span style="font-size: small;">writable 属性值是否可写 true/false</span></td>
+							</tr>
+							<tr>
+							<td valign="top"></td>
+							<td valign="top"><span style="font-size: small;">value 包含属性的数据值 undefined</span></td>
+							</tr>
+							<tr>
+							<td valign="top"><span style="font-size: small;">访问属性</span></td>
+							<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
+							</tr>
+							<tr>
+							<td valign="top"></td>
+							<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
+							</tr>
+							<tr>
+							<td valign="top"></td>
+							<td valign="top"><span style="font-size: small;">get: 读取属性时调用的函数 undefined</span></td>
+							</tr>
+							<tr>
+							<td valign="top"></td>
+							<td valign="top"><span style="font-size: small;">set: 写入属性时调用的函数 undefined</span></td>
+							</tr>
+							<tr>
+							<td valign="top"><span style="font-size: small;">设置某类属性</span></td>
+							<td valign="top"><strong><span style="font-size: small;">Object.defineProperty(对象名,属性名,{设置块})</span></strong></td>
+							</tr>
+							<tr>
+							<td valign="top"><span style="font-size: small;">设置两类属性</span></td>
+							<td valign="top">
+							<div><strong><span style="font-size: small;">Object.defineProperties(对象名,{</span></strong></div>
+							<div><strong><span style="font-size: small;">属性名:{设置块},</span></strong></div>
+							<div><strong><span style="font-size: small;">})</span></strong></div></td>
+							</tr>
+							</tbody>
+							</table>
+							</div>
+							<div><span style="font-size: small;">configurable，enumerable，writable等默认属性为true，<strong>一旦启用设置函数即使没定义也全部设置为false.</strong></span></div>
+							</div>
+							</div>
+							</div>
+							</div>
+						</span></li>
+						<li><a href="">函数创建方法</a><span>
+						</span></li>
+						<li><a href="">函数特征说明</a><span>
+						</span></li>
+						<li><a href="">变量与作用域</a><span>
+						</span></li>
+						<li><a href="">匿名函数与块级作用域</a><span>
+						</span></li>
+						<li><a href="">闭包与内存泄露</a><span>
+						</span></li>
+						<li><a href="">私有变量与模块模式</a></li>
+						<li><a href="">构造方法</a></li>
+						<li><a href="">继承方法</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>参考资料<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]参考资料</h4>
+					<ul>
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
 	<div id="jQuery" class="content clearfix" style="display:none">
 		<ul>
 			<li>
@@ -4854,7 +4964,8 @@
 					</ul>
 				</div>
 			</li>
-		</ul></div>
+		</ul>
+	</div>
 	<div id="Plugin" class="content clearfix" style="display:none">
 		<ul>
 			<li>
@@ -4866,407 +4977,407 @@
 					</ul>
 				</div>
 			</li>
-		</ul></div>
+		</ul>
+	</div>
 	<div id="RegEXP" class="content clearfix" style="display:none">
-			<div class="exp_info">
-					<div><b><span style="font-size: small;">字符类：单个字符和数字</span></b></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">元字符/元符号</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配情况</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="color: #0000ff; font-size: small;"><b>.</b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配除换行符外的任意字符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="color: #0000ff; font-size: small;"><b>\d</b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配数字，等价[0-9]</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="color: #0000ff; font-size: small;"><b>\D</b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配非数字，同[^0-9]相同</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="color: #0000ff; font-size: small;"><b>\w</b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配字母和数字及_，等价[0-9a-zA-Z_]</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\W</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配非字母和数字及_</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><b><span style="color: #0000ff; font-size: small;">\s</span></b></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配空白字符、空格、制表符和换行符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\S</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配非空白字符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\n</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配换行符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\r</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配回车字符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\t</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配制表符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">\v</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找垂直制表符。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\f</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配换页字符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\0</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配 null 字符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">\xxx</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找以八进制数 xxx 规定的字符。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">\xdd</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找以十六进制数 dd 规定的字符。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">\uxxxx</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找以十六进制数 xxxx 规定的 Unicode 字符。</span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					</div>
-					<div><b><span style="font-size: small;">字符类：锚字符</span></b></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">元字符/元符号</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配情况</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="color: #0000ff; font-size: small;"><b>^</b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">行首匹配<b>（不在方括号内）</b></span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="color: #0000ff; font-size: small;"><b>$</b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">行尾匹配</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\A</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">只有匹配字符串开始处</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\b</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配空格字符，单词边界，词在[]内时无效</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\B</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配非单词边界</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\G</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配当前搜索的开始位置</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\Z</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配字符串结束处或行尾</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\z </span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">只匹配字符串结束处</span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					</div>
-					<div><b><span style="font-size: small;">字符类：量词</span></b></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">元字符/元符号</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配情况</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">x<span style="color: #0000ff;"><b>?</b></span></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配 0 个或 1 个 x   <b>(0或1)</b></span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">x<b><span style="color: #0000ff;">+</span></b></span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配至少一个 x <b>(&gt;=1)</b></span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">x<b><span style="color: #0000ff;">*</span></b></span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配 0 个或任意多个 x <b>(&gt;=0)</b></span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">x<b><span style="color: #0000ff;">{N}</span></b></span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配包含 n 个 x 的序列的字符串。<b>(N个)</b></span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">x<b><span style="color: #0000ff;">{N,M}</span></b></span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配包含 n~ m个x 的序列的字符串。<b>（N~M个）</b></span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">x{N,}  x{,M}</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配包含至少n 个x 的序列的字符串。<b>（N个以上）(M个以下)</b></span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					</div>
-					<div><span style="font-size: small;"><b>表达式：[]</b>方括号用于查找某个范围内的字符</span></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top"><span style="font-size: small;">[abc]</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找方括号之间的任何字符。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">[^abc]</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找任何不在方括号之间的字符</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">[0-9][a-z][A-Z][A-z]</span></td>
-					<td valign="top"><span style="font-size: small;">数字/小写字母/大写字母/全部字母</span></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					</div>
-					<div><span style="font-size: small;"><b>分组：()</b>  <strong>|</strong></span></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top"><span style="font-size: small;"> /(google){4,8}/</span></td>
-					<td valign="top"><span style="font-size: small;"> </span></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">\1 或$1
-					</span></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配第一个分组中的内容</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\2 或$2</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配第二个分组中的内容</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">\3 或$3 </span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">匹配第三个分组中的内容</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">RegExp.$1</span></td>
-					<td valign="top"><span style="font-size: small;">得到第一个分组里的字符串内容 （在此之前必须要运行一次）</span></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">(red<b><span style="color: #0000ff;">|</span></b>blue<span style="color: #0000ff;"><b>|</b></span>green)</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">查找任何指定的选项。<b>|需要放在分组中</b></span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					</div>
-					<div><span style="font-size: small;"><b>replacement</b> 中的 $ 字符具有特定的含义。如下表所示，它说明从模式匹配得到的字符串将用于替换。</span></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">$1、$2、...、$99</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">$&amp;</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">与 regexp 相匹配的子串。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">$`</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">位于匹配子串左侧的文本。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">$'</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">位于匹配子串右侧的文本。</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">$$</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">直接量符号。</span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					</div>
-					<div><b><span style="font-size: small;">贪婪与惰性</span></b></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">贪 婪</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;"> 惰 性</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">+</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">+?</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">?</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">??</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">*</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">*?</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">{n}</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">{n}?</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">{n,}</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">{n,}?</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">{n,m}</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">{n,m}?</span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					<div><b><span style="font-size: small;">分组捕获</span></b></div>
-					<div>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">?: </span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">非捕获分组前 (a)(?:b)</span></div></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">?=</span></td>
-					<td valign="top"><span style="font-size: small;">前瞻捕获 (a)(?=b) 返回的是a不是ab，紧跟b的a</span></td>
-					</tr>
-					<tr>
-					<td valign="top">
-					<div><span style="font-size: small;">?!</span></div></td>
-					<td valign="top">
-					<div><span style="font-size: small;">(a)(?!b)匹配任何其后没有紧接指定字符串 b 的字符串，不紧跟b的a</span></div></td>
-					</tr>
-					</tbody>
-					</table>
-					<div><span style="font-size: small;"> </span></div>
-					</div>
-					</div>
-				  </div>
-			<div style="float:left;width:380px;margin-left:20px;border-radius:4px;display:none">
-					  	<h3>常用正则表达式<span>-</span></h3>
-					  	<div>
-					  		<h4></h4>
-					  		<ul>
-					  			<li><a href=""></a></li>
-					  			<li><a href=""></a></li>
-					  		</ul>
-					  	</div></div></div>
-	
+		<div class="exp_info">
+			<b>字符类：单个字符和数字</b>
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">
+			元字符/元符号</td>
+			<td valign="top">
+			匹配情况</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>.</b></td>
+			<td valign="top">
+			匹配除换行符外的任意字符</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>\d</b></td>
+			<td valign="top">
+			匹配数字，等价[0-9]</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>\D</b></td>
+			<td valign="top">
+			匹配非数字，同[^0-9]相同</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>\w</b></td>
+			<td valign="top">
+			匹配字母和数字及_，等价[0-9a-zA-Z_]</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\W</td>
+			<td valign="top">
+			匹配非字母和数字及_</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>\s</b></td>
+			<td valign="top">
+			匹配空白字符、空格、制表符和换行符</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\S</td>
+			<td valign="top">
+			匹配非空白字符</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\n</td>
+			<td valign="top">
+			匹配换行符</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\r</td>
+			<td valign="top">
+			匹配回车字符</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\t</td>
+			<td valign="top">
+			匹配制表符</td>
+			</tr>
+			<tr>
+			<td valign="top">\v</td>
+			<td valign="top">
+			查找垂直制表符。</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\f</td>
+			<td valign="top">
+			匹配换页字符</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\0</td>
+			<td valign="top">
+			匹配 null 字符</td>
+			</tr>
+			<tr>
+			<td valign="top">\xxx</td>
+			<td valign="top">
+			查找以八进制数 xxx 规定的字符。</td>
+			</tr>
+			<tr>
+			<td valign="top">\xdd</td>
+			<td valign="top">
+			查找以十六进制数 dd 规定的字符。</td>
+			</tr>
+			<tr>
+			<td valign="top">\uxxxx</td>
+			<td valign="top">
+			查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+			</tr>
+			</tbody>
+			</table>
+			 
+			
+			<b>字符类：锚字符</b>
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">
+			元字符/元符号</td>
+			<td valign="top">
+			匹配情况</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>^</b></td>
+			<td valign="top">
+			行首匹配<b>（不在方括号内）</b></td>
+			</tr>
+			<tr>
+			<td valign="top">
+			<b>$</b></td>
+			<td valign="top">
+			行尾匹配</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\A</td>
+			<td valign="top">
+			只有匹配字符串开始处</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\b</td>
+			<td valign="top">
+			匹配空格字符，单词边界，词在[]内时无效</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\B</td>
+			<td valign="top">
+			匹配非单词边界</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\G</td>
+			<td valign="top">
+			匹配当前搜索的开始位置</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\Z</td>
+			<td valign="top">
+			匹配字符串结束处或行尾</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\z </td>
+			<td valign="top">
+			只匹配字符串结束处</td>
+			</tr>
+			</tbody>
+			</table>
+			 
+			
+			<b>字符类：量词</b>
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">
+			元字符/元符号</td>
+			<td valign="top">
+			匹配情况</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			x<b>?</b></td>
+			<td valign="top">
+			匹配 0 个或 1 个 x   <b>(0或1)</b></td>
+			</tr>
+			<tr>
+			<td valign="top">
+			x<b>+</b></td>
+			<td valign="top">
+			匹配至少一个 x <b>(&gt;=1)</b></td>
+			</tr>
+			<tr>
+			<td valign="top">x<b>*</b></td>
+			<td valign="top">
+			匹配 0 个或任意多个 x <b>(&gt;=0)</b></td>
+			</tr>
+			<tr>
+			<td valign="top">x<b>{N}</b></td>
+			<td valign="top">
+			匹配包含 n 个 x 的序列的字符串。<b>(N个)</b></td>
+			</tr>
+			<tr>
+			<td valign="top">x<b>{N,M}</b></td>
+			<td valign="top">
+			匹配包含 n~ m个x 的序列的字符串。<b>（N~M个）</b></td>
+			</tr>
+			<tr>
+			<td valign="top">x{N,}  x{,M}</td>
+			<td valign="top">
+			匹配包含至少n 个x 的序列的字符串。<b>（N个以上）(M个以下)</b></td>
+			</tr>
+			</tbody>
+			</table>
+			 
+			
+			<b>表达式：[]</b>方括号用于查找某个范围内的字符
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">[abc]</td>
+			<td valign="top">
+			查找方括号之间的任何字符。</td>
+			</tr>
+			<tr>
+			<td valign="top">[^abc]</td>
+			<td valign="top">
+			查找任何不在方括号之间的字符</td>
+			</tr>
+			<tr>
+			<td valign="top">[0-9][a-z][A-Z][A-z]</td>
+			<td valign="top">数字/小写字母/大写字母/全部字母</td>
+			</tr>
+			</tbody>
+			</table>
+			 
+			
+			<b>分组：()</b>  <strong>|</strong>
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top"> /(google){4,8}/</td>
+			<td valign="top"> </td>
+			</tr>
+			<tr>
+			<td valign="top">\1 或$1
+			</td>
+			<td valign="top">
+			匹配第一个分组中的内容</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\2 或$2</td>
+			<td valign="top">
+			匹配第二个分组中的内容</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			\3 或$3 </td>
+			<td valign="top">
+			匹配第三个分组中的内容</td>
+			</tr>
+			<tr>
+			<td valign="top">RegExp.$1</td>
+			<td valign="top">得到第一个分组里的字符串内容 （在此之前必须要运行一次）</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			(red<b>|</b>blue<b>|</b>green)</td>
+			<td valign="top">
+			查找任何指定的选项。<b>|需要放在分组中</b></td>
+			</tr>
+			</tbody>
+			</table>
+			 
+			
+			<b>replacement</b> 中的 $ 字符具有特定的含义。如下表所示，它说明从模式匹配得到的字符串将用于替换。
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">
+			$1、$2、...、$99</td>
+			<td valign="top">
+			与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			$&amp;</td>
+			<td valign="top">
+			与 regexp 相匹配的子串。</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			$`</td>
+			<td valign="top">
+			位于匹配子串左侧的文本。</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			$'</td>
+			<td valign="top">
+			位于匹配子串右侧的文本。</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			$$</td>
+			<td valign="top">
+			直接量符号。</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<b>贪婪与惰性</b>
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">
+			贪 婪</td>
+			<td valign="top">
+			 惰 性</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			+</td>
+			<td valign="top">
+			+?</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			?</td>
+			<td valign="top">
+			??</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			*</td>
+			<td valign="top">
+			*?</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			{n}</td>
+			<td valign="top">
+			{n}?</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			{n,}</td>
+			<td valign="top">
+			{n,}?</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			{n,m}</td>
+			<td valign="top">
+			{n,m}?</td>
+			</tr>
+			</tbody>
+			</table>
+			 
+			<b>分组捕获</b>
+			
+			<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tbody>
+			<tr>
+			<td valign="top">
+			?: </td>
+			<td valign="top">
+			非捕获分组前 (a)(?:b)</td>
+			</tr>
+			<tr>
+			<td valign="top">?=</td>
+			<td valign="top">前瞻捕获 (a)(?=b) 返回的是a不是ab，紧跟b的a</td>
+			</tr>
+			<tr>
+			<td valign="top">
+			?!</td>
+			<td valign="top">
+			(a)(?!b)匹配任何其后没有紧接指定字符串 b 的字符串，不紧跟b的a</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>	 
+			
+		<div style="float:left;width:380px;margin-left:20px;border-radius:4px;display:none">
+		  	<h3>常用正则表达式<span>-</span></h3>
+		  	<div>
+		  		<h4></h4>
+		  		<ul>
+		  			<li><a href=""></a></li>
+		  			<li><a href=""></a></li>
+		  		</ul>
+		  	</div>
+		</div>
+	</div>
 </div>
 <div class="footer clearfix">
 	<h5>BOOKMARK</h5>
@@ -5390,11 +5501,6 @@
 		<li><a href=""></a></li>
 		</ul>
 	</div>
-
-
-	
-
-	
 </div> 
 <div style="display:none"><script src="http://s6.cnzz.com/z_stat.php?id=1253473928&web_id=1253473928" language="JavaScript"></script></div>
 </body>

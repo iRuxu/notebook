@@ -266,6 +266,9 @@ table td {
   border-bottom: 1px solid #888;
   background: url('img/iruxu.png') no-repeat left center;
   _background: url('img/iruxu.jpg') no-repeat left center;
+  /*.tm-png('img/iruxu.png');
+    background-position: left center;
+    background-repeat: no-repeat;*/
 }
 .header h1 {
   font-size: 48px;
@@ -387,6 +390,38 @@ h1:hover {
 .content {
   padding: 20px;
 }
+*.content ul {
+  width: 220px;
+  margin-right: 10px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  _float: left;
+  overflow: hidden;
+}
+*.content span {
+  display: none;
+  overflow: hidden;
+}
+*.content ul li ul li span {
+  width: 280px;
+  display: none;
+  padding: 5px;
+  position: absolute;
+  background-color: #222;
+  border: 1px solid #111;
+  color: #ccc;
+  font-weight: normal;
+  border-radius: 4px;
+}
+*.content h4 span {
+  display: inline;
+}
+*.content h3 span,
+*.footer h6 span {
+  _position: relative;
+  _top: -22px;
+}
 .content > ul,
 .col {
   display: inline;
@@ -440,9 +475,9 @@ h1:hover {
   color: #00ccff;
 }
 .content h3 span {
-  float: right;
   padding-right: 10px;
-  display: inline-block;
+  display: inline;
+  float: right;
 }
 .content ul > li > div {
   padding: 0 5px;
@@ -489,9 +524,8 @@ h1:hover {
   min-width: 180px;
   padding: 5px;
   position: absolute;
-  background: rgba(34, 34, 34, 0.88);
-  _background: #222222;
-  _filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#e0222222, endColorstr=#e0222222);
+  background-color: rgba(34, 34, 34, 0.88);
+  background-color: #222\9;
   border: 1px solid #111;
   color: #ccc;
   font-weight: normal;

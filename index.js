@@ -1,14 +1,12 @@
 /*JS File for notebook
 http://iruxu.com/notebook
-iRuxu 2014.10.30
 */
 
 	$(function(){
 		//动态样式（ie6-ie8选择器hack）
-		$(".content>ul").addClass('col');
-		$(".content ul>li>div>ul>li>span").addClass('tips');
+		/*$(".content>ul").addClass('col');
+		$(".content ul>li>div>ul>li>span").addClass('tips');*/
 		
-
 		//内容切换
 		$(".header").on('click','#nav>ul>li',function(){
 			$(".content").css('display','none');
@@ -80,7 +78,7 @@ iRuxu 2014.10.30
 		})
 
 		//h6开关
-		$("footer").on('click','h6',function(){
+		$(".footer").on('click','h6',function(){
 			$(this).next('ul').slideToggle('slow');
 			var tg6 = $(this).children('span').html();
 			if(tg6=='-'){

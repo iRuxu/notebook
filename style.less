@@ -46,18 +46,13 @@ button,input,select,textarea{font:12px/1.5 Consolas,'Trebuchet MS',Tahoma,Helvet
     @ietm:argb(@rgba);
     background: @rgba;
     _background: rgb(@r,@g,@b);
-    _filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
 }
 .tm-png(@url){ //!add a absolute path
-    background:url(@url) no-repeat;
-    _background:none;
-    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-    a{_position:relative;}
+    background-image:url(@url);
+    _background-image:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
 }
-.max-width(@max-width){max-width:@max-width;_width:@max-width;}
-.min-width(@min-width){min-width:@min-width;_width:@min-width;}
-.max-height(@max-height){max-height:@max-height;_height:@max-height;}
-.min-height(@min-height){min-height:@min-height;_height:@min-height;}
 .x-align(@text-align){text-align:@text-align;}
 .y-align(@vertical-align){vertical-align:@vertical-align;}
 
@@ -129,6 +124,9 @@ table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;
     border-bottom: 1px solid #888;
     background:url('@{url}/iruxu.png') no-repeat left center;
     _background:url('@{url}/iruxu.jpg') no-repeat left center;
+    /*.tm-png('img/iruxu.png');
+    background-position: left center;
+    background-repeat: no-repeat;*/
     h1{font-size:48px;.dbi;padding:6px 0 6px 88px;line-height:42px;text-shadow:2px 2px 2px @black;transition:0.6s;color:#ddd;}
     h1:hover{-webkit-animation:tada 1s .2s ease both;-moz-animation:tada 1s .2s ease both;}
 }
@@ -178,6 +176,18 @@ h1:hover{color:@blue;}
 }
 
 .content{padding:20px;}
+
+//---------for ie6 start
+*.content ul{width:220px;margin-right:10px;display:inline-block;*display:inline;*zoom:1;_float: left;overflow:hidden;}
+*.content span{display:none;overflow:hidden;}
+*.content ul li ul li span{
+    width:280px; 
+    display:none;padding:5px;.pa;
+    background-color:#222;border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;}
+*.content h4 span{display:inline;}
+*.content h3 span,*.footer h6 span{_position: relative;_top:-22px;}
+//---------for ie6 end
+
 .content>ul,.col{.fl;.dbi;width:220px;margin-right:10px;overflow:hidden;}
 @media (max-width:1640px) and (min-width:1438px){.content>ul:nth-child(7){clear:left;}}
 @media (max-width:1430px) and (min-width:1200px){.content>ul:nth-child(6){clear:left;}}
@@ -188,17 +198,19 @@ h1:hover{color:@blue;}
 .content>ul>li{margin-bottom:10px;}
 .content h3{background:#333;color:#fff;text-indent:5px;color:#f2f2f2;margin:5px 0;}
 .content h3:hover{color:@blue;}
-.content h3 span{float: right;padding-right:10px;display:inline-block;}
+.content h3 span{padding-right:10px;.fr;}
 .content ul>li>div{padding:0 5px;}
 
 .content h4{color:#666;margin:0;padding:0;font-weight:normal;}
 .content h4:hover{color:@purple !important;font-weight:bold !important;}
+
 .content ul>li>div ul li {color:#888;border-top:1px dashed transparent;border-bottom:1px dashed transparent;.nobreak;}
 .content ul>li>div ul li:hover {background:#ffe5ff;color:@purple;cursor:pointer;border-top:1px dashed @pink;border-bottom:1px dashed @pink;}
 .content ul>li>div ul li:hover a{color:@pink;}
 .content ul>li>div ul li>a{padding-right:2px;}
 .content ul>li>div ul li>a[href^=http]{display:block;width:100%;height:100%;}
-.content ul>li>div ul li span,.tips{display:none;min-width:180px;padding:5px;.pa;.rgba(34,34,34,0.88);border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;}
+.content ul>li>div ul li span,.tips{display:none;min-width:180px;padding:5px;.pa;
+    background-color:rgba(34,34,34,0.88);background-color:#222\9;border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;}
 .content ul>li>div ul li>span textarea{font-family:consolas !important;}
 .content ul>li>div ul li>span table{max-width:98% !important;}
 .content ul>li>div ul li>span span{position:static;}
