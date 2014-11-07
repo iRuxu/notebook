@@ -15,8 +15,10 @@
 <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
 <![endif]-->
 <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-<link rel="stylesheet" href="style.css" />
+<script src="jquery-ui.js"></script>
 <script src="index.js"></script>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="jquery-ui.css" />
 </head>
 
 <body>
@@ -39,6 +41,7 @@
 			<li>Plugin</li>
 			<li>RegEXP</li>
 			<li><a href="http://iruxu.com/to-be-css/" target="_self">ToolBox</a></li>
+			<li><a href="http://www.cnblogs.com/iruxu/">Blog</a></li>
 		</ul>
 	</div>
 	<div id="showmenu"></div>
@@ -59,6 +62,9 @@
 				<div>
 					<h4>[<span>-</span>]规则</h4>
 					<ul>
+						<li><a href="">@charset</a><span>@charset "utf-8";
+							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
+							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
 						<li><a href="">选择器优先级</a><span>
 								基本原则：
 							　　<br />一般而言，选择器越特殊，它的优先级越高。也就是选择器指向的越准确，它的优先级就越高。
@@ -74,11 +80,8 @@
 						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
 							<br>但在IE6中有BUG,需要分开写在2个选择符中
 							<br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span></li>
-						<li><a href="">@charset</a><span>@charset "utf-8";
-							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
-							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
-						
 						<li><a href="https://github.com/necolas/normalize.css">Normalize.css</a></li>
+						<li><a href="https://github.com/iRuxu/resetcss">iRuxu.Resetcss</a></li>
 					</ul>
 					<h4>[<span>-</span>]HACK</h4>
 					<ul>
@@ -249,10 +252,10 @@
 								<br>“\9\0″ 只对IE9/IE10生效，是IE9/10的hack
 								<br><a href="http://blog.csdn.net/freshlover/article/details/12132801">参考资料</a>
 							</span></li>
-						<li><a href="">*selector</a><span>选择符级HACK
-							<br> * selector: IE6及以下
-							<br> *+ selector : IE7
-							<br><a href="http://img.blog.csdn.net/20130928162104078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnJlc2hsb3Zlcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">结合选择器能力</a>
+						<li><a href="">*html selector</a><span>选择符级HACK
+							<br> *html selector: IE6及以下
+							<br> *+html selector : IE7
+							<br><a href="http://blog.csdn.net/freshlover/article/details/12132801">结合选择器能力</a>
 						</span></li>
 						<li><a href="">expression</a><span>表达式</span></li>
 					</ul>
@@ -470,6 +473,734 @@
 				<div>
 					<h4>[<span>-</span>]尺寸</h4>
 					<ul>
+						<li><a href="">Standards/Quirks Mode</a><span>
+							HTML文档根据文档顶部的doctype声明来决定渲染模式，有<b>标准模式（Standards Mode）</b>与<b>怪异模式（Quirks mode，或叫做混杂模式）</b>两种模式。
+							<br />IE5及以前默认总是表现为怪异模式，IE6~IE8遇到非正常声明或特定声明时也会进入怪异模式。
+							<br />否则，如果有正确声明doctype并在顶端，则默认进入标准模式，即包括HTML5声明在IE6~IE8，也会进入标准模式，而非一定需要HTML4长长的声明。
+							<br />而许多现代浏览器即使是怪异模式，表现也和标准模式是一致的。
+							<br />
+							<br />IE6+进入怪异模式的条件：
+							<br />1.IE6~IE8没有doctype的页面是在怪异模式下渲染。
+							<br />2.在文档类型定义之前出现非空格和换行字符，浏览器也会激活怪异模式。
+							<br />3.除上述两种情况外，有一些特殊声明时用来特定激活怪异模式的。
+							<br />具体见下表，删减至只考虑中国市场常用浏览器（来自<a href="https://hsivonen.fi/doctype/">《Activating Browser Modes with Doctype》</a>）
+							<table>
+									<tbody>
+										<tr>
+											<td valign="bottom" style="background:rgb(255,255,204)">
+												<p>
+													<span style="color:rgb(36,37,28)">Doctype</span>
+												</p>
+											</td>
+											<td valign="bottom" style="background:rgb(255,255,204)">
+												<p>
+													<span style="color:rgb(36,37,28)">HTML5</span>
+												</p>
+											</td>
+											<td valign="bottom" style="background:rgb(255,255,204)">
+												<p>
+													<span style="color:rgb(36,37,28)">IE&nbsp;8,&nbsp;IE&nbsp;9</span>
+												</p>
+											</td>
+											<td valign="bottom" style="background:rgb(255,255,204)">
+												<p>
+													<span style="color:rgb(36,37,28)">IE&nbsp;7</span>
+												</p>
+											</td>
+											<td valign="bottom" style="background:rgb(255,255,204)">
+												<p>
+													<span style="color:rgb(36,37,28)">IE&nbsp;6</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=">None</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+html&gt;">&lt;!DOCTYPE&nbsp;html&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+html+SYSTEM+&gt;">&lt;!DOCTYPE&nbsp;html&nbsp;SYSTEM&nbsp;&quot;about:legacy-compat&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">?</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">?</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">?</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">?</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;3.2&nbsp;Final//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.0//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.01//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.0//EN&quot;&nbsp;&quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.01//EN&quot;&nbsp;&quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.0&nbsp;Transitional//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.01&nbsp;Transitional//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.01&nbsp;Transitional//EN&quot;&nbsp;&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.01&nbsp;Transitional//EN&quot;&nbsp;&quot;http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;HTML&nbsp;4.0&nbsp;Transitional//EN&quot;&nbsp;&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.1//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;Basic&nbsp;1.0//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml-basic/xhtml-basic10.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Transitional//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;?xml+version=+encoding=?&gt;&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;<br />
+													&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.1//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;?xml+version=+encoding=?&gt;&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;<br />
+													&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;Basic&nbsp;1.0//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml-basic/xhtml-basic10.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;?xml+version=+encoding=?&gt;&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;<br />
+													&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;?xml+version=+encoding=?&gt;&lt;!DOCTYPE+html+PUBLIC++&gt;">&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;<br />
+													&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Transitional//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;ISO/IEC&nbsp;15445:2000//DTD&nbsp;HTML//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;ISO/IEC&nbsp;15445:2000//DTD&nbsp;HyperText&nbsp;Markup&nbsp;Language//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;ISO/IEC&nbsp;15445:1999//DTD&nbsp;HTML//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(225,46,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">Q</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td valign="center" style="background:rgb(255,255,221)">
+												<p>
+													<span style="color:rgb(131,21,150)"><a target="_blank" href="http://hsivonen.com/test-quirks.php?doctype=&lt;!DOCTYPE+HTML+PUBLIC+&gt;">&lt;!DOCTYPE&nbsp;HTML&nbsp;PUBLIC&nbsp;&quot;ISO/IEC&nbsp;15445:1999//DTD&nbsp;HyperText&nbsp;Markup&nbsp;Language//EN&quot;&gt;</a></span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(85,225,46)">
+												<p>
+													<span style="color:rgb(36,37,28)">S</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+											<td valign="top" style="background:rgb(94,181,70)">
+												<p>
+													<span style="color:rgb(36,37,28)">A</span>
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							<br /><b>标准模式与怪异模式下导致的和模型区别：</b>
+							<br />需要知道的是，盒模型差异是两种模式导致的最重要的区别之一，但是IE一些其他的BUG，即使是在标准模式下，仍然需要通过HACK解决，而并非处于标准模式下则没有BUG。
+							<br />Box model ：标准模式width=content，怪异模式width=content+padding+border
+							<br />例外：即使是标准模式下,button总是应用border-box,现代浏览器为了表现一致,默认添加了box-sizing:border-box属性，故在button的高度上仍然要考虑border而影响的高度,即设置height=height+border*2。
+							<br />另外，button在现代浏览器中总是表现为基于垂直对齐，在IE7~8中表现为顶部对齐，在IE6中表现为基线对齐，故需要设置vertical-align:middle初始化让所有表现一致。
+							<br /><a href="http://www.quirksmode.org/css/quirksmode.html">参考自《Quirks mode and strict mode》查阅更多区别</a>
+						</span></li>
 						<li><a href="">calc()</a><span>长度计算,width:calc(100% - 50px) <strong>中间必须有空格！</strong></span></li>
 						<li><a href="">width</a><span>宽度<br />
 						IE6的1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a></span></li>
@@ -552,12 +1283,15 @@
 					<ul>
 						<li><a href="">color</a>
 								<span>颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
-								<br>transparent,IE6及更早浏览器只有background-color接受transparent取值。IE7及IE8除了background-color，还有border-color也开始接受transparent取值。
-								<br>rgba(255,255,255,0.8) 带Alpha通道的颜色模式,可以半透明（IE8-不支持）
+								<hr>transparent
+								<br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
+								<br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
+								<br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
+								<br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
+								<hr>rgba(255,255,255,0.8) 带Alpha通道的颜色模式,可以半透明（IE8-不支持）
 								<br>让IE8-通过IE滤镜来实现rgba效果
 								<br><textarea name="" id="" cols="30" rows="10">
 									background: rgba(0,0,0,.92);
-									_background: #000;
 									filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#CC000000, endColorstr=#CC000000);
 								</textarea>
 								<br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
@@ -617,7 +1351,6 @@
 								.tm(@tm){
 								    @alpha:@tm*100;
 								    opacity:@tm;
-								    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{alpha})";
 								    filter:alpha(opacity=@alpha);
 								}
 							</textarea></span></li>
@@ -625,7 +1358,6 @@
 								<span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
 								<br><textarea name="" id="" cols="30" rows="10">
 									background:url(../images/ex.png) no-repeat;
-									_background:none;
 									_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
 								</textarea>
 								<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。
@@ -654,7 +1386,8 @@
 							<br>repeat-y：背景图像在纵向上平铺
 							<br>repeat：背景图像在横向和纵向平铺
 							<br>no-repeat：背景图像不平铺
-							<br>round：背景图像自动缩放直到适应且填充满整个容器。</span></li>
+							<br>round：背景图像自动缩放直到适应且填充满整个容器。
+							<br />IE6不指定此属性时，默认不平铺，其他浏览器默认平铺</span></li>
 						<li><a href="">background-attachment</a><span>
 							fixed【相对浏览器固定】背景图像相对于窗体固定。
 							<br>scroll【相对元素固定】背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
@@ -1086,6 +1819,7 @@
 								<br>IE6,7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
 								<br>解决方案：
 								<br>div{display:inline-block;*display:inline;*zoom:1;}
+								<br />在IE8+开始,Inline-block元素之间默认会有8px间隔,IE6要表现一致应进行hack设置,或将inline-block元素加上float属性
 								<hr>全部属性：display：none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | run-in | box | inline-box | flexbox | inline-flexbox | flex | inline-flex
 							</span>
 						</li>
@@ -1182,7 +1916,7 @@
 							<br><a href="http://pewper.blog.163.com/blog/static/2970860820126261195866/">详细参考资料</a>
 							<br>6.IE7-li浮动的空白间隙
 							<br>当li中出现2个或以上的浮动时,li之间产生的空白间隙,设置li的vertical-align属性,例如li{vertical-align:top;}
-							<br />7.IE6下块级元素中的内联元素浮动，会下沉。
+							<br />7.IE6下块级元素中的内联元素浮动，会下沉，推荐使用绝对定位。
 							<br />8.IE6下的转换inline-block元素不会自带间距，需要主动设置，并需要设置float以对齐
 						</span></li>
 						<li><a href="">clear</a><span>清除浮动：none,left,right,both</span></li>
@@ -1545,7 +2279,7 @@
 								</tbody>
 								</table>
 						</span></li>
-						<li><a href="">~避免编译</a><span>~特殊内容</span></li>
+						<li><a href="">~避免编译</a><span>~特殊内容,其中包括calc()运算函数在LESS中需要避免编译</span></li>
 						<li><a href="">`JS表达式</a><span>`反单引号`</span></li>
 					</ul>
 				</div>
@@ -2675,7 +3409,9 @@
 				<div>
 					<h4>[<span>-</span>]Math</h4>
 					<ul>
-						<li><a href="">random()</a></li>
+						<li><a href="">random()</a><span>
+							随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 )
+						</span></li>
 						<li><a href="">ceil()</a></li>
 						<li><a href="">floor()</a></li>
 						<li><a href="">round()</a></li>
@@ -4033,7 +4769,7 @@
 						<li><a href="">:enabled</a><span>所有可用</span></li>
 						<li><a href="">:disabled</a><span>所有禁用</span></li>
 						<li><a href="">:checked</a><span>所有被多选/单选选中元素</span></li>
-						<li><a href="">Lselected</a><span>所有被下拉选中元素</span></li>
+						<li><a href="">:selected</a><span>所有被下拉选中元素</span></li>
 					</ul>
 				</div>
 			</li>
@@ -4465,21 +5201,22 @@
 						<li><a href="">eq</a>(index|-index)<span>第N个/倒数第N个</span></li>
 						<li><a href="">slice</a>(start,[end])<span>第N~M个</span></li>
 					</ul>
-					<h4>[<span>+</span>] 条件过滤</h4>
-					<ul style="display:none">
+					<h4>[<span>-</span>] 条件过滤</h4>
+					<ul>
 						<li><a href="">filter</a>(expr|obj|ele|fn)<span></span></li>
 						<li><a href="">has</a>(expr|ele)<span></span></li>
 						<li><a href="">not</a>(expr|ele|fn)<span></span></li>
 						<li><a href="">contents()</a><span></span></li>
 					</ul>
-					<h4>[<span>+</span>] 串联</h4>
-					<ul style="display:none">
+					<h4>[<span>-</span>] 串联</h4>
+					<ul>
 						<li><a href="">add</a>(e|e|h|o[,c])<span></span></li>
 						<li>addBack()<a href=""></a><span></span></li>
 					</ul>
-					<h4>[<span>+</span>] 检测</h4>
-					<ul style="display:none">
-						<li><a href="">is</a>(selector)<span>根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</span></li>
+					<h4>[<span>-</span>] 检测</h4>
+					<ul>
+						<li><a href="">is</a>(selector)<span>根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。
+						<br />$("#checbox").is(:checked)</span></li>
 						<li><a href="">hasClass</a>(class)<span>检查当前的元素是否含有某个特定的类，如果有，则返回true。里面只写class名称不要加点</span></li>
 					</ul>
 				</div>
@@ -4608,7 +5345,7 @@
 						<li><a href="">focusout</a>([[data],fn])<span>获取焦点,可以为当前元素的子元素</span></li>
 						<li><a href="">change</a>([[data],fn])<span>下拉选择,单选多选,文本框/域值发生变化时<br>                  仅限用于input、textarea、select元素。<br>                  对于下拉选择框，复选框和单选按钮，当用户用鼠标作出选择，该事件立即触发<br>                  但对于其他类型的input元素，该事件触发将推迟，直到元素失去焦点才会触点</span></li>
 						<li><a href="">select</a>([[data],fn])<span>文本被选择事件!而非下拉列表选择</span></li>
-						<li><a href="">submit</a>([[data],fn])<span>注意绑定的对象时form!而非submit </span></li>
+						<li><a href="">submit</a>([[data],fn])<span>注意绑定的对象是form!而非submit </span></li>
 					</ul>
 				</div>
 			</li>
@@ -4784,6 +5521,7 @@
 										});
 									</textarea>
 								</span></li></ul>
+							<li><a href="">$.parseJSON</a>(json)<span>接受一个JSON字符串，返回解析后的对象。</span></li>
 							<li><a href="">serializeArray()</a>
 								<span>表单序列化：创建一个对象组成的javascript数组，用来编码成一个JSON一样的字符串。<br>
 								[
@@ -4976,11 +5714,545 @@
 	<div id="Plugin" class="content clearfix" style="display:none">
 		<ul>
 			<li>
-				<h3>用户界面<span>-</span></h3>
+				<h3>jQuery UI<span>-</span></h3>
 				<div>
-					<h4>[<span>-</span>]界面组件</h4>
+					<h4>[<span>-</span>]Core</h4>
+					<ul>
+						<li><a href="http://www.css88.com/jquery-ui-api/menu/">API文档</a></li>
+						<li><a href="http://api.jqueryui.com/resources/icons-list.html">图标一览</a></li>
+						<li><a href="http://www.css88.com/jquery-ui-api/position/">position</a><span>
+							my:定义被定位元素上对准目标元素的位置
+							<br />at:定义目标元素上对准被定位元素的位置
+							<br />of:要定位的元素,使用 pageX 和 pageY 属性
+						</span></li>
+						<li><a href="http://www.css88.com/jquery-ui-api/jQuery.widget/">$.widget</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Interactions</h4>
+					<ul>
+						<li><a href="">draggable()</a><span>拖动<br />
+							<textarea name="" id="" cols="60" rows="20">
+								$("#ok").draggable({
+								    handle:'h1', //只有在特定的元素上触发鼠标按下事件时，才可以拖动
+								    //cancel:'h1', //限制指定元素不可拖曳,.class选择符
+								    cursor:'move', //移动时样式,需额外补充hover样式
+								    //cursorAt:{left:0,top:0}, //移动的坐标点
+								    //axis:'x', //移动方向限制
+								    containment:'parent',  //限制可移动范围,selector,element,array,string(parent,document,window)
+								    //distance:20, //移动指定像素后才开始激活拖拽动作
+								    //grid:[20,20], //拖拽元素时，只能以指定大小的方格进行拖动
+								    //scroll:true,  //当拖动时，div盒模型将自动翻滚
+								    //snap:true, //决定一个元素是否应该吸附到其它元素上
+								                //布尔指元素将可以吸附到所有其它可拖动元素上，Selector: 确定被吸附元素
+								    //snapMode:'inner', //"inner", "outer", "both"
+								    //snapTolerance:20, //当距离可吸附元素多远时，触发吸附事件
+
+
+								    iframeFix:true, //透明层将被放置于页面上的所有iframe之上，并阻止iframe捕捉鼠标移过事件
+								    
+								    //关联draggable
+								    //revert:'invalid' //当拖动没有被放置于一个可放置的对象时重置到它的初始位置
+								    //关联sortable
+								    //connectToSortable:"#my-sortable", //允许draggable被拖拽到指定的sortables中
+								    //helper:'clone',
+								});
+								$("#ok2").draggable();
+								$("#box div").draggable({stack:'#box div'}) //自动切换Z轴层，当前焦点至最高层
+							</textarea></span></li>
+						<li><a href="">droppable()</a><span>拖放<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$(".lala").draggable();
+								$("#ok3").draggable();
+								$("#b").droppable({
+								    accept:'.lala', //selector一个可拖动元素的选择器，fn()函数将被调用页面上的每一个可拖动的必须返回true
+								    activeClass:'active', //拖动元素在运动时，装载盒子的新增类
+								    hoverClass:'hover', //拖动元素进入在装载盒子中的新增类
+								    //tolerance:fit, //fit完全重叠,intersect至少50%,pointer鼠标完成即可,touch任意
+								    greedy:true, //阻止冒泡表现
+								    addClasses:false, //可以防止ui-droppable类在进行时添加.
+								    //事件：out离开,drop放入,activate拖动中,
+								    drop:function(e,ui){ 
+								        //$(this)表示装载盒
+								        //ui.draggable表示被放入对象
+								    }
+								})
+							</textarea>
+							</span></li>
+						<li><a href="">sortable()</a><span>排序<br />
+							1.如果要排序表格中的行应将tbody元素设为sortable,而不是在table.
+							<br />2.选择器应定义在ul级上,无需再设置可拖动
+							<br /><textarea name="" id="" cols="60" rows="10">
+								$("#a").sortable({
+								    //axis:'x', //x水平or y垂直
+								    //handle:'selector', //可拖动到元素部分
+								    //cancel:'selector', //对符合选择器匹配规则的元素不进行排序
+								    items:'>li', //指定元素内的哪一个项目应是 sortable。
+								    connectWith:'.c', //连接的另一个 sortable 元素的选择器
+								    //containment:'selector', //限制拖动范围在指定的DOM元素内。element/selector/string(parent,window,document)
+								    cursor:'move', //鼠标样式
+								    //cursorAt:{left:0,top:0}, //指针位置
+								    //distance:5, //多少个像素之后触发
+								    //dropOnEmpty:falese, //不能拖动到一个空的sortable
+								    placeholder:'class', //要应用的 class 名称，否则为白色空白。
+								    revert:2000, //true/false是否使用一个流畅的动画还原到它的新位置，number则为动画持续时间(毫秒)
+								}).disableSelection();;
+							</textarea>
+							<br />事件
+							<br />item:当前被拖拽的元素，sender:项目来自的那个
+							<br />activate:当使用被连接列表时触发该事件，每个被连接列表在拖拽开始时接收它
+							<br />deactivate:当排序停止时触发该事件，该事件传播到所有可能的连接列表。
+							<br />change:在排序期间触发该事件，除了当 DOM 位置改变时
+							<br />sort:在排序期间触发该事件。
+							<br />update:当用户停止排序且 DOM 位置改变时触发该事件。
+							<br />out:当一个 sortable 项目从一个 sortable 列表移除时触发该事件。
+							<br />over:当一个 sortable 项目移动到一个 sortable 列表时触发该事件。
+							<br />receive:当来自一个连接的 sortable列表的一个项目被放置到另一个列表时触发该事件。后者是事件目标。
+							<br />remove:当来自一个连接的 sortable列表的一个项目被放置到另一个列表时触发该事件。前者是事件目标。
+							</span></li>
+						<li><a href="">selecable()</a><span>多选,可按住ctrl多选,或拉拽范围选择<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#a").selectable({
+								    //cancel:'selector', //禁止被选项目
+								    //filter:'selector', //匹配子元素中那些符合条件的元素才可以被选择.
+								});
+							</textarea></span></li>
+						<li><a href="">resizable()</a><span>调整尺寸<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#box").resizable({
+								    //handles:'n', //n, e, s, w, ne, se, sw, nw, all
+								    //animate:true, //启用动画
+								    //animateDuration:2000, //动画时间
+								    //aspectRatio:4/3, //按照原比例true,或num指定一个比例
+								    //alsoResize:'#a', //同时变更选择器匹配元素尺寸
+								    //cancel:'#a', //拒绝对匹配元素的大小调整.
+								    //containment:'selector', //selector,element,string(parent,document)
+								    //ghost:true, //调整过程中看到一个半透明的辅助元素
+								    //helper: "x", //辅助元素的css样式.当调整完成时,这些元素将回到它以前的状态.
+								    //maxHeight: 300, //最大高度
+								    //minWidth:300, //最小宽度
+								});
+							</textarea><br />
+							事件：
+							<br />ui.element 被调整的元素对象
+							<br />ui.originalElement 被包裹前原先的元素</span></li>
+					</ul>
+					<h4>[<span>-</span>]UI Widget</h4>
+					<ul>
+						<li><a href="">dialog()</a><span>对话框<br />
+							<textarea name="" id="" cols="60" rows="10">
+								title:'hello',
+								buttons:{
+								    'ok1': function(){},
+								    'ok2': function(){}
+								},
+								show:'scale',
+								autoOpen:false,
+								draggable:false,
+								resizable:false,
+								modal:true,
+								closeText:'关闭',
+								closeOnEscape: false, //不允许通过esc取消
+							</textarea>
+							<br /><a href="http://www.css88.com/jquery-ui-api/dialog/">API</a>
+						</span></li>
+						<li><a href="">slider()</a><span>滑块<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#ok").slider({
+								    value:68,
+								    max:100,
+								    min:60,
+								    //step:5, //幅度
+								    //orientation:'horizontal', //vertical纵向
+								    //range:true, //是否为范围值
+								    //values:[66,88], //两个手柄位置
+								});
+								//事件
+								$("#ok").slider({
+								    slide: function(e,ui){
+								        var test = ui.value; //获取值，或ui.values[0]
+								        console.log(test);
+								    }
+								})
+							</textarea><br />
+							<a href="http://www.css88.com/jquery-ui-api/slider/">详细资料</a>
+						</span></li>
+						<li><a href="">menu()</a><span>菜单
+							<br />1.菜单可以用任何有效的标记创建，只要元素有严格的父/子关系且每个条目都有一个锚。最常用的元素是无序列表
+							<br />2.ui-state-disabled (class) :禁用条目
+							<br />3.空格/破折号:分隔符
+							<br />4.添加图标,菜单（Menu）会自动向无图标的条目添加必要的内边距。<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<ul id="menu">
+								  <li><a href="#"><span class="ui-icon ui-icon-disk"></span>Save</a></li>
+								</ul>
+							</textarea>
+							</span></li>
+						<li><a href="">tabs()</a><span>选项卡
+							<br /><textarea name="" id="" cols="60" rows="10">
+							$('#tabs').tabs({
+								collapsible : true, //是否可以折叠
+								disabled : [0],  //禁用的项目
+								event : 'mouseover',  //触发的事件
+								active : 0, //默认显示第几个选项卡
+								active : false, //默认折叠
+								heightStyle : 'content', //auto根据最高的,fill填充一定的可用高度
+								show : true, //或其他 'highlight'等
+							});
+							//更新对应选项卡
+							$('#button').click(function () {
+								$('#tabs').tabs('load', 0);
+							});
+							</textarea>
+							<br /><textarea name="" id="" cols="60" rows="10">
+								<div id="tabs">
+								<ul>
+								<li><a href="#tabs1">tab1</a></li>
+								<li><a href="#tabs2">tab2</a></li>
+								<li><a href="#tabs3">tab3</a></li>
+								</ul> //下方可省略,href为文档链接,默认ajax加载
+								<div id="tabs1">tab1-content</div>
+								<div id="tabs2">tab2-content</div>
+								<div id="tabs3">tab3-content</div>
+								</div>
+							</textarea>
+							<br /><a href="http://jqueryui.com/tabs/#sortable">拖拽排序</a>
+							</span></li>
+						<li><a href="">accordion()</a><span>手风琴（折叠菜单）
+							<br /><textarea name="" id="" cols="60" rows="10">
+								$('#accordion').accordion({
+									collapsible : true,
+									event : 'mouseover',
+									active : 1,
+									active : true,
+									heightStyle : 'content',
+									header : 'h3', //对应HTML需要更改
+									icons: {
+										"header": "ui-icon-plus",
+										"activeHeader": "ui-icon-minus",
+									},
+								});
+							</textarea>
+							<br /><textarea name="" id="" cols="60" rows="10">
+								<div id="accordion">
+									<h1>菜单 1</h1>
+									<div>内容 1</div>
+									<h1>菜单 2</h1>
+									<div>内容 2</div>
+									<h1>菜单 3</h1>
+									<div>内容 3</div>
+								</div>
+							</textarea>
+							</span></li>
+						<li><a href="">button()</a><span>按钮(含单复选)<br>
+							可以通过button或其他html元素来创建按钮。
+							<br>属性disabled,label,icons,text
+							<br>用于单选复选时,input标签需要闭合,label写在中间。
+							<br>//jQuery 单选框
+							<br>$('#reg input[type=radio]').button();
+							<br /><a href="http://api.jqueryui.com/theming/icons/">按钮图标</a>
+						</span></li>
+						<li><a href="">buttonset()</a><span>按钮布局，作用于父级
+							<br />//jQuery 单选框改
+							<br>$('#reg').buttonset();</span></li>
+						<li><a href="">selectmenu()</a><span>下拉菜单</span></li>
+						<li><a href="">progressbar()</a><span>进度条<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$( "#box" ).progressbar({
+								    max:1024,
+								    value:200,
+								    value:false //不确定
+								});
+							</textarea>
+							<br />事件：change / complete
+							<br /><a href="http://www.css88.com/jquery-ui-api/progressbar/">详细文档</a>
+							</span></li>
+						<li><a href="">tooltip()</a><span>浮动提示
+							<br />$('[title]').tooltip({
+									<br />disabled : false,
+									<br />content : '改变文字',
+									<br />items : 'input', //过滤选择符
+									<br />tooltipClass : 'reg_tooltip', //更换样式
+									<br />position : {
+									<br />	my : 'left center',  //位置
+									<br />	at : 'right+5 center' 
+									<br />}
+									});
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]Form Extend</h4>
+					<ul>
+						<li><a href="">datepicker()</a><span>日历
+							<br />$("#date").datepicker({
+						            <br />dateFormat : 'yy-mm-dd',
+						            <br />dayNames : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+						            <br />dayNamesShort : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+						            <br />dayNamesMin : ['日','一','二','三','四','五','六'],
+						            <br />monthNames : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+						            <br />monthNamesShort : ['一','二','三','四','五','六','七','八','九','十','十一','十二'],
+						            <br />nextText : '下月',
+						            <br />prevText : '上月',
+						            <br />yearSuffix : '年',
+						            <br />showMonthAfterYear: true,
+						            <br />changeMonth : true,
+						            <br />changeYear : true,
+						            <br />firstDay : 1,
+						            <br />hideIfNoPrevNext: true,
+						            <br />gotoCurrent:true,
+						            <br />//defaultDate: -1 / '1m'
+						            <br />//yearRange: '1950:2020',
+						            <br />//minDate: x,最小日期
+						            <br />//maxDate: x,最大日期
+						            <br />//numberOfMonths : [3,2],
+						            <br />//altField : '#abc',
+						            <br />//altFormat : 'yy-mm-dd',
+						            <br />//appendText : '(yy-mm-dd)',
+						            <br />//showWeek : true,
+						            <br />//weekHeader : '周'
+						        <br />})
+							</span></li>
+						<li><a href="">autocomplete()</a><span>自动补全
+							<br>var arr = ['aaa@163.com', 'bbb@163.com', 'ccc@163.com'];
+							<br>$('#email').autocomplete({
+							<br>source : arr,
+							<br>minLength: 1,
+							<br>delay: 0,
+							<br>autoFocus: true
+							<br>}).autocomplete('search','') //展开所有,可设置一个向下按钮
+							<br /></span></li>
+						<li><a href="">spinner()</a><span>微调组件<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#ok").spinner({
+								    max:88,
+								    min:66,
+								    step:8, //每次调整的幅度
+								});
+							</textarea><br />
+							<a href="http://www.css88.com/jquery-ui-api/spinner/">详细文档</a>
+							</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>界面<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]组件</h4>
 					<ul>
 						<li><a href="http://colpick.com/plugin">Color Picker</a><span>取色器</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>表单<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Form</h4>
+					<ul>
+						<li><a href="">validate()</a><span>表单验证
+							<br /><textarea name="" id="" cols="68" rows="10">//自定义验证
+							        $.validator.addMethod('code', function (value, element) {
+							            var tel = /^[0-9]{6}$/;
+							            return this.optional(element) || (tel.test(value));
+							        }, '请正确填写您的邮政编码');
+							        $("#os").validate({
+							            ignoreTitle : true, //禁止读取title
+							            rules:{
+							                user : {
+							                    required : true,
+							                    minlength : 5,
+							                    //remote : 'user.php', //验证注册的用户名是否已经存在
+							                },
+							                pass : {
+							                    required : true,
+							                    minlength : 6,
+							                    remote : {
+							                    url : 'user.php', //同时传递多个值到远程端
+							                    type : 'POST',
+							                    dataType : 'json',
+							                    data : {
+							                    user : function () {
+							                    return $('#user').val();
+							                    },
+							                    },
+							                    },
+							                },
+							                //调用自定义验证
+							                code : {
+							                    required : true,
+							                    code : true,
+							                }
+							            },
+							            //提示信息
+							            messages : {
+							                user : {
+							                    required : '帐号不得为空！',
+							                    minlength : $.validator.format('帐号不得小于{0}位！'),
+							                },
+							            },
+							            //样式控制
+							            //设置错误提示的 class 名
+							            errorClass : 'error_list',
+							            //设置错误提示的标签
+							            errorElement : 'li',
+							            //统一包裹错误提示
+							            wrapper : 'ul',
+							            //设置成功后加载的 class
+							            success : 'success',
+							            //使用方法加载 class 并添加文本
+							            success : function (label) {
+							            label.addClass('success').text('ok');
+							            },
+							            //使用方法加载 class 并添加文本
+							            success : function (label) {
+							            label.addClass('success').text('ok');
+							            },
+							            submitHandler : function (form) {
+							            //可以执行 ajax 提交
+							            },
+							        });
+							    })
+							</textarea>
+
+								<br /><a href="http://plugins.jquery.com/validation/">来源</a>
+							</span></li>
+						<li><a href="">$.cookie</a>('name','value')<span>
+							<textarea name="" id="" cols="60" rows="10">
+								//生成一个 cookie：
+								$.cookie('user', 'bnbbs');
+								//设置 cookie 参数
+								$.cookie('user', 'bnbbs', {
+								expires : 7, //过期时间，7 天后
+								path : '/', //设置路径，上一层
+								domain : 'www.ycku.com', //设置域名
+								secure : true, //默认为 false，需要使用安全协议 https
+								});
+								//读取cookie
+								$.cookie('user') == $.cookie().user 
+								//读取所有 cookie 数据
+								$.cookie()
+								//删除 cookie
+								$.removeCookie('user');
+								//删除指定路径 cookie
+								$.removeCookie('user', {
+								path : '/',
+								});
+							</textarea>
+							<br /><a href="http://plugins.jquery.com/cookie/">download</a>
+							</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Ajax</h4>
+					<ul>
+						<li><a href="">ajaxForm()</a><span>
+							$('#reg').ajaxForm(function () {
+							<br />alert('提交成功！');
+							<br />});
+							<br />默认的form submit方式,自动阻止默认行为
+							<br /><a href="https://github.com/malsup/form">Github</a></span></li>
+						<li><a href="">ajaxSubmit()</a><span>
+							<textarea name="" id="" cols="60" rows="10">
+								$('#reg').submit(function () {
+									$(this).ajaxSubmit({
+										url : 'test.php', //设置提交的 url，可覆盖 action 属性
+										target : '#box', //服务器返回的内容存放在#box 里
+										type : 'POST', //GET,POST
+										dataType : null, //xml,json,script，默认为 null
+										clearForm : true, //成功提交后，清空表单
+										resetForm : true, //成功提交后，重置表单
+										data : { //增加额外的数据提交
+											aaa : 'bbb',
+											ccc : 'ddd',
+										},
+										success : function (responseText, statusText) {
+											alert(responseText + statusText); //成功后回调
+										},
+										error : function (event, errorText, errorType) { //错误时调用
+											alert(errorText + errorType);
+										},
+									});
+								return false;
+								});
+							</textarea>
+							<br />注意： ajaxForm()方法， 是针对 form 直接提交的， 所以阻止了默认行为。 而ajaxSubmit()方法，由于是针对 submit()方法的，所以需要手动阻止默认行为。而使用了 validate.js 验证插件，那么 ajaxSubmit()比较适合我们。
+						</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>数据<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Table</h4>
+					<ul>
+						<li><a href="http://www.jeasyui.com/index.php">Easy UI</a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>图像<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]图片</h4>
+					<ul>
+					<li><a href="">瀑布流</a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]相册</h4>
+					<ul>
+					<li><a href="">lightbox</a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>效果<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]幻灯</h4>
+					<ul>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>响应式<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]响应式</h4>
+					<ul>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>工具<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]工具</h4>
+					<ul>
+						<li><a href="">UEditor</a>
+							<span>+<a href="http://ueditor.baidu.com/website/index.html">download</a>
+							<br />+<a href="http://fex-team.github.io/ueditor/">docs</a>
+							<br />+<a href="http://ueditor.baidu.com/doc/">API</a>
+							</span></li>
 					</ul>
 				</div>
 			</li>
@@ -5437,17 +6709,20 @@
 	<div>
 		<h6>Blog<span>-</span></h6>
 		<ul>
+		<li><a href="http://blog.csdn.net/freshlover">freshlover</a></li>
 		<li><a href="http://www.qianduan.net/">前端观察</a></li>
 		<li><a href="http://himeters.com/">himeters</a></li>
 		<li><a href="http://tympanus.net/codrops/">Codrops</a></li>
 		<li><a href="http://tutorialzine.com/">Tutorial Zine</a></li>
 		<li><a href="http://demosthenes.info/">demosthenes</a></li>
 		<li><a href="http://fex.baidu.com/">Baidu FEX</a></li>
+		<li><a href="http://www.alloyteam.com/">Alloyteam</a></li>
 		<li><a href="http://ued.taobao.org/blog/">Taobao UED</a></li>
 		<li><a href="http://isux.tencent.com/">Tencent ISUX</a></li>
 		<li><a href="http://www.css3.info/">CSS Info</a></li>
 		<li><a href="http://www.w3cplus.com/">W3C PLUS</a></li>
 		<li><a href="http://www.css88.com/">CSS88</a></li>
+		<li><a href="http://www.cnblogs.com/cate/108703/">cnblogs</a></li>
 		</ul>
 	</div>
 

@@ -3,17 +3,19 @@ http://iruxu.com/notebook
 */
 
 	$(function(){
-		//动态样式（ie6-ie8选择器hack）
-		/*$(".content>ul").addClass('col');
-		$(".content ul>li>div>ul>li>span").addClass('tips');*/
 		
 		//内容切换
 		$(".header").on('click','#nav>ul>li',function(){
 			$(".content").css('display','none');
 			$("#nav>ul>li").removeClass('ctcat');
 			var i = $(this).index();
-			$(this).addClass('ctcat');
-			$(".content").eq(i).css('display','block');
+			var isParent = $(this).children('a').length;
+			if(isParent==0){
+				$(this).addClass('ctcat');
+				$(".content").eq(i).css('display','block');
+			}else{
+				window.location.href=$(this).children('a').get(0).href;
+			}
 		})
 		
 		//h3开关
@@ -55,13 +57,19 @@ http://iruxu.com/notebook
 		$("#closebox").click(function(){
 			$("#snippet").css('display','none');
 		})
+		
 
 		//tips添加至snippet box
 		$("#main").on('click','h4+ul>li',function(){
 			var infos = $(this).children('span').html();
-			$("#snippet").css('display','block');
+			$("#snippet").css('display','inline-block');
 			$("#box").html(infos);
 		})
+
+		$("#snippet").draggable({
+				handle:'h6',
+				cursor:'move',
+			});
 
 		//阻止默认行为
 		$("a:not([href^=http])").each(function(){
