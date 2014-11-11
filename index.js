@@ -9,13 +9,15 @@ http://iruxu.com/notebook
 			$(".content").css('display','none');
 			$("#nav>ul>li").removeClass('ctcat');
 			var i = $(this).index();
-			var isParent = $(this).children('a').length;
+			$(this).addClass('ctcat');
+			$(".content").eq(i).css('display','block');
+			/*var isParent = $(this).children('a').length;
 			if(isParent==0){
 				$(this).addClass('ctcat');
 				$(".content").eq(i).css('display','block');
 			}else{
 				window.location.href=$(this).children('a').get(0).href;
-			}
+			}*/
 		})
 		
 		//h3开关
