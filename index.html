@@ -67,7 +67,8 @@
 							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
 						<li><a href="http://labs.qianduan.net/css-selector/">Selector</a><span>使用CSS3选择器,IE6-8不支持.</span></li>
 						<li><a href="">选择器优先级</a><span>
-								基本原则：
+								<br />1.三种引入方式的优先级
+								<br />2.同引入方式内的基本原则：
 							　　<br />一般而言，选择器越特殊，它的优先级越高。也就是选择器指向的越准确，它的优先级就越高。
 							　　<br />复杂的计算方法：
 							　　<br />●用1表示派生选择器(用HTML标签申明)的优先级
@@ -76,7 +77,8 @@
 							　　<br />●div.test1 .span var 优先级 1+10 +10 +1
 							　　<br />●span#xxx .songs li 优先级1+100 + 10 + 1
 							　　<br />●#xxx li 优先级 100 +1
-								<br />样式在html中的先后顺序不决定样式优先级,由CSS中定义的先后和优先级有关 <a href="http://www.imooc.com/wenda/detail/218832">参考资料</a>
+								<br />3.Tips:样式在html中的先后顺序不决定样式优先级,由CSS中定义的先后和优先级有关 <a href="http://www.imooc.com/wenda/detail/218832">参考资料</a>
+								<br />4.Tips:<a href="http://www.zhangxinxu.com/wordpress/2012/03/%E5%B0%8Ftip-css%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%AF%E8%83%BD%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86/">选择器拾遗漏</a>
 						</span></li>
 						<li><a href="">!important</a><span>提升指定样式规则的应用优先权。
 							<br>但在IE6中有BUG,需要分开写在2个选择符中
@@ -401,7 +403,10 @@
 								<span>normal：默认处理方式。
 								<br>nowrap： 强制在同一行内显示所有文本，合并文本间的多余空白，直到文本结束或者遭遇br对象。
 								<br>常用片段（设置宽度）：white-space:nowrap;text-overflow:ellipsis;overflow:hidden;</span></li>
-						<li><a href="">text-overflow</a>(ellipsis/str)<span>文本溢出:clip剪裁掉/ellipsis点点点/string指定字符串【CSS3】</span></li>
+						<li><a href="">text-overflow</a>(ellipsis/str)<span>文本溢出:clip剪裁掉/ellipsis点点点/string指定字符串【CSS3】<br />
+								<a href="http://www.zhangxinxu.com/wordpress/2014/04/%E8%87%AA%E9%80%82%E5%BA%94%E8%A1%A8%E6%A0%BC-%E5%AD%97%E7%AC%A6%E6%8D%A2%E8%A1%8C-%E6%BA%A2%E5%87%BA%E7%82%B9%E7%82%B9%E7%82%B9-table-text-overflow-ellipsis-word-wrap-break-all/">多行文本省略(webkit)</a>
+								display: -webkit-box; /* height: 36px; line-height: 18px; */ -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+								</span></li>
 						<li><a href="">word-wrap</a><span>当内容超过指定容器的边界时是否断行
 							<br />normal：允许内容顶开或溢出指定的容器边界。
 							<br />break-word：内容将在边界内换行。如果需要，单词内部允许断行。
@@ -1214,7 +1219,7 @@
 						<li><a href="">calc()</a><span>长度计算,width:calc(100% - 50px) <strong>中间必须有空格！</strong></span></li>
 						<li><a href="">width</a><span>宽度<br />
 						IE6的1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a></span></li>
-						<li><a href="">height</a><span>高度<br>在IE6下，如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%;。</span></li>
+						<li><a href="">height</a><span>高度<br>如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%; <a href="http://www.cnblogs.com/clare-zhang/archive/2011/08/26/2154220.html">参考资料</a></span></li>
 						<li><a href="">max-width</a><span>最大宽度
 							</span></li>
 						<li><a href="">max-height</a><span>最大高度</span></li>
@@ -1587,6 +1592,7 @@
 							适用于：table系元素。
 							<br>auto:默认的自动算法。布局将基于各单元格的内容，换言之，可能你给某个单元格定义宽度为100px，但结果可能并不是100px。表格在每一单元格读取计算之后才会显示出来，速度很慢
 							<br>fixed：固定布局的算法。在这算法中，水平布局是仅仅基于表格的宽度，表格边框的宽度，单元格间距，列的宽度，而和表格内容无关。也就是说，内容可能被裁切
+							<br /><a href="http://www.zhangxinxu.com/wordpress/2014/04/%E8%87%AA%E9%80%82%E5%BA%94%E8%A1%A8%E6%A0%BC-%E5%AD%97%E7%AC%A6%E6%8D%A2%E8%A1%8C-%E6%BA%A2%E5%87%BA%E7%82%B9%E7%82%B9%E7%82%B9-table-text-overflow-ellipsis-word-wrap-break-all/">关于text-overflow在单元格中的失效</a>
 						</span></li>
 						<li><a href="">border-collapse</a><span>
 								separate：边框独立
@@ -1759,6 +1765,9 @@
 					</ul>
 					<h4>[<span>-</span>]图片</h4>
 					<ul>
+						<li><a href="">filter</a><span>
+							<a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
+						</span></li>
 						<li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
 					</ul>
 					<h4>[<span>+</span>]滚动条</h4>
@@ -7001,6 +7010,8 @@
 	<div>
 		<h6>Blog<span>-</span></h6>
 		<ul>
+		<li><a href="http://www.html-js.com/">前端乱炖</a></li>
+		<li><a href="http://www.zhangxinxu.com/wordpress/">zhangxinxu</a></li>
 		<li><a href="http://blog.csdn.net/freshlover">freshlover</a></li>
 		<li><a href="http://cssha.com/">安记</a></li>
 		<li><a href="http://www.qianduan.net/">前端观察</a></li>
