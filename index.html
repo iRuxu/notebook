@@ -1274,6 +1274,15 @@
 						<li><a href="">border-image</a>
 								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
 								<br>在线图片边框生成：<a href="http://www.shadowsky.cn/i/tools/borderimage/index.htm">GO TO!</a></span></li>
+						<li><a href="">outline</a>
+								<span>轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考</span></li>
+						<li><a href="">outline-offset</a>
+								<span>用长度值来定义轮廓偏移。允许负值。
+								<br />0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.
+								<br />可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
+					</ul>
+					<h4>[<span>-</span>]样式</h4>
+					<ul>
 						<li><a href="">box-shadow</a>
 								<span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
 								<br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
@@ -1289,12 +1298,22 @@
 							<br />offset(倒影与源间隔): length / %
 							<br />mask(蒙版): url() / gradient
 							</span></li>
-						<li><a href="">outline</a>
-								<span>轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考</span></li>
-						<li><a href="">outline-offset</a>
-								<span>用长度值来定义轮廓偏移。允许负值。
-								<br />0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.
-								<br />可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
+						<li><a href="">filter</a><span>
+							ele {filter: none | <filter-function >* } 
+							<br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
+							<br />grayscale() 灰度，黑白
+							<br />sepia() 褐色,黄褐色旧照片
+							<br />saturate() 饱和度
+							<br />hue-rotate() 色相旋转
+							<br />invert() 反色
+							<br />opacity() 透明度
+							<br />brightness() 亮度
+							<br />contrast() 对比度
+							<br />blur(3px) 模糊
+							<br />drop-shadow(5px 5px 5px #ccc) 阴影
+							<br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
+							<a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
+						</span></li>
 					</ul>
 					<h4>[<span>-</span>]颜色</h4>
 					<ul>
@@ -1750,18 +1769,18 @@
 					</ul>
 					<h4>[<span>-</span>]表单</h4>
 					<ul>
-					<li><a href="">:placeholder</a><span>占位提示字符
-						<br />&:-moz-placeholder
-						<br />&:-ms-input-placeholder
-						<br />&::-webkit-input-placeholder
-						<br />color: @color;
-						<br />font-size:@size;
-						<br />text-align:@align;
-						<br />
-						</span></li>
-					<li><a href="http://www.w3cplus.com/blog/271.html">-webkit-appearance</a><span>webkit移动表单控件重置</span></li>
-					<li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
-					<li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
+						<li><a href="">:placeholder</a><span>占位提示字符
+							<br />&:-moz-placeholder
+							<br />&:-ms-input-placeholder
+							<br />&::-webkit-input-placeholder
+							<br />color: @color;
+							<br />font-size:@size;
+							<br />text-align:@align;
+							<br />
+							</span></li>
+						<li><a href="http://www.w3cplus.com/blog/271.html">-webkit-appearance</a><span>webkit移动表单控件重置</span></li>
+						<li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+						<li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
 					</ul>
 					<h4>[<span>-</span>]图片</h4>
 					<ul>
