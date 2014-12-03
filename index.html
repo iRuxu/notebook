@@ -324,7 +324,7 @@
 				<div>
 					<h4>[<span>-</span>]字体</h4>
 					<ul>
-						<li><a href="">font</a>([i b]size/lh family)<span>【简写】font:italic bold 18px/22px 'Consolas' （简写时font-size和font-family属性不可省略）</span></li>
+						<li><a href="">font</a>([i b]size/lh family)<span>【简写】font:italic bold 18px/22px 'Consolas' （简写时font-size和font-family属性不可省略）顺序不对则有可能出现BUG</span></li>
 						<li><a href="">font-size</a>
 							<span>字体大小,浏览器默认大小为1em（一般为16px）,移动端则使用rem
 							<br>页面元素中font-size使用百分比时，以body字体定义大小进行百分比扩展而非父级继承。
@@ -2087,7 +2087,7 @@
 				<div>
 					<h4>[<span>-</span>]2D/3D</h4>
 					<ul>
-						<li><a href="">transform</a><span>可以用空格分隔多个操作,被定义的元素必须为对外表现块级的元素.</span></li>
+						<li><a href="">transform</a><span>可以用空格分隔多个操作,被定义的元素必须为对外表现块级的元素.(*老版webkit一定要设置为块，否则内联元素的transfrom和animation无效)</span></li>
 						<li><a href="">transform-origin</a><span>设置或检索对象以某个原点进行转换,数值或百分比.
 							<br>如果提供两个，第一个用于横坐标，第二个用于纵坐标。 
 							<br>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%。 
