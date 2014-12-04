@@ -1274,8 +1274,10 @@
 						<li><a href="">border-image</a>
 								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
 								<br>在线图片边框生成：<a href="http://www.shadowsky.cn/i/tools/borderimage/index.htm">GO TO!</a></span></li>
-						<li><a href="">outline</a>
-								<span>轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考</span></li>
+						<li><a href="">outline</a><span>
+								轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考或特殊动画
+								<br />不允许类似border属性那样能将自身拆分为border-top..
+								</span></li>
 						<li><a href="">outline-offset</a>
 								<span>用长度值来定义轮廓偏移。允许负值。
 								<br />0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.
@@ -1635,6 +1637,15 @@
 							<br>IE7及以下浏览器中默认隐藏无内容的单元格边框，要想使其获得与show参数值相同的效果，可以变相给该空单元格加个占位且不可见的元素，例如全角空格或\&nbsp;等等。
 							</span></li>
 					</ul>
+					<h4>[<span>-</span>]其他</h4>
+					<ul>
+						<li><a href="">P</a><span>
+							充分利用p,h1-h6等标签进行语义化.<b>但不要在p中放置h1-h6,结构出错。</b>
+						</span></li>
+						<li><a href="">H1-H6</a><span>
+							在H内部直接放置浮动右元素，有些会换行，改用position定位
+						</span></li>
+					</ul>
 					<h4>[<span>-</span>]多列</h4>
 					<ul>
 						<li><a href="">columns</a>(Npx [M])
@@ -1889,8 +1900,10 @@
 							<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的内补丁；若要设置上、下两边的内补丁，必须先使该对象表现为块级或内联块级。
 							<br>*即内联元素(a等)设置padding水平有效,垂直无效,除非转换display值。
 							<br>默认背景图片的平铺是包含在padding区域的</span></li>
+							<br /><b>用百分比来定义宽度。百分比参照包含块宽度。不允许负值</b>
 						<li><a href="">margin</a><span>外部补白.
 							<br>margin-left/right:num/%/auto. 当margin-left/right为auto时水平居中
+							<br /><b>百分比:水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照 height ，可以为负值</b>
 							<br>1.内联元素垂直无效
 							<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的外补丁；若要设置上、下两边的外补丁，必须先使该对象表现为块级或内联块级。 
 							<br>2.外边距合并 <a href="http://www.w3school.com.cn/css/css_margin_collapsing.asp">参考文档</a>
@@ -2087,7 +2100,11 @@
 				<div>
 					<h4>[<span>-</span>]2D/3D</h4>
 					<ul>
-						<li><a href="">transform</a><span>可以用空格分隔多个操作,被定义的元素必须为对外表现块级的元素.(*老版webkit一定要设置为块，否则内联元素的transfrom和animation无效)</span></li>
+						<li><a href="">transform</a><span>
+							可以用空格分隔多个操作,被定义的元素必须为对外表现块级的元素.
+							<br />(*老版webkit一定要设置为块，否则内联元素的transfrom和animation无效).
+							<br />位移动画闪动问题,可提前加载为0.
+							</span></li>
 						<li><a href="">transform-origin</a><span>设置或检索对象以某个原点进行转换,数值或百分比.
 							<br>如果提供两个，第一个用于横坐标，第二个用于纵坐标。 
 							<br>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%。 
@@ -2147,6 +2164,7 @@
 							<br>100% {}
 							<br>}
 							<br>注意写前缀
+							<br /><b>过渡的动画不能使用简写。例如border:8px solid #fff无效,提前定义样式颜色,并给予0宽度,改变宽度.</b>
 							</span></li>
 						<li><a href="">animation</a><span>执行动画
 						<br>简写：animation:aniname 5s infinite;(名称 时间 重复次数)
@@ -5310,10 +5328,12 @@
 					<h4>[<span>-</span>] 元素位置[!px]</h4>
 					<ul>
 						<li><a href="">offset()</a>.l/t<span>offset() 计算元素在视窗中的坐标,返回值对对象<br/>                    offset().left 获得元素视窗水平坐标<br/>                    offset().top 获得元素视窗垂直坐标<br/>                    <b>*offset()值已包含scroll后实际视窗位置</b>  </span></li>
-						<li><a href="">offset</a>({top:y,left:x}) [!"px]<span>offset({top:y,left:x}) 设置元素视窗坐标<br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *设置值对时不需要引号，且不带单位</span></li>
+						<li><a href="">offset</a>({top:y,left:x})<span>offset({top:y,left:x}) 设置元素视窗坐标<br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *设置值对时不需要引号，且不带单位</span></li>
 						<li><a href="">position()</a>.l/t [!arg]<span>position() 获取相对父元素的偏移值对对象<br/>                    position().left 水平位移<br/>                    position().top 垂直位移<br/>                    *<b>不能用于设置，只能获取，可通过获取后设置新的变量值赋值给css</b><br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *注意Body清空padding margin否则继承出问题</span></li>
 						<li><a href="">scrollTop</a>([y])<span>获取/设置匹配元素相对滚动条垂直的偏移<br />
-							通过offset可获取元素位置,设置$(window).scrollTop(num)跳转至对应锚点</span></li>
+							通过offset可获取元素位置,设置$('body').scrollTop(num)跳转至对应锚点<br />
+							$('body').animate({'scrollTop':number/var},speed) 尽量不要用window,未知报错
+							</span></li>
 						<li><a href="">scrollLeft</a>([x]) <span>获取/设置匹配元素相对滚动条水平的偏移</span></li>
 					</ul>
 					<h4>[<span>-</span>] 指针位置</h4>
@@ -5373,6 +5393,7 @@
 					<ul>
 						<li><a href="">animate</a>({arg},time,[fn])<span>$(ele).animate({css:'value'},speed,fn)<br>
 						    $(ele).animate({css:+-some},speed,fn)<br>
+						    <b>单属性不能像css那样,简写！</b><br />
 						    可以通过在属性值前面指定+=或-=来让元素做相对运动(注意是+=,而不是+,需要赋值)<br>
 						    <b>注意：所有指定的属性必须用骆驼形式</b><br>
 						    队列动画:<br>
