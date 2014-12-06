@@ -484,9 +484,618 @@
 		</ul>
 		<ul>
 			<li>
-				<h3>盒属性<span>-</span></h3>
+				<h3>样式<span>-</span></h3>
 				<div>
-					<h4>[<span>-</span>]尺寸</h4>
+					<h4>[<span>-</span>]样式</h4>
+					<ul>
+						<li><a href="">box-shadow</a>
+								<span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
+								<br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
+								<br>可用逗号分隔多个阴影,制作复杂重叠阴影效果
+								<br>投影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
+								<br>长阴影：<a href="http://iruxu.com/to-be-css/shadow_longshadows.html">GO TO!</a>
+								<br>投影彩带：<a href="http://www.css3d.net/ribbon-generator/">GO TO!</a>
+								</span></li>
+						<li><a href="">-webkit-box-reflect</a><span>
+							-webkit-box-reflect:none/direction offset mask
+							<br />可应用于盒子或者直接应用于图片
+							<br />direction(倒影方向): above / below / left / right
+							<br />offset(倒影与源间隔): length / %
+							<br />mask(蒙版): url() / gradient
+							</span></li>
+						<li><a href="">filter</a><span>
+							ele {filter: none | <filter-function >* } 
+							<br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
+							<br />grayscale() 灰度，黑白
+							<br />sepia() 褐色,黄褐色旧照片
+							<br />saturate() 饱和度
+							<br />hue-rotate() 色相旋转
+							<br />invert() 反色
+							<br />opacity() 透明度
+							<br />brightness() 亮度
+							<br />contrast() 对比度
+							<br />blur(3px) 模糊
+							<br />drop-shadow(5px 5px 5px #ccc) 阴影
+							<br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
+							<a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]颜色</h4>
+					<ul>
+						<li><a href="">color</a>
+								<span>颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
+								<hr>transparent
+								<br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
+								<br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
+								<br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
+								<br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
+								<hr>rgba(255,255,255,0.8) 带Alpha通道的颜色模式,可以半透明（IE8-不支持）
+								<br>让IE8-通过IE滤镜来实现rgba效果
+								<br><textarea name="" id="" cols="30" rows="10">
+									background: rgba(0,0,0,.92);
+									filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#CC000000, endColorstr=#CC000000);
+								</textarea>
+								<br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
+								<br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
+								<br>常用透明度对应16进制关系：
+								<table width="100%" border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td valign="top">0（00）</td>
+								<td valign="top">0.05（0C）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.1（19）</td>
+								<td valign="top">0.15（26）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.2（33）</td>
+								<td valign="top">0.25（3F）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.3（4C）</td>
+								<td valign="top">0.35（59）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.4（66）</td>
+								<td valign="top">0.45（72）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.5（7F）</td>
+								<td valign="top">0.55（8C）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.6（99）</td>
+								<td valign="top">0.65（A5）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.7（B2）</td>
+								<td valign="top">0.75（BF）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.8（CC）</td>
+								<td valign="top">0.85（D8）</td>
+								</tr>
+								<tr>
+								<td valign="top">0.9（E5）</td>
+								<td valign="top">0.95（F2）</td>
+								</tr>
+								</tbody>
+								</table>
+
+								</span></li>
+						<li><a href="">opacity</a>
+							<span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
+							<br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
+							<br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
+							<br><textarea name="" id="" cols="30" rows="10">
+								.tm(@tm){
+								    @alpha:@tm*100;
+								    opacity:@tm;
+								    filter:alpha(opacity=@alpha);
+								}
+							</textarea></span></li>
+						<li><a href="">filter</a>
+								<span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
+								<br><textarea name="" id="" cols="30" rows="10">
+									background:url(../images/ex.png) no-repeat;
+									_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
+								</textarea>
+								<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。
+								<br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
+								<br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
+								</span></li>
+					</ul>
+					<h4>[<span>-</span>]背景</h4>
+					<ul>
+						<li><a href="">background</a><span>
+							[简写]background:#222 url() Xpx Ypx/size repeat attachment clip origin,...
+							<br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
+							<br>分解写法时，background-color只能设置一个。</span></li>
+						<li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
+						<li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.
+							<br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
+							<br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
+						<li><a href="">background-size</a><span>
+							background-size: Xpx Ypx / A% B% / cover / contain / auto
+							<br>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；
+							<br>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
+							<br>Xpx固定大小,a%百分比大小,auto真实大小
+							</span></li>
+						<li><a href="">background-repeat</a><span>平铺方式：
+							<br>repeat-x：背景图像在横向上平铺
+							<br>repeat-y：背景图像在纵向上平铺
+							<br>repeat：背景图像在横向和纵向平铺
+							<br>no-repeat：背景图像不平铺
+							<br>round：背景图像自动缩放直到适应且填充满整个容器。
+							<br />IE6不指定此属性时，默认不平铺，其他浏览器默认平铺</span></li>
+						<li><a href="">background-attachment</a><span>
+							fixed【相对浏览器固定】背景图像相对于窗体固定。
+							<br>scroll【相对元素固定】背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
+							<br>local【相对元素内容固定】背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。
+							</span></li>
+						<li><a href="">background-clip</a><span>
+							padding-box：从padding区域（不含padding）开始向外裁剪背景。
+							<br>border-box：从border区域（不含border）开始向外裁剪背景。(默认)
+							<br>content-box：从content区域开始向外裁剪背景。
+							<br>text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。
+							<br>TEXT剪裁方式的遮罩效果：<a href="http://demo.doyoe.com/css3/background-clip/mask-text2.htm">GO TO!</a>
+							</span></li>
+						<li><a href="">background-origin</a><span>
+								padding-box：从padding区域（含padding）开始显示背景图像。(默认)
+							<br>border-box：从border区域（含border）开始显示背景图像。
+							<br>content-box：从content区域开始显示背景图像。
+						</span></li>
+						<li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
+						<li><a href=""></a>grandient tools<span>
+							<br>图片渐变获取：<a href="http://www.gradient-scanner.com/">从图片读取渐变生成CSS</a>
+							<br>仿PS渐变生成：<a href="http://www.colorzilla.com/gradient-editor/">GO TO!</a>
+							<br>渐变按钮生成：<a href="http://www.cssbuttongenerator.com/">简洁</a> / 
+							<a href="http://www.glassybuttons.com/glassy.php">玻璃</a> / <a href="http://jirox.net/AsButtonGen/">水晶</a> / <a href="http://www.bestcssbuttongenerator.com/">简单</a> / <a href="http://www.cssbutton.me/browse">质感</a></span>
+							</li>
+						<li>[img]<a href="">linear-grandient()</a><span>
+							<br>background:linear-gradient(point,#colorA lengthA/A%,……#colorB lengthB/B%) 线性渐变
+							<br>point:left/right/top/bottom/N deg 方向或角度
+							<br />默认以垂直上方点为0度向下
+							<br>技巧应用实例：
+							<br><textarea name="" id="" cols="30" rows="10">
+							使用1像素背景渐变绘制分割线
+							/*使用伪元素制作导航列表项分隔线*/
+							.nav li:after{
+							content:""; 
+							width:1px;
+							height:15px;
+							position:absolute;
+							right:0;
+							top:20px;
+							background:linear-gradient(0deg,#990000,#ff0000,#990000);
+							}
+							/*删除第一项和最后一项导航分隔线*/
+							.nav li:last-child:after{
+							width:0;
+							height:0;
+							}
+							</textarea>
+						</span></li>
+						<li>[img]<a href="">repeating-linear-gradient()</a></li>
+						<li>[img]<a href="">radial-grandient()</a><span>
+							<br>background:radial-gradient(position,shape,#colorA lengthA/A%,……#colorB lengthB/B%)径向渐变
+							<br />position:left~center/lengthA lengthB/A% 5% 指定圆心位置
+							<br />shape:ellipse/circle形状
+							<br>可以使用rgba色，设置从透明到渐变效果！
+						</span></li>
+						<li>[img]<a href="">repeating-radial-gradient()</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>界面<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]用户界面</h4>
+					<ul>
+						<li><a href="">cursor</a><span>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。
+							<br>格式：使用自定义图像作为光标类型，IE, Opera只支持*.cur等特定的图片格式；Firefox, Chrome, Safari既支持特定图片类型也支持常见的*.jpg, *.gif, *.jpg等图片格式。
+							<br>兼容：cursor的属性值可以是一个序列,用逗号分隔地址,优先级递降。
+							<br><textarea name="" id="" cols="60" rows="10">
+								示例代码：
+								:link,:visited{
+								    cursor:url(example.svg#linkcursor),
+								            url(hyper.cur),
+								            url(hyper.png) 2 3,
+								            pointer;
+								}
+								本例用来给所有的超链接定义光标类型，客户端如果不支持SVG类型的光标，则使用下个"hyper.cur"；如果cur类型也不支持，则使用下个"hyper.png"；依次类推。
+							</textarea>
+							<br>附录：
+							<table width="95%">
+							<tbody>
+							<tr>
+							<th>值</th>
+							<th>描述</th>
+							</tr>
+							<tr>
+							<td><i>url</i></td>
+							<td>需使用的自定义光标的 URL。
+
+							注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。</td>
+							</tr>
+							<tr>
+							<td>default</td>
+							<td>默认光标（通常是一个箭头）</td>
+							</tr>
+							<tr>
+							<td>auto</td>
+							<td>默认。浏览器设置的光标。</td>
+							</tr>
+							<tr>
+							<td>crosshair</td>
+							<td>光标呈现为十字线。</td>
+							</tr>
+							<tr>
+							<td>pointer</td>
+							<td>光标呈现为指示链接的指针（一只手）</td>
+							</tr>
+							<tr>
+							<td>move</td>
+							<td>此光标指示某对象可被移动。</td>
+							</tr>
+							<tr>
+							<td>e-resize</td>
+							<td>此光标指示矩形框的边缘可被向右（东）移动。</td>
+							</tr>
+							<tr>
+							<td>ne-resize</td>
+							<td>此光标指示矩形框的边缘可被向上及向右移动（北/东）。</td>
+							</tr>
+							<tr>
+							<td>nw-resize</td>
+							<td>此光标指示矩形框的边缘可被向上及向左移动（北/西）。</td>
+							</tr>
+							<tr>
+							<td>n-resize</td>
+							<td>此光标指示矩形框的边缘可被向上（北）移动。</td>
+							</tr>
+							<tr>
+							<td>se-resize</td>
+							<td>此光标指示矩形框的边缘可被向下及向右移动（南/东）。</td>
+							</tr>
+							<tr>
+							<td>sw-resize</td>
+							<td>此光标指示矩形框的边缘可被向下及向左移动（南/西）。</td>
+							</tr>
+							<tr>
+							<td>s-resize</td>
+							<td>此光标指示矩形框的边缘可被向下移动（北/西）。</td>
+							</tr>
+							<tr>
+							<td>w-resize</td>
+							<td>此光标指示矩形框的边缘可被向左移动（西）。</td>
+							</tr>
+							<tr>
+							<td>text</td>
+							<td>此光标指示文本。</td>
+							</tr>
+							<tr>
+							<td>wait</td>
+							<td>此光标指示程序正忙（通常是一只表或沙漏）。</td>
+							</tr>
+							<tr>
+							<td>help</td>
+							<td>此光标指示可用的帮助（通常是一个问号或一个气球）。</td>
+							</tr>
+							</tbody>
+							</table>
+							</span></li>
+						<li><a href="">ime-mode</a><span>输入法状态：设置或检索是否允许用户激活输入中文，韩文，日文等的输入法（IME）状态。
+								<br>auto：不影响IME的状态。
+								<br>normal：正常的IME状态
+								<br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
+								<br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
+								<br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
+						<li><a href="">resize</a><span>设置或检索对象的区域是否允许用户缩放，调节元素尺寸大小。
+								<br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
+								<br>none：不允许用户调整元素大小。
+								<br>both：用户可以调节元素的宽度和高度。
+								<br>horizontal：用户可以调节元素的宽度
+								<br>vertical：用户可以调节元素的高度。</span></li>
+						<li><a href="">behavior</a>
+								<span>IE:使用绝对或相对地址指定DHTML行为组件（.htc）</span></li>
+					</ul>
+					<h4>[<span>-</span>]表单</h4>
+					<ul>
+						<li><a href="">:placeholder</a><span>占位提示字符
+							<br />&:-moz-placeholder
+							<br />&:-ms-input-placeholder
+							<br />&::-webkit-input-placeholder
+							<br />color: @color;
+							<br />font-size:@size;
+							<br />text-align:@align;
+							<br />
+							</span></li>
+						<li><a href="http://www.w3cplus.com/blog/271.html">-webkit-appearance</a><span>webkit移动表单控件重置</span></li>
+						<li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+						<li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
+					</ul>
+					<h4>[<span>-</span>]图片</h4>
+					<ul>
+						<li><a href="">filter</a><span>
+							<a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
+						</span></li>
+						<li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
+					</ul>
+					<h4>[<span>+</span>]滚动条</h4>
+					<ul style="display:none">
+						<li><a href="">scrollbar-3dlight-color</a><span>亮色阴影边框颜色</span></li>
+						<li><a href="">scrollbar-darkshadow-color</a><span>暗色阴影边框颜色</span></li>
+						<li><a href="">scrollbar-highlight-color</a><span>高亮边框颜色</span></li>
+						<li><a href="">scrollbar-shadow-color</a><span>阴影边框颜色</span></li>
+						<li><a href="">scrollbar-arrow-color</a><span>方向箭头的颜色</span></li>
+						<li><a href="">scrollbar-face-color</a><span>表面的颜色</span></li>
+						<li><a href="">scrollbar-track-color</a><span>拖动区域的颜色</span></li>
+						<li><a href="">scrollbar-base-color</a><span>基准颜色</span></li>
+						<li><a href="">jScroll</a><span>JQ插件实现模拟 <a href="http://jscroll.com/">GO TO!</a></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>布局I<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]列表</h4>
+					<ul>
+						<li><a href="">list-style</a><span>[简写] img position type,无序列表ul,有序列表ol,自定义列表dl
+								<br>可以用列表来进行布局,清除列表样式ul设置list-style:none,ul{padding:0,margin:0}
+								<br>如标记为图片时一般用背景图来替代
+								</span></li>
+						<li><a href="">list-style-type</a>
+								<span><br>仅作用于具有display值等于list-item的对象（如li对象）,如修改display值后不再显示(设置为块或其他特性均消失标记).
+								<br>注意：ol,ul,dl对象的type特性为其后的所有列表项目（如li对象）指明列表属性。
+								<br>此样式也可应用于counter计数器样式
+								<table>
+								<tbody>
+								<tr>
+								<th>值</th>
+								<th>描述</th>
+								</tr>
+								<tr>
+								<td>none</td>
+								<td>无标记。</td>
+								</tr>
+								<tr>
+								<td>disc（默认）</td>
+								<td>实心圆。</td>
+								</tr>
+								<tr>
+								<td>circle</td>
+								<td>空心圆。</td>
+								</tr>
+								<tr>
+								<td>square</td>
+								<td>实心方块。</td>
+								</tr>
+								<tr>
+								<td>decimal</td>
+								<td>数字。( 1,2,3…… )</td>
+								</tr>
+								<tr>
+								<td>decimal-leading-zero</td>
+								<td>0开头的数字标记。( 01,02,03…… )</td>
+								</tr>
+								<tr>
+								<td>lower-roman</td>
+								<td>小写罗马数字(i, ii, iii, iv, v, 等。)</td>
+								</tr>
+								<tr>
+								<td>upper-roman</td>
+								<td>大写罗马数字(I, II, III, IV, V, 等。)</td>
+								</tr>
+								<tr>
+								<td>lower-alpha</td>
+								<td>小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)</td>
+								</tr>
+								<tr>
+								<td>upper-alpha</td>
+								<td>大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)</td>
+								</tr>
+								<tr>
+								<td>lower-greek</td>
+								<td>小写希腊字母(alpha, beta, gamma, 等。)</td>
+								</tr>
+								<tr>
+								<td>lower-latin</td>
+								<td>小写拉丁字母(a, b, c, d, e, 等。)</td>
+								</tr>
+								<tr>
+								<td>upper-latin</td>
+								<td>大写拉丁字母(A, B, C, D, E, 等。)</td>
+								</tr>
+								<tr>
+								<td>hebrew</td>
+								<td>传统的希伯来编号方式</td>
+								</tr>
+								<tr>
+								<td>armenian</td>
+								<td>传统的亚美尼亚编号方式</td>
+								</tr>
+								<tr>
+								<td>georgian</td>
+								<td>传统的乔治亚编号方式(an, ban, gan, 等。)</td>
+								</tr>
+								<tr>
+								<td>cjk-ideographic</td>
+								<td>简单的表意数字</td>
+								</tr>
+								<tr>
+								<td>hiragana</td>
+								<td>标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）</td>
+								</tr>
+								<tr>
+								<td>katakana</td>
+								<td>标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）</td>
+								</tr>
+								<tr>
+								<td>hiragana-iroha</td>
+								<td>标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）</td>
+								</tr>
+								<tr>
+								<td>katakana-iroha</td>
+								<td>标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）</td>
+								</tr>
+								</tbody>
+								</table>
+									
+								</span></li>
+						<li><a href="">list-style-image</a>
+								<span>list-style-image:url(img.png) 
+								<br>定位位置上会有问题.以文字中线开始显示图片.
+								<br>并且也只当li依旧为list-item特性时才有效.
+								<br>一般使用背景图来制作列表背景.</span></li>
+						<li><a href="">list-style-position</a><span>
+								<strong>指标记的内外方式,而非(图片)标记坐标位置</strong>
+								<br><b>outside</b>：列表项目标记放置在文本以外，且环绕文本不根据标记对齐（默认值）
+								<br>1.当type在outside时,如RESET样式中设置ul的padding:0,则会看不到type图标(无论li是否设置padding);如设置ul的padding(例如)小于20,则type图标将会溢出在ul之外.
+								<br>2.如设置li的padding-left,则标记位置不更改,而标记与内容之间拉开间距
+								<br>3.如设置li的margin-left,则margin继承到标记之外,标记与父级拉开间距
+								<hr><b>inside</b>：列表项目标记放置在文本以内，且环绕文本根据标记对齐。<a href="http://css.doyoe.com/properties/list/list-style-position.htm">[查看演示]</a>
+								<br>1.当type在inside时,type会和文字一起距离浏览器默认padding缩进,设置padding:0时,则会贴边显示.
+								<br>2.设置li的padding-left和margin-left视觉表现都为标记之外与父级拉开间距
+								</span></li>
+					</ul>
+					<h4>[<span>-</span>]表格</h4>
+					<ul>
+						<li><a href="">table-layout</a><span>
+							适用于：table系元素。
+							<br>auto:默认的自动算法。布局将基于各单元格的内容，换言之，可能你给某个单元格定义宽度为100px，但结果可能并不是100px。表格在每一单元格读取计算之后才会显示出来，速度很慢
+							<br>fixed：固定布局的算法。在这算法中，水平布局是仅仅基于表格的宽度，表格边框的宽度，单元格间距，列的宽度，而和表格内容无关。也就是说，内容可能被裁切
+							<br /><a href="http://www.zhangxinxu.com/wordpress/2014/04/%E8%87%AA%E9%80%82%E5%BA%94%E8%A1%A8%E6%A0%BC-%E5%AD%97%E7%AC%A6%E6%8D%A2%E8%A1%8C-%E6%BA%A2%E5%87%BA%E7%82%B9%E7%82%B9%E7%82%B9-table-text-overflow-ellipsis-word-wrap-break-all/">关于text-overflow在单元格中的失效</a>
+						</span></li>
+						<li><a href="">border-collapse</a><span>
+								separate：边框独立
+								<br>collapse：相邻边被合并
+								<br>只有当表格边框独立（即border-collapse属性等于separate时），border-spacing和empty-cells才起作用。
+						</span></li>
+						<li><a href="">border-spacing</a><span>
+							该属性作用等同于标签属性cellspacing(单元格边距)。border-spacing:0等同于cellspacing="0"
+							<br>如果提供全部两个length值时，第一个作用于横向间距，第二个作用于纵向间距。
+							<br>如果只提供一个length值时，这个值将作用于横向和纵向上的间距。
+							<br>*一般将此值与表格内标签属性cellpadding,cellspacing均设为0,通过CSS边距来控制.
+						</span></li>
+						<li><a href="">caption-side</a><span>
+							top：指定caption在表格上边（默认）
+							<br>bottom：指定caption在表格下边
+							<br>要在IE7及以下浏览器中实现top与bottom参数值的效果，可直接在caption标签内定义标签属性valign为top和bottom。
+						</span></li>
+						<li><a href="">empty-cells</a>
+							<span>show：指定当表格的单元格无内容时，显示该单元格的边框。（默认）
+							<br>hide：指定当表格的单元格无内容时，隐藏该单元格的边框。
+							<br>IE7及以下浏览器中默认隐藏无内容的单元格边框，要想使其获得与show参数值相同的效果，可以变相给该空单元格加个占位且不可见的元素，例如全角空格或\&nbsp;等等。
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]其他</h4>
+					<ul>
+						<li><a href="">P</a><span>
+							充分利用p,h1-h6等标签进行语义化.<b>但不要在p中放置h1-h6,结构出错。</b>
+						</span></li>
+						<li><a href="">H1-H6</a><span>
+							在H内部直接放置浮动右元素，有些会换行，改用position定位
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]多列</h4>
+					<ul>
+						<li><a href="">columns</a>(Npx [M])
+								<span>多列,简写时注意加<strong>s</strong>,简写中只含宽度(带单位,不能百分比)和列数.Chrome需要前缀-webkit-
+								<br>应用于除table外的非替换块级元素，display:table-cell 元素, 内联块元素。
+								<br>实现多列的是里面的内容,而非自身.
+								<br>简写方式一：设置width,column:200px 3（固定3列200宽。）
+								<br>简写方式二：column:200px （自动根据父级宽度生成X列）
+								<br>同时指定2个值时，优先先按列数来分配宽.例如浏览器宽度1800px,指定3列200px宽,结果为分配为3列600px宽,忽略200宽指定值;如果指定宽度200px,未指定列数,则按宽度自动平分为9列
+								<br>参考资料：<a href="http://wenku.baidu.com/view/76a20b60011ca300a6c3909d.html">替换/非替换块级/内联元素</a></span></li>
+						<li><a href="">column-width</a>(Npx)<span>列宽</span></li>
+						<li><a href="">column-count</a>(N)<span>列数</span></li>
+						<li><a href="">column-gap</a>(Npx)<span>列间隔</span></li>
+						<li><a href="">column-rule</a>(1px solid #ccc)<span>列间隔边框 1px solid #ccc <br>column-rule-style等同于border样式</span></li>
+						<li><a href="">column-span</a>(N/all)<span>列横跨,适用于：除浮动和绝对定位之外的块级元素
+								<br>是否横跨全部,all和none,不可设置数值非表格,此属性应设置在被应用多列属性的子元素上,多列无继承性,对于不想被继承多列的元素应写在多列父元素之外,而非去设置多列横跨.</span></li>
+					</ul>
+					<h4>[<span>+</span>]Box</h4>
+					<ul style="display:none">
+						<li><a href="">display:-webkit-box</a><span>旧手机浏览器</span></li>
+						<li><a href="">-webkit-box-orient</a><span>设置或检索伸缩盒对象的子元素的排列方式。
+							<br>horizontal：设置伸缩盒对象的子元素从左到右水平排列
+							<br>vertical：设置伸缩盒对象的子元素从上到下纵向排列
+							<br>inline-axis：设置伸缩盒对象的子元素沿行轴排列
+							<br>block-axis：设置伸缩盒对象的子元素沿块轴排列
+						</span></li>
+						<li><a href="">-webkit-box-pack</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
+							<br>start：设置伸缩盒对象的子元素从开始位置对齐（大部分情况等同于左对齐，受）
+							<br>center：设置伸缩盒对象的子元素居中对齐
+							<br>end：设置伸缩盒对象的子元素从结束位置对齐（大部分情况等同于右对齐）
+							<br>justify：设置或伸缩盒对象的子元素两端对齐</span></li>
+						<li><a href="">-webkit-box-align</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
+							<br>start：设置伸缩盒对象的子元素从开始位置对齐
+							<br>center：设置伸缩盒对象的子元素居中对齐
+							<br>end：设置伸缩盒对象的子元素从结束位置对齐
+							<br>baseline：设置伸缩盒对象的子元素基线对齐
+							<br>stretch：设置伸缩盒对象的子元素自适应父元素尺寸</span></li>
+						<li><a href="">-webkit-box-flex</a><span>使用浮点数指定对象所分配其父元素剩余空间的比例。
+						</span></li>
+						<li><a href="">-webkit-box-flex-group</a><span>用整数值来定义伸缩盒对象的子元素所在的组。</span></li>
+						<li><a href="">-webkit-box-ordinal-group</a><span>用整数值来定义伸缩盒对象的子元素显示顺序。</span></li>
+						<li><a href="">-webkit-box-direction</a><span>设置或检索伸缩盒对象的子元素的排列顺序是否反转。normal | reverse</span></li>
+						<li><a href="">-webkit-box-lines</a><span>设置或检索伸缩盒对象的子元素是否可以换行显示。single | multiple</span></li>
+					</ul>
+					<h4>[<span>-</span>]Flex</h4>
+					<ul>
+						<li><a href="">flex</a>
+								<span><a href="http://demo.agektmr.com/flexbox/">在线调试flexbox布局效果</a></span></li>
+						<li><a href="">flex-grow</a>
+								<span>剩余空间的扩展比例,默认值0</span></li>
+						<li><a href="">flex-shrink</a>
+								<span>剩余空间的收缩比例,默认1</span></li>
+						<li><a href="">flex-basis</a><span>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</span></li>
+						
+						<li><a href="">flex-direction</a><span>
+							row：横向从左到右排列（左对齐），默认的排列方式。
+							<br>row-reverse：反转横向排列（右对齐，从后往前排，最后一项排在最前面。
+							<br>column：纵向排列。
+							<br>row-reverse：反转纵向排列，从后往前排，最后一项排在最上面。
+						</span></li>
+						<li><a href="">flex-flow</a><span></span></li>
+						<li><a href="">flex-wrap</a><span></span></li>
+						<li><a href="">align-content</a><span></span></li>
+						<li><a href="">align-items</a><span>
+							flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+							<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+							<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+							<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+							<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+						</span></li>
+						<li><a href="">align-self</a><span>
+							auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
+							<br>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+							<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+							<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+							<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+							<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+						</span></li>
+						<li><a href="">justify-content</a><span>
+							flex-start：弹性盒子元素将向行起始位置对齐。该行的第一个子元素的主起始位置的边界将与该行的主起始位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
+							<br>flex-end：弹性盒子元素将向行结束位置对齐。该行的第一个子元素的主结束位置的边界将与该行的主结束位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
+							<br>center：弹性盒子元素将向行中间位置对齐。该行的子元素将相互对齐并在行中居中对齐，同时第一个元素与行的主起始位置的边距等同与最后一个元素与行的主结束位置的边距（如果剩余空间是负数，则保持两端相等长度的溢出）。
+							<br>space-between：弹性盒子元素会平均地分布在行里。如果最左边的剩余空间是负数，或该行只有一个子元素，则该值等效于'flex-start'。在其它情况下，第一个元素的边界与行的主起始位置的边界对齐，同时最后一个元素的边界与行的主结束位置的边距对齐，而剩余的伸缩盒项目则平均分布，并确保两两之间的空白空间相等。
+							<br>space-around：弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半。如果最左边的剩余空间是负数，或该行只有一个伸缩盒项目，则该值等效于'center'。在其它情况下，伸缩盒项目则平均分布，并确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半。
+						</span></li>
+						<li><a href="">order</a><span>用整数值来定义排列顺序，数值小的排在前面。可以为负值。</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>布局II<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]盒模型</h4>
 					<ul>
 						<li><a href="">Standards/Quirks Mode</a><span>
 							HTML文档根据文档顶部的doctype声明来决定渲染模式，有<b>标准模式（Standards Mode）</b>与<b>怪异模式（Quirks mode，或叫做混杂模式）</b>两种模式。
@@ -1216,6 +1825,107 @@
 							<br />另外，button在现代浏览器中总是表现为基于垂直对齐，在IE7~8中表现为顶部对齐，在IE6中表现为基线对齐，故需要设置vertical-align:middle初始化让所有表现一致。
 							<br /><a href="http://www.quirksmode.org/css/quirksmode.html">参考自《Quirks mode and strict mode》查阅更多区别</a>
 						</span></li>
+						<li><a href="">box-sizing</a>
+							<span>
+							<b>content-box</b>：padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding ) 此属性表现为标准模式下的盒模型。 
+							<br>
+							<b>border-box</b>：padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。 
+							</span>
+						</li>
+						<li><a href="">display</a>
+							<span>
+								完整参考资料：<a href="http://www.w3.org/TR/css-display/">W3C</a>
+								<br>当元素float,fixed,abosulte或者为根元素时,总是表现为块级元素(但并不会宽度占据100%,而是根据自己内容扩展,正确理解成inline-block?但又不完全是,由于float的性质为包裹)
+								<table border="1" cellspacing="0" cellpadding="2">
+									<tbody>
+									<tr>
+									<td valign="top">none</td>
+									<td valign="top">隐藏对象,不保留物理空间</td>
+									</tr>
+									<tr>
+									<td valign="top">inline</td>
+									<td valign="top">内联元素 a,span,文本格式化(b,strong,i,em,sub,sup)</td>
+									</tr>
+									<tr>
+									<td valign="top">block</td>
+									<td valign="top">块级元素 div,p,h1~h6,h5,form,ul,ol新元素</td>
+									</tr>
+									<tr>
+									<td valign="top">inline-block</td>
+									<td valign="top">表单内部元素(input,button,textarea,label),img</td>
+									</tr>
+									<tr>
+									<td valign="top">list-item</td>
+									<td valign="top">列表项目li</td>
+									</tr>
+									<tr>
+									<td valign="top">table</td>
+									<td valign="top">块级元素级的表格table,表格内部元素表现为对应的table-cell等。
+									<br />table-caption | table-cell 
+									<br />table-row | table-row-group 
+									<br />table-column | table-column-group
+									<br />table-footer-group | table-header-group</td>
+									</tr>
+									<tr>
+									<td valign="top">inline-table</td>
+									<td valign="top">内联元素级的表格</td>
+									</tr>
+									<tr>
+									<td valign="top">flex</td>
+									<td valign="top">弹性伸缩盒</td>
+									</tr>
+									<tr>
+									<td valign="top">box</td>
+									<td valign="top">inline-box,块/内联块级弹性伸缩盒（旧）</td>
+									</tr>
+									<tr>
+									<td valign="top">flex</td>
+									<td valign="top">inline-flexbox,块/内联块级弹性伸缩盒（新）</td>
+									</tr>
+									<tr>
+									<td valign="top">run-in</td>
+									<td valign="top">根据上下文决定对象是内联对象还是块级对象</td>
+									</tr>
+									</tbody>
+								</table>
+							</span>
+						</li>
+						<li><a href="">zoom</a>
+							<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
+								<br>可用于触发IE6的haslayout.<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
+							</span>
+						</li>
+					</ul>
+					<h4>[<span>-</span>]表现</h4>
+					<ul>
+						<li>display:<a href="">inline-block</a><span>
+								IE6,7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
+								<br>解决方案：
+								<br>div{display:inline-block;*display:inline;*zoom:1;}
+								<br />默认inline-block元素之间默认会有间隔,是由于html元素间200B空格导致的(根据上下文字体大小有差异),可以通过连接html元素,或注释,或分行,及其他方式去掉.(浮动亦可,但浮动无法制作横向布局)
+								<br /><a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">详细参考资料</a>
+								<br />禁止换行还需要设置white-space:nowrap制作横向滚动效果.
+						</span></li>
+						<li>display:<a href="">table-cell</a><span>
+							特点：
+							<br />1.table-cell有类似inline-block的可并行性
+							<br />2.表格单元格宽度根据内容扩展，自行设置无效。
+							<br />3.表格单元格同行元素总是等高。
+							<br />注意：
+							<br />1.IE8+有效
+							<br />2.设置了display:table-cell的元素对宽度高度敏感，对margin值无反应，响应padding属性
+							<br />3.display:table-cell与float:left或是position:absolute属性尽量不用同用
+							<br />作用：
+							<br />1.可以设置内容垂直居中vertical-align:middle
+							<br />2.可用于宽度自适应布局，因为单元格本质宽度即由内容宽度决定。注意设置vertical-align:top
+							<br />hack处理display:table-cell; width:2000px;*width:auto;*zoom:1;
+							<br />3.可用于等高布局，即使不设置高度也会与同行元素等高。
+							<br />hack处理display:table-cell; width:30%; margin-bottom:-100px; *padding-bottom:110px;*float:left;
+							<br /><a href="http://www.zhangxinxu.com/wordpress/2010/10/%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E7%A7%8Ddisplaytable-cell%E7%9A%84%E5%BA%94%E7%94%A8/">参考资料</a>
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]尺寸</h4>
+					<ul>
 						<li><a href="">calc()</a><span>长度计算,width:calc(100% - 50px) <strong>中间必须有空格！</strong></span></li>
 						<li><a href="">width</a><span>宽度<br />
 						IE6的1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a></span></li>
@@ -1252,28 +1962,39 @@
 							<br>outset：3D凸边轮廓。
 							<hr>border-color颜色：
 							<br>如果想在hover上做边框显示不发生抖动,应将默认状态添加如1px solid transparent
-							<br>三角制作：<a href="http://apps.eky.hk/css-triangle-generator/">在线生成</a>（利用宽高0,设置1个夹角边框大值）
+							<br>三角制作：<a href="http://apps.eky.hk/css-triangle-generator/zh-hant">在线生成</a>（利用宽高0,设置1个夹角边框大值）
+							<br /><img src="img/triangle.png" alt="" />
 
 							</span></li>
 						<li><a href="">border-top</a><span>
 							单边:border-top/border-bottom/border-left/border-right
 							<br>取消某一边:border:1px solid #ccc;border-bottom:none;
 							</span></li>
+						<li><a href="">border-width/color/style</a><span>
+							border-width/color/style:上 右 下 左;4个值
+						</span></li>
 						<li><a href="">border-radius</a>
 							<span>[边框圆角简写]border-radius:5px 4px 3px 2px;
 							<br>四个半径值分别是左上角、右上角、右下角和左下角,可以设置百分比.
+							<br />提供2个参数，2个参数以“/”分隔，每个参数允许设置1~4个参数值，第1个参数表示水平半径，第2个参数表示垂直半径，如第2个参数省略，则默认等于第1个参数（顺时针顺序）
+							<br />border-radius: 15px 5px 25px 5px / 3px 5px 10px 15px;
 							<br>改变形状：
 							<br>正方形->圆：radius=width|height/2
 							<br>叶子-> 左上+右下,注意书写方式与简写代表
+							<br>半圆->宽度设为高度的一半，并且也只设置左上角和左下角的半径
+							<br />饼->四分之一圆的实现方法是把高度和宽度设置为相等，只设置一个圆角，其半径等于高度或宽度
+							<br />用radius画形状<a href="http://www.xincss.com/?p=221">参考资料</a>
 							<br>在线生成：<a href="http://www.css3maker.com/border-radius.html">GO TO!</a>
+							<br />arrow生成：<a href="http://cssarrowplease.com/">GO TO!</a>
 							</span></li>
-						<li><a href="">border-top-left-radius</a>
-								<span>
-									单角圆角,注意书写格式
-								</span></li>
+						<li><a href="">border-top-left-radius</a><span>
+							单角圆角,注意书写格式,先写top/bottom后写left/right
+							<br>提供2个参数，2个参数以空格分隔，每个参数允许设置1个参数值，第1个参数表示水平半径，第2个参数表示垂直半径，如第2个参数省略，则默认等于第1个参数
+							<br />border-top-left-radius:5px 10px。不用“/”分割
+							</span></li>
 						<li><a href="">border-image</a>
 								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
-								<br>在线图片边框生成：<a href="http://www.shadowsky.cn/i/tools/borderimage/index.htm">GO TO!</a></span></li>
+								<br>在线图片边框生成：<a href="http://iruxu.com/to-be-css/borderimage/index.htm">GO TO!</a></span></li>
 						<li><a href="">outline</a><span>
 								轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考或特殊动画
 								<br />不允许类似border属性那样能将自身拆分为border-top..
@@ -1282,613 +2003,6 @@
 								<span>用长度值来定义轮廓偏移。允许负值。
 								<br />0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.
 								<br />可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
-					</ul>
-					<h4>[<span>-</span>]样式</h4>
-					<ul>
-						<li><a href="">box-shadow</a>
-								<span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
-								<br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
-								<br>可用逗号分隔多个阴影,制作复杂重叠阴影效果
-								<br>投影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
-								<br>长阴影：<a href="http://iruxu.com/to-be-css/shadow_longshadows.html">GO TO!</a>
-								<br>投影彩带：<a href="http://www.css3d.net/ribbon-generator/">GO TO!</a>
-								</span></li>
-						<li><a href="">-webkit-box-reflect</a><span>
-							-webkit-box-reflect:none/direction offset mask
-							<br />可应用于盒子或者直接应用于图片
-							<br />direction(倒影方向): above / below / left / right
-							<br />offset(倒影与源间隔): length / %
-							<br />mask(蒙版): url() / gradient
-							</span></li>
-						<li><a href="">filter</a><span>
-							ele {filter: none | <filter-function >* } 
-							<br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
-							<br />grayscale() 灰度，黑白
-							<br />sepia() 褐色,黄褐色旧照片
-							<br />saturate() 饱和度
-							<br />hue-rotate() 色相旋转
-							<br />invert() 反色
-							<br />opacity() 透明度
-							<br />brightness() 亮度
-							<br />contrast() 对比度
-							<br />blur(3px) 模糊
-							<br />drop-shadow(5px 5px 5px #ccc) 阴影
-							<br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
-							<a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
-						</span></li>
-					</ul>
-					<h4>[<span>-</span>]颜色</h4>
-					<ul>
-						<li><a href="">color</a>
-								<span>颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
-								<hr>transparent
-								<br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
-								<br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
-								<br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
-								<br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
-								<hr>rgba(255,255,255,0.8) 带Alpha通道的颜色模式,可以半透明（IE8-不支持）
-								<br>让IE8-通过IE滤镜来实现rgba效果
-								<br><textarea name="" id="" cols="30" rows="10">
-									background: rgba(0,0,0,.92);
-									filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#CC000000, endColorstr=#CC000000);
-								</textarea>
-								<br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
-								<br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
-								<br>常用透明度对应16进制关系：
-								<table width="100%" border="1" cellspacing="0" cellpadding="2">
-								<tbody>
-								<tr>
-								<td valign="top">0（00）</td>
-								<td valign="top">0.05（0C）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.1（19）</td>
-								<td valign="top">0.15（26）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.2（33）</td>
-								<td valign="top">0.25（3F）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.3（4C）</td>
-								<td valign="top">0.35（59）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.4（66）</td>
-								<td valign="top">0.45（72）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.5（7F）</td>
-								<td valign="top">0.55（8C）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.6（99）</td>
-								<td valign="top">0.65（A5）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.7（B2）</td>
-								<td valign="top">0.75（BF）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.8（CC）</td>
-								<td valign="top">0.85（D8）</td>
-								</tr>
-								<tr>
-								<td valign="top">0.9（E5）</td>
-								<td valign="top">0.95（F2）</td>
-								</tr>
-								</tbody>
-								</table>
-
-								</span></li>
-						<li><a href="">opacity</a>
-							<span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
-							<br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
-							<br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
-							<br><textarea name="" id="" cols="30" rows="10">
-								.tm(@tm){
-								    @alpha:@tm*100;
-								    opacity:@tm;
-								    filter:alpha(opacity=@alpha);
-								}
-							</textarea></span></li>
-						<li><a href="">filter</a>
-								<span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
-								<br><textarea name="" id="" cols="30" rows="10">
-									background:url(../images/ex.png) no-repeat;
-									_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
-								</textarea>
-								<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。
-								<br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
-								<br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
-								</span></li>
-					</ul>
-					<h4>[<span>-</span>]背景</h4>
-					<ul>
-						<li><a href="">background</a><span>
-							[简写]background:#222 url() Xpx Ypx/size repeat attachment clip origin,...
-							<br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
-							<br>分解写法时，background-color只能设置一个。</span></li>
-						<li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
-						<li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.
-							<br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
-							<br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
-						<li><a href="">background-size</a><span>
-							background-size: Xpx Ypx / A% B% / cover / contain / auto
-							<br>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；
-							<br>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
-							<br>Xpx固定大小,a%百分比大小,auto真实大小
-							</span></li>
-						<li><a href="">background-repeat</a><span>平铺方式：
-							<br>repeat-x：背景图像在横向上平铺
-							<br>repeat-y：背景图像在纵向上平铺
-							<br>repeat：背景图像在横向和纵向平铺
-							<br>no-repeat：背景图像不平铺
-							<br>round：背景图像自动缩放直到适应且填充满整个容器。
-							<br />IE6不指定此属性时，默认不平铺，其他浏览器默认平铺</span></li>
-						<li><a href="">background-attachment</a><span>
-							fixed【相对浏览器固定】背景图像相对于窗体固定。
-							<br>scroll【相对元素固定】背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
-							<br>local【相对元素内容固定】背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。
-							</span></li>
-						<li><a href="">background-clip</a><span>
-							padding-box：从padding区域（不含padding）开始向外裁剪背景。
-							<br>border-box：从border区域（不含border）开始向外裁剪背景。(默认)
-							<br>content-box：从content区域开始向外裁剪背景。
-							<br>text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。
-							<br>TEXT剪裁方式的遮罩效果：<a href="http://demo.doyoe.com/css3/background-clip/mask-text2.htm">GO TO!</a>
-							</span></li>
-						<li><a href="">background-origin</a><span>
-								padding-box：从padding区域（含padding）开始显示背景图像。(默认)
-							<br>border-box：从border区域（含border）开始显示背景图像。
-							<br>content-box：从content区域开始显示背景图像。
-						</span></li>
-						<li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
-						<li>[img]<a href="">linear-grandient()</a><span>
-							<br>background:linear-gradient(point,#colorA lengthA/A%,……#colorB lengthB/B%) 线性渐变
-							<br>point:left/right/top/bottom/N deg 方向或角度
-							<br />默认以垂直上方点为0度向下
-							<br>技巧应用实例：
-							<br><textarea name="" id="" cols="30" rows="10">
-							使用1像素背景渐变绘制分割线
-							/*使用伪元素制作导航列表项分隔线*/
-							.nav li:after{
-							content:""; 
-							width:1px;
-							height:15px;
-							position:absolute;
-							right:0;
-							top:20px;
-							background:linear-gradient(0deg,#990000,#ff0000,#990000);
-							}
-							/*删除第一项和最后一项导航分隔线*/
-							.nav li:last-child:after{
-							width:0;
-							height:0;
-							}
-							</textarea>
-							<br>渐变按钮生成：<a href="http://www.cssbuttongenerator.com/">简洁</a> / 
-							<a href="http://www.glassybuttons.com/glassy.php">玻璃</a> / <a href="http://jirox.net/AsButtonGen/">水晶</a> / <a href="http://www.bestcssbuttongenerator.com/">简单</a> / <a href="http://www.cssbutton.me/browse">质感</a>
-						</span></li>
-						<li>[img]<a href="">repeating-linear-gradient()</a></li>
-						<li>[img]<a href="">radial-grandient()</a><span>
-							<br>background:radial-gradient(position,shape,#colorA lengthA/A%,……#colorB lengthB/B%)径向渐变
-							<br />position:left~center/lengthA lengthB/A% 5% 指定圆心位置
-							<br />shape:ellipse/circle形状
-							<br>可以使用rgba色，设置从透明到渐变效果！
-							<br>渐变生成工具：<a href="http://www.colorzilla.com/gradient-editor/">GO TO!</a>
-						</span></li>
-						<li>[img]<a href="">repeating-radial-gradient()</a></li>
-					</ul>
-				</div>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<h3>布局I<span>-</span></h3>
-				<div>
-					<h4>[<span>-</span>]列表</h4>
-					<ul>
-						<li><a href="">list-style</a><span>[简写] img position type,无序列表ul,有序列表ol,自定义列表dl
-								<br>可以用列表来进行布局,清除列表样式ul设置list-style:none,ul{padding:0,margin:0}
-								<br>如标记为图片时一般用背景图来替代
-								</span></li>
-						<li><a href="">list-style-type</a>
-								<span><br>仅作用于具有display值等于list-item的对象（如li对象）,如修改display值后不再显示(设置为块或其他特性均消失标记).
-								<br>注意：ol,ul,dl对象的type特性为其后的所有列表项目（如li对象）指明列表属性。
-								<br>此样式也可应用于counter计数器样式
-								<table>
-								<tbody>
-								<tr>
-								<th>值</th>
-								<th>描述</th>
-								</tr>
-								<tr>
-								<td>none</td>
-								<td>无标记。</td>
-								</tr>
-								<tr>
-								<td>disc（默认）</td>
-								<td>实心圆。</td>
-								</tr>
-								<tr>
-								<td>circle</td>
-								<td>空心圆。</td>
-								</tr>
-								<tr>
-								<td>square</td>
-								<td>实心方块。</td>
-								</tr>
-								<tr>
-								<td>decimal</td>
-								<td>数字。( 1,2,3…… )</td>
-								</tr>
-								<tr>
-								<td>decimal-leading-zero</td>
-								<td>0开头的数字标记。( 01,02,03…… )</td>
-								</tr>
-								<tr>
-								<td>lower-roman</td>
-								<td>小写罗马数字(i, ii, iii, iv, v, 等。)</td>
-								</tr>
-								<tr>
-								<td>upper-roman</td>
-								<td>大写罗马数字(I, II, III, IV, V, 等。)</td>
-								</tr>
-								<tr>
-								<td>lower-alpha</td>
-								<td>小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)</td>
-								</tr>
-								<tr>
-								<td>upper-alpha</td>
-								<td>大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)</td>
-								</tr>
-								<tr>
-								<td>lower-greek</td>
-								<td>小写希腊字母(alpha, beta, gamma, 等。)</td>
-								</tr>
-								<tr>
-								<td>lower-latin</td>
-								<td>小写拉丁字母(a, b, c, d, e, 等。)</td>
-								</tr>
-								<tr>
-								<td>upper-latin</td>
-								<td>大写拉丁字母(A, B, C, D, E, 等。)</td>
-								</tr>
-								<tr>
-								<td>hebrew</td>
-								<td>传统的希伯来编号方式</td>
-								</tr>
-								<tr>
-								<td>armenian</td>
-								<td>传统的亚美尼亚编号方式</td>
-								</tr>
-								<tr>
-								<td>georgian</td>
-								<td>传统的乔治亚编号方式(an, ban, gan, 等。)</td>
-								</tr>
-								<tr>
-								<td>cjk-ideographic</td>
-								<td>简单的表意数字</td>
-								</tr>
-								<tr>
-								<td>hiragana</td>
-								<td>标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）</td>
-								</tr>
-								<tr>
-								<td>katakana</td>
-								<td>标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）</td>
-								</tr>
-								<tr>
-								<td>hiragana-iroha</td>
-								<td>标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）</td>
-								</tr>
-								<tr>
-								<td>katakana-iroha</td>
-								<td>标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）</td>
-								</tr>
-								</tbody>
-								</table>
-									
-								</span></li>
-						<li><a href="">list-style-image</a>
-								<span>list-style-image:url(img.png) 
-								<br>定位位置上会有问题.以文字中线开始显示图片.
-								<br>并且也只当li依旧为list-item特性时才有效.
-								<br>一般使用背景图来制作列表背景.</span></li>
-						<li><a href="">list-style-position</a><span>
-								<strong>指标记的内外方式,而非(图片)标记坐标位置</strong>
-								<br><b>outside</b>：列表项目标记放置在文本以外，且环绕文本不根据标记对齐（默认值）
-								<br>1.当type在outside时,如RESET样式中设置ul的padding:0,则会看不到type图标(无论li是否设置padding);如设置ul的padding(例如)小于20,则type图标将会溢出在ul之外.
-								<br>2.如设置li的padding-left,则标记位置不更改,而标记与内容之间拉开间距
-								<br>3.如设置li的margin-left,则margin继承到标记之外,标记与父级拉开间距
-								<hr><b>inside</b>：列表项目标记放置在文本以内，且环绕文本根据标记对齐。<a href="http://css.doyoe.com/properties/list/list-style-position.htm">[查看演示]</a>
-								<br>1.当type在inside时,type会和文字一起距离浏览器默认padding缩进,设置padding:0时,则会贴边显示.
-								<br>2.设置li的padding-left和margin-left视觉表现都为标记之外与父级拉开间距
-								</span></li>
-					</ul>
-					<h4>[<span>-</span>]表格</h4>
-					<ul>
-						<li><a href="">table-layout</a><span>
-							适用于：table系元素。
-							<br>auto:默认的自动算法。布局将基于各单元格的内容，换言之，可能你给某个单元格定义宽度为100px，但结果可能并不是100px。表格在每一单元格读取计算之后才会显示出来，速度很慢
-							<br>fixed：固定布局的算法。在这算法中，水平布局是仅仅基于表格的宽度，表格边框的宽度，单元格间距，列的宽度，而和表格内容无关。也就是说，内容可能被裁切
-							<br /><a href="http://www.zhangxinxu.com/wordpress/2014/04/%E8%87%AA%E9%80%82%E5%BA%94%E8%A1%A8%E6%A0%BC-%E5%AD%97%E7%AC%A6%E6%8D%A2%E8%A1%8C-%E6%BA%A2%E5%87%BA%E7%82%B9%E7%82%B9%E7%82%B9-table-text-overflow-ellipsis-word-wrap-break-all/">关于text-overflow在单元格中的失效</a>
-						</span></li>
-						<li><a href="">border-collapse</a><span>
-								separate：边框独立
-								<br>collapse：相邻边被合并
-								<br>只有当表格边框独立（即border-collapse属性等于separate时），border-spacing和empty-cells才起作用。
-						</span></li>
-						<li><a href="">border-spacing</a><span>
-							该属性作用等同于标签属性cellspacing(单元格边距)。border-spacing:0等同于cellspacing="0"
-							<br>如果提供全部两个length值时，第一个作用于横向间距，第二个作用于纵向间距。
-							<br>如果只提供一个length值时，这个值将作用于横向和纵向上的间距。
-							<br>*一般将此值与表格内标签属性cellpadding,cellspacing均设为0,通过CSS边距来控制.
-						</span></li>
-						<li><a href="">caption-side</a><span>
-							top：指定caption在表格上边（默认）
-							<br>bottom：指定caption在表格下边
-							<br>要在IE7及以下浏览器中实现top与bottom参数值的效果，可直接在caption标签内定义标签属性valign为top和bottom。
-						</span></li>
-						<li><a href="">empty-cells</a>
-							<span>show：指定当表格的单元格无内容时，显示该单元格的边框。（默认）
-							<br>hide：指定当表格的单元格无内容时，隐藏该单元格的边框。
-							<br>IE7及以下浏览器中默认隐藏无内容的单元格边框，要想使其获得与show参数值相同的效果，可以变相给该空单元格加个占位且不可见的元素，例如全角空格或\&nbsp;等等。
-							</span></li>
-					</ul>
-					<h4>[<span>-</span>]其他</h4>
-					<ul>
-						<li><a href="">P</a><span>
-							充分利用p,h1-h6等标签进行语义化.<b>但不要在p中放置h1-h6,结构出错。</b>
-						</span></li>
-						<li><a href="">H1-H6</a><span>
-							在H内部直接放置浮动右元素，有些会换行，改用position定位
-						</span></li>
-					</ul>
-					<h4>[<span>-</span>]多列</h4>
-					<ul>
-						<li><a href="">columns</a>(Npx [M])
-								<span>多列,简写时注意加<strong>s</strong>,简写中只含宽度(带单位,不能百分比)和列数.Chrome需要前缀-webkit-
-								<br>应用于除table外的非替换块级元素，display:table-cell 元素, 内联块元素。
-								<br>实现多列的是里面的内容,而非自身.
-								<br>简写方式一：设置width,column:200px 3（固定3列200宽。）
-								<br>简写方式二：column:200px （自动根据父级宽度生成X列）
-								<br>同时指定2个值时，优先先按列数来分配宽.例如浏览器宽度1800px,指定3列200px宽,结果为分配为3列600px宽,忽略200宽指定值;如果指定宽度200px,未指定列数,则按宽度自动平分为9列
-								<br>参考资料：<a href="http://wenku.baidu.com/view/76a20b60011ca300a6c3909d.html">替换/非替换块级/内联元素</a></span></li>
-						<li><a href="">column-width</a>(Npx)<span>列宽</span></li>
-						<li><a href="">column-count</a>(N)<span>列数</span></li>
-						<li><a href="">column-gap</a>(Npx)<span>列间隔</span></li>
-						<li><a href="">column-rule</a>(1px solid #ccc)<span>列间隔边框 1px solid #ccc <br>column-rule-style等同于border样式</span></li>
-						<li><a href="">column-span</a>(N/all)<span>列横跨,适用于：除浮动和绝对定位之外的块级元素
-								<br>是否横跨全部,all和none,不可设置数值非表格,此属性应设置在被应用多列属性的子元素上,多列无继承性,对于不想被继承多列的元素应写在多列父元素之外,而非去设置多列横跨.</span></li>
-					</ul>
-				</div>
-			</li>
-			<li>
-				<h3>界面<span>-</span></h3>
-				<div>
-					<h4>[<span>-</span>]用户界面</h4>
-					<ul>
-						<li><a href="">cursor</a><span>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。
-							<br>格式：使用自定义图像作为光标类型，IE, Opera只支持*.cur等特定的图片格式；Firefox, Chrome, Safari既支持特定图片类型也支持常见的*.jpg, *.gif, *.jpg等图片格式。
-							<br>兼容：cursor的属性值可以是一个序列,用逗号分隔地址,优先级递降。
-							<br><textarea name="" id="" cols="60" rows="10">
-								示例代码：
-								:link,:visited{
-								    cursor:url(example.svg#linkcursor),
-								            url(hyper.cur),
-								            url(hyper.png) 2 3,
-								            pointer;
-								}
-								本例用来给所有的超链接定义光标类型，客户端如果不支持SVG类型的光标，则使用下个"hyper.cur"；如果cur类型也不支持，则使用下个"hyper.png"；依次类推。
-							</textarea>
-							<br>附录：
-							<table width="95%">
-							<tbody>
-							<tr>
-							<th>值</th>
-							<th>描述</th>
-							</tr>
-							<tr>
-							<td><i>url</i></td>
-							<td>需使用的自定义光标的 URL。
-
-							注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。</td>
-							</tr>
-							<tr>
-							<td>default</td>
-							<td>默认光标（通常是一个箭头）</td>
-							</tr>
-							<tr>
-							<td>auto</td>
-							<td>默认。浏览器设置的光标。</td>
-							</tr>
-							<tr>
-							<td>crosshair</td>
-							<td>光标呈现为十字线。</td>
-							</tr>
-							<tr>
-							<td>pointer</td>
-							<td>光标呈现为指示链接的指针（一只手）</td>
-							</tr>
-							<tr>
-							<td>move</td>
-							<td>此光标指示某对象可被移动。</td>
-							</tr>
-							<tr>
-							<td>e-resize</td>
-							<td>此光标指示矩形框的边缘可被向右（东）移动。</td>
-							</tr>
-							<tr>
-							<td>ne-resize</td>
-							<td>此光标指示矩形框的边缘可被向上及向右移动（北/东）。</td>
-							</tr>
-							<tr>
-							<td>nw-resize</td>
-							<td>此光标指示矩形框的边缘可被向上及向左移动（北/西）。</td>
-							</tr>
-							<tr>
-							<td>n-resize</td>
-							<td>此光标指示矩形框的边缘可被向上（北）移动。</td>
-							</tr>
-							<tr>
-							<td>se-resize</td>
-							<td>此光标指示矩形框的边缘可被向下及向右移动（南/东）。</td>
-							</tr>
-							<tr>
-							<td>sw-resize</td>
-							<td>此光标指示矩形框的边缘可被向下及向左移动（南/西）。</td>
-							</tr>
-							<tr>
-							<td>s-resize</td>
-							<td>此光标指示矩形框的边缘可被向下移动（北/西）。</td>
-							</tr>
-							<tr>
-							<td>w-resize</td>
-							<td>此光标指示矩形框的边缘可被向左移动（西）。</td>
-							</tr>
-							<tr>
-							<td>text</td>
-							<td>此光标指示文本。</td>
-							</tr>
-							<tr>
-							<td>wait</td>
-							<td>此光标指示程序正忙（通常是一只表或沙漏）。</td>
-							</tr>
-							<tr>
-							<td>help</td>
-							<td>此光标指示可用的帮助（通常是一个问号或一个气球）。</td>
-							</tr>
-							</tbody>
-							</table>
-							</span></li>
-						<li><a href="">ime-mode</a><span>输入法状态：设置或检索是否允许用户激活输入中文，韩文，日文等的输入法（IME）状态。
-								<br>auto：不影响IME的状态。
-								<br>normal：正常的IME状态
-								<br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
-								<br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
-								<br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
-						<li><a href="">resize</a><span>设置或检索对象的区域是否允许用户缩放，调节元素尺寸大小。
-								<br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
-								<br>none：不允许用户调整元素大小。
-								<br>both：用户可以调节元素的宽度和高度。
-								<br>horizontal：用户可以调节元素的宽度
-								<br>vertical：用户可以调节元素的高度。</span></li>
-						<li><a href="">behavior</a>
-								<span>IE:使用绝对或相对地址指定DHTML行为组件（.htc）</span></li>
-					</ul>
-					<h4>[<span>-</span>]表单</h4>
-					<ul>
-						<li><a href="">:placeholder</a><span>占位提示字符
-							<br />&:-moz-placeholder
-							<br />&:-ms-input-placeholder
-							<br />&::-webkit-input-placeholder
-							<br />color: @color;
-							<br />font-size:@size;
-							<br />text-align:@align;
-							<br />
-							</span></li>
-						<li><a href="http://www.w3cplus.com/blog/271.html">-webkit-appearance</a><span>webkit移动表单控件重置</span></li>
-						<li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
-						<li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
-					</ul>
-					<h4>[<span>-</span>]图片</h4>
-					<ul>
-						<li><a href="">filter</a><span>
-							<a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
-						</span></li>
-						<li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
-					</ul>
-					<h4>[<span>+</span>]滚动条</h4>
-					<ul style="display:none">
-						<li><a href="">scrollbar-3dlight-color</a><span>亮色阴影边框颜色</span></li>
-						<li><a href="">scrollbar-darkshadow-color</a><span>暗色阴影边框颜色</span></li>
-						<li><a href="">scrollbar-highlight-color</a><span>高亮边框颜色</span></li>
-						<li><a href="">scrollbar-shadow-color</a><span>阴影边框颜色</span></li>
-						<li><a href="">scrollbar-arrow-color</a><span>方向箭头的颜色</span></li>
-						<li><a href="">scrollbar-face-color</a><span>表面的颜色</span></li>
-						<li><a href="">scrollbar-track-color</a><span>拖动区域的颜色</span></li>
-						<li><a href="">scrollbar-base-color</a><span>基准颜色</span></li>
-						<li><a href="">jScroll</a><span>JQ插件实现模拟 <a href="http://jscroll.com/">GO TO!</a></span></li>
-					</ul>
-				</div>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<h3>布局II<span>-</span></h3>
-				<div>
-					<h4>[<span>-</span>]盒模型</h4>
-					<ul>
-						<li><a href="">box-sizing</a>
-							<span>
-							<b>content-box</b>：padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding ) 此属性表现为标准模式下的盒模型。 
-							<br>
-							<b>border-box</b>：padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。 
-							</span>
-						</li>
-						<li><a href="">display</a>
-							<span>
-								完整参考资料：<a href="http://www.w3.org/TR/css-display/">W3C</a>
-								<br>当元素float,fixed,abosulte或者为根元素时,总是表现为块级元素
-								<table border="1" cellspacing="0" cellpadding="2">
-									<tbody>
-									<tr>
-									<td valign="top">none</td>
-									<td valign="top">隐藏对象,不保留物理空间</td>
-									</tr>
-									<tr>
-									<td valign="top">inline</td>
-									<td valign="top">内联元素 a,span,文本格式化(b,strong,i,em,sub,sup)</td>
-									</tr>
-									<tr>
-									<td valign="top">block</td>
-									<td valign="top">块级元素 div,p,h1~h6,h5,form,ul,ol新元素</td>
-									</tr>
-									<tr>
-									<td valign="top">inline-block</td>
-									<td valign="top">表单内部元素(input,button,textarea,label),img</td>
-									</tr>
-									<tr>
-									<td valign="top">list-item</td>
-									<td valign="top">列表项目li</td>
-									</tr>
-									<tr>
-									<td valign="top">table</td>
-									<td valign="top">块级元素级的表格table,表格内部元素表现为对应的table-cell等</td>
-									</tr>
-									<tr>
-									<td valign="top">inline-table</td>
-									<td valign="top">内联元素级的表格</td>
-									</tr>
-									<tr>
-									<td valign="top">flex</td>
-									<td valign="top">弹性伸缩盒</td>
-									</tr>
-									<tr>
-									<td valign="top">inline-flex</td>
-									<td valign="top">内联块级弹性伸缩盒</td>
-									</tr>
-									<tr>
-									<td valign="top">run-in</td>
-									<td valign="top">根据上下文决定对象是内联对象还是块级对象</td>
-									</tr>
-									</tbody>
-								</table>
-								关于inline-block:
-								<br>IE6,7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
-								<br>解决方案：
-								<br>div{display:inline-block;*display:inline;*zoom:1;}
-								<br />在IE8+开始,Inline-block元素之间默认会有8px间隔,IE6要表现一致应进行hack设置,或将inline-block元素加上float属性
-								<hr>全部属性：display：none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | run-in | box | inline-box | flexbox | inline-flexbox | flex | inline-flex
-							</span>
-						</li>
-						<li><a href="">zoom</a>
-							<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
-								<br>可用于触发IE6的haslayout.<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
-							</span>
-						</li>
 					</ul>
 					<h4>[<span>-</span>]层属性</h4>
 					<ul>
@@ -1900,7 +2014,8 @@
 							<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的内补丁；若要设置上、下两边的内补丁，必须先使该对象表现为块级或内联块级。
 							<br>*即内联元素(a等)设置padding水平有效,垂直无效,除非转换display值。
 							<br>默认背景图片的平铺是包含在padding区域的
-							<br /><b>用百分比来定义宽度。百分比参照包含块宽度。不允许负值</b>
+							<br /><b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b>
+							<br /><a href="http://www.ituring.com.cn/article/64581">参考资料</a>
 							</span></li>
 						<li><a href="">margin</a><span>外部补白.
 							<br>margin-left/right:num/%/auto. 当margin-left/right为auto时水平居中
@@ -2021,76 +2136,6 @@
 								<span>剪裁,绝对定位元素.
 								<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁. <a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a>
 								</span></li>
-					</ul>
-					<h4>[<span>+</span>]Box</h4>
-					<ul style="display:none">
-						<li><a href="">display:-webkit-box</a><span>旧手机浏览器</span></li>
-						<li><a href="">-webkit-box-orient</a><span>设置或检索伸缩盒对象的子元素的排列方式。
-							<br>horizontal：设置伸缩盒对象的子元素从左到右水平排列
-							<br>vertical：设置伸缩盒对象的子元素从上到下纵向排列
-							<br>inline-axis：设置伸缩盒对象的子元素沿行轴排列
-							<br>block-axis：设置伸缩盒对象的子元素沿块轴排列
-						</span></li>
-						<li><a href="">-webkit-box-pack</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
-							<br>start：设置伸缩盒对象的子元素从开始位置对齐（大部分情况等同于左对齐，受）
-							<br>center：设置伸缩盒对象的子元素居中对齐
-							<br>end：设置伸缩盒对象的子元素从结束位置对齐（大部分情况等同于右对齐）
-							<br>justify：设置或伸缩盒对象的子元素两端对齐</span></li>
-						<li><a href="">-webkit-box-align</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
-							<br>start：设置伸缩盒对象的子元素从开始位置对齐
-							<br>center：设置伸缩盒对象的子元素居中对齐
-							<br>end：设置伸缩盒对象的子元素从结束位置对齐
-							<br>baseline：设置伸缩盒对象的子元素基线对齐
-							<br>stretch：设置伸缩盒对象的子元素自适应父元素尺寸</span></li>
-						<li><a href="">-webkit-box-flex</a><span>使用浮点数指定对象所分配其父元素剩余空间的比例。
-						</span></li>
-						<li><a href="">-webkit-box-flex-group</a><span>用整数值来定义伸缩盒对象的子元素所在的组。</span></li>
-						<li><a href="">-webkit-box-ordinal-group</a><span>用整数值来定义伸缩盒对象的子元素显示顺序。</span></li>
-						<li><a href="">-webkit-box-direction</a><span>设置或检索伸缩盒对象的子元素的排列顺序是否反转。normal | reverse</span></li>
-						<li><a href="">-webkit-box-lines</a><span>设置或检索伸缩盒对象的子元素是否可以换行显示。single | multiple</span></li>
-					</ul>
-					<h4>[<span>-</span>]Flex</h4>
-					<ul>
-						<li><a href="">flex</a>
-								<span><a href="http://demo.agektmr.com/flexbox/">在线调试flexbox布局效果</a></span></li>
-						<li><a href="">flex-grow</a>
-								<span>剩余空间的扩展比例,默认值0</span></li>
-						<li><a href="">flex-shrink</a>
-								<span>剩余空间的收缩比例,默认1</span></li>
-						<li><a href="">flex-basis</a><span>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</span></li>
-						
-						<li><a href="">flex-direction</a><span>
-							row：横向从左到右排列（左对齐），默认的排列方式。
-							<br>row-reverse：反转横向排列（右对齐，从后往前排，最后一项排在最前面。
-							<br>column：纵向排列。
-							<br>row-reverse：反转纵向排列，从后往前排，最后一项排在最上面。
-						</span></li>
-						<li><a href="">flex-flow</a><span></span></li>
-						<li><a href="">flex-wrap</a><span></span></li>
-						<li><a href="">align-content</a><span></span></li>
-						<li><a href="">align-items</a><span>
-							flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
-							<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
-							<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
-							<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
-							<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
-						</span></li>
-						<li><a href="">align-self</a><span>
-							auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
-							<br>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
-							<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
-							<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
-							<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
-							<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
-						</span></li>
-						<li><a href="">justify-content</a><span>
-							flex-start：弹性盒子元素将向行起始位置对齐。该行的第一个子元素的主起始位置的边界将与该行的主起始位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
-							<br>flex-end：弹性盒子元素将向行结束位置对齐。该行的第一个子元素的主结束位置的边界将与该行的主结束位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。
-							<br>center：弹性盒子元素将向行中间位置对齐。该行的子元素将相互对齐并在行中居中对齐，同时第一个元素与行的主起始位置的边距等同与最后一个元素与行的主结束位置的边距（如果剩余空间是负数，则保持两端相等长度的溢出）。
-							<br>space-between：弹性盒子元素会平均地分布在行里。如果最左边的剩余空间是负数，或该行只有一个子元素，则该值等效于'flex-start'。在其它情况下，第一个元素的边界与行的主起始位置的边界对齐，同时最后一个元素的边界与行的主结束位置的边距对齐，而剩余的伸缩盒项目则平均分布，并确保两两之间的空白空间相等。
-							<br>space-around：弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半。如果最左边的剩余空间是负数，或该行只有一个伸缩盒项目，则该值等效于'center'。在其它情况下，伸缩盒项目则平均分布，并确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半。
-						</span></li>
-						<li><a href="">order</a><span>用整数值来定义排列顺序，数值小的排在前面。可以为负值。</span></li>
 					</ul>
 				</div>
 			</li>
@@ -2369,7 +2414,10 @@
 					<h4>[<span>-</span>]参考资料</h4>
 					<ul>
 						<li><a href="http://www.w3.org/TR/">W3C</a></li>
+						<li><a href="http://css.doyoe.com/">CSS手册</a></li>
 						<li><a href="http://lesscss.net/">LESS中文</a></li>
+						<li><a href="http://w3help.org/zh-cn/causes/">兼容性</a></li>
+						<li><a href="http://msdn.microsoft.com/library/hh772401(VS.85)">兼容性</a></li>
 					</ul>
 				</div>
 			</li>
@@ -5004,7 +5052,7 @@
 					</ul>
 					<h4>[<span>-</span>] 条件</h4>
 					<ul>
-						<li><a href="">:not</a>(selector)<span>不含</span></li>
+						<li><a href="">:not</a>(selector)<span>不含,无需引号,not(div,a)或not(div a)</span></li>
 						<li><a href="">:has</a>(selector)<span>含</span></li>
 						<li><a href="">:focus</a><span>获得焦点,有focus方法的,不只是表单</span></li>
 						<li><a href="">:animated</a><span>正在执行动画</span></li>
@@ -5332,8 +5380,7 @@
 						<li><a href="">offset</a>({top:y,left:x})<span>offset({top:y,left:x}) 设置元素视窗坐标<br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *设置值对时不需要引号，且不带单位</span></li>
 						<li><a href="">position()</a>.l/t [!arg]<span>position() 获取相对父元素的偏移值对对象<br/>                    position().left 水平位移<br/>                    position().top 垂直位移<br/>                    *<b>不能用于设置，只能获取，可通过获取后设置新的变量值赋值给css</b><br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *注意Body清空padding margin否则继承出问题</span></li>
 						<li><a href="">scrollTop</a>([y])<span>获取/设置匹配元素相对滚动条垂直的偏移<br />
-							通过offset可获取元素位置,设置$('body').scrollTop(num)跳转至对应锚点<br />
-							$('body').animate({'scrollTop':number/var},speed) 尽量不要用window,未知报错
+							通过offset可获取元素位置,设置$(document).scrollTop(num)跳转至对应锚点<br />
 							</span></li>
 						<li><a href="">scrollLeft</a>([x]) <span>获取/设置匹配元素相对滚动条水平的偏移</span></li>
 					</ul>
@@ -5587,21 +5634,38 @@
 					</ul>
 					<h4>[<span>-</span>] 命名空间/自定义事件</h4>
 					<ul>
-
-											<li><a href="">on(itype,fn).trigger(itype)</a><span>除了通过 JavaScript 事件名触发trigger，也可以通过自定义的事件触发。<br>
-							    所谓自定义事件其实就是一个被.bind()绑定的任意函数</span></li>
-								<li><a href="">e.namespace</a><span>对匿名函数的移除,以及批量移除相同命名空间的不同事件<br>
-								  适用于bind绑定事件与模拟事件,不能用于JQ封装的常用事件<br>
-								  $(ele).bind(type.name1,fn)<br>
-								  $(ele).trigger(type.name1)<br>
-								  e.namespace返回命名空间的名称</span></li>
+						<li><a href="">on(itype,fn).trigger(itype)</a><span>除了通过 JavaScript 事件名触发trigger，也可以通过自定义的事件触发。<br>
+						所谓自定义事件其实就是一个被.bind()绑定的任意函数</span></li>
+						<li><a href="">e.namespace</a><span>
+						对匿名函数的移除,以及批量移除相同命名空间的不同事件<br>
+						适用于bind绑定事件与模拟事件,不能用于JQ封装的常用事件<br>
+						$(ele).bind(type.name1,fn)<br>
+						$(ele).trigger(type.name1)<br>
+						e.namespace返回命名空间的名称</span></li>
 					</ul>
 					<h4>[<span>-</span>] 浏览器/文档事件</h4>
 					<ul>
 						<li><a href="">ready(fn)</a><span>文档就绪,DOM结构完成时即执行,如果某些行为必须等待图片或css加载完成再执行则应绑定到load事件</span></li>
 						<li><a href="">load</a>([[data],fn])<span>必须完全加载完成,而ready只判定DOM结构<br>当所有子元素已经被完全加载完成时，load事件被发送到这个元素。<br>此事件适用于任何可使用 URL关联的任何元素：images, scripts, frames, iframes,  window 对象。</span></li>
-						<li><a href="">unload</a>([[data],fn])<span>unload事件部分浏览器不支持,可用于放置清理内存.<br/>                            点击某个离开页面的链接<br/>                            在地址栏中键入了新的 URL<br/>                            使用前进或后退按钮<br/>                            关闭浏览器<br/>                            重新加载页面 </span></li>
-						<li><a href="">scroll</a>([[data],fn])<span>scroll 事件适用于所有可滚动的元素和 window 对象（浏览器窗口）</span></li>
+						<li><a href="">unload</a>([[data],fn])<span>
+						unload事件部分浏览器不支持,可用于放置清理内存.<br/>                            点击某个离开页面的链接<br/>                            
+						在地址栏中键入了新的 URL<br/>                            
+						使用前进或后退按钮<br/>                            
+						关闭浏览器<br/>                            重
+						新加载页面 </span></li>
+						<li><a href="">scroll</a>([[data],fn])<span>
+						scroll 事件适用于所有可滚动的元素和 window 对象（浏览器窗口）
+						<br /><b>调式IE的过程中，需要去掉console.log命令，否则会因为前面不识别而不运行，改为alert命令</b>
+						<br />1.动态监听浏览器拖曳滚动条scroll事件应使用document绑定事件（而非html或body）
+						<br />$(document).scroll(function(){
+						<br />	nowscroll = $(document).scrollTop();
+						<br />})
+						<br />2.绑定点击触发页面滚动事件，要设置'html'和'body'元素滚动，设置document无效
+						<br />设置body在IE中无效,设置html在webkit某些时候无效,尽量不要用window,未知报错
+						<br />$(selector).click(function(){
+						<br />	$('body,html').animate({'scrollTop':val},speed)
+						<br />})
+						<br /><b>当为a元素带#时，默认会跳到顶部，需要阻止默认行为！</b></span></li>
 						<li><a href="">resize</a>([[data],fn])<span>浏览器window的尺寸发生改变时</span></li>
 						<li><a href="">error</a>([[data],fn])<span>可用于设置window错误时返回true而不报错<br/>设置图片错误时隐藏图片<br/>或将(window)错误传递给服务器端记录文件</span></li>
 					</ul>
@@ -5989,6 +6053,12 @@
 						<li><a href="http://pan.baidu.com/s/1i35lmlf">jQuery源码分析</a><span> jQuery技术内幕：深入解析jQuery架构设计与实现原理</span></li>
 						<li><a href="http://study.163.com/course/courseMain.htm?courseId=501006">李炎恢jQuery视频教程</a></li>
 					</ul>
+					<h4>[<span>-</span>] 浏览器API</h4>
+					<ul>
+						<li><a href="http://msdn.microsoft.com/zh-cn/ie">IE API</a><span></span></li>
+						<li><a href="https://developer.mozilla.org/zh-CN/">FireFox API</a><span></span></li>
+					</ul>
+					
 				</div>
 			</li>
 			<li>
@@ -6003,6 +6073,7 @@
 						<li><a href="">动画中可用options</a></li>
 						<li><a href="">使用slow等内置参数时加引号</a></li>
 						<li><a href="">事件中可用e和data</a></li>
+						<li><a href="">a弹出应用注意先阻止默认行为或+冒泡</a></li>
 					</ul>
 				</div>
 			</li>
@@ -7051,6 +7122,7 @@
 		<h6>Blog<span>-</span></h6>
 		<ul>
 		<li><a href="http://www.html-js.com/">前端乱炖</a></li>
+		<li><a href="http://www.incaseofstairs.com/">incaseofstairs</a></li>
 		<li><a href="http://www.zhangxinxu.com/wordpress/">zhangxinxu</a></li>
 		<li><a href="http://blog.csdn.net/freshlover">freshlover</a></li>
 		<li><a href="http://cssha.com/">安记</a></li>
