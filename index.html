@@ -374,7 +374,7 @@
 					<ul>
 						<li><a href="">text-align</a>(l/r/c/j)<span>
 							水平对齐:center居中,left左,right右,justify两端对齐
-							<br />对inline/inline-block元素均有效
+							<br />对inline/inline-block元素均有效,在IE6-7下对block也有效
 							<br />在父级设置,让子级中内联(块)元素水平居中对齐父级
 							</span></li>
 						<li><a href="">vertical-align</a>(t/b/m)<span>
@@ -2078,7 +2078,7 @@
 							<br>注意：
 							<br />1.默认背景图片的平铺是包含在padding区域的
 							<br />2.padding生效在伪对象之外。
-							<br />3.<b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b><a href="http://www.ituring.com.cn/article/64581">参考资料</a>
+							<br />3.%比值<b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b><a href="http://www.ituring.com.cn/article/64581">参考资料</a>
 							</span></li>
 						<li><a href="">margin</a><span>外部补白.
 							<br>margin-left/right:num/%/auto. 当margin-left/right为auto时水平居中
@@ -2107,12 +2107,11 @@
 							<br>IE6有时候会沿袭继承上上级的一些属性,ie6无法识别.class.class双class样式值,注意单独补充设置.
 							<br>如默认设置了父级margin:val 在子.class上清除.避免写成.class.class
 							<br>【BUG】：
-							<br>1.IE6不会发生margin折叠 
-							<br>2.IE6双倍margin
+							<br>1.IE6双倍margin
 							<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
 							<br>解决方法：设置BUG元素display:inline;
 							<br>由于当元素float的时候，display样式的值就会自动转换为“block”，无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
-							<br>3.当父元素指定了尺寸且margin-top元素前有绝对定位元素,margin-top会失效。(部分情况ie6-7的margin垂直会失效,根据情况设置padding)
+							<br>2.当父元素指定了尺寸且margin-top元素前有绝对定位元素,margin-top会失效。(部分情况ie6-7的margin垂直会失效,根据情况设置padding)
 						</span></li>
 						<li><a href="">visibility</a><span>			
 							此属性为隐藏的对象保留其占据的物理空间如果希望对象为可视，其父对象也必须是可视的。 
@@ -2138,6 +2137,7 @@
 					<h4>[<span>-</span>]定位</h4>
 					<ul>
 						<li><a href="">float</a><span>浮动
+							<br /><a href="http://www.zhangxinxu.com/wordpress/?p=583">浮动详解</a>
 							<br>1.浮动内置设置：设置了float的元素则自动转换display为block.只有块级元素具有宽高等特性.
 							<br>举例说明：
 							<br><textarea name="" id="" cols="60" rows="10">//无效
