@@ -1039,6 +1039,7 @@
 						<li><a href="">td~div</a><span>
 							1.表格中插div会脱离表格在外
 							<br />2.表格中对合并后 或tr 表现为block,会只有第一个单元格宽度,可直接应用arrow,tr的显示应用table-row而非block
+							<br />3.垂直th添加scope="col"
 						</span></li>
 					</ul>
 					<h4>[<span>-</span>]多列</h4>
@@ -1935,6 +1936,24 @@
 								<br>可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
 								<br />现代浏览器会溢出显示,但自身宽高不变.
 								<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
+								<br />触发haslayout的条件：
+								<br />IE6: 
+								<br />* display: inline-block
+								<br />* height: (任何值除了auto)
+								<br />* float: (left 或 right)
+								<br />* position: absolute
+								<br />* width: (任何值除了auto)
+								<br />* writing-mode: tb-rl
+								<br />* zoom: (除 normal 外任意值)
+								<br />IE7:（额外）
+								<br />* min-height: (任意值)
+								<br />* max-height: (除 none 外任意值)
+								<br />* min-width: (任意值)
+								<br />* max-width: (除 none 外任意值)
+								<br />* overflow: (除 visible 外任意值)
+								<br />* overflow-x: (除 visible 外任意值)
+								<br />* overflow-y: (除 visible 外任意值)
+								<br />* position: fixed
 							</span>
 						</li>
 					</ul>
@@ -2078,11 +2097,12 @@
 							<br>设置了display:inline-block的元素不发生折叠； 
 							<br>设置了属性overflow且值不为visible的块级元素，将不与它的子元素发生margin折叠； 
 							<br>根元素的margin不与其它任何margin发生折叠,指html而非body
+							<br>IE6-7中,如果父元素触发了haslayout,则不会发生折叠
 							<br>3.margin负值应用
 							<br>margin-top/left：会改变自身文本流位置,后面的元素依次顶上.
 							<br>margin-bottom/right；不改变自身文本流位置,改变后面元素的文本流位置向前移
 							<br>百分比适应下的边框应用,hover状态的-双倍border应用.
-							<br><b>当负值margin向上移动文本流时，若上方元素设置了相对定位，则会覆盖在本元素之上，理解成z-index成为1.</b>
+							<br><b>当负值margin向上移动文本流时，若上方元素设置了相对定位，则会覆盖在本元素之上，理解成z-index成为1.需要将自身也设置pr;</b>
 							<br>4.边距非法继承
 							<br>IE6有时候会沿袭继承上上级的一些属性,ie6无法识别.class.class双class样式值,注意单独补充设置.
 							<br>如默认设置了父级margin:val 在子.class上清除.避免写成.class.class
@@ -2208,8 +2228,6 @@
 							<br>设置绝对定位,并设置top:0;bottom:0;margin-top:auto;margin-top:auto; 【IE6不支持】
 							<br>3.table-cell
 							<br>设置display:table-cell;vertical-align:middle;（子元素为inline或inline-block） 【IE6不支持】
-							<br>4.自动margin(伸缩尺寸,margin:x)
-							<br>设置margin:value 对边相等margin值,对盒子宽高未设置则自动扩展宽高
 						</span></li>
 						<li><a href="">中央居中</a><span>
 							1.绝对定位( 已知元素尺寸,ct(o,@width,@height) )
