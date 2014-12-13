@@ -510,7 +510,7 @@
 								background:url(../images/ex.png) no-repeat;
 								_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
 							</textarea>
-							<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。
+							<br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。此方法不能应用于平铺图像！
 							<br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
 							<br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
 							</span></li>
@@ -2066,7 +2066,7 @@
 							<br>2.相对定位可设置z-index改变层级
 							</span></li>
 						<li><a href="">position:absolute</a><span>绝对定位：<a href="http://www.imooc.com/learn/192">【参考资料】</a>
-							特征：
+							<br />特征：
 							<br>1.对象脱离常规流,会在正常文档流之上,也可以通过z-index改为负值在正常流之下
 							<br>2.使用top，right，bottom，left等属性进行绝对定位，坐标总是以最近的被定位的父级元素为基准,如没有则以window窗口.
 							<br>3.盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。
