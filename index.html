@@ -66,6 +66,7 @@
 						<li><a href="">@charset</a><span>@charset "utf-8";
 							<br>在外部样式表文件内使用。指定该样式表使用的字符编码。
 							<br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span></li>
+						<li><a href="">@import</a><span>指定导入的外部样式表</span></li>
 						<li><a href="http://labs.qianduan.net/css-selector/">Selector</a><span>使用CSS3选择器,IE6-8不支持.</span></li>
 						<li><a href="">选择器优先级</a><span>
 								<br />1.三种引入方式的优先级
@@ -93,167 +94,51 @@
 								指定载入相关JS/CSS或其他文件
 								<![endif]--></textarea>
 								<br>参考资料：<a href="http://css.doyoe.com/hack/conditions.htm">GO TO!</a></span></li>
-						<li><a href="">_property</a>
-							<span>属性级HACK
-							<br> value\9; All IE
-							<br> value\0; Oprea+IE8
-							<br> *key: IE7及以下,+或#亦可
-							<br> _key: IE6及以下,-亦可
-							<br> [;property:value;]; webkit(Chrome,Safari)
-							<br>参考资料：<a href="http://css.doyoe.com/">GO TO!</a>
-							<br />属性级HACK一览
-							<br /><table cellspacing="0">
-									<tbody>
-									<tr>
-									<td>hack</td>
-									<td>写法</td>
-									<td>实例</td>
-									<td>IE6(S)</td>
-									<td>IE6(Q)</td>
-									<td>IE7(S)</td>
-									<td>IE7(Q)</td>
-									<td>IE8(S)</td>
-									<td>IE8(Q)</td>
-									<td>IE9(S)</td>
-									<td>IE9(Q)</td>
-									<td>IE10(S)</td>
-									<td>IE10(Q)</td>
-									</tr>
-									<tr>
-									<td>*</td>
-									<td>*color</td>
-									<td>青色</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									</tr>
-									<tr>
-									<td>+</td>
-									<td>+color</td>
-									<td>绿色</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									</tr>
-									<tr>
-									<td>-</td>
-									<td>-color</td>
-									<td>黄色</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									</tr>
-									<tr>
-									<td>_</td>
-									<td>_color</td>
-									<td>蓝色</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>N</td>
-									</tr>
-									<tr>
-									<td>#</td>
-									<td>#color</td>
-									<td>紫色</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									</tr>
-									<tr>
-									<td>\0</td>
-									<td>color:red\0</td>
-									<td>红色</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									</tr>
-									<tr>
-									<td>\9\0</td>
-									<td>color:red\9\0</td>
-									<td>粉色</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									</tr>
-									<tr>
-									<td>!important</td>
-									<td>color:blue !important;color:green;</td>
-									<td>棕色</td>
-									<td>N</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>N</td>
-									<td>Y</td>
-									<td>Y</td>
-									</tr>
-									</tbody>
-									</table>
-							<br>说明：在标准模式中
-								<br>“-″减号是IE6专有的hack
-								<br>“\9″ IE6/IE7/IE8/IE9/IE10都生效
-								<br>“\0″ IE8/IE9/IE10都生效，是IE8/9/10的hack
-								<br>“\9\0″ 只对IE9/IE10生效，是IE9/10的hack
-								<br><a href="http://blog.csdn.net/freshlover/article/details/12132801">参考资料</a>
+						<li><a href="">_property</a><span>属性级HACK
+							<table>
+								<tbody>
+								<tr>
+								<td>key: value\9;</td>
+								<td>IE6~10</td>
+								</tr>
+								<tr>
+								<td>key: value\0;</td>
+								<td>Oprea+IE8~10</td>
+								</tr>
+								<tr>
+								<td>.key: value;</td>
+								<td>IE6+7+8</td>
+								</tr>
+								<tr>
+								<td>*key: value;</td>
+								<td>IE6+7 (+或#亦可)</td>
+								</tr>
+								<tr>
+								<td>_key: value;</td>
+								<td>IE6 (-亦可)</td>
+								</tr>
+								<tr>
+								<td>[;property:value;];</td>
+								<td>webkit(Chrome,Safari)</td>
+								</tr>
+								<tr>
+								<td>@-moz-document url-prefix(){..}</td>
+								<td>FireFox</td>
+								</tr>
+								<tr>
+								<td>@media screen and (-webkit-min-device-pixel-ratio:0) {..}</td>
+								<td>webkit(Chrome,Safari)</td>
+								</tr>
+								</tbody>
+								</table>
+							<br>参考资料1：<a href="http://css.doyoe.com/">GO TO!</a>
+							<br>参考资料2：<a href="http://blog.csdn.net/freshlover/article/details/12132801">GO TO!</a>
 							</span></li>
 						<li><a href="">*html selector</a><span>选择符级HACK
 							<br> *html selector: IE6及以下
 							<br> *+html selector : IE7
 							<br><a href="http://blog.csdn.net/freshlover/article/details/12132801">结合选择器能力</a>
 						</span></li>
-						<li><a href="">@-moz-document url-prefix(){..}</a><span>firefox专属HACK</span></li>
 						<li><a href="">expression</a><span>表达式，IE6-7支持，IE8不支持</span></li>
 					</ul>
 					<h4>[<span>-</span>]常用选择符</h4>
@@ -1933,7 +1818,8 @@
 						</li>
 						<li><a href="">zoom</a>
 							<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
-								<br>可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
+								<br />1.可局部用于响应式设计改变DOM尺寸，会有偏移错位（以像素起点对齐变换）
+								<br>2.可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
 								<br />现代浏览器会溢出显示,但自身宽高不变.
 								<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
 								<br />触发haslayout的条件：
@@ -1960,12 +1846,12 @@
 					<h4>[<span>-</span>]表现</h4>
 					<ul>
 						<li>display:<a href="">inline-block</a><span>
-								IE6-7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
+								1.IE6-7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
 								<br>解决方案：
 								<br>div{display:inline-block;*display:inline;*zoom:1;}
-								<br />默认inline-block元素之间默认会有间隔,是由于html元素间200B空格导致的(根据上下文字体大小有差异),可以通过连接html元素,或注释,或分行,及其他方式去掉.(浮动亦可,但浮动无法制作横向布局)
+								<br />2.默认inline-block元素之间默认会有间隔,是由于html元素间200B空格导致的(根据上下文字体大小有差异),可以通过连接html元素,或注释,或分行,及其他方式去掉.(浮动亦可,但浮动无法制作横向布局)
 								<br /><a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">详细参考资料</a>
-								<br />禁止换行还需要设置white-space:nowrap制作横向滚动效果.
+								<br />3.禁止换行还需要设置white-space:nowrap制作横向滚动效果.
 						</span></li>
 						<li>display:<a href="">table-cell</a><span>
 							特点：
@@ -1983,7 +1869,8 @@
 							<br />3.可用于等高布局，即使不设置高度也会与同行元素等高。
 							<br />hack处理display:table-cell; width:30%; margin-bottom:-100px; *padding-bottom:110px;*float:left;
 							<br /><a href="http://www.zhangxinxu.com/wordpress/2010/10/%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E7%A7%8Ddisplaytable-cell%E7%9A%84%E5%BA%94%E7%94%A8/">参考资料</a>
-							<br />4.td中让元素垂直居中对齐，是对元素img设置y而非父级 ，文字则设置父级
+							<br />4.自适应.cell{display:table-cell;*display:inline-block;} //table-cell content + auto side*2
+							<br />5.td中让元素垂直居中对齐，是对元素img设置y而非父级 ，文字则设置父级
 							</span></li>
 					</ul>
 					<h4>[<span>-</span>]尺寸</h4>
@@ -1993,9 +1880,11 @@
 							<br />1.IE6 BUG:当元素设置百分比宽高时,自动继承父级,宽度由于block默认占比100%,即总是不会缺失,但若父级高度自适应,则IE6会继续向上级继承,而现代浏览器则继承当前父级内容实际产生的高度.
 							<br />2.IE6 BUG:1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a>
 							<br />3.子元素设置100%宽高时不包含父元素的padding!当父元素有padding时,因设置固定尺寸或修改父级模型!
+							<br />4.width:auto 现代浏览器中表示根据内容自动扩展,而IE6-7表示占满父级
 						</span></li>
 						<li><a href="">height</a><span>高度
 							<br />1.如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%; <a href="http://www.cnblogs.com/clare-zhang/archive/2011/08/26/2154220.html">参考资料</a>
+							<br />2.对于绝对定位拉伸的元素，内部元素可以直接使用百分比
 							</span></li>
 						<li><a href="">min-width/height</a><span>最小宽高
 							<br />ie7-8支持,仅ie6不支持
@@ -2172,8 +2061,11 @@
 						<li><a href="">clear</a><span>清除浮动：none,left,right,both</span></li>
 						<li><a href="">position:static</a><span>对象遵循常规流</span></li>
 						<li><a href="">position:relative</a><span>
-							相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素</span></li>
-						<li><a href="">position:absolute</a><span>绝对定位：
+							相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素
+							<br>1.相对定位不同于margin-left/top,不会改变原先文档流,html后者层级默认仍然比前者高
+							<br>2.相对定位可设置z-index改变层级
+							</span></li>
+						<li><a href="">position:absolute</a><span>绝对定位：<a href="http://www.imooc.com/learn/192">【参考资料】</a>
 							特征：
 							<br>1.对象脱离常规流,会在正常文档流之上,也可以通过z-index改为负值在正常流之下
 							<br>2.使用top，right，bottom，left等属性进行绝对定位，坐标总是以最近的被定位的父级元素为基准,如没有则以window窗口.
@@ -2181,7 +2073,10 @@
 							<br>4.当元素设置为绝对定位时,则该元素变为inline-block块级.（不再占据100%）
 							<br>特殊用法：
 							<br>1.(未定义坐标)：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。如无兄弟元素则贴在父元素起点。<b>即绝对定位在不赋值位置属性时，可作为脱离文档流的相对定位。</b>
-							<br>2.(未知/已知元素尺寸)：垂直/水平/双向居中,可设置绝对定位,并设置top+bottom:0 / left+right:0 / top+left+bottom+right:0,并设置对应方向margin:auto【IE6不支持】
+							<br />无依赖的绝对定位主要通过margin来实现位移.
+							<br />可配合text-align+&nbsp；实现一些自动布局。
+							<br />关于跟随性,默认会跟在图片的顶端,由于200B baseline对齐会错位,可通过注释或串联来规避
+							<br>2.(未知/已知元素尺寸)：垂直/水平/双向居中,可设置绝对定位,并设置top+bottom:0 / left+right:0 / top+left+bottom+right:0,并设置对应方向margin:auto【IE8支持】
 							<br>3.(已知元素尺寸)：垂直/水平/双向居中,可设置绝对定位,并设置单向距离(left:50% / top:50%),并设置margin-left/top:-尺寸的一半.【IE6支持】
 							<br>4.(自适应宽高)：一个绝对定位元素,如未对其宽高进行设置,但对其对向方位值设置时,则认为宽高总是扩展值定位点.可利用作为自适应宽高.【IE6不支持】
 							<br>BUG：
@@ -2292,7 +2187,9 @@
 							<br>transform:skew(Ndeg / Xdeg,Ydeg) / skewX(n) / skewY(n)</span></li>
 						<li>transform:<a href="">scale</a><span>缩放[n倍数]
 							<br>transform:scale(x,y) / scaleX(n) / scaleY(n) / scaleZ(n)
-							<br>transform:scale3d(x,y,z)</span></li>
+							<br>transform:scale3d(x,y,z)
+							<br>默认缩放以中心点为起点,不能用zoom
+							</span></li>
 						<li>transform:<a href="">translate</a><span>位移/滑动[n px长度]
 							<br>transform:translate(x,y)  / translateX(n) / translateY(n)
 							<br>transform:translate3d:(x,y,z) <a href="http://www.imooc.com/video/1898">案例演示</a></span></li>
@@ -2343,9 +2240,10 @@
 							<br /><b>过渡的动画不能使用简写。例如border:8px solid #fff无效,提前定义样式颜色,并给予0宽度,改变宽度.</b>
 							</span></li>
 						<li><a href="">animation</a><span>执行动画
-						<br>简写：animation:aniname 5s infinite;(名称 时间 重复次数)
-						<br>完整简写：[[ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ] || [ animation-direction ]] [ , [ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ] || [ animation-direction ]]*
-						<br>
+						<br>简写animation:
+						<br>name 5s   ease-in   1s      8/infinite alternate paused  forwards;
+						<br>名称 时间 缓动函数 延迟执行 重复次数   反向      暂停    停留在末尾状态;
+						<br />
 						<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
 						<a href="http://cssanimate.com/">cssanimate</a> / 
 						<a href="http://ademilter.com/lab/liffect/">liffect</a> / 
@@ -2534,7 +2432,7 @@
 					<h4>[<span>-</span>]Other</h4>
 					<ul>
 						<li><a href="https://github.com/necolas/normalize.css">Normalize.css</a></li>
-						<li><a href="https://github.com/iRuxu/resetcss">iRuxu.Resetcss</a></li>
+						<li><a href="https://github.com/iRuxu/iruxucss">iRuxucss</a></li>
 					</ul>
 				</div>
 			</li>
@@ -3453,6 +3351,14 @@
 						<li><a href="">移除重复的脚本</a></li>
 						<li><a href="">配置ETag</a></li>
 						<li><a href="">使用Ajax缓存</a></li>
+					</ul>
+					<h4>[<span>-</span>]扩展阅读</h4>
+					<ul>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
 					</ul>
 				</div>
 			</li>
