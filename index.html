@@ -174,6 +174,7 @@
 						<li><a href="">:nth-child(n)</a>
 							<span>:nth-child(n) 第N个子元素
 							<br />:nth-child(2n) 偶数,:nth-child(2n+1) 奇数
+							<br />第N个子元素，如果有不同类别的其他同级标签元素亦会增长序列数
 							<br>:nth-of-type(n) 第N个此类子元素
 							</span></li>
 						<li><a href="">:only-child</a>
@@ -522,7 +523,7 @@
 							<br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
 							<br>分解写法时，background-color只能设置一个。</span></li>
 						<li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
-						<li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.
+						<li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.背景图的50%居中以图形中心为基点，不需要再移动自身一半尺寸
 							<br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
 							<br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
 						<li><a href="">background-size</a><span>
@@ -1882,10 +1883,12 @@
 							<br />2.IE6 BUG:1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a>
 							<br />3.子元素设置100%宽高时不包含父元素的padding!当父元素有padding时,因设置固定尺寸或修改父级模型!
 							<br />4.width:auto 现代浏览器中表示根据内容自动扩展,而IE6-7表示占满父级
+							<br />5.IE6-7对宽度的处理略有差异，特别是IE7下有许多离奇BUG，取百分比小数时，尽量只取到1位
 						</span></li>
 						<li><a href="">height</a><span>高度
 							<br />1.如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%; <a href="http://www.cnblogs.com/clare-zhang/archive/2011/08/26/2154220.html">参考资料</a>
 							<br />2.对于绝对定位拉伸的元素，内部元素可以直接使用百分比
+							<br />3.IE6-7中浮动创建的自适应布局,需要主动给定父级高度，否则绝对定位的元素无法正常定位。
 							</span></li>
 						<li><a href="">min-width/height</a><span>最小宽高
 							<br />ie7-8支持,仅ie6不支持
@@ -2029,37 +2032,32 @@
 					<h4>[<span>-</span>]定位</h4>
 					<ul>
 						<li><a href="">float</a><span>浮动
-							<br /><a href="http://www.zhangxinxu.com/wordpress/?p=583">浮动详解</a>
+							<br /><a href="http://www.zhangxinxu.com/wordpress/?p=583">浮动详解</a> <a href="http://www.imooc.com/view/121">视频版</a>
+							<br>【特性】：
 							<br>1.浮动内置设置：设置了float的元素则自动转换display为block.只有块级元素具有宽高等特性.
-							<br>举例说明：
-							<br><textarea name="" id="" cols="60" rows="10">//无效
-							a{width:50px;height:50px;}<a href="">111</a><a href="">222</a>
-							//有效
-							a{display:float;width:50px;height:50px;}<a href="">111</a><a href="">222</a>
-							</textarea>
-							<hr>2.浮动原理1.环绕特性本质，2.脱离文本流特性
-							<br>举例说明：
-							<br>
-							<textarea name="" id="" cols="60" rows="10">
-								<div class="ok" style="width:100px;height:100px;background:#00ccff;float:left;margin-right:10px">浮动的margin不折叠，就算没border&padding</div>
-								<div class="ok" style="width:120px;height:120px;background:#ff3399;margin-left:10px;float:left;margin-right:20px">我不浮动掉下面去</div>
-								<h2 style="background:#ccc;margin-left:10px;padding-left:20px;">
-								<div>含内部布局的又一块级元素<br>包围他们</div></h2>
-							</textarea>
-							<br>当右侧浮动内容超出剩余宽度时,会整体换行,此时可以指定右侧宽度或利用函数动态计算可用空间calc(100%-left)
-							<hr>3.浮动闭合问题
-							<br>解决方案：
+							<br>2.浮动原理1.环绕特性本质，2.脱离文本流特性
+							<br>3.与非浮动元素的margin问题：如果浮动并未被闭合处理，下级非浮动元素默认还是以“环绕”浮动元素，其margin会作用在空的区域，此时应在浮动元素上设置margin
+							<br>【浮动闭合与BFC】 <a href="http://www.cnblogs.com/dolphinX/p/3508869.html">参考文档</a>
+							<br>1.清除浮动解决方案：
 							<br>.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
+							<br>.clearfix:after {content:"";display:table;clear:both;}
 							<br>.clearfix { *zoom:1; }
 							<br><a href="http://www.w3cfuns.com/article-1287-1.html">完整参考资料</a>
-							<br />浮动元素里包含浮动的元素，会自动闭合，无需清除浮动。
-							<hr>4:IE6 双倍margin BUG
+							<br>2.BFC条件：
+							<br>float为 left|right
+							<br>overflow为 hidden|auto|scroll
+							<br>display为 table-cell|table-caption|inline-block
+							<br>position为 absolute|fixed
+							<br>【IE BUG】
+							<br>1:IE6 双倍margin BUG
 							<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
 							<br>解决方法：设置BUG元素：display:inline;
 							<br>由于当元素float的时候，display样式的值就会自动转换为“block”,无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
-							<br>5.IE6下3像素bug：
+							<br>2.IE6下3像素bug：
 							<br>当浮动元素与非浮动元素相邻时,会发生3像素间隙,可设置浮动元素_margin-right:-3px;或使非浮动元素浮动.
 							<br><a href="http://pewper.blog.163.com/blog/static/2970860820126261195866/">详细参考资料</a>
+							<br>3.IE6-7浮动自适应布局
+							<br>IE6-7中浮动创建的自适应布局,需要主动给定父级高度，否则绝对定位的元素无法正常定位。
 						</span></li>
 						<li><a href="">clear</a><span>清除浮动：none,left,right,both</span></li>
 						<li><a href="">position:static</a><span>对象遵循常规流</span></li>
@@ -5520,7 +5518,7 @@
 					<h4>[<span>-</span>] 内部插入</h4>
 					<ul>
 						<li><a href="">append()</a><span></span></li>
-						<li><a href="">appendTo()</a><span></span></li>
+						<li><a href="">appendTo()</a><span>如果jquery选择器中的元素不存在,则会创建,直接appendTo目标元素即可。</span></li>
 						<li><a href="">prepend()</a><span></span></li>
 						<li><a href="">prependTo()</a><span></span></li>
 					</ul>
@@ -5590,7 +5588,7 @@
 						<li><a href="">filter</a>(expr|obj|ele|fn)<span></span></li>
 						<li><a href="">has</a>(expr|ele)<span></span></li>
 						<li><a href="">not</a>(expr|ele|fn)<span></span></li>
-						<li><a href="">contents()</a><span></span></li>
+						<li><a href="">contents()</a><span>查找匹配元素内部所有的子节点（包括文本节点）</span></li>
 					</ul>
 					<h4>[<span>-</span>] 串联</h4>
 					<ul>
