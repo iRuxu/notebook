@@ -219,7 +219,7 @@
 							<br>% : 页面元素中font-size使用百分比时，其百分比取值是基于父对象中字体的尺寸，不允许简写百分比。字体没有相对父盒子大小比例扩展算法。
 							<br>px : 像素,相对长度单位。1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px;
 							<br>em : 相对长度单位.相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。 <a href="http://pxtoem.com/">PX转EM快速工具</a>
-							<br>rem : 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px
+							<br>rem : 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px（手机端HTML5元素不主动继承body字体大小时，使用*）
 							</span></li>
 						<li><a href="">line-height</a>(px/180%/1.8)<span>
 							行高,可为百分比或乘积因子,具有继承性
@@ -392,10 +392,10 @@
 					<ul>
 						<li><a href="">:before</a>
 							<span>设置在对象前（依据对象树的逻辑结构）发生的内容。IE6-7不支持,IE8支持。
-							<br>用来和content属性一起使用，并且必须定义content属性 </span></li>
+							<br>用来和content属性一起使用，并且必须定义content属性！必要时候即使有block表现仍需定义宽度 </span></li>
 						<li><a href="">:after</a>
 							<span>设置在对象后（依据对象树的逻辑结构）发生的内容。IE6-7不支持,IE8支持。
-							<br>用来和content属性一起使用，并且必须定义content属性 </span></li>
+							<br>用来和content属性一起使用，并且必须定义content属性！必要时候即使有block表现仍需定义宽度</span></li>
 						<li><a href="">content</a>(str/attr/url/count)
 								<span>
 									content:'str' 一个字符串或符号,需加引号,例如 '&raquo;'
@@ -531,7 +531,9 @@
 							background-size: Xpx Ypx / A% B% / cover / contain / auto
 							<br>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；【全兼容的方式,独立图层img～100%】
 							<br>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
-							<br>Xpx固定大小,a%百分比大小,auto真实大小
+							<br>x% y%：百分比大小，占满父元素空间的百分比，可能导致图片变形
+							<br>x% auto | auto y%：使元素占父元素宽/高的百分比，并等比缩放～！
+							<br />一些情况不能识别/，反编译时候只需要反编译值，而不包括属性！
 							</span></li>
 						<li><a href="">background-repeat</a><span>平铺方式：
 							<br>repeat-x：背景图像在横向上平铺
