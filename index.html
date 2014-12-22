@@ -2817,7 +2817,7 @@
 						<li><a href="">span</a><span>文本</span></li>
 						<li><a href="">h1~h6</a><span>标题</span></li>
 						<li><a href="">p</a><span>段落</span></li>
-						<li><a href="">br</a><span>换行</span></li>
+						<li><a href="">br</a><span>换行,title中换行& #10;</span></li>
 						<li><a href="">hr</a><span>水平线</span></li>
 						<li><a href="">a</a><span>链接</span></li>
 						<li><a href="">iframe</a><span>内联框架src=url, <a href="http://www.w3cschool.cc/tags/tag-iframe.html">沙盒过滤</a></span></li>
@@ -3033,117 +3033,205 @@
 		</ul>
 		<ul>
 			<li>
-				<h3>媒体<span>-</span></h3>
-				<div>
-					<h4>[<span>-</span>]多媒体</h4>
-					<ul>
-						<li><a href="">onabort</a><span>终止加载</span></li>
-						<li><a href="">onerror</a><span>数据加载错误</span></li>
-						<li><a href="">oncanplay</a><span>开始播放</span></li>
-						<li><a href="">onplay</a><span>开始播放</span></li>
-						<li><a href="">onpause</a><span>暂停</span></li>
-						<li><a href="">onended</a><span>播放结束</span></li>
-						<li><a href="">onloadeddata</a><span>当前帧</span></li>
-						<li><a href="">onloadedmetadata</a><span>指定元数据加载后触发</span></li>
-						<li><a href="">oncanplaythrough</a><span>正常播放且无需停顿和缓冲时</span></li>
-						<li><a href="">ondurationchange</a><span>时长发生变化</span></li>
-						<li><a href="">onemptied</a><span>当前列表为空</span></li>
-						<li><a href="">onloadstart</a><span>浏览器开始寻找指定视频/音频（audio/video）触发</span></li>
-						<li><a href="">onplaying</a><span>暂停或者在缓冲后准备重新开始播放时触发</span></li>
-						<li><a href="">onprogress</a><span>在浏览器下载指定的视频/音频（audio/video）时触发</span></li>
-						<li><a href="">onratechange</a><span>播放速度发送改变时触发</span></li>
-						<li><a href="">onseeked</a><span>重新定位视频/音频（audio/video）的播放位置后触发</span></li>
-						<li><a href="">onseeking</a><span>开始重新定位视频/音频（audio/video）时触发</span></li>
-						<li><a href="">onstalled</a><span>事件在浏览器获取媒体数据，但媒体数据不可用时触发。</span></li>
-						<li><a href="">onsuspend</a><span>事件在浏览器读取媒体数据中止时触发。</span></li>
-						<li><a href="">ontimeupdate</a><span>事件在当前的播放位置发送改变时触发。</span></li>
-						<li><a href="">onvolumechange</a><span>件在音量发生改变时触发。	</span></li>
-						<li><a href="">onwaiting</a><span>事件在视频由于要播放下一帧而需要缓冲时触发。</span></li>
-					</ul>
-				</div>
-			</li>
-			<li>
-				<h3>拖放<span>-</span></h3>
-				<div>
-					<h4>[<span>-</span>]拖放</h4>
-					<ul>
-						
-					</ul>
-				</div>
-			</li>
-		</ul>
-		<ul>
-			<li>
 				<h3>SVG<span>-</span></h3>
 				<div>
-					<h4>[<span>-</span>]SVG</h4>
-					<ul>
-						<li><a href="">About SVG</a><span>
-							1.直接在浏览器中打开
-							<br />2.使用img标签引入<input type="text" style="width:200px" value='<img src="demo.svg" alt=""/>'/>
-							<br />3.直接使用svg标签
-							<br />4.作为css背景
-							<br /><textarea name="" id="" cols="60" rows="10">
-							<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-							  <polygon points="100,10 40,180 190,60 10,60 160,180"
-							  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" />
-							</svg></textarea>
-							<br /><svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-							  <polygon points="100,10 40,180 190,60 10,60 160,180"
-							  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" />
-							</svg>
+					<h4>[<span>+</span>]概念资料</h4>
+					<ul style="display:none">
+						<li><a href="">插入方式</a><span>
+							<a href="http://www.w3cplus.com/html5/svg-introduction-and-embedded-html-page.html">嵌入方式：</a>
+							<br />1.img标签:<input type="text" style="width:200px" value='<img src="demo.svg" alt=""/>'/>
+							<br />2.css背景:<input type="text" style="width:200px" value=' background: url("http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg") no-repeat center;'/>
+							<br />3.svg标签
+							<br />4.iframe标签:<input type="text" style="width:200px" value='<iframe src="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="200" height="200" ></iframe>'/>
+							<br />5.使用embed标签(早期将SVG图像嵌入到HTML页面中都是通过embed元素。当时并不是所有的浏览器都支持原生SVG。)<input type="text" style="width:200px" value='<embed src="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="300" height="220" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />'/>
+							<br />6.使用object标签(object元素是HTML4的标准标签元素，被所有较新的流星器支持。它只不过是不允许使用脚本。)<input type="text" style="width:200px" value='<object data="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="300" height="200" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install/" />'/>
+							<br />没有单位时总是以px作为单位,即使父级设置了其他类型单位,子级未设置单位的依然按px绘制。
 						</span></li>
-						<li><a href="http://www.w3cschool.cc/svg/svg-reference.html">Reference Manual - w3school</a></li>
-						<li><a href="http://www.imooc.com/learn/143">Into SVG - techird</a></li>
-						<li><a href="http://msdn.microsoft.com/zh-cn/library/ie/ff971903(v=vs.85).aspx">SVG Browser API</a></li>
-						<li><a href="http://www.w3.org/TR/SVG11/">W3C Recommendation</a></li>
+						<li><a href="http://www.w3cschool.cc/svg/svg-reference.html">W3school参考手册</a></li>
+						<li><a href="http://www.imooc.com/learn/143">视频教程</a></li>
+						<li><a href="http://www.w3.org/TR/SVG11/">W3C规范</a></li>
 					</ul>
-					<h4>[<span>-</span>]Tools</h4>
-					<ul>
+					<h4>[<span>+</span>]工具素材</h4>
+					<ul  style="display:none">
 						<li><a href="http://filterfactory.mobi/">SVG Filter生成</a></li>
-						<li><a href="http://cssplant.com/clip-path-generator">SVG Path生成</a></li>
+						<li><a href="http://cssplant.com/clip-path-generator">Clip Path生成</a></li>
+						<li><a href="http://www.flaticon.com/">Flaticon</a></li>
+						<li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
 					</ul>
-					<h4>[<span>-</span>]Basic shapes</h4>
+					<h4>[<span>-</span>]基本属性</h4>
+					<ul>
+						<li><a href="">viewBox</a><span>
+							viewBox="x, y, width, height"  // x:左上角横坐标，y:左上角纵坐标，width:宽度，height:高度
+						</span></li>
+						<li><a href="">preserveAspectRatio</a><span>
+							preserveAspectRatio="xMidYMid meet" <a href="http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/">参考资料</a>
+							<br />第1个值表示，viewBox如何与SVG viewport对齐，自由组合；
+							<br />xMin	viewport和viewBox左边对齐
+							<br />xMid	viewport和viewBox x轴中心对齐
+							<br />xMax	viewport和viewBox右边对齐
+							<br />YMin	viewport和viewBox上边缘对齐。注意Y是大写。
+							<br />YMid	viewport和viewBox y轴中心点对齐。注意Y是大写。
+							<br />YMax	viewport和viewBox下边缘对齐。注意Y是大写。
+							<br />第2个值表示，如何维持高宽比（如果有）。
+							<br />meet	保持纵横比缩放viewBox适应viewport
+							<br />slice	保持纵横比同时比例小的方向放大填满viewport
+							<br />none	扭曲纵横比以充分适应viewport
+						</span></li>
+						<li><a href="">g</a><span>编组</span></li>
+						<li><a href="">defs</a><span>引用的元素容器</span></li>
+						<li><a href="">filter</a><span>滤镜<br />
+							所有互联网的SVG滤镜定义在defs元素中。defs元素定义短并含有特殊元素（如滤镜）定义。
+							filter标签用来定义SVG滤镜。filter标签使用必需的id属性来定义向图形应用哪个滤镜
+						</span></li>
+						<li><a href="">linearGradient</a><span>线性渐变<br />
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+								      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+								      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+								    </linearGradient>
+								  </defs>
+								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+								</svg>
+							</textarea>
+						</span></li>
+						<li><a href="">radialGradient</a><span>径向渐变<br />
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+								      <stop offset="0%" style="stop-color:rgb(255,255,255);
+								      stop-opacity:0" />
+								      <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+								    </radialGradient>
+								  </defs>
+								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+								</svg>
+							</textarea>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]绘制图形</h4>
 					<ul>
 						<li><a href="">rect</a><span>矩形 x,y,width,height,rx,ry</span></li>
 						<li><a href="">circle</a><span>圆形 cx,cy,r</span></li>
 						<li><a href="">ellipse</a><span>椭圆 cx,cy,rx,ry</span></li>
 						<li><a href="">line</a><span>直线 x1,y1,x2,y2</span></li>
-						<li><a href="">polygon</a><span>多边形 points(x1,y1 x2,y2 ...,xN,yN)每一组点之间用空格分开<br />fill-ruleFillStroke演示属性的部分</span></li>
-						<li><a href="">polyline</a><span>折线 points(x1,y1 x2,y2 ...,xN,yN)</span></li>
-						<li><a href="">path</a><span>路径</span></li>
+						<li><a href="">polygon</a><span>多边形 points="x1,y1 x2,y2 ...,xN,yN"</span></li>
+						<li><a href="">polyline</a><span>折线 points="x1,y1 x2,y2 ...,xN,yN"</span></li>
+						<li><a href="">path</a><span>路径 d=". . ."</span></li>
 						<li><a href="">text</a><span>文字 x,y</span></li>
 					</ul>
-					<h4>[<span>-</span>]Attributes</h4>
+					<h4>[<span>-</span>]图形属性</h4>
 					<ul>
-						<li><a href="">stroke</a>(color)<span>轮廓颜色</span></li>
-						<li><a href="">stroke-width</a><span>轮廓宽度</span></li>
-						<li><a href="">stroke-linecap</a><span>轮廓终结样式</span></li>
-						<li><a href="">stroke-dasharray</a><span>轮廓线条样式</span></li>
-						<li><a href="">stroke-opacity</a><span>轮廓线透明度</span></li>
-						<li><a href="">fill</a>(color)<span>填充</span></li>
-						<li><a href="">fill-opacity</a>(0-1)<span>填充透明度</span></li>
+						<li><a href="">width/height</a><span>宽高</span></li>
+						<li><a href="">x/y</a><span>矩形/文字起始点水平/垂直坐标</span></li>
+						<li><a href="">rx/ry</a><span>
+							矩形水平圆角 / 椭圆水平半径
+							<br />矩形垂直圆角 / 椭圆垂直半径
+							</span></li>
+						<li><a href="">cx/cy</a><span>圆心水平/垂直坐标</span></li>
+						<li><a href="">r</a><span>圆半径</span></li>
+						<li><a href="">x1,y1,x2,y2</a><span>线条的起始与结束坐标点</span></li>
+						<li><a href="">points</a><span>定义多边形/折线每个角的x和y坐标,每一组数x,y xn,yn每一组点之间用空格分开</span></li>
+						<li><a href="">d</a><span>定义路径数据：
+							<br />所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
+							<br />M = moveto （移动到）
+							<br />L = lineto （连线）
+							<br />H = horizontal lineto （水平连线）
+							<br />V = vertical lineto （垂直连线）
+							<br />C = curveto （曲线）
+							<br />S = smooth curveto （平滑曲线）
+							<br />Q = quadratic Bézier curve （二次贝塞尔曲线）
+							<br />=》M x0 y0 q x1 y1 x2 y2 小写代表相对,即后面的值表示正数+水平向下/负数-水平向上
+							<br />T = smooth quadratic Bézier curveto （平滑贝塞尔曲线）
+							<br />A = elliptical Arc （椭圆弧形）
+							<br />Z = closepath （闭合路径）
+							</span></li>
+						<li><a href="">style</a><span>CSS样式</span></li>
+						<li><a href="">textPath</a><span>
+							绑定曲线路径的文字<br />
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink">
+								   <defs>
+								    <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+								  </defs>
+								  <text x="10" y="100" style="fill:red;">
+								    <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
+								  </text>
+								</svg>
+							</textarea>
+						<li><a href="">tspan</a><span>text中多行文本,可拥有单独样式</span></li>
+						<li><a href="">a</a>xlink:href<span>
+							链接文本,应包围在text外面<br />
+							<textarea name="" id="" cols="30" rows="10">
+								<a xlink:href="http://www.w3schools.com/svg/" target="_blank">
+								    <text x="0" y="15" fill="red">I love SVG</text>
+								</a>
+							</textarea>
+						</span></li>
 					</ul>
-					<h4>[<span>-</span>]Other Elements</h4>
+					<h4>[<span>-</span>]样式属性</h4>
 					<ul>
-						<li><a href="">animate</a><span></span></li>
-						<li><a href="">a</a><span></span></li>
-						<li><a href="">defs</a><span></span></li>
-						<li><a href="">filter</a><span></span></li>
-						<li><a href="">linearGradient</a><span></span></li>
-						<li><a href="">radialGradient</a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
+						<li><a href="">fill</a>(#fff)<span>填充颜色</span></li>
+						<li><a href="">fill-opacity</a>(0-1)<span>填充透明度</span></li>
+						<li><a href="">stroke</a>(#f39)<span>轮廓颜色</span></li>
+						<li><a href="">stroke-opacity</a>(0-1)<span>轮廓线透明度</span></li>
+						<li><a href="">stroke-width</a>(8)<span>轮廓宽度(可不要单位)</span></li>
+						<li><a href="">stroke-linecap</a>(round)<span>轮廓笔触样式
+							<br />butt:结尾柄
+							<br />round:圆
+							<br />square:方
+							</span></li>
+						<li><a href="">stroke-dasharray</a><span>虚线样式
+							<br />自定义虚线的结构
+							<br />stroke-dasharray="5,5" 
+							<br />stroke-dasharray="20,10,5,5,5,10"
+							</span></li>
+					</ul>
+					<h4>[<span>+</span>]滤镜</h4>
+					<ul style="display:none">
+						<li><a href="">示例</a><span>
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <filter id="f1" x="0" y="0">
+								      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+								    </filter>
+								  </defs>
+								  <rect width="90" height="90" stroke="green" stroke-width="3"
+								  fill="yellow" filter="url(#f1)" />
+								</svg>
+							</textarea>
+							<br />filter元素id属性定义一个滤镜的唯一名称
+							<br />feGaussianBlur元素定义模糊效果
+							<br />in="SourceGraphic"这个部分定义了由整个图像创建效果
+							<br />stdDeviation属性定义模糊量
+							<br />rect元素的滤镜属性用来把元素链接到"f1"滤镜
+						</span></li>
+						<li><a href="">feBlend</a><span>与图像相结合的滤镜</span></li>
+						<li><a href="">feOffset</a><span>过滤阴影</span></li>
+						<li><a href="">feGaussianBlur</a>高斯模糊<span></span></li>
+						<li><a href="">feColorMatrix</a><span>用于彩色滤光片转换</span></li>
+						<li><a href="">feComponentTransfer</a><span></span></li>
+						<li><a href="">feComposite</a><span></span></li>
+						<li><a href="">feConvolveMatrix</a><span></span></li>
+						<li><a href="">feDiffuseLighting</a><span></span></li>
+						<li><a href="">feDisplacementMap</a><span></span></li>
+						<li><a href="">feFlood</a><span></span></li>
+						<li><a href="">feImage</a><span></span></li>
+						<li><a href="">feMerge</a><span></span></li>
+						<li><a href="">feMorphology</a><span></span></li>
+						<li><a href="">feSpecularLighting</a><span>feTile</span></li>
+						<li><a href="">feTurbulence</a><span></span></li>
+						<li><a href="">feDistantLight</a><span>用于照明过滤</span></li>
+						<li><a href="">fePointLight</a><span>用于照明过滤</span></li>
+						<li><a href="">feSpotLight</a><span>用于照明过滤</span></li>
 					</ul>
 					<h4>[<span>-</span>]Javascript API</h4>
 					<ul>
-						<li><a href="">creatElementNS(ns,tagName)</a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
+						<li><a href="http://snapsvg.io/">Snap.svg</a></li>
 					</ul>
 				</div>
 			</li>
@@ -3334,6 +3422,47 @@
 						<li><a href="">position.coords.longitude</a> (经度)</li>
 						<li><a href="">getCurrentPosition()</a><span><a href="http://www.w3cschool.cc/html/html5-geolocation.html"></a></span>参考资料</li>
 						<li><a href="http://developer.baidu.com/map/index.php?title=open/library">百度地图</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>媒体<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]多媒体</h4>
+					<ul>
+						<li><a href="">onabort</a><span>终止加载</span></li>
+						<li><a href="">onerror</a><span>数据加载错误</span></li>
+						<li><a href="">oncanplay</a><span>开始播放</span></li>
+						<li><a href="">onplay</a><span>开始播放</span></li>
+						<li><a href="">onpause</a><span>暂停</span></li>
+						<li><a href="">onended</a><span>播放结束</span></li>
+						<li><a href="">onloadeddata</a><span>当前帧</span></li>
+						<li><a href="">onloadedmetadata</a><span>指定元数据加载后触发</span></li>
+						<li><a href="">oncanplaythrough</a><span>正常播放且无需停顿和缓冲时</span></li>
+						<li><a href="">ondurationchange</a><span>时长发生变化</span></li>
+						<li><a href="">onemptied</a><span>当前列表为空</span></li>
+						<li><a href="">onloadstart</a><span>浏览器开始寻找指定视频/音频（audio/video）触发</span></li>
+						<li><a href="">onplaying</a><span>暂停或者在缓冲后准备重新开始播放时触发</span></li>
+						<li><a href="">onprogress</a><span>在浏览器下载指定的视频/音频（audio/video）时触发</span></li>
+						<li><a href="">onratechange</a><span>播放速度发送改变时触发</span></li>
+						<li><a href="">onseeked</a><span>重新定位视频/音频（audio/video）的播放位置后触发</span></li>
+						<li><a href="">onseeking</a><span>开始重新定位视频/音频（audio/video）时触发</span></li>
+						<li><a href="">onstalled</a><span>事件在浏览器获取媒体数据，但媒体数据不可用时触发。</span></li>
+						<li><a href="">onsuspend</a><span>事件在浏览器读取媒体数据中止时触发。</span></li>
+						<li><a href="">ontimeupdate</a><span>事件在当前的播放位置发送改变时触发。</span></li>
+						<li><a href="">onvolumechange</a><span>件在音量发生改变时触发。	</span></li>
+						<li><a href="">onwaiting</a><span>事件在视频由于要播放下一帧而需要缓冲时触发。</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>拖放<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]拖放</h4>
+					<ul>
+						
 					</ul>
 				</div>
 			</li>
