@@ -99,9 +99,10 @@ http://iruxu.com/notebook
 		})
 
 		//顶部菜单简易响应
-		var media_width = $(window).width();
-		var media_height = $(window).height();
-		var h2_lineheight = media_height/7;
+		var navlist = $('#nav ul li').length;
+		var media_width = document.body.clientWidth;
+		var media_height = document.body.clientHeight;
+		var h2_height = media_height / navlist;
 		if(media_width>1140){
 			$("#showmenu").css('display','none')
 		}else{
@@ -120,8 +121,8 @@ http://iruxu.com/notebook
 				})
 				$("#nav>ul>li").css({
 					'width':media_width,
-					'height':'15%',
-					'line-height':h2_lineheight+'px',
+					'height':h2_height,
+					'line-height':h2_height+'px',
 					'display':'block',
 					'border':'none'
 				})

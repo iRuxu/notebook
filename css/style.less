@@ -43,6 +43,7 @@
     a:active{color:@purple;}
     table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
     .main,.header,.footer,.content{.clear;}
+    h1,h2,h3,h4,h5,h6{.pointer;}
 
     .header,.footer{
         color:#ccc;
@@ -65,7 +66,7 @@
         p{position: absolute;right:10px;top:15px;text-align: right;}
 
         #nav{
-            .pa;
+            .pa;.clear;
             left:280px;
             top:30px;
             ul li{.dbi;
@@ -73,14 +74,13 @@
                 font-family: Trebuchet MS;font-size:14px;text-align: center;
                 background:#222;border:1px solid #333;box-shadow:1px -1px 1px @black;
                 border-top-left-radius:4px;border-top-right-radius:4px;
-                a{/*display: block;width:100%;height:100%;*/}
                 &:hover,&.ctcat{color:@blue;background:#181818;border:1px solid @blue;border-bottom:none;text-shadow:0px 0px 8px #0099ff;}
                 &:hover a,&.ctcat a{color:@blue;}
             }
         }
 
         #showmenu{
-            background: url(img/list.png) no-repeat center center;
+            background: url('@{url}/list.png') no-repeat center center;
             cursor:pointer;width:40px;height:28px;position:absolute;right:10px;top:20px;
         }
     }
@@ -106,7 +106,7 @@
                     h4{color:#666;margin:0;padding:0;font-weight:normal;
                         &:hover{color:@purple !important;font-weight:bold !important;}
                     }
-                    ul{background:none;
+                    ul{background:none;.clear;
                         li{
                             color:#888;border-top:1px dashed transparent;border-bottom:1px dashed transparent;.nobreak;margin:0;
                             &:hover{background:#ffe5ff;color:@purple;cursor:pointer;border-top:1px dashed @pink;border-bottom:1px dashed @pink;
@@ -115,7 +115,7 @@
                             a{padding-right:2px;
                                 &[href^=http]{display:block;width:100%;height:100%;}
                             }
-                            span,.tips{display:none;min-width:180px;max-width:600px;.break;padding:5px;.pa;
+                            span,.tips{display:none;min-width:180px;max-width:600px;.break;padding:5px;.pa;.clear;
                                 .rgba(0,0,0,0.8);border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;
                                 textarea{font-family:consolas !important;}
                                 table{max-width:98% !important;}
@@ -148,18 +148,18 @@
 
 // =Responsive
 //--------------------------------------------------------------
-@media (max-width:1140px){.header p{.ps;text-align:left;padding-left:90px;}}
-@media (max-width:1640px) and (min-width:1438px){.content>ul:nth-child(7){clear:left;}}
-@media (max-width:1430px) and (min-width:1200px){.content>ul:nth-child(6){clear:left;}}
-@media (max-width:1190px) and (min-width:962px){.content>ul:nth-child(5){clear:left;}}
-@media (max-width:960px) and (min-width:728px) {.content>ul:nth-child(4),.content>ul:nth-child(7){clear:left;}}
-@media (max-width:720px){
-    .content>ul{width:88%;margin:0 auto;float:none;}
-    .footer div{float:none;width:100%;}
-    #RegEXP>div{float:none;width:100%;}
-}
-@media (max-width:760px){
-    #snippet{width:100% !important;height:100% !important;top:0;left:0;margin:0;z-index:999999;box-sizing:border-box;}
-    #box{box-sizing:border-box;height:100%;margin-bottom:20px;}
-    #box table{width:95%;margin:10px auto 28px auto;}
-}
+    @media (max-width:1140px){.header p{.ps;text-align:left;padding-left:90px;}}
+    @media (max-width:1640px) and (min-width:1438px){.content>ul:nth-child(7){clear:left;}}
+    @media (max-width:1430px) and (min-width:1200px){.content>ul:nth-child(6){clear:left;}}
+    @media (max-width:1190px) and (min-width:962px){.content>ul:nth-child(5){clear:left;}}
+    @media (max-width:960px) and (min-width:728px) {.content>ul:nth-child(4),.content>ul:nth-child(7){clear:left;}}
+    @media (max-width:720px){
+        .content>ul{width:88%;margin:0 auto;float:none;}
+        .footer div{float:none;width:100%;}
+        #RegEXP>div{float:none;width:100%;}
+    }
+    @media (max-width:760px){
+        #snippet{width:100% !important;height:100% !important;top:0;left:0;margin:0;z-index:999999;box-sizing:border-box;}
+        #box{box-sizing:border-box;height:100%;margin-bottom:20px;}
+        #box table{width:95%;margin:10px auto 28px auto;}
+    }
