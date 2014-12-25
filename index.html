@@ -934,6 +934,9 @@
 							<br />2.表格中对合并后 或tr 表现为block,会只有第一个单元格宽度,可直接应用arrow,tr的显示应用table-row而非block
 							<br />3.垂直th添加scope="col"
 						</span></li>
+						<li><a href="">a</a><span>
+							1.IE10-对于a与同级元素，空的a调整层级或顺序仍然无法点击，需要将a包裹其他元素
+						</span></li>
 					</ul>
 					<h4>[<span>-</span>]多列</h4>
 					<ul>
@@ -1889,7 +1892,7 @@
 							<br />2.IE6 BUG:1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a>
 							<br />3.子元素设置100%宽高时不包含父元素的padding!当父元素有padding时,因设置固定尺寸或修改父级模型!
 							<br />4.width:auto 现代浏览器中表示根据内容自动扩展,而IE6-7表示占满父级
-							<br />5.IE6-7对宽度的处理略有差异，特别是IE7下有许多离奇BUG，取百分比小数时，尽量只取到1位
+							<br />5.IE6-7对宽度的处理略有差异，特别是IE7下有许多离奇BUG，取百分比小数时，尽量只取到1位或取整
 						</span></li>
 						<li><a href="">height</a><span>高度
 							<br />1.如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%; <a href="http://www.cnblogs.com/clare-zhang/archive/2011/08/26/2154220.html">参考资料</a>
@@ -1978,7 +1981,7 @@
 							<br>注意：
 							<br />1.默认背景图片的平铺是包含在padding区域的
 							<br />2.padding生效在伪对象之外。
-							<br />3.%比值<b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b><a href="http://www.ituring.com.cn/article/64581">参考资料</a>
+							<br />3.%比值<b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b><a href="http://www.ituring.com.cn/article/64581">参考资料</a>绝对定位的top/left等百分比按照父级对应尺寸。
 							<br />4.IE7会胡乱继承padding,自适应宽高的地方必要应设置父级宽高并设置隐藏。
 							</span></li>
 						<li><a href="">margin</a><span>外部补白.
@@ -2062,10 +2065,16 @@
 							<br>2.IE6下3像素bug：
 							<br>当浮动元素与非浮动元素相邻时,会发生3像素间隙,可设置浮动元素_margin-right:-3px;或使非浮动元素浮动.
 							<br><a href="http://pewper.blog.163.com/blog/static/2970860820126261195866/">详细参考资料</a>
+							<br>中间列自适应布局方案:左右各浮动（层级需要都在不浮动之前！），需要解决3px bug
 							<br>3.IE6-7浮动自适应布局
 							<br>IE6-7中浮动创建的自适应布局,需要主动给定父级高度，否则绝对定位的元素无法正常定位。
 						</span></li>
-						<li><a href="">clear</a><span>清除浮动：none,left,right,both</span></li>
+						<li><a href="">clear</a><span>清除浮动：none,left,right,both
+							<br />清除浮动只影响自己，而不影响其他元素；
+							<br />对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
+							<br /><a href="http://www.dabaoku.com/jiaocheng/wangye/css/2013040918035.shtml">参考资料1</a>
+							<br /><a href="http://www.zhangxinxu.com/wordpress/2014/06/understand-css-clear-left-right-and-use/">参考资料2</a>
+							</span></li>
 						<li><a href="">position:static</a><span>对象遵循常规流</span></li>
 						<li><a href="">position:relative</a><span>
 							相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素
@@ -2167,6 +2176,10 @@
 							<br />1.float
 							<br />2.inline-block,需设置vertical-align:top,去除inline-block的200B空格.【IE6中要使不断行还必须指定父级高度！】
 							<br />3.table-cell(总是等高最高的)【IE6不支持】
+							<hr />
+							<br />float:错乱,换行不低于上行最高值,不等高
+							<br />inline-block:不会错乱,新行整齐,不等高
+							<br />table-cell:不会错乱,同行元素必定等高
 						</span></li>
 					</ul>
 				</div>
