@@ -1,0 +1,212 @@
+/*
+Base.less v1.4 - [2014.12.25]
+https://github.com/iRuxu/iruxucss
+*/
+
+//=Font
+//--------------------------------------------------------------
+    //font write mode
+        .nobreak{white-space:nowrap;word-break:keep-all;text-overflow:ellipsis;overflow:hidden;}
+        .break{white-space:normal;word-wrap:break-word;word-break:break-all;}
+        .refont{direction:rtl;unicode-bidi:bidi-override;}
+        .acolor(@acolor,@ahovercolor){a{color:@acolor;}a:hover{color:@ahovercolor;}}
+        .indent{text-indent:-100%;overflow:hidden;}
+
+
+//=Layout
+//--------------------------------------------------------------
+    //Need unit! px/em/%/1.x
+        .fz(@size,@line:1){font-size:@size;line-height:@line;}
+        .size(@width,@height){width:@width;height:@height;}
+        .full{width:100%;height:100%;}
+
+    //ie hack
+        .db{display:block;}
+        .dbi{display:inline-block;*display:inline;*zoom:1;}
+        .none{display:none;}
+        .hide{visibility: hidden;}
+        .show{visibility: visible;}
+        .clip{overflow:hidden;*zoom:1;}
+        .fl{float: left;*display: inline;}
+        .fr{float: right;*display: inline;}
+        .pr{position: relative;*zoom:1;}
+        .pa{position: absolute;}
+        .ps{position: static;}
+
+    //align and auto
+        .x(@text-align:center){text-align:@text-align;}
+        .y(@vertical-align:middle){vertical-align:@vertical-align;}
+        .z(@index:1){z-index:@index;}
+        
+        .ct{position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;} //x ie6 x
+        .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;} //x ie6 x
+        .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;} //x ie6 x
+
+        .ct(x,@width){position:absolute;left:50%;@xmargin:unit(@width/2,px);margin-left:-@xmargin;}
+        .ct(y,@height){position:absolute;top:50%;@ymargin:unit(@height/2,px);margin-top:-@ymargin;}
+        .ct(o,@width,@height){position:absolute;left:50%;top:50%;@xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);margin-left:-@xmargin;margin-top:-@ymargin;}
+    
+        .cell{display:table-cell;*display:inline-block;} //table-cell content + auto side*2
+        .cell(x){display:table-cell;width:5000px;*width:auto;*zoom:1;} //table-cell box + auto full
+        .cell(y){display:table-cell;*margin-bottom:-5000px;*padding-bottom:5000px;*float:left;}
+        
+        .auto(x){margin-left:auto;margin-right:auto;}
+        .auto(y){display:table-cell;vertical-align:middle;} //x ie6 x
+        .auto(w,@margin){
+            @margins:unit(@margin,px);
+            width:~'calc(100% - @{margins})';
+            *width:~'expression(eval(document.documentElement.clientWidth - @{margin}))';   //IE8-js
+        }
+        .auto(h,@top){
+            position: absolute;
+            top:unit(@top,px);
+            bottom:0;_height:100%;  //ie6 parent add { overflow-y:hidden; }
+        }
+
+    //inline-block
+        .iblock{font-size:0;white-space:nowrap;
+            li{.dbi;.y(top);font-size:12px;white-space:normal;}
+        }
+
+    //clear float
+        .clear{*zoom:1;&:after {content:"\200B"; .db; height:0; clear:both;}}
+        .hr{clear:both;}
+
+    //Min Size
+        .min-height(@min-height){min-height:unit(@min-height,px);_height:unit(@min-height,px);}
+        .min-width(@min-width){min-width:unit(@min-width,px);_width:unit(@min-width,px);}
+
+    //for ie6 position fixed
+        .fixed(@_,@side:0,@fix:0){
+            position: fixed;
+            _position:absolute;
+            *zoom:1; 
+        }
+        .fixed(lt,@side:0,@fix:0){
+            left:unit(@side,px);
+            top:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+        }
+        .fixed(rt,@side:0,@fix:0){
+            right:unit(@side,px);
+            top:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+        }
+        .fixed(lb,@side:0,@fix:0){
+            left:unit(@side,px);
+            bottom:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+        }
+        .fixed(rb,@side:0,@fix:0){
+            right:unit(@side,px);
+            bottom:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+        }
+        .fixed(ct,@width,@height){
+            left:50%;
+            @xmargin:unit(@width/2,px);
+            margin-left:-@xmargin;
+            top:50%;
+            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
+            @ymargin:unit(@height/2,px);
+            margin-top:-@ymargin;
+        }
+    
+
+//Transparent
+//--------------------------------------------------------------
+    //opacity elements
+    .tm(@tm){
+        @alpha:@tm*100;
+        opacity:@tm; //ie9 webkit etc.
+        filter:alpha(opacity=@alpha); //ie5-ie7
+    }
+    //rgba alpha color
+    .rgba(@r,@g,@b,@tm){
+        @rgba:rgba(@r,@g,@b,@tm);
+        @rgb:rgb(@r,@g,@b);
+        @ietm:argb(@rgba);
+        background-color: @rgba;
+        filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
+    }
+    //ie6 png image
+    .tmpng(@url){ 
+        //you should add a absolute path , no support repeat img
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
+    }
+    //ie6 border transparent -2014.12.9
+    .ts(@width,@style:solid,@color:transparent){
+        border-width:unit(@width,px);
+        border-style:@style;
+        border-color:@color;
+        _border-color: #000000; 
+        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
+    }
+
+
+//Interface
+//--------------------------------------------------------------
+    //cursor
+        .pointer{&:hover{cursor:pointer;}}
+
+
+//Effect
+//--------------------------------------------------------------
+    //reflect
+        .dy(t){-webkit-box-reflect: above;}
+        .dy(b){-webkit-box-reflect: below;}
+        .dy(l){-webkit-box-reflect: left;}
+        .dy(r){-webkit-box-reflect: right;}
+
+    //filter
+        .blur(@blur){
+            filter:blur(@blur);
+            -webkit-filter:blur(@blur);
+        }
+        .filter(heibai,@arg:1){filter:grayscale(@arg);-webkit-filter:grayscale(@arg);}
+        .filter(pojiu,@arg:1){filter:sepia(@arg);-webkit-filter:sepia(@arg);}
+        .filter(baohe,@arg:1){filter:saturate(@arg);-webkit-filter:saturate(@arg);}
+        .filter(liangdu,@arg:1){filter:brightness(@arg);-webkit-filter:brightness(@arg);}
+        .filter(duibi,@arg:1){filter:contrast(@arg);-webkit-filter:contrast(@arg);}
+
+    //the item style
+        .items(fk){list-style:square;}
+        .items(dian){list-style:disc;}
+        .items(quan){list-style:circle;}
+        .items(num){list-style:decimal;}
+        .items(01){list-style:decimal-leading-zero;}
+        .items(i){list-style:lower-roman;}
+        .items(I){list-style:upper-roman;}
+        .items(a){list-style:lower-alpha;}
+        .items(A){list-style:upper-alpha;}
+        .items(@_){padding-left:40px;}
+
+//Other
+//--------------------------------------------------------------
+    //::placeholder
+        .tips(@color,@size:12px,@align:left){
+            &:-moz-placeholder {
+                color: @color;
+                font-size:@size;
+                text-align:@align;
+            }
+            &:-ms-input-placeholder {
+                color: @color;
+                font-size:@size;
+                text-align:@align;
+            }
+            &::-webkit-input-placeholder {
+                color: @color;
+                font-size:@size;
+                text-align:@align;
+            }
+        }
+
+    //colums
+        .col(@cols){
+            -webkit-columns:@cols;
+            -moz-columns:@cols;
+            -ms-columns:@cols;
+            -o-columns:@cols;
+            columns:@cols;
+        }
