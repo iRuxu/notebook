@@ -100,8 +100,8 @@ http://iruxu.com/notebook
 
 		//顶部菜单简易响应
 		var navlist = $('#nav ul li').length;
-		var media_width = document.body.clientWidth;
-		var media_height = document.body.clientHeight;
+		var media_width = $(window).width();
+		var media_height = $(window).height();
 		var h2_height = media_height / navlist;
 		if(media_width>1140){
 			$("#showmenu").css('display','none')

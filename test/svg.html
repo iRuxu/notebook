@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>SVG</title>
+<meta charset="utf-8"/>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui"/>
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="" type="text/css"/>
+<script src="snap.svg-min.js"></script>
+<script src="svg-morpheus.js"></script>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script> -->
+</head>
+<body>
+
+<svg id="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<g id="icon-home" viewBox="0 0 1024 1024">
+	<title>home</title>
+	<path class="path1" d="M1024 590.444l-512-397.426-512 397.428v-162.038l512-397.426 512 397.428zM896 576v384h-256v-256h-256v256h-256v-384l384-288z"></path>
+</g>
+<g id="icon-pen" viewBox="0 0 1024 1024">
+	<title>pen</title>
+	<path class="path1" d="M960.004 288.006l-223.998-223.998 64-64 223.998 223.998zM896 352l-32 352c-288 0-704 320-704 320l-53.13-53.13 273.664-273.664c10.974 4.368 22.934 6.794 35.466 6.794 53.020 0 96-42.98 96-96s-42.98-96-96-96c-53.020 0-96 42.98-96 96 0 12.532 2.426 24.49 6.794 35.466l-273.664 273.664-53.13-53.13c0 0 320-416 320-704l352-32 224 224z"></path>
+</g>
+<g id="icon-pacman" viewBox="0 0 1024 1024">
+	<title>pacman</title>
+	<path class="path1" d="M964.73 178.804c-93.902-109.45-233.21-178.804-388.73-178.804-282.77 0-512 229.23-512 512s229.23 512 512 512c155.52 0 294.828-69.356 388.728-178.804l-324.728-333.196 324.73-333.196zM704 120.602c39.432 0 71.398 31.964 71.398 71.398 0 39.432-31.966 71.398-71.398 71.398s-71.398-31.966-71.398-71.398c0-39.432 31.966-71.398 71.398-71.398z"></path>
+</g>
+<g id="icon-list" viewBox="0 0 1024 1024">
+	<title>list</title>
+	<path class="path1" d="M0 0h256v256h-256zM384 64h640v128h-640zM0 384h256v256h-256zM384 448h640v128h-640zM0 768h256v256h-256zM384 832h640v128h-640z"></path>
+</g>
+
+</svg>
+
+
+</body>
+<script>
+$(function(){
+	var myIcons = new SVGMorpheus('#icon');
+	$('#icon').click(function(event) {
+		myIcons.to('icon-pacman');
+	});
+});
+	
+</script>
+</html>

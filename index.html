@@ -497,7 +497,9 @@
 								</textarea>
 								<br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
 								<br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
+							<hr />4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
 								</span></li>
+						<li><a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">currentColor</a><span>让Border/backgroud等沿袭color的颜色</span></li>
 						<li><a href="">opacity</a>
 							<span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
 							<br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
@@ -3072,6 +3074,7 @@
 						<li><a href="http://cssplant.com/clip-path-generator">Clip Path生成</a></li>
 						<li><a href="http://www.flaticon.com/">Flaticon</a></li>
 						<li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
+						<li><a href="http://svg-edit.googlecode.com/svn/branches/2.6/editor/svg-editor.html">SVG Editor</a></li>
 					</ul>
 					<h4>[<span>-</span>]基本属性</h4>
 					<ul>
@@ -3094,37 +3097,17 @@
 						</span></li>
 						<li><a href="">g</a><span>编组</span></li>
 						<li><a href="">defs</a><span>引用的元素容器</span></li>
-						<li><a href="">filter</a><span>滤镜<br />
-							所有互联网的SVG滤镜定义在defs元素中。defs元素定义短并含有特殊元素（如滤镜）定义。
-							filter标签用来定义SVG滤镜。filter标签使用必需的id属性来定义向图形应用哪个滤镜
-						</span></li>
-						<li><a href="">linearGradient</a><span>线性渐变<br />
-							<textarea name="" id="" cols="30" rows="10">
-								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-								  <defs>
-								    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-								      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
-								      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-								    </linearGradient>
-								  </defs>
-								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
-								</svg>
-							</textarea>
-						</span></li>
-						<li><a href="">radialGradient</a><span>径向渐变<br />
-							<textarea name="" id="" cols="30" rows="10">
-								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-								  <defs>
-								    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-								      <stop offset="0%" style="stop-color:rgb(255,255,255);
-								      stop-opacity:0" />
-								      <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
-								    </radialGradient>
-								  </defs>
-								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
-								</svg>
-							</textarea>
-						</span></li>
+						<li><a href="">pattern</a><span>定义一个可用于平铺的图案,fill:url(#id)</span></li>
+						<li><a href="">use</a><span>svg画布铺满整个浏览器,需要设置html+body~font-size:0;line-height:0;<br />
+							use xlink:href="#id"</span></li>
+						<li><a href="">clipPath</a><span>clipPath定义一个用于剪裁的形状,clip-path="url(#id)"通过引用对某个图像进行剪裁</span></li>
+						<li><a href="">mask</a><span>蒙版
+							<br />maskUnits="'userSpaceOnUse' or 'objectBoundingBox'.设定裁剪面是否是相对完整的视窗或对象（默认：'objectBoundingBox'）"
+							<br />maskContentUnits="第二个掩码相对对象的图形位置使用百分比'userSpaceOnUse'或'objectBoundingBox'（默认：'userSpaceOnUse'）"
+							<br />x="裁剪面掩码（默认值：-10％）" 
+							<br />y="裁剪面掩码（默认值：-10％）" 
+							<br />width="裁剪面掩码（默认是：120％）"
+							<br />height="裁剪面掩码（默认是：120％）"</span></li>
 					</ul>
 					<h4>[<span>-</span>]绘制图形</h4>
 					<ul>
@@ -3164,28 +3147,6 @@
 							<br />Z = closepath （闭合路径）
 							</span></li>
 						<li><a href="">style</a><span>CSS样式</span></li>
-						<li><a href="">textPath</a><span>
-							绑定曲线路径的文字<br />
-							<textarea name="" id="" cols="30" rows="10">
-								<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-								xmlns:xlink="http://www.w3.org/1999/xlink">
-								   <defs>
-								    <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
-								  </defs>
-								  <text x="10" y="100" style="fill:red;">
-								    <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
-								  </text>
-								</svg>
-							</textarea>
-						<li><a href="">tspan</a><span>text中多行文本,可拥有单独样式</span></li>
-						<li><a href="">a</a>xlink:href<span>
-							链接文本,应包围在text外面<br />
-							<textarea name="" id="" cols="30" rows="10">
-								<a xlink:href="http://www.w3schools.com/svg/" target="_blank">
-								    <text x="0" y="15" fill="red">I love SVG</text>
-								</a>
-							</textarea>
-						</span></li>
 					</ul>
 					<h4>[<span>-</span>]样式属性</h4>
 					<ul>
@@ -3203,10 +3164,94 @@
 							<br />自定义虚线的结构
 							<br />stroke-dasharray="5,5" 
 							<br />stroke-dasharray="20,10,5,5,5,10"
+							<br />SVG描边动画,设置stroke-dasharray: 1000;stroke-dashoffset: 1000;设置keyframe{ to{stroke-dashoffset: 0;}}
 							</span></li>
+						<li><a href="">transform</a><span>变换是基于自身坐标系！矩阵等同线性代数矩阵</span></li>
+					</ul>
+					<h4>[<span>-</span>]字体</h4>
+					<ul>
+						<li><a href="">text</a><span>文字，基于基线对齐</span></li>
+						<li><a href="">textPath</a><span>
+							路径文字 textPath xlink:href="#id"
+							<br />超出路径的部分不会被渲染
+							<br />位移控制：
+							<br />水平：x(起始位置点),text-anchor:start/end/middle(文字的哪个点对齐文本x起始点),startOffset:%(文本以哪个开始作为与路径对齐的点),dx(切线起点)
+							<br />垂直：y(无),dy(法线位置,dx/dy会对后续字符一起影响)
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+								  <defs>
+								    <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+								  </defs>
+								  <text x="10" y="100" style="fill:red;">
+								    <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
+								  </text>
+								</svg>
+							</textarea>
+						<li><a href="">tspan</a><span>text中多行文本,可拥有单独样式</span></li>
+						<li><a href="">a</a>xlink:href<span>
+							a标签可以添加到任意图形上<br />
+							链接文本,应包围在text外面,xlink:title提示<br />
+							<textarea name="" id="" cols="30" rows="10">
+								<a xlink:href="http://www.w3schools.com/svg/" target="_blank">
+								    <text x="0" y="15" fill="red">I love SVG</text>
+								</a>
+							</textarea>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]渐变</h4>
+					<ul>
+						<li><a href="">linearGradient</a><span>线性渐变
+							<br />id="id 属性可为渐变定义一个唯一的名称。引用必须"
+							<br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'.使用视图框或对象，以确定相对位置矢量点。 （默认为'objectBoundingBox）"
+							<br />gradientTransform="适用于渐变的转变"
+							<br />x1="渐变向量x启动点（默认0％）"
+							<br />y1="渐变向量y启动点（默认0％）" 
+							<br />x2="渐变向量x的终点。 （默认100％）"
+							<br />y2="渐变向量y的终点。 （默认0％）" 
+							<br />spreadMethod="'pad' or 'reflect' or 'repeat'"
+							<br />xlink:href="reference to another gradient whose attribute values are used as defaults and stops included. Recursive"
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+								      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+								      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+								    </linearGradient>
+								  </defs>
+								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+								</svg>
+							</textarea>
+						</span></li>
+						<li><a href="">radialGradient</a><span>径向渐变
+							<br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'. 使用视图框或对象以确定相对位置的矢量点。 （默认为'objectBoundingBox）"
+							<br />gradientTransform="适用于渐变的变换" 
+							<br />cx="渐变的中心点（数字或％ - 50％是默认）"
+							<br />cy="渐变的中心点。 （默认50％）"
+							<br />r="渐变的半径。 （默认50％）" 
+							<br />fx="渐变的焦点。 （默认0％）"
+							<br />fy="渐变的焦点。 （默认0％）"
+							<br />spreadMethod="'pad' or 'reflect' or 'repeat'"
+							<br />xlink:href="引用到另一个渐变，其属性值作为默认值。递归"
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+								      <stop offset="0%" style="stop-color:rgb(255,255,255);
+								      stop-opacity:0" />
+								      <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+								    </radialGradient>
+								  </defs>
+								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+								</svg>
+							</textarea>
+						</span></li>
 					</ul>
 					<h4>[<span>+</span>]滤镜</h4>
 					<ul style="display:none">
+						<li><a href="">filter</a><span>滤镜<br />
+							所有互联网的SVG滤镜定义在defs元素中。defs元素定义短并含有特殊元素（如滤镜）定义。
+							filter标签用来定义SVG滤镜。filter标签使用必需的id属性来定义向图形应用哪个滤镜
+						</span></li>
 						<li><a href="">示例</a><span>
 							<textarea name="" id="" cols="30" rows="10">
 								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -3244,9 +3289,102 @@
 						<li><a href="">fePointLight</a><span>用于照明过滤</span></li>
 						<li><a href="">feSpotLight</a><span>用于照明过滤</span></li>
 					</ul>
+					<h4>[<span>-</span>]动画</h4>
+					<ul>
+						<li><a href="">参数详解</a><span><a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/">参考资料</a>
+							<br />attributeName : 可以是元素直接暴露的属性，可以是CSS属性
+							<br />attributeType : CSS/XML/auto
+							<br />from = 动画的起始值。
+							<br />to = 指定动画的结束值,如果to,by同时出现，则by打酱油，只识别to.
+							<br />by = 动画的相对变化值。
+							<br />values = "a,b,c,d"用分号分隔的一个或多个值，可以看出是动画的多个关键值点。
+							<br />begin = "3s;6s" 动画开始的时间。begin的定义是分号分隔的一组值；
+							<br />		相对时间：-3s；
+							<br />		关联其他：id.end/begin +/-3s；
+							<br />		绑定事件：id.click +/-3s；
+							<br />		重复次数：id.repeat(整数) +/-3s；
+							<br />		某个按键：accessKey(" character ")
+							<br />		无线等待：indefinite  需要beginElement()方法触发或者指向该动画元素的超链接(SVG中的a元素)
+							<br />dur = "3s" 动画执行的时间
+							<br />calcMode = discrete离散，from值直接跳到to值。
+							<br />		   linear线性，动画从头到尾的速率都是一致的
+							<br />		   paced踏步，通过插值让动画的变化步调平稳均匀
+							<br />		   spline样条，插值定义贝塞尔曲线
+							<br />repeatCount:表示动画执行次数,合法数值或者indefinite
+							<br />repeatDur:定义重复动画的总时间,可以是普通时间值或者indefinite
+							<br />fill:freeze元素保持了动画结束之后的状态 | remove表示动画结束直接回到开始的地方
+							<br />accumulate:是累积的意思。支持参数有：none | sum. 默认值是none. 如果值是sum表示动画结束时候的位置作为下次动画的起始位置。
+							<br />additive:控制动画是否附加。支持参数有：replace | sum. 默认值是replace. 如果值是sum表示动画的基础知识会附加到其他低优先级的动画上
+							<br />restart:always | whenNotActive | never.always是默认值，表示总是，也就是点一次圈圈，马儿跑一下。whenNotActive表示动画正在进行的时候，是不能重启动画的。never表示动画是一波流。
+								</span></li>
+						<li><a href="">set</a><span>
+							<a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/">参考资料</a>
+							<textarea name="" id="" cols="30" rows="10">
+								<set attributeName="x" attributeType="XML" to="60" begin="3s" />
+							</textarea>
+								</span></li>
+						<li><a href="">animate</a><span>随时间动态改变属性
+							<br />attributeName="目标属性名称"
+							<br />from="起始值"
+							<br />to="结束值"
+							<br />dur="持续时间"
+							<br />repeatCount="动画时间将发生"</span></li>
+						<li><a href="">animateColor</a><span>定义随着时间的推移颜色转换
+							<br />by="相对偏移值"
+							<br />from="起始值"
+							<br />to="结束值"</span></li>
+						<li><a href="">animateMotion</a><span>使元素沿着动作路径移动
+							<br />calcMode="动画的插补模式。可以是'discrete', 'linear', 'paced', 'spline'"
+							<br />path="运动路径"
+							<br />keyPoints="沿运动路径的对象目前时间应移动多远"
+							<br />rotate="应用旋转变换"
+							<br />xlink:href="一个URI引用<path>元素，它定义运动路径"</span></li>
+						<li><a href="">animateTransform</a><span>动画上一个目标元素变换属性，从而使动画控制平移，缩放，旋转或倾斜
+							<br />by="相对偏移值"
+							<br />from="起始值"
+							<br />to="结束值"
+							<br />type="类型的转换其值是随时间变化。可以是 'translate', 'scale', 'rotate', 'skewX', 'skewY'"</span></li>
+					</ul>
 					<h4>[<span>-</span>]Javascript API</h4>
 					<ul>
+						<li><a href="">创建图形</a><span>document.creatElementNS(ns,tagName)</span></li>
+						<li><a href="">SVG_NS</a><span>'http://www.w3.org/2000/svg'</span></li>
+						<li><a href="">XLINK_NS</a><span>'http://www.w3.org/1999/xlink'</span></li>
+						<li><a href="">Morpheus</a><span> 平滑复杂动画的补间动画创建
+							<a href="https://github.com/alexk111/SVG-Morpheus">Git</a> | 
+							<a href="http://www.zhangxinxu.com/wordpress/?p=4480">参考资料</a>
+							<br />用法：
+							<br />1.引入库,创建SVG,给SVG画布定义id,内部元素必须为g分组,不支持symbol,同样给定id
+							<br />2.实例化SVG为对象，此处为整个svg画布。var myIcons = new SVGMorpheus('#icon');不设置参数时默认显示最后一个g。
+							<br />3.切换目标，注意此处引入的id不再加“#”号！myIcons.to('icon-pacman');结合事件切换
+							<hr />SVGMorpheus构造方法
+							<br />var myIcons = new SVGMorpheus(element, options, callback);
+							<br />1.element
+							<br />SVG元素，可以是选择器（字符串）、也可以直接就是SVG元素、Object元素或IFrame元素（对象）。
+							<br />2.options
+							<br />可选参数们。具体见下：
+							<br />options.iconId – 可选。表示初始化之后，默认显示的图标id, 如果不使用默认值，则使用最后一个图标。
+							<br />options.duration – 可选。动画持续时间，单位是毫秒。默认是750ms.
+							<br />options.easing – 可选。设置默认缓动类型（缓动关键字后面有陈列）。默认是：quad-in-out.
+							<br />options.rotation – 可选。设置动画旋转方向，顺时针还是逆时针，支持下面4个关键字clock, counterclock, random以及none, 分别表示顺时针，逆时针，随机时针以及没有旋转。默认值是clock也就是顺时针变旋转变补间。
+							<br />3.callback
+							可选。设置所有图标变换动画结束后的回调。
+							<hr />SVGMorpheus.to()方法
+							<br />myIcons.to(iconId, options, callback);
+							<br />1.iconId
+							<br />要变换的图标的id, 在<g>元素上。【不需要#】
+							<br />2.options
+							<br />可选参数们。具体见下：
+							<br />options.iconId – 可选。表示初始化之后，默认显示的图标id, 如果不使用默认值，则使用最后一个图标。
+							<br />options.duration – 可选。当前动画持续时间，单位是毫秒。默认是750ms.
+							<br />options.easing – 可选。设置当前动画缓动类型（缓动关键字后面有陈列）。默认是：quad-in-out.
+							<br />circ-in, circ-out, circ-in-out, cubic-in, cubic-out, cubic-in-out, elastic-in, elastic-out, elastic-in-out, expo-in, expo-out, expo-in-out, linear, quad-in, quad-out, quad-in-out, quart-in, quart-out, quart-in-out, quint-in, quint-out, quint-in-out, sine-in, sine-out, sine-in-out
+							<br />options.rotation – 可选。设置当前动画旋转方向，顺时针还是逆时针，支持下面4个关键字clock, counterclock, random以及none, 分别表示顺时针，逆时针，随机时针以及没有旋转。默认值是clock也就是顺时针变旋转变补间。
+							<br />3.callback
+							可选。设置当前图标变换动画结束后的回调。
+						</span></li>
 						<li><a href="http://snapsvg.io/">Snap.svg</a></li>
+						<li><a href="http://www.zhangxinxu.com/GitHub/demo-Snap.svg/demo/basic/">Snap API</a></li>
 					</ul>
 				</div>
 			</li>
@@ -4520,7 +4658,8 @@
 					<h4>[<span>-</span>]Math</h4>
 					<ul>
 						<li><a href="">random()</a><span>
-							随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 )
+							1.随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 )
+							2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();}
 						</span></li>
 						<li><a href="">ceil()</a></li>
 						<li><a href="">floor()</a></li>
