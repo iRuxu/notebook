@@ -7096,6 +7096,61 @@
 								</tbody>
 							</table>
 						</span></li>
+						<li><a href="">@</a><span>错误抑制操作符</span></li>
+						<li><a href="">数组操作符</a><span>
+							数组操作符
+							<table align="center">
+								<tbody>
+								<tr>
+								<td valign="center" width="124">操作符</td>
+								<td valign="center" width="124">使用方法</td>
+								<td valign="center" width="124">使用方法</td>
+								<td valign="center" width="124">说明</td>
+								</tr>
+								<tr>
+								<td valign="center" width="124">+</td>
+								<td valign="center" width="124">联合</td>
+								<td valign="center" width="124">!$b</td>
+								<td valign="center" width="124">返回一个包含了<span style="font-family: 'Times New Roman';">$a</span><span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">$b</span><span style="font-family: 宋体;">中所有元素的数组</span></td>
+								</tr>
+								<tr>
+								<td valign="center" width="124">= =</td>
+								<td valign="center" width="124">等价</td>
+								<td valign="center" width="124">$a&amp;&amp;$b</td>
+								<td valign="center" width="124">如果<span style="font-family: 'Times New Roman';">$a</span><span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">$b</span><span style="font-family: 宋体;">具有相同的元素，返回</span><span style="font-family: 'Times New Roman';">true</span></td>
+								</tr>
+								<tr>
+								<td valign="center" width="124">= = =</td>
+								<td valign="center" width="124">恒等</td>
+								<td valign="center" width="124">$a||$b</td>
+								<td valign="center" width="124">如果<span style="font-family: 'Times New Roman';">$a</span><span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">$b</span><span style="font-family: 宋体;">具有相同的元素以及相同的顺序，返回</span><span style="font-family: 'Times New Roman';">true</span></td>
+								</tr>
+								<tr>
+								<td valign="center" width="124">!=</td>
+								<td valign="center" width="124">非等价</td>
+								<td valign="center" width="124">$a and $b</td>
+								<td valign="center" width="124">如果<span style="font-family: 'Times New Roman';">$a</span><span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">$b</span><span style="font-family: 宋体;">不是等价的，返回</span><span style="font-family: 'Times New Roman';">true</span></td>
+								</tr>
+								<tr>
+								<td valign="center" width="124">&lt;&gt;</td>
+								<td valign="center" width="124">非等价</td>
+								<td valign="center" width="124">&nbsp;</td>
+								<td valign="center" width="124">如果<span style="font-family: 'Times New Roman';">$a</span><span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">$b</span><span style="font-family: 宋体;">不是等价的，返回</span><span style="font-family: 'Times New Roman';">true</span></td>
+								</tr>
+								<tr>
+								<td valign="center" width="124">!= =</td>
+								<td valign="center" width="124">非恒等</td>
+								<td valign="center" width="124">$a or $b</td>
+								<td valign="center" width="124">如果<span style="font-family: 'Times New Roman';">$a</span><span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">$b</span><span style="font-family: 宋体;">不是恒等的，返回</span><span style="font-family: 'Times New Roman';">true</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</span></li>
+						<li><a href="">退出循环</a><span>
+							第一种： break; 退出循环； 
+							<br />第二种是 exit ;退出程序 
+							<br />第三种是 continue;退出当前循环
+						</span></li>
 					</ul>
 					<h4>[<span>-</span>]变量作用域</h4>
 					<ul>
@@ -7260,10 +7315,6 @@
 						</span></li>
 						<li><a href="">join</a>(',',$arr)<span>把数组组合成字符串</span></li>
 						<li><a href="">str_getcsv()</a><span>解析 CSV 格式字段的字符串，并返回一个包含所读取字段的数组</span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
 					</ul>
 					<h4>[<span>-</span>]编码转换</h4>
 					<ul>
@@ -7271,13 +7322,17 @@
 						<li><a href="">md5_file</a>($file)<span>计算文件的 MD5 散列。</span></li>
 						<li><a href="">sha1()</a><span>计算字符串的 SHA-1 散列。</span></li>
 						<li><a href="">sha1_file()</a><span>计算文件的 SHA-1 散列。</span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
-						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>数学运算<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]常用函数</h4>
+					<ul>
+						<li><a href="">mt_rand</a>($min,$max)<span>mt_getrandmax()</span></li>
+						<li><a href="">rand</a>($min,$max)<span>getrandmax()</span></li>
+						<li><a href="http://www.w3cschool.cc/php/php-ref-math.html">Math</a></li>
 					</ul>
 				</div>
 			</li>
