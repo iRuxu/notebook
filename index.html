@@ -237,7 +237,9 @@
 						<li><a href="">font-variant</a>(small-caps)<span>normal正常的字体,small-caps小型的大写字母字体</span></li>
 						<li><a href="">font-family</a>
 								<span>按优先顺序排列。以逗号隔开。如果字体名称包含空格或中文，则应使用引号括起。<br>常用字体：Helvetica,Verdana,Arial,Consolas,Georgia,Impact,Trebuchet MS,Comic Sans MS,Tahoma,Time News Roman,微软雅黑,宋体
-								<br>参考<a href="http://cssfontstack.com/">常用字体预览</a></span></li>
+								<br>参考<a href="http://cssfontstack.com/">常用字体预览</a>
+								<br />移动端字体设置font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; <a href="https://github.com/AlloyTeam/Mars/blob/master/solutions/font-family.md">参考资料</a>
+								</span></li>
 						<li><a href="">@font-face</a>{f:'n',src:'url'}
 								<span><b>@font-face 必须在字体使用前引入</b>
 									<br>@font-face {
@@ -255,6 +257,7 @@
 									<br>	-webkit-font-smoothing: antialiased; 
 									<br>	-webkit-text-stroke-width: 0.2px;
 									<br>}
+									<br />放在html中时写为“& #xe62a;”赋值以对应class,当为伪元素content引用时,赋值“\e62a”
 									<br>图标字体 <a href="http://iconfont.cn/repositories/10">alibaba</a> / <a href="http://www.w3cschool.cc/try/demo_source/bootstrap-glyph-customization.htm">Glyphicons </a> / <a href="https://icomoon.io/app/#/select">icomoon</a>
 									<br>更多字体 <a href="http://zh.fonts2u.com/index.html">Get it!</a>
 									<br>字体转换 <a href="http://www.fontsquirrel.com/tools/webfont-generator">将一种字体转为网页所需的所有格式</a>
@@ -726,6 +729,7 @@
 						<li><a href="">behavior</a>
 								<span>IE:使用绝对或相对地址指定DHTML行为组件（.htc）</span></li>
 						<li><a href="">-webkit-tap-highlight-color</a><span>*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}</span></li>
+						<li><a href="">-webkit-user-select:none</a><span>禁止用户选中文字</span></li>
 					</ul>
 					<h4>[<span>-</span>]表单</h4>
 					<ul>
@@ -1965,7 +1969,9 @@
 							</span></li>
 						<li><a href="">border-image</a>
 								<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
-								<br>在线图片边框生成：<a href="http://iruxu.com/to-be-css/borderimage/index.htm">GO TO!</a></span></li>
+								<br>在线图片边框生成：<a href="http://iruxu.com/to-be-css/borderimage/index.htm">GO TO!</a>
+								<br /><a href="https://github.com/AlloyTeam/Mars/blob/master/solutions/border-1px.md">移动端1像素边框处理</a>
+								</span></li>
 						<li><a href="">outline</a><span>
 								轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考或特殊动画
 								<br />不允许类似border属性那样能将自身拆分为border-top..
@@ -2121,8 +2127,11 @@
 							<br><a href="http://css.doyoe.com/properties/positioning/z-index.htm">实例参考</a>
 						</span></li>
 						<li><a href="">clip</a>
-							<span>剪裁,绝对定位元素.
-							<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁. <a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a>
+							<span>剪裁,【绝对定位元素】.
+							<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁.【上右下左】 
+							<br /><a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a> 
+							<br />只有为shape时才支持动画性,可做遮罩动画效果
+							<br /><a href="http://www.w3cplus.com/css3/css-masking.html">webkit-mask-image:url(img.png)</a>
 							</span></li>
 					</ul>
 					<h4>[<span>-</span>]布局</h4>
@@ -2200,7 +2209,7 @@
 					<h4>[<span>-</span>]2D/3D</h4>
 					<ul>
 						<li><a href="">transform</a><span>
-							可以用空格分隔多个操作,被定义的元素必须为对外表现块级的元素.
+							可以用【空格】（非逗号）分隔多个操作,被定义的元素必须为对外表现块级的元素.
 							<br />(*老版webkit一定要设置为块，否则内联元素的transfrom和animation无效).
 							<br />位移动画闪动问题,可提前加载为0.
 							</span></li>
@@ -2228,7 +2237,13 @@
 						<br>flat,子元素将不保留其 3D 位置。
 						<br>preserve-3d	子元素将保留其 3D 位置。</span></li>
 						<li><a href="">backface-visibility</a><span>定义元素在不面对屏幕时是否可见。
-						<br>取值背面可见/不可见visible|hidden;</span></li>
+						<br>取值背面可见/不可见visible|hidden;
+						<br />消除 transition 闪屏
+						<br />	两个方法
+						<br />	-webkit-transform-style: preserve-3d;
+						<br />	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+						<br />	-webkit-backface-visibility: hidden;
+						<br />	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/</span></li>
 						<li><a href="">perspective</a>(n)<span>定义 3D 转换元素的透视视图。
 						<br>取值number|none,常用500; <a href="http://www.imooc.com/video/1048">参考资料</a></span></li>
 						<li><a href="">perspective-origin</a>(x,y)<span>规定 3D 元素的底部位置。
@@ -2267,19 +2282,23 @@
 							<br>}
 							<br>注意写前缀
 							<br /><b>过渡的动画不能使用简写。例如border:8px solid #fff无效,提前定义样式颜色,并给予0宽度,改变宽度.</b>
+							<br /><b>利用起点设置为非0%可设置出间隔动画</b>
+							<br />不想设置断点的数据留空会线性执行到下一个有数据位置
+							<br />设置内层img等于祖层宽度，对子层尺寸进行变化形成遮罩显示效果（需设置overflow:hidden)
 							</span></li>
 						<li><a href="">animation</a><span>执行动画
-						<br>简写animation:
-						<br>name 5s   ease-in   1s      8/infinite alternate paused  forwards;
-						<br>名称 时间 缓动函数 延迟执行 重复次数   反向      暂停    停留在末尾状态;
-						<br /><a href="http://tid.tenpay.com/?p=5983">动画帧数计算</a>
-						<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
-						<a href="http://cssanimate.com/">cssanimate</a> / 
-						<a href="http://ademilter.com/lab/liffect/">liffect</a> / 
-						<a href="http://leaverou.github.io/animatable/">简单示例</a> / 
-						<a href="http://cssload.net/">cssload</a> / 
-						<a href="http://www.w3cfuns.com/blog-5421655-5400318.html">loading动画</a>
-						</span></li>
+							<br>简写animation:
+							<br>name 5s   ease-in   1s      8/infinite alternate paused  forwards;
+							<br>名称 时间 缓动函数 延迟执行 重复次数   反向      暂停    停留在末尾状态;
+							<br /><b>多个动画之间用【逗号】隔开，会队列完成（非同时！）</b>
+							<br /><a href="http://tid.tenpay.com/?p=5983">动画帧数计算</a>
+							<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
+							<a href="http://cssanimate.com/">cssanimate</a> / 
+							<a href="http://ademilter.com/lab/liffect/">liffect</a> / 
+							<a href="http://leaverou.github.io/animatable/">简单示例</a> / 
+							<a href="http://cssload.net/">cssload</a> / 
+							<a href="http://www.w3cfuns.com/blog-5421655-5400318.html">loading动画</a>
+							</span></li>
 						<li><a href="">animation-name</a><span>动画名称</span></li>
 						<li><a href="">animation-duration</a><span>时间</span></li>
 						<li><a href="">animation-timing-function</a><span>缓动函数</span></li>
@@ -2288,6 +2307,14 @@
 						<li><a href="">animation-direction</a><span>animation-direction:reverse / alternate /  alternate-reverse （反向,奇正偶反,偶正奇反）</span></li>
 						<li><a href="">animation-play-state</a><span>animation-play-state: running / paused 运行/暂停</span></li>
 						<li><a href="">animation-fill-mode</a><span>animation-fill-mode:none / forwards / backwords / both (返回初始,停留末尾,应用初始,两者)</span></li>
+						<li><a href="">移动端动画</a><span>
+							<a href="https://github.com/AlloyTeam/Mars/blob/master/performance/high-performance-css3-animation.md">参考资料1</a> |
+							<a href="https://github.com/AlloyTeam/Mars/blob/master/performance/css-property-animation-performance.md">参考资料2</a>
+							<br />1.减少BFC属性方式
+							<br />2.减少使用阴影与渐变
+							<br />3.让动画元素脱离文档流，减少重排
+							<br />4.JS中减少layout
+							</span></li>
 					</ul>
 				</div>
 			</li>
@@ -3063,6 +3090,10 @@
 							<br />1.img标签:<input type="text" style="width:200px" value='<img src="demo.svg" alt=""/>'/>
 							<br />2.css背景:<input type="text" style="width:200px" value=' background: url("http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg") no-repeat center;'/>
 							<br />3.svg标签
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								</svg>
+							</textarea>
 							<br />4.iframe标签:<input type="text" style="width:200px" value='<iframe src="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="200" height="200" ></iframe>'/>
 							<br />5.使用embed标签(早期将SVG图像嵌入到HTML页面中都是通过embed元素。当时并不是所有的浏览器都支持原生SVG。)<input type="text" style="width:200px" value='<embed src="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="300" height="220" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />'/>
 							<br />6.使用object标签(object元素是HTML4的标准标签元素，被所有较新的流星器支持。它只不过是不允许使用脚本。)<input type="text" style="width:200px" value='<object data="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="300" height="200" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install/" />'/>
@@ -3104,7 +3135,11 @@
 						<li><a href="">pattern</a><span>定义一个可用于平铺的图案,fill:url(#id)</span></li>
 						<li><a href="">use</a><span>svg画布铺满整个浏览器,需要设置html+body~font-size:0;line-height:0;<br />
 							use xlink:href="#id"</span></li>
-						<li><a href="">clipPath</a><span>clipPath定义一个用于剪裁的形状,clip-path="url(#id)"通过引用对某个图像进行剪裁</span></li>
+						<li><a href="">clipPath</a><span>clipPath定义一个用于剪裁的形状,clip-path="url(#id)"通过引用对某个图像进行剪裁
+							<br /><b>单词！！【定义】clipPath 《=》 【引用】clip-path="url(#id)"</b>
+							<br /><b>被剪裁形状内的区间为显示区间！！</b>
+							<br />css制作遮罩动画中,遮罩图形的尺寸不可操作,只有transform属性
+							</span></li>
 						<li><a href="">mask</a><span>蒙版
 							<br />maskUnits="'userSpaceOnUse' or 'objectBoundingBox'.设定裁剪面是否是相对完整的视窗或对象（默认：'objectBoundingBox'）"
 							<br />maskContentUnits="第二个掩码相对对象的图形位置使用百分比'userSpaceOnUse'或'objectBoundingBox'（默认：'userSpaceOnUse'）"
@@ -3112,6 +3147,14 @@
 							<br />y="裁剪面掩码（默认值：-10％）" 
 							<br />width="裁剪面掩码（默认是：120％）"
 							<br />height="裁剪面掩码（默认是：120％）"</span></li>
+						<li><a href="">image</a><span>
+							定义图像	
+							<br />x="图像的左上角的x轴坐标"
+							<br />y="图像的左上角的y轴坐标"
+							<br />width="图像的宽度". 必须.
+							<br />height="图像的高度". 必须.
+							<br />xlink:href="图像的路径". 必须.
+						</span></li>
 					</ul>
 					<h4>[<span>-</span>]绘制图形</h4>
 					<ul>
@@ -5276,12 +5319,14 @@
 						<li><a href="">getElementById()</a><span></span></li>
 						<li><a href="">getElementsByName()</a><span></span></li>
 						<li><a href="">getElementsByTagName()</a><span></span></li>
+						<li>document.<a href="">querySelector("#selector")</a><span></span></li>
+						<li>document.<a href="">querySelectorAll(".selector")</a><span></span></li>
 						<li><a href="">write()</a><span></span></li>
 					</ul>
 					<h4>[<span>-</span>]DOM方法</h4>
 					<ul>
-						<li><a href="">getAttribute()</a><span></span></li>
-						<li><a href="">setAttribute()</a><span></span></li>
+						<li><a href="">getAttribute</a>('attr')<span></span></li>
+						<li><a href="">setAttribute</a>('attr',val)<span></span></li>
 						<li><a href="">.innerHTML</a><span></span></li>
 						<li><a href="">.nodeName</a><span></span></li>
 						<li><a href="">.nodeValue</a><span></span></li>
@@ -6993,9 +7038,9 @@
 							<br />当指定index时，只返回该置的元素。
 							<br />这点与eq不同，该方法返回的是DOM节点，不是Zepto对象集合。
 							</span></li>
-						<li><a href="">index()</a><span>获取一个元素的索引值</span></li>
-						<li>collection.<a href="">indexOf(ele)</a><span>
-							在当前对象集合中获取一个元素的索引值
+						<li>ele.<a href="">index([parent])</a><span>获取一个元素在兄弟元素或指定集合的索引值</span></li>
+						<li>parent.<a href="">indexOf(ele)</a><span>
+							在当前对象集合中获取自身一个元素的索引值
 							</span></li>
 						<li><a href="">first()</a><span>获取当前对象集合中的第一个元素。</span></li>
 						<li><a href="">last()</a><span>获取对象集合中最后一个元素</span></li>
@@ -8695,7 +8740,9 @@
 		<li><a href="http://www.css88.com/jqapi-1.9/">jQuery API</a></li>
 		<li><a href="http://www.css88.com/jquery-ui-api/">jQuery UI Manual</a></li>
 		<li><a href="http://www.css88.com/doc/zeptojs_api/">ZeptoJS API</a></li>
+		<li><a href="http://www.css88.com/doc/backbone/">Backbone</a></li>
 		<li><a href="http://www.css88.com/doc/underscore/">Underscore.js</a></li>
+		<li><a href="http://www.requirejs.cn/">require.js</a></li>
 		<li><a href="http://docs.angularjs.cn/">AngularJS API</a></li>
 		<li><a href="http://nodeapi.ucdok.com/api/">Nodejs API</a></li>
 		</ul>
