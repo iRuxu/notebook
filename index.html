@@ -223,6 +223,7 @@
 							<br>px : 像素,相对长度单位。1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px;
 							<br>em : 相对长度单位.相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。 <a href="http://pxtoem.com/">PX转EM快速工具</a>
 							<br>rem : 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px（手机端HTML5元素不主动继承body字体大小时，使用*）
+							<br />vm : 视窗可用宽度,0～100.(除去滚动条)
 							</span></li>
 						<li><a href="">line-height</a>(px/180%/1.8)<span>
 							行高,可为百分比或乘积因子,具有继承性
@@ -531,7 +532,9 @@
 						<li><a href="">background</a><span>
 							[简写]background:#222 url() Xpx Ypx/size repeat attachment clip origin,...
 							<br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
-							<br>分解写法时，background-color只能设置一个。</span></li>
+							<br>分解写法时，background-color只能设置一个。
+							<br />缩写时,如果前面设置了独立属性,在缩写中未被定义的会被覆盖会空或默认值,如果在后面补充了的,后面的属性会自动合并到缩写中,如果该属性不被支持,则造成整个缩写属性无法识别！因根据情况全部分开写。
+							</span></li>
 						<li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
 						<li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.背景图的50%居中以图形中心为基点，不需要再移动自身一半尺寸
 							<br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
