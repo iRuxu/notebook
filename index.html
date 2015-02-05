@@ -2293,7 +2293,7 @@
 							<br>简写animation:
 							<br>name 5s   ease-in   1s      8/infinite alternate paused  forwards;
 							<br>名称 时间 缓动函数 延迟执行 重复次数   反向      暂停    停留在末尾状态;
-							<br /><b>多个动画之间用【逗号】隔开，会队列完成（非同时！）</b>
+							<br /><b>多个动画之间用【逗号】隔开，不同组动画属性的变化同时执行，可设置延迟达到队列效果，同属性例transform会覆盖</b>
 							<br /><a href="http://tid.tenpay.com/?p=5983">动画帧数计算</a>
 							<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
 							<a href="http://cssanimate.com/">cssanimate</a> / 
@@ -2304,7 +2304,8 @@
 							</span></li>
 						<li><a href="">animation-name</a><span>动画名称</span></li>
 						<li><a href="">animation-duration</a><span>时间</span></li>
-						<li><a href="">animation-timing-function</a><span>缓动函数</span></li>
+						<li><a href="">animation-timing-function</a><span>缓动函数
+							<br /><a href="http://www.qianduan.net/css3-animation.html">steps(num)逐帧动画</a></span></li>
 						<li><a href="">animation-delay</a><span>延迟时间</span></li>
 						<li><a href="">animation-iteration-count</a><span>执行次数</span></li>
 						<li><a href="">animation-direction</a><span>animation-direction:reverse / alternate /  alternate-reverse （反向,奇正偶反,偶正奇反）</span></li>
@@ -5369,13 +5370,17 @@
 					</ul>
 					<h4>[<span>-</span>]移动端</h4>
 					<ul>
+						<li><a href="">onorientationchange</a><span>
+							屏幕旋转事件，检测终端类型
+							<br />var screenStatus = "onorientationchange" in window ? "orientationchange" : "resize";
+							<br />window.orientation = 90/-90为横屏
+							</span></li>
 						<li><a href="">touchstart</a><span>当手指接触屏幕时触发</span></li>
 						<li><a href="">touchmove</a><span>当已经接触屏幕的手指开始移动后触发</span></li>
 						<li><a href="">touchend</a><span>当手指离开屏幕时触发</span></li>
 						<li><a href="">gesturestart</a><span>当两个手指接触屏幕时触发</span></li>
 						<li><a href="">gesturechange</a><span>当两个手指接触屏幕后开始移动时触发</span></li>
 						<li><a href="">gestureend</a><span>当两个手指离开屏幕时触发</span></li>
-						<li><a href="">onorientationchange </a><span>屏幕旋转事件</span></li>
 						<li><a href="">orientationchange </a><span>检测触摸屏幕的手指何时改变方向</span></li>
 						<li><a href=""></a><span></span></li>
 						<li><a href=""></a><span></span></li>
