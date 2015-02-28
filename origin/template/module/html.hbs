@@ -1,0 +1,1216 @@
+<div id="HTML" class="content" style="display:none">
+		<ul>
+			<li>
+				<h3>基础<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Common</h4>
+					<ul>
+						<li><a href="">!doctype html</a><span>
+							HTML5 
+							<br /><input type="text" value="<!doctype html>" style="width:380px">
+							<br />HTML4无框架
+							<br /><textarea name="" id="" cols="60" rows="4"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></textarea>
+							<br />HTML4有框架
+							<br /><textarea name="" id="" cols="60" rows="4"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"></textarea>
+						</span></li>
+						<li><a href="">html</a><span>根元素
+						<br />语言 lang="zh-CN"
+						<br />缓存 manifest="demo.appcache"
+						</span></li>
+						<li><a href="">head</a><span>头部信息</span></li>
+						<li><a href="">body</a><span>内容区域</span></li>
+						<li><a href="">注释</a><span><input type="text" style="width:380px" value='<!--注释-->'/></span></li>
+					</ul>
+					<h4>[<span>-</span>]Meta</h4>
+					<ul>
+						<li><a href="http://zhi.hu/XyIa">lang</a>
+								<span>简体中文 html lang="zh-cmn-Hans"
+								<br />繁体中文 html lang="zh-cmn-Hant"</span></li>
+						<li><a href="">title</a><span>标题</span></li>
+						<li><a href="">charset</a><span>
+							HTML5
+							<br /><input type="text" style="width:380px" value='<meta charset="utf-8">'/>
+							<br />HTML4
+							<br /><input type="text" style="width:380px" value='<meta http-equiv="content-type" content="text/html; charset=utf-8">'/>
+						</span></li>
+						<li><a href="">base</a>
+							<span>定义页面中所有链接的默认地址或默认目标。
+							<br />注释：如果使用了base标签，则必须具备 href 属性或者 target 属性或者两个属性都具备。</span></li>
+						<li><a href="">viewport</a>
+								<span><input type="text" style="width:380px" value='<meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui"/>'/>
+								<br />width viewport 宽度(数值/device-width)
+								<br />height viewport 高度(数值/device-height)
+								<br />initial-scale 初始缩放比例
+								<br />maximum-scale 最大缩放比例
+								<br />minimum-scale 最小缩放比例
+								<br /><a href="http://bigc.at/ios-webapp-viewport-meta.orz">user-scalable 是否允许用户缩放(yes/no)</a>
+								<br />minimal-ui 在页面加载时最小化上下状态栏(iOS7.1)
+								</span></li>
+						<li><a href="">X-UA-Compatible</a><span>
+							<textarea name="" id="" cols="60" rows="10">
+								强制使用IE最高版本及谷歌内核
+								<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+								360安全浏览器默认使用极速模式渲染
+								<meta name="renderer" content="webkit">
+							</textarea>
+							<br /><a href="http://se.360.cn/v6/help/meta.html">360浏览器内核控制 Meta 标签说明文档</a></span></li>
+						<li><a href="">Cache-Control</a><span>不允许百度转码 
+								<br />旧写法：
+								<br /><input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-transform"/>'/>
+								<br />新写法：
+								<br /><input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-siteapp"/>'/>
+								<br /><a href="http://m.baidu.com/pub/help.php?pn=22&ssid=0&from=844b&bd_page_type=1">参考资料</a>
+								</span></li>
+						<li><a href="">name</a>(SEO)<span>
+							<table border="1" cellspacing="0" cellpadding="2">
+							<tbody>
+							<tr>
+							<td rowspan="1" colspan="1" valign="top"><strong>name</strong></td>
+							<td rowspan="1" colspan="1" valign="top">
+							<ul>
+								<li>author</li>
+								<li><strong>description</strong></li>
+								<li><strong>keywords</strong></li>
+								<li>generator</li>
+								<li>copyright</li>
+								<li>revised</li>
+								<li><strong>Robots</strong></li>
+							</ul>
+							</td>
+							<td rowspan="1" colspan="1" valign="top">content</td>
+							<td rowspan="1" colspan="1" valign="top">
+							<ul>
+								<li>作者</li>
+								<li>描述</li>
+								<li>关键词</li>
+								<li>创建者/程序</li>
+								<li>版权信息</li>
+								<li>页面的最新版本 (  David, 2008/8/8/  )</li>
+								<li>all|none|index|noindex|follow|nofollow</li>
+								<li>设定为all：文件将被检索，且页面上的链接可以被查询；
+								<br />设定为none：文件将不被检索，且页面上的链接不可以被查询；
+								<br />设定为index：文件将被检索；
+								<br />设定为follow：页面上的链接可以被查询；
+								<br />设定为noindex：文件将不被检索，但页面上的链接可以被查询；
+								<br />设定为nofollow：文件将不被检索，页面上的链接可以被查询。
+								<br /><a href="http://msdn.microsoft.com/zh-cn/library/ff724037(v=expression.40).aspx">参考资料</a></li>
+							</ul>
+							</td>
+							</tr>
+							</tbody>
+							</table>
+						</span></li>
+						<li><a href="">http-equiv</a><span>
+							<table  border="1" cellspacing="0" cellpadding="2">
+							<tbody>
+							<tr>
+							<td rowspan="1" colspan="1" valign="top"><strong>http-equiv</strong></td>
+							<td rowspan="1" colspan="1" valign="top">
+							<ul>
+								<li>content-type</li>
+								<li>content-language</li>
+								<li>expires</li>
+								<li><strong>pragma<br clear="none" /></strong></li>
+								<li>set-cookie</li>
+								<li>pics-label<strong><br clear="none" /></strong></li>
+								<li>MSThemeCompatible</li>
+							</ul>
+							</td>
+							<td rowspan="1" colspan="1" valign="top">          content</td>
+							<td rowspan="1" colspan="1" valign="top">
+							<ul>
+								<li>&lt;meta http-equiv="Content-Type" contect="text/html";charset=gb_2312-80"&gt;</li>
+								<li>&lt;meta http-equiv="Content-Language" contect="zh-CN"&gt;</li>
+								<li>&lt;meta http-equiv="Expires" contect="Mon,12 May 2001 00:20:00 GMT"&gt; 网页到期时间</li>
+								<li>&lt;meta http-equiv="Pragma" contect="no-cache"&gt; 禁止缓存和脱机浏览</li>
+								<li>&lt;meta http-equiv="set-cookie" contect="Mon,12 May 2001 00:20:00 GMT"&gt; Cookie过期自动删除</li>
+								<li>&lt;meta http-equiv="Pics-label" contect=""&gt; IE网页评级</li>
+								<li>&lt;Meta http-equiv="MSThemeCompatible" Content="Yes"&gt; 是否在IE中关闭 xp 的主题</li>
+								<li>注意：关闭 xp 的蓝色立体按钮系统显示样式，从而和win2k 很象。</li>
+							</ul>
+							</td>
+							</tr>
+							</tbody>
+							</table>
+						</span></li>
+						<li><a href="">refresh</a><span>
+							<input type="text" style="width:380px" value='<meta http-equiv="Refresh" contect="n;url=http://yourlink">'/>
+							<br />定时让网页在指定的时间n内，跳转到页面http://yourlink；
+						</span></li>
+						<li><a href="">windows-target</a><span>
+							<input type="text" style="width:380px" value='<meta http-equiv="windows-Target" contect="_top">'/>
+							<br />强制页面在当前窗口中以独立页面显示，可以防止自己的网页被别人当作一个frame页调用
+						</span></li>
+						<li><a href="">Page-Enter</a><span>
+							<ul>
+							<li><strong>&lt;meta http-equiv="Page-Enter" content="revealTrans(duration=5.0,transition=20)"&gt;</strong></li>
+							<li><strong>Duration持续时间</strong>（单位：秒）</li>
+							<li><strong>Transition滤镜类型</strong>。表示使用哪种特效，取值为0-23:</li>
+							</ul>
+							<table border="1" cellspacing="0" cellpadding="2">
+							<tbody>
+							<tr>
+							<td valign="top">0 矩形缩小</td>
+							<td valign="top">1矩形扩大</td>
+							<td valign="top">2 圆形缩小</td>
+							<td valign="top">3 圆形扩大</td>
+							<td valign="top">4 下到上刷新</td>
+							<td valign="top">5 上到下刷新</td>
+							</tr>
+							<tr>
+							<td valign="top">6 左到右刷新</td>
+							<td valign="top">7 右到左刷新</td>
+							<td valign="top">8 竖百叶窗</td>
+							<td valign="top">9 横百叶窗</td>
+							<td valign="top">10 错位横百叶窗</td>
+							<td valign="top">11 错位竖百叶窗</td>
+							</tr>
+							<tr>
+							<td valign="top">12 点扩散</td>
+							<td valign="top">13 左右到中间刷新</td>
+							<td valign="top">14 中间到左右刷新</td>
+							<td valign="top">15 中间到上下</td>
+							<td valign="top">16 上下到中间</td>
+							<td valign="top">17 右下到左上</td>
+							</tr>
+							<tr>
+							<td valign="top">18 右上到左下</td>
+							<td valign="top">19 左上到右下</td>
+							<td valign="top">20 左下到右上</td>
+							<td valign="top">21 横条</td>
+							<td valign="top">22 竖条</td>
+							<td valign="top">23 以上22种随机选择一种</td>
+							</tr>
+							</tbody>
+							</table>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]Link</h4>
+					<ul>
+						<li><a href="">dns-prefetch</a><span>提前域名解析<input type="text" style="width:380px" value='<link rel="dns-prefetch" href="//www.domain1.com">'/></span></li>
+						<li><a href="">style</a><span>可配合条件注释或指定media媒体查询引入样式表<br />
+						<input type="text" style="width:380px" value='<link rel="stylesheet" href="" type="text/css" media="screen"/>'/></span></li>
+						<li><a href="https://github.com/audreyr/favicon-cheat-sheet">favicon</a>
+							<span>小ICON图标<input type="text" style="width:380px" value='<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />'/></span></li>
+						<li><a href="">RSS订阅</a><span>RSS订阅input
+						<br /><input type="text" style="width:380px" value='<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />'/>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]Script</h4>
+					<ul>
+						<li><a href="">script</a><span>也可以写在body区域或底部,推荐放在底部加载<br />
+								<input type="text" style="width:380px" value='<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>'/><br />
+								defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】 
+								</span></li>
+						<li><a href="">noscript</a><span>禁用脚本提示</span></li>
+						<li><a href="">IE9-支持HTML5</a>
+								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
+								<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+								<![endif]-->
+								</textarea></span></li>
+						<li><a href="">IE9-支持媒体查询</a>
+								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
+								<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+								<![endif]-->
+								</textarea></span></li>
+						<li><a href="http://modernizr.com/">modernizr</a></li>
+						<li><a href="http://selectivizr.com/">IE9-支持CSS3选择器</a></li>
+					</ul>
+					<h4>[<span>-</span>]Win8/WinPhone</h4>
+					<ul>
+						<li><a href="">msapplication-TileColor</a><span>
+							Windows 8 磁贴颜色<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<meta name="msapplication-TileColor" content="#000"/>
+							</textarea></span></li>
+						<li><a href="">msapplication-TileImage</a><span>
+							Windows 8 磁贴图标<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<meta name="msapplication-TileImage" content="icon.png"/
+							</textarea>
+						</span></li>
+						<li><a href="">msapplication-tap-highlight</a><span>
+							windows phone 点击无高光<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<meta name="msapplication-tap-highlight" content="no">
+							</textarea>
+						</span></li>
+						<li><a href="http://blog.csdn.net/freshlover/article/details/25322839">window8</a></li>
+					</ul>
+					<h4>[<span>-</span>]iOS</h4>
+					<ul>
+						<li><a href="">apple-mobile-web-app-capable</a><span>
+							启用 WebApp 全屏模式<br />
+							<textarea name="" id="" cols="60" rows="12">
+								<meta name="apple-mobile-web-app-capable" content="yes" />
+							</textarea>
+						</span></li>
+						<li><a href="">format-detection</a><span>
+							禁止识别电话号码/邮件<br />
+							<textarea name="" id="" cols="60" rows="12">
+								<meta name="format-detection" content="telphone=no, email=no" />
+							</textarea>
+						</span></li>
+						<li><a href="">apple-mobile-web-app-title</a><span>
+							添加到主屏后的标题（iOS 6 新增）<br />
+							<textarea name="" id="" cols="60" rows="12">
+								<meta name="apple-mobile-web-app-title" content="标题">
+							</textarea>
+						</span></li>
+						<li><a href="">apple-touch-icon-precomposed</a><span>
+							iOS图标,rel 参数： 
+							<br />apple-touch-icon 图片自动处理成圆角和高光等效果。 
+							<br />apple-touch-icon-precomposed 禁止系统自动添加效果，直接显示设计原图。 
+							<br />iPhone 和 iTouch，默认 57x57 像素，必须有.
+							<br /><textarea name="" id="" cols="60" rows="20">
+								默认 57x57 像素，必须有
+								<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png" /> 
+								iPad，72x72 像素，可以没有，但推荐有
+								<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png" /> 
+								Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有
+								<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png" />
+								Retina iPad，144x144 像素，可以没有，但推荐有
+								<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png" /> 
+								IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段
+								<link rel="apple-touch-icon-precomposed" sizes="180x180" href="retinahd_icon.png">
+							</textarea>
+						</span></li>
+						<li><a href="">apple-touch-startup-image</a><span>
+							iOS 启动画面,<a href="https://developer.apple.com/library/ios/qa/qa1686/_index.html">官方文档</a> <br />
+							iPad 的启动画面是不包括状态栏区域的。<br />
+							<textarea name="" id="" cols="60" rows="20">
+								iPad 竖屏 768 x 1004（标准分辨率）
+								<link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png" /> 
+								iPad 竖屏 1536x2008（Retina）
+								<link rel="apple-touch-startup-image" sizes="1536x2008" href="/splash-screen-1536x2008.png" /> 
+								iPad 横屏 1024x748（标准分辨率）
+								<link rel="apple-touch-startup-image" sizes="1024x748" href="/Default-Portrait-1024x748.png" /> 
+								iPad 横屏 2048x1496（Retina）
+								<link rel="apple-touch-startup-image" sizes="2048x1496" href="/splash-screen-2048x1496.png" />
+							</textarea>
+							iPhone 和 iPod touch 的启动画面是包含状态栏区域的。<br />
+							<textarea name="" id="" cols="60" rows="20">
+								iPhone/iPod Touch 竖屏 320x480 (标准分辨率)
+								<link rel="apple-touch-startup-image" href="/splash-screen-320x480.png" /> 
+								iPhone/iPod Touch 竖屏 640x960 (Retina)
+								<link rel="apple-touch-startup-image" sizes="640x960" href="/splash-screen-640x960.png" /> 
+								iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina)
+								<link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png" /> 
+								添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
+								<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+								iPhone 6对应的图片大小是750×1294，iPhone 6 Plus 对应的是1242×2148 。
+								<link rel="apple-touch-startup-image" href="launch6.png" media="(device-width: 375px)">
+								<link rel="apple-touch-startup-image" href="launch6plus.png" media="(device-width: 414px)">
+							</textarea>
+						</span></li>
+						<li><a href="http://www.uisdc.com/ios8-ten-new-feature">iOS8</a></li>
+					</ul>
+					<h4>[<span>-</span>]Mobile</h4>
+					<ul>
+						<li><a href="">UC</a><span>
+							<textarea name="" id="" cols="60" rows="12">
+								UC强制竖屏
+								<meta name="screen-orientation" content="portrait">
+								UC强制全屏
+								<meta name="full-screen" content="yes">
+								UC应用模式
+								<meta name="browsermode" content="application">
+							</textarea>
+						</span></li>
+						<li><a href="">QQ</a><span>
+							<textarea name="" id="" cols="60" rows="12">
+								QQ强制竖屏
+								<meta name="x5-orientation" content="portrait">
+								QQ强制全屏
+								<meta name="x5-fullscreen" content="true">
+								QQ应用模式
+								<meta name="x5-page-mode" content="app">
+							</textarea>
+						</span></li>
+						<li><a href="http://code.lancepollard.com/complete-list-of-html-meta-tags/">other</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>内容<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]内容</h4>
+					<ul>
+						
+						<li><a href="">address</a><span>定义文档作者或拥有者的联系信息。</span></li>
+						<li><a href="">cite</a><span>定义作品（比如书籍、歌曲、电影、电视节目、绘画、雕塑等等）的标题。</span></li>
+						<li><a href="">header</a><span>定义一个文档头部部分</span></li>
+						<li><a href="">footer</a><span>定义一个文档底部</span></li>
+						<li><a href="">nav</a><span>定义导航链接</span></li>
+						<li><a href="">section</a><span>定义了文档的某个区域</span></li>
+						<li><a href="">article</a><span>定义一个文章内容</span></li>
+						<li><a href="">aside</a><span>定义其所处内容之外的内容。</span></li>
+						<li><a href="">details</a><span>定义了用户可见的或者隐藏的需求的补充细节。</span></li>
+						<li><a href="">summary</a><span>定义一个可见的标题。 当用户点击标题时会显示出详细信息。</span></li>
+					</ul>
+					<h4>[<span>+</span>]布局</h4>
+					<ul style="display:none">
+						<li><a href="">div</a><span>层</span></li>
+						<li><a href="">span</a><span>文本</span></li>
+						<li><a href="">h1~h6</a><span>标题</span></li>
+						<li><a href="">p</a><span>段落</span></li>
+						<li><a href="">br</a><span>换行,title中换行& #10;</span></li>
+						<li><a href="">hr</a><span>水平线</span></li>
+						<li><a href="">a</a><span>链接</span></li>
+						<li><a href="">iframe</a><span>内联框架src=url, <a href="http://www.w3cschool.cc/tags/tag-iframe.html">沙盒过滤</a></span></li>
+					</ul>
+					<h4>[<span>+</span>]格式</h4>
+					<ul style="display:none">
+						<li><a href="">b</a><span>粗体</span></li>
+						<li><a href="">i</a><span>定义斜体文本。</span></li>
+						<li><a href="">del</a><span>定义被删除文本。</span></li>
+						<li><a href="">em</a><span>定义强调文本。 </span></li>
+						<li><a href="">strong</a><span>定义语气更为强烈的强调文本。</span></li>
+						<li><a href="">mark</a><span>标签定义带有记号的文本。</span></li>
+						<li><a href="">sub</a><span>定义下标文本。</span></li>
+						<li><a href="">sup</a><span>定义上标文本。</span></li>
+						<li><a href="">bdo</a><span>定义文本的方向。bdo dir=ltr/rtl</span></li>
+						<li><a href="">abbr</a><span>定义一个缩写。</span></li>
+						<li><a href="">blockquote</a><span>定义块引用。</span></li>
+						<li><a href="">q</a><span>定义短的引用。浏览器经常会在这种引用的周围插入引号。</span></li>
+						<li><a href="">meter</a><span>定义度量衡。仅用于已知最大和最小值的度量。</span></li>
+						<li><a href="">progress</a><span>定义运行中的任务进度（进程）。</span></li>
+					</ul>
+					<h4>[<span>-</span>]列表</h4>
+					<ul>
+						<li><a href="">ul</a><span>定义一个无序列表</span></li>
+						<li><a href="">ol</a><span>定义一个有序列表</span></li>
+						<li><a href="">li</a><span>定义一个列表项</span></li>
+						<li><a href="">dl/dt/dd</a><span>自定义列表</span></li>
+					</ul>
+					<h4>[<span>-</span>]表格</h4>
+					<ul>
+						<li><a href="">table</a><span>表格</span></li>
+						<li><a href="">caption</a><span>表格标题</span></li>
+						<li><a href="">th</a><span>表头单元格</span></li>
+						<li><a href="">tr</a><span>行</span></li>
+						<li><a href="">td</a><span>单元格</span></li>
+						<li><a href="">thead</a><span>表头</span></li>
+						<li><a href="">tbody</a><span>主体</span></li>
+						<li><a href="">tfoot</a><span>表尾</span></li>
+						<li><a href="">col</a><span>定义表格中一个或多个列的属性值。</span></li>
+						<li><a href="">colgroup</a><span>定义表格中供格式化的列组。<a href="http://www.w3cschool.cc/try/try.php?filename=tryhtml_col_test">参考实例</a></span></li>
+					</ul>
+					<h4>[<span>-</span>]表单</h4>
+					<ul>
+						<li><a href="">form</a><span>表单
+								<table border="1" cellspacing="0" cellpadding="2">
+								<tbody>
+								<tr>
+								<td rowspan="1" colspan="1" valign="top">
+								<div><strong>form</strong></div>
+								<ul>
+									<li><strong>action="url"</strong></li>
+									<li><strong>autocomplete="on/off"</strong></li>
+									<li><strong>method="get/post"</strong></li>
+									<li><strong>name=""</strong></li>
+									<li><strong>target="_blank"</strong></li>
+									<li><strong>novalidate(="novalidate")</strong></li>
+								</ul>
+								</td>
+								<td rowspan="1" colspan="1" valign="top">
+								<div></div>
+								<ul>
+									<li>规定当提交表单时向何处发送表单数据。</li>
+									<li>规定是否启用表单的自动完成功能。（HTML5）</li>
+									<li>规定用于发送表单数据的 HTTP 方法。</li>
+									<li>表单名</li>
+									<li>action打开方式</li>
+									<li>无需验证（HTML5、safari!x）</li>
+								</ul>
+								</td>
+								</tr>
+								<tr>
+								<td rowspan="1" colspan="1" valign="top">
+								<ul>
+									<li><strong>enctype=""</strong></li>
+								</ul>
+								<div>限POST方法</div>
+								<div>规定在向服务器发送表单数据之前如何对其进行编码。</div></td>
+								<td rowspan="1" colspan="1" valign="top">
+								<div>application/x-www-form-urlencoded</div>
+								<div>     默认。在发送前对所有字符进行编码（将空格转换为 "+" 符号，特殊字符转换为 ASCII HEX 值）。<br clear="none" /> multipart/form-data</div>
+								<div>     不对字符编码。当使用有文件上传控件的表单时，该值是必需的。<br clear="none" /> text/plain</div>
+								<div>     将空格转换为 "+" 符号，但不编码特殊字符。</div></td>
+								</tr>
+								</tbody>
+								</table></span></li>
+						<li><a href="">label</a><span>定义 input 元素的标注。</span></li>
+						<li><a href="">input</a><span>定义一个输入控件。语音搜索<textarea name="" id="" cols="60" rows="2"><input type="text" x-webkit-speech=""></textarea>
+							<br /><table>
+							<tbody>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>button</strong></td>
+							<td rowspan="1" colspan="1">定义可点击的按钮（通常与 JavaScript 一起使用来启动脚本）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>checkbox</strong></td>
+							<td rowspan="1" colspan="1">定义复选框。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">color</td>
+							<td rowspan="1" colspan="1">定义拾色器。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">date</td>
+							<td rowspan="1" colspan="1">定义 date 控件（包括年、月、日，不包括时间）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">datetime</td>
+							<td rowspan="1" colspan="1">定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">datetime-local</td>
+							<td rowspan="1" colspan="1">定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">emailNew</td>
+							<td rowspan="1" colspan="1">定义用于 e-mail 地址的字段。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>file</strong></td>
+							<td rowspan="1" colspan="1">定义文件选择字段和 "浏览..." 按钮，供文件上传。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>hidden</strong></td>
+							<td rowspan="1" colspan="1">定义隐藏输入字段。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">image</td>
+							<td rowspan="1" colspan="1">定义图像作为提交按钮。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">month</td>
+							<td rowspan="1" colspan="1">定义 month 和 year 控件（不带时区）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>number</strong></td>
+							<td rowspan="1" colspan="1">定义用于输入数字的字段。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">password</td>
+							<td rowspan="1" colspan="1">定义密码字段（字段中的字符会被遮蔽）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>radio</strong></td>
+							<td rowspan="1" colspan="1">定义单选按钮。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>range</strong></td>
+							<td rowspan="1" colspan="1">定义用于精确值不重要的输入数字的控件（比如 slider 控件）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>reset</strong></td>
+							<td rowspan="1" colspan="1">定义重置按钮（重置所有的表单值为默认值）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">search</td>
+							<td rowspan="1" colspan="1">定义用于输入搜索字符串的文本字段。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>submit</strong></td>
+							<td rowspan="1" colspan="1">定义提交按钮。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">tel</td>
+							<td rowspan="1" colspan="1">定义用于输入电话号码的字段。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1"><strong>text</strong></td>
+							<td rowspan="1" colspan="1"><strong>默认</strong>。定义一个单行的文本字段（默认宽度为 20 个字符）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">time</td>
+							<td rowspan="1" colspan="1">定义用于输入时间的控件（不带时区）。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">url</td>
+							<td rowspan="1" colspan="1">定义用于输入 URL 的字段。</td>
+							</tr>
+							<tr>
+							<td rowspan="1" colspan="1">week</td>
+							<td rowspan="1" colspan="1">定义 week 和 year 控件（不带时区）。</td>
+							</tr>
+							</tbody>
+							</table></span></li>
+						<li><a href="">datalist</a><span>规定了 input 元素可能的选项列表。</span></li>
+						<li><a href="">textarea</a><span>定义多行的文本输入控件。</span></li>
+						<li><a href="">button</a><span>定义按钮。</span></li>
+						<li><a href="">select</a><span>定义选择列表（下拉列表）。</span></li>
+						<li><a href="">optgroup</a><span>定义选择列表中相关选项的组合。</span></li>
+						<li><a href="">option</a><span>定义选择列表中的选项。</span></li>
+						<li><a href="">fieldset</a><span>定义了一组相关的表单元素，并使用外框包含起来</span></li>
+						<li><a href="">legend</a><span>定义了 <fieldset> 元素的标题</span></li>
+					</ul>
+					<h4>[<span>-</span>]图像</h4>
+					<ul>
+						<li><a href="">img</a><span>定义图像。</span></li>
+						<li><a href="">map/area</a><span>定义图像映射/定义图像地图内部的区域。</span></li>
+						<li><a href="">canvas</a><span>绘制图形</span></li>
+						<li><a href="">figure</a><span>figure 标签用于对元素进行组合。</span></li>
+						<li><a href="">figcaption</a><span>figure的标题</span></li>
+					</ul>
+					<h4>[<span>-</span>]多媒体</h4>
+					<ul>
+						<li><a href="">audio</a><span>定义声音，比如音乐或其他音频流。</span></li>
+						<li><a href="">video</a><span>定义一个音频或者视频</span></li>
+						<li><a href="">source</a><span>定义media元素 (video 和 audio)的媒体资源</span></li>
+						<li><a href="">track</a><span>为媒体(video 和 audio)元素定义外部文本轨道。</span></li>
+						<li><a href="">object</a><span>定义了一个容器，用来嵌入外部应用或者互动程序（插件）。</span></li>
+						<li><a href="">embed</a><span>定义嵌入的对象。</span></li>
+						<li><a href="">param</a><span>定义对象的参数。</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>SVG<span>-</span></h3>
+				<div>
+					<h4>[<span>+</span>]概念资料</h4>
+					<ul style="display:none">
+						<li><a href="">插入方式</a><span>
+							<a href="http://www.w3cplus.com/html5/svg-introduction-and-embedded-html-page.html">嵌入方式：</a>
+							<br />1.img标签:<input type="text" style="width:200px" value='<img src="demo.svg" alt=""/>'/>
+							<br />2.css背景:<input type="text" style="width:200px" value=' background: url("http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg") no-repeat center;'/>
+							<br />3.svg标签
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								</svg>
+							</textarea>
+							<br />4.iframe标签:<input type="text" style="width:200px" value='<iframe src="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="200" height="200" ></iframe>'/>
+							<br />5.使用embed标签(早期将SVG图像嵌入到HTML页面中都是通过embed元素。当时并不是所有的浏览器都支持原生SVG。)<input type="text" style="width:200px" value='<embed src="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="300" height="220" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />'/>
+							<br />6.使用object标签(object元素是HTML4的标准标签元素，被所有较新的流星器支持。它只不过是不允许使用脚本。)<input type="text" style="width:200px" value='<object data="http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg" width="300" height="200" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install/" />'/>
+							<br />没有单位时总是以px作为单位,即使父级设置了其他类型单位,子级未设置单位的依然按px绘制。
+						</span></li>
+						<li><a href="http://www.w3cschool.cc/svg/svg-reference.html">W3school参考手册</a></li>
+						<li><a href="http://www.imooc.com/learn/143">视频教程</a></li>
+						<li><a href="http://www.w3.org/TR/SVG11/">W3C规范</a></li>
+					</ul>
+					<h4>[<span>+</span>]工具素材</h4>
+					<ul  style="display:none">
+						<li><a href="http://filterfactory.mobi/">SVG Filter生成</a></li>
+						<li><a href="http://cssplant.com/clip-path-generator">Clip Path生成</a></li>
+						<li><a href="http://www.flaticon.com/">Flaticon</a></li>
+						<li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
+						<li><a href="http://svg-edit.googlecode.com/svn/branches/2.6/editor/svg-editor.html">SVG Editor</a></li>
+					</ul>
+					<h4>[<span>-</span>]基本属性</h4>
+					<ul>
+						<li><a href="">viewBox</a><span>
+							viewBox="x, y, width, height"  // x:左上角横坐标，y:左上角纵坐标，width:宽度，height:高度
+						</span></li>
+						<li><a href="">preserveAspectRatio</a><span>
+							preserveAspectRatio="xMidYMid meet" <a href="http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/">参考资料</a>
+							<br />第1个值表示，viewBox如何与SVG viewport对齐，自由组合；
+							<br />xMin	viewport和viewBox左边对齐
+							<br />xMid	viewport和viewBox x轴中心对齐
+							<br />xMax	viewport和viewBox右边对齐
+							<br />YMin	viewport和viewBox上边缘对齐。注意Y是大写。
+							<br />YMid	viewport和viewBox y轴中心点对齐。注意Y是大写。
+							<br />YMax	viewport和viewBox下边缘对齐。注意Y是大写。
+							<br />第2个值表示，如何维持高宽比（如果有）。
+							<br />meet	保持纵横比缩放viewBox适应viewport
+							<br />slice	保持纵横比同时比例小的方向放大填满viewport
+							<br />none	扭曲纵横比以充分适应viewport
+						</span></li>
+						<li><a href="">g</a><span>编组</span></li>
+						<li><a href="">defs</a><span>引用的元素容器</span></li>
+						<li><a href="">pattern</a><span>定义一个可用于平铺的图案,fill:url(#id)</span></li>
+						<li><a href="">use</a><span>svg画布铺满整个浏览器,需要设置html+body~font-size:0;line-height:0;<br />
+							use xlink:href="#id"</span></li>
+						<li><a href="">clipPath</a><span>clipPath定义一个用于剪裁的形状,clip-path="url(#id)"通过引用对某个图像进行剪裁
+							<br /><b>单词！！【定义】clipPath 《=》 【引用】clip-path="url(#id)"</b>
+							<br /><b>被剪裁形状内的区间为显示区间！！</b>
+							<br />css制作遮罩动画中,遮罩图形的尺寸不可操作,只有transform属性
+							</span></li>
+						<li><a href="">mask</a><span>蒙版
+							<br />maskUnits="'userSpaceOnUse' or 'objectBoundingBox'.设定裁剪面是否是相对完整的视窗或对象（默认：'objectBoundingBox'）"
+							<br />maskContentUnits="第二个掩码相对对象的图形位置使用百分比'userSpaceOnUse'或'objectBoundingBox'（默认：'userSpaceOnUse'）"
+							<br />x="裁剪面掩码（默认值：-10％）" 
+							<br />y="裁剪面掩码（默认值：-10％）" 
+							<br />width="裁剪面掩码（默认是：120％）"
+							<br />height="裁剪面掩码（默认是：120％）"</span></li>
+						<li><a href="">image</a><span>
+							定义图像	
+							<br />x="图像的左上角的x轴坐标"
+							<br />y="图像的左上角的y轴坐标"
+							<br />width="图像的宽度". 必须.
+							<br />height="图像的高度". 必须.
+							<br />xlink:href="图像的路径". 必须.
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]绘制图形</h4>
+					<ul>
+						<li><a href="">rect</a><span>矩形 x,y,width,height,rx,ry</span></li>
+						<li><a href="">circle</a><span>圆形 cx,cy,r</span></li>
+						<li><a href="">ellipse</a><span>椭圆 cx,cy,rx,ry</span></li>
+						<li><a href="">line</a><span>直线 x1,y1,x2,y2</span></li>
+						<li><a href="">polygon</a><span>多边形 points="x1,y1 x2,y2 ...,xN,yN"</span></li>
+						<li><a href="">polyline</a><span>折线 points="x1,y1 x2,y2 ...,xN,yN"</span></li>
+						<li><a href="">path</a><span>路径 d=". . ."</span></li>
+						<li><a href="">text</a><span>文字 x,y</span></li>
+					</ul>
+					<h4>[<span>-</span>]图形属性</h4>
+					<ul>
+						<li><a href="">width/height</a><span>宽高</span></li>
+						<li><a href="">x/y</a><span>矩形/文字起始点水平/垂直坐标</span></li>
+						<li><a href="">rx/ry</a><span>
+							矩形水平圆角 / 椭圆水平半径
+							<br />矩形垂直圆角 / 椭圆垂直半径
+							</span></li>
+						<li><a href="">cx/cy</a><span>圆心水平/垂直坐标</span></li>
+						<li><a href="">r</a><span>圆半径</span></li>
+						<li><a href="">x1,y1,x2,y2</a><span>线条的起始与结束坐标点</span></li>
+						<li><a href="">points</a><span>定义多边形/折线每个角的x和y坐标,每一组数x,y xn,yn每一组点之间用空格分开</span></li>
+						<li><a href="">d</a><span>定义路径数据：
+							<br />所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
+							<br />M = moveto （移动到）
+							<br />L = lineto （连线）
+							<br />H = horizontal lineto （水平连线）
+							<br />V = vertical lineto （垂直连线）
+							<br />C = curveto （曲线）
+							<br />S = smooth curveto （平滑曲线）
+							<br />Q = quadratic Bézier curve （二次贝塞尔曲线）
+							<br />=》M x0 y0 q x1 y1 x2 y2 小写代表相对,即后面的值表示正数+水平向下/负数-水平向上
+							<br />T = smooth quadratic Bézier curveto （平滑贝塞尔曲线）
+							<br />A = elliptical Arc （椭圆弧形）
+							<br />Z = closepath （闭合路径）
+							</span></li>
+						<li><a href="">style</a><span>CSS样式</span></li>
+					</ul>
+					<h4>[<span>-</span>]样式属性</h4>
+					<ul>
+						<li><a href="">fill</a>(#fff)<span>填充颜色</span></li>
+						<li><a href="">fill-opacity</a>(0-1)<span>填充透明度</span></li>
+						<li><a href="">stroke</a>(#f39)<span>轮廓颜色</span></li>
+						<li><a href="">stroke-opacity</a>(0-1)<span>轮廓线透明度</span></li>
+						<li><a href="">stroke-width</a>(8)<span>轮廓宽度(可不要单位)</span></li>
+						<li><a href="">stroke-linecap</a>(round)<span>轮廓笔触样式
+							<br />butt:结尾柄
+							<br />round:圆
+							<br />square:方
+							</span></li>
+						<li><a href="">stroke-dasharray</a><span>虚线样式
+							<br />自定义虚线的结构
+							<br />stroke-dasharray="5,5" 
+							<br />stroke-dasharray="20,10,5,5,5,10"
+							<br />SVG描边动画,设置stroke-dasharray: 1000;stroke-dashoffset: 1000;设置keyframe{ to{stroke-dashoffset: 0;}}
+							</span></li>
+						<li><a href="">transform</a><span>变换是基于自身坐标系！矩阵等同线性代数矩阵</span></li>
+					</ul>
+					<h4>[<span>-</span>]字体</h4>
+					<ul>
+						<li><a href="">text</a><span>文字，基于基线对齐</span></li>
+						<li><a href="">textPath</a><span>
+							路径文字 textPath xlink:href="#id"
+							<br />超出路径的部分不会被渲染
+							<br />位移控制：
+							<br />水平：x(起始位置点),text-anchor:start/end/middle(文字的哪个点对齐文本x起始点),startOffset:%(文本以哪个开始作为与路径对齐的点),dx(切线起点)
+							<br />垂直：y(无),dy(法线位置,dx/dy会对后续字符一起影响)
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+								  <defs>
+								    <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+								  </defs>
+								  <text x="10" y="100" style="fill:red;">
+								    <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
+								  </text>
+								</svg>
+							</textarea>
+						<li><a href="">tspan</a><span>text中多行文本,可拥有单独样式</span></li>
+						<li><a href="">a</a>xlink:href<span>
+							a标签可以添加到任意图形上<br />
+							链接文本,应包围在text外面,xlink:title提示<br />
+							<textarea name="" id="" cols="30" rows="10">
+								<a xlink:href="http://www.w3schools.com/svg/" target="_blank">
+								    <text x="0" y="15" fill="red">I love SVG</text>
+								</a>
+							</textarea>
+						</span></li>
+					</ul>
+					<h4>[<span>-</span>]渐变</h4>
+					<ul>
+						<li><a href="">linearGradient</a><span>线性渐变
+							<br />id="id 属性可为渐变定义一个唯一的名称。引用必须"
+							<br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'.使用视图框或对象，以确定相对位置矢量点。 （默认为'objectBoundingBox）"
+							<br />gradientTransform="适用于渐变的转变"
+							<br />x1="渐变向量x启动点（默认0％）"
+							<br />y1="渐变向量y启动点（默认0％）" 
+							<br />x2="渐变向量x的终点。 （默认100％）"
+							<br />y2="渐变向量y的终点。 （默认0％）" 
+							<br />spreadMethod="'pad' or 'reflect' or 'repeat'"
+							<br />xlink:href="reference to another gradient whose attribute values are used as defaults and stops included. Recursive"
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+								      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+								      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+								    </linearGradient>
+								  </defs>
+								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+								</svg>
+							</textarea>
+						</span></li>
+						<li><a href="">radialGradient</a><span>径向渐变
+							<br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'. 使用视图框或对象以确定相对位置的矢量点。 （默认为'objectBoundingBox）"
+							<br />gradientTransform="适用于渐变的变换" 
+							<br />cx="渐变的中心点（数字或％ - 50％是默认）"
+							<br />cy="渐变的中心点。 （默认50％）"
+							<br />r="渐变的半径。 （默认50％）" 
+							<br />fx="渐变的焦点。 （默认0％）"
+							<br />fy="渐变的焦点。 （默认0％）"
+							<br />spreadMethod="'pad' or 'reflect' or 'repeat'"
+							<br />xlink:href="引用到另一个渐变，其属性值作为默认值。递归"
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+								      <stop offset="0%" style="stop-color:rgb(255,255,255);
+								      stop-opacity:0" />
+								      <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+								    </radialGradient>
+								  </defs>
+								  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+								</svg>
+							</textarea>
+						</span></li>
+					</ul>
+					<h4>[<span>+</span>]滤镜</h4>
+					<ul style="display:none">
+						<li><a href="">filter</a><span>滤镜<br />
+							所有互联网的SVG滤镜定义在defs元素中。defs元素定义短并含有特殊元素（如滤镜）定义。
+							filter标签用来定义SVG滤镜。filter标签使用必需的id属性来定义向图形应用哪个滤镜
+						</span></li>
+						<li><a href="">示例</a><span>
+							<textarea name="" id="" cols="30" rows="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+								  <defs>
+								    <filter id="f1" x="0" y="0">
+								      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+								    </filter>
+								  </defs>
+								  <rect width="90" height="90" stroke="green" stroke-width="3"
+								  fill="yellow" filter="url(#f1)" />
+								</svg>
+							</textarea>
+							<br />filter元素id属性定义一个滤镜的唯一名称
+							<br />feGaussianBlur元素定义模糊效果
+							<br />in="SourceGraphic"这个部分定义了由整个图像创建效果
+							<br />stdDeviation属性定义模糊量
+							<br />rect元素的滤镜属性用来把元素链接到"f1"滤镜
+						</span></li>
+						<li><a href="">feBlend</a><span>与图像相结合的滤镜</span></li>
+						<li><a href="">feOffset</a><span>过滤阴影</span></li>
+						<li><a href="">feGaussianBlur</a>高斯模糊<span></span></li>
+						<li><a href="">feColorMatrix</a><span>用于彩色滤光片转换</span></li>
+						<li><a href="">feComponentTransfer</a><span></span></li>
+						<li><a href="">feComposite</a><span></span></li>
+						<li><a href="">feConvolveMatrix</a><span></span></li>
+						<li><a href="">feDiffuseLighting</a><span></span></li>
+						<li><a href="">feDisplacementMap</a><span></span></li>
+						<li><a href="">feFlood</a><span></span></li>
+						<li><a href="">feImage</a><span></span></li>
+						<li><a href="">feMerge</a><span></span></li>
+						<li><a href="">feMorphology</a><span></span></li>
+						<li><a href="">feSpecularLighting</a><span>feTile</span></li>
+						<li><a href="">feTurbulence</a><span></span></li>
+						<li><a href="">feDistantLight</a><span>用于照明过滤</span></li>
+						<li><a href="">fePointLight</a><span>用于照明过滤</span></li>
+						<li><a href="">feSpotLight</a><span>用于照明过滤</span></li>
+					</ul>
+					<h4>[<span>-</span>]动画</h4>
+					<ul>
+						<li><a href="">参数详解</a><span><a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/">参考资料</a>
+							<br />attributeName : 可以是元素直接暴露的属性，可以是CSS属性
+							<br />attributeType : CSS/XML/auto
+							<br />from = 动画的起始值。
+							<br />to = 指定动画的结束值,如果to,by同时出现，则by打酱油，只识别to.
+							<br />by = 动画的相对变化值。
+							<br />values = "a,b,c,d"用分号分隔的一个或多个值，可以看出是动画的多个关键值点。
+							<br />begin = "3s;6s" 动画开始的时间。begin的定义是分号分隔的一组值；
+							<br />		相对时间：-3s；
+							<br />		关联其他：id.end/begin +/-3s；
+							<br />		绑定事件：id.click +/-3s；
+							<br />		重复次数：id.repeat(整数) +/-3s；
+							<br />		某个按键：accessKey(" character ")
+							<br />		无线等待：indefinite  需要beginElement()方法触发或者指向该动画元素的超链接(SVG中的a元素)
+							<br />dur = "3s" 动画执行的时间
+							<br />calcMode = discrete离散，from值直接跳到to值。
+							<br />		   linear线性，动画从头到尾的速率都是一致的
+							<br />		   paced踏步，通过插值让动画的变化步调平稳均匀
+							<br />		   spline样条，插值定义贝塞尔曲线
+							<br />repeatCount:表示动画执行次数,合法数值或者indefinite
+							<br />repeatDur:定义重复动画的总时间,可以是普通时间值或者indefinite
+							<br />fill:freeze元素保持了动画结束之后的状态 | remove表示动画结束直接回到开始的地方
+							<br />accumulate:是累积的意思。支持参数有：none | sum. 默认值是none. 如果值是sum表示动画结束时候的位置作为下次动画的起始位置。
+							<br />additive:控制动画是否附加。支持参数有：replace | sum. 默认值是replace. 如果值是sum表示动画的基础知识会附加到其他低优先级的动画上
+							<br />restart:always | whenNotActive | never.always是默认值，表示总是，也就是点一次圈圈，马儿跑一下。whenNotActive表示动画正在进行的时候，是不能重启动画的。never表示动画是一波流。
+								</span></li>
+						<li><a href="">set</a><span>
+							<a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/">参考资料</a>
+							<textarea name="" id="" cols="30" rows="10">
+								<set attributeName="x" attributeType="XML" to="60" begin="3s" />
+							</textarea>
+								</span></li>
+						<li><a href="">animate</a><span>随时间动态改变属性
+							<br />attributeName="目标属性名称"
+							<br />from="起始值"
+							<br />to="结束值"
+							<br />dur="持续时间"
+							<br />repeatCount="动画时间将发生"</span></li>
+						<li><a href="">animateColor</a><span>定义随着时间的推移颜色转换
+							<br />by="相对偏移值"
+							<br />from="起始值"
+							<br />to="结束值"</span></li>
+						<li><a href="">animateMotion</a><span>使元素沿着动作路径移动
+							<br />calcMode="动画的插补模式。可以是'discrete', 'linear', 'paced', 'spline'"
+							<br />path="运动路径"
+							<br />keyPoints="沿运动路径的对象目前时间应移动多远"
+							<br />rotate="应用旋转变换"
+							<br />xlink:href="一个URI引用<path>元素，它定义运动路径"</span></li>
+						<li><a href="">animateTransform</a><span>动画上一个目标元素变换属性，从而使动画控制平移，缩放，旋转或倾斜
+							<br />by="相对偏移值"
+							<br />from="起始值"
+							<br />to="结束值"
+							<br />type="类型的转换其值是随时间变化。可以是 'translate', 'scale', 'rotate', 'skewX', 'skewY'"</span></li>
+					</ul>
+					<h4>[<span>-</span>]Javascript API</h4>
+					<ul>
+						<li><a href="">创建图形</a><span>document.creatElementNS(ns,tagName)</span></li>
+						<li><a href="">SVG_NS</a><span>'http://www.w3.org/2000/svg'</span></li>
+						<li><a href="">XLINK_NS</a><span>'http://www.w3.org/1999/xlink'</span></li>
+						<li><a href="">Morpheus</a><span> 平滑复杂动画的补间动画创建
+							<a href="https://github.com/alexk111/SVG-Morpheus">Git</a> | 
+							<a href="http://www.zhangxinxu.com/wordpress/?p=4480">参考资料</a>
+							<br />用法：
+							<br />1.引入库,创建SVG,给SVG画布定义id,内部元素必须为g分组,不支持symbol,同样给定id
+							<br />2.实例化SVG为对象，此处为整个svg画布。var myIcons = new SVGMorpheus('#icon');不设置参数时默认显示最后一个g。
+							<br />3.切换目标，注意此处引入的id不再加“#”号！myIcons.to('icon-pacman');结合事件切换
+							<hr />SVGMorpheus构造方法
+							<br />var myIcons = new SVGMorpheus(element, options, callback);
+							<br />1.element
+							<br />SVG元素，可以是选择器（字符串）、也可以直接就是SVG元素、Object元素或IFrame元素（对象）。
+							<br />2.options
+							<br />可选参数们。具体见下：
+							<br />options.iconId – 可选。表示初始化之后，默认显示的图标id, 如果不使用默认值，则使用最后一个图标。
+							<br />options.duration – 可选。动画持续时间，单位是毫秒。默认是750ms.
+							<br />options.easing – 可选。设置默认缓动类型（缓动关键字后面有陈列）。默认是：quad-in-out.
+							<br />options.rotation – 可选。设置动画旋转方向，顺时针还是逆时针，支持下面4个关键字clock, counterclock, random以及none, 分别表示顺时针，逆时针，随机时针以及没有旋转。默认值是clock也就是顺时针变旋转变补间。
+							<br />3.callback
+							可选。设置所有图标变换动画结束后的回调。
+							<hr />SVGMorpheus.to()方法
+							<br />myIcons.to(iconId, options, callback);
+							<br />1.iconId
+							<br />要变换的图标的id, 在<g>元素上。【不需要#】
+							<br />2.options
+							<br />可选参数们。具体见下：
+							<br />options.iconId – 可选。表示初始化之后，默认显示的图标id, 如果不使用默认值，则使用最后一个图标。
+							<br />options.duration – 可选。当前动画持续时间，单位是毫秒。默认是750ms.
+							<br />options.easing – 可选。设置当前动画缓动类型（缓动关键字后面有陈列）。默认是：quad-in-out.
+							<br />circ-in, circ-out, circ-in-out, cubic-in, cubic-out, cubic-in-out, elastic-in, elastic-out, elastic-in-out, expo-in, expo-out, expo-in-out, linear, quad-in, quad-out, quad-in-out, quart-in, quart-out, quart-in-out, quint-in, quint-out, quint-in-out, sine-in, sine-out, sine-in-out
+							<br />options.rotation – 可选。设置当前动画旋转方向，顺时针还是逆时针，支持下面4个关键字clock, counterclock, random以及none, 分别表示顺时针，逆时针，随机时针以及没有旋转。默认值是clock也就是顺时针变旋转变补间。
+							<br />3.callback
+							可选。设置当前图标变换动画结束后的回调。
+						</span></li>
+						<li><a href="http://snapsvg.io/">Snap.svg</a></li>
+						<li><a href="http://www.zhangxinxu.com/GitHub/demo-Snap.svg/demo/basic/">Snap API</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>CANVAS<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]核心</h4>
+					<ul>
+						<li><a href="">getContext("2d")</a><span></span></li>
+						<li><a href="">createEvent()</a><span></span></li>
+						<li><a href="">toDataURL()</a><span></span></li>
+						<li><a href="">save()</a><span>保存当前环境的状态。</span></li>
+						<li><a href="">restore()</a><span>返回之前保存过的路径状态和属性。</span></li>
+					</ul>
+					<h4>[<span>-</span>]图像</h4>
+					<ul>
+						<li><a href="">drawImage</a>(image,x,y)<span><a href="http://www.w3cschool.cc/tags/canvas-drawimage.html">参考资料</a>
+							<br>在画布上定位图像：
+							<br>JavaScript 语法：	context.drawImage(img,x,y);
+							<br>在画布上定位图像，并规定图像的宽度和高度：
+							<br>JavaScript 语法：	context.drawImage(img,x,y,width,height);
+							<br>剪切图像，并在画布上定位被剪切的部分：
+							<br>JavaScript 语法：	context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+							<textarea name="" id="" cols="60" rows="10">var c=document.getElementById("myCanvas");
+							var ctx=c.getContext("2d");
+							var img=document.getElementById("scream");
+							ctx.drawImage(img,10,10);</textarea></span></li>
+						<li><a href="">width</a><span>返回 ImageData 对象的宽度。</span></li>
+						<li><a href="">height</a><span>返回 ImageData 对象的高度。</span></li>
+						<li><a href="">data</a><span>返回一个对象，其包含指定的 ImageData 对象的图像数据。</span></li>
+						<li><a href="">createImageData()</a><span>创建新的、空白的 ImageData 对象。</span></li>
+						<li><a href="">getImageData()</a><span>返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据。</span></li>
+						<li><a href="">putImageData()</a><span>把图像数据（从指定的 ImageData 对象）放回画布上。</span></li>
+						<li><a href="">globalAlpha</a><span>设置或返回绘图的当前 alpha 或透明值。</span></li>
+						<li><a href="">globalCompositeOperation</a><span>设置或返回新图像如何绘制到已有的图像上</span></li>
+					</ul>
+					<h4>[<span>-</span>]颜色样式阴影</h4>
+					<ul>
+						<li><a href="">fillStyle</a>="col/gra/img"<span>设置fillStyle属性可以是CSS颜色，渐变，或图案</span></li>
+						<li><a href="">strokeStyle</a><span>设置或返回用于笔触的颜色、渐变或模式。</span></li>
+						<li><a href="">shadowColor</a><span>设置或返回用于阴影的颜色。</span></li>
+						<li><a href="">shadowBlur</a><span>设置或返回用于阴影的模糊级别。</span></li>
+						<li><a href="">shadowOffsetX</a><span>设置或返回阴影与形状的水平距离。</span></li>
+						<li><a href="">shadowOffsetY</a><span>设置或返回阴影与形状的垂直距离。</span></li>
+						<li><a href="">createLinearGradient</a>(x,y,x1,y1)<span>线条渐变</span></li>
+						<li><a href="">createRadialGradient</a>(x,y,r,x1,y1,r1)<span>径向/圆渐变</span></li>
+						<li><a href="">createRadialGradient()</a>t(x0,y0,r0,x1,y1,r1)<span>创建放射状/环形的渐变（用在画布内容上）。</span></li>
+						<li><a href="">addColorStop()</a><span>指定颜色停止，参数使用坐标来描述，可以是0至1.</span></li>
+						<li><a href="">fillRect</a>(x,y,width,height)<span>fillRect(x,y,width,height) 方法定义了矩形当前的填充方式。</span></li>
+					</ul>
+					<h4>[<span>-</span>]路径</h4>
+					<ul>
+						<li><a href="">fill()</a><span>填充当前绘图（路径）。</span></li>
+						<li><a href="">stroke()</a><span>绘制已定义的路径。</span></li>
+						<li><a href="">beginPath()</a><span>起始一条路径，或重置当前路径。</span></li>
+						<li><a href="">moveTo()</a><span>把路径移动到画布中的指定点，不创建线条。</span></li>
+						<li><a href="">closePath()</a><span>创建从当前点回到起始点的路径。</span></li>
+						<li><a href="">lineTo()</a><span>添加一个新点，然后在画布中创建从该点到最后指定点的线条。</span></li>
+						<li><a href="">clip()</a><span>从原始画布剪切任意形状和尺寸的区域。</span></li>
+						<li><a href="">quadraticCurveTo()</a><span>创建二次贝塞尔曲线。</span></li>
+						<li><a href="">bezierCurveTo()</a><span>创建三次贝塞尔曲线。</span></li>
+						<li><a href="">arc()</a><span>创建弧/曲线（用于创建圆形或部分圆）。</span></li>
+						<li><a href="">arcTo()</a><span>创建两切线之间的弧/曲线。</span></li>
+						<li><a href="">isPointInPath()</a><span>如果指定的点位于当前路径中，则返回 true，否则返回 false。</span></li>
+					</ul>
+					<h4>[<span>-</span>]线条</h4>
+					<ul>
+						<li><a href="">lineCap</a><span>设置或返回线条的结束端点样式。</span></li>
+						<li><a href="">lineJoin</a><span>设置或返回两条线相交时，所创建的拐角类型。</span></li>
+						<li><a href="">lineWidth</a><span>设置或返回当前的线条宽度。</span></li>
+						<li><a href="">miterLimit</a><span>设置或返回最大斜接长度。</span></li>
+					</ul>
+					<h4>[<span>-</span>]矩形</h4>
+					<ul>
+						<li><a href="">rect()</a><span>创建矩形。</span></li>
+						<li><a href="">fillRect()</a><span>绘制"被填充"的矩形。</span></li>
+						<li><a href="">strokeRect()</a><span>绘制矩形（无填充）。</span></li>
+						<li><a href="">clearRect()</a><span>在给定的矩形内清除指定的像素。</span></li>
+					</ul>
+					<h4>[<span>-</span>]转换</h4>
+					<ul>
+						<li><a href="">scale()</a><span>缩放当前绘图至更大或更小。</span></li>
+						<li><a href="">rotate()</a><span>旋转当前绘图。</span></li>
+						<li><a href="">translate()</a><span>重新映射画布上的 (0,0) 位置。</span></li>
+						<li><a href="">transform()</a><span>替换绘图的当前转换矩阵。</span></li>
+						<li><a href="">setTransform()</a><span>将当前转换重置为单位矩阵。然后运行 transform()。</span></li>
+					</ul>
+					<h4>[<span>-</span>]文字</h4>
+					<ul>
+						<li><a href="">font</a><span>设置或返回文本内容的当前字体属性。 ctx.font="30px Arial";</span></li>
+						<li><a href="">textAlign</a><span>设置或返回文本内容的当前对齐方式。</span></li>
+						<li><a href="">textBaseline</a><span>设置或返回在绘制文本时使用的当前文本基线。</span></li>
+						<li><a href="">fillText</a>(text,x,y)<span>实心文本</span></li>
+						<li><a href="">strokeText</a>(text,x,y)<span>空心文本</span></li>
+						<li><a href="">measureText()</a><span>返回包含指定文本宽度的对象。</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>WEB存储<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Storage</h4>
+					<ul>
+						<li><a href="">localStorage</a><span>本地永久<br />
+							<textarea name="" id="" cols="60" rows="10">
+								if(window.localStorage){
+								//some
+								}else{
+								alert('不支持')
+								}
+							</textarea>
+						</span></li>
+						<li><a href="">sessionStorage</a><span>本地临时<br />
+							<textarea name="" id="" cols="60" rows="10">
+								if(window.sessionStorage){
+								//some
+								}else{
+								alert('不支持')
+								}
+							</textarea>
+						</span></li>
+						<li><a href=""></a>local vs session<span>
+							session与local的区别：<br />
+							寿命：session数据保存在所在窗口或标签页关闭时(刷新时可以存储)<br />
+							共享：session值在本窗口或标签页可见,local可被同源的每个窗口或标签共享<br />
+							storage与cookie的区别：<br />
+							只要网页上同源（规则,主机,端口一致）,不需在同一个页面即可读取，不需要传递<br />
+							同一页面后续多次加载也可以读取。
+						</span></li>
+						<li><a href="">setItem</a>(key,val)<span>设置值：<br />
+							sessionStorage.setItem('key','val');<br />
+							sessionStorage.key = 'val';<br />
+							sessionStorage['key'] = 'val';<br />
+						</span></li>
+						<li><a href="">getItem</a>(key)<span>获取值：<br />
+							sessionStorage.getItem('key');<br />
+							sessionStorage.key ; <br />
+							sessionStorage['key'];<br />
+							如果用户关闭了存储或存储已达到最大容量将抛出QUOTA_EXCEEDED_ERR错误
+						</span></li>
+						<li><a href="">removeItem</a>(key)<span>删除值<br />
+								删除数据不返回被删除数据</span></li>
+						<li><a href="">clear()</a><span>清空所有值</span></li>
+						<li><a href="">length</a><span>键值对数量</span></li>
+						<li><a href="">key</a>(index)<span>获取一个指定位置的键</span></li>
+						<li><a href="">storage</a>(event)<span>
+							window.addEventListener('storage',fn[e],true) 添加事件监听
+							<br />storage事件对象属性
+							<br />.key 包含了被更新或删除的键
+							<br />.oldValue 包含了更新前键对应的数据,新添加数据null
+							<br />.newValue 包含了更新后的数据,删除数据null
+							<br />.url 事件发生的源
+							<br />.storageArea 引用,指向值发生改变的localStorage或sessionStorage
+						</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Manifest</h4>
+					<ul>
+						<li><a href="">创建方式</a><span>html manifest="demo.appcache"</span></li>
+					</ul>
+					<h4>[<span>-</span>]IndexDB</h4>
+					<ul>
+						<li><a href="">window.openDatabase</a>('sqlname')<span>返回database对象</span></li>
+						<li><a href="">transaction.executesql()</a><span></span></li>
+						<li><a href="">executeSQL()</a><span>创建数据表</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>地理定位<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Geolocation</h4>
+					<ul>
+						<li><a href="">position.coords.latitude</a> (纬度)</li>
+						<li><a href="">position.coords.longitude</a> (经度)</li>
+						<li><a href="">getCurrentPosition()</a><span><a href="http://www.w3cschool.cc/html/html5-geolocation.html"></a></span>参考资料</li>
+						<li><a href="http://developer.baidu.com/map/index.php?title=open/library">百度地图</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>媒体<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]多媒体</h4>
+					<ul>
+						<li><a href="">onabort</a><span>终止加载</span></li>
+						<li><a href="">onerror</a><span>数据加载错误</span></li>
+						<li><a href="">oncanplay</a><span>开始播放</span></li>
+						<li><a href="">onplay</a><span>开始播放</span></li>
+						<li><a href="">onpause</a><span>暂停</span></li>
+						<li><a href="">onended</a><span>播放结束</span></li>
+						<li><a href="">onloadeddata</a><span>当前帧</span></li>
+						<li><a href="">onloadedmetadata</a><span>指定元数据加载后触发</span></li>
+						<li><a href="">oncanplaythrough</a><span>正常播放且无需停顿和缓冲时</span></li>
+						<li><a href="">ondurationchange</a><span>时长发生变化</span></li>
+						<li><a href="">onemptied</a><span>当前列表为空</span></li>
+						<li><a href="">onloadstart</a><span>浏览器开始寻找指定视频/音频（audio/video）触发</span></li>
+						<li><a href="">onplaying</a><span>暂停或者在缓冲后准备重新开始播放时触发</span></li>
+						<li><a href="">onprogress</a><span>在浏览器下载指定的视频/音频（audio/video）时触发</span></li>
+						<li><a href="">onratechange</a><span>播放速度发送改变时触发</span></li>
+						<li><a href="">onseeked</a><span>重新定位视频/音频（audio/video）的播放位置后触发</span></li>
+						<li><a href="">onseeking</a><span>开始重新定位视频/音频（audio/video）时触发</span></li>
+						<li><a href="">onstalled</a><span>事件在浏览器获取媒体数据，但媒体数据不可用时触发。</span></li>
+						<li><a href="">onsuspend</a><span>事件在浏览器读取媒体数据中止时触发。</span></li>
+						<li><a href="">ontimeupdate</a><span>事件在当前的播放位置发送改变时触发。</span></li>
+						<li><a href="">onvolumechange</a><span>件在音量发生改变时触发。	</span></li>
+						<li><a href="">onwaiting</a><span>事件在视频由于要播放下一帧而需要缓冲时触发。</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>拖放<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]拖放</h4>
+					<ul>
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>优化<span>+</span></h3>
+				<div style="display:none">
+					<h4>[<span>-</span>]网站优化</h4>
+					<ul>
+						<li><a href="">减少HTTP请求</a><span>合并文件,雪碧图,BASE64,合并CSS/JS等</span></li>
+						<li><a href="">CDN内容分发网络</a></li>
+						<li><a href="http://www.cnblogs.com/yuyii/archive/2008/10/16/1312238.html">添加Expire/Cache-Control头</a></li>
+						<li><a href="">Gzip压缩</a></li>
+						<li><a href="">将CSS放在顶部</a></li>
+						<li><a href="">将script放在页面底部</a></li>
+						<li><a href="">避免在CSS中使用表达式</a></li>
+						<li><a href="">将CSS/JS文件外置</a></li>
+						<li><a href="">减少DNS查询</a><span>
+						提前DNS查找<input type='text' style="width:480px" value='<link rel="dns-prefetch" href="//www.domain1.com">'></span></li>
+						<li><a href="">精简CSS/JS</a></li>
+						<li><a href="">避免重定向</a></li>
+						<li><a href="">移除重复的脚本</a></li>
+						<li><a href="">配置ETag</a></li>
+						<li><a href="">使用Ajax缓存</a></li>
+					</ul>
+					<h4>[<span>-</span>]扩展阅读</h4>
+					<ul>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>工具<span>+</span></h3>
+				<div style="display:none">
+					<h4>[<span>-</span>]接口</h4>
+					<ul>
+						<li><a href="http://tongji.baidu.com/web/welcome/login">百度统计</a></li>
+						<li><a href="http://shang.qq.com/v3/widget.html">QQ(群)推广</a></li>
+						<li><a href="https://mp.weixin.qq.com/">微信公众平台</a></li>
+						<li><a href="http://open.weibo.com/developers">新浪微博开放平台</a></li>
+						<li><a href="http://dev.open.t.qq.com/websites/">腾讯微博开放平台</a></li>
+						<li><a href="https://www.dnspod.cn/Domain">DNSPOD</a></li>
+					</ul>
+					<h4>[<span>-</span>]其他</h4>
+					<ul>
+						<li><a href="http://top.baidu.com/index.php">百度搜索风云榜</a></li>
+						<li><a href="http://www.sojump.com/">问卷星</a></li>
+						<li><a href="http://share.baidu.com/">百度分享</a></li>
+						<li><a href="http://www.wumii.com/widget/relatedItems.htm">无觅关联</a></li>
+						<li><a href="http://exmail.qq.com/login">腾讯企业邮箱</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>

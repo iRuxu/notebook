@@ -1,0 +1,208 @@
+<ul>
+ <li>
+  <h3>移动端<span>-</span></h3>
+  <div>
+   <h4>[<span>-</span>]webkit</h4>
+   <ul>
+    <li><a href="">-webkit-text-size-adjust:100%</a>
+         <span>开启文字调整（WEBKIT默认最小只支持12px大小字）
+         <br><a href="http://www.document-write.com/archives/1">参考资料</a>
+         </span></li>
+     <li><a href="">-webkit-overflow-scrolling:touch</a><span>区域快速回滚 <a href="http://blog.csdn.net/hursing/article/details/9186199">参考资料</a></span></li>
+       <li><a href="">-webkit-tap-highlight-color</a><span>*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}</span></li>
+    <li><a href="">-webkit-appearance</a><span>
+     <a href="http://www.w3cplus.com/blog/271.html">webkit移动表单控件重置</a><br>
+     <pre><code data-language="css">
+     input[type="submit"],input[type="reset"],input[type="button"],button {
+      -webkit-appearance:none;
+     }
+     </code></pre>
+    </span></li>
+    <li><a href="">-webkit-touch-callout:none</a><span>body,防止长按复制图片,ipad+iphone</span></li>
+   </ul>
+  </div>
+  <h3>多媒体<span>-</span></h3>
+  <div>
+   <h4>[<span>+</span>]媒体查询</h4>
+   <ul style="display:none">
+    <li><a href="">@import</a><span>指定导入的外部样式表及目标媒体。
+     <br>@import url('demo.css') screen and (min-width:800px);
+     <br>该规则必须在样式表头部最先声明,并且其后的分号是必需的.IE9以前不支持.
+    </span></li>
+    <li><a href="">@media</a><span><a href="http://css.doyoe.com/rules/@media.htm">详细资料</a>
+     <br>@media [only/not] 媒体类型 [and (媒体特性表达式)] {你的样式}
+     <br>例：@media only/not print and (max-width: 1200px){样式代码}
+     <br>IE8及以下只能实现CSS2中的部分，即只可以设置媒体类型。
+     <br>其中部分支持max&min
+    </span></li>
+    <li><a href="http://www.w3cplus.com/css3/media-query-snippets.html">media queries snippets</a><span>媒体查询片段</span></li>
+    <li><a href="http://screensiz.es/phone">Screen Size View</a><span>屏幕尺寸一览</span></li>
+   </ul>
+   <h4>[<span>-</span>]移动尺寸</h4>
+   <ul>
+    <li><a href="">320*480</a> (Android)</li>
+    <li><a href="">480*800</a> (Android)</li>
+    <li><a href="">640*960</a> (iPhone4/4S)</li>
+    <li><a href="">720*1280</a> (Android)</li>
+    <li><a href="">768*1024</a> (iPad2/mini)</li>
+    <li><a href="">1536*2048</a> (iPad3/4)</li>
+   </ul>
+   <h4>[<span>+</span>]PC尺寸</h4>
+   <ul style="display:none">
+    <li><a href="">1024*768</a> (旧LED)</li>
+    <li><a href="">1280*800</a> (笔记本)</li>
+    <li><a href="">1366*768</a> (MAC笔记)</li>
+    <li><a href="">1400*900</a> (17寸/19寸宽屏)</li>
+    <li><a href="">1680*1050</a> (20~22寸宽屏)</li>
+    <li><a href="">1920*1200</a> (23~28寸宽屏)</li>
+    <li><a href="">2560*1600</a> (30寸宽屏)</li>
+   </ul>
+   <h4>[<span>+</span>]媒体特性</h4>
+   <ul style="display:none">
+    <li><a href="">width</a><span>定义输出设备中的页面可见区域宽度</span></li>
+    <li><a href="">height</a><span>定义输出设备中的页面可见区域高度</span></li>
+    <li><a href="">device-width</a><span>定义输出设备的屏幕可见宽度</span></li>
+    <li><a href="">device-height</a><span>定义输出设备的屏幕可见高度</span></li>
+    <li><a href="">orientation</a><span>定义'height'是否大于或等于'width'。值portrait代表是(竖屏)，landscape代表否(横屏)</span></li>
+    <li><a href="">aspect-ratio</a><span>定义'width'与'height'的比率</span></li>
+    <li><a href="">device-aspect-ratio</a><span>定义'device-width'与'device-height'的比率。如常见的显示器比率：4/3, 16/9, 16/10</span></li>
+    <li><a href="">color</a><span>定义每一组输出设备的彩色原件个数。如果不是彩色设备，则值等于0</span></li>
+    <li><a href="">color-index</a><span>定义在输出设备的彩色查询表中的条目数。如果没有使用彩色查询表，则值等于0</span></li>
+    <li><a href="">monochrome</a><span>定义在一个单色框架缓冲区中每像素包含的单色原件个数。如果不是单色设备，则值等于0</span></li>
+    <li><a href="">resolution</a><span>定义设备的分辨率。如：96dpi, 300dpi, 118dpcm</span></li>
+    <li><a href="">scan</a><span>定义电视类设备的扫描工序</span></li>
+    <li><a href="">grid</a><span>用来查询输出设备是否使用栅格或点阵。只有1和0才是有效值，1代表是，0代表否</span></li>
+   </ul>
+   <h4>[<span>+</span>]媒体类型</h4>
+   <ul style="display:none">
+    <li><a href="">all</a><span>用于所有媒体设备类型</span></li>
+    <li><a href="">screen</a><span>用于计算机显示器</span></li>
+    <li><a href="">print</a><span>用于打印机</span></li>
+    <li><a href="">handheld</a><span>用于小型或手持设备</span></li>
+    <li><a href="">tv</a><span>用于电视类设备(oprea)</span></li>
+    <li><a href="">aural</a><span>用于语音和音乐合成器(oprea)</span></li>
+    <li><a href="">braille</a><span>用于触觉反馈设备(oprea)</span></li>
+    <li><a href="">projection</a><span>用于投影图像，如幻灯片(oprea)</span></li>
+    <li><a href="">tty</a><span>用于使用固定间距字符格的设备。如电传打字机和终端(oprea)</span></li>
+    <li><a href="">embossed</a><span>用于凸点字符（盲文）印刷设备(oprea)</span></li>
+   </ul>
+   <h4>[<span>+</span>]打印</h4>
+   <ul style="display:none">
+    <li><a href="">@page</a><span>设置页面容器的版式，方向，边空等。可增加@page name</span></li>
+    <li><a href="">@page:first</a><span>设置在打印时页面容器第一页使用的样式。</span></li>
+    <li><a href="">@page:left</a><span>设置页面容器位于装订线左边的所有页面使用的样式。</span></li>
+    <li><a href="">@page:right</a><span>设置页面容器位于装订线右边的所有页面使用的样式。</span></li>
+    <li><a href="">page</a><span>检索或指定显示对象容器时使用的页面类型。需要先用@page定义name，调用ele{page:name;}</span></li>
+    <li><a href="">page-break-before</a><span>检索或设置对象之前出现的页分割符。</span></li>
+    <li><a href="">page-break-after</a><span>检索或设置对象之后出现的页分割符。</span></li>
+    <li><a href="">page-break-inside</a><span>检索或设置对象容器内部出现的页分割符。</span></li>
+   </ul>
+  </div>
+ </li>
+ <li>
+  <h3>LESS<span>+</span></h3>
+  <div style="display:none">
+   <h4>[<span>-</span>]LESS</h4>
+   <ul>
+    <li><a href="">@var</a>(color,url)<span>变量(嵌套中识别作用域),集中定义基色等,字符串定义基url(需加引号)</span></li>
+    <li><a href="">@url:'path'->@{'path/..'}</a><span>字符串变量的引用</span></li>
+    <li><a href="">.inherit(@var1,@var2)</a><span>继承,集中定义重复样式或组合HACK,带参数继承时,多个参数之间用逗号分隔</span></li>
+    <li><a href="">parent{child{} &:hover{}}</a><span>嵌套,层级嵌套,&引用for伪类</span></li>
+    <li><a href="http://www.bootcss.com/p/lesscss/#-operations">运算</a><span>数字,颜色,变量都可以参与运算，另外定义一个中间变量接受参数 @a = @b*100 , .some{@a/2}
+     </span></li>
+    <li><a href="http://www.bootcss.com/p/lesscss/#-parametric-mixins">swith & when</a><span>条件判断,@_所有switch条件公共拥有属性
+     <br />iscolor
+     <br />isnumber
+     <br />isstring
+     <br />iskeyword
+     <br />isurl
+     <br />ispixel
+     <br />ispercentage
+     <br />isem</span></li>
+    <li><a href="">color函数</a><span>
+      <table border="1" cellspacing="0" cellpadding="2">
+      <tbody>
+      <tr>
+      <td valign="top">lighten(@color,10%)</td>
+      <td valign="top">明/亮度</td>
+      </tr>
+      <tr>
+      <td valign="top">darken(@color,10%)</td>
+      <td valign="top">加深</td>
+      </tr>
+      <tr>
+      <td valign="top">saturate(@color,10%)</td>
+      <td valign="top">饱和度</td>
+      </tr>
+      <tr>
+      <td valign="top">desaturate(@color,10%)</td>
+      <td valign="top">去色</td>
+      </tr>
+      <tr>
+      <td valign="top">fadein(@color,10%)</td>
+      <td valign="top">减少透明度</td>
+      </tr>
+      <tr>
+      <td valign="top">fadeout(@color,10%)</td>
+      <td valign="top">增加透明度</td>
+      </tr>
+      <tr>
+      <td valign="top">fade(@color,10%)</td>
+      <td valign="top">取透明度</td>
+      </tr>
+      <tr>
+      <td valign="top">spin(@color,10/-10)</td>
+      <td valign="top">色盘色调</td>
+      </tr>
+      <tr>
+      <td valign="top">mix(@color1,@color2)</td>
+      <td valign="top">混色</td>
+      </tr>
+      <tr>
+      <td valign="top">multiply(@color1,@color2)</td>
+      <td valign="top">正片叠底</td>
+      </tr>
+      <tr>
+      <td valign="top">screen(@color1,@color2)</td>
+      <td valign="top">滤色</td>
+      </tr>
+      <tr>
+      <td valign="top">overlay(@color1,@color2)</td>
+      <td valign="top">叠加</td>
+      </tr>
+      <tr>
+      <td valign="top">softlight(@color1,@color2)</td>
+      <td valign="top">柔光</td>
+      </tr>
+      </tbody>
+      </table>
+    </span></li>
+    <li><a href="">~避免编译</a><span>~特殊内容,其中包括calc()运算函数在LESS中需要避免编译</span></li>
+    <li><a href="">`JS表达式</a><span>`反单引号`</span></li>
+   </ul>
+  </div>
+ </li>
+ <li>
+  <h3>其他<span>+</span></h3>
+  <div>
+   <h4>[<span>-</span>]Other</h4>
+   <ul>
+    <li><a href="https://github.com/necolas/normalize.css">Normalize.css</a></li>
+    <li><a href="https://github.com/iRuxu/iruxucss">iRuxucss</a></li>
+   </ul>
+  </div>
+ </li>
+ <li>
+  <h3>参考资料<span>+</span></h3>
+  <div style="display:none">
+   <h4>[<span>-</span>]参考资料</h4>
+   <ul>
+    <li><a href="http://www.w3.org/TR/">W3C</a></li>
+    <li><a href="http://css.doyoe.com/">CSS手册</a></li>
+    <li><a href="http://lesscss.net/">LESS中文</a></li>
+    <li><a href="http://w3help.org/zh-cn/causes/">兼容性</a></li>
+    <li><a href="http://msdn.microsoft.com/library/hh772401(VS.85)">IE API</a></li>
+   </ul>
+  </div>
+ </li>
+</ul>

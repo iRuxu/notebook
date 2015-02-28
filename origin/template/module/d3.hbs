@@ -1,0 +1,654 @@
+<div id="D3" class="content"  style="display:none">
+		<ul>
+			<li>
+				<h3>核心<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]选择器</h4>
+					<ul>
+						<li><a href="">d3.select()</a><span>从当前文档中选择一系列元素</span></li>
+						<li><a href="">d3.selectAll()</a><span>从当前文档中选择多项元素</span></li>
+					</ul>
+					<h4>[<span>-</span>]DOM操作</h4>
+					<ul>
+						<li><a href="">append(el)</a><span>创建并添加新元素到选定元素后,返回的是追加的元素</span></li>
+						<li><a href="">insert(el)</a><span>创建并添加新元素到选定元素前</span></li>
+						<li><a href="">remove(el)</a><span>从当前文档对象中删除选定的元素</span></li>
+						<li><a href="">attr</a>(key,val)<span>
+							设置或获取指定属性
+							<br />transform中属性值不需要带单位
+							<br />多个transform值之间用空格,隔开</span></li>
+						<li><a href="">style</a>(key,val)<span>设置或删除 CSS 属性。style优先级高于attr。</span></li>
+						<li><a href="">property()</a><span></span></li>
+						<li><a href="">text()</a><span>设置或获取选定元素的标签体文本内容</span></li>
+						<li><a href="">html()</a><span>设置或获取选定元素的 HTML 内容（类似 innerHTML ）</span></li>
+						<li><a href="">classed)_</a><span></span></li>
+						<li><a href="">data()</a><span>设置或获取一组元素的绑定数据</span></li>
+						<li><a href="">enter()</a><span>多余的数据，通常追加元素</span></li>
+						<li><a href="">exit()</a><span>多余的元素，通常移除元素</span></li>
+						<li><a href="">datum()</a><span></span></li>
+						<li><a href="">filter()</a><span></span></li>
+						<li><a href="">sort()</a><span></span></li>
+						<li><a href="">order()</a><span></span></li>
+						<li><a href="">on()</a><span></span></li>
+						<li><a href="">transition()</a><span></span></li>
+						<li><a href="">interrupt()</a><span></span></li>
+						<li><a href="">each()</a><span></span></li>
+						<li><a href="">call()</a><span></span></li>
+						<li><a href="">empty()</a><span></span></li>
+						<li><a href="">node()</a><span></span></li>
+						<li><a href="">size</a><span></span></li>
+						<li><a href="">event</a><span></span></li>
+						<li><a href="">mouse</a><span></span></li>
+						<li><a href="">touches</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]载入外部资源</h4>
+					<ul>
+						<li>d3.<a href="">xhr</a><span></span></li>
+						<li>d3.<a href="">text</a><span></span></li>
+						<li>d3.<a href="">json</a><span></span></li>
+						<li>d3.<a href="">html</a><span></span></li>
+						<li>d3.<a href="">xml</a><span></span></li>
+						<li>d3.<a href="">csv</a><span></span></li>
+						<li>d3.<a href="">tsv</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>效果<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]过渡效果</h4>
+					<ul>
+						<li>d3.<a href="">transition</a><span></span></li>
+						<li>d3.<a href="">ease</a><span></span></li>
+						<li>d3.<a href="">timer</a><span></span></li>
+						<li>d3.<a href="">interpolate</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]颜色</h4>
+					<ul>
+						<li>d3.<a href="">rgb</a><span></span></li>
+						<li>d3.<a href="">hsl</a><span></span></li>
+						<li>d3.<a href="">lab</a><span></span></li>
+						<li>d3.<a href="">hcl</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]行为</h4>
+					<ul>
+						<li>d3.behavior.<a href="">drag</a><span>拖曳
+							<br />drag.origin
+							<br />drag.on
+							</span></li>
+						<li>d3.behavior.<a href="">zoom </a><span>缩放
+							<br />zoom - 对指定元素应用缩放.
+							<br />zoom.scale - the current scale factor.
+							<br />zoom.translate - the current translate offset.
+							<br />zoom.scaleExtent - optional limits on the scale factor.
+							<br />zoom.center - an optional focal point for mousewheel zooming.
+							<br />zoom.size - the dimensions of the viewport.
+							<br />zoom.x - an optional scale whose domain is bound to the x extent of theviewport.
+							<br />zoom.y - an optional scale whose domain is bound to the y extent of theviewport.
+							<br />zoom.on - listeners for when the scale or translate changes.
+							<br />zoom.event - dispatch zoom events after setting the scale or translate.
+							</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>数据<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]数据操作</h4>
+					<ul>
+						<li>d3.<a href="">max</a>([arr])<span>获取数组中的最大值.</span></li>
+						<li>d3.<a href="">min</a>([arr])<span>获取数组中的最小值.</span></li>
+						<li>d3.<a href="">ascending</a><span></span></li>
+						<li>d3.<a href="">descending</a><span></span></li>
+						<li>d3.<a href="">extent</a><span></span></li>
+						<li>d3.<a href="">sum</a><span></span></li>
+						<li>d3.<a href="">mean</a><span></span></li>
+						<li>d3.<a href="">median</a><span></span></li>
+						<li>d3.<a href="">quantile</a><span></span></li>
+						<li>d3.<a href="">bisect</a><span></span></li>
+						<li>d3.<a href="">bisectRight</a><span></span></li>
+						<li>d3.<a href="">bisectLeft</a><span></span></li>
+						<li>d3.<a href="">bisector</a><span></span></li>
+						<li>d3.<a href="">shuffle</a><span></span></li>
+						<li>d3.<a href="">permute</a><span></span></li>
+						<li>d3.<a href="">zip</a><span></span></li>
+						<li>d3.<a href="">transpose</a><span></span></li>
+						<li>d3.<a href="">pairs</a><span></span></li>
+						<li>d3.<a href="">keys</a><span></span></li>
+						<li>d3.<a href="">values</a><span></span></li>
+						<li>d3.<a href="">entries</a><span></span></li>
+						<li>d3.<a href="">merge</a><span></span></li>
+						<li>d3.<a href="">range</a><span></span></li>
+						<li>d3.<a href="">nest</a><span></span></li>
+						<li>d3.<a href="">map</a><span></span></li>
+						<li>d3.<a href="">set</a><span></span></li>
+						<li>d3.<a href="">has</a><span></span></li>
+						<li>d3.<a href="">add</a><span></span></li>
+						<li>d3.<a href="">remove</a><span></span></li>
+						<li>d3.<a href="">values</a><span></span></li>
+						<li>d3.<a href="">forEach</a><span></span></li>
+						<li>d3.<a href="">random.normal</a><span></span></li>
+						<li>d3.<a href="">random.logNormal</a><span></span></li>
+						<li>d3.<a href="">random.irwinHall</a><span></span></li>
+						<li>d3.<a href="">transform</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]字符串格式化</h4>
+					<ul>
+						<li>d3.<a href="">format</a><span></span></li>
+						<li>d3.<a href="">formatPrefix</a><span></span></li>
+						<li>d3.<a href="">requote</a><span></span></li>
+						<li>d3.<a href="">round</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]d3.csv</h4>
+					<ul>
+						<li>d3.<a href="">csv</a><span></span></li>
+						<li>d3.<a href="">tsv</a><span></span></li>
+						<li>d3.<a href="">dsv</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]d3.time</h4>
+					<ul>
+						<li>d3.time.<a href="">format</a><span></span></li>
+						<li>d3.time.<a href="">scale</a><span></span></li>
+						<li>d3.time.<a href="">interval</a><span>
+							<br />d3.time.interval - 返回一个对于本地时间时间间隔器.
+							<br />interval - 效果同interval.floor方法.
+							<br />interval.range - 返回指定区间内日期.
+							<br />interval.floor - 下舍入到最近的间隔值.
+							<br />interval.round - 上舍入或下舍入到最近的间隔值.
+							<br />interval.ceil - 上舍入到最近的间隔值.
+							<br />interval.offset - 返回指定时间间隔的日期偏移量.
+							<br />interval.utc - 返回对应的UTC时间间隔.
+							</span></li>
+						<li>d3.time.<a href="">day</a><span></span></li>
+						<li>d3.time.<a href="">days</a><span></span></li>
+						<li>d3.time.<a href="">dayOfYear</a><span></span></li>
+						<li>d3.time.<a href="">hour</a><span></span></li>
+						<li>d3.time.<a href="">hours</a><span></span></li>
+						<li>d3.time.<a href="">minute</a><span></span></li>
+						<li>d3.time.<a href="">minutes</a><span></span></li>
+						<li>d3.time.<a href="">month</a><span></span></li>
+						<li>d3.time.<a href="">months</a><span></span></li>
+						<li>d3.time.<a href="">second</a><span></span></li>
+						<li>d3.time.<a href="">seconds</a><span></span></li>
+						<li>d3.time.<a href="">sunday</a><span></span></li>
+						<li>d3.time.<a href="">sundays</a><span></span></li>
+						<li>d3.time.<a href="">sundayOfYear</a><span></span></li>
+						<li>d3.time.<a href="">week</a><span></span></li>
+						<li>d3.time.<a href="">weeks</a><span></span></li>
+						<li>d3.time.<a href="">weekOfYear</a><span></span></li>
+						<li>d3.time.<a href="">year</a><span></span></li>
+						<li>d3.time.<a href="">years</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>图形<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]d3.svg</h4>
+					<ul>
+						<li>d3.svg.<a href="">line</a><span>线段生成器
+							<br />line - 在折线图里生成一段折线.
+							<br />line.x - 设置或获取x轴访问器.
+							<br />line.y - 设置或获取y轴访问器
+							<br />line.interpolate - 设置或获取插值模式.
+							<br />line.tension - 获取或设置曲线张力访问器(cardinal splinetension).
+							<br />line.defined - 定义线条在某一点是否存在.
+							<textarea name="" id="" cols="30" rows="10">
+								var data = [1,3,5,7,8,2,6,10];
+								var line = d3.svg.line()
+								.x(function(d,i){
+									return i;
+								})
+								.y(function(d){
+									return d;
+								})
+								selection.attr('d',line(data))
+							</textarea>
+							</span></li>
+						<li>d3.svg.<a href="">area</a><span>区域生成器
+							<br />d3.svg.area - 创建一个新的区域生成器.
+							<br />area - 生成一个线性的区域,用于区域图表.
+							<br />area.x - 获取或设置x坐标的访问器.
+							<br />area.x0 - 获取或设置x0坐标(基线)的访问器.
+							<br />area.x1 - 获取或设置x1坐标(背线)的访问器.
+							<br />area.y - 获取或设置y坐标的访问器.
+							<br />area.y0 - 获取或设置y0坐标(基线)的访问器.
+							<br />area.y1 - 获取或设置y1坐标(背线)的访问器.
+							<br />area.interpolate - 获取或设置插值模式.
+							<br />area.tension - 获取或设置张力访问器(the cardinal spline tension).
+							<br />area.defined - 判断获取或定义区域定义存取器.
+							</span></li>
+						<li>d3.svg.<a href="">line.radial</a><span>辐射线生成器
+							<br />line - 生成分段的线性曲线，用于纬度线／雷达线图表.
+							<br />line.radius - 获取或设置radius访问器.
+							<br />line.angle - 获取或设置angle访问器.
+							<br />line.defined - 设置或获取线条定义存取器
+							</span></li>
+						<li>d3.svg.<a href="">area.radial </a><span>生成分段的线性区域,用于纬度/雷达图表
+							<br />d3.svg.area.radial - 创建新的区域生成器.
+							<br />area - 生成分段的线性区域,用于纬度/雷达图表.
+							<br />area.radius - 获取或设置radius访问器.
+							<br />area.innerRadius - 获取或设置内部的radius(基线)访问器.
+							<br />area.outerRadius - 获取或设置外部的radius(背线)访问器.
+							<br />area.angle - 获取或设置angle访问器.
+							<br />area.startAngle - 获取或设置内部的angle(基线)访问器.
+							<br />area.endAngle - 获取或设置外部的angle(背线)访问器.
+							<br />area.defined - 判断获取或定义区域定义存取器.
+							</span></li>
+						<li>d3.svg.<a href="">arc</a><span>弧度生成器
+							<br />d3.svg.arc - 创建弧度生成器.
+							<br />arc - 生成一个线性弧度,用于饼图或甜甜圈图.
+							<br />arc.innerRadius - 获取或设置内部的半径访问器.
+							<br />arc.outerRadius - 获取或设置外部的半径访问器.
+							<br />arc.startAngle - 获取或设置起始角度访问器.
+							<br />arc.endAngle - 获取或设置结束角度访问器.
+							<br />arc.centroid - 计算弧的重心点.
+							</span></li>
+						<li>d3.svg.<a href="">chord</a><span>弦生成器
+							<br />d3.svg.chord - 创建新的弦生成器.
+							<br />chord - 生成一个二次贝塞尔曲线连接两个弧, 用于弦图.
+							<br />chord.radius - 获取或设置弧半径访问器.
+							<br />chord.startAngle - 获取或设置弧起始角度访问器.
+							<br />chord.endAngle - 获取或设置弧结束角度访问器.
+							<br />chord.source - 获取或设置源弧度访问器.
+							<br />chord.target - 获取或设置目标弧度访问器.
+							</span></li>
+						<li>d3.svg.<a href="">symbol</a><span>符号生成器
+							<br />d3.svg.symbol - 创建符号生成器.
+							<br />symbol - 生成指定的符号,用于散列图.
+							<br />symbol.type - 获取或设置符号类型访问器.
+							<br />symbol.size - 获取或设置符号尺寸(in square pixels) 访问器.
+							<br />d3.svg.symbolTypes - 被支持的符号类型数组.
+							</span></li>
+						<li>d3.svg.<a href="">diagonal</a><span>斜线生成器
+							<br />diagonal - 生成一个二维贝塞尔连接器, 用于节点连接图.
+							<br />diagonal.source - 获取或设置源点访问器.
+							<br />diagonal.target - 获取或设置目标点访问器.
+							<br />diagonal.projection - 获取或设置一个可选的点变换器.
+							</span></li>
+						<li>d3.svg.<a href="">diagonal.radial</a><span>创建一个新的斜线生成器</span></li>
+						<li>SHAPE.<a href="">interpolate</a><span>插值方式
+							<br />linear - 折线（默认依旧会闭合填充,需要设置填充为空）
+							<br />linear-closed - 闭合折线
+							<br />step - 阶梯图折线,水平和垂直段之间交替
+							<br />step-before - 纵向和横向段之间交替
+							<br />step-after - 水平和垂直段之间交替
+							<br />basis - 平滑曲线
+							<br />basis-open - 缩短的曲线
+							<br />basis-closed - 闭合的曲线
+							<br />bundle - 除了紧张的参数是用来拉直样条曲线。
+							<br />cardinal - 曲线
+							<br />cardinal-open - 缩短的曲线
+							<br />cardinal-closed - 闭合的曲线
+							<br />monotone - 立方插值，保留单调性y中
+							</span></li>
+						<li>d3.svg.<a href="">axis</a><span>坐标轴
+							<br />生成的坐标轴也需要去掉fill
+							<br />绘制完成后需要在页面追加调用
+							<br />d3.svg.axis - 创建一个axis生成器。
+							<br />axis - 正式在页面中生成axis。
+							<br />axis.scale - get或set坐标轴的scale尺度变换，该尺度变换设定了数值和像素位置的转换规则。
+							<br />axis.orient - get或set坐标轴刻度方向。
+							<br />axis.ticks - 控制坐标轴刻度的产生方式。
+							<br />axis.tickValues - 设置特定的坐标轴的值。
+							<br />axis.tickSize - 指定坐标轴上刻度线的像素长度。
+							<br />axis.innerTickSize - get或set坐标轴小刻度线的像素长度。
+							<br />axis.outerTickSize - get或set坐标轴大刻度线的像素长度。
+							<br />axis.tickPadding - 指定坐标轴刻度和刻度文字之间的像素距离。
+							<br />axis.tickFormat - 设置刻度文字的格式。
+							<textarea name="" id="" cols="30" rows="10">
+								var x_axis = d3.svg.axis().scale(scale_x),
+								y_axis = d3.svg.axis().scale(scale_y).orient('left');
+								g.append('g').call(x_axis);
+							</textarea>
+							</span></li>
+						<li>d3.svg.<a href="">brush</a><span>点击拖拽选择一个二维区域
+							<br />d3.svg.brush - 点击拖拽选择一个二维区域。
+							<br />brush - 在页面中某个区域中正式绑定一个brush。
+							<br />brush.x - get或set brush的x变换,用于水平方向的拖拽。
+							<br />brush.y - get或set brush的y变换,用于垂直方向的拖拽。
+							<br />brush.extent - get或set brush的选取范围（extent）。
+							<br />brush.clear - 设置brush的选取范围（extent）为空。
+							<br />brush.empty - 判断brush的选取范围（extent）是否为空。
+							<br />brush.on - get或set brush的事件监听器。可监听3种事件：brushstart, brush,brushend。
+							<br />brush.event - 通过程序触发监听事件，在通过程序设置extent后使用。
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]d3.scale</h4>
+					<ul>
+						<li>d3.scale.<a href="">linear</a><span>
+							创建一个线性定量变换
+							<textarea name="" id="" cols="30" rows="10">
+								var scale = d3.scale.linear
+								.domain([0,date.length-1]) //输入范围
+								.range([])
+								需要的地方应用scale(i)
+							</textarea>
+							
+							</span></li>
+						<li>d3.scale.<a href="">sqrt</a><span>创建一个求平方根的定量转换。</span></li>
+						<li>d3.scale.<a href="">pow</a><span>创建一个指数变换</span></li>
+						<li>d3.scale.<a href="">log</a><span>创建一个对数变换</span></li>
+						<li>d3.scale.<a href="">quantize</a><span>创建一个quantize线性变换,定义域为一个数值区间，值域为几个离散值。</span></li>
+						<li>d3.scale.<a href="">quantile</a><span>构建一个quantile线性变换。使用方法与quantize完全类似，区别是quantile根据中位数来分隔区间，quantize根据算数平均值来分隔区间</span></li>
+						<li>d3.scale.<a href="">threshold</a><span>构建一个threshold(阈值)线性变换。定义域为分隔值数值序列，值域为离散值。</span></li>
+						<li>d3.scale.<a href="">identity</a><span>构建一个identity线性变换。特殊的linear线性变换，此变换定义域和值域相同，只在一些d3内部的axis或brush模块中用到。</span></li>
+						<li>d3.scale.<a href="">ordinal</a><span></span></li>
+						<li>d3.scale.<a href="">category10</a><span></span></li>
+						<li>d3.scale.<a href="">category20</a><span></span></li>
+						<li>d3.scale.<a href="">category20b</a><span></span></li>
+						<li>d3.scale.<a href="">category20c</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>d3.layout(构图)<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Bundle</h4>
+					<ul>
+						<li><a href="">d3.layout.bundle</a><span></span></li>
+						<li><a href="">bundle</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]弦图</h4>
+					<ul>
+						<li><a href="">d3.layout.chord</a><span></span></li>
+						<li><a href="">chord.matrix</a><span></span></li>
+						<li><a href="">chord.padding</a><span></span></li>
+						<li><a href="">chord.sortGroups</a><span></span></li>
+						<li><a href="">chord.sortSubgroups</a><span></span></li>
+						<li><a href="">chord.sortChords</a><span></span></li>
+						<li><a href="">chord.chords</a><span></span></li>
+						<li><a href="">chord.groups</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]集群</h4>
+					<ul>
+						<li><a href="">d3.layout.cluster</a><span></span></li>
+						<li><a href="">cluster.sort</a><span></span></li>
+						<li><a href="">cluster.children</a><span></span></li>
+						<li><a href="">cluster.nodes</a><span></span></li>
+						<li><a href="">cluster.links</a><span></span></li>
+						<li><a href="">cluster.separation</a><span></span></li>
+						<li><a href="">cluster.size</a><span></span></li>
+						<li><a href="">cluster.nodeSize</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]力学</h4>
+					<ul>
+						<li><a href="">d3.layout.force</a><span></span></li>
+						<li><a href="">force.on</a><span></span></li>
+						<li><a href="">force.nodes</a><span></span></li>
+						<li><a href="">force.links</a><span></span></li>
+						<li><a href="">force.size</a><span></span></li>
+						<li><a href="">force.linkDistance</a><span></span></li>
+						<li><a href="">force.linkStrength</a><span></span></li>
+						<li><a href="">force.friction</a><span></span></li>
+						<li><a href="">force.charge</a><span></span></li>
+						<li><a href="">force.gravity</a><span></span></li>
+						<li><a href="">force.theta</a><span></span></li>
+						<li><a href="">force.start</a><span></span></li>
+						<li><a href="">force.resume</a><span></span></li>
+						<li><a href="">force.stop</a><span></span></li>
+						<li><a href="">force.alpha</a><span></span></li>
+						<li><a href="">force.tick</a><span></span></li>
+						<li><a href="">force.drag</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]层级布局</h4>
+					<ul>
+						<li><a href="">d3.layout.hierarchy</a><span></span></li>
+						<li><a href="">hierarchy.sort</a><span></span></li>
+						<li><a href="">hierarchy.children</a><span></span></li>
+						<li><a href="">hierarchy.nodes</a><span></span></li>
+						<li><a href="">hierarchy.links</a><span></span></li>
+						<li><a href="">hierarchy.value</a><span></span></li>
+						<li><a href="">hierarchy.revalue</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]直方图</h4>
+					<ul>
+						<li><a href="">d3.layout.histogram</a><span></span></li>
+						<li><a href="">histogram.value</a><span></span></li>
+						<li><a href="">histogram.range</a><span></span></li>
+						<li><a href="">histogram.bins</a><span></span></li>
+						<li><a href="">histogram</a><span></span></li>
+						<li><a href="">histogram.frequency</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]层包</h4>
+					<ul>
+						<li><a href="">d3.layout.pack</a><span></span></li>
+						<li><a href="">pack.sort</a><span></span></li>
+						<li><a href="">pack.children</a><span></span></li>
+						<li><a href="">pack.nodes</a><span></span></li>
+						<li><a href="">pack.links</a><span></span></li>
+						<li><a href="">pack.value</a><span></span></li>
+						<li><a href="">pack.size</a><span></span></li>
+						<li><a href="">pack.radius</a><span></span></li>
+						<li><a href="">pack.padding</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]分区</h4>
+					<ul>
+						<li><a href="">d3.layout.partition</a><span></span></li>
+						<li><a href="">partition.sort</a><span></span></li>
+						<li><a href="">partition.children</a><span></span></li>
+						<li><a href="">partition.nodes</a><span></span></li>
+						<li><a href="">partition.links</a><span></span></li>
+						<li><a href="">partition.value</a><span></span></li>
+						<li><a href="">partition.size</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]饼图</h4>
+					<ul>
+						<li><a href="">d3.layout.pie</a><span></span></li>
+						<li><a href="">pie</a><span></span></li>
+						<li><a href="">pie.value</a><span></span></li>
+						<li><a href="">pie.sort</a><span></span></li>
+						<li><a href="">pie.startAngle</a><span></span></li>
+						<li><a href="">pie.endAngle</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]堆叠图</h4>
+					<ul>
+						<li><a href="">d3.layout.stack</a><span></span></li>
+						<li><a href="">stack</a><span></span></li>
+						<li><a href="">stack.values</a><span></span></li>
+						<li><a href="">stack.order</a><span></span></li>
+						<li><a href="">stack.offset</a><span></span></li>
+						<li><a href="">stack.x</a><span></span></li>
+						<li><a href="">stack.y</a><span></span></li>
+						<li><a href="">stack.out</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]树</h4>
+					<ul>
+						<li><a href="">d3.layout.tree</a><span></span></li>
+						<li><a href="">tree.sort</a><span></span></li>
+						<li><a href="">tree.children</a><span></span></li>
+						<li><a href="">tree.nodes</a><span></span></li>
+						<li><a href="">tree.links</a><span></span></li>
+						<li><a href="">tree.separation</a><span></span></li>
+						<li><a href="">tree.size</a><span></span></li>
+						<li><a href="">tree.nodeSize</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]矩阵树</h4>
+					<ul>
+						<li><a href="">d3.layout.treemap</a><span></span></li>
+						<li><a href="">treemap.sort</a><span></span></li>
+						<li><a href="">treemap.children</a><span></span></li>
+						<li><a href="">treemap.nodes</a><span></span></li>
+						<li><a href="">treemap.links</a><span></span></li>
+						<li><a href="">treemap.value</a><span></span></li>
+						<li><a href="">treemap.size</a><span></span></li>
+						<li><a href="">treemap.padding</a><span></span></li>
+						<li><a href="">treemap.round</a><span></span></li>
+						<li><a href="">treemap.sticky</a><span></span></li>
+						<li><a href="">treemap.mode</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>d3.geo(地理)<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Paths</h4>
+					<ul>
+						<li>d3.geo.<a href="">path</a><span>
+							d3.geo.path - 创建一个新的地理路径生成器.
+							<br />path - 投射指定的特性并且渲染到上下文.
+							<br />path.projection - 获取活设置地理投影.
+							<br />path.context - 获取活设置渲染上下文.
+							<br />path.pointRadius -获取或设置半径去现实点的特性.
+							<br />path.area - 计算指定特性的投射区域.
+							<br />path.centroid - 计算指定特性的投射重心点.
+							<br />path.bounds - 计算指定特性的投射边界.
+							</span></li>
+						<li>d3.geo.<a href="">graticule</a><span>
+							<br />d3.geo.graticule - 创建地理坐标网生成器.
+							<br />graticule - 生产一个子午线或平行线的MultiLineStrings.
+							<br />graticule.lines - 生成一个子午线和平行线的LineString的数组.
+							<br />graticule.outline - 生成一个表示该坐标网的外框多边形.
+							<br />graticule.extent - 获取或设置主要的和次要的范围.
+							<br />graticule.majorExtent - 获取或设置主要范围.
+							<br />graticule.minorExtent - 获取或设置次要范围.
+							<br />graticule.step - 获取或设置主要和次要的步间隔.
+							<br />graticule.majorStep - 获取或设置主要的步间隔.
+							<br />graticule.minorStep - 获取或设置次要的步间隔.
+							<br />graticule.precision - 设置或者获取横向精度
+							</span></li>
+						<li>d3.geo.<a href="">circle</a><span>
+							<br />d3.geo.circle - 创建一个圆形的生成器.
+							<br />circle - 使用多边形来生成一个分段的圆形.
+							<br />circle.origin - 通过横向和纵向坐标来指定原点.
+							<br />circle.angle - 指定以度为单位的角半径.
+							<br />circle.precision - 指定分段圆的精度.
+							</span></li>
+						<li>d3.geo.<a href="">area</a><span></span></li>
+						<li>d3.geo.<a href="">bounds</a><span></span></li>
+						<li>d3.geo.<a href="">centroid</a><span></span></li>
+						<li>d3.geo.<a href="">distance</a><span></span></li>
+						<li>d3.geo.<a href="">interpolate</a><span></span></li>
+						<li>d3.geo.<a href="">length</a><span></span></li>
+						<li>d3.geo.<a href="">rotation</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Projections</h4>
+					<ul>
+						<li>d3.geo.<a href="">projection</a><span>
+							<br />d3.geo.projection - create a standard projection from a raw projection.
+							<br />projection - project the specified location.
+							<br />projection.invert - invert the projection for the specified point.
+							<br />projection.rotate - get or set the projection’s three-axis rotation.
+							<br />projection.center - get or set the projection’s center location.
+							<br />projection.translate - get or set the projection’s translation position.
+							<br />projection.scale - get or set the projection’s scale factor.
+							<br />projection.clipAngle - get or set the radius of the projection’s clip circle.
+							<br />projection.clipExtent - get or set the projection’s viewport clip extent, in pixels.
+							<br />projection.precision - get or set the precision threshold for adaptive resampling.
+							<br />projection.stream - wrap the specified stream listener, projecting input geometry.
+							</span></li>
+						<li>d3.geo.<a href="">projectionMutator</a><span></span></li>
+						<li>d3.geo.<a href="">albers</a><span></span></li>
+						<li>d3.geo.<a href="">albersUsa</a><span></span></li>
+						<li>d3.geo.<a href="">azimuthalEqualArea</a><span></span></li>
+						<li>d3.geo.<a href="">azimuthalEquidistant</a><span></span></li>
+						<li>d3.geo.<a href="">conicConformal</a><span></span></li>
+						<li>d3.geo.<a href="">conicEquidistant</a><span></span></li>
+						<li>d3.geo.<a href="">conicEqualArea</a><span></span></li>
+						<li>d3.geo.<a href="">equirectangular</a><span></span></li>
+						<li>d3.geo.<a href="">gnomonic</a><span></span></li>
+						<li>d3.geo.<a href="">mercator</a><span></span></li>
+						<li>d3.geo.<a href="">orthographic</a><span></span></li>
+						<li>d3.geo.<a href="">stereographic</a><span></span></li>
+						<li>d3.geo.<a href="">azimuthalEqualArea.raw</a><span></span></li>
+						<li>d3.geo.<a href="">azimuthalEquidistant.raw</a><span></span></li>
+						<li>d3.geo.<a href="">conicConformal.raw</a><span></span></li>
+						<li>d3.geo.<a href="">conicEquidistant.raw</a><span></span></li>
+						<li>d3.geo.<a href="">conicEqualArea.raw</a><span></span></li>
+						<li>d3.geo.<a href="">equirectangular.raw</a><span></span></li>
+						<li>d3.geo.<a href="">gnomonic.raw</a><span></span></li>
+						<li>d3.geo.<a href="">mercator.raw</a><span></span></li>
+						<li>d3.geo.<a href="">orthographic.raw</a><span></span></li>
+						<li>d3.geo.<a href="">stereographic.raw</a><span></span></li>
+						<li>d3.geo.<a href="">transverseMercator.raw</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Streams</h4>
+					<ul>
+						<li>d3.geo.<a href="">stream</a><span>
+							<br />d3.geo.stream - convert a GeoJSON object to a geometry stream.
+							<br />stream.point - indicate an x, y (and optionally z) coordinate.
+							<br />stream.lineStart - indicate the start of a line or ring.
+							<br />stream.lineEnd - indicate the end of a line or ring.
+							<br />stream.polygonStart - indicate the start of a polygon.
+							<br />stream.polygonEnd - indicate the end of a polygon.
+							<br />stream.sphere - indicate a sphere
+							</span></li>
+						<li>d3.geo.<a href="">transform</a><span>
+							<br />d3.geo.transform - transform streaming geometries.
+							<br />transform.stream - wraps a given stream.
+							</span></li>
+						<li>d3.geo.<a href="">clipExtent</a><span> 
+							a stream transform that clips geometries to a given axis-aligned rectangle.
+							<br />clipExtent.extent - sets the clip extent.
+							</span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>几何<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]d3.geom</h4>
+					<ul>
+						<li>d3.geom.<a href="">voronoi</a><span>
+							<br />voronoi - compute the Voronoi tessellation for the specified points.
+							<br />voronoi.x - get or set the x-coordinate accessor for each point.
+							<br />voronoi.y - get or set the y-coordinate accessor for each point.
+							<br />voronoi.clipExent - get or set the clip extent for the tesselation.
+							<br />voronoi.links - compute the Delaunay mesh as a network of links.
+							<br />voronoi.triangles - compute the Delaunay mesh as a triangular tessellation.
+							</span></li>
+						<li>d3.geom.<a href="">quadtree</a><span>
+							<br />quadtree.add - add a point to the quadtree.
+							<br />quadtree.visit - recursively visit nodes in the quadtree.
+							</span></li>
+						<li>d3.geom.<a href="">polygon</a><span>
+							<br />polygon.area - compute the counterclockwise area of this polygon.
+							<br />polygon.centroid - compute the area centroid of this polygon.
+							<br />polygon.clip - clip the specified polygon to this polygon.
+							</span></li>
+						<li>d3.geom.<a href="">hull</a><span>
+							<br />hull - compute the convex hull for the given array of points.
+							<br />hull.x - get or set the x-coordinate accessor.
+							<br />hull.y - get or set the y-coordinate accessor.
+							</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>其他<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]参考资料</h4>
+					<ul>
+						<li><a href="https://github.com/mbostock/d3/wiki/Api-%E5%8F%82%E8%80%83">D3 API</a></li>
+						<li><a href="http://www.ourd3js.com/wordpress/?p=396">数据可视化</a><span></span></li>
+						<li><a href="https://github.com/d3/d3-plugins">D3 Plugin</a></li>
+						<li><a href="http://www.imooc.com/view/103">D3 Course</a></li>
+					</ul>
+					<h4>[<span>-</span>]命名空间</h4>
+					<ul>
+						<li>d3.<a href="">ns.prefix</a><span></span></li>
+						<li>d3.<a href="">ns.qualify</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]内部方法</h4>
+					<ul>
+						<li>d3.<a href="">functor</a><span></span></li>
+						<li>d3.<a href="">rebind</a><span></span></li>
+						<li>d3.<a href="">dispatch</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>

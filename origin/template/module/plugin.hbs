@@ -1,0 +1,875 @@
+<div id="Plugin" class="content" style="display:none">
+		<ul>
+			<li>
+				<h3>jQuery UI<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Core</h4>
+					<ul>
+						<li><a href="http://www.css88.com/jquery-ui-api/menu/">API文档</a></li>
+						<li><a href="http://api.jqueryui.com/resources/icons-list.html">图标一览</a></li>
+						<li><a href="http://www.css88.com/jquery-ui-api/position/">position</a><span>
+							my:定义被定位元素上对准目标元素的位置
+							<br />at:定义目标元素上对准被定位元素的位置
+							<br />of:要定位的元素,使用 pageX 和 pageY 属性
+						</span></li>
+						<li><a href="http://www.css88.com/jquery-ui-api/jQuery.widget/">$.widget</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Interactions</h4>
+					<ul>
+						<li><a href="">draggable()</a><span>拖动<br />
+							<textarea name="" id="" cols="60" rows="20">
+								$("#ok").draggable({
+								    handle:'h1', //只有在特定的元素上触发鼠标按下事件时，才可以拖动
+								    //cancel:'h1', //限制指定元素不可拖曳,.class选择符
+								    cursor:'move', //移动时样式,需额外补充hover样式
+								    //cursorAt:{left:0,top:0}, //移动的坐标点
+								    //axis:'x', //移动方向限制
+								    containment:'parent',  //限制可移动范围,selector,element,array,string(parent,document,window)
+								    //distance:20, //移动指定像素后才开始激活拖拽动作
+								    //grid:[20,20], //拖拽元素时，只能以指定大小的方格进行拖动
+								    //scroll:true,  //当拖动时，div盒模型将自动翻滚
+								    //snap:true, //决定一个元素是否应该吸附到其它元素上
+								                //布尔指元素将可以吸附到所有其它可拖动元素上，Selector: 确定被吸附元素
+								    //snapMode:'inner', //"inner", "outer", "both"
+								    //snapTolerance:20, //当距离可吸附元素多远时，触发吸附事件
+
+
+								    iframeFix:true, //透明层将被放置于页面上的所有iframe之上，并阻止iframe捕捉鼠标移过事件
+								    
+								    //关联draggable
+								    //revert:'invalid' //当拖动没有被放置于一个可放置的对象时重置到它的初始位置
+								    //关联sortable
+								    //connectToSortable:"#my-sortable", //允许draggable被拖拽到指定的sortables中
+								    //helper:'clone',
+								});
+								$("#ok2").draggable();
+								$("#box div").draggable({stack:'#box div'}) //自动切换Z轴层，当前焦点至最高层
+							</textarea></span></li>
+						<li><a href="">droppable()</a><span>拖放<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$(".lala").draggable();
+								$("#ok3").draggable();
+								$("#b").droppable({
+								    accept:'.lala', //selector一个可拖动元素的选择器，fn()函数将被调用页面上的每一个可拖动的必须返回true
+								    activeClass:'active', //拖动元素在运动时，装载盒子的新增类
+								    hoverClass:'hover', //拖动元素进入在装载盒子中的新增类
+								    //tolerance:fit, //fit完全重叠,intersect至少50%,pointer鼠标完成即可,touch任意
+								    greedy:true, //阻止冒泡表现
+								    addClasses:false, //可以防止ui-droppable类在进行时添加.
+								    //事件：out离开,drop放入,activate拖动中,
+								    drop:function(e,ui){ 
+								        //$(this)表示装载盒
+								        //ui.draggable表示被放入对象
+								    }
+								})
+							</textarea>
+							</span></li>
+						<li><a href="">sortable()</a><span>排序<br />
+							1.如果要排序表格中的行应将tbody元素设为sortable,而不是在table.
+							<br />2.选择器应定义在ul级上,无需再设置可拖动
+							<br /><textarea name="" id="" cols="60" rows="10">
+								$("#a").sortable({
+								    //axis:'x', //x水平or y垂直
+								    //handle:'selector', //可拖动到元素部分
+								    //cancel:'selector', //对符合选择器匹配规则的元素不进行排序
+								    items:'>li', //指定元素内的哪一个项目应是 sortable。
+								    connectWith:'.c', //连接的另一个 sortable 元素的选择器
+								    //containment:'selector', //限制拖动范围在指定的DOM元素内。element/selector/string(parent,window,document)
+								    cursor:'move', //鼠标样式
+								    //cursorAt:{left:0,top:0}, //指针位置
+								    //distance:5, //多少个像素之后触发
+								    //dropOnEmpty:falese, //不能拖动到一个空的sortable
+								    placeholder:'class', //要应用的 class 名称，否则为白色空白。
+								    revert:2000, //true/false是否使用一个流畅的动画还原到它的新位置，number则为动画持续时间(毫秒)
+								}).disableSelection();;
+							</textarea>
+							<br />事件
+							<br />item:当前被拖拽的元素，sender:项目来自的那个
+							<br />activate:当使用被连接列表时触发该事件，每个被连接列表在拖拽开始时接收它
+							<br />deactivate:当排序停止时触发该事件，该事件传播到所有可能的连接列表。
+							<br />change:在排序期间触发该事件，除了当 DOM 位置改变时
+							<br />sort:在排序期间触发该事件。
+							<br />update:当用户停止排序且 DOM 位置改变时触发该事件。
+							<br />out:当一个 sortable 项目从一个 sortable 列表移除时触发该事件。
+							<br />over:当一个 sortable 项目移动到一个 sortable 列表时触发该事件。
+							<br />receive:当来自一个连接的 sortable列表的一个项目被放置到另一个列表时触发该事件。后者是事件目标。
+							<br />remove:当来自一个连接的 sortable列表的一个项目被放置到另一个列表时触发该事件。前者是事件目标。
+							</span></li>
+						<li><a href="">selecable()</a><span>多选,可按住ctrl多选,或拉拽范围选择<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#a").selectable({
+								    //cancel:'selector', //禁止被选项目
+								    //filter:'selector', //匹配子元素中那些符合条件的元素才可以被选择.
+								});
+							</textarea></span></li>
+						<li><a href="">resizable()</a><span>调整尺寸<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#box").resizable({
+								    //handles:'n', //n, e, s, w, ne, se, sw, nw, all
+								    //animate:true, //启用动画
+								    //animateDuration:2000, //动画时间
+								    //aspectRatio:4/3, //按照原比例true,或num指定一个比例
+								    //alsoResize:'#a', //同时变更选择器匹配元素尺寸
+								    //cancel:'#a', //拒绝对匹配元素的大小调整.
+								    //containment:'selector', //selector,element,string(parent,document)
+								    //ghost:true, //调整过程中看到一个半透明的辅助元素
+								    //helper: "x", //辅助元素的css样式.当调整完成时,这些元素将回到它以前的状态.
+								    //maxHeight: 300, //最大高度
+								    //minWidth:300, //最小宽度
+								});
+							</textarea><br />
+							事件：
+							<br />ui.element 被调整的元素对象
+							<br />ui.originalElement 被包裹前原先的元素</span></li>
+					</ul>
+					<h4>[<span>-</span>]UI Widget</h4>
+					<ul>
+						<li><a href="">dialog()</a><span>对话框<br />
+							<textarea name="" id="" cols="60" rows="10">
+								title:'hello',
+								buttons:{
+								    'ok1': function(){},
+								    'ok2': function(){}
+								},
+								show:'scale',
+								autoOpen:false,
+								draggable:false,
+								resizable:false,
+								modal:true,
+								closeText:'关闭',
+								closeOnEscape: false, //不允许通过esc取消
+							</textarea>
+							<br /><a href="http://www.css88.com/jquery-ui-api/dialog/">API</a>
+						</span></li>
+						<li><a href="">slider()</a><span>滑块<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#ok").slider({
+								    value:68,
+								    max:100,
+								    min:60,
+								    //step:5, //幅度
+								    //orientation:'horizontal', //vertical纵向
+								    //range:true, //是否为范围值
+								    //values:[66,88], //两个手柄位置
+								});
+								//事件
+								$("#ok").slider({
+								    slide: function(e,ui){
+								        var test = ui.value; //获取值，或ui.values[0]
+								        console.log(test);
+								    }
+								})
+							</textarea><br />
+							<a href="http://www.css88.com/jquery-ui-api/slider/">详细资料</a>
+						</span></li>
+						<li><a href="">menu()</a><span>菜单
+							<br />1.菜单可以用任何有效的标记创建，只要元素有严格的父/子关系且每个条目都有一个锚。最常用的元素是无序列表
+							<br />2.ui-state-disabled (class) :禁用条目
+							<br />3.空格/破折号:分隔符
+							<br />4.添加图标,菜单（Menu）会自动向无图标的条目添加必要的内边距。<br />
+							<textarea name="" id="" cols="60" rows="10">
+								<ul id="menu">
+								  <li><a href="#"><span class="ui-icon ui-icon-disk"></span>Save</a></li>
+								</ul>
+							</textarea>
+							</span></li>
+						<li><a href="">tabs()</a><span>选项卡
+							<br /><textarea name="" id="" cols="60" rows="10">
+							$('#tabs').tabs({
+								collapsible : true, //是否可以折叠
+								disabled : [0],  //禁用的项目
+								event : 'mouseover',  //触发的事件
+								active : 0, //默认显示第几个选项卡
+								active : false, //默认折叠
+								heightStyle : 'content', //auto根据最高的,fill填充一定的可用高度
+								show : true, //或其他 'highlight'等
+							});
+							//更新对应选项卡
+							$('#button').click(function () {
+								$('#tabs').tabs('load', 0);
+							});
+							</textarea>
+							<br /><textarea name="" id="" cols="60" rows="10">
+								<div id="tabs">
+								<ul>
+								<li><a href="#tabs1">tab1</a></li>
+								<li><a href="#tabs2">tab2</a></li>
+								<li><a href="#tabs3">tab3</a></li>
+								</ul> //下方可省略,href为文档链接,默认ajax加载
+								<div id="tabs1">tab1-content</div>
+								<div id="tabs2">tab2-content</div>
+								<div id="tabs3">tab3-content</div>
+								</div>
+							</textarea>
+							<br /><a href="http://jqueryui.com/tabs/#sortable">拖拽排序</a>
+							</span></li>
+						<li><a href="">accordion()</a><span>手风琴（折叠菜单）
+							<br /><textarea name="" id="" cols="60" rows="10">
+								$('#accordion').accordion({
+									collapsible : true,
+									event : 'mouseover',
+									active : 1,
+									active : true,
+									heightStyle : 'content',
+									header : 'h3', //对应HTML需要更改
+									icons: {
+										"header": "ui-icon-plus",
+										"activeHeader": "ui-icon-minus",
+									},
+								});
+							</textarea>
+							<br /><textarea name="" id="" cols="60" rows="10">
+								<div id="accordion">
+									<h1>菜单 1</h1>
+									<div>内容 1</div>
+									<h1>菜单 2</h1>
+									<div>内容 2</div>
+									<h1>菜单 3</h1>
+									<div>内容 3</div>
+								</div>
+							</textarea>
+							</span></li>
+						<li><a href="">button()</a><span>按钮(含单复选)<br>
+							可以通过button或其他html元素来创建按钮。
+							<br>属性disabled,label,icons,text
+							<br>用于单选复选时,input标签需要闭合,label写在中间。
+							<br>//jQuery 单选框
+							<br>$('#reg input[type=radio]').button();
+							<br /><a href="http://api.jqueryui.com/theming/icons/">按钮图标</a>
+							<br />取值：
+							<br />单个复选框原型取值
+							<br />单个复选框模型取值 $('#a').button('widget').attr('aria-pressed')
+							<br />多个复选框原型取值 （数组）
+							<br />多个复选框模型取值
+							<br />单选框原型取值 $("#parent input[name='box']:checked").val();
+							<br />单选框模型取值 $("#raidXQ label[aria-pressed='true']").prev('input').val();
+						</span></li>
+						<li><a href="">buttonset()</a><span>按钮布局，作用于父级
+							<br />//jQuery 单选框改
+							<br>$('#reg').buttonset();</span></li>
+						<li><a href="">selectmenu()</a><span>下拉菜单</span></li>
+						<li><a href="">progressbar()</a><span>进度条<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$( "#box" ).progressbar({
+								    max:1024,
+								    value:200,
+								    value:false //不确定
+								});
+							</textarea>
+							<br />事件：change / complete
+							<br /><a href="http://www.css88.com/jquery-ui-api/progressbar/">详细文档</a>
+							</span></li>
+						<li><a href="">tooltip()</a><span>浮动提示
+							<br />$('[title]').tooltip({
+									<br />disabled : false,
+									<br />content : '改变文字',
+									<br />items : 'input', //过滤选择符
+									<br />tooltipClass : 'reg_tooltip', //更换样式
+									<br />position : {
+									<br />	my : 'left center',  //位置
+									<br />	at : 'right+5 center' 
+									<br />}
+									});
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]Form Extend</h4>
+					<ul>
+						<li><a href="">datepicker()</a><span>日历
+							<br />$("#date").datepicker({
+						            <br />dateFormat : 'yy-mm-dd',
+						            <br />dayNames : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+						            <br />dayNamesShort : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+						            <br />dayNamesMin : ['日','一','二','三','四','五','六'],
+						            <br />monthNames : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+						            <br />monthNamesShort : ['一','二','三','四','五','六','七','八','九','十','十一','十二'],
+						            <br />nextText : '下月',
+						            <br />prevText : '上月',
+						            <br />yearSuffix : '年',
+						            <br />showMonthAfterYear: true,
+						            <br />changeMonth : true,
+						            <br />changeYear : true,
+						            <br />firstDay : 1,
+						            <br />hideIfNoPrevNext: true,
+						            <br />gotoCurrent:true,
+						            <br />//defaultDate: -1 / '1m'
+						            <br />//yearRange: '1950:2020',
+						            <br />//minDate: x,最小日期
+						            <br />//maxDate: x,最大日期
+						            <br />//numberOfMonths : [3,2],
+						            <br />//altField : '#abc',
+						            <br />//altFormat : 'yy-mm-dd',
+						            <br />//appendText : '(yy-mm-dd)',
+						            <br />//showWeek : true,
+						            <br />//weekHeader : '周'
+						        <br />})
+							</span></li>
+						<li><a href="">autocomplete()</a><span>自动补全
+							<br>var arr = ['aaa@163.com', 'bbb@163.com', 'ccc@163.com'];
+							<br>$('#email').autocomplete({
+							<br>source : arr,
+							<br>minLength: 1,
+							<br>delay: 0,
+							<br>autoFocus: true
+							<br>}).autocomplete('search','') //展开所有,可设置一个向下按钮
+							<br /></span></li>
+						<li><a href="">spinner()</a><span>微调组件<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#ok").spinner({
+								    max:88,
+								    min:66,
+								    step:8, //每次调整的幅度
+								});
+							</textarea><br />
+							<a href="http://www.css88.com/jquery-ui-api/spinner/">详细文档</a>
+							</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>界面<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]组件</h4>
+					<ul>
+						<li><a href="http://colpick.com/plugin">Color Picker</a><span>取色器</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>图像<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]图片</h4>
+					<ul>
+					<li><a href="">瀑布流</a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href="">zoom()</a><span>放大镜<br />
+						<a href="https://github.com/jackmoore/zoom">download</a> | <a href="http://www.jacklmoore.com/zoom/">API</a>
+						</span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]相册</h4>
+					<ul>
+					<li><a href="">lightbox</a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>数据<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Form</h4>
+					<ul>
+						<li><a href="">validate()</a><span>表单验证
+							<br /><textarea name="" id="" cols="68" rows="10">//自定义验证
+							        $.validator.addMethod('code', function (value, element) {
+							            var tel = /^[0-9]{6}$/;
+							            return this.optional(element) || (tel.test(value));
+							        }, '请正确填写您的邮政编码');
+							        $("#os").validate({
+							            ignoreTitle : true, //禁止读取title
+							            rules:{
+							                user : {
+							                    required : true,
+							                    minlength : 5,
+							                    //remote : 'user.php', //验证注册的用户名是否已经存在
+							                },
+							                pass : {
+							                    required : true,
+							                    minlength : 6,
+							                    remote : {
+							                    url : 'user.php', //同时传递多个值到远程端
+							                    type : 'POST',
+							                    dataType : 'json',
+							                    data : {
+							                    user : function () {
+							                    return $('#user').val();
+							                    },
+							                    },
+							                    },
+							                },
+							                //调用自定义验证
+							                code : {
+							                    required : true,
+							                    code : true,
+							                }
+							            },
+							            //提示信息
+							            messages : {
+							                user : {
+							                    required : '帐号不得为空！',
+							                    minlength : $.validator.format('帐号不得小于{0}位！'),
+							                },
+							            },
+							            //样式控制
+							            //设置错误提示的 class 名
+							            errorClass : 'error_list',
+							            //设置错误提示的标签
+							            errorElement : 'li',
+							            //统一包裹错误提示
+							            wrapper : 'ul',
+							            //设置成功后加载的 class
+							            success : 'success',
+							            //使用方法加载 class 并添加文本
+							            success : function (label) {
+							            label.addClass('success').text('ok');
+							            },
+							            //使用方法加载 class 并添加文本
+							            success : function (label) {
+							            label.addClass('success').text('ok');
+							            },
+							            submitHandler : function (form) {
+							            //可以执行 ajax 提交
+							            },
+							        });
+							    })
+							</textarea>
+
+								<br /><a href="http://plugins.jquery.com/validation/">来源</a>
+							</span></li>
+						<li><a href="">$.cookie</a>('name','value')<span>
+							<textarea name="" id="" cols="60" rows="10">
+								//生成一个 cookie：
+								$.cookie('user', 'bnbbs');
+								//设置 cookie 参数
+								$.cookie('user', 'bnbbs', {
+								expires : 7, //过期时间，7 天后
+								path : '/', //设置路径，上一层
+								domain : 'www.ycku.com', //设置域名
+								secure : true, //默认为 false，需要使用安全协议 https
+								});
+								//读取cookie
+								$.cookie('user') == $.cookie().user 
+								//读取所有 cookie 数据
+								$.cookie()
+								//删除 cookie
+								$.removeCookie('user');
+								//删除指定路径 cookie
+								$.removeCookie('user', {
+								path : '/',
+								});
+							</textarea>
+							<br /><a href="http://plugins.jquery.com/cookie/">download</a>
+							</span></li>
+						<li><a href="">timepicker()</a><span>时间选择器<br />
+							<textarea name="" id="" cols="60" rows="10">
+								$("#time").timepicker({
+									//scrollDefault:'now', //默认滚动到现在时间
+									/*minTime:'2:00pm',
+									maxTime:'11:30pm',
+									showDuration:true,*/   //可选时间范围
+									/*disableTimeRanges:[
+										['1am','2am'],
+										['3am','4:01am']
+									]*/						//禁用时间段
+								});
+								//方法
+								$("#ok").click(function(){
+									$("#time").timepicker('setTime',new Date());  //设置为现在的时间
+								})
+								//事件
+								//on - changeTime
+							</textarea><br />
+							<a href="http://jonthornton.github.io/jquery-timepicker/">Download & EX</a>
+						</span></li>
+						<li><a href="http://ivaynberg.github.io/select2/">select2()</a><span>下拉菜单</span></li>
+						<li><a href="http://fronteed.com/iCheck/">icheck()</a><span>单复选</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Ajax</h4>
+					<ul>
+						<li><a href="">ajaxForm()</a><span>
+							$('#reg').ajaxForm(function () {
+							<br />alert('提交成功！');
+							<br />});
+							<br />默认的form submit方式,自动阻止默认行为
+							<br /><a href="https://github.com/malsup/form">Github</a></span></li>
+						<li><a href="">ajaxSubmit()</a><span>
+							<textarea name="" id="" cols="60" rows="10">
+								$('#reg').submit(function () {
+									$(this).ajaxSubmit({
+										url : 'test.php', //设置提交的 url，可覆盖 action 属性
+										target : '#box', //服务器返回的内容存放在#box 里
+										type : 'POST', //GET,POST
+										dataType : null, //xml,json,script，默认为 null
+										clearForm : true, //成功提交后，清空表单
+										resetForm : true, //成功提交后，重置表单
+										data : { //增加额外的数据提交
+											aaa : 'bbb',
+											ccc : 'ddd',
+										},
+										success : function (responseText, statusText) {
+											alert(responseText + statusText); //成功后回调
+										},
+										error : function (event, errorText, errorType) { //错误时调用
+											alert(errorText + errorType);
+										},
+									});
+								return false;
+								});
+							</textarea>
+							<br />注意： ajaxForm()方法， 是针对 form 直接提交的， 所以阻止了默认行为。 而ajaxSubmit()方法，由于是针对 submit()方法的，所以需要手动阻止默认行为。而使用了 validate.js 验证插件，那么 ajaxSubmit()比较适合我们。
+						</span></li>
+						<li><a href=""></a><span></span></li>
+						<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>效果<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]幻灯</h4>
+					<ul>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href="https://github.com/briangonzalez/jquery.arbitrary-anchor.js">anchor</a><span>锚点跳转</span></li>
+					<li><a href="">marquee()</a><span>跑马灯<br />
+						<textarea name="" id="" cols="60" rows="10">
+							$("#box").marquee({
+							   //delayBeforeStart:2000,  //延迟开始
+							   direction:'up', //left,right,up,down 不是top和bottom
+							   duration:3000, //完成时间,默认5000
+							   pauseOnHover:true, //悬浮暂停
+							   //duplicated:true, //填充空白
+							   //gap:100, //复制间隙
+							});
+						</textarea>
+						<br /><a href="https://github.com/aamirafridi/jQuery.Marquee">download and moreinfo></a>
+					</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>Zepto.js<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]核心</h4>
+					<ul>
+						<li><a href="">$(selector,context)</a><span>
+							<textarea name="" id="" cols="30" rows="10">
+								Zepto(function($){
+								  alert('Ready to Zepto!')
+								})
+							</textarea>
+							</span></li>
+						<li><a href="">$.fn</a>.function<span>
+							Zepto.fn是一个对象，它拥有Zepto对象上所有可用的方法，如 addClass()， attr()，和其它方法。在这个对象添加一个方法，所有的Zepto对象上都能用到该方法。
+							</span></li>
+						<li><a href="">$.trim</a>(str)<span>删除字符串首尾的空白符</span></li>
+						<li><a href="">each</a>(fn(i,item))<span></span></li>
+						<li><a href="">forEach</a>(fn(item,i,arr))<span></span></li>
+						<li><a href="">map</a>(fn(i,item))<span>
+							遍历对象集合中的所有元素。通过遍历函数返回值形成一个新的集合对象
+							</span></li>
+						<li><a href="">size()/length</a><span>获取对象集合中元素的数量</span></li>
+					</ul>
+					<h4>[<span>-</span>]筛选</h4>
+					<ul>
+						<li><a href="">eq</a>(i)<span>-1表示最后</span></li>
+						<li><a href="">get</a>([i])<span>
+							从当前对象集合中获取所有元素或单个元素。
+							<br />当index参数不存在的时，以普通数组的方式返回所有的元素。
+							<br />当指定index时，只返回该置的元素。
+							<br />这点与eq不同，该方法返回的是DOM节点，不是Zepto对象集合。
+							</span></li>
+						<li>ele.<a href="">index([parent])</a><span>获取一个元素在兄弟元素或指定集合的索引值</span></li>
+						<li>parent.<a href="">indexOf(ele)</a><span>
+							在当前对象集合中获取自身一个元素的索引值
+							</span></li>
+						<li><a href="">first()</a><span>获取当前对象集合中的第一个元素。</span></li>
+						<li><a href="">last()</a><span>获取对象集合中最后一个元素</span></li>
+						<li><a href="">find()</a><span>
+							在当对象前集合内查找符合CSS选择器的每个元素的后代元素。
+							</span></li>
+						<li><a href="">children</a>(selector)<span></span></li>
+						<li><a href="">parent</a>(selector)<span>获取对象集合中每个元素的直接父元素</span></li>
+						<li><a href="">parents</a>(selector)<span>获取对象集合每个元素所有的祖先元素</span></li>
+						<li><a href="">siblings()</a><span>获取对象集合中所有元素的兄弟节点</span></li>
+						<li><a href="">next()</a><span>下一个兄弟节点</span></li>
+						<li><a href="">prev()</a><span>前一个兄弟节点</span></li>
+						<li><a href="">closest</a>(selector)<span>
+							从元素本身开始，逐级向上级元素匹配，并返回最先匹配selector的元素
+							</span></li>
+						<li><a href="">has</a>(selector)<span>
+							判断当前对象集合的子元素是否有符合选择器的元素，或者是否包含指定的DOM节点，
+							如果有，则返回新的对象集合，该对象过滤掉不含有选择器匹配元素或者不含有指定DOM节点的对象。
+							</span></li>
+						<li><a href="">filter()</a><span>过滤对象集合，返回对象集合中满足css选择器的项</span></li>
+						<li><a href="">is</a>(selector)<span>判断当前元素集合中的第一个元素是否符css选择器</span></li>
+						<li><a href="">not</a>(selector)<span></span></li>
+					</ul>
+					<h4>[<span>-</span>]对象/数组</h4>
+					<ul>
+						<li><a href="">$.each</a>(collection,fn(i,val))<span>
+							操作数组/对象,返回数组/对象。
+							<br />遍历数组或对象,表示方法占位符
+							</span></li>
+						<li><a href="">$.extend</a>(target,source)<span>
+							操作对象,返回新对象.
+							<br />通过源对象扩展目标对象的属性
+							</span></li>
+						<li><a href="">$.map</a>(collection,fn(val,i))<span>
+							操作数组/对象,返回新数组.
+							<br />通过遍历集合中的元素，返回通过迭代函数的全部结果(数组)，null 和 undefined 将被过滤掉。
+							</span></li>
+						<li><a href="">$.grep</a>(arr,fn)<span>
+							操作数组,返回新数组.
+							<br />获取一个新数组，新数组只包含回调函数中返回 ture 的数组项。
+							</span></li>
+						<li><a href="">$.inArray</a>(ele,arr,[i])<span>
+							操作数组,返回索引号.
+							<br />返回数组中指定元素的索引值，如果没有找到该元素则返回-1。
+							[fromIndex] 参数可选，表示从哪个索引值开始向后查找。
+							</span></li>
+						<li><a href="">slice</a>(start,[end])<span>
+							提取这个数组array的子集，从start开始，如果给定end，提取从从start开始到end结束的元素，但是不包含end位置的元素。
+							</span></li>
+					</ul>
+					<h4>[<span>-</span>]DOM操作</h4>
+					<ul>
+						<li><a href="">$.contains</a>(parent,node)<span>
+							返回布尔值，检查父节点是否包含给定的dom节点，如果两者是相同的节点，则返回 false。
+							</span></li>
+						<li><a href="">add</a>(selector,[context])<span>
+							添加元素到当前匹配的元素集合中
+							<br />并非append，在当前选择器选择集合中额外添加某个元素到集合。
+							<br />返回新的合并后集合对象
+							</span></li>
+						<li><a href="">concat</a>(nodes)<span>
+							添加元素到一个Zepto对象集合形成一个新数组。
+							<br />如果参数是一个数组，那么这个数组中的元素将会合并到Zepto对象集合中。
+							<br />返回的是一个新数组
+							</span></li>
+						<li><a href="">append()</a><span>内部插入在后</span></li>
+						<li><a href="">appendTo()</a><span>内部追加至后</span></li>
+						<li><a href="">prepend()</a><span>内部插入在前</span></li>
+						<li><a href="">prependTo()</a><span>内部追加至前</span></li>
+						<li><a href="">after()</a><span>外部插入在后</span></li>
+						<li><a href="">insertAfter</a><span>外部插入至后方</span></li>
+						<li><a href="">before()</a><span>外部插入在前</span></li>
+						<li><a href="">insertBefore()</a><span>外部插入至前方</span></li>
+						<li><a href="">remove()</a><span>从其父节点中删除当前集合中的元素，有效的从dom中移除</span></li>
+						<li><a href="">clone()</a><span>深度克隆,但不复制事件</span></li>
+						<li><a href="">empty()</a><span>清空对象集合中每个元素的DOM内容</span></li>
+						<li><a href="">replaceWith()</a><span>用给定的内容替换所有匹配的元素</span></li>
+						<li><a href="">unwrap()</a><span>
+							移除集合中每个元素的直接父节点，并把他们的子元素保留在原来的位置
+							</span></li>
+						<li><a href="">wrap()</a><span>在每个匹配的元素外层包上一个html元素</span></li>
+						<li><a href="">wrapInner()</a><span>将每个元素中的内容包裹在一个单独的结构中</span></li>
+						<li><a href="">wrapAll()</a><span>在所有匹配元素外面包一个单独的结构</span></li>
+					</ul>
+					<h4>[<span>-</span>]HTML操作</h4>
+					<ul>
+						<li><a href="">attr()</a><span>设置/获取属性,不包含data类型</span></li>
+						<li><a href="">removeAttr()</a><span>移除当前对象集合中所有元素的指定属性。</span></li>
+						<li><a href="">prop()</a><span>设置/获取属性,交互表单</span></li>
+						<li><a href="">data()</a><span>读取或写入dom的 data-* 属性,不需要写data-前缀！</span></li>
+						<li><a href="">html()</a><span>获取或设置对象集合中元素的HTML内容</span></li>
+						<li><a href="">text()</a><span>不能用来获取或设置 HTML</span></li>
+						<li><a href="">val()</a><span></span></li>
+						<li><a href="">pluck()</a><span>获取对象集合中每一个元素的属性值</span></li>
+					</ul>
+					<h4>[<span>-</span>]CSS操作</h4>
+					<ul>
+						<li><a href="">addClass</a>(name/fn(i,val))<span>
+							为每个匹配的元素添加指定的class类名。
+							多个class类名使用空格分隔。
+							</span></li>
+						<li><a href="">removeClass()</a><span></span></li>
+						<li><a href="">toggleClass()</a><span></span></li>
+						<li><a href="">css()</a><span>设置/获取样式</span></li>
+						<li><a href="">hasClass</a>(name)<span>返回布尔值</span></li>
+						<li><a href="">width()</a><span>宽度</span></li>
+						<li><a href="">height()</a><span>高度</span></li>
+						<li><a href="">show()</a><span>去掉display:none</span></li>
+						<li><a href="">hide()</a><span>display:none</span></li>
+						<li><a href="">toggle()</a><span></span></li>
+						<li><a href="">offset()</a><span>
+							获得当前元素相对于document的位置。返回一个对象含有： top, left, width和height
+							</span></li>
+						<li><a href="">offsetParent()</a><span>
+							找到第一个定位过的祖先元素，意味着它的css中的position 属性值为“relative”, “absolute” or “fixed”,返回的是定位的祖先元素
+							</span></li>
+						<li><a href="">position()</a><span>
+							获取对象集合中第一个元素的位置，返回的是相对定位的键值对对象
+							</span></li>
+						<li><a href="">scrollLeft()</a><span></span></li>
+						<li><a href="">scrollTop()</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Event事件</h4>
+					<ul>
+						<li><a href="">$.Event</a>(type)<span></span></li>
+						<li><a href="">$.proxy</a>(fn,context)<span></span></li>
+						<li><a href="">on()</a><span></span></li>
+						<li><a href="">off()</a><span></span></li>
+						<li><a href="">one()</a><span></span></li>
+						<li><a href="">trigger()</a><span></span></li>
+						<li><a href="">triggerHandler()</a><span></span></li>
+						<li><a href="">tap</a><span></span></li>
+						<li><a href="">singleTap</a><span></span></li>
+						<li><a href="">doubleTap</a><span></span></li>
+						<li><a href="">longTap</a><span></span></li>
+						<li><a href="">swipe</a><span></span></li>
+						<li><a href="">swipeLeft</a><span></span></li>
+						<li><a href="">swipeRight</a><span></span></li>
+						<li><a href="">swipeUp</a><span></span></li>
+						<li><a href="">swipeDown</a><span></span></li>
+					</ul>
+					<h4>[<span>-</span>]Ajax|Form</h4>
+					<ul>
+						<li><a href="">$.ajax()</a><span>
+							<textarea name="" id="" cols="30" rows="10">
+								$.ajax({
+									type:'get'/'post',
+									url:'/projects',
+									data:{},
+									dataType:'json',
+									timeout:300,
+									success:function(data,status,xhr){}
+									error:function(xhr,errorType,error){}
+								})
+							</textarea>
+							</span></li>
+						<li><a href="">$.ajaxSettings</a><span></span></li>
+						<li>$('#box')<a href="">.load</a>(doc.html #id)<span>
+							通过GET Ajax载入远程 HTML 内容代码并插入至 当前的集合 中。另外，一个css选择器可以在url中指定，像这样，可以使用匹配selector选择器的HTML内容来更新集合。
+							</span></li>
+						<li><a href="">$.get</a>(url,[data],fn(data,status,xhr))<span>
+							<textarea name="" id="" cols="30" rows="10">
+								$.get('/whatevs.html', function(response){
+								  $(document.body).append(response)
+								})
+							</textarea>
+							</span></li>
+						<li><a href="">$.getJSON</a>(url,[data],fn(data,status,xhr))<span></span></li>
+						<li><a href="">$.post</a>(url,[data],fn(data,status,xhr))<span></span></li>
+						<li><a href="">$.parseJSON</a>(str)<span>
+							原生JSON.parse方法的别名。
+							<br />接受一个标准格式的 JSON 字符串，并返回解析后的 JavaScript 对象。
+							</span></li>
+						<li><a href="">$.param</a>(obj/arr)<span>
+							序列化一个对象
+							</span></li>
+						<li>$('#someform')<a href="">serialize()</a><span>
+							Ajax post请求中将用作提交的表单元素的值编译成 URL编码的 字符串。
+							</span></li>
+						<li>$('#someform')<a href="">serialize()</a><span>
+							将用作提交的表单元素的值编译成拥有name和value对象组成的数组。
+							<br />不能使用的表单元素，buttons，未选中的radio buttons/checkboxs 将会被跳过。
+							<br />结果不包含file inputs的数据。
+							</span></li>
+						<li><a href="">submit</a>(fn(e))<span>
+							为 "submit" 事件绑定一个处理函数，或者触发元素上的 "submit" 事件。
+							<br />当没有给定function参数时，触发当前表单“submit”事件，并且执行默认的提交表单行为，除非调用了 preventDefault()。
+							<br />当给定function参数时，在当前元素上它简单得为其在“submit”事件绑定一个处理函数。
+							</span></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>Touch.js<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]Core</h4>
+					<ul>
+						<li><a href="http://touch.code.baidu.com/">Download & API</a></li>
+						<li><a href="">touch.on</a>([parent],types,selector,fn)<span>
+							手势事件的类型, 可接受多个事件以空格分开；支持原生事件的透传
+							</span></li>
+						<li><a href="">touch.off</a>([parent],types,selector,fn)<span></span></li>
+						<li><a href="">touch.trigger</a>(selector,type)<span></span></li>
+					</ul>
+					<h4>[<span>-</span>]事件类型</h4>
+					<ul>
+						<li><a href="">pinchin</a>收缩<span>
+							<br />pinchstart	缩放手势起点
+							<br />pinchend	缩放手势终点
+							<br />pinch	缩放手势
+							<br />pinchin	收缩
+							<br />pinchout	放大
+							</span></li>
+						<li><a href="">pinchout</a>放大<span></span></li>
+						<li><a href="">rotate</a>旋转<span></span></li>
+						<li><a href="">rotateleft</a>向左旋转<span></span></li>
+						<li><a href="">rotateright</a>向右旋转<span></span></li>
+						<li><a href="">swiping</a><span>滑动中</span></li>
+						<li><a href="">swipe</a>滑动<span>
+							<br />swipestart	滑动手势起点
+							<br />swiping	滑动中
+							<br />swipeend	滑动手势终点
+							<br />swipeleft	向左滑动
+							<br />swiperight	向右滑动
+							<br />swipeup	向上滑动
+							<br />swipedown	向下滑动
+							<br />swipe	滑动
+							</span></li>
+						<li><a href="">drag</a>拖动<span>
+							<br />拖动开始	dragstart	拖动屏幕
+							<br />拖动	drag	拖动手势
+							<br />拖动结束	dragend	拖动屏幕
+							<br />拖动	drag	拖动手势
+							</span></li>
+						<li><a href="">hold</a>长按<span></span></li>
+						<li><a href="">tap</a>单击屏幕<span></span></li>
+						<li><a href="">doubletap</a>双击屏幕<span></span></li>
+					</ul>
+					<h4>[<span>-</span>]事件对象</h4>
+					<ul>
+						<li><a href="">originEvent</a><span>触发某事件的原生对象</span></li>
+						<li><a href="">type</a><span>事件的名称</span></li>
+						<li><a href="">rotation</a><span>旋转角度</span></li>
+						<li><a href="">scale</a><span>缩放比例</span></li>
+						<li><a href="">direction</a><span>操作的方向属性</span></li>
+						<li><a href="">fingersCount</a><span>操作的手势数量</span></li>
+						<li><a href="">position</a><span>相关位置信息, 不同的操作产生不同的位置信息</span></li>
+						<li><a href="">distance</a><span>swipe类两点之间的位移</span></li>
+						<li><a href="">distanceX, x</a><span>手势事件x方向的位移值, 向左移动时为负数</span></li>
+						<li><a href="">distanceY, y</a><span>手势事件y方向的位移值, 向上移动时为负数</span></li>
+						<li><a href="">angle</a><span>rotate事件触发时旋转的角度</span></li>
+						<li><a href="">duration</a><span>touchstart 与 touchend之间的时间戳</span></li>
+						<li><a href="">factor</a><span>swipe事件加速度因子</span></li>
+						<li><a href="">startRotate</a><span>启动单指旋转方法，在某个元素的touchstart触发时调用</span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>Underscore.js<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]数组</h4>
+					<ul>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					<li><a href=""></a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h3>工具<span>-</span></h3>
+				<div>
+					<h4>[<span>-</span>]工具</h4>
+					<ul>
+						<li><a href="">UEditor</a>
+							<span>+<a href="http://ueditor.baidu.com/website/index.html">download</a>
+							<br />+<a href="http://fex-team.github.io/ueditor/">docs</a>
+							<br />+<a href="http://ueditor.baidu.com/doc/">API</a>
+							</span></li>
+						<li><a href="http://echarts.baidu.com/doc/feature.html">ECharts</a></li>
+						<li><a href="http://www.jeasyui.com/index.php">Easy UI</a><span></span></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>

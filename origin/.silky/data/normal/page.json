@@ -1,0 +1,23 @@
+{
+    "depends":[
+        "handlebars",
+        "express",
+        "less",
+        "json-proxy",
+        "commander",
+        "async",
+        "grunt",
+        "coffee-script",
+        "colors",
+        "deep-watch",
+        "cheerio",
+        "socket.io-client",
+        "socket.io",
+        "mkdirp",
+        "fs-extra",
+        "uglify-js",
+        "clean-css",
+        "underscore",
+        "js-beautify"
+    ]
+}
