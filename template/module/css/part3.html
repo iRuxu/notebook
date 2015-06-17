@@ -77,9 +77,10 @@
       }
      </code></pre></span></li>
     <li><a href="">filter</a>
-     <span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
+     <span>background图层优先级比filter高，不支持平铺,fix,雪碧图，img标签。
      <br><pre><code data-language="css">
       background:url('../images/ex.png') no-repeat;
+      _background:none;
       _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
      </code></pre>
      <br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。此方法不能应用于平铺图像！

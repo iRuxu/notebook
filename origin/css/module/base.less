@@ -1,212 +1,398 @@
 /*
-Base.less v1.4 - [2014.12.25]
-https://github.com/iRuxu/iruxucss
-*/
+ * Name: base.less
+ * Description: function,ie hack
+ * Creator: iRuxu,Dora
+ * Modify: iRuxu
+ * Update: 2015-6-2
+ * API: http://help.lab.hunantv.com/page/function/base.html
+ */
 
-//=Font
+//FONT 字体
 //--------------------------------------------------------------
-    //font write mode
-        .nobreak{white-space:nowrap;word-break:keep-all;text-overflow:ellipsis;overflow:hidden;}
-        .break{white-space:normal;word-wrap:break-word;word-break:break-all;}
-        .refont{direction:rtl;unicode-bidi:bidi-override;}
-        .acolor(@acolor,@ahovercolor){a{color:@acolor;}a:hover{color:@ahovercolor;}}
-        .indent{text-indent:-100%;overflow:hidden;}
+    //字体样式：粗体
+    .bold(@bold:bold){font-weight:@bold;}
 
+    //字体样式：斜体
+    .italic(){font-style:italic;}
 
-//=Layout
+    //字体样式：正常
+    .normal(){font-weight:normal;font-style:normal;}
+
+    //字体大小与行高
+    .fz(@size,@lh:inherit){
+        font-size:@size;    //此处需要自行定义单位
+        line-height:@lh;  //建议使用乘积因子
+    }
+
+    //字体行高
+    .lh(@lh,@height:@lh){
+        line-height:@lh;  //行高等于高度,此处不能传乘积因子
+        height:@height;
+    }
+
+    //字体大小，行高，高度
+    .fzlh(@size,@lh,@height:@lh){
+        font-size:@size;
+        line-height:@lh;
+        height:@height;
+    }
+
+    //字体颜色
+    .color(@color){
+        color:@color;   //自身颜色，包括链接与非链接
+    }
+    .color(@color,@hovercolor){
+        color:@color;   //自身颜色，包括链接与非链接
+        &:hover{color:@hovercolor;} //自身Hover时
+    }
+    .color(@color,@acolor,@hovercolor){
+        color:@color;
+        a{color:@acolor;}
+        a:hover{color:@hovercolor;}
+    }
+
+    //占位字符样式placeholder
+    .tip(@fz,@color,@align:left){
+        &:-moz-placeholder {
+            font-size:@fz;
+            color: @color;
+            text-align:@align;
+        }
+        &:-ms-input-placeholder {
+            font-size:@fz;
+            color: @color;
+            text-align:@align;
+        }
+        &::-webkit-input-placeholder {
+            font-size:@fz;
+            color: @color;
+            text-align:@align;
+        }
+    }
+    .tip(custom,@tip-property,@tip-value){
+        &:-moz-placeholder {
+            @{tip-property}:@tip-value;
+        }
+        &:-ms-input-placeholder {
+            @{tip-property}:@tip-value;
+        }
+        &::-webkit-input-placeholder {
+            @{tip-property}:@tip-value;
+        }
+    }
+
+//TEXT 文本
 //--------------------------------------------------------------
-    //Need unit! px/em/%/1.x
-        .fz(@size,@line:1){font-size:@size;line-height:@line;}
-        .size(@width,@height){width:@width;height:@height;}
-        .full{width:100%;height:100%;}
+   
+    //文本折行处理
+    .break(){
+        white-space:normal; //恢复正常折行
+        word-wrap:break-word;word-break:break-all; //总是断词（包括英文）
+    }
+    //文本不折行处理（可应用在inline-block水平排列）
+    .nobreak(){
+        white-space:nowrap;word-break:keep-all; //不允许折行,断词处理
+        text-overflow:ellipsis; //文本溢出处理方式,为显示“...”
+        overflow:hidden; //溢出生效需要对应用此属性的元素进行宽度设置(不能是自适应宽度)
+    }
 
-    //ie hack
-        .db{display:block;}
-        .dbi{display:inline-block;*display:inline;*zoom:1;}
-        .none{display:none;}
-        .hide{visibility: hidden;}
-        .show{visibility: visible;}
-        .clip{overflow:hidden;*zoom:1;}
-        .fl{float: left;*display: inline;}
-        .fr{float: right;*display: inline;}
-        .pr{position: relative;*zoom:1;}
-        .pa{position: absolute;}
-        .ps{position: static;}
-
-    //align and auto
-        .x(@text-align:center){text-align:@text-align;}
-        .y(@vertical-align:middle){vertical-align:@vertical-align;}
-        .z(@index:1){z-index:@index;}
+    .nobreak(clip){
+        white-space:nowrap;word-break:keep-all; //不允许折行,断词处理
+        text-overflow:clip; //文本溢出处理方式：直接剪裁
+        overflow:hidden; //溢出生效需要对应用此属性的元素进行宽度设置(不能是自适应宽度)
+    }
         
-        .ct{position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;} //x ie6 x
-        .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;} //x ie6 x
-        .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;} //x ie6 x
+    .nobreak(visible){
+        white-space:nowrap;word-break:keep-all; //不允许折行,断词处理
+        overflow:visible; //总是显示溢出
+    }
+    //段落省略
+    .pmore(@lines){
+        display: -webkit-box;
+        -webkit-line-clamp: @lines; //设定行数，超出行数则省略，只webkit有效
+        -webkit-box-orient: vertical;
+    }
+    //文本缩进隐藏（可应用于按钮,banner等位置背景图已有图片文字,保留文字仅作SEO优化）
+    .indent(@indent:-200%){text-indent:@indent;overflow:hidden;} //推荐使用此方式,减少移动端重绘能耗,根据需要扩大倍数至-200%+
+    //反向文字
+    .refont(){direction:rtl;unicode-bidi:bidi-override;}
 
-        .ct(x,@width){position:absolute;left:50%;@xmargin:unit(@width/2,px);margin-left:-@xmargin;}
-        .ct(y,@height){position:absolute;top:50%;@ymargin:unit(@height/2,px);margin-top:-@ymargin;}
-        .ct(o,@width,@height){position:absolute;left:50%;top:50%;@xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);margin-left:-@xmargin;margin-top:-@ymargin;}
-    
-        .cell{display:table-cell;*display:inline-block;} //table-cell content + auto side*2
-        .cell(x){display:table-cell;width:5000px;*width:auto;*zoom:1;} //table-cell box + auto full
-        .cell(y){display:table-cell;*margin-bottom:-5000px;*padding-bottom:5000px;*float:left;}
-        
-        .auto(x){margin-left:auto;margin-right:auto;}
-        .auto(y){display:table-cell;vertical-align:middle;} //x ie6 x
-        .auto(w,@margin){
-            @margins:unit(@margin,px);
-            width:~'calc(100% - @{margins})';
-            *width:~'expression(eval(document.documentElement.clientWidth - @{margin}))';   //IE8-js
-        }
-        .auto(h,@top){
-            position: absolute;
-            top:unit(@top,px);
-            bottom:0;_height:100%;  //ie6 parent add { overflow-y:hidden; }
-        }
-
-    //inline-block
-        .iblock{font-size:0;white-space:nowrap;
-            li{.dbi;.y(top);font-size:12px;white-space:normal;}
-        }
-
-    //clear float
-        .clear{*zoom:1;&:after {content:"\200B"; .db; height:0; clear:both;}}
-        .hr{clear:both;}
-
-    //Min Size
-        .min-height(@min-height){min-height:unit(@min-height,px);_height:unit(@min-height,px);}
-        .min-width(@min-width){min-width:unit(@min-width,px);_width:unit(@min-width,px);}
-
-    //for ie6 position fixed
-        .fixed(@_,@side:0,@fix:0){
-            position: fixed;
-            _position:absolute;
-            *zoom:1; 
-        }
-        .fixed(lt,@side:0,@fix:0){
-            left:unit(@side,px);
-            top:unit(@fix,px);
-            _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
-        }
-        .fixed(rt,@side:0,@fix:0){
-            right:unit(@side,px);
-            top:unit(@fix,px);
-            _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
-        }
-        .fixed(lb,@side:0,@fix:0){
-            left:unit(@side,px);
-            bottom:unit(@fix,px);
-            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
-        }
-        .fixed(rb,@side:0,@fix:0){
-            right:unit(@side,px);
-            bottom:unit(@fix,px);
-            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
-        }
-        .fixed(ct,@width,@height){
-            left:50%;
-            @xmargin:unit(@width/2,px);
-            margin-left:-@xmargin;
-            top:50%;
-            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
-            @ymargin:unit(@height/2,px);
-            margin-top:-@ymargin;
-        }
-    
-
-//Transparent
+//Align 对齐
 //--------------------------------------------------------------
-    //opacity elements
+    //三维对齐、排列方式
+    .x(@text-align:center){text-align:@text-align;} //水平（x轴）对齐方式
+    .y(@vertical-align:middle){vertical-align:@vertical-align;} //垂直（y轴）对齐方式
+    .z(@index:1){z-index:@index;} //层叠级别（z轴）
+
+//SIZE 尺寸
+//--------------------------------------------------------------
+
+    .w(@width){width:@width;} //宽度
+    .h(@height){height:@height;} //高度
+    .size(@width,@height:@width){width:@width;height:@height;} //需要自定单位
+
+    .full(){width:100%;height:100%;} //满容器
+    .full(x){width:100%;}
+    .full(y){height:100%;}
+
+    .half(){width:50%;height:50%;} //一半容器
+    .half(x){width:50%;}
+    .half(y){height:50%;}
+
+    .min-height(@min-height){min-height:@min-height;_height:@min-height;} //最小高度
+
+//IE Hack
+//--------------------------------------------------------------
+    
+    //浮动简写
+    .fl(){float:left;*display:inline;} //IE6-7双倍margin bug处理
+    .fl(7){*float:left;*display:inline;} //只在IE6-7应用
+    .fl(6){_float:left;_display:inline;} //只在IE6应用
+    .fr(){float:right;*display:inline;}
+    .fr(7){*float:right;*display:inline;} //只在IE6-7应用
+    .fr(6){_float:right;_display:inline;} //只在IE6应用
+    //清除浮动塌陷
+    .clearfix(){
+        *zoom:1;
+        &:after{content:"\200B";display:block;height:0;clear:both;}
+    }
+    //清除浮动
+    .clear(@clear:both){clear:@clear;}
+    //inline-block布局替代float - 纯列表时
+    .iblock(){
+        font-size:0;white-space:nowrap;overflow:visible;
+        li{.dbi;.y(top);font-size:12px;white-space:normal;}
+    }
+    .iblock(@selector){
+        font-size:0;white-space:nowrap;overflow:visible;
+        .@{selector}{.dbi;.y(top);font-size:12px;white-space:normal;}
+    }
+
+    //表现简写
+    .db(){display:block;} //表现为块级,比如将a、span等内联元素块级化
+    .dbi(){display:inline-block;*display:inline;*zoom:1;} //表现为内联块级元素，兼容IE6
+    .dib(){display:inline-block;*display:inline;*zoom:1;} //表现为内联块级元素，兼容IE6
+    .di(){display:inline;} //表现为内联元素
+
+    //隐藏简写
+    .none(){display:none;}
+    .hide(){visibility:hidden;}
+
+    //溢出隐藏
+    .clip(){overflow:hidden;*zoom:1;} //兼容IE6-7
+    .noclip(){overflow:visible}
+
+    //定位简写
+    .ps(){position:static;}
+    .ps(7){*position:static;}
+    .ps(6){_position:static;}
+    .pr(){position:relative;*zoom:1;} //兼容IE6-7
+    .pr(7){*position:relative;*zoom:1;} //只在IE6-7进行相对定位
+    .pr(6){_position:relative;_zoom:1;} //只在IE6进行相对定位
+    .pa(){position:absolute;}
+    .pa(7){*position:absolute;}
+    .pa(6){_position:absolute;}
+    .pf(){position:fixed;}
+    .po(){.ps;margin:0;} //复位
+
+    //位置简写    
+    .lt(@l,@t:@l){left:@l;top:@t;}
+    .rt(@r,@t:@r){right:@r;top:@t;}
+    .lb(@l,@b:@l){left:@l;bottom:@b;}
+    .rb(@r,@b:@r){right:@r;bottom:@b;}
+
+    //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
+    .hasfixed(){
+        html,body{_background-image:url(about:blank);_background-attachment:fixed;}
+    }
+    //窗口固定（兼容IE6）
+    .fixed(@_,@side:0,@fix:0){
+        position: fixed;
+        _position:absolute;
+        *zoom:1; 
+    }
+    .fixed(lt,@side:0,@fix:0){
+        left:unit(@side,px);
+        top:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    }
+    .fixed(rt,@side:0,@fix:0){
+        right:unit(@side,px);
+        top:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    }
+    .fixed(lb,@side:0,@fix:0){
+        left:unit(@side,px);
+        bottom:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    }
+    .fixed(rb,@side:0,@fix:0){
+        right:unit(@side,px);
+        bottom:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    }
+    .fixed(o,@width,@height){
+        width:unit(@width,px);
+        height:unit(@height,px);
+        left:50%;top:50%;
+        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
+        margin-left:-@xmargin;margin-top:-@ymargin;
+        _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
+    }
+
+//Layout
+//--------------------------------------------------------------
+
+    //居中对齐
+    .auto(x){margin-left:auto;margin-right:auto;}
+    .auto(y){display:table-cell;vertical-align:middle;} //IE7+
+
+    //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
+    .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
+    .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
+    .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
+
+    //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
+    .ct(x,@width) when (ispixel(@width)){
+        position:absolute;
+        left:50%;
+        margin-left:-@width/2;
+    }
+    .ct(x,@width) when (ispercentage(@width)){
+        position:absolute;
+        left:50%;
+        margin-left:-@width/2;
+    }
+    .ct(x,@width) when (default()) {
+        position:absolute;
+        left:50%;
+        @xmargin:unit(@width/2,px);
+        margin-left:-@xmargin;
+    }
+    .ct(y,@height) when (ispixel(@height)){
+        position:absolute;
+        top:50%;
+        margin-top:-@height/2;
+    }
+    .ct(y,@height) when (ispercentage(@height)){
+        position:absolute;
+        top:50%;
+        margin-top:-@height/2;
+    }
+    .ct(y,@height) when (default()){
+        position:absolute;
+        top:50%;
+        @ymargin:unit(@height/2,px);
+        margin-top:-@ymargin;
+    }
+    .ct(o,@width,@height:@width) when (ispixel(@width)){
+        position:absolute;left:50%;top:50%;
+        margin-left:-@width/2;margin-top:-@height/2;
+    }
+    .ct(o,@width,@height:@width) when (ispercentage(@width)){
+        position:absolute;left:50%;top:50%;
+        margin-left:-@width/2;margin-top:-@height/2;
+    }
+    .ct(o,@width,@height:@width) when (default()){
+        position:absolute;left:50%;top:50%;
+        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
+        margin-left:-@xmargin;margin-top:-@ymargin;
+    }
+
+
+//Color
+//--------------------------------------------------------------
+    //元素透明度
     .tm(@tm){
         @alpha:@tm*100;
         opacity:@tm; //ie9 webkit etc.
         filter:alpha(opacity=@alpha); //ie5-ie7
     }
-    //rgba alpha color
-    .rgba(@r,@g,@b,@tm){
+    //背景色半透明
+    .tb(@r,@g,@b,@tm){
         @rgba:rgba(@r,@g,@b,@tm);
         @rgb:rgb(@r,@g,@b);
         @ietm:argb(@rgba);
-        background-color: @rgba;
-        filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
+        background-color: @rgba;    //webkit,moz,ms10+
+        filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@{ietm}, endColorstr=@{ietm}) \0";  //ie7-8
+        _background-color: @rgb;    //ie6
     }
-    //ie6 png image
-    .tmpng(@url){ 
-        //you should add a absolute path , no support repeat img
-        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-    }
-    //ie6 border transparent -2014.12.9
-    .ts(@width,@style:solid,@color:transparent){
+    //透明边框（兼容IE6 慎用）
+    .ts(@width,@setcolor:#333300){
         border-width:unit(@width,px);
-        border-style:@style;
-        border-color:@color;
-        _border-color: #000000; 
-        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
+        border-style:solid;
+        border-color:transparent;
+        _border-color: @setcolor; 
+        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='@{setcolor}')";
+    }
+
+    //IE6兼容PNG图
+    .tmpng(@url){ 
+        //只能用于背景图，需要使用相对html文档的相对路径或绝对路径，不支持fix状态
+        _background:none;
+        _filter:~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@{__img})";
     }
 
 
 //Interface
 //--------------------------------------------------------------
+    
     //cursor
-        .pointer{&:hover{cursor:pointer;}}
+    .pointer(){cursor:pointer;}
 
+    //Form
+    .btn-reset(){background:none;border:none;}
+    
+
+
+//Image
+//--------------------------------------------------------------
+    .tmpng(@url){ 
+        //只能用于背景图，需要使用相对html文档的相对路径或绝对路径，不支持fix状态
+        _background:none;
+        _filter:~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@{__img})";
+    }
+
+    //雪碧图·横向阵列，传入个数，单元宽度
+    .sprite(@n,@unit-width){
+        .sprite-generate(@i:0) when (@i <= @n){
+            .sprite-@{i}{
+                background-position:-@unit-width*(@i - 1) 0;
+            }
+            .sprite-generate(@i + 1);
+        }
+        .sprite-generate(0);
+    }
+
+    .sprite(@n,@unit-width,@selector){
+        .sprite-generate(@i:0) when (@i <= @n){
+            .@{selector}-@{i}{
+                background-position:-@unit-width*(@i - 1) 0;
+            }
+            .sprite-generate(@i + 1);
+        }
+        .sprite-generate(0);
+    }
 
 //Effect
 //--------------------------------------------------------------
-    //reflect
-        .dy(t){-webkit-box-reflect: above;}
-        .dy(b){-webkit-box-reflect: below;}
-        .dy(l){-webkit-box-reflect: left;}
-        .dy(r){-webkit-box-reflect: right;}
 
     //filter
-        .blur(@blur){
-            filter:blur(@blur);
-            -webkit-filter:blur(@blur);
-        }
-        .filter(heibai,@arg:1){filter:grayscale(@arg);-webkit-filter:grayscale(@arg);}
-        .filter(pojiu,@arg:1){filter:sepia(@arg);-webkit-filter:sepia(@arg);}
-        .filter(baohe,@arg:1){filter:saturate(@arg);-webkit-filter:saturate(@arg);}
-        .filter(liangdu,@arg:1){filter:brightness(@arg);-webkit-filter:brightness(@arg);}
-        .filter(duibi,@arg:1){filter:contrast(@arg);-webkit-filter:contrast(@arg);}
+    .blur(@blur){
+        filter:blur(@blur);
+        -webkit-filter:blur(@blur);
+        -moz-filter:blur(@blur);
+        -o-filter:blur(@blur);
+        -ms-filter:blur(@blur);
+        filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='@{blur}');
+        *zoom: 1;
+    }
 
-    //the item style
-        .items(fk){list-style:square;}
-        .items(dian){list-style:disc;}
-        .items(quan){list-style:circle;}
-        .items(num){list-style:decimal;}
-        .items(01){list-style:decimal-leading-zero;}
-        .items(i){list-style:lower-roman;}
-        .items(I){list-style:upper-roman;}
-        .items(a){list-style:lower-alpha;}
-        .items(A){list-style:upper-alpha;}
-        .items(@_){padding-left:40px;}
-
-//Other
-//--------------------------------------------------------------
-    //::placeholder
-        .tips(@color,@size:12px,@align:left){
-            &:-moz-placeholder {
-                color: @color;
-                font-size:@size;
-                text-align:@align;
-            }
-            &:-ms-input-placeholder {
-                color: @color;
-                font-size:@size;
-                text-align:@align;
-            }
-            &::-webkit-input-placeholder {
-                color: @color;
-                font-size:@size;
-                text-align:@align;
-            }
-        }
-
-    //colums
-        .col(@cols){
-            -webkit-columns:@cols;
-            -moz-columns:@cols;
-            -ms-columns:@cols;
-            -o-columns:@cols;
-            columns:@cols;
-        }
+    .3D(fix){
+        -webkit-backface-visibility:hidden;
+        -webkit-transform-style:preserve-3d;
+    }

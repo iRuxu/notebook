@@ -1,7 +1,7 @@
-<ul>
-	<li>
+<div class="col">
+	<div class="block">
 		<h3>布局II<span>-</span></h3>
-		<div>
+		<div class="contents">
 			<h4>[<span>-</span>]盒模型</h4>
 			<ul>
 				<li><a href="">Standards/Quirks Mode</a><span>
@@ -246,7 +246,8 @@
 					<br />1.默认背景图片的平铺是包含在padding区域的
 					<br />2.padding生效在伪对象之外。
 					<br />3.%比值<b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b><a href="http://www.ituring.com.cn/article/64581">参考资料</a>绝对定位的top/left等百分比按照父级对应尺寸。
-					<br />4.IE7会胡乱继承padding,自适应宽高的地方必要应设置父级宽高并设置隐藏。
+					<br />4.IE7会胡乱继承padding,自适应宽高的地方必要应设置父级宽高并设置隐藏。<br>
+					5.当设置类似必须overflow但内部有元素偏移时，可用padding替代margin。
 					</span></li>
 				<li><a href="">margin</a><span>外部补白.
 					<br>margin-left/right:num/%/auto. 当margin-left/right为auto时水平居中
@@ -451,5 +452,5 @@
 				</span></li>
 			</ul>
 		</div>
-	</li>
-</ul>
+	</div>
+</div>

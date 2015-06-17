@@ -1,55 +1,53 @@
 /*
-* Reset.less v0.7 - [2014.12.25]
-* https://github.com/iRuxu/iruxucss
-*/
+ * Name: reset.less
+ * Description: reset the browser settings,just for PC
+ * Creator: iRuxu,Dora
+ * Modify: iRuxu
+ * Update: 2015-3-31
+ */
 
 
-// =Reset
-//--------------------------------------------------------------
+/* =Reset
+--------------------------------------------------------------*/
 @charset "utf-8";
 
-//quick regional rollback for mac,google base font
-html{-webkit-overflow-scrolling:touch;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
-
-//clear the padding & margin,browser default style
-body,header,footer,hgroup,menu,nav,section,article,aside,details,figcaption,figure,div,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,legend,button,input,textarea,form,th,td
-{margin:0;padding:0;}
-blockquote,q {quotes:none;}
+/*reset the spacing*/
+body,header,footer,hgroup,menu,nav,section,article,aside,details,figcaption,figure,div,h1,h2,h3,h4,h5,h6,hr,
+p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,legend,button,input,textarea,form,th,td{margin:0;padding:0;}
 table {border-collapse:collapse;border-spacing:0;}
-ul,ol{list-style:none outside none;}
-fieldset,iframe{border:0 none;}
-img{-ms-interpolation-mode:bicubic;border:0 none;}  //for ie7 image zoom
+ul,li{list-style:none;}
+ol,ol li{list-style:inside decimal;}
+iframe{border:none;}
+img{-ms-interpolation-mode:bicubic;border:none;}
 
-//html5 elements style for ie
+/*html5 & mobile*/
+html{
+	-webkit-overflow-scrolling:touch;
+	-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
+}
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display: block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+audio:not([controls]) {display:none;height:0;}
+*{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 
-//Unity the form style
-button,input,select,textarea{font-family:inherit;font-size:100%;} 
-input{padding:0;margin:0;}
-input[type='button'],button{cursor:pointer;}
+/*form*/
+button,input,optgroup,select,textarea{font:inherit;color:inherit;} 
 button[disabled],input[disabled]{cursor: default;}
-textarea{overflow:auto;resize:vertical;vertical-align:top;}
-//+for safari button,you can change the 'button' with 'none'
-button,input[type=button],input[type=submit],input[type='reset']{
-cursor:pointer;*overflow:visible;
--webkit-appearance:button;} 
-//+for firefox button style
+input[type='button'],input[type="reset"],input[type="submit"],button{cursor:pointer;-webkit-appearance:button;overflow:visible;}
 button::-moz-focus-inner,button::-moz-focus-outer,input::-moz-focus-inner,input::-moz-focus-outer{margin:0;padding:0;border:0 none;} 
-//+for chrome search input type style
 input[type=search]{box-sizing: content-box;-webkit-appearance:textfield;}
 input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none;}
+textarea{overflow:auto;resize:none;vertical-align:top;}
 
-//Unity the font style
-a{text-decoration:none;}
-a:hover,a:active,:focus{outline:0;}
+/*effect reset*/
+a{text-decoration:none;background-color:transparent;}
+*:focus{outline:0;}
+blockquote,q {quotes:none;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
 b,strong{font-weight:normal;}
-address,cite,dfn,em,var,i{font-style:normal;}
-code,kbd,pre,samp,tt{font-family:consolas,'Courier New',monospace,serif;}
-small{font-size:80%;}
-pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
-sub,sup{font-size: 75%;line-height:0;position:relative;vertical-align:baseline;}
-sup{top:-.5em;}
-sub{bottom:-.25em;}
-abbr[title],acronym[title]{cursor:help;border-bottom: 1px dotted;}
+i,em{font-style:normal;}
+
+/*quick function*/
+.none{display:none;}
+.clearfix{*zoom:1;}
+.clearfix:after{content:"\200B";display:block;height:0;clear:both;}
