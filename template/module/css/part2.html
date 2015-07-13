@@ -1,7 +1,7 @@
-<ul>
-	<li>
+<div class="col">
+	<div class="block">
 		<h3>文本<span>-</span></h3>
-		<div>
+		<div class="contents">
 			<h4>[<span>-</span>]字体</h4>
 			<ul>
 				<li><a href="">font</a>([i b]size/lh family)<span>【简写】font:italic bold 18px/22px 'Consolas' （简写时font-size和font-family属性不可省略）顺序不对则有可能出现BUG</span></li>
@@ -13,14 +13,21 @@
 					<br>rem : 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px（手机端HTML5元素不主动继承body字体大小时，使用*）
 					<br />vm : 视窗可用宽度,0～100.(除去滚动条)
 					</span></li>
-				<li><a href="">line-height</a>(px/180%/1.8)<span>
-					行高,可为百分比或乘积因子,具有继承性
-					<br />% : 当为百分比时，子级会继承父级，此时的百分比，基于父级的字体大小的百分比，可能发生重叠（不具动画性）。<a href="http://css.doyoe.com/properties/text/line-height.htm">参考资料</a>
-					<br />1.5 : 当为乘积因子时，以自身的百分比150%=1.5。
-					<br /><a href="http://wenku.baidu.com/link?url=ATB30qF4Lv0JoYBgX64D7tj1jm1w77G-QC5A6tA22YYSn409R5Q-CcT1QIPGb-x8vxcGnfZ6F4T-1gTCJgbgQpkX8Bp3JaziAWIksWFlH1i">扩展阅读-linebox模型与基线等</a>
-					<br /><a href="http://www.zhangxinxu.com/wordpress/?p=384">行高的深入理解</a>
-					<br />补充:IE6-8中,input text不会因为行高而撑开高度,仍需主动设置高度
-					<br />line-height在FF中的对齐规则有BUG，<a href="http://blog.sina.com.cn/s/blog_50ba480e0100u7np.html">解决方案</a>使用FF专属HACK@-moz-document url-prefix(){some-style}</span></li>
+				<li><a href="">line-height</a>(px/180%/1.8)
+					<span>
+					行高,可为百分比或乘积因子,具有继承性<br>
+					% : 当为百分比时，子级会继承父级，此时的百分比，基于父级的字体大小的百分比，可能发生重叠（不具动画性）。<a href="http://css.doyoe.com/properties/text/line-height.htm">参考资料</a><br />
+					1.5 : 当为乘积因子时，以自身的百分比150%=1.5。<br />
+					<hr>
+					扩展阅读：<br>
+					<a href="http://wenku.baidu.com/link?url=ATB30qF4Lv0JoYBgX64D7tj1jm1w77G-QC5A6tA22YYSn409R5Q-CcT1QIPGb-x8vxcGnfZ6F4T-1gTCJgbgQpkX8Bp3JaziAWIksWFlH1i">linebox模型与基线等</a> | 
+					<a href="http://www.zhangxinxu.com/wordpress/?p=384">行高的深入理解</a>
+					<hr>
+					兼容处理：<br>
+					1.在FF中的对齐规则BUG，<a href="http://blog.sina.com.cn/s/blog_50ba480e0100u7np.html">解决方案</a>使用FF专属HACK@-moz-document url-prefix(){some-style}<br />
+					2.使用乘积因子时，IE7对1处理不当，需设置1.1或避免设置为字符等高。
+					</span>
+				</li>
 				<li><a href="">font-weight</a>(bold/normal)<span>粗体,normal正常=400,bold粗体=700,取值100~900</span></li>
 				<li><a href="">font-style</a>(italic/normal)<span>normal正常,italic字体自带斜体,oblique人为斜体</span></li>
 				<li><a href="">font-variant</a>(small-caps)<span>normal正常的字体,small-caps小型的大写字母字体</span></li>
@@ -137,7 +144,19 @@
 					<br>line-through：删除线</span></li>
 				<li><a href="">text-shadow</a>(1px 1px 2px #248)<span>文本阴影:1px 1px 5px #000; （水平,垂直,模糊半径,颜色）<br>在线生成3DCSS文字<a href="http://www.3dcsstext.com/">GO TO!</a></span></li>
 				<li><a href="">::selection</a><span>对象被选择时的样式,必须使用双冒号【CSS】<br>::selection只能定义被选择时的background-color及color</span></li>
-				<li><a href="">-webkit-text-fill-color</a><span>文字的填充颜色,默认值transparent</span></li>
+				<li><a href="">-webkit-text-fill-color</a>
+					<span>
+						文字的填充颜色,默认值transparent <br>
+						<a href="http://www.zhangxinxu.com/wordpress/2015/03/css3-colorful-text/">彩条文字</a>
+						<pre><code data-language="css">
+line-height: 20px;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-image: linear-gradient( to bottom, #9588DD, #9588DD 25%, #DD88C8 25%, #DD88C8 50%, #D3DD88 50%, #D3DD88 75%, #88B0DD 75%, #88B0DD);
+background-size: 100% 80px;
+						</code></pre>
+					</span>
+				</li>
 				<li><a href="">-webkit-text-stroke</a><span>文字的描边,1px #ff3399</span></li>
 				<li><a href="">-webkit-text-stroke-width</a><span>文字描边厚度</span></li>
 				<li><a href="">-webkit-text-stroke-color</a><span>文字描边颜色</span></li>
@@ -226,5 +245,5 @@
 						</span></li>
 			</ul>
 		</div>
-	</li>
-</ul>
+	</div>
+</div>

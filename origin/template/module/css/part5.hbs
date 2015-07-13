@@ -88,7 +88,7 @@
 						</table>
 					</span>
 				</li>
-				<li><a href="">zoom</a>
+				<li><a href="">hasLayout</a>
 					<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
 						<br />1.可局部用于响应式设计改变DOM尺寸，会有偏移错位（以像素起点对齐变换）
 						<br>2.可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
@@ -298,7 +298,9 @@
 					<br>hidden： 隐藏溢出容器的内容且不出现滚动条。 
 					<br>scroll： 隐藏溢出容器的内容，溢出的内容将以卷动滚动条的方式呈现。 
 					<br>auto： 当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。此为body对象和textarea的默认值。
-					<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。</span></li>
+					<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。
+					<br>扩展：
+					<br><a href="http://iruxu.com/fixbug/ie78scroll">IE78scroll无法用滚轮滚动bug</a></span></li>
 				<li><a href="">overflow-x</a><span>横向溢出处理</span></li>
 				<li><a href="">overflow-y</a><span>纵向溢出处理
 					<br />对html元素设置overflow:hidden;可隐藏浏览器滚动条,通过js设置让body,html滚动</span></li>
