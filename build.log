@@ -1,9 +1,0 @@
-Time: Mon Jul 13 2015 11:22:06 GMT+0800 (中国标准时间)
- Hostname: 14-110703
- OS: Windows_NT
- OS Version: 6.1.7601
- UUID: a70ecd09-644e-4dcc-a7b3-219223443f6d
- Version: 0.8.8
-
- Options:
- {"env":"production","workbench":"e:\\iRuxu\\notebook\\origin","buildMode":true,"livereload":"http://localhost:35729/livereload.js","version":"0.8.8","language":"en","original":{},"debug":false,"identity":".silky","globalSilkyIdentityDir":"C:\\Users\\Administrator\\.silky","output":"e:\\iRuxu\\notebook\\origin\\build"}

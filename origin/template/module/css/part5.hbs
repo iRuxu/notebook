@@ -88,19 +88,24 @@
 						</table>
 					</span>
 				</li>
-				<li><a href="">hasLayout</a>
+				<li><a href="">zoom</a>
 					<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
 						<br />1.可局部用于响应式设计改变DOM尺寸，会有偏移错位（以像素起点对齐变换）
 						<br>2.可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
 						<br />现代浏览器会溢出显示,但自身宽高不变.
+					</span>
+				</li>
+				<li>
+					<a href="">(hasLayout)</a>
+					<span>
 						<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
 						<br />触发haslayout的条件：
 						<br />IE6: 
 						<br />* display: inline-block
-						<br />* height: (任何值除了auto)
 						<br />* float: (left 或 right)
 						<br />* position: absolute
 						<br />* width: (任何值除了auto)
+						<br />* height: (任何值除了auto)
 						<br />* writing-mode: tb-rl
 						<br />* zoom: (除 normal 外任意值)
 						<br />IE7:（额外）
@@ -112,6 +117,21 @@
 						<br />* overflow-x: (除 visible 外任意值)
 						<br />* overflow-y: (除 visible 外任意值)
 						<br />* position: fixed
+					</span>
+				</li>
+				<li>
+					<a href="">(BFC)</a>
+					<span>
+						Block fomatting context<a href="http://www.w3.org/TR/CSS21/visuren.html#block-formatting">详细文档</a>
+						<br>BFC会阻止垂直外边距（margin-top、margin-bottom）折叠
+						<br>BFC不会重叠浮动元素
+						<br>BFC可以包含浮动
+						<br>触发BFC条件
+						<br>* 根元素,fieldset
+						<br>* float的值不为none
+						<br>* overflow的值不为visible
+						<br>* display的值为inline-block、table-cell、table-caption、flex、inline-flex
+						<br>* position的值为absolute或fixed
 					</span>
 				</li>
 			</ul>
@@ -367,8 +387,9 @@
 					</span></li>
 				<li><a href="">position:fixed</a><span>窗口定位：
 					<br>对象脱离常规流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。
-					<br>IE6不支持fixed定位，通过CSS表达式解决
-					<br><a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
+					<br>HACK：
+					<br>IE6不支持fixed定位，通过CSS表达式解决，<a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
+					<br>平板下的fixed有Bug，使用绝对定位代替。
 				</span></li>
 				<li><a href="">top/bottom/left/right</a><span>配合定位属性进行定位,可为负值.
 					<br />垂直居中一个图片
