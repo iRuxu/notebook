@@ -34,20 +34,20 @@
 
 <div class="header">
 	<a href="http://iruxu.com/notebook" target="_self"><h1 title="iRuxu&apos;s notebook">NOTEBOOK</h1></a>
-	<div id="nav">
+	<div class="nav" id="nav">
 		<ul>
-			<li class="ctcat"><a href="javascript:void(0)">CSS</a></li>
+			<li class="on"><a href="javascript:void(0)">CSS</a></li>
 			<li><a href="javascript:void(0)">jQuery</a></li>
 			<li><a href="javascript:void(0)">Javascript</a></li>
 			<li><a href="javascript:void(0)">HTML</a></li>
 			<li><a href="javascript:void(0)">RegEXP</a></li>
-			<li><a href="http://iruxu.com/to-be-css/" target="_self">ToolBox</a></li>
+			<li><a href="http://iruxu.com/to-be-css/">ToolBox</a></li>
 			<li><a href="http://www.cnblogs.com/iruxu/">Blog</a></li>
 		</ul>
 	</div>
 	<div id="showmenu"></div>
-	<p>
-		<a href="https://github.com/iRuxu">[Update:2015/06/27]</a> 
+	<p class="contact">
+		<a href="http://iruxu.com">[ 最新 ]</a> 
 		<span style="background:#fff;border-radius:8px;padding:0 10px">
 			<a href="http://weibo.com/yuanzi0512"><img src="image/sina.png" width="12px" alt="iruxu&#x7684;&#x5FAE;&#x535A;" title="Follow me on &#x5FAE;&#x535A;"></a> 
 			<a href="mailto:17229398@qq.com"><img src="image/email.png" width="12px" alt="iruxu&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;" title="email:17229398@qq.com"></a>
@@ -506,7 +506,7 @@ background-size: 100% 80px;
                     </span>
                 </li>
                 <li>
-                    (new)<a href="">filter</a>
+                    <a href="">filter</a>
                     <span>ele {filter: none | <filter-function>* } 
                     <br>函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
                     <br>grayscale() 灰度，黑白
@@ -549,14 +549,12 @@ background-size: 100% 80px;
                     <br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
                     <br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
                     <hr>4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
-                    </span>
-                </li>
-                <li><a href="">currentColor</a><span>
+                    </span></li>
+                    <li><a href="">currentColor</a><span>
                     让Border/backgroud等沿袭color的颜色<br>
                     <a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">参考资料</a>
-                    </span>
-                </li>
-                <li><a href="">opacity</a>
+                    </span></li>
+                    <li><a href="">opacity</a>
                     <span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
                     <br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
                     <br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
@@ -570,7 +568,7 @@ background-size: 100% 80px;
                     </span>
                 </li>
                 <li>
-                    (ie)<a href="">filter</a>
+                    <a href="">filter</a>
                     <span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
                     <br><pre><code data-language="css">
                     background:url('../images/ex.png') no-repeat;
@@ -579,11 +577,6 @@ background-size: 100% 80px;
                     <br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。此方法不能应用于平铺图像！
                     <br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
                     <br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
-                    <br><a href="http://www.qianduan.net/guan-yu-ie-zhong-css-filter-lv-jing-xiao-zhi-shi/">扩展资料</a>
-                    <br><br>
-                    ie filter滤镜的说明：<br>
-                    1.ie9滤镜重叠，给定统一class在条件注释中取消ie9滤镜。<br>
-                    2.滤镜镂空非主元素尺寸区间外部分(ie8全部,ie9不包含绝对定位)。
                     </span>
                 </li>
             </ul>
@@ -1285,7 +1278,7 @@ background-size: 100% 80px;
 						</table>
 					</span>
 				</li>
-				<li><a href="">zoom</a>
+				<li><a href="">hasLayout</a>
 					<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
 						<br>1.可局部用于响应式设计改变DOM尺寸，会有偏移错位（以像素起点对齐变换）
 						<br>2.可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
@@ -1495,7 +1488,9 @@ background-size: 100% 80px;
 					<br>hidden： 隐藏溢出容器的内容且不出现滚动条。 
 					<br>scroll： 隐藏溢出容器的内容，溢出的内容将以卷动滚动条的方式呈现。 
 					<br>auto： 当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。此为body对象和textarea的默认值。
-					<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。</span></li>
+					<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。
+					<br>扩展：
+					<br><a href="http://iruxu.com/fixbug/ie78scroll">IE78scroll无法用滚轮滚动bug</a></span></li>
 				<li><a href="">overflow-x</a><span>横向溢出处理</span></li>
 				<li><a href="">overflow-y</a><span>纵向溢出处理
 					<br>对html元素设置overflow:hidden;可隐藏浏览器滚动条,通过js设置让body,html滚动</span></li>

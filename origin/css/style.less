@@ -58,28 +58,46 @@
         border-bottom: 1px solid #888;
         background:url('@{url}/iruxu.png') #222 no-repeat left center;
         _background:url('@{url}/iruxu.jpg') #222 no-repeat left center;
-        h1{font-size:48px;.dbi;padding:6px 0 6px 88px;line-height:42px;text-shadow:2px 2px 2px @black;transition:0.6s;color:#ddd;
+        h1{font-size:48px;padding:6px 0 6px 88px;line-height:42px;text-shadow:2px 2px 2px @black;transition:0.6s;color:#ddd;
             font-family:"Nikefont",'Trebuchet MS',Helvetica,Arial;-webkit-font-smoothing: antialiased;
         }
         h1:hover{color:@blue;animation:tada 1s .2s ease both;}
         p{position: absolute;right:10px;top:15px;text-align: right;}
 
         #nav{
-            .pa;.clear;
+            .pa;
             left:280px;
             top:30px;
-            ul li{.dbi;
-                /*margin-right:3px;*/_margin-right:7px;line-height:42px;cursor:pointer;
-                font-family: Trebuchet MS;font-size:14px;text-align: center;
-                background:#222;border:1px solid #333;box-shadow:1px -1px 1px @black;
-                border-top-left-radius:4px;border-top-right-radius:4px;
-                a{.db;height:42px;padding:0 20px;}
-                &:hover,&.ctcat{color:@blue;background:#181818;border:1px solid @blue;border-bottom:none;text-shadow:0px 0px 8px #0099ff;}
-                &:hover a,&.ctcat a{color:@blue;}
+            ul{
+                .clearfix;
+                li{
+                    .fl;margin-right:5px;
+
+                    cursor:pointer;
+                    font-family: Trebuchet MS;text-align: center;
+
+                    background:#222;border:1px solid #333;box-shadow:1px -1px 1px @black;
+                    border-top-left-radius:4px;border-top-right-radius:4px;
+
+                    a{
+                        .db;.fzlh(14px,42px);
+                        padding:0 20px;
+                    }
+                    &:hover,&.on{
+                        color:@blue;background:#181818;
+                        border:1px solid @blue;
+                        border-bottom:none;
+                        text-shadow:0px 0px 8px #0099ff;
+                        a{
+                            color:@blue;
+                        }
+                    }
+                }
             }
         }
 
         #showmenu{
+            .none;
             background: url('@{url}/list.png') no-repeat center center;
             cursor:pointer;width:40px;height:28px;position:absolute;right:10px;top:20px;
         }
@@ -168,19 +186,47 @@
 
 // =Responsive
 //--------------------------------------------------------------
-/*    @media (max-width:1140px){.header p{.ps;text-align:left;padding-left:90px;}}
-    @media (max-width:1640px) and (min-width:1438px){.content>ul:nth-child(7){clear:left;}}
-    @media (max-width:1430px) and (min-width:1200px){.content>ul:nth-child(6){clear:left;}}
-    @media (max-width:1190px) and (min-width:962px){.content>ul:nth-child(5){clear:left;}}
-    @media (max-width:960px) and (min-width:728px) {.content>ul:nth-child(4),.content>ul:nth-child(7){clear:left;}}
-    @media (max-width:720px){
-        .content>ul{width:88%;margin:0 auto;float:none;}
-        .footer div{float:none;width:100%;}
-        #RegEXP>div{float:none;width:100%;}
+@media (max-width:720px){
+    .header{
+        #nav{.none;
+            .pf;.lt(0,75px);.full;
+            ul{
+                li{
+                    .full(x);
+                    .db;
+                    box-sizing:border-box;
+                    border-radius:0;
+                    &.on{
+                        border:1px solid #0cf;
+                        margin-bottom:1px;
+                    }
+                }
+            }
+        }
+        p{.none;}
+        #showmenu{.db;}
     }
-    @media (max-width:760px){
-        #snippet{width:100% !important;height:100% !important;top:0;left:0;margin:0;z-index:999999;box-sizing:border-box;}
-        #box{box-sizing:border-box;height:100%;margin-bottom:20px;}
-        #box table{width:95%;margin:10px auto 28px auto;}
+
+    .content .col,
+    .content>ul,
+    .footer div,
+    #RegEXP>div{
+        width:100%;
+        margin:0 auto;
+        float:none;
     }
-*/
+
+    .snippet{
+        .full;
+        box-sizing:border-box;
+        .pf;.lt(0,0);
+        margin:0;
+        padding:0;
+
+        h6{padding:5px 10px;}
+        .box{padding:0 10px;}
+    }
+    
+
+
+}

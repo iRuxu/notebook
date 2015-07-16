@@ -1,0 +1,191 @@
+<ul>
+	<li>
+		<h3>函数<span>-</span></h3>
+		<div>
+			<h4>[<span>-</span>]内部属性/对象</h4>
+			<ul>
+				<li><a href="">arguments</a><span>函数的参数对象
+					<div><span style="font-size: small;"><b>argument<span style="color: #e30000;">s</span>对象</b> （类数组对象，但检测不是数组类型）</span></div>
+						<div>
+						<table width="100%" border="1" cellspacing="0" cellpadding="2">
+						<tbody>
+						<tr>
+						<td valign="top">
+						<div><span style="font-size: small;">arguments[0]</span></div></td>
+						<td valign="top">
+						<div><span style="font-size: small;">第一个参数名字</span></div></td>
+						</tr>
+						<tr>
+						<td valign="top">
+						<div><span style="font-size: small;">arguments.length</span></div></td>
+						<td valign="top">
+						<div><span style="font-size: small;">参数的个数</span></div></td>
+						</tr>
+						<tr>
+						<td valign="top">
+						<div><span style="font-size: small;">arguments.callee</span></div></td>
+						<td valign="top">
+						<div><span style="font-size: small;">主体函数本身，拥有这个参数对象的函数</span></div></td>
+						</tr>
+						</tbody>
+						</table>
+						<div><strong> </strong></div>
+						</div></span></li>
+				<li><a href="">this</a><span>函数执行的环境对象,函数里的函数中的this为window,闭包中调用父级函数指定var that = this</span></li>
+				<li><a href="">caller</a><span>调用当前函数的函数</span></li>
+				<li><a href="">length</a><span>函数希望接收的命名参数的个数</span></li>
+				<li><a href="">prototype</a><span>原型属性，不可枚举</span></li>
+			</ul>
+			<h4>[<span>-</span>]方法</h4>
+			<ul>
+				<li>fn<a href="">.apply</a>(obj,arg)<span>func.apply(作用域，[传递参数]/arguments)</span></li>
+				<li>fn<a href="">.call</a>(obj,arg)<span>func.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域<br>call必须明确传入每一个参数</span></li>
+				<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
+			</ul>
+			<h4>[<span>-</span>]其他</h4>
+			<ul>
+				<li><a href="">(function(){})()</a><span>匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取</span></li>
+			</ul>
+		</div>
+	</li>	
+	<li>
+		<h3>面向对象<span>+</span></h3>
+		<div>
+			<h4>[<span>-</span>]基础概念</h4>
+			<ul>
+				<li><a href="">对象创建方法</a><span>
+					当对象的属性必须为变量时，则只能使用方括号！
+					<br>in遍历访问对象的属性/属性值
+					<br>for(var property in obj) {
+					<br>console.log(property);  //遍历对象的全部属性
+					<br>console.log(obj[property]); //遍历所有对象的值
+					<br>} 
+					<div>
+						<div>创建对象</div>
+						<div>
+						<table width="100%" border="1" cellspacing="0" cellpadding="2">
+						<tbody>
+						<tr>
+						<td valign="top">var obj = new Object()
+						obj.key = value
+						obj.key = function(){}</td>
+						<td valign="top">new 运算符</td>
+						</tr>
+						<tr>
+						<td valign="top">var obj ={
+						key:value,
+						key:function(){}
+						}</td>
+						<td valign="top">字面量</td>
+						</tr>
+						</tbody>
+						</table>
+						</div>
+						<div>
+						<ol>
+							<li>new可以省略，字面量方式中属性key可以有或去掉引号</li>
+							<li>对象属性间，不要忘记加逗号分隔</li>
+							<li>函数应用于对象时，对象名不需要加引号  function(obj){}</li>
+						</ol>
+						</div>
+						</div>
+						<div><b><span style="font-size: small;">对象属性</span></b></div>
+						<div>
+						<table width="100%" border="1" cellspacing="0" cellpadding="2">
+						<tbody>
+						<tr>
+						<td valign="top"><span style="font-size: small;">obj.key</span></td>
+						<td valign="top"><span style="font-size: small;">点表示法</span></td>
+						</tr>
+						<tr>
+						<td valign="top"><span style="font-size: small;">obj['key']</span></td>
+						<td valign="top"><span style="font-size: small;">中括号表示法</span></td>
+						</tr>
+						</tbody>
+						</table>
+						</div>
+						<div>
+						<ol>
+							<li><span style="color: #e30000; font-size: small;"><strong>中括号表示法时，key需要加上引号法</strong></span></li>
+							<li><b><span style="color: #e30000; font-size: small;">当属性含空格、关键字或为变量时，只能用中括号表示</span></b></li>
+							<li><span style="color: #e30000; font-size: small;"><b>删除属性delete obj.key</b></span></li>
+						</ol>
+						</div>
+				</span></li>
+				<li><a href="">对象内部属性</a><span>
+					<div>
+					<div>
+					<div>
+					<div>
+					<div>
+					<table width="88%" border="1" cellspacing="0" cellpadding="2">
+					<tbody>
+					<tr>
+					<td valign="top"><span style="font-size: small;">数据属性</span></td>
+					<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
+					</tr>
+					<tr>
+					<td valign="top"></td>
+					<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
+					</tr>
+					<tr>
+					<td valign="top"></td>
+					<td valign="top"><span style="font-size: small;">writable 属性值是否可写 true/false</span></td>
+					</tr>
+					<tr>
+					<td valign="top"></td>
+					<td valign="top"><span style="font-size: small;">value 包含属性的数据值 undefined</span></td>
+					</tr>
+					<tr>
+					<td valign="top"><span style="font-size: small;">访问属性</span></td>
+					<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
+					</tr>
+					<tr>
+					<td valign="top"></td>
+					<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
+					</tr>
+					<tr>
+					<td valign="top"></td>
+					<td valign="top"><span style="font-size: small;">get: 读取属性时调用的函数 undefined</span></td>
+					</tr>
+					<tr>
+					<td valign="top"></td>
+					<td valign="top"><span style="font-size: small;">set: 写入属性时调用的函数 undefined</span></td>
+					</tr>
+					<tr>
+					<td valign="top"><span style="font-size: small;">设置某类属性</span></td>
+					<td valign="top"><strong><span style="font-size: small;">Object.defineProperty(对象名,属性名,{设置块})</span></strong></td>
+					</tr>
+					<tr>
+					<td valign="top"><span style="font-size: small;">设置两类属性</span></td>
+					<td valign="top">
+					<div><strong><span style="font-size: small;">Object.defineProperties(对象名,{</span></strong></div>
+					<div><strong><span style="font-size: small;">属性名:{设置块},</span></strong></div>
+					<div><strong><span style="font-size: small;">})</span></strong></div></td>
+					</tr>
+					</tbody>
+					</table>
+					</div>
+					<div><span style="font-size: small;">configurable，enumerable，writable等默认属性为true，<strong>一旦启用设置函数即使没定义也全部设置为false.</strong></span></div>
+					</div>
+					</div>
+					</div>
+					</div>
+				</span></li>
+				<li><a href="">函数创建方法</a><span>
+				</span></li>
+				<li><a href="">函数特征说明</a><span>
+				</span></li>
+				<li><a href="">变量与作用域</a><span>
+				</span></li>
+				<li><a href="">匿名函数与块级作用域</a><span>
+				</span></li>
+				<li><a href="">闭包与内存泄露</a><span>
+				</span></li>
+				<li><a href="">私有变量与模块模式</a></li>
+				<li><a href="">构造方法</a></li>
+				<li><a href="">继承方法</a></li>
+			</ul>
+		</div>
+	</li>
+</ul>

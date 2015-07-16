@@ -1,0 +1,249 @@
+<div class="col">
+	<div class="block">
+		<h3>文本<span>-</span></h3>
+		<div class="contents">
+			<h4>[<span>-</span>]字体</h4>
+			<ul>
+				<li><a href="">font</a>([i b]size/lh family)<span>【简写】font:italic bold 18px/22px 'Consolas' （简写时font-size和font-family属性不可省略）顺序不对则有可能出现BUG</span></li>
+				<li><a href="">font-size</a>(px/180%)<span>
+					字体大小,浏览器默认大小为1em（一般为16px）,移动端则使用rem,PC端使用px。
+					<br>% : 页面元素中font-size使用百分比时，其百分比取值是基于父对象中字体的尺寸，不允许简写百分比。字体没有相对父盒子大小比例扩展算法。
+					<br>px : 像素,相对长度单位。1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px;
+					<br>em : 相对长度单位.相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。 <a href="http://pxtoem.com/">PX转EM快速工具</a>
+					<br>rem : 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px（手机端HTML5元素不主动继承body字体大小时，使用*）
+					<br />vm : 视窗可用宽度,0～100.(除去滚动条)
+					</span></li>
+				<li><a href="">line-height</a>(px/180%/1.8)
+					<span>
+					行高,可为百分比或乘积因子,具有继承性<br>
+					% : 当为百分比时，子级会继承父级，此时的百分比，基于父级的字体大小的百分比，可能发生重叠（不具动画性）。<a href="http://css.doyoe.com/properties/text/line-height.htm">参考资料</a><br />
+					1.5 : 当为乘积因子时，以自身的百分比150%=1.5。<br />
+					<hr>
+					扩展阅读：<br>
+					<a href="http://wenku.baidu.com/link?url=ATB30qF4Lv0JoYBgX64D7tj1jm1w77G-QC5A6tA22YYSn409R5Q-CcT1QIPGb-x8vxcGnfZ6F4T-1gTCJgbgQpkX8Bp3JaziAWIksWFlH1i">linebox模型与基线等</a> | 
+					<a href="http://www.zhangxinxu.com/wordpress/?p=384">行高的深入理解</a>
+					<hr>
+					兼容处理：<br>
+					1.在FF中的对齐规则BUG，<a href="http://blog.sina.com.cn/s/blog_50ba480e0100u7np.html">解决方案</a>使用FF专属HACK@-moz-document url-prefix(){some-style}<br />
+					2.使用乘积因子时，IE7对1处理不当，需设置1.1或避免设置为字符等高。
+					</span>
+				</li>
+				<li><a href="">font-weight</a>(bold/normal)<span>粗体,normal正常=400,bold粗体=700,取值100~900</span></li>
+				<li><a href="">font-style</a>(italic/normal)<span>normal正常,italic字体自带斜体,oblique人为斜体</span></li>
+				<li><a href="">font-variant</a>(small-caps)<span>normal正常的字体,small-caps小型的大写字母字体</span></li>
+				<li><a href="">font-family</a>
+						<span>按优先顺序排列。以逗号隔开。如果字体名称包含空格或中文，则应使用引号括起。<br>常用字体：Helvetica,Verdana,Arial,Consolas,Georgia,Impact,Trebuchet MS,Comic Sans MS,Tahoma,Time News Roman,微软雅黑,宋体
+						<br>参考<a href="http://cssfontstack.com/">常用字体预览</a>
+						<br />移动端字体设置font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; <a href="https://github.com/AlloyTeam/Mars/blob/master/solutions/font-family.md">参考资料</a>
+						</span></li>
+				<li><a href="">@font-face</a>{f:'n',src:'url'}
+						<span><b>@font-face 必须在字体使用前引入</b>
+							<br>@font-face {
+							<br>    font-family: 'diyfont';
+							<br>    src: url('diyfont.eot'); /* IE9+ */
+							<br>    src: url('diyfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+							<br>         url('diyfont.woff') format('woff'), /* chrome、firefox */
+							<br>         url('diyfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+							<br>         url('diyfont.svg#fontname') format('svg'); /* iOS 4.1- */
+							<br>}
+							<br>.iconfont{
+							<br>	font-family:"iconfont";
+							<br>	font-style:normal;
+							<br>	display:block/inline-block;
+							<br>	-webkit-font-smoothing: antialiased; 
+							<br>	-webkit-text-stroke-width: 0.2px;
+							<br>}
+							<br />放在html中时写为“& #xe62a;”赋值以对应class,当为伪元素content引用时,赋值“\e62a”
+							<br>图标字体 <a href="http://iconfont.cn/repositories/10">alibaba</a> / <a href="http://www.w3cschool.cc/try/demo_source/bootstrap-glyph-customization.htm">Glyphicons </a> / <a href="https://icomoon.io/app/#/select">icomoon</a>
+							<br>更多字体 <a href="http://zh.fonts2u.com/index.html">Get it!</a>
+							<br>字体转换 <a href="http://www.fontsquirrel.com/tools/webfont-generator">将一种字体转为网页所需的所有格式</a>
+						</span></li>
+			</ul>
+			<h4>[<span>-</span>]文本属性</h4>
+			<ul>
+				<li><a href="">text-align</a>(l/r/c/j)<span>
+					水平对齐:center居中,left左,right右,justify两端对齐
+					<br />对inline/inline-block元素均有效,在IE6-7下对block也有效
+					<br />在父级设置,让子级中内联(块)元素水平居中对齐父级
+					</span></li>
+				<li><a href="">vertical-align</a>(t/b/m)<span>
+					垂直对齐：
+					<table width="100%" cellspacing="1" cellpadding="0">
+						<tbody>
+						<tr>
+						<td>长度</td>
+						<td>通过距离升高（正值）或降低（负值）元素。<code>'0cm'</code>等同于<code>'baseline'</code></td>
+						</tr>
+						<tr>
+						<td>百分值 – %</td>
+						<td>通过距离（相对于line-height值的百分大小）升高（正值）或降低（负值）元素。<code>'0%'</code>等同于<code>'baseline'</code></td>
+						</tr>
+						<tr>
+						<td>baseline</td>
+						<td>默认。元素的基线与父元素的基线对齐。</td>
+						</tr>
+						<tr>
+						<td>sub</td>
+						<td>降低元素的基线到父元素合适的下标位置。</td>
+						</tr>
+						<tr>
+						<td>super</td>
+						<td>升高元素的基线到父元素合适的上标位置。</td>
+						</tr>
+						<tr>
+						<td>top</td>
+						<td>把对齐的子元素的顶端与line box顶端对齐。</td>
+						</tr>
+						<tr>
+						<td>text-top</td>
+						<td>把元素的顶端与父元素内容区域的顶端对齐。</td>
+						</tr>
+						<tr>
+						<td>middle</td>
+						<td>元素的中垂点与 父元素的基线加1/2父元素中字母x的高度 对齐。</td>
+						</tr>
+						<tr>
+						<td>bottom</td>
+						<td>把对齐的子元素的底端与line box底端对齐(受line-height影响)【line-box底端】。</td>
+						</tr>
+						<tr>
+						<td>text-bottom</td>
+						<td>把元素的底端与父元素内容区域的底端对齐。【content-area底端】</td>
+						</tr>
+						<tr>
+						<td>inherit</td>
+						<td>采用父元素相关属性的相同的指定值。</td>
+						</tr>
+						</tbody>
+						</table>
+					<br />对inline/inline-block元素有效,例如默认的图片,表单控件
+					<br />在子级设置,让自身与同级元素垂直对齐,而非对子集!
+					<br /><a href="http://www.zhangxinxu.com/wordpress/?p=813">参考资料</a>
+					</span></li>
+				<li><a href="">text-indent</a>([+-]Npx)<span>
+					缩进,可为负值.
+					<br>div内部的第一行及每个强制换行的首行都拥有2em的缩进：text-indent:2em each-line;【CSS3】
+					<br>技巧：对于要保留html文字,但不显示的文字,可设置text-indent:-999px/100%【SEO】
+					<br>对内联a应用text-indent无效,需将a设置为block/inline-block
+					</span></li>
+				<li><a href="">:first-letter</a><span>对象内第一个字符<br>选择符与包含规则的花括号之间不能紧挨着，需留有空格或换行。<br>例 p:first-letter[_]{}  （[_]处保留空格）</span></li>
+				<li><a href="">:first-line</a><span>对象内第一行<br>选择符与包含规则的花括号之间不能紧挨着，需留有空格或换行</span></li>
+				<li><a href="">letter-spacing</a>(Npx)<span>字母/中文字间隔</span></li>
+				<li><a href="">word-spacing</a>(Npx)<span>单词间隔</span></li>
+			</ul>
+			<h4>[<span>-</span>]文本样式</h4>
+			<ul>
+				<li><a href="">text-transform</a>(c/u/l)
+						<span>none： 无转换 
+						<br>capitalize： 将每个单词的第一个字母转换成大写 
+						<br>uppercase： 将每个单词转换成大写 
+						<br>lowercase： 将每个单词转换成小写 </span></li>
+				<li><a href="">text-decoration</a>(n/u/o/t)<span>none：无
+					<br>underline：下划线
+					<br>overline：上划线
+					<br>line-through：删除线</span></li>
+				<li><a href="">text-shadow</a>(1px 1px 2px #248)<span>文本阴影:1px 1px 5px #000; （水平,垂直,模糊半径,颜色）<br>在线生成3DCSS文字<a href="http://www.3dcsstext.com/">GO TO!</a></span></li>
+				<li><a href="">::selection</a><span>对象被选择时的样式,必须使用双冒号【CSS】<br>::selection只能定义被选择时的background-color及color</span></li>
+				<li><a href="">-webkit-text-fill-color</a>
+					<span>
+						文字的填充颜色,默认值transparent <br>
+						<a href="http://www.zhangxinxu.com/wordpress/2015/03/css3-colorful-text/">彩条文字</a>
+						<pre><code data-language="css">
+line-height: 20px;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-image: linear-gradient( to bottom, #9588DD, #9588DD 25%, #DD88C8 25%, #DD88C8 50%, #D3DD88 50%, #D3DD88 75%, #88B0DD 75%, #88B0DD);
+background-size: 100% 80px;
+						</code></pre>
+					</span>
+				</li>
+				<li><a href="">-webkit-text-stroke</a><span>文字的描边,1px #ff3399</span></li>
+				<li><a href="">-webkit-text-stroke-width</a><span>文字描边厚度</span></li>
+				<li><a href="">-webkit-text-stroke-color</a><span>文字描边颜色</span></li>
+			</ul>
+			<h4>[<span>-</span>]文本折行</h4>
+			<ul>
+				<li><a href="">white-space</a>(Npx)
+						<span>normal：默认处理方式。
+						<br>nowrap： 强制在同一行内显示所有文本，合并文本间的多余空白，直到文本结束或者遭遇br对象。
+						<br>常用片段（设置宽度）：white-space:nowrap;text-overflow:ellipsis;overflow:hidden;</span></li>
+				<li><a href="">text-overflow</a>(ellipsis/str)<span>文本溢出:clip剪裁掉/ellipsis点点点/string指定字符串【CSS3】<br />
+						<a href="http://www.zhangxinxu.com/wordpress/2014/04/%E8%87%AA%E9%80%82%E5%BA%94%E8%A1%A8%E6%A0%BC-%E5%AD%97%E7%AC%A6%E6%8D%A2%E8%A1%8C-%E6%BA%A2%E5%87%BA%E7%82%B9%E7%82%B9%E7%82%B9-table-text-overflow-ellipsis-word-wrap-break-all/">多行文本省略(webkit)</a>
+						display: -webkit-box; /* height: 36px; line-height: 18px; */ -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+						</span></li>
+				<li><a href="">word-wrap</a><span>当内容超过指定容器的边界时是否断行
+					<br />normal：允许内容顶开或溢出指定的容器边界。
+					<br />break-word：内容将在边界内换行。如果需要，单词内部允许断行。
+					<br />断行控制片段word-wrap: break-word;word-break: break-all;</span></li>
+				<li><a href="">word-break</a><span>对象内文本的字内换行行为
+					normal：依照亚洲语言和非亚洲语言的文本规则，允许在字内换行。
+					<br />keep-all：与所有非亚洲语言的normal相同。对于中文，韩文，日文，不允许字断开。适合包含少量亚洲文本的非亚洲文本。
+					<br />break-all：该行为与亚洲语言的normal相同。也允许非亚洲语言文本行的任意字内断开。该值适合包含一些非亚洲文本的亚洲文本，比如使连续的英文字母间断行。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]文本流</h4>
+			<ul>
+				<li><a href="">unicode-bidi</a>(bidi-override)<span>
+						normal：对象不打开附加的嵌入层，对于内联元素，隐式重排序跨对象边界进行工作。
+						<br>embed：对象打开附加的嵌入层，direction属性的值指定嵌入层，在对象内部进行隐式重排序。
+						<hr>bidi-override：严格按照direction属性的值重排序。忽略隐式双向运算规则。
+						<br>用于同一个页面里存在从不同方向读进的文本显示。与direction属性一起使用
+				</span></li>
+				<li><a href="">direction</a>(ltr/rtl)
+					<span>ltr：文本流从左到右。
+						<br>rtl：文本流从右到左。
+						<br>设置direction:rtl;unicode-bidi:bidi-override;实现古文排字效果</span></li>
+				<li><a href="">writing-mode</a><span>书写模式
+					<br>horizontal-tb：水平方向自上而下的书写方式。即 left-right-top-bottom（类似IE私有值lr-tb）
+					<br>lr-tb：左-右，上-下。对象中的内容在水平方向上从左向右流入，后一行在前一行的下面。 所有的字形都是竖直向上的。这种布局是罗马语系使用的（IE）
+					<hr>vertical-rl：垂直方向自右而左的书写方式。即 top-bottom-right-left（类似IE私有值tb-rl）
+					<br>vertical-lr：垂直方向自左而右的书写方式。即 top-bottom-left-right
+					<br>tb-rl：上-下，右-左。对象中的内容在垂直方向上从上向下流入，自右向左。后一竖行在前一竖行的左面。全角字符是竖直向上的，半角字符如拉丁字母或片假名顺时针旋转90度
+					<br></span></li>
+			</ul>
+			<h4>[<span>-</span>]内容</h4>
+			<ul>
+				<li><a href="">:before</a>
+					<span>设置在对象前（依据对象树的逻辑结构）发生的内容。IE6-7不支持,IE8支持。
+					<br>用来和content属性一起使用，并且必须定义content属性！必要时候即使有block表现仍需定义宽度
+					<br />伪元素的位置在内容之后，如果内容为空，则在起点，即使指定了父级尺寸</span></li>
+				<li><a href="">:after</a>
+					<span>设置在对象后（依据对象树的逻辑结构）发生的内容。IE6-7不支持,IE8支持。
+					<br>用来和content属性一起使用，并且必须定义content属性！必要时候即使有block表现仍需定义宽度</span></li>
+				<li><a href="">content</a>(str/attr/url/count)
+						<span>
+							content:'str' 一个字符串或符号,需加引号,例如 '&raquo;'
+						<br>content:attr(标签名) 载入此标签的一个属性节点上的内容,例如title
+						<br>content:url('文件地址') 使用指定的绝对或相对地址插入一个外部资源（图像，声频，视频或浏览器支持的其他任何资源）
+						<br>content:counter(name,list-style-type)使用一个已命名的计数器
+						<br>参考资料：<a href="http://www.w3cfuns.com/article-5592215-1-1.html">GO TO!</a>
+						</span></li>
+				<li><a href="">counter-increment</a>(name [N])
+						<span>
+							定义一个计数器,并设定累加值,默认为1,可以为负值。
+						<br>在要计数的对象上设置 li{counter-increment:test 1}
+						<br>在起始伪对象上启用 li:before{content:counter(test)'.'}
+						<br>参考资料：<a href="http://css.doyoe.com/properties/content/counter-increment.htm">GO TO!</a>
+						<br>实例演示：<a href="http://www.w3cfuns.com/article-5592152-1-1.html">GO TO!</a>
+						</span></li>
+				<li><a href="">counter-reset</a>(name [N])
+						<span>
+							复位计数器,默认为0.
+						<br>在要复位的对象(伪元素)上设置 li:before{counter-reset:test -1}
+						<br>参考资料：<a href="http://css.doyoe.com/properties/content/counter-reset.htm">GO TO!</a>
+						<br>复杂嵌套：<a href="http://www.w3cfuns.com/article-5592229-1-1.html">GO TO!</a>
+						<br>嵌套原理：
+						<br>1级列表设置计数器1,1级列表的before伪元素启用计数器1
+						<br>2级列表设置2计数器2,2级列表的before伪元素启用计数器2
+						<br>1级列表设置清空计数器
+						</span></li>
+				<li><a href="">quotes</a>('['*4)
+						<span>
+							设置或检索对象内使用的嵌套标记。
+						<br>设置标签的包围符号：q{quotes:'外层左标记' '外层右标记' '内层左标记' '内层右标记'}
+						<br>参考资料：<a href="http://css.doyoe.com/properties/content/quotes.htm">GO TO!</a>
+						</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
