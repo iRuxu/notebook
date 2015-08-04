@@ -36,6 +36,17 @@
             <h4>[<span>+</span>]媒体查询</h4>
             <ul style="display:none">
                 <li>
+                    <a href="">viewport</a>
+                    <span>
+                      <textarea>
+                        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui"/>
+                      </textarea>
+                      当没有viewport头时，进入平板模拟测试需要提前设置好状态重新进入页面。<br>
+                      当页面以body作为部分绝对定位参考时，需要设置body相对定位。<br>
+                      其余设置body或总包裹层最小宽度
+                    </span>
+                  </li>
+                <li>
                     <a href="">@import</a>
                     <span>指定导入的外部样式表及目标媒体。
                     <br>@import url('demo.css') screen and (min-width:800px);
