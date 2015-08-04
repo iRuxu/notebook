@@ -506,7 +506,7 @@ background-size: 100% 80px;
                     </span>
                 </li>
                 <li>
-                    <a href="">filter</a>
+                    (new)<a href="">filter</a>
                     <span>ele {filter: none | <filter-function>* } 
                     <br>函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
                     <br>grayscale() 灰度，黑白
@@ -549,12 +549,14 @@ background-size: 100% 80px;
                     <br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
                     <br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
                     <hr>4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
-                    </span></li>
-                    <li><a href="">currentColor</a><span>
+                    </span>
+                </li>
+                <li><a href="">currentColor</a><span>
                     让Border/backgroud等沿袭color的颜色<br>
                     <a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">参考资料</a>
-                    </span></li>
-                    <li><a href="">opacity</a>
+                    </span>
+                </li>
+                <li><a href="">opacity</a>
                     <span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
                     <br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
                     <br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
@@ -568,7 +570,7 @@ background-size: 100% 80px;
                     </span>
                 </li>
                 <li>
-                    <a href="">filter</a>
+                    (ie)<a href="">filter</a>
                     <span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
                     <br><pre><code data-language="css">
                     background:url('../images/ex.png') no-repeat;
@@ -577,6 +579,11 @@ background-size: 100% 80px;
                     <br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。此方法不能应用于平铺图像！
                     <br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
                     <br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
+                    <br><a href="http://www.qianduan.net/guan-yu-ie-zhong-css-filter-lv-jing-xiao-zhi-shi/">扩展资料</a>
+                    <br><br>
+                    ie filter滤镜的说明：<br>
+                    1.ie9滤镜重叠，给定统一class在条件注释中取消ie9滤镜。<br>
+                    2.滤镜镂空非主元素尺寸区间外部分(ie8全部,ie9不包含绝对定位)。
                     </span>
                 </li>
             </ul>
@@ -1052,7 +1059,8 @@ background-size: 100% 80px;
 					<a href="">a/img</a>
 					<span>
 						a <br>		
-						1.IE10-对于a与同级元素，空的a调整层级或顺序仍然无法点击，需要将a包裹其他元素
+						1.IE10-对于a与同级元素，空的a调整层级或顺序仍然无法点击，需要将a包裹其他元素<br>
+						2.在平板中a标签中包含:hover触发改变display:none/block的元素，旧平板无法点击，将display切换改为透明度更改并可能需要修改ie78的filter值<br>
 						<hr>
 						img <br>
 						1.当利用图片一侧尺寸铺满，另一侧自动来构造自动伸缩div时，需要设置图片db，否则会因图片dbi产生3px空白。
@@ -1278,19 +1286,24 @@ background-size: 100% 80px;
 						</table>
 					</span>
 				</li>
-				<li><a href="">hasLayout</a>
+				<li><a href="">zoom</a>
 					<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
 						<br>1.可局部用于响应式设计改变DOM尺寸，会有偏移错位（以像素起点对齐变换）
 						<br>2.可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
 						<br>现代浏览器会溢出显示,但自身宽高不变.
+					</span>
+				</li>
+				<li>
+					<a href="">(hasLayout)</a>
+					<span>
 						<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
 						<br>触发haslayout的条件：
 						<br>IE6: 
 						<br>* display: inline-block
-						<br>* height: (任何值除了auto)
 						<br>* float: (left 或 right)
 						<br>* position: absolute
 						<br>* width: (任何值除了auto)
+						<br>* height: (任何值除了auto)
 						<br>* writing-mode: tb-rl
 						<br>* zoom: (除 normal 外任意值)
 						<br>IE7:（额外）
@@ -1302,6 +1315,21 @@ background-size: 100% 80px;
 						<br>* overflow-x: (除 visible 外任意值)
 						<br>* overflow-y: (除 visible 外任意值)
 						<br>* position: fixed
+					</span>
+				</li>
+				<li>
+					<a href="">(BFC)</a>
+					<span>
+						Block fomatting context<a href="http://www.w3.org/TR/CSS21/visuren.html#block-formatting">详细文档</a>
+						<br>BFC会阻止垂直外边距（margin-top、margin-bottom）折叠
+						<br>BFC不会重叠浮动元素
+						<br>BFC可以包含浮动
+						<br>触发BFC条件
+						<br>* 根元素,fieldset
+						<br>* float的值不为none
+						<br>* overflow的值不为visible
+						<br>* display的值为inline-block、table-cell、table-caption、flex、inline-flex
+						<br>* position的值为absolute或fixed
 					</span>
 				</li>
 			</ul>
@@ -1557,8 +1585,9 @@ background-size: 100% 80px;
 					</span></li>
 				<li><a href="">position:fixed</a><span>窗口定位：
 					<br>对象脱离常规流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。
-					<br>IE6不支持fixed定位，通过CSS表达式解决
-					<br><a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
+					<br>HACK：
+					<br>IE6不支持fixed定位，通过CSS表达式解决，<a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
+					<br>平板下的fixed有Bug，使用绝对定位代替。
 				</span></li>
 				<li><a href="">top/bottom/left/right</a><span>配合定位属性进行定位,可为负值.
 					<br>垂直居中一个图片
