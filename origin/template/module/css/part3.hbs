@@ -372,7 +372,54 @@
                 <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
                 <li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
             </ul>
-            <h4>[<span>+</span>]IE Only</h4>
+            <h4>[<span>+</span>]scrollbar (Chrome32+)</h4>
+            <ul style="display:none">
+                <li><a href="">图标示</a><span>
+                    <img src="http://cdn.css-tricks.com/wp-content/uploads/2011/05/scrollbarparts.png"><br/>
+                    <a href="http://www.xuanfengge.com/css3-webkit-scrollbar.html">查看更多</a>
+                </span></li>
+                <li><a href="">::-webkit-scrollbar</a><span>滚动条整体部分</span></li>
+                <li><a href="">::-webkit-scrollbar-track</a><span>滚动条的轨道</span></li>
+                <li><a href="">::-webkit-scrollbar-track-piece</a><span>滚动条的可见背景部分</span></li>
+                <li><a href="">::-webkit-scrollbar-thumb</a><span>滚动条里面的小方块</span></li>
+                <li><a href="">::-webkit-scrollbar-button</a><span>滚动条的两端按钮</span></li>
+                <li><a href="">::-webkit-scrollbar-corner</a><span>横纵交汇点</span></li>
+                <li><a href="">::-webkit-resizer</a><span>横纵交汇处拖动</span></li>
+                <li><a href="">伪元素</a><span>
+                :horizontal<br/>
+//horizontal伪类适用于任何水平方向上的滚动条<br/>
+:vertical<br/>
+//vertical伪类适用于任何垂直方向的滚动条<br/>
+:decrement<br/>
+//decrement伪类适用于按钮和轨道碎片。表示递减的按钮或轨道碎片，例如可以使区域向上或者向右移动的区域和按钮<br/>
+:increment<br/>
+//increment伪类适用于按钮和轨道碎片。表示递增的按钮或轨道碎片，例如可以使区域向下或者向左移动的区域和按钮<br/>
+:start<br/>
+//start伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的前面<br/>
+:end<br/>
+//end伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的后面<br/>
+:double-button<br/>
+//double-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一对按钮。也就是轨道碎片紧挨着一对在一起的按钮。<br/>
+:single-button<br/>
+//single-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一个按钮。也就是轨道碎片紧挨着一个单独的按钮。<br/>
+:no-button<br/>
+no-button伪类表示轨道结束的位置没有按钮。<br/>
+:corner-present<br/>
+//corner-present伪类表示滚动条的角落是否存在。<br/>
+:window-inactive<br/>
+//适用于所有滚动条，表示包含滚动条的区域，焦点不在该窗口的时候。<br/>
+::-webkit-scrollbar-track-piece:start {<br/>
+/*滚动条上半边或左半边*/<br/>
+}<br/>
+::-webkit-scrollbar-thumb:window-inactive {<br/>
+/*当焦点不在当前区域滑块的状态*/<br/>
+}<br/>
+::-webkit-scrollbar-button:horizontal:decrement:hover {<br/>
+/*当鼠标在水平滚动条下面的按钮上的状态*/<br/>
+}<br/>
+                </span></li>
+            </ul>
+            <h4>[<span>+</span>]scrollbar (IE)</h4>
             <ul style="display:none">
                 <li><a href="">behavior</a>
                 <span>IE:使用绝对或相对地址指定DHTML行为组件（.htc）</span></li>
