@@ -29,11 +29,11 @@ module.exports = {
     //build的配置
     build: {
         //构建的目标目录，命令行指定的优先
-        output: "./build",
+        output: "./",
         //将要复制的文件目录，直接复制到目标
         copy: [],
         //完全忽略处理的文件
-        ignore: [],
+        ignore: [/^module$/],
         //重命名
         rename: [],
         //是否压缩

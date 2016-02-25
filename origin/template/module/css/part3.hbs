@@ -372,66 +372,184 @@
                 <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
                 <li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
             </ul>
-            <h4>[<span>+</span>]scrollbar (Chrome32+)</h4>
+            <h4>[<span>+</span>]scrollbar</h4>
             <ul style="display:none">
-                <li><a href="">图标示</a><span>
-                    <img src="http://cdn.css-tricks.com/wp-content/uploads/2011/05/scrollbarparts.png"><br/>
-                    <a href="http://www.xuanfengge.com/css3-webkit-scrollbar.html">查看更多</a>
+                <li><a href="">ie</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>scrollbar-base-color</td>
+                        <td>基色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-track-color</td>
+                        <td>轨道色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-face-color</td>
+                        <td>滑块色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-arrow-color</td>
+                        <td>箭头色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-highlight-color</td>
+                        <td>左上阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-shadow-color</td>
+                        <td>右下阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-3dlight-color</td>
+                        <td>箭头阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-dark-shadow-color</td>
+                        <td>立体阴影色</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-ie.gif" alt="" />
                 </span></li>
-                <li><a href="">::-webkit-scrollbar</a><span>滚动条整体部分</span></li>
-                <li><a href="">::-webkit-scrollbar-track</a><span>滚动条的轨道</span></li>
-                <li><a href="">::-webkit-scrollbar-track-piece</a><span>滚动条的可见背景部分</span></li>
-                <li><a href="">::-webkit-scrollbar-thumb</a><span>滚动条里面的小方块</span></li>
-                <li><a href="">::-webkit-scrollbar-button</a><span>滚动条的两端按钮</span></li>
-                <li><a href="">::-webkit-scrollbar-corner</a><span>横纵交汇点</span></li>
-                <li><a href="">::-webkit-resizer</a><span>横纵交汇处拖动</span></li>
-                <li><a href="">伪元素</a><span>
-                :horizontal<br/>
-//horizontal伪类适用于任何水平方向上的滚动条<br/>
-:vertical<br/>
-//vertical伪类适用于任何垂直方向的滚动条<br/>
-:decrement<br/>
-//decrement伪类适用于按钮和轨道碎片。表示递减的按钮或轨道碎片，例如可以使区域向上或者向右移动的区域和按钮<br/>
-:increment<br/>
-//increment伪类适用于按钮和轨道碎片。表示递增的按钮或轨道碎片，例如可以使区域向下或者向左移动的区域和按钮<br/>
-:start<br/>
-//start伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的前面<br/>
-:end<br/>
-//end伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的后面<br/>
-:double-button<br/>
-//double-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一对按钮。也就是轨道碎片紧挨着一对在一起的按钮。<br/>
-:single-button<br/>
-//single-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一个按钮。也就是轨道碎片紧挨着一个单独的按钮。<br/>
-:no-button<br/>
-no-button伪类表示轨道结束的位置没有按钮。<br/>
-:corner-present<br/>
-//corner-present伪类表示滚动条的角落是否存在。<br/>
-:window-inactive<br/>
-//适用于所有滚动条，表示包含滚动条的区域，焦点不在该窗口的时候。<br/>
-::-webkit-scrollbar-track-piece:start {<br/>
-/*滚动条上半边或左半边*/<br/>
-}<br/>
-::-webkit-scrollbar-thumb:window-inactive {<br/>
-/*当焦点不在当前区域滑块的状态*/<br/>
-}<br/>
-::-webkit-scrollbar-button:horizontal:decrement:hover {<br/>
-/*当鼠标在水平滚动条下面的按钮上的状态*/<br/>
-}<br/>
+                <li><a href="">chrome</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体部分</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track</td>
+                        <td>轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track-piece</td>
+                        <td>内层轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-thumb</td>
+                        <td>滚动条滑块</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-button</td>
+                        <td>两侧按钮</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-corner</td>
+                        <td>边角（横纵滚动条的交汇处）</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-resizer</td>
+                        <td>边角拖拽控件</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-chrome.jpg" alt="" />  
                 </span></li>
-            </ul>
-            <h4>[<span>+</span>]scrollbar (IE)</h4>
-            <ul style="display:none">
-                <li><a href="">behavior</a>
-                <span>IE:使用绝对或相对地址指定DHTML行为组件（.htc）</span></li>
-                <li><a href="">scrollbar-3dlight-color</a><span>亮色阴影边框颜色</span></li>
-                <li><a href="">scrollbar-darkshadow-color</a><span>暗色阴影边框颜色</span></li>
-                <li><a href="">scrollbar-highlight-color</a><span>高亮边框颜色</span></li>
-                <li><a href="">scrollbar-shadow-color</a><span>阴影边框颜色</span></li>
-                <li><a href="">scrollbar-arrow-color</a><span>方向箭头的颜色</span></li>
-                <li><a href="">scrollbar-face-color</a><span>表面的颜色</span></li>
-                <li><a href="">scrollbar-track-color</a><span>拖动区域的颜色</span></li>
-                <li><a href="">scrollbar-base-color</a><span>基准颜色</span></li>
-                <li><a href="">jScroll</a><span>JQ插件实现模拟 <a href="http://jscroll.com/">GO TO!</a></span></li>
+                <li><a href="">chrome伪元素</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>:horizontal</td>
+                        <td>horizontal伪类适用于任何水平方向上的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:vertical</td>
+                        <td>vertical伪类适用于任何垂直方向的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:decrement</td>
+                        <td>decrement伪类适用于按钮和轨道碎片。表示递减的按钮或轨道碎片，例如可以使区域向上或者向右移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:increment</td>
+                        <td>increment伪类适用于按钮和轨道碎片。表示递增的按钮或轨道碎片，例如可以使区域向下或者向左移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:start</td>
+                        <td>start伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的前面</td>
+                        </tr>
+                        <tr>
+                        <td>:end</td>
+                        <td>end伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的后面</td>
+                        </tr>
+                        <tr>
+                        <td>:double-button</td>
+                        <td>double-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一对按钮。也就是轨道碎片紧挨着一对在一起的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:single-button</td>
+                        <td>single-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一个按钮。也就是轨道碎片紧挨着一个单独的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:no-button</td>
+                        <td>no-button伪类表示轨道结束的位置没有按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:corner-present</td>
+                        <td>corner-present伪类表示滚动条的角落是否存在。</td>
+                        </tr>
+                        <tr>
+                        <td>:window-inactive</td>
+                        <td>适用于所有滚动条，表示包含滚动条的区域，焦点不在该窗口的时候。</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
+                <li><a href="">[compare]</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>整体</td>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体样式，可用来设置宽度等，IE不可调整宽度</td>
+                        </tr>
+                        <tr>
+                        <td>轨道</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track</p>
+                        <p>scrollbar-track-color</p>
+                        </td>
+                        <td>轨道样式，IE只能设置颜色，chrome可以加点内阴影和圆角</td>
+                        </tr>
+                        <tr>
+                        <td>滑块</td>
+                        <td>
+                        <p>::-webkit-scrollbar-thumb</p>
+                        <p>scrollbar-face-color</p>
+                        </td>
+                        <td>滑块样式，同上</td>
+                        </tr>
+                        <tr>
+                        <td>箭头</td>
+                        <td>
+                        <p>::-webkit-scrollbar-button</p>
+                        <p>scrollbar-arrow-color</p>
+                        </td>
+                        <td>
+                        <p>箭头样式，chrome下当设置了自定义scrollbar时默认则隐藏了箭头，这样看起来和平板差不多</p>
+                        <p>而IE还是需要给其配色，让它和整体看起来更协调</p>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>其他（IE）</td>
+                        <td>
+                        <p>scrollbar-base-color<br />        scrollbar-highlight-color<br />        scrollbar-shadow-color<br />        scrollbar-3dlight-color<br />        scrollbar-dark-shadow-color</p>
+                        </td>
+                        <td>&nbsp;IE下为了整体协调美观，左侧属性仍根据实际情况调整，通常我将它设置与滑块一致</td>
+                        </tr>
+                        <tr>
+                        <td>其他（Chrome）</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track-piece<br />::-webkit-scrollbar-corner<br />::-webkit-resizer</p>
+                        </td>
+                        <td>chrome下有伪状态</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
             </ul>
         </div>
     </div>
