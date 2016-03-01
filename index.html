@@ -9,18 +9,18 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="image/favicon.ico">
+<link rel="icon" type="image/x-icon" href="image/favicon.ico?">
 <base target="_blank">
 <!--[if lt IE 9]>
-<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+<script src='http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js?'></script>
 <![endif]-->
-<script src="js/jquery-1-10-2.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/rainbow.min.js"></script>
-<script src="js/index.js"></script>
-<link rel="stylesheet" href="css/jquery-ui.css">
-<link rel="stylesheet" href="css/monokai.css">
-<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1-10-2.min.js?"></script>
+<script src="js/jquery-ui.js?"></script>
+<script src="js/rainbow.min.js?"></script>
+<script src="js/index.js?"></script>
+<link rel="stylesheet" href="css/jquery-ui.css?">
+<link rel="stylesheet" href="css/monokai.css?">
+<link rel="stylesheet" href="css/style.css?">
 </head>
 
 <body>
@@ -49,8 +49,8 @@
 	<p class="contact">
 		<a href="http://iruxu.com">[ 最新 ]</a> 
 		<span style="background:#fff;border-radius:8px;padding:0 10px">
-			<a href="http://weibo.com/yuanzi0512"><img src="image/sina.png" width="12px" alt="iruxu&#x7684;&#x5FAE;&#x535A;" title="Follow me on &#x5FAE;&#x535A;"></a> 
-			<a href="mailto:17229398@qq.com"><img src="image/email.png" width="12px" alt="iruxu&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;" title="email:17229398@qq.com"></a>
+			<a href="http://weibo.com/yuanzi0512"><img src="image/sina.png?" width="12px" alt="iruxu&#x7684;&#x5FAE;&#x535A;" title="Follow me on &#x5FAE;&#x535A;"></a> 
+			<a href="mailto:17229398@qq.com"><img src="image/email.png?" width="12px" alt="iruxu&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;" title="email:17229398@qq.com"></a>
 		</span>
 		<br><a href="http://iruxu.com/notebook">http://iruxu.com/notebook</a>
 	</p>	
@@ -583,7 +583,8 @@ background-size: 100% 80px;
                     <br><br>
                     ie filter滤镜的说明：<br>
                     1.ie9滤镜重叠，给定统一class在条件注释中取消ie9滤镜。<br>
-                    2.滤镜镂空非主元素尺寸区间外部分(ie8全部,ie9不包含绝对定位)。
+                    2.z-index与filter的渲染冲突bug。<a href="http://www.cnblogs.com/iruxu/p/4604274.html">详情</a><br>
+                    3.ie8中对img包裹元素a滤镜失效需要设置在img上。
                     </span>
                 </li>
             </ul>
@@ -853,23 +854,189 @@ background-size: 100% 80px;
                 <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
                 <li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
             </ul>
-            <h4>[<span>+</span>]IE Only</h4>
+            <h4>[<span>+</span>]scrollbar</h4>
             <ul style="display:none">
-                <li><a href="">behavior</a>
-                <span>IE:使用绝对或相对地址指定DHTML行为组件（.htc）</span></li>
-                <li><a href="">scrollbar-3dlight-color</a><span>亮色阴影边框颜色</span></li>
-                <li><a href="">scrollbar-darkshadow-color</a><span>暗色阴影边框颜色</span></li>
-                <li><a href="">scrollbar-highlight-color</a><span>高亮边框颜色</span></li>
-                <li><a href="">scrollbar-shadow-color</a><span>阴影边框颜色</span></li>
-                <li><a href="">scrollbar-arrow-color</a><span>方向箭头的颜色</span></li>
-                <li><a href="">scrollbar-face-color</a><span>表面的颜色</span></li>
-                <li><a href="">scrollbar-track-color</a><span>拖动区域的颜色</span></li>
-                <li><a href="">scrollbar-base-color</a><span>基准颜色</span></li>
-                <li><a href="">jScroll</a><span>JQ插件实现模拟 <a href="http://jscroll.com/">GO TO!</a></span></li>
+                <li><a href="">ie</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>scrollbar-base-color</td>
+                        <td>基色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-track-color</td>
+                        <td>轨道色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-face-color</td>
+                        <td>滑块色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-arrow-color</td>
+                        <td>箭头色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-highlight-color</td>
+                        <td>左上阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-shadow-color</td>
+                        <td>右下阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-3dlight-color</td>
+                        <td>箭头阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-dark-shadow-color</td>
+                        <td>立体阴影色</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-ie.gif?" alt="">
+                </span></li>
+                <li><a href="">chrome</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体部分</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track</td>
+                        <td>轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track-piece</td>
+                        <td>内层轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-thumb</td>
+                        <td>滚动条滑块</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-button</td>
+                        <td>两侧按钮</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-corner</td>
+                        <td>边角（横纵滚动条的交汇处）</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-resizer</td>
+                        <td>边角拖拽控件</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-chrome.jpg?" alt="">  
+                </span></li>
+                <li><a href="">chrome伪元素</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>:horizontal</td>
+                        <td>horizontal伪类适用于任何水平方向上的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:vertical</td>
+                        <td>vertical伪类适用于任何垂直方向的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:decrement</td>
+                        <td>decrement伪类适用于按钮和轨道碎片。表示递减的按钮或轨道碎片，例如可以使区域向上或者向右移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:increment</td>
+                        <td>increment伪类适用于按钮和轨道碎片。表示递增的按钮或轨道碎片，例如可以使区域向下或者向左移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:start</td>
+                        <td>start伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的前面</td>
+                        </tr>
+                        <tr>
+                        <td>:end</td>
+                        <td>end伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的后面</td>
+                        </tr>
+                        <tr>
+                        <td>:double-button</td>
+                        <td>double-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一对按钮。也就是轨道碎片紧挨着一对在一起的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:single-button</td>
+                        <td>single-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一个按钮。也就是轨道碎片紧挨着一个单独的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:no-button</td>
+                        <td>no-button伪类表示轨道结束的位置没有按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:corner-present</td>
+                        <td>corner-present伪类表示滚动条的角落是否存在。</td>
+                        </tr>
+                        <tr>
+                        <td>:window-inactive</td>
+                        <td>适用于所有滚动条，表示包含滚动条的区域，焦点不在该窗口的时候。</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
+                <li><a href="">[compare]</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>整体</td>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体样式，可用来设置宽度等，IE不可调整宽度</td>
+                        </tr>
+                        <tr>
+                        <td>轨道</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track</p>
+                        <p>scrollbar-track-color</p>
+                        </td>
+                        <td>轨道样式，IE只能设置颜色，chrome可以加点内阴影和圆角</td>
+                        </tr>
+                        <tr>
+                        <td>滑块</td>
+                        <td>
+                        <p>::-webkit-scrollbar-thumb</p>
+                        <p>scrollbar-face-color</p>
+                        </td>
+                        <td>滑块样式，同上</td>
+                        </tr>
+                        <tr>
+                        <td>箭头</td>
+                        <td>
+                        <p>::-webkit-scrollbar-button</p>
+                        <p>scrollbar-arrow-color</p>
+                        </td>
+                        <td>
+                        <p>箭头样式，chrome下当设置了自定义scrollbar时默认则隐藏了箭头，这样看起来和平板差不多</p>
+                        <p>而IE还是需要给其配色，让它和整体看起来更协调</p>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>其他（IE）</td>
+                        <td>
+                        <p>scrollbar-base-color<br>        scrollbar-highlight-color<br>        scrollbar-shadow-color<br>        scrollbar-3dlight-color<br>        scrollbar-dark-shadow-color</p>
+                        </td>
+                        <td>&nbsp;IE下为了整体协调美观，左侧属性仍根据实际情况调整，通常我将它设置与滑块一致</td>
+                        </tr>
+                        <tr>
+                        <td>其他（Chrome）</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track-piece<br>::-webkit-scrollbar-corner<br>::-webkit-resizer</p>
+                        </td>
+                        <td>chrome下有伪状态</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
             </ul>
         </div>
     </div>
 </div>
+
 	<div class="col">
 	<div class="block">
 		<h3>布局I<span>-</span></h3>
@@ -1409,7 +1576,7 @@ background-size: 100% 80px;
 					<br>如果想在hover上做边框显示不发生抖动,应将默认状态添加如1px solid transparent
 					<br>三角制作：<a href="http://apps.eky.hk/css-triangle-generator/zh-hant">在线生成</a>（利用宽高0,设置1个夹角边框大值）
 					<br>arrow生成：<a href="http://cssarrowplease.com/">GO TO!</a>
-					<br><img src="img/triangle.png" alt="">
+					<br><img src="image/triangle.png?" alt="">
 					</span></li>
 				<li><a href="">border-top</a><span>
 					单边:border-top/border-bottom/border-left/border-right
@@ -1430,6 +1597,9 @@ background-size: 100% 80px;
 					<br>饼->四分之一圆的实现方法是把高度和宽度设置为相等，只设置一个圆角，其半径等于高度或宽度
 					<br>用radius画形状<a href="http://www.xincss.com/?p=221">参考资料</a>
 					<br>在线生成：<a href="http://www.css3maker.com/border-radius.html">GO TO!</a>
+					<hr>
+					扩展:
+					<br>1.<a href="http://stackoverflow.com/questions/17464167/css-image-hover-inside-border-radius">chrome hover radius bug</a>
 					</span></li>
 				<li><a href="">border-top-left-radius</a><span>
 					单角圆角,注意书写格式,先写top/bottom后写left/right
@@ -1830,6 +2000,17 @@ background-size: 100% 80px;
         <div class="contents">
             <h4>[<span>+</span>]媒体查询</h4>
             <ul style="display:none">
+                <li>
+                    <a href="">viewport</a>
+                    <span>
+                      <textarea>
+                        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+                      </textarea>
+                      当没有viewport头时，进入平板模拟测试需要提前设置好状态重新进入页面。<br>
+                      当页面以body作为部分绝对定位参考时，需要设置body相对定位。<br>
+                      其余设置body或总包裹层最小宽度
+                    </span>
+                  </li>
                 <li>
                     <a href="">@import</a>
                     <span>指定导入的外部样式表及目标媒体。
@@ -4942,30 +5123,30 @@ background-size: 100% 80px;
 					</ul>
 					<h4>[<span>-</span>]Link</h4>
 					<ul>
-						<li><a href="">dns-prefetch</a><span>提前域名解析<input type="text" style="width:380px" value="&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//www.domain1.com&quot;&gt;"></span></li>
+						<li><a href="">dns-prefetch</a><span>提前域名解析<input type="text" style="width:380px" value="&lt;link rel=&quot;dns-prefetch&quot; href=" www.domain1.com?'="">'/></span></li>
 						<li><a href="">style</a><span>可配合条件注释或指定media媒体查询引入样式表<br>
-						<input type="text" style="width:380px" value="&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot; type=&quot;text/css&quot; media=&quot;screen&quot;/&gt;"></span></li>
+						<input type="text" style="width:380px" value="&lt;link rel=&quot;stylesheet&quot; href=" "="" media="screen">'/></span></li>
 						<li><a href="https://github.com/audreyr/favicon-cheat-sheet">favicon</a>
-							<span>小ICON图标<input type="text" style="width:380px" value="&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;img/favicon.ico&quot; /&gt;"></span></li>
+							<span>小ICON图标<input type="text" style="width:380px" value="&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=" img="" favicon.ico?'="">'/></span></li>
 						<li><a href="">RSS订阅</a><span>RSS订阅input
-						<br><input type="text" style="width:380px" value="&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot; /&gt;">
+						<br><input type="text" style="width:380px" value="&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=" rss.xml?'="">'/>
 						</span></li>
 					</ul>
 					<h4>[<span>-</span>]Script</h4>
 					<ul>
 						<li><a href="">script</a><span>也可以写在body区域或底部,推荐放在底部加载<br>
-								<input type="text" style="width:380px" value="&lt;script src=&quot;http://libs.baidu.com/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;"><br>
+								<input type="text" style="width:380px" value="&lt;script src=" http:="" libs.baidu.com="" jquery="" 1.10.2="" jquery.min.js?'="">'/><br>
 								defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】 
 								</span></li>
 						<li><a href="">noscript</a><span>禁用脚本提示</span></li>
 						<li><a href="">IE9-支持HTML5</a>
 								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
-								<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+								<script src='http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js?'></script>
 								<![endif]-->
 								</textarea></span></li>
 						<li><a href="">IE9-支持媒体查询</a>
 								<span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
-								<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+								<script src='http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js?'></script>
 								<![endif]-->
 								</textarea></span></li>
 						<li><a href="http://modernizr.com/">modernizr</a></li>
@@ -5018,15 +5199,15 @@ background-size: 100% 80px;
 							<br>iPhone 和 iTouch，默认 57x57 像素，必须有.
 							<br><textarea name="" id="" cols="60" rows="20">
 								默认 57x57 像素，必须有
-								<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png"> 
+								<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png?"> 
 								iPad，72x72 像素，可以没有，但推荐有
-								<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png"> 
+								<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png?"> 
 								Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有
-								<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+								<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png?">
 								Retina iPad，144x144 像素，可以没有，但推荐有
-								<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png"> 
+								<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png?"> 
 								IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段
-								<link rel="apple-touch-icon-precomposed" sizes="180x180" href="retinahd_icon.png">
+								<link rel="apple-touch-icon-precomposed" sizes="180x180" href="retinahd_icon.png?">
 							</textarea>
 						</span></li>
 						<li><a href="">apple-touch-startup-image</a><span>
@@ -5034,27 +5215,27 @@ background-size: 100% 80px;
 							iPad 的启动画面是不包括状态栏区域的。<br>
 							<textarea name="" id="" cols="60" rows="20">
 								iPad 竖屏 768 x 1004（标准分辨率）
-								<link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png"> 
+								<link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png?"> 
 								iPad 竖屏 1536x2008（Retina）
-								<link rel="apple-touch-startup-image" sizes="1536x2008" href="/splash-screen-1536x2008.png"> 
+								<link rel="apple-touch-startup-image" sizes="1536x2008" href="/splash-screen-1536x2008.png?"> 
 								iPad 横屏 1024x748（标准分辨率）
-								<link rel="apple-touch-startup-image" sizes="1024x748" href="/Default-Portrait-1024x748.png"> 
+								<link rel="apple-touch-startup-image" sizes="1024x748" href="/Default-Portrait-1024x748.png?"> 
 								iPad 横屏 2048x1496（Retina）
-								<link rel="apple-touch-startup-image" sizes="2048x1496" href="/splash-screen-2048x1496.png">
+								<link rel="apple-touch-startup-image" sizes="2048x1496" href="/splash-screen-2048x1496.png?">
 							</textarea>
 							iPhone 和 iPod touch 的启动画面是包含状态栏区域的。<br>
 							<textarea name="" id="" cols="60" rows="20">
 								iPhone/iPod Touch 竖屏 320x480 (标准分辨率)
-								<link rel="apple-touch-startup-image" href="/splash-screen-320x480.png"> 
+								<link rel="apple-touch-startup-image" href="/splash-screen-320x480.png?"> 
 								iPhone/iPod Touch 竖屏 640x960 (Retina)
-								<link rel="apple-touch-startup-image" sizes="640x960" href="/splash-screen-640x960.png"> 
+								<link rel="apple-touch-startup-image" sizes="640x960" href="/splash-screen-640x960.png?"> 
 								iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina)
-								<link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png"> 
+								<link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png?"> 
 								添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
 								<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
 								iPhone 6对应的图片大小是750×1294，iPhone 6 Plus 对应的是1242×2148 。
-								<link rel="apple-touch-startup-image" href="launch6.png" media="(device-width: 375px)">
-								<link rel="apple-touch-startup-image" href="launch6plus.png" media="(device-width: 414px)">
+								<link rel="apple-touch-startup-image" href="launch6.png?" media="(device-width: 375px)">
+								<link rel="apple-touch-startup-image" href="launch6plus.png?" media="(device-width: 414px)">
 							</textarea>
 						</span></li>
 						<li><a href="http://www.uisdc.com/ios8-ten-new-feature">iOS8</a></li>
@@ -5332,7 +5513,7 @@ background-size: 100% 80px;
 					<ul style="display:none">
 						<li><a href="">插入方式</a><span>
 							<a href="http://www.w3cplus.com/html5/svg-introduction-and-embedded-html-page.html">嵌入方式：</a>
-							<br>1.img标签:<input type="text" style="width:200px" value="&lt;img src=&quot;demo.svg&quot; alt=&quot;&quot;/&gt;">
+							<br>1.img标签:<input type="text" style="width:200px" value="&lt;img src=" demo.svg?'="" alt="">'/>
 							<br>2.css背景:<input type="text" style="width:200px" value=" background: url(&quot;http://www.w3cplus.com/sites/default/files/blogs/2014/1411/girls.svg&quot;) no-repeat center;">
 							<br>3.svg标签
 							<textarea name="" id="" cols="30" rows="10">
@@ -5926,7 +6107,7 @@ background-size: 100% 80px;
 						<li><a href="">避免在CSS中使用表达式</a></li>
 						<li><a href="">将CSS/JS文件外置</a></li>
 						<li><a href="">减少DNS查询</a><span>
-						提前DNS查找<input type="text" style="width:480px" value="&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//www.domain1.com&quot;&gt;"></span></li>
+						提前DNS查找<input type="text" style="width:480px" value="&lt;link rel=&quot;dns-prefetch&quot; href=" www.domain1.com?'="">'></span></li>
 						<li><a href="">精简CSS/JS</a></li>
 						<li><a href="">避免重定向</a></li>
 						<li><a href="">移除重复的脚本</a></li>
@@ -6508,7 +6689,7 @@ background-size: 100% 80px;
 	</div>
 </div> 
 
-<div style="display:none"><script src="http://s6.cnzz.com/z_stat.php?id=1253473928&amp;web_id=1253473928" language="JavaScript"></script></div>
+<div style="display:none"><script src="http://s6.cnzz.com/z_stat.php?id=1253473928&amp;web_id=1253473928?" language="JavaScript"></script></div>
 </body>
 </html>
 
