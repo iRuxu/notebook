@@ -1,0 +1,85 @@
+{{import "module/head"}}
+{{import "module/header"}}
+<div class="m-sidebar">
+	<a class="m-sidebar-download" href="snippet.7z">
+		Download
+		<span>Sublime Snippet</span>
+	</a>
+	<h2 class="m-sidebar-title">Snippet v1.2 <span>(2017.1.22)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>CSS</h4>
+		<li class="current">fontface</li>
+		<li>iconfont</li>
+		<li>keys</li>
+		<li>ifie</li>
+		<li>htmldemo</li>
+	</ul>
+</div>
+<div class="m-content" id="m-content-list">
+
+<div class="m-content-list-item">
+	<h3><b>fontface</b> <i>自定义字体定义</i></h3>
+	<pre><code class="less">
+		@font-face{ 
+		    font-family:'diyfont'; 
+		    src: url('diyfont.eot');
+		    src: url('diyfont.eot?#iefix') format('embedded-opentype'),
+		    url('diyfont.woff') format('woff'),
+		    url('diyfont.ttf') format('truetype'),
+		    url('diyfont.svg#diyfont') format('svg');
+		} 
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>iconfont</b> <i>图标字体</i></h3>
+	<pre><code class="less">
+		font-family:"iconfont";
+		font-style:normal;
+		display:block;
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-stroke-width: 0.2px;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>keys</b> <i>动画帧</i></h3>
+	<pre><code class="less">
+		@keyframes {
+		    from{}
+		    to{}
+		}
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>ifie</b> <i>IE条件判断</i></h3>
+	<pre><code class="html">
+		&lt;!--[if lt IE 9]>
+		&lt;![endif]-->
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>htmldemo</b> <i>HTML空白页</i></h3>
+	<pre><code class="html">
+		&lt;!DOCTYPE html&gt;
+		&lt;html lang="zh-CN"&gt;
+		&lt;head&gt;
+		&lt;title></title>
+		&lt;meta charset="utf-8"/>
+		&lt;meta name="keywords" content="" />
+		&lt;meta name="description" content="" />
+		&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		&lt;meta name="renderer" content="webkit">
+		&lt;meta http-equiv="Cache-Control" content="no-siteapp"/>
+		&lt;meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui"/>
+		&lt;link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		&lt;link rel="stylesheet" href="" type="text/css"/>
+		&lt;script src=""></script>
+		&lt;script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+		&lt;/head&gt;
+		&lt;body&gt;
+
+		&lt;/body&gt;
+		&lt;/html&gt;
+	</code></pre>
+</div>
+</div>
+{{import "module/footer"}}
