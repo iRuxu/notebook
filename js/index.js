@@ -9,6 +9,7 @@ $(function(){
 
 	//直接link阻止冒泡
 		$("a[href^='http']").each(function(){
+			$(this).attr('target',"_blank")
 			$(this).click(function(e){
 				e.stopPropagation();
 			})
