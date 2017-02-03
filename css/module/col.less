@@ -1,41 +1,42 @@
 //列
-.col{
+.u-col{
     .fl;width:220px;margin-right:10px;overflow:hidden;
-    //块
-    .block,&>li{
-        margin-bottom:10px;
+}
 
-        h3{
-            background:#333;color:#fff;text-indent:5px;color:#f2f2f2;margin:5px 0;.clearfix;
-            &:hover{color:@blue;}
-            span{padding-right:10px;.fr;}
-        }
+//块
+.u-block{
+    margin-bottom:10px;
 
-        .contents,&>div{
-            padding:0 5px;
+    h3{
+        background:#333;color:#fff;text-indent:5px;color:#f2f2f2;margin:5px 0;.clearfix;
+        &:hover{color:@blue;}
+        span{padding-right:10px;.fr;}
+    }
+}
 
-            h4{
-                color:#666;
-                &:hover{color:@purple !important;font-weight:bold !important;}
+.u-list{
+    padding:0 5px;
+
+    h4{
+        color:#666;
+        &:hover{color:@purple !important;font-weight:bold !important;}
+    }
+
+    ul{
+
+        li{
+            color:#888;border-top:1px dashed transparent;border-bottom:1px dashed transparent;.nobreak;margin:0;
+            &:hover{background:#ffe5ff;color:@purple;cursor:pointer;border-top:1px dashed @pink;border-bottom:1px dashed @pink;
+                a{color:@pink;}
             }
-
-            ul{
-
-                li{
-                    color:#888;border-top:1px dashed transparent;border-bottom:1px dashed transparent;.nobreak;margin:0;
-                    &:hover{background:#ffe5ff;color:@purple;cursor:pointer;border-top:1px dashed @pink;border-bottom:1px dashed @pink;
-                        a{color:@pink;}
-                    }
-                    a{padding-right:2px;
-                        &[href^=http]{display:block;width:100%;height:100%;}
-                    }
-                    span,.tips{display:none;min-width:180px;max-width:600px;.break;padding:5px;.pa;.clearfix;
-                        .tb(0,0,0,0.8);border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;
-                        textarea{font-family:consolas !important;}
-                        table{max-width:98% !important;}
-                        span{position:static;}
-                    }
-                }
+            a{padding-right:2px;
+                &[href^=http]{display:block;width:100%;height:100%;}
+            }
+            span,.tips{display:none;min-width:180px;max-width:600px;.break;padding:5px;.pa;.clearfix;
+                .tb(0,0,0,0.8);border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;
+                textarea{font-family:consolas !important;}
+                table{max-width:98% !important;}
+                span{position:static;}
             }
         }
     }

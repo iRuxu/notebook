@@ -1,0 +1,470 @@
+/*
+ * Base.less
+ * Version: 3.2
+ * Author: iRuxu
+ * Creat: 2014/08
+ * Update: 2017/01/22
+ * Description: Base function,ie hack,quick layout
+ * Manual: http://csslab.cc
+ */
+
+
+
+    /*-------------------------------------
+    ├   Font                              ┆
+    └------------------------------------*/
+
+    //字体大小
+    .fz(@font-size){
+        font-size:@font-size;
+    }
+
+    //字体大小与行高
+    .fz(@font-size,@line-height){
+        font-size:@font-size;
+        line-height:@line-height;
+    }
+
+    //字体大小、行高、高度
+    .fz(@font-size,@line-height,@height){
+        font-size:@font-size;
+        line-height:@line-height;
+        height:@height;
+    }
+
+    //字体行高与高度
+    .lh(@line-height,@height:@line-height){
+        line-height:@line-height;
+        height:@height;
+    }
+   
+    //字体样式：粗体
+    .bold(@bold:bold){font-weight:@bold;}
+
+    //字体样式：斜体
+    .italic(){font-style:italic;}
+
+    //字体样式：正常
+    .normal(){font-weight:normal;font-style:normal;}
+
+    //字体颜色
+    .color(@color){
+        color:@color;   //自身颜色，包括链接与非链接
+    }
+    .color(@color,@hovercolor){
+        color:@color;   //自身颜色，包括链接与非链接
+        &:hover{color:@hovercolor;} //自身Hover时
+    }
+    .color(@color,@acolor,@hovercolor){
+        color:@color;
+        a{color:@acolor;}
+        a:hover{color:@hovercolor;}
+    }
+
+    //占位符placeholder样式
+    .tip(@font-size,@color,@text-align:left){
+        &:-moz-placeholder {
+            font-size:@font-size;
+            color: @color;
+            text-align:@text-align;
+        }
+        &:-ms-input-placeholder {
+            font-size:@font-size;
+            color: @color;
+            text-align:@text-align;
+        }
+        &::-webkit-input-placeholder {
+            font-size:@font-size;
+            color: @color;
+            text-align:@text-align;
+        }
+    }
+
+    .tip(custom,@property,@value){
+        &:-moz-placeholder {
+            @{property}:@value;
+        }
+        &:-ms-input-placeholder {
+            @{property}:@value;
+        }
+        &::-webkit-input-placeholder {
+            @{property}:@value;
+        }
+    }
+
+    /*-------------------------------------
+    ├   对齐                              ┆
+    └------------------------------------*/
+    
+    //水平（x轴）对齐方式
+    .x(@text-align:center){text-align:@text-align;}
+
+    //垂直（y轴）对齐方式
+    .y(@vertical-align:middle){vertical-align:@vertical-align;} 
+
+    //层叠级别（z轴）
+    .z(@index:1){z-index:@index;} 
+
+
+    /*-------------------------------------
+    ├   Text                              ┆
+    └------------------------------------*/
+
+    //文本折行处理
+    .break(){
+        white-space:normal;
+        word-wrap:break-word;
+        word-break:break-all;
+    }
+    //段落省略
+    .break(@lines){
+        display: -webkit-box;
+        -webkit-line-clamp: @lines; //设定行数，超出行数则省略，只webkit有效
+        -webkit-box-orient: vertical;
+        overflow:hidden;
+    }
+    //文本不折行处理（可应用在inline-block水平排列）
+    .nobreak{
+        white-space:nowrap;
+        word-wrap:normal;
+        word-break:keep-all;
+        text-overflow:ellipsis; //文本溢出处理方式,为显示“...”
+        overflow:hidden; //溢出生效需要对应用此属性的元素进行宽度设置(不能是自适应宽度)
+    }
+    .nobreak(clip){
+        white-space:nowrap;
+        word-wrap:normal;
+        word-break:keep-all;
+        text-overflow:clip; //文本溢出处理方式：直接剪裁
+    }
+    .nobreak(visible){
+        white-space:nowrap;
+        word-wrap:normal;
+        word-break:keep-all;
+        overflow:visible; //总是显示溢出
+    }
+    //文本缩进隐藏（可应用于按钮,banner等位置背景图已有图片文字,保留文字仅作SEO优化）
+    .indent(@indent:-200%){
+        text-indent:@indent; //推荐使用此方式,减少移动端重绘能耗,根据需要扩大倍数至-200%+
+        overflow:hidden;
+    }
+
+    //书写模式：牌匾从右至左水平单行排版效果
+    .retext(x){direction:rtl;unicode-bidi:bidi-override;}
+
+    //书写模式：文笺从右至左、从上至下排版效果
+    .retext(y){writing-mode:tb-rl;writing-mode:vertical-rl;}
+
+
+    /*-------------------------------------
+    ├   Size                              ┆
+    └------------------------------------*/
+    
+    //尺寸
+    .w(@width){width:@width;}
+    .h(@height){height:@height;} 
+    .size(@width,@height:@width){width:@width;height:@height;}
+
+    //满容器
+    .full{width:100%;height:100%;}
+    .full(x){width:100%;}
+    .full(y){height:100%;}
+
+    //一半容器
+    .half{width:50%;height:50%;} 
+    .half(x){width:50%;}
+    .half(y){height:50%;}
+
+    //最小尺寸
+    .min-width(@min-width){min-width:@min-width;_width:@min-width;}
+    .min-height(@min-height){min-height:@min-height;_height:@min-height;}
+
+    
+    /*-------------------------------------
+    ├   Display                            ┆
+    └------------------------------------*/
+
+    //表现简写
+    .db(){display:block;} //表现为块级,比如将a、span等内联元素块级化
+    .dbi(){display:inline-block;*display:inline;*zoom:1;} //表现为内联块级元素，兼容IE6
+    .di(){display:inline;} //表现为内联元素
+    .df(){display:flex;} //表现为flex伸缩盒
+    .dfi(){display:inline-flex;} //表现为flex伸缩盒
+    .dg(){display:grid;}
+    .dgi(){display:inline-grid;}
+    .dgsub(){display:subgrid;}
+
+    //隐藏简写
+    .none{display:none;}
+    .hide(){visibility:hidden;}
+    .show(){visibility:visible;}
+
+    //溢出隐藏
+    .clip(){overflow:hidden;*zoom:1;} //兼容IE6-7
+    .noclip(){overflow:visible}
+
+    /*-------------------------------------
+    ├   Layout                             ┆
+    └------------------------------------*/
+
+    //浮动简写
+    .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
+    
+    .fr{float:right;*display:inline;}
+    
+    //清除浮动塌陷
+    .clearfix{
+        *zoom:1;
+        &:after{content:"\200B";display:block;height:0;clear:both;}
+    }
+    //清除浮动
+    .clear(@clear:both){clear:@clear;}
+
+    //inline-block布局替代float - 纯列表时
+    .iblock(){
+        font-size:0;white-space:nowrap;overflow:visible;
+        li{.dbi;.y(top);font-size:12px;white-space:normal;}
+    }
+    .iblock(@selector){
+        font-size:0;white-space:nowrap;overflow:visible;
+        .@{selector}{.dbi;.y(top);font-size:12px;white-space:normal;}
+    }
+
+    //flex-box
+    .flex(x){justify-content:center;}
+    .flex(y){align-items:center;align-content:center;}
+    
+    //多列
+    .cols(@width,@count,@gap) {
+      -webkit-column-width: @width;
+         -moz-column-width: @width;
+              column-width: @width;
+      -webkit-column-count: @count;
+         -moz-column-count: @count;
+              column-count: @count;
+      -webkit-column-gap: @gap;
+         -moz-column-gap: @gap;
+              column-gap: @gap;
+    }
+    .cols(@width,@count) {
+      -webkit-column-width: @width;
+         -moz-column-width: @width;
+              column-width: @width;
+      -webkit-column-count: @count;
+         -moz-column-count: @count;
+              column-count: @count;
+    }
+    .cols(@width) {
+      -webkit-column-width: @width;
+         -moz-column-width: @width;
+              column-width: @width;
+    }
+
+    /*-------------------------------------
+    ├   Position                           ┆
+    └------------------------------------*/
+
+    //定位简写
+    .ps(){position:static;}
+    .pr(){position:relative;*zoom:1;}
+    .pa(){position:absolute;}
+    .pf(){position:fixed;}
+    .po(){.ps;margin:0;} //复位
+
+    //位置简写    
+    .lt(@l,@t:@l){left:@l;top:@t;}
+    .rt(@r,@t:@r){right:@r;top:@t;}
+    .lb(@l,@b:@l){left:@l;bottom:@b;}
+    .rb(@r,@b:@r){right:@r;bottom:@b;}
+
+    //居中对齐
+    .auto(x){margin-left:auto;margin-right:auto;}
+    
+    //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
+    .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
+    .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
+    .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
+
+    //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
+    .ct(x,@width) when (ispixel(@width)){
+        position:absolute;
+        left:50%;
+        margin-left:-@width/2;
+    }
+    .ct(x,@width) when (ispercentage(@width)){
+        position:absolute;
+        left:50%;
+        margin-left:-@width/2;
+    }
+    .ct(x,@width) when (default()) {
+        position:absolute;
+        left:50%;
+        @xmargin:unit(@width/2,px);
+        margin-left:-@xmargin;
+    }
+    .ct(y,@height) when (ispixel(@height)){
+        position:absolute;
+        top:50%;
+        margin-top:-@height/2;
+    }
+    .ct(y,@height) when (ispercentage(@height)){
+        position:absolute;
+        top:50%;
+        margin-top:-@height/2;
+    }
+    .ct(y,@height) when (default()){
+        position:absolute;
+        top:50%;
+        @ymargin:unit(@height/2,px);
+        margin-top:-@ymargin;
+    }
+    .ct(o,@width,@height:@width) when (ispixel(@width)){
+        position:absolute;left:50%;top:50%;
+        margin-left:-@width/2;margin-top:-@height/2;
+    }
+    .ct(o,@width,@height:@width) when (ispercentage(@width)){
+        position:absolute;left:50%;top:50%;
+        margin-left:-@width/2;margin-top:-@height/2;
+    }
+    .ct(o,@width,@height:@width) when (default()){
+        position:absolute;left:50%;top:50%;
+        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
+        margin-left:-@xmargin;margin-top:-@ymargin;
+    }
+    
+    //窗口固定（兼容IE6）
+    .fixed(@_,@side:0,@fix:0){
+        position: fixed;
+        _position:absolute;
+        *zoom:1; 
+    }
+    .fixed(lt,@side:0,@fix:0){
+        left:unit(@side,px);
+        top:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    }
+    .fixed(rt,@side:0,@fix:0){
+        right:unit(@side,px);
+        top:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    }
+    .fixed(lb,@side:0,@fix:0){
+        left:unit(@side,px);
+        bottom:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    }
+    .fixed(rb,@side:0,@fix:0){
+        right:unit(@side,px);
+        bottom:unit(@fix,px);
+        @fixs:unit(@fix);
+        _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    }
+    .fixed(o,@width,@height){
+        width:unit(@width,px);
+        height:unit(@height,px);
+        left:50%;top:50%;
+        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
+        margin-left:-@xmargin;margin-top:-@ymargin;
+        _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
+    }
+
+    //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
+    .hasfixed(){
+        html,body{_background-image:url(about:blank);_background-attachment:fixed;}
+    }
+
+    /*-------------------------------------
+    ├   Image                              ┆
+    └------------------------------------*/
+
+    //渐变
+    .gradient(l,@color-start,@color-stop){
+        background:linear-gradient(to left,@color-start,@color-stop);
+    }
+    .gradient(r,@color-start,@color-stop){
+        background:linear-gradient(to right,@color-start,@color-stop);
+    }
+    .gradient(t,@color-start,@color-stop){
+        background:linear-gradient(to top,@color-start,@color-stop);
+    }
+    .gradient(b,@color-start,@color-stop){
+        background:linear-gradient(to bottom,@color-start,@color-stop);
+    }
+    .gradient(o,@color-start,@color-stop){
+        background:radial-gradient(circle,@color-start,@color-stop);
+    }
+
+    //雪碧图·横向阵列，传入个数，单元宽度
+    .sprite(@n,@unit-width){
+        .sprite-generate(@i:0) when (@i <= @n){
+            .sprite-@{i}{
+                background-position:-@unit-width*(@i - 1) 0;
+            }
+            .sprite-generate(@i + 1);
+        }
+        .sprite-generate(0);
+    }
+
+    .sprite(@n,@unit-width,@selector){
+        .sprite-generate(@i:0) when (@i <= @n){
+            .@{selector}-@{i}{
+                background-position:-@unit-width*(@i - 1) 0;
+            }
+            .sprite-generate(@i + 1);
+        }
+        .sprite-generate(0);
+    }
+
+    
+    /*-------------------------------------
+    ├   Effect                             ┆
+    └------------------------------------*/
+
+    //元素透明度
+    .tm(@tm){
+        @alpha:@tm*100;
+        opacity:@tm; //ie9 webkit etc.
+        filter:alpha(opacity=@alpha); //ie5-ie7
+    }
+    //背景色半透明
+    .tb(@r,@g,@b,@tm){
+        @rgba:rgba(@r,@g,@b,@tm);
+        @rgb:rgb(@r,@g,@b);
+        @ietm:argb(@rgba);
+        background-color: @rgba;    //webkit,moz,ms10+
+        filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@{ietm}, endColorstr=@{ietm}) \9";  //ie7-8
+        _background-color: @rgb;    //ie6
+    }
+
+    //模糊
+    .blur(@blur){
+        filter:blur(@blur);
+        -webkit-filter:blur(@blur);
+        -moz-filter:blur(@blur);
+        -o-filter:blur(@blur);
+        -ms-filter:blur(@blur);
+        filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='@{blur}');
+        *zoom: 1;
+    }
+
+    //三维闪动bug处理
+    .tsfix{
+        -webkit-backface-visibility:hidden;
+        -webkit-transform-style:preserve-3d;
+    }
+
+
+    /*-------------------------------------
+    ├   Other                              ┆
+    └------------------------------------*/
+    
+    //圆角
+    .r(@radius){border-radius:@radius;}
+
+    //指针
+    .pointer(){cursor:pointer;}
+
+    

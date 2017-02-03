@@ -113,13 +113,12 @@ $(function(){
 		});
 
 		$("#main").on('click','h4+ul>li',function(){
-			var infos = $(this).html();
+			var title = $(this).children("a:first-child").html();
+			title || (title = "Snippet");
+			var info = $(this).children("span").html();
 			$("#snippet").show()
-			$("#box").html(infos)
+			$("#box-title").html(title)
+			$("#box").html(info)
 		})
-
-	
-
-
 
 })

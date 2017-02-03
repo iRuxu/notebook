@@ -1,15 +1,9 @@
-<div class="col">
-    <div class="block">
+<div class="u-col">
+    <div class="u-block">
         <h3>选择器<span>-</span></h3>
-        <div class="contents">
-            <h4>[<span>-</span>]规则</h4>
+        <div class="u-list">
+            <h4>[<span>-</span>] 优先级</h4>
             <ul>
-                <li>
-                    <a href="">@charset</a><span>@charset "utf-8";
-                    <br>在外部样式表文件内使用。指定该样式表使用的字符编码。
-                    <br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span>
-                </li>
-                <li><a href="">@import</a><span>指定导入的外部样式表</span></li>
                 <li><a href="http://labs.qianduan.net/css-selector/">selector</a><span>选择器支持一览.值得注意的是.class.class IE6并不识别</span></li>
                 <li>
                     <a href="">选择器优先级</a>
@@ -31,17 +25,16 @@
                     <br>但在IE6中有BUG,需要分开写在2个选择符中
                     <br>参考资料：<a href="http://css.doyoe.com/rules/!important.htm">GO TO!</a></span>
                 </li>
-                <li><a href="">其他</a><span><a href="http://keithclark.co.uk/articles/loading-css-without-blocking-render/">css延迟加载</a></span></li>
             </ul>
-            <h4>[<span>-</span>]HACK</h4>
+            <h4>[<span>-</span>] HACK</h4>
             <ul>
                 <li>
                     <a href="">if IE</a>
                     <span>条件HACK
                     <pre><code data-language="html">
-                    <!--[if IE]>
+                    &lt;!--[if IE]>
                     指定载入相关JS/CSS或其他文件
-                    <![endif]-->
+                    &lt;![endif]-->
                     </code></pre>
                     <br>参考资料：<a href="http://css.doyoe.com/hack/conditions.htm">GO TO!</a></span>
                 </li>
@@ -97,7 +90,7 @@
                 </li>
                 <li><a href="">expression</a><span>表达式，IE6-7支持，IE8不支持</span></li>
             </ul>
-            <h4>[<span>-</span>]常用选择符</h4>
+            <h4>[<span>-</span>] 常用选择符</h4>
             <ul>
                 <li><a href="">*</a><span>通配符</span></li>
                 <li><a href="">tagName</a><span>元素标签名</span></li>
@@ -108,7 +101,7 @@
                 <li><a href="">E+F</a><span>相邻选择器</span></li>
                 <li><a href="">E~F</a><span>兄弟选择器</span></li>
             </ul>
-            <h4>[<span>-</span>]伪类选择符</h4>
+            <h4>[<span>-</span>] 伪类选择符</h4>
             <ul>
                 <li>
                     <a href="">:link/:visited/:hover/:active</a><span>
@@ -149,7 +142,7 @@
                     <li><a href="">:target</a><span>匹配相关URL指向的HASH目标元素。</span>
                 </li>
             </ul>
-            <h4>[<span>-</span>]属性选择符</h4>
+            <h4>[<span>-</span>] 属性选择符</h4>
             <ul>
                 <li><a href="">[att]</a><span>含有属性</span></li>
                 <li><a href="">[att='val']</a><span>属性值为指定</span></li>
@@ -159,7 +152,7 @@
                 <li><a href="">[att*='val']</a><span>属性值包含..字符串</span></li>
                 <li><a href="">[att|='val']</a><span>属性值以val开头并用连接符"-"分隔的字符串的元素</span></li>
             </ul>
-            <h4>[<span>-</span>]其他选择符</h4>
+            <h4>[<span>-</span>] 其他选择符</h4>
             <ul>
                 <li><a href="">:lang(zh-cn)</a><span>匹配使用特殊语言的E元素。</span></li>
                 <li><a href="">:root</a><span>匹配E元素在文档的根元素。在HTML中，根元素永远是HTML</span></li>

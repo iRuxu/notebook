@@ -1,231 +1,118 @@
 <div class="u-col">
-    <div class="u-block">
-        <h3>样式<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 效果</h4>
-            <ul>
-                <li>
-                    <a href="">box-shadow</a>
-                    <span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
-                    <br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
-                    <br>可用逗号分隔多个阴影,制作复杂重叠阴影效果
-                    <br>投影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
-                    <br>长阴影：<a href="http://iruxu.com/to-be-css/shadow_longshadows.html">GO TO!</a>
-                    <br>投影彩带：<a href="http://www.css3d.net/ribbon-generator/">GO TO!</a>
-                    </span>
-                </li>
-                <li>
-                    <a href="">-webkit-box-reflect</a>
-                    <span>-webkit-box-reflect:none/direction offset mask
-                    <br />可应用于盒子或者直接应用于图片
-                    <br />direction(倒影方向): above / below / left / right
-                    <br />offset(倒影与源间隔): length / %
-                    <br />mask(蒙版): url() / gradient
-                    </span>
-                </li>
-                <li>
-                    (new)<a href="">filter</a>
-                    <span>ele {filter: none | <filter-function >* } 
-                    <br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
-                    <br />grayscale() 灰度，黑白
-                    <br />sepia() 褐色,黄褐色旧照片
-                    <br />saturate() 饱和度
-                    <br />hue-rotate() 色相旋转
-                    <br />invert() 反色
-                    <br />opacity() 透明度
-                    <br />brightness() 亮度
-                    <br />contrast() 对比度
-                    <br />blur(3px) 模糊
-                    <br />drop-shadow(5px 5px 5px #ccc) 阴影
-                    <br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
-                    <a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 颜色</h4>
-            <ul>
-                <li>
-                    <a href="">color</a>
-                    <span>1.颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
-                    <hr>2.transparent
-                    <br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
-                    <br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
-                    <br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
-                    <br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
-                    <br />IE6透明边框的处理
-                    <br /><pre><code class="less">
-                    _border-color: #000000; 
-                    _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
-                    </code></pre>
-                    <hr>3.rgba(255,255,255,0.8) 
-                    <br />带Alpha通道的颜色模式,可以半透明（IE8-不支持）
-                    <br>让IE8-通过IE滤镜来实现rgba效果
-                    <br><pre><code class="less">
-                    background: rgba(0,0,0,.92);
-                    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startcolorstr=#CC000000, endcolorstr=#CC000000);
-                    </code></pre>
-                    <br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startcolorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
-                    <br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
-                    <hr />4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
-                    </span>
-                </li>
-                <li><a href="">currentcolor</a><span>
-                    让Border/backgroud等沿袭color的颜色<br>
-                    <a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">参考资料</a>
-                    </span>
-                </li>
-                <li><a href="">opacity</a>
-                    <span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
-                    <br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
-                    <br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
-                    <br><pre><code class="less">
-                    .tm(@tm){
-                    @alpha:@tm*100;
-                    opacity:@tm;
-                    filter:alpha(opacity=@alpha);
-                    }
-                    </code></pre>
-                    </span>
-                </li>
-                <li>
-                    (ie)<a href="">filter</a>
-                    <span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
-                    <br><pre><code class="less">
-                    background:url('../images/ex.png') no-repeat;
-                    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
-                    </code></pre>
-                    <br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。此方法不能应用于平铺图像！
-                    <br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
-                    <br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
-                    <br><a href="http://www.qianduan.net/guan-yu-ie-zhong-css-filter-lv-jing-xiao-zhi-shi/">扩展资料</a>
-                    <br><br>
-                    ie filter滤镜的说明：<br>
-                    1.ie9滤镜重叠，给定统一class在条件注释中取消ie9滤镜。<br>
-                    2.z-index与filter的渲染冲突bug。<a href="http://www.cnblogs.com/iruxu/p/4604274.html">详情</a><br>
-                    3.ie8中对img包裹元素a滤镜失效需要设置在img上。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 背景</h4>
-            <ul>
-                <li>
-                    <a href="">background</a>
-                    <span>[简写]background:#222 url() Xpx Ypx/size repeat attachment clip origin,...
-                    <br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
-                    <br>分解写法时，background-color只能设置一个。
-                    <br />缩写时,如果前面设置了独立属性,在缩写中未被定义的会被覆盖会空或默认值,如果在后面补充了的,后面的属性会自动合并到缩写中,如果该属性不被支持,则造成整个缩写属性无法识别！因根据情况全部分开写。
-                    </span></li>
-                    <li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
-                    <li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.背景图的50%居中以图形中心为基点，不需要再移动自身一半尺寸
-                    <br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
-                    <br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
-                    <li><a href="">background-size</a><span>
-                    background-size: Xpx Ypx / A% B% / cover / contain / auto
-                    <br>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；【全兼容的方式,独立图层img～100%】
-                    <br>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
-                    <br>x% y%：百分比大小，占满父元素空间的百分比，可能导致图片变形
-                    <br>x% auto | auto y%：使元素占父元素宽/高的百分比，并等比缩放～！
-                    <br />一些情况不能识别/，反编译时候只需要反编译值，而不包括属性！
-                    </span>
-                </li>
-                <li>
-                    <a href="">background-repeat</a><span>平铺方式：
-                    <br>repeat-x：背景图像在横向上平铺
-                    <br>repeat-y：背景图像在纵向上平铺
-                    <br>repeat：背景图像在横向和纵向平铺
-                    <br>no-repeat：背景图像不平铺
-                    <br>round：背景图像自动缩放直到适应且填充满整个容器。
-                    <br />IE6不指定此属性时，默认不平铺，其他浏览器默认平铺</span></li>
-                    <li><a href="">background-attachment</a><span>
-                    fixed【相对浏览器固定】背景图像相对于窗体固定。
-                    <br>scroll【相对元素固定】背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
-                    <br>local【相对元素内容固定】背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。
-                    </span>
-                </li>
-                <li>
-                    <a href="">background-clip</a>
-                    <span>padding-box：从padding区域（不含padding）开始向外裁剪背景。
-                    <br>border-box：从border区域（不含border）开始向外裁剪背景。(默认)
-                    <br>content-box：从content区域开始向外裁剪背景。
-                    <br>text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。
-                    <br>TEXT剪裁方式的遮罩效果：<a href="http://demo.doyoe.com/css3/background-clip/mask-text2.htm">GO TO!</a>
-                    </span>
-                </li>
-                <li>
-                    <a href="">background-origin</a>
-                    <span>padding-box：从padding区域（含padding）开始显示背景图像。(默认)
-                    <br>border-box：从border区域（含border）开始显示背景图像。
-                    <br>content-box：从content区域开始显示背景图像。
-                    </span>
-                </li>
-                <li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
-            </ul>
-            <h4>[<span>-</span>] 图像</h4>
-            <ul>
-                <li>
-                    <a href="">image-set</a>(1x,2x,Ndpi)
-                    <span>为不同的设备分配合适得图像;
-                    <pre><code class="less"> div{ background-image: image-set("test.png" 1x, "test-2x.png" 2x, "test-print.png" 300dpi);}</code></pre>
-                    为普通屏幕使用 test.png，为高分屏使用 test-2x.png，如果更高的分辨率则使用 test-print.png，比如印刷。
-                    </span>
-                </li>
-                <li>
-                    <a href=""></a>grandient tools
-                    <span>图片渐变获取：<a href="http://www.gradient-scanner.com/">从图片读取渐变生成CSS</a>
-                    <br>仿PS渐变生成：<a href="http://www.colorzilla.com/gradient-editor/">GO TO!</a>
-                    <br>渐变按钮生成：<a href="http://www.cssbuttongenerator.com/">简洁</a> / 
-                    <a href="http://www.glassybuttons.com/glassy.php">玻璃</a> / <a href="http://jirox.net/AsButtonGen/">水晶</a> / <a href="http://www.bestcssbuttongenerator.com/">简单</a> / <a href="http://www.cssbutton.me/browse">质感</a></span>
-                </li>
-                <li>
-                    <a href="">linear-grandient()</a>
-                    <span>background:linear-gradient(point,#colorA lengthA/A%,……#colorB lengthB/B%) 线性渐变
-                    <br>point:left/right/top/bottom/N deg 方向或角度
-                    <br />默认以垂直上方点为0度向下
-                    <br>技巧应用实例：
-                    <br><pre><code class="less">
-                    使用1像素背景渐变绘制分割线
-                    /*使用伪元素制作导航列表项分隔线*/
-                    .nav li:after{
-                    content:""; 
-                    width:1px;
-                    height:15px;
-                    position:absolute;
-                    right:0;
-                    top:20px;
-                    background:linear-gradient(0deg,#990000,#ff0000,#990000);
-                    }
-                    /*删除第一项和最后一项导航分隔线*/
-                    .nav li:last-child:after{
-                    width:0;
-                    height:0;
-                    }
-                    </code></pre>
-                    </span>
-                </li>
-                <li>
-                    <a href="">repeating-linear-gradient()</a>
-                    <span><pre><code class="less">
-                    repeating-linear-gradient(#f00, #ff0 10%, #f00 15%);
-                    repeating-linear-gradient(to bottom, #f00, #ff0 10%, #f00 15%);
-                    repeating-linear-gradient(180deg, #f00, #ff0 10%, #f00 15%);
-                    repeating-linear-gradient(to top, #f00, #ff0 10%, #f00 15%);
-                    </code></pre>
-                    </span>
-                </li>
-                <li><a href="">radial-grandient()</a>
-                    <span>
-                    background:radial-gradient(position,shape,#colorA lengthA/A%,……#colorB lengthB/B%)径向渐变
-                    <br />position:left~center/lengthA lengthB/A% 5% 指定圆心位置
-                    <br />shape:ellipse/circle形状
-                    <br>可以使用rgba色，设置从透明到渐变效果！
-                    </span>
-                </li>
-                <li><a href="">repeating-radial-gradient()</a>
-                    <span><pre><code class="less">
-                    repeating-radial-gradient(circle closest-side, #f00, #ff0 10%, #f00 15%);
-                    </code></pre></span>
-                </li>
-            </ul>
-        </div>
-    </div>
+	<div class="u-block">
+		<h3>动画<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 2D/3D</h4>
+			<ul>
+				<li><a href="">transform</a><span>
+					可以用【空格】（非逗号）分隔多个操作,被定义的元素必须为对外表现块级的元素.
+					<br />(*老版webkit一定要设置为块，否则内联元素的transfrom和animation无效).
+					<br />位移动画闪动问题,可提前加载为0.
+					</span></li>
+				<li><a href="">transform-origin</a><span>设置或检索对象以某个原点进行转换,数值或百分比.
+					<br>如果提供两个，第一个用于横坐标，第二个用于纵坐标。 
+					<br>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%。 
+					</span></li>
+				<li>transform:<a href="">rotate</a><span>旋转[n deg度数]
+					<br>transform:rotate(Ndeg)  / rotateX(n) / rotateY(n) / rotateZ(n)
+					<br>transform:rotate3d(x,y,z,角度)</span></li>
+				<li>transform:<a href="">skew</a><span>倾斜[n deg度数]
+					<br>transform:skew(Ndeg / Xdeg,Ydeg) / skewX(n) / skewY(n)</span></li>
+				<li>transform:<a href="">scale</a><span>缩放[n倍数]
+					<br>transform:scale(x,y) / scaleX(n) / scaleY(n) / scaleZ(n)
+					<br>transform:scale3d(x,y,z)
+					<br>默认缩放以中心点为起点,不能用zoom
+					</span></li>
+				<li>transform:<a href="">translate</a><span>位移/滑动[n px长度]
+					<br>transform:translate(x,y)  / translateX(n) / translateY(n)
+					<br>transform:translate3d:(x,y,z) <a href="http://www.imooc.com/video/1898">案例演示</a></span></li>
+				<li>transform:<a href="">matrix</a><span>矩阵
+					<br>transform: matrix(6n)
+					<br>transform: matrix3d(16n)</span></li>
+				<li><a href="">transform-style</a><span>规定被嵌套元素如何在 3D 空间中显示。
+				<br>flat,子元素将不保留其 3D 位置。
+				<br>preserve-3d	子元素将保留其 3D 位置。</span></li>
+				<li><a href="">backface-visibility</a><span>定义元素在不面对屏幕时是否可见。
+				<br>取值背面可见/不可见visible|hidden;
+				<br />消除 transition 闪屏
+				<br />	两个方法
+				<br />	-webkit-transform-style: preserve-3d;
+				<br />	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+				<br />	-webkit-backface-visibility: hidden;
+				<br />	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/</span></li>
+				<li><a href="">perspective</a>(n)<span>定义 3D 转换元素的透视视图。
+				<br>取值number|none,常用500; <a href="http://www.imooc.com/video/1048">参考资料</a></span></li>
+				<li><a href="">perspective-origin</a>(x,y)<span>规定 3D 元素的底部位置。
+				<br>50% 50%默认值,取值left,center,right,length,%</span></li>
+			</ul>
+			<h4>[<span>-</span>] 过渡</h4>
+			<ul>
+				<li><a href="">transition</a><span>过渡,简写,属性-时间-缓动-延迟<br />
+				在Chrome下，使用过渡效果transition时有时会出现页面闪动<br />
+				设置：-webkit-transform-style:preserve-3d;或-webkit-backface-visibility:hidden;</span></li>
+				<li><a href="">transition-property</a><span>过渡的属性,以逗号分割多个</span></li>
+				<li><a href="">transition-duration</a><span>过度所需的时间</span></li>
+				<li><a href="">transition-timing-function</a><span>缓动线：
+					<br>linear： 线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0) 
+					<br>ease： 平滑过渡。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0) 
+					<br>ease-in： 由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0) 
+					<br>ease-out： 由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0) 
+					<br>ease-in-out： 由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0) 
+					<br>cubic-bezier(<number>, <number>, <number>, <number>)： 特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内
+					<br /><a href="http://jeremyckahn.github.io/stylie/">自定义缓动函数</a> ( <a href="http://www.uisdc.com/css-animation-visual-generator-stylie">stylie教程</a> )
+					</span></li>
+				<li><a href="">transition-delay</a><span>延迟时间</span></li>
+			</ul>
+			<h4>[<span>-</span>] 动画</h4>
+			<ul>
+				<li><a href="">@keyframes</a><span>定义动画
+					<br>keyframes 名称{
+					<br>from{}
+					<br>to{}
+					<br>}
+					<br>@keyframes 名称{
+					<br>0% {}
+					<br>25%{}
+					<br>75% {}
+					<br>100% {}
+					<br>}
+					<br>注意写前缀
+					<br /><b>过渡的动画不能使用简写。例如border:8px solid #fff无效,提前定义样式颜色,并给予0宽度,改变宽度.</b>
+					<br /><b>利用起点设置为非0%可设置出间隔动画</b>
+					<br />不想设置断点的数据留空会线性执行到下一个有数据位置
+					<br />设置内层img等于祖层宽度，对子层尺寸进行变化形成遮罩显示效果（需设置overflow:hidden)
+					</span></li>
+				<li><a href="">animation</a><span>执行动画
+					<br>简写animation:
+					<br>name 5s   ease-in   1s      8/infinite alternate paused  forwards;
+					<br>名称 时间 缓动函数 延迟执行 重复次数   反向      暂停    停留在末尾状态;
+					<br /><b>多个动画之间用【逗号】隔开，不同组动画属性的变化同时执行，可设置延迟达到队列效果，同属性例transform会覆盖</b>
+					<br /><a href="http://tid.tenpay.com/?p=5983">动画帧数计算</a>
+					<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
+					<a href="http://cssanimate.com/">cssanimate</a> / 
+					<a href="http://ademilter.com/lab/liffect/">liffect</a> / 
+					<a href="http://leaverou.github.io/animatable/">简单示例</a> / 
+					<a href="http://cssload.net/">cssload</a> / 
+					<a href="http://www.w3cfuns.com/blog-5421655-5400318.html">loading动画</a>
+					</span></li>
+				<li><a href="">animation-name</a><span>动画名称</span></li>
+				<li><a href="">animation-duration</a><span>时间</span></li>
+				<li><a href="">animation-timing-function</a><span>缓动函数
+					<br /><a href="http://www.qianduan.net/css3-animation.html">steps(num)逐帧动画</a></span></li>
+				<li><a href="">animation-delay</a><span>延迟时间</span></li>
+				<li><a href="">animation-iteration-count</a><span>执行次数</span></li>
+				<li><a href="">animation-direction</a><span>animation-direction:reverse / alternate /  alternate-reverse （反向,奇正偶反,偶正奇反）</span></li>
+				<li><a href="">animation-play-state</a><span>animation-play-state: running / paused 运行/暂停</span></li>
+				<li><a href="">animation-fill-mode</a><span>animation-fill-mode:none / forwards / backwords / both (返回初始,停留末尾,应用初始,两者)</span></li>
+				<li><a href="">移动端动画</a><span>
+					<a href="https://github.com/AlloyTeam/Mars/blob/master/performance/high-performance-css3-animation.md">参考资料1</a> |
+					<a href="https://github.com/AlloyTeam/Mars/blob/master/performance/css-property-animation-performance.md">参考资料2</a>
+					<br />1.减少BFC属性方式
+					<br />2.减少使用阴影与渐变
+					<br />3.让动画元素脱离文档流，减少重排
+					<br />4.JS中减少layout
+					</span></li>
+			</ul>
+		</div>
+	</div>
 </div>
