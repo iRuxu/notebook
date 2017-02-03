@@ -1,0 +1,579 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>样式<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 效果</h4>
+            <ul>
+                <li>
+                    <a href="">box-shadow</a>
+                    <span>盒子阴影,box-shadow:2px 2px 5px 50px #000 inset
+                    <br>水平,垂直,模糊半径,阴影大小,颜色,内阴影
+                    <br>可用逗号分隔多个阴影,制作复杂重叠阴影效果
+                    <br>投影制作：<a href="http://css3-drop-shadows.herokuapp.com/app">GO TO!</a>
+                    <br>长阴影：<a href="http://iruxu.com/to-be-css/shadow_longshadows.html">GO TO!</a>
+                    <br>投影彩带：<a href="http://www.css3d.net/ribbon-generator/">GO TO!</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">-webkit-box-reflect</a>
+                    <span>-webkit-box-reflect:none/direction offset mask
+                    <br />可应用于盒子或者直接应用于图片
+                    <br />direction(倒影方向): above / below / left / right
+                    <br />offset(倒影与源间隔): length / %
+                    <br />mask(蒙版): url() / gradient
+                    </span>
+                </li>
+                <li>
+                    (new)<a href="">filter</a>
+                    <span>ele {filter: none | <filter-function >* } 
+                    <br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
+                    <br />grayscale() 灰度，黑白
+                    <br />sepia() 褐色,黄褐色旧照片
+                    <br />saturate() 饱和度
+                    <br />hue-rotate() 色相旋转
+                    <br />invert() 反色
+                    <br />opacity() 透明度
+                    <br />brightness() 亮度
+                    <br />contrast() 对比度
+                    <br />blur(3px) 模糊
+                    <br />drop-shadow(5px 5px 5px #ccc) 阴影
+                    <br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
+                    <a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 颜色</h4>
+            <ul>
+                <li>
+                    <a href="">color</a>
+                    <span>1.颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
+                    <hr>2.transparent
+                    <br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
+                    <br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
+                    <br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
+                    <br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
+                    <br />IE6透明边框的处理
+                    <br /><pre><code data-language="css">
+                    _border-color: #000000; 
+                    _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
+                    </code></pre>
+                    <hr>3.rgba(255,255,255,0.8) 
+                    <br />带Alpha通道的颜色模式,可以半透明（IE8-不支持）
+                    <br>让IE8-通过IE滤镜来实现rgba效果
+                    <br><pre><code data-language="css">
+                    background: rgba(0,0,0,.92);
+                    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startcolorstr=#CC000000, endcolorstr=#CC000000);
+                    </code></pre>
+                    <br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startcolorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
+                    <br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
+                    <hr />4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
+                    </span>
+                </li>
+                <li><a href="">currentcolor</a><span>
+                    让Border/backgroud等沿袭color的颜色<br>
+                    <a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">参考资料</a>
+                    </span>
+                </li>
+                <li><a href="">opacity</a>
+                    <span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
+                    <br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
+                    <br>IE8-不支持此属性,但可以用IE滤镜来处理,片段
+                    <br><pre><code data-language="css">
+                    .tm(@tm){
+                    @alpha:@tm*100;
+                    opacity:@tm;
+                    filter:alpha(opacity=@alpha);
+                    }
+                    </code></pre>
+                    </span>
+                </li>
+                <li>
+                    (ie)<a href="">filter</a>
+                    <span>IE特有的滤镜属性,配合上述实现透明颜色,透明区块,另外由于IE无法正常显示PNG透明图片,当图片用作为背景图时,同样可以使用本属性解决.
+                    <br><pre><code data-language="css">
+                    background:url('../images/ex.png') no-repeat;
+                    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/ex.png");
+                    </code></pre>
+                    <br><b>*注意</b>:通过滤镜对引入图片，滤镜引入图片的时候是相对于HTML文件，而不是相对于CSS文件，建议引入绝对路径。此方法不能应用于平铺图像！
+                    <br>完整参考文档：<a href="http://www.w3cfuns.com/thread-297-1-1.html">GO TO!</a>
+                    <br>IE6使用滤镜PNG图片透明后，容器内链接失效，设置a{_position:relative;}
+                    <br><a href="http://www.qianduan.net/guan-yu-ie-zhong-css-filter-lv-jing-xiao-zhi-shi/">扩展资料</a>
+                    <br><br>
+                    ie filter滤镜的说明：<br>
+                    1.ie9滤镜重叠，给定统一class在条件注释中取消ie9滤镜。<br>
+                    2.z-index与filter的渲染冲突bug。<a href="http://www.cnblogs.com/iruxu/p/4604274.html">详情</a><br>
+                    3.ie8中对img包裹元素a滤镜失效需要设置在img上。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 背景</h4>
+            <ul>
+                <li>
+                    <a href="">background</a>
+                    <span>[简写]background:#222 url() Xpx Ypx/size repeat attachment clip origin,...
+                    <br>逗号隔开每组background的缩写值；如果有size值，需要紧跟position并且用"/"隔开；
+                    <br>分解写法时，background-color只能设置一个。
+                    <br />缩写时,如果前面设置了独立属性,在缩写中未被定义的会被覆盖会空或默认值,如果在后面补充了的,后面的属性会自动合并到缩写中,如果该属性不被支持,则造成整个缩写属性无法识别！因根据情况全部分开写。
+                    </span></li>
+                    <li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
+                    <li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.背景图的50%居中以图形中心为基点，不需要再移动自身一半尺寸
+                    <br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
+                    <br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
+                    <li><a href="">background-size</a><span>
+                    background-size: Xpx Ypx / A% B% / cover / contain / auto
+                    <br>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；【全兼容的方式,独立图层img～100%】
+                    <br>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
+                    <br>x% y%：百分比大小，占满父元素空间的百分比，可能导致图片变形
+                    <br>x% auto | auto y%：使元素占父元素宽/高的百分比，并等比缩放～！
+                    <br />一些情况不能识别/，反编译时候只需要反编译值，而不包括属性！
+                    </span>
+                </li>
+                <li>
+                    <a href="">background-repeat</a><span>平铺方式：
+                    <br>repeat-x：背景图像在横向上平铺
+                    <br>repeat-y：背景图像在纵向上平铺
+                    <br>repeat：背景图像在横向和纵向平铺
+                    <br>no-repeat：背景图像不平铺
+                    <br>round：背景图像自动缩放直到适应且填充满整个容器。
+                    <br />IE6不指定此属性时，默认不平铺，其他浏览器默认平铺</span></li>
+                    <li><a href="">background-attachment</a><span>
+                    fixed【相对浏览器固定】背景图像相对于窗体固定。
+                    <br>scroll【相对元素固定】背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
+                    <br>local【相对元素内容固定】背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。
+                    </span>
+                </li>
+                <li>
+                    <a href="">background-clip</a>
+                    <span>padding-box：从padding区域（不含padding）开始向外裁剪背景。
+                    <br>border-box：从border区域（不含border）开始向外裁剪背景。(默认)
+                    <br>content-box：从content区域开始向外裁剪背景。
+                    <br>text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。
+                    <br>TEXT剪裁方式的遮罩效果：<a href="http://demo.doyoe.com/css3/background-clip/mask-text2.htm">GO TO!</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">background-origin</a>
+                    <span>padding-box：从padding区域（含padding）开始显示背景图像。(默认)
+                    <br>border-box：从border区域（含border）开始显示背景图像。
+                    <br>content-box：从content区域开始显示背景图像。
+                    </span>
+                </li>
+                <li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
+            </ul>
+            <h4>[<span>-</span>] 图像</h4>
+            <ul>
+                <li>
+                    <a href="">image-set</a>(1x,2x,Ndpi)
+                    <span>为不同的设备分配合适得图像;
+                    <pre><code data-language="css"> div{ background-image: image-set("test.png" 1x, "test-2x.png" 2x, "test-print.png" 300dpi);}</code></pre>
+                    为普通屏幕使用 test.png，为高分屏使用 test-2x.png，如果更高的分辨率则使用 test-print.png，比如印刷。
+                    </span>
+                </li>
+                <li>
+                    <a href=""></a>grandient tools
+                    <span>图片渐变获取：<a href="http://www.gradient-scanner.com/">从图片读取渐变生成CSS</a>
+                    <br>仿PS渐变生成：<a href="http://www.colorzilla.com/gradient-editor/">GO TO!</a>
+                    <br>渐变按钮生成：<a href="http://www.cssbuttongenerator.com/">简洁</a> / 
+                    <a href="http://www.glassybuttons.com/glassy.php">玻璃</a> / <a href="http://jirox.net/AsButtonGen/">水晶</a> / <a href="http://www.bestcssbuttongenerator.com/">简单</a> / <a href="http://www.cssbutton.me/browse">质感</a></span>
+                </li>
+                <li>
+                    <a href="">linear-grandient()</a>
+                    <span>background:linear-gradient(point,#colorA lengthA/A%,……#colorB lengthB/B%) 线性渐变
+                    <br>point:left/right/top/bottom/N deg 方向或角度
+                    <br />默认以垂直上方点为0度向下
+                    <br>技巧应用实例：
+                    <br><pre><code data-language="css">
+                    使用1像素背景渐变绘制分割线
+                    /*使用伪元素制作导航列表项分隔线*/
+                    .nav li:after{
+                    content:""; 
+                    width:1px;
+                    height:15px;
+                    position:absolute;
+                    right:0;
+                    top:20px;
+                    background:linear-gradient(0deg,#990000,#ff0000,#990000);
+                    }
+                    /*删除第一项和最后一项导航分隔线*/
+                    .nav li:last-child:after{
+                    width:0;
+                    height:0;
+                    }
+                    </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">repeating-linear-gradient()</a>
+                    <span><pre><code data-language="css">
+                    repeating-linear-gradient(#f00, #ff0 10%, #f00 15%);
+                    repeating-linear-gradient(to bottom, #f00, #ff0 10%, #f00 15%);
+                    repeating-linear-gradient(180deg, #f00, #ff0 10%, #f00 15%);
+                    repeating-linear-gradient(to top, #f00, #ff0 10%, #f00 15%);
+                    </code></pre>
+                    </span>
+                </li>
+                <li><a href="">radial-grandient()</a>
+                    <span>
+                    background:radial-gradient(position,shape,#colorA lengthA/A%,……#colorB lengthB/B%)径向渐变
+                    <br />position:left~center/lengthA lengthB/A% 5% 指定圆心位置
+                    <br />shape:ellipse/circle形状
+                    <br>可以使用rgba色，设置从透明到渐变效果！
+                    </span>
+                </li>
+                <li><a href="">repeating-radial-gradient()</a>
+                    <span><pre><code data-language="css">
+                    repeating-radial-gradient(circle closest-side, #f00, #ff0 10%, #f00 15%);
+                    </code></pre></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>界面<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 交互</h4>
+            <ul>
+                <li>
+                    <a href="">cursor</a>
+                    <span>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。
+                    <br>格式：使用自定义图像作为光标类型，IE, Opera只支持*.cur等特定的图片格式；Firefox, Chrome, Safari既支持特定图片类型也支持常见的*.jpg, *.gif, *.jpg等图片格式。
+                    <br>兼容：cursor的属性值可以是一个序列,用逗号分隔地址,优先级递降。
+                    <br><pre><code data-language="css">
+                    示例代码：
+                    :link,:visited{
+                    cursor:url(example.svg#linkcursor),
+                          url(hyper.cur),
+                          url(hyper.png) 2 3,
+                          pointer;
+                    }
+                    本例用来给所有的超链接定义光标类型，客户端如果不支持SVG类型的光标，则使用下个"hyper.cur"；如果cur类型也不支持，则使用下个"hyper.png"；依次类推。
+                    </code></pre>
+                    <br>附录：
+                    <table width="95%">
+                        <tbody>
+                        <tr>
+                        <th>值</th>
+                        <th>描述</th>
+                        </tr>
+                        <tr>
+                        <td><i>url</i></td>
+                        <td>需使用的自定义光标的 URL。
+                        注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。</td>
+                        </tr>
+                        <tr>
+                        <td>default</td>
+                        <td>默认光标（通常是一个箭头）</td>
+                        </tr>
+                        <tr>
+                        <td>auto</td>
+                        <td>默认。浏览器设置的光标。</td>
+                        </tr>
+                        <tr>
+                        <td>crosshair</td>
+                        <td>光标呈现为十字线。</td>
+                        </tr>
+                        <tr>
+                        <td>pointer</td>
+                        <td>光标呈现为指示链接的指针（一只手）</td>
+                        </tr>
+                        <tr>
+                        <td>move</td>
+                        <td>此光标指示某对象可被移动。</td>
+                        </tr>
+                        <tr>
+                        <td>e-resize</td>
+                        <td>此光标指示矩形框的边缘可被向右（东）移动。</td>
+                        </tr>
+                        <tr>
+                        <td>ne-resize</td>
+                        <td>此光标指示矩形框的边缘可被向上及向右移动（北/东）。</td>
+                        </tr>
+                        <tr>
+                        <td>nw-resize</td>
+                        <td>此光标指示矩形框的边缘可被向上及向左移动（北/西）。</td>
+                        </tr>
+                        <tr>
+                        <td>n-resize</td>
+                        <td>此光标指示矩形框的边缘可被向上（北）移动。</td>
+                        </tr>
+                        <tr>
+                        <td>se-resize</td>
+                        <td>此光标指示矩形框的边缘可被向下及向右移动（南/东）。</td>
+                        </tr>
+                        <tr>
+                        <td>sw-resize</td>
+                        <td>此光标指示矩形框的边缘可被向下及向左移动（南/西）。</td>
+                        </tr>
+                        <tr>
+                        <td>s-resize</td>
+                        <td>此光标指示矩形框的边缘可被向下移动（北/西）。</td>
+                        </tr>
+                        <tr>
+                        <td>w-resize</td>
+                        <td>此光标指示矩形框的边缘可被向左移动（西）。</td>
+                        </tr>
+                        <tr>
+                        <td>text</td>
+                        <td>此光标指示文本。</td>
+                        </tr>
+                        <tr>
+                        <td>wait</td>
+                        <td>此光标指示程序正忙（通常是一只表或沙漏）。</td>
+                        </tr>
+                        <tr>
+                        <td>help</td>
+                        <td>此光标指示可用的帮助（通常是一个问号或一个气球）。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">resize</a>(both)
+                    <span>设置或检索对象的区域是否允许用户缩放，调节元素尺寸大小。
+                    <br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
+                    <br>none：不允许用户调整元素大小。
+                    <br>both：用户可以调节元素的宽度和高度。
+                    <br>horizontal：用户可以调节元素的宽度
+                    <br>vertical：用户可以调节元素的高度。</span>
+                </li>
+                <li>
+                    <a href="">ime-mode</a>(disabled)<span>输入法状态：设置或检索是否允许用户激活输入中文，韩文，日文等的输入法（IME）状态。
+                    <br>auto：不影响IME的状态。
+                    <br>normal：正常的IME状态
+                    <br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
+                    <br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
+                    <br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
+                    <li><a href="">pointer-events</a>(none/auto)<span>
+                    pointer-events:none 开启穿透点击,忽略自身
+                    <br />pointer-events:auto 忽略部分的内部重新开启
+                    <br /><a href="http://www.poluoluo.com/jzxy/201109/142876.html">详细资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">user-select</a>(none)
+                    <span>禁止用户选中文字
+                    <br>none：文本不能被选择
+                    <br>text：可以选择文本
+                    <br>all：当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。
+                    <br>element：可以选择文本，但选择范围受元素边界的约束
+                    <br>IE6-9不支持该属性，但支持使用标签属性 onselectstart="return false;" 来达到 user-select:none 的效果；Safari和Chrome也支持该标签属性；
+                    <br>直到Opera12.5仍然不支持该属性，但和IE6-9一样，也支持使用私有的标签属性 unselectable="on" 来达到 user-select:none 的效果；unselectable 的另一个值是 off；
+                    <br>除Chrome和Safari外，在其它浏览器中，如果将文本设置为 -ms-user-select:none;，则用户将无法在该文本块中开始选择文本。不过，如果用户在页面的其他区域开始选择文本，则用户仍然可以继续选择将文本设置为 -ms-user-select:none; 的区域文本；
+                    <br>
+                    html:
+                    <pre><code data-language="html">
+                    &lt;p onselectstart="return false;" unselectable="on">禁止被选择的文字&lt;/p>
+                    </code></pre>
+                    css:
+                    <pre><code data-language="css">
+                    p{user-select:none;} //在自动生成前缀时
+                    </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">appearance</a>(none)
+                    <span><a href="http://css.doyoe.com/properties/user-interface/appearance.htm">设置或检索外观按照本地默认样式</a></span>
+                </li>
+                <li>
+                    <a href="">:placeholder</a>
+                    <span>占位提示字符
+                    <pre><code data-language="css">
+                    &:-moz-placeholder
+                    &:-ms-input-placeholder
+                    &::-webkit-input-placeholder
+                    color: @color;
+                    font-size:@size;
+                    text-align:@align;
+                    </code></pre>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 兼容</h4>
+            <ul>
+                <li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+                <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
+                <li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
+            </ul>
+            <h4>[<span>-</span>] 滚动条</h4>
+            <ul>
+                <li><a href="">ie</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>scrollbar-base-color</td>
+                        <td>基色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-track-color</td>
+                        <td>轨道色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-face-color</td>
+                        <td>滑块色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-arrow-color</td>
+                        <td>箭头色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-highlight-color</td>
+                        <td>左上阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-shadow-color</td>
+                        <td>右下阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-3dlight-color</td>
+                        <td>箭头阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-dark-shadow-color</td>
+                        <td>立体阴影色</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-ie.gif" alt="" />
+                </span></li>
+                <li><a href="">chrome</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体部分</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track</td>
+                        <td>轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track-piece</td>
+                        <td>内层轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-thumb</td>
+                        <td>滚动条滑块</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-button</td>
+                        <td>两侧按钮</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-corner</td>
+                        <td>边角（横纵滚动条的交汇处）</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-resizer</td>
+                        <td>边角拖拽控件</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-chrome.jpg" alt="" />  
+                </span></li>
+                <li><a href="">chrome伪元素</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>:horizontal</td>
+                        <td>horizontal伪类适用于任何水平方向上的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:vertical</td>
+                        <td>vertical伪类适用于任何垂直方向的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:decrement</td>
+                        <td>decrement伪类适用于按钮和轨道碎片。表示递减的按钮或轨道碎片，例如可以使区域向上或者向右移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:increment</td>
+                        <td>increment伪类适用于按钮和轨道碎片。表示递增的按钮或轨道碎片，例如可以使区域向下或者向左移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:start</td>
+                        <td>start伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的前面</td>
+                        </tr>
+                        <tr>
+                        <td>:end</td>
+                        <td>end伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的后面</td>
+                        </tr>
+                        <tr>
+                        <td>:double-button</td>
+                        <td>double-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一对按钮。也就是轨道碎片紧挨着一对在一起的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:single-button</td>
+                        <td>single-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一个按钮。也就是轨道碎片紧挨着一个单独的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:no-button</td>
+                        <td>no-button伪类表示轨道结束的位置没有按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:corner-present</td>
+                        <td>corner-present伪类表示滚动条的角落是否存在。</td>
+                        </tr>
+                        <tr>
+                        <td>:window-inactive</td>
+                        <td>适用于所有滚动条，表示包含滚动条的区域，焦点不在该窗口的时候。</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
+                <li><a href=""></a>[compare]<span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>整体</td>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体样式，可用来设置宽度等，IE不可调整宽度</td>
+                        </tr>
+                        <tr>
+                        <td>轨道</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track</p>
+                        <p>scrollbar-track-color</p>
+                        </td>
+                        <td>轨道样式，IE只能设置颜色，chrome可以加点内阴影和圆角</td>
+                        </tr>
+                        <tr>
+                        <td>滑块</td>
+                        <td>
+                        <p>::-webkit-scrollbar-thumb</p>
+                        <p>scrollbar-face-color</p>
+                        </td>
+                        <td>滑块样式，同上</td>
+                        </tr>
+                        <tr>
+                        <td>箭头</td>
+                        <td>
+                        <p>::-webkit-scrollbar-button</p>
+                        <p>scrollbar-arrow-color</p>
+                        </td>
+                        <td>
+                        <p>箭头样式，chrome下当设置了自定义scrollbar时默认则隐藏了箭头，这样看起来和平板差不多</p>
+                        <p>而IE还是需要给其配色，让它和整体看起来更协调</p>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>其他（IE）</td>
+                        <td>
+                        <p>scrollbar-base-color<br />        scrollbar-highlight-color<br />        scrollbar-shadow-color<br />        scrollbar-3dlight-color<br />        scrollbar-dark-shadow-color</p>
+                        </td>
+                        <td>&nbsp;IE下为了整体协调美观，左侧属性仍根据实际情况调整，通常我将它设置与滑块一致</td>
+                        </tr>
+                        <tr>
+                        <td>其他（Chrome）</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track-piece<br />::-webkit-scrollbar-corner<br />::-webkit-resizer</p>
+                        </td>
+                        <td>chrome下有伪状态</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
+            </ul>
+        </div>
+    </div>
+</div>

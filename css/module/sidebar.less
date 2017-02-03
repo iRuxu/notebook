@@ -1,0 +1,40 @@
+.c-sidebar{
+	.w(@c-sidebar-width);
+	.pf;top:@c-header-height;bottom:0;
+	background-color:@bgcolor;
+	border-right:1px solid @bocolor;
+	//overflow-y:auto;
+	//overflow-x:visible;
+
+	.u-copyright{
+		.pa;.lb(0,20px);.w(100%);
+		.x;
+		color:@desccolor;
+	}
+}
+.c-sidebar-list{
+	.pa;left:0;right:0;top:0;bottom:21px + 20px + 20px;
+
+	&.scroll{
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+}
+
+.c-sidebar-list ul{
+	.w(@c-sidebar-width + 1px);
+}
+
+.c-sidebar-list ul li a{
+	.db;
+	border-bottom:1px solid #ddd;
+	padding:5px 10px;
+	color:#444;
+	//transition:0.1s ease-in-out;
+}
+
+.c-sidebar-list ul .on a{
+	.bold;
+	background-color:#fff;
+	border-right:1px solid #fff;
+}

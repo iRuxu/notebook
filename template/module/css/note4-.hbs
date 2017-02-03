@@ -1,0 +1,376 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>界面<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 移动端</h4>
+            <ul>
+                <li>
+                    <a href="">-webkit-text-size-adjust:100%</a>
+                    <span>开启文字调整（WEBKIT默认最小只支持12px大小字）<br>
+                    <a href="http://www.document-write.com/archives/1">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">-webkit-overflow-scrolling:touch</a>
+                    <span>区域快速回滚 <a href="http://blog.csdn.net/hursing/article/details/9186199">参考资料</a></span>
+                </li>
+                <li><a href="">-webkit-tap-highlight-color</a><span>*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}</span></li>
+                <li>
+                    <a href="">-webkit-appearance</a>
+                    <span>
+                    <a href="http://www.w3cplus.com/blog/271.html">webkit移动表单控件重置</a><br>
+                    <pre><code data-language="css">
+                     input[type="submit"],input[type="reset"],input[type="button"],button {
+                      -webkit-appearance:none;
+                     }
+                    </code></pre>
+                    </span>
+                </li>
+                <li><a href="">-webkit-touch-callout:none</a><span>body,防止长按复制图片,ipad+iphone</span></li>
+            </ul>
+            <h4>[<span>-</span>] 交互</h4>
+            <ul>
+                <li>
+                    <a href="">cursor</a>
+                    <span>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。
+                    <br>格式：使用自定义图像作为光标类型，IE, Opera只支持*.cur等特定的图片格式；Firefox, Chrome, Safari既支持特定图片类型也支持常见的*.jpg, *.gif, *.jpg等图片格式。
+                    <br>兼容：cursor的属性值可以是一个序列,用逗号分隔地址,优先级递降。
+                    <br><pre><code data-language="css">
+                    示例代码：
+                    :link,:visited{
+                    cursor:url(example.svg#linkcursor),
+                          url(hyper.cur),
+                          url(hyper.png) 2 3,
+                          pointer;
+                    }
+                    本例用来给所有的超链接定义光标类型，客户端如果不支持SVG类型的光标，则使用下个"hyper.cur"；如果cur类型也不支持，则使用下个"hyper.png"；依次类推。
+                    </code></pre>
+                    <br>附录：
+                    <table width="95%">
+                        <tbody>
+                        <tr>
+                        <th>值</th>
+                        <th>描述</th>
+                        </tr>
+                        <tr>
+                        <td><i>url</i></td>
+                        <td>需使用的自定义光标的 URL。
+                        注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。</td>
+                        </tr>
+                        <tr>
+                        <td>default</td>
+                        <td>默认光标（通常是一个箭头）</td>
+                        </tr>
+                        <tr>
+                        <td>auto</td>
+                        <td>默认。浏览器设置的光标。</td>
+                        </tr>
+                        <tr>
+                        <td>crosshair</td>
+                        <td>光标呈现为十字线。</td>
+                        </tr>
+                        <tr>
+                        <td>pointer</td>
+                        <td>光标呈现为指示链接的指针（一只手）</td>
+                        </tr>
+                        <tr>
+                        <td>move</td>
+                        <td>此光标指示某对象可被移动。</td>
+                        </tr>
+                        <tr>
+                        <td>e-resize</td>
+                        <td>此光标指示矩形框的边缘可被向右（东）移动。</td>
+                        </tr>
+                        <tr>
+                        <td>ne-resize</td>
+                        <td>此光标指示矩形框的边缘可被向上及向右移动（北/东）。</td>
+                        </tr>
+                        <tr>
+                        <td>nw-resize</td>
+                        <td>此光标指示矩形框的边缘可被向上及向左移动（北/西）。</td>
+                        </tr>
+                        <tr>
+                        <td>n-resize</td>
+                        <td>此光标指示矩形框的边缘可被向上（北）移动。</td>
+                        </tr>
+                        <tr>
+                        <td>se-resize</td>
+                        <td>此光标指示矩形框的边缘可被向下及向右移动（南/东）。</td>
+                        </tr>
+                        <tr>
+                        <td>sw-resize</td>
+                        <td>此光标指示矩形框的边缘可被向下及向左移动（南/西）。</td>
+                        </tr>
+                        <tr>
+                        <td>s-resize</td>
+                        <td>此光标指示矩形框的边缘可被向下移动（北/西）。</td>
+                        </tr>
+                        <tr>
+                        <td>w-resize</td>
+                        <td>此光标指示矩形框的边缘可被向左移动（西）。</td>
+                        </tr>
+                        <tr>
+                        <td>text</td>
+                        <td>此光标指示文本。</td>
+                        </tr>
+                        <tr>
+                        <td>wait</td>
+                        <td>此光标指示程序正忙（通常是一只表或沙漏）。</td>
+                        </tr>
+                        <tr>
+                        <td>help</td>
+                        <td>此光标指示可用的帮助（通常是一个问号或一个气球）。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">resize</a>(both)
+                    <span>设置或检索对象的区域是否允许用户缩放，调节元素尺寸大小。
+                    <br>如果希望此属性生效，需要设置对象的overflow属性，值可以是auto,hidden或scroll。
+                    <br>none：不允许用户调整元素大小。
+                    <br>both：用户可以调节元素的宽度和高度。
+                    <br>horizontal：用户可以调节元素的宽度
+                    <br>vertical：用户可以调节元素的高度。</span>
+                </li>
+                <li>
+                    <a href="">ime-mode</a>(disabled)<span>输入法状态：设置或检索是否允许用户激活输入中文，韩文，日文等的输入法（IME）状态。
+                    <br>auto：不影响IME的状态。
+                    <br>normal：正常的IME状态
+                    <br>active：指定所有使用ime输入的字符。即激活本地语言输入法。用户仍可以撤销激活ime
+                    <br>inactive：指定所有不使用ime输入的字符。即激活非本地语言。用户仍可以撤销激活ime
+                    <br>disabled：完全禁用ime。对于有焦点的控件(如输入框)，用户不可以激活ime</span></li>
+                    <li><a href="">pointer-events</a>(none/auto)<span>
+                    pointer-events:none 开启穿透点击,忽略自身
+                    <br />pointer-events:auto 忽略部分的内部重新开启
+                    <br /><a href="http://www.poluoluo.com/jzxy/201109/142876.html">详细资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">user-select</a>(none)
+                    <span>禁止用户选中文字
+                    <br>none：文本不能被选择
+                    <br>text：可以选择文本
+                    <br>all：当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。
+                    <br>element：可以选择文本，但选择范围受元素边界的约束
+                    <br>IE6-9不支持该属性，但支持使用标签属性 onselectstart="return false;" 来达到 user-select:none 的效果；Safari和Chrome也支持该标签属性；
+                    <br>直到Opera12.5仍然不支持该属性，但和IE6-9一样，也支持使用私有的标签属性 unselectable="on" 来达到 user-select:none 的效果；unselectable 的另一个值是 off；
+                    <br>除Chrome和Safari外，在其它浏览器中，如果将文本设置为 -ms-user-select:none;，则用户将无法在该文本块中开始选择文本。不过，如果用户在页面的其他区域开始选择文本，则用户仍然可以继续选择将文本设置为 -ms-user-select:none; 的区域文本；
+                    <br>
+                    html:
+                    <pre><code data-language="html">
+                    &lt;p onselectstart="return false;" unselectable="on">禁止被选择的文字&lt;/p>
+                    </code></pre>
+                    css:
+                    <pre><code data-language="css">
+                    p{user-select:none;} //在自动生成前缀时
+                    </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">appearance</a>(none)
+                    <span><a href="http://css.doyoe.com/properties/user-interface/appearance.htm">设置或检索外观按照本地默认样式</a></span>
+                </li>
+                <li>
+                    <a href="">:placeholder</a>
+                    <span>占位提示字符
+                    <pre><code data-language="css">
+                    &:-moz-placeholder
+                    &:-ms-input-placeholder
+                    &::-webkit-input-placeholder
+                    color: @color;
+                    font-size:@size;
+                    text-align:@align;
+                    </code></pre>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 兼容</h4>
+            <ul>
+                <li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+                <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
+                <li><a href="http://msdn.microsoft.com/en-us/library/ms530822(VS.85).aspx">-ms-interpolation-mode:bicubic</a><span>IE7图像缩放失真</span></li>
+            </ul>
+            <h4>[<span>-</span>] 滚动条</h4>
+            <ul>
+                <li><a href="">ie</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>scrollbar-base-color</td>
+                        <td>基色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-track-color</td>
+                        <td>轨道色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-face-color</td>
+                        <td>滑块色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-arrow-color</td>
+                        <td>箭头色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-highlight-color</td>
+                        <td>左上阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-shadow-color</td>
+                        <td>右下阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-3dlight-color</td>
+                        <td>箭头阴影的颜色</td>
+                        </tr>
+                        <tr>
+                        <td>scrollbar-dark-shadow-color</td>
+                        <td>立体阴影色</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-ie.gif" alt="" />
+                </span></li>
+                <li><a href="">chrome</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体部分</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track</td>
+                        <td>轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-track-piece</td>
+                        <td>内层轨道</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-thumb</td>
+                        <td>滚动条滑块</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-button</td>
+                        <td>两侧按钮</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-scrollbar-corner</td>
+                        <td>边角（横纵滚动条的交汇处）</td>
+                        </tr>
+                        <tr>
+                        <td>::-webkit-resizer</td>
+                        <td>边角拖拽控件</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <br><img src="image/css/scrollbar-chrome.jpg" alt="" />  
+                </span></li>
+                <li><a href="">chrome伪元素</a><span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>:horizontal</td>
+                        <td>horizontal伪类适用于任何水平方向上的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:vertical</td>
+                        <td>vertical伪类适用于任何垂直方向的滚动条</td>
+                        </tr>
+                        <tr>
+                        <td>:decrement</td>
+                        <td>decrement伪类适用于按钮和轨道碎片。表示递减的按钮或轨道碎片，例如可以使区域向上或者向右移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:increment</td>
+                        <td>increment伪类适用于按钮和轨道碎片。表示递增的按钮或轨道碎片，例如可以使区域向下或者向左移动的区域和按钮</td>
+                        </tr>
+                        <tr>
+                        <td>:start</td>
+                        <td>start伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的前面</td>
+                        </tr>
+                        <tr>
+                        <td>:end</td>
+                        <td>end伪类适用于按钮和轨道碎片。表示对象（按钮 轨道碎片）是否放在滑块的后面</td>
+                        </tr>
+                        <tr>
+                        <td>:double-button</td>
+                        <td>double-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一对按钮。也就是轨道碎片紧挨着一对在一起的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:single-button</td>
+                        <td>single-button伪类适用于按钮和轨道碎片。判断轨道结束的位置是否是一个按钮。也就是轨道碎片紧挨着一个单独的按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:no-button</td>
+                        <td>no-button伪类表示轨道结束的位置没有按钮。</td>
+                        </tr>
+                        <tr>
+                        <td>:corner-present</td>
+                        <td>corner-present伪类表示滚动条的角落是否存在。</td>
+                        </tr>
+                        <tr>
+                        <td>:window-inactive</td>
+                        <td>适用于所有滚动条，表示包含滚动条的区域，焦点不在该窗口的时候。</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
+                <li><a href=""></a>[compare]<span>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td>整体</td>
+                        <td>::-webkit-scrollbar</td>
+                        <td>整体样式，可用来设置宽度等，IE不可调整宽度</td>
+                        </tr>
+                        <tr>
+                        <td>轨道</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track</p>
+                        <p>scrollbar-track-color</p>
+                        </td>
+                        <td>轨道样式，IE只能设置颜色，chrome可以加点内阴影和圆角</td>
+                        </tr>
+                        <tr>
+                        <td>滑块</td>
+                        <td>
+                        <p>::-webkit-scrollbar-thumb</p>
+                        <p>scrollbar-face-color</p>
+                        </td>
+                        <td>滑块样式，同上</td>
+                        </tr>
+                        <tr>
+                        <td>箭头</td>
+                        <td>
+                        <p>::-webkit-scrollbar-button</p>
+                        <p>scrollbar-arrow-color</p>
+                        </td>
+                        <td>
+                        <p>箭头样式，chrome下当设置了自定义scrollbar时默认则隐藏了箭头，这样看起来和平板差不多</p>
+                        <p>而IE还是需要给其配色，让它和整体看起来更协调</p>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>其他（IE）</td>
+                        <td>
+                        <p>scrollbar-base-color<br />        scrollbar-highlight-color<br />        scrollbar-shadow-color<br />        scrollbar-3dlight-color<br />        scrollbar-dark-shadow-color</p>
+                        </td>
+                        <td>&nbsp;IE下为了整体协调美观，左侧属性仍根据实际情况调整，通常我将它设置与滑块一致</td>
+                        </tr>
+                        <tr>
+                        <td>其他（Chrome）</td>
+                        <td>
+                        <p>::-webkit-scrollbar-track-piece<br />::-webkit-scrollbar-corner<br />::-webkit-resizer</p>
+                        </td>
+                        <td>chrome下有伪状态</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </span></li>
+            </ul>
+        </div>
+    </div>
+</div>
