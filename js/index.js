@@ -27,6 +27,14 @@ $(function(){
 		var _sidebar_list_visheight = _screen_H - 38 - 42 - 20;
 		_sidebar_list_height > _sidebar_list_visheight ? $sidebar_list.addClass('scroll') : $sidebar_list.removeClass('scroll');
 
+		
+		//自动生成侧边栏tab卡指向地址
+		$sidebar_list_item.each(function(){
+			var i = $(this).index()
+			var link = '?c=' + i
+			$(this).attr('href',link)
+		})
+
 		//动态访问指定tab卡
 		var getRequest = function(paras){
 		    var url = location.search;
