@@ -76,21 +76,25 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">commit</a> [-a] -m [--amend]
+                    <a href="">commit</a> [-a][--amend] -m 
                     <span>提交修改，将缓存区内容添加到仓库中<br>
                     git commit -m "message" <br>
-                    git commit -a -m "message" 跳过使用暂存区域<br>
+                    git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）<br>
                     git commit 这种方式会启动文本编辑器以便输入本次提交的说明。 (默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件）。<br>
                     git commit --amend 补充提交
                     </span>
                 </li>
                 <li>
-                    <a href="">rm</a> [file]
+                    <a href="">rm</a> (file) [--cached][-f]
                     <span>
                     git rm 将文件从缓存区和你的硬盘中(工作目录)删除<br>
                     git rm --cached 只从缓存区中移除，工作目录中保存<br>
                     git rm -f 强制删除，删除之前修改过并且已经放到暂存区域的 <br>
-                    区别？
+                    </span>
+                </li>
+                <li>
+                    <a href="">mv</a> (file) 
+                    <span>
                     </span>
                 </li>
             </ul>
