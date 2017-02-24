@@ -5,13 +5,16 @@
       		<h4>[</a><span>-</span>] 创建或克隆</h4>
             <ul>
                 <li>
-                    <a href="">init</a>
-                    <span>初始化</span>
+                    <a href="">init</a> [path]
+                    <span>初始化<br>
+                    git init 使用当前目录初始化一个项目<br>
+                    git init $dir 使用指定目录初始化一个项目
+                    </span>
                 </li>
                 <li>
-                    <a href="">clone</a>
+                    <a href="">clone</a> (url)[path]
                     <span>克隆一个项目<br>
-                    git clone [url] [dir] <br>
+                    git clone [url] [path] <br>
                     支持多种数据传输协议，url可以为https:// 、git:// 、git@ 、user@server:path/to/repo.git等。<br>
                     dir缺省时，会创建一个和项目同名的目录；指定dir时生成对应的文件夹名；./时则在此目录下直接克隆。
                     </span>
@@ -24,14 +27,70 @@
             <h4>[</a><span>-</span>] 基本流程</h4>
             <ul>
                 <li>
-                    <a href="">status</a>
+                    <a href="">status</a> [-s]
                     <span>检查状态<br>
-                        git status -s 简易查看
+                        git status -s 简易查看 <br>
+                        新添加的未跟踪文件前面有 ?? 标记 <br>
+                        新添加到暂存区中的文件前面有 A 标记<br>
+                        修改过的文件前面有 M 标记。 <br>
+                        出现在右边的 M 表示该文件被修改了但是还没放入暂存区<br>
+                        出现在靠左边的 M 表示该文件被修改了并放入了暂存区。<br>
+                        AM状态的意思是，这个文件在我们将它添加到缓存之后又有改动
                     </span>
                 </li>
                 <li>
-                    <a href="">add</a>
-                    <span>跟踪新文件<br>
+                    <a href="">add</a> [glob]
+                    <span>跟踪新文件，加入缓存区INDEX<br>
+                    git add file1 file2 file3 <br>
+                    git add */. <br>
+                    git add *.js
+                    </span>
+                </li>
+                <li>
+                    <a href="">diff</a> [--cached]
+                    <span>查看修改<br>
+                    git diff : 尚未缓存的改动 <br>
+                    git diff --cached : 查看已缓存的改动 (同git diff --staged [1.6+]) <br>
+                    git diff HEAD : 查看已缓存的与未缓存的所有改动 <br>
+                    git diff --stat : 显示摘要而非整个 diff
+                    </span>
+                </li>
+                <li>
+                    <a href="">checkout</a> -- (file)
+                    <span>
+                        git checkout -- filename 撤销对文件的修改，如果被工作区删除也可作为恢复 <br>
+                        一种是自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>
+                        一种是已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>
+                        总之，就是让这个文件回到最近一次git commit或git add时的状态。
+                    </span>
+                </li>
+                <li>
+                    <a href="">reset</a> HEAD [file]
+                    <span>
+                        git reset HEAD 取消目前所有暂存的文件（仍在工作区）<br>
+                        git reset HEAD filename 取消某个文件的暂存状态<br>
+                        <hr>
+                        场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。<br>
+                        场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。<br>
+                        场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
+                    </span>
+                </li>
+                <li>
+                    <a href="">commit</a> [-a] -m [--amend]
+                    <span>提交修改，将缓存区内容添加到仓库中<br>
+                    git commit -m "message" <br>
+                    git commit -a -m "message" 跳过使用暂存区域<br>
+                    git commit 这种方式会启动文本编辑器以便输入本次提交的说明。 (默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件）。<br>
+                    git commit --amend 补充提交
+                    </span>
+                </li>
+                <li>
+                    <a href="">rm</a> [file]
+                    <span>
+                    git rm 将文件从缓存区和你的硬盘中(工作目录)删除<br>
+                    git rm --cached 只从缓存区中移除，工作目录中保存<br>
+                    git rm -f 强制删除，删除之前修改过并且已经放到暂存区域的 <br>
+                    区别？
                     </span>
                 </li>
             </ul>
