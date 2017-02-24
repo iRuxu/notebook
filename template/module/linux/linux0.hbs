@@ -10,7 +10,9 @@
 				</li>
 				<li>
 					<a href="">cd</a> (path)
-					<span>切换至文件夹 cd /web/www/</span>
+					<span>切换至文件夹 cd /web/www/ <br>
+					切换至上级目录 cd .. 
+					</span>
 				</li>
 				<li>
 					<a href="">pwd</a>
@@ -80,9 +82,17 @@
 	  	</div>
 	  	<h3>文件夹/文件</a><span>-</span></h3>
 	  	<div class="u-list">
-			<h4>[</a><span>-</span>] </h4>
+			<h4>[</a><span>-</span>] 移动</h4>
 			<ul>
-				
+				<li>
+					<a href="">rm</a> (from) (to)
+					<span>
+						mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
+						mv 文件名 目录名 : 将文件移动到目标目录 <br>
+						mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名 <br>
+						mv 目录名 文件名 : 出错
+					</span>
+				</li>
 			</ul>
 	  	</div>
   	</div>

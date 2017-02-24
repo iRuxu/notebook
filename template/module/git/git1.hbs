@@ -2,29 +2,76 @@
   <div class="u-block">
       <h3>基础</a><span>-</span></h3>
       <div class="u-list">
-      		<h4>[</a><span>-</span>] 创建或克隆</h4>
+      		<h4>[</a><span>-</span>] 创建</h4>
             <ul>
                 <li>
-                    <a href="">init</a> [path]
-                    <span>初始化<br>
-                    git init 使用当前目录初始化一个项目<br>
-                    git init $dir 使用指定目录初始化一个项目
-                    </span>
+                    <a href="">init</a>
+                    <span>git init 使用当前目录初始化一个项目</span>
                 </li>
                 <li>
-                    <a href="">clone</a> (url)[path]
-                    <span>克隆一个项目<br>
-                    git clone [url] [path] <br>
-                    支持多种数据传输协议，url可以为https:// 、git:// 、git@ 、user@server:path/to/repo.git等。<br>
-                    dir缺省时，会创建一个和项目同名的目录；指定dir时生成对应的文件夹名；./时则在此目录下直接克隆。
-                    </span>
+                    <a href="">init</a> (path)
+                    <span>git init dirname 使用指定目录初始化一个项目</span>
                 </li>
+            </ul>
+            <h4>[</a><span>-</span>] 克隆</h4>
+            <ul>
                 <li>
                     fork<a href=""></a>
                     <span>从别人的项目分支一个版本至你的git服务器仓库</span>
                 </li>
+                <li>
+                    (url)<a href=""></a>
+                    <span>
+                        支持多种数据传输协议，url可以为https:// 、git:// 、git@ 、user@server:path/to/repo.git等。
+                    </span>
+                </li>
+                <li>
+                    <a href="">clone</a> (url)
+                    <span>dir缺省时，会创建一个和项目同名的目录</span>
+                </li>
+                <li>
+                    <a href="">clone</a> (url) (path)
+                    <span>指定dir时生成对应的文件夹名</span>
+                </li>
+                <li>
+                    <a href="">clone</a> (url) ./
+                    <span>./时则在此目录下直接克隆</span>
+                </li>
             </ul>
-            <h4>[</a><span>-</span>] 基本流程</h4>
+            <h4>[</a><span>-</span>] 添加/提交</h4>
+            <ul>
+                <li>
+                    <a href="">add</a> [glob]
+                    <span>
+                        跟踪新文件，加入缓存区INDEX<br>
+                        git add file1 file2 file3 <br>
+                        git add */. <br>
+                        git add *.js
+                    </span>
+                </li>
+                <li>
+                    <a href="">commit</a> -m 
+                    <span>
+                        提交修改，将缓存区内容添加到仓库中<br>
+                        git commit -m "message" <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">commit</a> -a -m
+                    <span>
+                        git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）
+                    </span>
+                </li>
+                <li>
+                    <a href="">commit</a>
+                    <span>
+                        git commit 这种方式会启动文本编辑器以便输入本次提交的说明。<br>
+                        默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。<br>
+                        当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件。<br>
+                    </span>
+                </li>
+            </ul>
+            <h4>[</a><span>-</span>] 查看/对比</h4>
             <ul>
                 <li>
                     <a href="">status</a> [-s]
@@ -39,14 +86,6 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">add</a> [glob]
-                    <span>跟踪新文件，加入缓存区INDEX<br>
-                    git add file1 file2 file3 <br>
-                    git add */. <br>
-                    git add *.js
-                    </span>
-                </li>
-                <li>
                     <a href="">diff</a> [--cached]
                     <span>查看修改<br>
                     git diff : 尚未缓存的改动 <br>
@@ -55,6 +94,9 @@
                     git diff --stat : 显示摘要而非整个 diff
                     </span>
                 </li>
+            </ul>
+            <h4>[</a><span>-</span>] 修改/回退</h4>
+            <ul>
                 <li>
                     <a href="">checkout</a> -- (file)
                     <span>
@@ -75,15 +117,9 @@
                         场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
                     </span>
                 </li>
-                <li>
-                    <a href="">commit</a> [-a][--amend] -m 
-                    <span>提交修改，将缓存区内容添加到仓库中<br>
-                    git commit -m "message" <br>
-                    git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）<br>
-                    git commit 这种方式会启动文本编辑器以便输入本次提交的说明。 (默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件）。<br>
-                    git commit --amend 补充提交
-                    </span>
-                </li>
+            </ul>
+            <h4>[</a><span>-</span>] 删除/移动</h4>
+            <ul>
                 <li>
                     <a href="">rm</a> (file) [--cached][-f]
                     <span>
@@ -93,8 +129,20 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">mv</a> (file) 
+                    <a href="">rm</a> -r (dir)
                     <span>
+                        git rm -r dirname 删除目录及目录内容 <br>
+                        当该目录没有stage时，无法进行该操作，直接执行shell命令rm操作即可。
+                    </span>
+                </li>
+                <li>
+                    <a href="">mv</a> (from) (to) 
+                    <span>
+                        同linux mv命令，自动判定执行“移动”或“重命名”操作。<br>
+                        git mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
+                        git mv 文件名 目录名 : 将文件移动到目标目录 <br>
+                        git mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名（当源文件为空时不可移动） <br>
+                        git mv 目录名 文件名 : 出错
                     </span>
                 </li>
             </ul>
