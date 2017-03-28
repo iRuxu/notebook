@@ -248,17 +248,98 @@
 			</ul>
 			<h4>[<span>-</span>] 边距</h4>
 			<ul>
-				<li><a href="">margin</a><span>外部补白.
-					<br>margin-left/right:num/%/auto. 当margin-left/right为auto时水平居中
-					<br /><b>百分比:水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照 height ，可以为负值</b>
-					<br>1.内联元素垂直无效
-					<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的外补丁；若要设置上、下两边的外补丁，必须先使该对象表现为块级或内联块级。 
-					<br>2.外边距合并 <a href="http://www.w3school.com.cn/css/css_margin_u-collapsing.asp">参考文档</a>
-					<br>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。
-					<br>当一个元素包含在另一个元素中时【假设没有内边距或边框把外边距分隔开】，它们的上和/或下外边距也会发生合并。
-					<br>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并
-					<br>如果这个外边距遇到另一个元素的外边距，它还会发生合并
-					<br>【margin折叠扩展】：
+				<li><a href="">margin</a>(num/%/auto)<span>
+					取值：num / % /auto<br>
+					1.auto：当margin-left/right同时为auto时水平居中<br>
+					2.%百分比：水平（默认）书写模式下，参照其<b>包含块 width</b> 进行计算，其它情况参照 height。<br>
+					3.num：可以为负值
+					<hr>
+					margin负值：<br>
+					1.当元素不存在width属性或者（width：auto）的时候，负margin-left/right会增加元素的宽度。
+<pre><code data-language="html"><!-- 包裹层加宽应用实例 -->
+<div class="box">
+	<ul class="list">
+		<li class="item">item..</li>
+		<li class="item">item..</li>
+		<li class="item">item..</li>
+	</ul>
+</div>
+<style>
+.box{width:640px;height:200px;background-color:#0cf;overflow:hidden;}
+.list{margin-right:-20px;height:200px;background-color:#93f;list-style:none;}
+.item{width:200px;height:200px;margin-right:20px;float:left;background-color:#f39;}
+</style>
+</code></pre>
+					2.margin-bottom为负值不会产生位移，会减少自身的供css读取的高度。<br>
+<pre><code data-language="html"><!-- 配合一个空的占位块，可实现一个非fixed定位实现的内容固定底部效果 -->
+<div class="box">
+    text
+    <div class="foottmp"></div>
+</div>
+<div class="copyright">&copy; 2018 mgtv.com</div>
+<style>
+    html,body{height:100%;}
+    .box{min-height:100%;margin-bottom:-24px;}
+    .foottmp{height:24px;}
+    .copyright{font-size:12px;height:24px;line-height:24px;}
+</style>
+</code></pre>
+					3.margin负值发生位移后，会影响其后的文档流位置。
+<pre><code data-language="html"><!-- 左右固定，中间自适应（双飞翼） -->
+<div class="main">
+            <div class="main-content">main content</div>
+</div>
+<div class="left">left</div>
+<div class="right">right</div>
+<style>
+	*{
+        margin:0;
+        padding: 0
+    }
+    .main{
+        float: left;
+        width: 100%;
+
+    }
+    .main .main-content{
+        margin: 0 210px;
+        background-color: rgba(33, 114, 214, 0.8);
+        height: 500px
+    }
+    .left{
+        width: 200px;
+        float: left;
+        background-color: rgba(255, 82, 0, 0.8);
+        margin-left: -100%;
+        height: 200px
+
+    }
+    .right{
+        width: 200px;
+        height: 200px;
+        margin-left: -200px;
+        float: left;
+        background-color: rgba(90, 243, 151, 0.8);
+    }
+</style>
+</code></pre>
+					<a href="http://www.jianshu.com/p/549aaa5fabaa">参考资料</a>
+				</span></li>
+				<li><a href="">margin-left/right</a><span>
+					1.IE6/7双倍margin
+					<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
+					<br>解决方法：设置BUG元素display:inline;
+					<br>由于当元素float的时候，display样式的值就会自动转换为“block”，无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
+				</span></li>
+				<li><a href="">margin-top/bottom</a><span>
+					1.内联元素垂直无效<br>
+					非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的外补丁；若要设置上、下两边的外补丁，必须先使该对象表现为块级或内联块级。<br>
+					2.外边距合并 <a href="http://www.w3school.com.cn/css/css_margin_u-collapsing.asp">参考文档</a><br>
+					当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。<br>
+					当一个元素包含在另一个元素中时【假设没有内边距或边框把外边距分隔开】，它们的上和/或下外边距也会发生合并。<br>
+					假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并
+					如果这个外边距遇到另一个元素的外边距，它还会发生合并。<br>
+					3.不发生margin合并的情况
 					<br>margin折叠只发生在块级元素上，且只发生在垂直上 
 					<br>浮动元素的margin不与任何margin发生折叠；
 					<br>绝对定位元素的margin不与任何margin发生折叠； 
@@ -266,20 +347,8 @@
 					<br>设置了属性overflow且值不为visible的块级元素，将不与它的子元素发生margin折叠； 
 					<br>根元素的margin不与其它任何margin发生折叠,指html而非body
 					<br>IE6-7中,如果父元素触发了haslayout,则不会发生折叠
-					<br>3.margin负值应用
-					<br>margin-top/left：会改变自身文本流位置,后面的元素依次顶上.
-					<br>margin-bottom/right；不改变自身文本流位置,改变后面元素的文本流位置向前移
-					<br>百分比适应下的边框应用,hover状态的-双倍border应用.
-					<br><b>当负值margin向上移动文本流时，若上方元素设置了相对定位，则会覆盖在本元素之上，理解成z-index成为1.需要将自身也设置pr;</b>
-					<br>4.边距非法继承
-					<br>IE6有时候会沿袭继承上上级的一些属性,ie6无法识别.class.class双class样式值,注意单独补充设置.
-					<br>如默认设置了父级margin:val 在子.class上清除.避免写成.class.class
-					<br>【BUG】：
-					<br>1.IE6双倍margin
-					<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
-					<br>解决方法：设置BUG元素display:inline;
-					<br>由于当元素float的时候，display样式的值就会自动转换为“block”，无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
-					<br>2.当上一个元素为绝对定位元素,IE6~7下margin-top会失效，根据情况设置padding或自身也设置为绝对定位
+					<!-- IE6bug：<br>
+					当上一个元素为绝对定位元素,IE6~7下margin-top会失效，根据情况设置padding或自身也设置为绝对定位 -->
 				</span></li>
 			</ul>
 			<h4>[<span>-</span>] 溢出</h4>
@@ -288,7 +357,7 @@
 					此属性为隐藏的对象保留其占据的物理空间如果希望对象为可视，其父对象也必须是可视的。 
 					<br>visible： 设置对象可视 
 					<br>hidden： 设置对象隐藏 
-					<br>u-collapse： 主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。对于表格外的其他对象，其作用等同于hidden。
+					<br>collapse： 主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。对于表格外的其他对象，其作用等同于hidden。
 					<hr>使得一个DOM元素不显示在浏览器可视范围内的方法：
 					<br />display:none
 					<br />visibility:hidden
@@ -309,11 +378,14 @@
 				</li>
 				<li><a href="">clip</a>
 					<span>剪裁,【绝对定位元素】.
-					<br>auto,不剪裁.rect(50px 20px 10px auto) auto为不剪裁.【上右下左】 
-					<br /><a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a> 
-					<br />只有为shape时才支持动画性,可做遮罩动画效果
-					<br /><a href="http://www.w3cplus.com/css3/css-masking.html">webkit-mask-image:url(img.png)</a>
+					<br>auto：不剪裁
+					<br>rect(50px 20px 10px auto)：上右下左，四个偏移数值，其中任一数值都可用auto替换，即此边不剪切。
+					<br><a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a> 
+					<br>只有为shape时才支持动画性,可做遮罩动画效果
 					</span></li>
+				<li><a href="">webkit-mask-image</a>url(img)<span>
+					<a href="http://www.w3cplus.com/css3/css-masking.html">webkit-mask-image:url(img.png)</a>
+				</span></li>
 			</ul>
 			<h4>[<span>+</span>] 方案</h4>
 			<ul style="display:none">
