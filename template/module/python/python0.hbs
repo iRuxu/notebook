@@ -1,6 +1,6 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>选择器<span>-</span></h3>
+        <h3>基础<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] 安装使用</h4>
             <ul>
@@ -10,31 +10,450 @@
                     2.直接运行oython xxx.py文件相当于启动了Python解释器，然后一次性把.py文件的源代码给执行了，你是没有机会输入源代码的。</span>
                 </li>
             </ul>
+            <h4>[<span>-</span>] 语法规则</h4>
+            <ul>
+                <li>
+                    <a href="">保留字</a>
+                    <span>
+                        <pre><code data-language="python">
+                        >>> import keyword
+                        >>> keyword.kwlist
+                        ['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+                        </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">注释</a>
+                    <span>
+                        <pre><code data-language="python">
+                        # 单行注释
+                        '''
+                            三个单引号
+                        '''
+                        """
+                            三个双引号
+                        """
+                        </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">编码</a>
+                    <span>
+                        Python 3 源码文件以 UTF-8 编码，所有字符串都是 unicode 字符串。 <br>
+                        当然你也可以为源码文件指定不同的编码：<br>
+                        # -*- coding: cp-1252 -*-
+                    </span>
+                </li>
+                <li>
+                    <a href="">多行</a>\ '''
+                    <span>
+                        【<b>\</b>】代码多行连接：<br>
+                        Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠(\)来实现多行语句，例如：
+                        <pre><code data-language="python">
+                        total = item_one + \
+                                item_two + \
+                                item_three
+                        </code></pre>
+                        但在 [], {}, 或 () 中的多行语句，不需要使用反斜杠(\)，例如：
+                        <pre><code data-language="python">
+                        total = ['item_one', 'item_two', 'item_three',
+                                'item_four', 'item_five']
+                        </code></pre>
+                        <hr>
+                        【<b>'''</b>】三引号段落多行连接：<br>
+                        使用三引号('''或""")可以指定一个多行字符串。
+                        <pre><code data-language="python">
+                        paragraph = """这是一个段落，
+                        可以由多行组成"""
+                        </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">转义符</a>\ r
+                    <span>
+                        \n 换行符 <br>
+                        \t 制表符 <br>
+                        自然字符串， 通过在字符串前加r或R。 如 r"this is a line with \n" 则\n会显示，并不是换行。
+                    </span>
+                </li>
+                <li>
+                    <a href="">变量</a>
+                    <span>
+                        变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。<br>
+                        1.<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658624177ea4f8fcb06bc4d0e8aab2fd7aa65dd95000">变量的指向</a><br>
+                        2.Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。<br>
+                        3.同时为多个变量赋值：a = b = c = 1 <br>
+                        4.为多个对象指定多个变量：a, b, c = 1, 2, "test"
+                    </span>
+                </li>
+                <li>
+                    <a href="">常量</a>
+                    <span>
+                        常量仍然可以修改，全部大写定义。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 运算</h4>
+            <ul>
+                <li>
+                    <a href="">算数运算符</a>
+                    <span>
+                        <table>
+                            <caption>算数运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>+</td>
+                                <td>相加</td>
+                                <td>数据串联</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>相减，负数</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>相乘</td>
+                                <td>重复若干次的数据</td>
+                            </tr>
+                            <tr>
+                                <td>**</td>
+                                <td>乘方</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>/</td>
+                                <td>精确除法</td>
+                                <td>总是返回一个浮点数，例如6/3=2.0</td>
+                            </tr>
+                            <tr>
+                                <td>//</td>
+                                <td>地板除</td>
+                                <td>只取整数部分</td>
+                            </tr>
+                            <tr>
+                                <td>%</td>
+                                <td>取余数</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">比较运算符</a>
+                    <span>
+                        <table>
+                            <caption>比较运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>==</td>
+                                <td>等于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>!=</td>
+                                <td>不等于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&gt;</td>
+                                <td>大于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;</td>
+                                <td>小于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&gt;=</td>
+                                <td>大于等于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;=</td>
+                                <td>小于等于</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">赋值运算符</a>
+                    <span>
+                        <table>
+                            <caption>赋值运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>=</td>
+                                <td>简单的赋值运算符</td>
+                                <td>c = a + b 将 a + b 的运算结果赋值为 c</td>
+                            </tr>
+                            <tr>
+                                <td>+=</td>
+                                <td>加法赋值运算符</td>
+                                <td>c += a 等效于 c = c + a</td>
+                            </tr>
+                            <tr>
+                                <td>-=</td>
+                                <td>减法赋值运算符</td>
+                                <td>c -= a 等效于 c = c - a</td>
+                            </tr>
+                            <tr>
+                                <td>*=</td>
+                                <td>乘法赋值运算符</td>
+                                <td>c *= a 等效于 c = c * a</td>
+                            </tr>
+                            <tr>
+                                <td>/=</td>
+                                <td>除法赋值运算符</td>
+                                <td>c /= a 等效于 c = c / a</td>
+                            </tr>
+                            <tr>
+                                <td>%=</td>
+                                <td>取模赋值运算符</td>
+                                <td>c %= a 等效于 c = c % a</td>
+                            </tr>
+                            <tr>
+                                <td>**=</td>
+                                <td>幂赋值运算符</td>
+                                <td>c **= a 等效于 c = c ** a</td>
+                            </tr>
+                            <tr>
+                                <td>//=</td>
+                                <td>取整除赋值运算符</td>
+                                <td>c //= a 等效于 c = c // a</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">位运算符</a>
+                    <span>
+                        <table>
+                            <caption>位运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0</td>
+                                <td>(a & b) 输出结果 12 ，二进制解释： 0000 1100</td>
+                            </tr>
+                            <tr>
+                                <td>|</td>
+                                <td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。</td>
+                                <td>(a | b) 输出结果 61 ，二进制解释： 0011 1101</td>
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
+                                <td>(a ^ b) 输出结果 49 ，二进制解释： 0011 0001</td>
+                            </tr>
+                            <tr>
+                                <td>~</td>
+                                <td>按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1</td>
+                                <td>(~a ) 输出结果 -61 ，二进制解释： 1100 0011， 在一个有符号二进制数的补码形式。</td>
+                            </tr>
+                            <tr>
+                                <td><<</td>
+                                <td>左移动运算符：运算数的各二进位全部左移若干位，由"<<"右边的数指定移动的位数，高位丢弃，低位补0。</td>
+                                <td>a << 2 输出结果 240 ，二进制解释： 1111 0000</td>
+                            </tr>
+                            <tr>
+                                <td>>></td>
+                                <td>右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，">>"右边的数指定移动的位数</td>
+                                <td>a >> 2 输出结果 15 ，二进制解释： 0000 1111</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">逻辑运算符</a>
+                    <span>
+                        以下假设变量 a 为 10, b为 20:
+                        <table>
+                            <caption>逻辑运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>and</td>
+                                <td>x and y。布尔"与"。如果 x 为 False，返回 False，否则它返回 y 的计算值。</td>
+                                <td>(a and b) 返回 20。</td>
+                            </tr>
+                            <tr>
+                                <td>or</td>
+                                <td>x or y。布尔"或"。如果 x 是 True，它返回 True，否则它返回 y 的计算值。</td>
+                                <td>(a or b) 返回 10。</td>
+                            </tr>
+                            <tr>
+                                <td>not</td>
+                                <td>not x。布尔"非"。如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+                                <td>not(a and b) 返回 False</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">成员运算符</a>
+                    <span>
+                        <table>
+                            <caption>成员运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>in</td>
+                                <td>如果在指定的序列中找到值返回 True，否则返回 False。</td>
+                                <td>x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
+                            </tr>
+                            <tr>
+                                <td>not in</td>
+                                <td>如果在指定的序列中没有找到值返回 True，否则返回 False。</td>
+                                <td>x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">身份运算符</a>
+                    <span>
+                        <table>
+                            <caption>身份运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>is</td>
+                                <td>is是判断两个标识符是不是引用自一个对象</td>
+                                <td>x is y, 如果 id(x) 等于 id(y) , is 返回结果True</td>
+                            </tr>
+                            <tr>
+                                <td>is not</td>
+                                <td>is not是判断两个标识符是不是引用自不同对象</td>
+                                <td>x is not y, 如果 id(x) 不等于 id(y). is not 返回结果True</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">运算符优先级</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>**</td>
+                                <td>指数 (最高优先级)</td>
+                            </tr>
+                            <tr>
+                                <td>~ + -</td>
+                                <td>按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)</td>
+                            </tr>
+                            <tr>
+                                <td>* / % //</td>
+                                <td>乘，除，取模和取整除</td>
+                            </tr>
+                            <tr>
+                                <td>+ -</td>
+                                <td>加法减法</td>
+                            </tr>
+                            <tr>
+                                <td>>> <<</td>
+                                <td>右移，左移运算符</td>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>位 'AND'</td>
+                            </tr>
+                            <tr>
+                                <td>^ |</td>
+                                <td>位运算符</td>
+                            </tr>
+                            <tr>
+                                <td><= < > >=</td>
+                                <td>比较运算符</td>
+                            </tr>
+                            <tr>
+                                <td><> == !=</td>
+                                <td>等于运算符</td>
+                            </tr>
+                            <tr>
+                                <td>= %= /= //= -= += *= **=</td>
+                                <td>赋值运算符</td>
+                            </tr>
+                            <tr>
+                                <td>is is not</td>
+                                <td>身份运算符</td>
+                            </tr>
+                            <tr>
+                                <td>in not in</td>
+                                <td>成员运算符</td>
+                            </tr>
+                            <tr>
+                                <td>not or and</td>
+                                <td>逻辑运算符</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
             <h4>[<span>-</span>] I/O</h4>
             <ul>
                 <li>
                     <a href="">print()</a>
                     <span>
                         输出<br>
-                        print 'test' <br>
+                        print 默认输出是换行的，如果要实现不换行需要在变量末尾加上,end=""<br>
                         print ('test') <br>
-                        print 'a','b','c' 每个逗号生成一个空格<br>
-                        print ('a'),('b'),('c') 每个逗号生成一个空格<br>
-                        print "Let's go" <br>
-                        print 'Let\'s go'
+                        print ('a','b','c') 每个逗号生成一个空格<br>
+                        print ("Let's go") <br>
+                        print ('Let\'s go') <br>
+                        print (r"Let's go") <br>
+                        python2.x可以无括号。
                     </span>
                 </li>
                 <li>
-                    <a href="">input()/raw_input()</a>
+                    <a href="">input()</a>
                     <span>
                         输入 <br>
-                        input('输入提示信息：')
+                        input('输入提示信息：') <br>
+                        python2.x为raw_input()
                     </span>
                 </li>
                 <li>
                     <a href="">exit()</a>
                     <span>
                         退出
+                    </span>
+                </li>
+                <li>
+                    <a href="">del</a>var1,var2
+                    <span>
+                        通过使用del语句删除单个或多个对象
                     </span>
                 </li>
             </ul>

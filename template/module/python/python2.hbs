@@ -1,0 +1,185 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>数字<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 数学函数</h4>
+            <ul>
+                <li>
+                    <a href="">max</a>(x,y,z)
+                    <span>返回给定参数的最大值，参数可以为序列。</span>
+                </li>
+                <li>
+                    <a href="">min</a>(x,y,z)
+                    <span>返回给定参数的最小值，参数可以为序列。</span>
+                </li>
+                <li>
+                    <a href="">abs</a>(x)
+                    <span>绝对值，返回数字的绝对值，如abs(-10) 返回 10</span>
+                </li>
+                <li>
+                    math.<a href="">fabs</a>(x)
+                    <span>绝对值，返回数字的绝对值，如math.fabs(-10) 返回10.0</span>
+                </li>
+                <li>
+                    <a href="">round</a>(x,[n])
+                    <span>返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</span>
+                </li>
+                <li>
+                    math.<a href="">ceil</a>(x)
+                    <span>向上取整，返回数字的上入整数，如math.ceil(4.1) 返回 5</span>
+                </li>
+                <li>
+                    math.<a href="">floor</a>(x)
+                    <span>向下取整，返回数字的下舍整数，如math.floor(4.9)返回 4</span>
+                </li>
+                <li>
+                    <a href="">pow</a>(x,y,[z])
+                    <span>
+                        返回 xy（x的y次方） 的值。<br>
+                        如果z在存在，则再对结果进行取模，其结果等效于pow(x,y) %z
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">sqrt</a>(x)
+                    <span>返回数字x的平方根，数字可以为负数，返回类型为实数，如math.sqrt(4)返回 2+0j</span>
+                </li>
+                <li>
+                    math.<a href="">exp</a>(x)
+                    <span>返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</span>
+                </li>
+                <li>
+                    math.<a href="">log</a>(x)
+                    <span>如math.log(math.e)返回1.0。math.log(100,10)返回2.0</span>
+                </li>
+                <li>
+                    math.<a href="">log10</a>(x)
+                    <span>返回以10为基数的x的对数，如math.log10(100)返回 2.0</span>
+                </li>
+                <li>
+                    math.<a href="">modf</a>(x)
+                    <span>返回x的小数部分与整数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 随机数函数</h4>
+            <ul>
+                <li>
+                    random.<a href="">choice</a>(seq)
+                    <span>
+                        从序列的元素中随机挑选一个元素 <br>
+                        seq -- 可以是一个列表，元组或字符串。<br>
+                        比如random.choice(range(10))，从0到9中随机挑选一个整数。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">randrange</a>([start,] stop [,step])
+                    <span>
+                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
+                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
+                        stop -- 指定范围内的结束值，不包含在范围内。<br>
+                        step -- 指定递增基数，缺省为1。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">random()</a>
+                    <span>
+                        随机生成下一个实数，它在[0,1)范围内。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">seed</a>(x)
+                    <span>
+                        改变随机数生成器的种子seed。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">shuffle</a>(lst)
+                    <span>
+                        将序列的所有元素随机排序 <br>
+                        lst -- 可以是一个序列或者元组。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">uniform</a>(x,y)
+                    <span>
+                       随机生成下一个实数，它在[x,y]范围内。 
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 三角函数</h4>
+            <ul>
+                
+                <li>
+                    math.<a href="">acos</a>(x)
+                    <span>
+                        返回x的反余弦弧度值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">asin</a>(x)
+                    <span>
+                        返回x的反正弦弧度值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">atan</a>(x)
+                    <span>
+                        返回x的反正切弧度值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">atan2</a>(y,x)
+                    <span>
+                        返回给定的 X 及 Y 坐标值的反正切值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">cos</a>(x)
+                    <span>
+                        返回x的弧度的余弦值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">sin</a>(x)
+                    <span>
+                        返回的x弧度的正弦值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">tan</a>(x)
+                    <span>
+                        返回x弧度的正切值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">hypot</a>(x, y)
+                    <span>
+                        返回欧几里德范数 sqrt(x*x + y*y)。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">degrees</a>(x)
+                    <span>
+                        将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">radians</a>(x)
+                    <span>
+                        将角度转换为弧度
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数学常数</h4>
+            <ul>
+                <li>
+                    math.<a href="">e</a>
+                    <span>自然常数e（约为2.71828）</span>
+                </li>
+                <li>
+                    math.<a href="">pi</a>
+                    <span>圆周率（约为3.14159）</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
