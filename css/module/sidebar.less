@@ -11,6 +11,45 @@
 		.x;
 		color:@desccolor;
 	}
+
+	.u-folder{
+		.size(10px,28px);
+		.ct(y,30px);
+		right:0;
+		border:1px solid #ddd;
+		line-height:28px;
+		.x;.pointer;
+
+		&:after{
+			content:'<';
+		}
+		background-color:#fff;
+		&:hover{
+			background-color:#f7f7f7;
+		}
+		transform:translate3d(0,0,0);
+		border-right:none;
+
+		&.on{
+			&:after{
+				content:'>';
+			}
+			background-color:#222;
+			color:#0cf;
+			&:hover{
+				background-color:#333;
+			}
+			transform:translate3d(10px,0,0);
+			border-right:1px solid #ddd;
+		}
+
+		
+	}
+
+	transition:0.5s ease-in-out;
+	&.folder{
+		transform:translate3d(-100%,0,0);
+	}
 }
 .c-sidebar-list{
 	.pa;left:0;right:0;top:0;bottom:21px + 20px + 20px;

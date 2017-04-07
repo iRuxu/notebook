@@ -130,4 +130,11 @@ $(function(){
 			$("#box").html(info)
 		})
 
+	//sidebar
+		$("#c-sidebar-folder").on('click',function(){
+			$(this).toggleClass('on');
+			$(".c-main").toggleClass('widthauto');
+			$(".c-sidebar").toggleClass('folder');
+		})
+
 })
