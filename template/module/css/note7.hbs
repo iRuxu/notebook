@@ -1,5 +1,121 @@
 <div class="u-col">
 	<div class="u-block">
+		<h3>动画<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 2D/3D</h4>
+			<ul>
+				<li><a href="">transform</a><span>
+					可以用【空格】（非逗号）分隔多个操作,被定义的元素必须为对外表现块级的元素.
+					<br />(*老版webkit一定要设置为块，否则内联元素的transfrom和animation无效).
+					<br />位移动画闪动问题,可提前加载为0.
+					</span></li>
+				<li><a href="">transform-origin</a><span>设置或检索对象以某个原点进行转换,数值或百分比.
+					<br>如果提供两个，第一个用于横坐标，第二个用于纵坐标。 
+					<br>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%。 
+					</span></li>
+				<li>transform:<a href="">rotate</a><span>旋转[n deg度数]
+					<br>transform:rotate(Ndeg)  / rotateX(n) / rotateY(n) / rotateZ(n)
+					<br>transform:rotate3d(x,y,z,角度)</span></li>
+				<li>transform:<a href="">skew</a><span>倾斜[n deg度数]
+					<br>transform:skew(Ndeg / Xdeg,Ydeg) / skewX(n) / skewY(n)</span></li>
+				<li>transform:<a href="">scale</a><span>缩放[n倍数]
+					<br>transform:scale(x,y) / scaleX(n) / scaleY(n) / scaleZ(n)
+					<br>transform:scale3d(x,y,z)
+					<br>默认缩放以中心点为起点,不能用zoom
+					</span></li>
+				<li>transform:<a href="">translate</a><span>位移/滑动[n px长度]
+					<br>transform:translate(x,y)  / translateX(n) / translateY(n)
+					<br>transform:translate3d:(x,y,z) <a href="http://www.imooc.com/video/1898">案例演示</a></span></li>
+				<li>transform:<a href="">matrix</a><span>矩阵
+					<br>transform: matrix(6n)
+					<br>transform: matrix3d(16n)</span></li>
+				<li><a href="">transform-style</a><span>规定被嵌套元素如何在 3D 空间中显示。
+				<br>flat,子元素将不保留其 3D 位置。
+				<br>preserve-3d	子元素将保留其 3D 位置。</span></li>
+				<li><a href="">backface-visibility</a><span>定义元素在不面对屏幕时是否可见。
+				<br>取值背面可见/不可见visible|hidden;
+				<br />消除 transition 闪屏
+				<br />	两个方法
+				<br />	-webkit-transform-style: preserve-3d;
+				<br />	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+				<br />	-webkit-backface-visibility: hidden;
+				<br />	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/</span></li>
+				<li><a href="">perspective</a>(n)<span>定义 3D 转换元素的透视视图。
+				<br>取值number|none,常用500; <a href="http://www.imooc.com/video/1048">参考资料</a></span></li>
+				<li><a href="">perspective-origin</a>(x,y)<span>规定 3D 元素的底部位置。
+				<br>50% 50%默认值,取值left,center,right,length,%</span></li>
+			</ul>
+			<h4>[<span>-</span>] 过渡</h4>
+			<ul>
+				<li><a href="">transition</a><span>过渡,简写,属性-时间-缓动-延迟<br />
+				在Chrome下，使用过渡效果transition时有时会出现页面闪动<br />
+				设置：-webkit-transform-style:preserve-3d;或-webkit-backface-visibility:hidden;</span></li>
+				<li><a href="">transition-property</a><span>过渡的属性,以逗号分割多个</span></li>
+				<li><a href="">transition-duration</a><span>过度所需的时间</span></li>
+				<li><a href="">transition-timing-function</a><span>缓动线：
+					<br>linear： 线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0) 
+					<br>ease： 平滑过渡。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0) 
+					<br>ease-in： 由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0) 
+					<br>ease-out： 由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0) 
+					<br>ease-in-out： 由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0) 
+					<br>cubic-bezier(<number>, <number>, <number>, <number>)： 特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内
+					<br /><a href="http://jeremyckahn.github.io/stylie/">自定义缓动函数</a> ( <a href="http://www.uisdc.com/css-animation-visual-generator-stylie">stylie教程</a> )
+					</span></li>
+				<li><a href="">transition-delay</a><span>延迟时间</span></li>
+			</ul>
+			<h4>[<span>-</span>] 动画</h4>
+			<ul>
+				<li><a href="">@keyframes</a><span>定义动画
+					<br>keyframes 名称{
+					<br>from{}
+					<br>to{}
+					<br>}
+					<br>@keyframes 名称{
+					<br>0% {}
+					<br>25%{}
+					<br>75% {}
+					<br>100% {}
+					<br>}
+					<br>注意写前缀
+					<br /><b>过渡的动画不能使用简写。例如border:8px solid #fff无效,提前定义样式颜色,并给予0宽度,改变宽度.</b>
+					<br /><b>利用起点设置为非0%可设置出间隔动画</b>
+					<br />不想设置断点的数据留空会线性执行到下一个有数据位置
+					<br />设置内层img等于祖层宽度，对子层尺寸进行变化形成遮罩显示效果（需设置overflow:hidden)
+					</span></li>
+				<li><a href="">animation</a><span>执行动画
+					<br>简写animation:
+					<br>name 5s   ease-in   1s      8/infinite alternate paused  forwards;
+					<br>名称 时间 缓动函数 延迟执行 重复次数   反向      暂停    停留在末尾状态;
+					<br /><b>多个动画之间用【逗号】隔开，不同组动画属性的变化同时执行，可设置延迟达到队列效果，同属性例transform会覆盖</b>
+					<br /><a href="http://tid.tenpay.com/?p=5983">动画帧数计算</a>
+					<a href="http://ecd.tencent.com/css3/tools.html">腾讯工具</a> / 
+					<a href="http://cssanimate.com/">cssanimate</a> / 
+					<a href="http://ademilter.com/lab/liffect/">liffect</a> / 
+					<a href="http://leaverou.github.io/animatable/">简单示例</a> / 
+					<a href="http://cssload.net/">cssload</a> / 
+					<a href="http://www.w3cfuns.com/blog-5421655-5400318.html">loading动画</a>
+					</span></li>
+				<li><a href="">animation-name</a><span>动画名称</span></li>
+				<li><a href="">animation-duration</a><span>时间</span></li>
+				<li><a href="">animation-timing-function</a><span>缓动函数
+					<br /><a href="http://www.qianduan.net/css3-animation.html">steps(num)逐帧动画</a></span></li>
+				<li><a href="">animation-delay</a><span>延迟时间</span></li>
+				<li><a href="">animation-iteration-count</a><span>执行次数</span></li>
+				<li><a href="">animation-direction</a><span>animation-direction:reverse / alternate /  alternate-reverse （反向,奇正偶反,偶正奇反）</span></li>
+				<li><a href="">animation-play-state</a><span>animation-play-state: running / paused 运行/暂停</span></li>
+				<li><a href="">animation-fill-mode</a><span>animation-fill-mode:none / forwards / backwords / both (返回初始,停留末尾,应用初始,两者)</span></li>
+				<li><a href="">移动端动画</a><span>
+					<a href="https://github.com/AlloyTeam/Mars/blob/master/performance/high-performance-css3-animation.md">参考资料1</a> |
+					<a href="https://github.com/AlloyTeam/Mars/blob/master/performance/css-property-animation-performance.md">参考资料2</a>
+					<br />1.减少BFC属性方式
+					<br />2.减少使用阴影与渐变
+					<br />3.让动画元素脱离文档流，减少重排
+					<br />4.JS中减少layout
+					</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
       	<h3>移动端<span>-</span></h3>
       	<div class="u-list">
       		<h4>[<span>-</span>] 显示</h4>
@@ -34,51 +150,4 @@
             </ul>
       	</div>
 	</div>
-  	<div class="u-block">
-  		<h3>媒体<span>-</span></h3>
-	  	<div class="u-list">
-	  		<h4>[<span>-</span>] 语法规则</h4>
-			<ul>
-			  <li>
-			      <a href="">@charset</a>
-			      <span>@charset "utf-8";
-			      <br>在外部样式表文件内使用。指定该样式表使用的字符编码。
-			      <br>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。</span>
-			  </li>
-			  <li>
-			      <a href="">@import</a>
-			      <span>指定导入的外部样式表
-			      <br>@import url('demo.css') screen and (min-width:800px);
-			      <br>该规则必须在样式表头部最先声明,并且其后的分号是必需的.IE9以前不支持.
-			      </span>
-			  </li>
-			  <li>
-			      <a href="">@supports</a>
-			      <span>检测是否支持某CSS特性
-			      <br>@supports (rule) or | and | not (rule)
-			      </span>
-			  </li>
-			  <li>
-			      <a href="">@media</a>
-			      <span><a href="http://css.doyoe.com/rules/@media.htm">详细资料</a>
-			      <br>@media [only/not] 媒体类型 [and (媒体特性表达式)] {你的样式}
-			      <br>例：@media only/not print and (max-width: 1200px){样式代码}
-			      <br>IE8及以下只能实现CSS2中的部分，即只可以设置媒体类型。
-			      <br>其中部分支持max&min
-			      </span>
-			  </li>
-			</ul>
-			<h4>[<span>-</span>] 打印</h4>
-			<ul>
-			  <li><a href="">@page</a><span>设置页面容器的版式，方向，边空等。可增加@page name</span></li>
-			  <li><a href="">@page:first</a><span>设置在打印时页面容器第一页使用的样式。</span></li>
-			  <li><a href="">@page:left</a><span>设置页面容器位于装订线左边的所有页面使用的样式。</span></li>
-			  <li><a href="">@page:right</a><span>设置页面容器位于装订线右边的所有页面使用的样式。</span></li>
-			  <li><a href="">page</a><span>检索或指定显示对象容器时使用的页面类型。需要先用@page定义name，调用ele{page:name;}</span></li>
-			  <li><a href="">page-break-before</a><span>检索或设置对象之前出现的页分割符。</span></li>
-			  <li><a href="">page-break-after</a><span>检索或设置对象之后出现的页分割符。</span></li>
-			  <li><a href="">page-break-inside</a><span>检索或设置对象容器内部出现的页分割符。</span></li>
-			</ul>
-		</div>
-  	</div>
 </div>
