@@ -1,0 +1,95 @@
+<div class="u-col">
+    <div class="u-block">
+    <h3>选择器<span>-</span></h3>
+    <div class="u-list">
+     <h4>[<span>-</span>] 基本</h4>
+     <ul>
+      <li><a href="">*</a><span>通配</span></li>
+      <li><a href="">#id</a><span>ID</span></li>
+      <li><a href="">.class</a><span>样式</span></li>
+      <li><a href="">tagName</a><span>标签元素名</span></li>
+      <li><a href="">selector1,...,selectorN</a><span>逗号分隔多个</span></li>
+     </ul>
+     <h4>[<span>-</span>] 层级</h4>
+     <ul>
+      <li><a href="">E F</a><span>全后代</span></li>
+      <li><a href="">E>F</a><span>子辈</span></li>
+      <li><a href="">E+F</a><span>相邻</span></li>
+      <li><a href="">E~F</a><span>兄弟</span></li>
+     </ul>
+     <h4>[<span>-</span>] 序列</h4>
+     <ul>
+      <li><a href="">:first</a><span>第一个</span></li>
+      <li><a href="">:last</a><span>最后一个</span></li>
+      <li><a href="">:eq</a>(index)<span>索引第N个</span></li>
+      <li><a href="">:gt</a>(index)<span>索引大于</span></li>
+      <li><a href="">:lt</a>(index)<span>索引小于</span></li>
+      <li><a href="">:even</a><span>索引偶数，实际奇数</span></li>
+      <li><a href="">:odd</a><span>索引奇数，实际偶数</span></li>
+     </ul>
+     <h4>[<span>-</span>] 条件</h4>
+     <ul>
+      <li><a href="">:not</a>(selector)<span>不含,无需引号,not(div,a)或not(div a)</span></li>
+      <li><a href="">:has</a>(selector)<span>含</span></li>
+      <li><a href="">:focus</a><span>获得焦点,有focus方法的,不只是表单</span></li>
+      <li><a href="">:animated</a><span>正在执行动画</span></li>
+      <li><a href="">:hidden</a><span>隐藏的</span></li>
+      <li><a href="">:visible</a><span>可见的</span></li>
+      <li><a href="">:lang</a>(zh-cn)<span>语言指定</span></li>
+     </ul>
+     <h4>[<span>-</span>] 内容</h4>
+     <ul>
+      <li><a href="">:root</a><span>等价html</span></li>
+      <li><a href="">:header</a><span>H1~H6</span></li>
+      <li><a href="">:target</a><span>HASH目标元素</span></li>
+      <li><a href="">:contains</a>(text)<span>包含文本</span></li>
+      <li><a href="">:empty</a><span>空/无子元素</span></li>
+      <li><a href="">:parent</a><span>有子元素</span></li>
+     </ul>
+     <h4>[<span>-</span>] 属性</h4>
+     <ul>
+      <li><a href="">[att]</a><span>含属性</span></li>
+      <li><a href="">[att=val]</a><span>为..</span></li>
+      <li><a href="">[att!=val]</a><span>不为..</span></li>
+      <li><a href="">[att^=val]</a><span>以..开始</span></li>
+      <li><a href="">[att$=val]</a><span>以..结束</span></li>
+      <li><a href="">[att*=val]</a><span>含..(str)</span></li>
+      <li><a href="">[att1][attN]</a><span>同时满足..</span></li>
+     </ul>
+     <h4>[<span>+</span>] 子元素</h4>
+     <ul style="display:none">
+      <li><a href="">:first-child</a><span>第一个子元素</span></li>
+      <li><a href="">:first-of-type</a><span>父元素中第一个此类元素</span></li>
+      <li><a href="">:last-child</a><span></span>最后一个子元素</li>
+      <li><a href="">:last-of-type</a><span>父元素中最后一个此类元素</span></li>
+      <li><a href="">:nth-child(n)</a><span>第N个子元素</span></li>
+      <li><a href="">:nth-of-type(n)</a><span>父元素中第N个此类元素</span></li>
+      <li><a href="">:nth-last-child(n)</a><span>倒数第N个子元素</span></li>
+      <li><a href="">:nth-last-of-type(n)</a><span>父元素中倒数第N个此类元素</span></li>
+      <li><a href="">:only-child</a><span>唯一子元素</span></li>
+      <li><a href="">:only-of-type</a><span>唯一同类子元素</span></li>
+     </ul>
+     <h4>[<span>+</span>] 表单</h4>
+     <ul style="display:none">
+      <li><a href="">:input</a><span>所有input</span></li>
+      <li><a href="">:text</a><span>type为text</span></li>
+      <li><a href="">:password</a><span>type为password</span></li>
+      <li><a href="">:radio</a><span>type为radio</span></li>
+      <li><a href="">:checkbox</a><span>type为checkbox</span></li>
+      <li><a href="">:submit</a><span>type为submit</span></li>
+      <li><a href="">:image</a><span>type为image</span></li>
+      <li><a href="">:reset</a><span>type为reset</span></li>
+      <li><a href="">:button</a><span>type为button</span></li>
+      <li><a href="">:file</a><span>type为file</span></li>
+      <li><a href="">:hidden</a><span>type为hidden</span></li>
+     </ul>
+     <h4>[<span>-</span>] 表单对象属性</h4>
+     <ul>
+      <li><a href="">:enabled</a><span>所有可用</span></li>
+      <li><a href="">:disabled</a><span>所有禁用</span></li>
+      <li><a href="">:checked</a><span>所有被多选/单选选中元素</span></li>
+      <li><a href="">:selected</a><span>所有被下拉选中元素</span></li>
+     </ul>
+    </div>
+    </div>
+</div>

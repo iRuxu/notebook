@@ -12,8 +12,15 @@
     
     .u-close{position: absolute;right:4px;top:-2px;cursor:pointer;.fzlh(24px,24px);padding:5px;}
     
-    .m-box{color:#ccc;overflow-y:auto;height:320px;
+    .m-box{color:#ccc;height:320px;
+
         padding:10px;
+
+        overflow-y:auto;
+        &::-webkit-scrollbar{.w(8px);.r(5px);box-shadow:0 0 2px rgba(0,0,0,.2) inset;}
+        &::-webkit-scrollbar-track{background-color:#555;.r(5px);}
+        &::-webkit-scrollbar-thumb{background-color:#d8d8d8;.r(4px);.w(4px);}
+
         b{color:#ffff00;}
         strong{color:#ff0000;}
         textarea{

@@ -1,0 +1,265 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>ajax<span>-</span></h3>
+        <div class="u-list">
+        <h4>[<span>-</span>] 底层接口</h4>
+        <ul>
+         <li><a href="">$.ajax</a>({setting})
+          <span>
+          $.ajax({  <br>
+           url:'url.php', <br>
+           type:'POST',    //默认为'GET' <br>
+           data:{name:'value',name:'value'}, <br>
+           success:function(response,status,xhr){//something} <br>
+          }) <br>
+          <a href="http://jquery.bootcss.com/jQuery.ajax/" title="">more info &raquo;</a>
+
+          </span></li>
+         <li><a href="">$.ajaxSetup</a>({setting})
+          <span>同$.ajax(),初始化设置重复应用的一些属性和方法<br>
+          <a href="http://jquery.bootcss.com/jQuery.ajaxSetup/" title="">more info &raquo;</a>
+          </span> 
+          </li>
+         <li><a href="">$.ajaxPrefilter</a>([datatype],fn)
+          <span>jQuery.ajaxPrefilter( [dataTypes], handler(options, originalOptions, jqXHR) )<br>
+          在每个请求之前被发送和$.ajax()处理它们前处理，设置自定义Ajax选项或修改现有选项。<br>
+          options 是请求的选项<br>
+          originalOptions 值作为提供给Ajax方法未经修改的选项，因此，没有ajaxSettings设置中的默认值<br>
+          jqXHR 是请求的jqXHR对象<br>
+          <a href="http://jquery.bootcss.com/jQuery.ajaxPrefilter/" title="">more info &raquo;</a>
+          </span> 
+         </li>
+         <li><a href="">$.ajaxTransport</a>([datatype],fn)
+          <span>处理自定义数据类型<br>
+          传输（transport）是一个对象，它提供了两种方法，send 和 abort，内部使用由$.ajax()发出请求。传输（transport）是最高级的方法用来增强$.ajax()并且应仅作为当预过滤器（prefilters）和转换器（converters）无法满足你的需求的时候的最后的手段。<br>
+          由于每个请求需要有自己的传输（transport）对象实例，传输不能直接注册。因此，你应该提供一个函数代替返回传输（transport）。<br>
+          <a href="http://jquery.bootcss.com/jQuery.ajaxTransport/" title="">more info &raquo;</a>
+          </span> 
+         </li></ul>       
+        <h4>[<span>-</span>] 表单序列化</h4>
+        <ul>
+         <li><a href="">serialize()</a>
+          <span>$('form').serialize() 获取到 name=value&name=value 格式<br>
+          当对整体表单进行序列化时,注意被序列对象为form,会自动编码. <br>
+          注意: 只有 "successful controls"可以被序列化成字符串。其中，提交按钮的值不会被序列化。<br>
+          另外，如果想要一个表单元素的值被序列化成字符串，这个元素必须含有 name属性。<br>此外，复选框（checkbox）和单选按钮（radio）(input 类型为 "radio" 或 "checkbox")的值只有在被选中时才会被序列化。<br>另外，文件选择元素的数据也不会被序列化。<br> 
+          <a href="http://jquery.bootcss.com/serialize/">more info &raquo;</a>
+          </span> 
+          </li>
+         <li><a href="">$.param</a>({obj})
+          <span>将复杂的对象键值对转为name=value格式. <br>
+          因为一些框架解析序列化的数字的能力有限， 在传递 obj 参数时我们应该谨慎，尽量不要传递含有对象的数组，或者数组中嵌套其它数组。<br>
+          <a href="http://jquery.bootcss.com/jQuery.param/">more info &raquo;</a>
+          </span> 
+         </li></ul>
+        <h4>[<span>-</span>] 快捷方法</h4>
+        <ul>
+         <li><a href="">load</a>(url [.sel],[data],fn)
+          <span>
+           url .selector对载入的HTML进行筛选，那么只要在 url 参数后面跟着一个选择器即可<br>
+           $(box).load('http://domain.com/test.html .some')  <strong>//注意加.号</strong><br>
+           一般用于静态文件加载
+          </span>
+          </li>
+         <li><a href="">$.get</a>(url,[data],fn,type)
+          <span>
+           传参方式: <br>
+           $.get('url?name=value') <br>
+           $.get('url','name=value&name=value') <br>
+           $.get('url',{name:'value',name:'value'}) <br>
+           type指定异步返回的类型: xml/html/script/json/jsonp/text<br>
+           一般情况下 type参数是智能判断,并不需要我们主动设置,如果主动设置,则会强行按照指定类型格式返回.<br>
+           XML: $(response).find('xmltag1').find('xmltag2').text() <br>
+           <br>
+          </span>
+          </li>
+         <li><a href="">$.post</a>(url,[data],fn,type)
+          <span>
+           传参方式：<br>
+           $.get('url','name=value&name=value') <br>
+           $.get('url',{name:'value',name:'value'}) <br>
+          </span>
+          </li>
+         <li><a href="">fn</a>(response,status,xhr)
+          <span>
+           回调参数：<br>
+           response（请求返回的原文本）<br>
+           status（请求状态):成功 success | 失败 error<br>
+           xhr（XMLHttpRequest对象）【属性见XHR条目】<br>
+          </span>
+
+          </li>
+         <li><a href="">$.getScript</a>(url,fn)
+          <span>
+           一般只需第一个参数,用于过多JS动画等分次按需加载
+          </span></li>
+         <li><a href="">$.globalEval(code)</a><span>
+          此方法的表现不同于正常使用的JavaScript eval()，因为它是在全局上下文下执行（这对加载外部动态脚本很重要）。
+          <br><a href="http://jquery.bootcss.com/jQuery.globalEval/">more info &raquo;</a>
+         </span></li>  
+        <h4>[<span>-</span>] JSON/JSONP</h4>
+        <ul>
+         <li><a href="">Response Examples</a>(PHP)
+          <span>
+           <b>GET：test.php?name=value</b><br>
+           <pre><code data-language="php">
+            <?php
+              if ($_GET['name'] == 'value') {
+              echo 'some';
+              } else {
+              echo 'other';
+              }
+            ?>  
+           </code></pre>
+           <b>POST：{name:'value'}</b><br>
+           <pre><code data-language="php">
+             <?php
+               if ($_POST['name'] == 'value') {
+               echo 'some';
+               } else {
+               echo 'other';
+               }
+             ?>  
+           </code></pre>
+           <b>JSONP：http://domain.com/test.php?callback=? </b><br>
+           <b>dataType : 'jsonp'</b><br>         
+           <pre><code data-language="php">
+              //跨域的 PHP 端文件
+              <?php
+                $arr = array('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+                $result = json_encode($arr);
+                $callback = $_GET['callback'];
+                echo $callback."($result)";
+              ?>  
+           </code></pre>
+          </span></li>
+         <li><a href="">JSON/JSONP</a>
+          <span>对于PHP文件输出的JSON格式数据,需要强制设置dataType为json类型<br />
+           <pre><code data-language="javascript">
+              //$.ajax()方法跨域获取 JSON
+              $.ajax({
+               url : 'http://www.li.cc/test.php?callback=?',
+               dataType : 'jsonp',
+               success : function (response, status, xhr) {
+                console.log(response);
+                alert(response.a);
+               }
+              });  
+           </code></pre>
+          </span></li></ul>
+         <li><a href="">$.parseJSON</a>(json)<span>接受一个JSON字符串，返回解析后的对象。</span></li>
+         <li><a href="">serializeArray()</a>
+          <span>表单序列化：创建一个对象组成的javascript数组，用来编码成一个JSON一样的字符串。<br>
+          [
+            {
+              name: "a",
+              value: "1"
+            },
+            {
+              name: "b",
+              value: "2"
+            }
+          ] <br>
+          <a href="http://jquery.bootcss.com/serializeArray/">more info &raquo;</a>
+          </span>
+          </li>
+         <li><a href="">$.getJSON</a>(url,[data],fn)
+          <span>快捷方法获取JSON文件：<br>
+           JSON:$(response)[index].prop
+          </span></li></ul>
+        <h4>[<span>-</span>] ajax事件</h4>
+        <ul>
+         <li><a href="">ajaxSend</a>(fn)<span>请求发送前执行函数</span></li>
+         <li><a href="">ajaxStart</a>(fn)
+          <span>绑定在document上.ajax请求提交<br>
+          例：$('document').ajaxStart(funtion(){<br>
+           $('隐藏提示盒').show();<br>
+          }).ajaxStop(function(){<br>
+           $('隐藏提示盒').hide();<br>
+          })<br>
+          </span></li>
+         <li><a href="">ajaxSuccess</a>(fn)<span>请求成功时执行函数,局部方法.success()和.done()</span></li>
+         <li><a href="">ajaxComplete</a>(fn)<span>请求完成时执行函数,不管是否成功,局部方法.complete()和.always()</span></li>
+         <li><a href="">ajaxError</a>(fn)<span>请请求发生错误时执行函数,局部方法.error()和.fail()</span></li>
+         <li><a href="">ajaxStop</a>(fn)
+          <span>ajax请求结束</span></li></ul>
+        <h4>[<span>-</span>] 错误处理</h4>
+        <ul>
+         <li><a href="">$.ajax({error:fn})</a>
+          <span>调用ajax全局方法之局部对象属性:<br>
+          error : function (xhr,errorText,errorType){}
+          </span></li>
+         <li><a href="">$.post().error(fn)</a>
+          <span>ajax快捷方法.error()连缀提示<br>
+          $.post().error(function(){xhr,status,info})
+          </span></li>
+         <li><a href="">$(doc).$.ajaxError(fn)</a>
+          <span>全局.ajaxError()事件<br>
+          $(document).ajaxError(function (event, xhr, settings, infoError) {}
+          </span></li>
+         <li><a href="">XHR/jqXHR/$.when()</a>
+          <span>
+          使用 jqXHR 的连缀方式比$.ajax()的属性方式有三大好处：<br>
+           1.可连缀操作，可读性大大提高；<br>
+           2.可以多次执行同一个回调函数；<br>
+           jqXHR.done().done(); //同时执行多个成功后的回调函数<br>
+           3.为多个操作指定回调函数；<br>
+           //多个操作指定回调函数<br>
+           var jqXHR = $.ajax('test.php');<br>
+           var jqXHR2 = $.ajax('test2.php');<br>
+           $.when(jqXHR, jqXHR2).done(function (r1,r2) {  //传入参数<br>
+           alert(r1[0]);  //需要指定[0]获取jqXHR对象数据,而不是jqXHR<br>
+           alert(r2[0]);<br>
+           });<hr>
+          XMLHttpRequest属性<br>
+           <table width="100%" border="1" cellspacing="0" cellpadding="2">
+            <tbody>
+            <tr>
+            <td valign="top">xhr.responseText</td>
+            <td valign="top">作为响应主体被返回的文本</td>
+            </tr>
+            <tr>
+            <td valign="top">xhr.responseXML</td>
+            <td valign="top">如果响应主体内容类型是"text/xml"或"application/xml" ，则返回包含响应数据的 XML DOM 文档</td>
+            </tr>
+            <tr>
+            <td valign="top">xhr.status</td>
+            <td valign="top">响应的 HTTP 状态，成功为200</td>
+            </tr>
+            <tr>
+            <td valign="top">xhr.statusText</td>
+            <td valign="top">HTTP 状态的说明(成功为ok)
+            <div>
+            <ul>
+             <li>200 OK 服务器成功返回了页面</li>
+             <li>400 Bad Request 语法错误导致服务器不识别</li>
+             <li>401 Unauthorized 请求需要用户认证</li>
+             <li>404 Not found 指定的 URL 在服务器上找不到</li>
+             <li>500 Internal Server Error 服务器遇到意外错误，无法完成请求</li>
+             <li>503 ServiceUnavailable 由于服务器过载或维护导致无法完成请求</li>
+            </ul>
+            </div></td>
+            </tr>
+            <tr>
+             <td valign="top">xhr.readyState</td>
+             <td valign="top">请求/相应过程的当前活动阶段
+              <div>
+              <ul>
+               <li>0 未初始化 尚未调用 open()方法</li>
+               <li>1 启动 已经调用 open()方法，但尚未调用 send()方法</li>
+               <li>2 发送 已经调用 send()方法，但尚未接受响应</li>
+               <li>3 接受 已经接受到部分响应数据</li>
+               <li>4 完成 已经接受到全部响应数据，而且可以使用</li>
+              </ul>
+              </div>
+             </td>
+            </tr>
+            </tbody>
+           </table>
+          </span> 
+         </li>
+         
+        </ul>
+        </div>
+    </div>
+</div>

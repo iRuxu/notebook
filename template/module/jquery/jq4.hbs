@@ -1,0 +1,93 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>文档处理<span>-</span></h3>
+        <div class="u-list">
+        <h4>[<span>-</span>] 内部插入</h4>
+        <ul>
+        <li><a href="">append()</a><span></span></li>
+        <li><a href="">appendTo()</a><span>如果jquery选择器中的元素不存在,则会创建,直接appendTo目标元素即可。</span></li>
+        <li><a href="">prepend()</a><span></span></li>
+        <li><a href="">prependTo()</a><span></span></li>
+        </ul>
+        <h4>[<span>-</span>] 外部插入</h4>
+        <ul>
+        <li><a href="">after()</a><span></span></li>
+        <li><a href="">insertAfter()</a><span></span></li>
+        <li><a href="">before()</a><span></span></li>
+        <li><a href="">insertBefore()</a><span></span></li>
+        </ul>
+        <h4>[<span>-</span>] 替换</h4>
+        <ul>
+        <li><a href="">replaceWith</a>(content|fn|$)<span></span></li>
+        <li><a href="">replaceAll</a>($|selector)<span></span></li>
+        <li><a href="">end()</a><span></span></li>
+        <li>[ 主动插入与替换会先注销原节点 ]</li>
+        </ul>
+        <h4>[<span>-</span>] 复制删除</h4>
+        <ul>
+        <li><a href="">clone</a>([true/false])<span>复制节点,true复制事件处理程序,false不复制 </span></li>
+        <li><a href="">remove</a>([expr])<span>删除A或满足某条件的A,移除事件,返回被删除的节点 </span></li>
+        <li><a href="">detach</a>([expr])<span>删除A或满足某条件的A,保留事件,返回被删除的节点</span></li>
+        <li><a href="">empty()</a><span>删除A所有子节点,不接收参数 </span></li>
+        </ul>
+        <h4>[<span>-</span>] 包裹</h4>
+        <ul>
+        <li><a href="">wrap</a>(html|ele|fn)<span>对每个元素外层逐层包裹</span></li>
+        <li><a href="">wrapInner</a>(html|ele|fn)<span>对每个元素内部逐层包裹 </span></li>
+        <li><a href="">wrapAll</a>(html|ele)<span>对所有匹配元素外层整体包裹 </span></li>
+        <li><a href="">unwrap()</a><span>移除一层包裹,从最内包裹层脱起,多个移除则需移除多次,无参数</span></li>
+        </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>筛选<span>-</span></h3>
+        <div class="u-list">
+         <h4>[<span>-</span>] 层级筛选</h4>
+         <ul>
+          <li><a href="">find()</a><span>等价后代选择器E F</span></li>
+          <li><a href="">children()</a><span>等价子代选择器</span></li>
+          <li><a href="">next()</a><span>
+           next() / nextall() / nextUntil()
+           <br>类似E+F 但只返回后面那个紧邻的同辈元素/所有/直到但不包含
+          </span></li>
+          <li><a href="">parent()</a><span>
+           offsetParent() 返回第一个匹配元素用于定位的父节点
+           <br>parent() / parents() / parentsUntil()
+           取得一个包含着所有匹配元素的唯一父元素的元素集合/所有（不包含根元素）/直到但不包含
+          </span></li>
+          <li><a href="">prev()</a><span>
+           prev() / prevall() / prevUntil()
+           <br>取得一个包含匹配的元素集合中每一个元素紧邻的前一个同辈元素的元素集合/所有/直到某个但不包含
+          </span></li>
+          <li><a href="">siblings</a>([expr])<span>
+           取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合
+          </span></li>
+         </ul>
+         <h4>[<span>-</span>] 序列筛选</h4>
+         <ul>
+          <li><a href="">first()</a><span>第一个</span></li>
+          <li><a href="">last()</a><span>最后一个</span></li>
+          <li><a href="">eq</a>(index|-index)<span>第N个/倒数第N个</span></li>
+          <li><a href="">slice</a>(start,[end])<span>第N~M个</span></li>
+         </ul>
+         <h4>[<span>-</span>] 条件过滤</h4>
+         <ul>
+          <li><a href="">filter</a>(expr|obj|ele|fn)<span></span></li>
+          <li><a href="">has</a>(expr|ele)<span></span></li>
+          <li><a href="">not</a>(expr|ele|fn)<span></span></li>
+          <li><a href="">contents()</a><span>查找匹配元素内部所有的子节点（包括文本节点）</span></li>
+         </ul>
+         <h4>[<span>-</span>] 串联</h4>
+         <ul>
+          <li><a href="">add</a>(e|e|h|o[,c])<span></span></li>
+          <li>addBack()<a href=""></a><span></span></li>
+         </ul>
+         <h4>[<span>-</span>] 检测</h4>
+         <ul>
+          <li><a href="">is</a>(selector)<span>根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。
+          <br />$("#checbox").is(:checked)</span></li>
+          <li><a href="">hasClass</a>(class)<span>检查当前的元素是否含有某个特定的类，如果有，则返回true。里面只写class名称不要加点</span></li>
+         </ul>
+        </div>
+    </div>
+</div>
