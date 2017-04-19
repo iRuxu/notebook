@@ -32,6 +32,37 @@
 						<br>float，clear和vertical-align属性应用在flex项目上将会无效和无法将其out-of-flow。
 					</span>
 				</li>
+				<li>item <a href="">flex</a>
+					<span>
+						这个属性是flex-grow、flex-shrink和flex-basis属性的简写。<br>
+						如果缩写「flex: 1」, 则其计算值为「1 1 0%」<br>
+						如果缩写「flex: auto」, 则其计算值为「1 1 auto」<br>
+						如果「flex: none」, 则其计算值为「0 0 auto」<br>
+						如果「flex: 0 auto」或者「flex: initial」, 则其计算值为「0 1 auto」，即「flex」初始值
+					</span>
+				</li>
+				<li>item <a href="">flex-grow</a>
+					<span>剩余空间的扩展比例,默认值0。
+					<br>flex-grow的默认值为0，如果没有显示定义该属性，是不会拥有分配剩余空间权利的。</span>
+				</li>
+				<li>item <a href="">flex-shrink</a>
+					<span>剩余空间的收缩比例,默认1。
+					<br>默认情况之下，所有flex项目都可以收缩，但如果将它们设置为0时，他们不会缩小会保持原来的大小。</span>
+				</li>
+				<li>item <a href="">flex-basis</a>
+					<span>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</span>
+				</li>
+				<li>item <a href="">order</a>
+					<span>用整数值来定义排列顺序，数值小的排在前面。可以为负值，默认值0。</span>
+				</li>
+				<li>item <a href="">align-self</a><span>指定flex项目自身的对齐方式或者使用align-items来指定单个flex项目。
+					<br>auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
+					<br>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+					<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+					<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+					<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+					<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+				</span></li>
 				<li>box <a href="">flex-direction</a>
 					<span>该属性设置在flex元素上，非flex项目上。
 						<br>row：横向从左到右排列（左对齐），默认的排列方式。
@@ -53,39 +84,25 @@
 					水平方向项目的分布方式。
 				</span></li>
 				<li>box <a href="">align-items</a><span>
-					垂直方向单行项目的分布方式。
+					垂直方向单行项目的分布方式。<br>
+					flex-start：
+					弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。<br>
+					flex-end：
+					弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。<br>
+					center：
+					弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。<br>
+					baseline：
+					如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。<br>
+					stretch：
+					如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
 				</span></li>
 				<li>box <a href="">align-content</a><span>
 					垂直方向多行项目的分布方式。
 				</span></li>
-				<li>item <a href="">align-self</a><span>指定flex项目自身的对齐方式或者使用align-items来指定单个flex项目。
-					<br>auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
-					<br>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
-					<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
-					<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
-					<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
-					<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
-				</span></li>
-				<li>item <a href="">order</a>
-					<span>用整数值来定义排列顺序，数值小的排在前面。可以为负值，默认值0。</span>
-				</li>
-				<li>item <a href="">flex-grow</a>
-					<span>剩余空间的扩展比例,默认值0。
-					<br>flex-grow的默认值为0，如果没有显示定义该属性，是不会拥有分配剩余空间权利的。</span>
-				</li>
-				<li>item <a href="">flex-shrink</a>
-					<span>剩余空间的收缩比例,默认1。
-					<br>默认情况之下，所有flex项目都可以收缩，但如果将它们设置为0时，他们不会缩小会保持原来的大小。</span>
-				</li>
-				<li>item <a href="">flex-basis</a>
-					<span>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</span>
-				</li>
-				<li>item <a href="">flex</a>
-					<span>
-						这个属性是flex-grow、flex-shrink和flex-basis属性的简写。
-						<br>none：none关键字的计算值为: 0 0 auto
-					</span>
-				</li>
+				
+				
+				
+				
 			</ul>
 			<h4>[<span>-</span>] Grid</h4>
 			<ul>

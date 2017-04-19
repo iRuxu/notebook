@@ -1,0 +1,125 @@
+@import url('module/reset.less');
+@import url('module/base.less');
+
+//flex
+
+	/*.flex(#@order){
+		@number:replace(@order,#,);
+		order:@number;
+		order:@order;
+	}*/
+
+	//Flex item
+	//============================
+	.flex(@grow:1,@shrink:1,@basis:auto){
+		flex-grow:@grow;
+		flex-shrink:@shrink;
+		flex-basis:@basis;
+	}
+	//special value for flex
+		.flex(1){
+			flex:1 1 0%;
+		}
+		.flex(auto){
+			flex:1 1 auto;
+		}
+		.flex(none){
+			flex:0 0 auto;
+		}
+		.flex(initial){
+			flex:0 1 auto;
+		}
+	.flex-grow(@grow:1){
+		flex-grow:@grow;
+	}
+	.flex-shrink(@shrink:1){
+		flex-shrink:@shrink;
+	}
+	.flex-basis(@basis:auto){
+		flex-basis:@basis;
+	}
+	.flex-order(@order:0){
+		order:@order;
+	}
+	.flex-align(@align:auto){
+		align-self:@align;
+	}
+	//special value for flex-align
+		.flex-align(start){
+			align-self:flex-start;
+		}
+		.flex-align(end){
+			align-self:flex-end;
+		}
+		.flex-align(center){
+			align-self:center;
+		}
+		.flex-align(baseline){
+			align-self:baseline;
+		}
+		.flex-align(stretch){
+			align-self:stretch;
+		}
+
+	//Flex box
+	//============================
+	
+	.flexs-wrap(@wrap:nowrap){
+		flex-wrap:@wrap;
+	}
+	.flexs-direction(@direction:row){
+		flex-direction:@direction;
+	}
+	//special value for flexs-direction
+		.flexs-direction(l){
+			flex-direction:row;
+		}
+		.flexs-direction(r){
+			flex-direction:row-reverse;
+		}
+		.flexs-direction(t){
+			flex-direction:column;
+		}
+		.flexs-direction(b){
+			flex-direction:column-reverse;
+		}
+	.flexs-align(@align:stretch){
+		align-items:@align;
+	}
+	//special value for flexs-align
+		.flexs-align(start){
+			align-items:flex-start;
+		}
+		.flexs-align(end){
+			align-items:flex-end;
+		}
+		.flexs-align(center){
+			align-items:center;
+		}
+		.flexs-align(baseline){
+			align-items:baseline;
+		}
+		.flexs-align(stretch){
+			align-items:stretch;
+		}
+
+//grid test
+
+
+
+.test {
+	.dg;
+}
+.item1,.item2{
+	.size(100px);
+}
+.item1{
+	background-color:#0cf;
+}
+.item2 {
+	background-color:#f39;
+}
+.subitem{
+	background-color:#93f;
+	.none;
+}
