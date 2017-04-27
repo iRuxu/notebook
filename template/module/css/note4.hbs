@@ -323,6 +323,24 @@
     }
 </style>
 </code></pre>
+					4.margin负值实现自动等高的多列布局。
+<pre><code data-language="html"><!-- 自动等高多列布局 -->
+<div class="box">
+	<ul class="list">
+		<li class="item1 item">item..</li>
+		<li class="item2 item">item..</li>
+		<li class="item3 item">item..</li>
+	</ul>
+</div>
+<style>
+.list{overflow:hidden;}
+.item{margin-bottom:-5000px;padding-bottom:5000px;}
+.item1{height:100px;float:left;width:100px;background-color:#f39;}
+.item2{height:200px;float:left;width:100px;background-color:#f39;}
+.item3{height:300px;float:left;width:100px;background-color:#f39;}
+</style>
+</code></pre>
+
 					<a href="http://www.jianshu.com/p/549aaa5fabaa">参考资料</a>
 				</span></li>
 				<li><a href="">margin-left/right</a><span>
