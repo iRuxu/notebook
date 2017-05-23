@@ -278,31 +278,31 @@
 			<h4>[<span>-</span>] 表单</h4>
 			<ul>
 				<li>
-					<a href="">form</a>
+					form<a href=""></a>
 					<span>
-						<b>form</b><br>
-						1.IE6-8表单元素默认不继承父级字体大小.<br />
-						2.IE6-8表单控件元素不继承form字体行高.
-						<hr>
-						<b>radio/checkbox</b><br>
-						1.单复选框的对齐问题,可用vertical-algin:-3px解决。<a href="http://www.zhangxinxu.com/wordpress/?p=56">参考资料</a>
-						<hr>
 						<b>text</b><br>
-						1.IE6-8中,input text不会因为行高而撑开高度,按钮正常<br />
-						2.IE6-7中,对input设置text-indent会整个缩进,应设为padding<br />
-						3.input默认为border-box模型，宽高包含padding与border！
+						1.Chrome、IE、Firefox、Opera各有不同默认的padding和边框。<br>
+						2.IE中,不会因为行高而撑开高度<br />
+						3.IE6-7中,对input设置text-indent会整个缩进,应设为padding<br />
+						4.所有浏览器均为content-box计算模式. <br>
+						故重置text为：重定义padding,重定义边框样式,同时定义等值高度与行高。
 						<hr>
 						<b>button</b><br>
-						1.Chrome中,input button不会因行高而撑开高度,text正常
+						1.Chrome、IE、Firefox、Opera各有不同默认的padding和边框。
+						2.所有浏览器中,未定义高度时会受行高撑开高度<br />
+						3.Edge与IE8-中,为content-box计算模式,其他浏览器为border-box模式,但指定box-sizing将不会对IE8-生效。<br>
+						故重置button为：重定义padding,重定义边框样式,同时修改为content-box模式,可定义等值高度与行高,且设置ie7-的行高为normal。
 						<hr>
 						<b>select</b><br>
-						0.最小高度24px.
-						<br>1.chrome等可直接通过行高撑开高度，IE8-不可.
-						<br>2.IE8需要通过padding，但使用padding方法时，IE8-绘制border会把里面按钮也绘制。
-						<br>3.IE7需要设置height，但行高仍然无法使字体垂直居中。
-						<br>4.IE6无法撑开高度。
-						<br>5.height非字体height，而是包含了padding,border的height，默认为border-box。 
-						<br>6.右侧padding在IE中(包括11)会出现在下拉按钮以外，故不应设置过大。
+						1.各浏览器边框边距以及option的边距略有不同。<br>
+						2.默认所有浏览器均为border-box模式。<br>
+						3.仅firefox在未定义高度时会受行高撑开高度<br />
+						4.右侧padding在IE中会出现在下拉按钮以外。<br>
+						故重置select为：重定义padding,且不设置右侧padding,重定义边框样式,定义高度等于行高+padding+边框。
+						<hr>
+						<b>radio/checkbox</b><br>
+						1.firefox无法修改其尺寸，opera无法修改复选框尺寸。<br>
+						2.单复选框的对齐问题,可用vertical-algin解决。<a href="http://www.zhangxinxu.com/wordpress/?p=56">参考资料</a>
 					</span>
 				</li>
 				<li>
@@ -312,14 +312,12 @@
                     &:-moz-placeholder
                     &:-ms-input-placeholder
                     &::-webkit-input-placeholder
-                    color: @color;
-                    font-size:@size;
-                    text-align:@align;
+                    //可定义文字样式：颜色、字号、对齐方式、字体等
                     </code></pre>
                     </span>
                 </li>
-                <li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
-                <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li>
+                <!-- <li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+                <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li> -->
 			</ul>
 			<h4>[<span>+</span>] 其它</h4>
 			<ul style="display:none;">
