@@ -1800,8 +1800,9 @@
 						<b>text</b><br>
 						1.Chrome、IE、Firefox、Opera各有不同默认的padding和边框。<br>
 						2.IE中,不会因为行高而撑开高度<br>
-						3.IE6-7中,对input设置text-indent会整个缩进,应设为padding<br>
-						4.所有浏览器均为content-box计算模式. <br>
+						3.所有浏览器均为content-box计算模式. <br>
+						4.IE6-7中,对input设置text-indent会整个缩进,应设为padding<br>
+						5.IE6-7中,过高行高字体显示异常,可能只有一半,则单独设置同字号行高与高度,添加专有padding。<br>
 						故重置text为：重定义padding,重定义边框样式,同时定义等值高度与行高。
 						<hr>
 						<b>button</b><br>
