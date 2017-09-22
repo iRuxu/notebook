@@ -1,476 +1,577 @@
 <div class="u-col">
 	<div class="u-block">
-		<h3>盒模型<span>-</span></h3>
+		<h3>布局I<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>] 表现</h4>
+			<h4>[<span>-</span>] 浮动</h4>
 			<ul>
-				<li><a href="">Standards/Quirks Mode</a><span>
-					HTML文档根据文档顶部的doctype声明来决定渲染模式，有<b>标准模式（Standards Mode）</b>与<b>怪异模式（Quirks mode，或叫做混杂模式）</b>两种模式。
-					<br />IE5及以前默认总是表现为怪异模式，IE6~IE8遇到非正常声明或特定声明时也会进入怪异模式。
-					<br />否则，如果有正确声明doctype并在顶端，则默认进入标准模式，即包括HTML5声明在IE6~IE8，也会进入标准模式，而非一定需要HTML4长长的声明。
-					<br />而许多现代浏览器即使是怪异模式，表现也和标准模式是一致的。
-					<br />
-					<br />IE6+进入怪异模式的条件：
-					<br />1.IE6~IE8没有doctype的页面是在怪异模式下渲染。
-					<br />2.在文档类型定义之前出现非空格和换行字符，浏览器也会激活怪异模式。
-					<br />3.除上述两种情况外，有一些特殊声明时用来特定激活怪异模式的。
-					<br />具体见下表，删减至只考虑中国市场常用浏览器（来自<a href="https://hsivonen.fi/doctype/">《Activating Browser Modes with Doctype》</a>）
-					<br /><a href="http://www.cnblogs.com/iruxu/p/html-doctype_and_box-model.html">参考资料</a>
-					<br /><b>标准模式与怪异模式下导致的和模型区别：</b>
-					<br />需要知道的是，盒模型差异是两种模式导致的最重要的区别之一，但是IE一些其他的BUG，即使是在标准模式下，仍然需要通过HACK解决，而并非处于标准模式下则没有BUG。
-					<br />Box model ：标准模式width=content，怪异模式width=content+padding+border
-					<br />例外：即使是标准模式下,button总是应用border-box,现代浏览器为了表现一致,默认添加了box-sizing:border-box属性，故在button的高度上仍然要考虑border而影响的高度,即设置height=height+border*2。
-					<br />另外，button在现代浏览器中总是表现为基于垂直对齐，在IE7~8中表现为顶部对齐，在IE6中表现为基线对齐，故需要设置vertical-align:middle初始化让所有表现一致。
-					<br /><a href="http://www.quirksmode.org/css/quirksmode.html">参考自《Quirks mode and strict mode》查阅更多区别</a>
-				</span></li>
-				<li><a href="">box-sizing</a>
-					<span>
-					<b>content-box</b>：padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding ) 此属性表现为标准模式下的盒模型。 
-					<br>
-					<b>border-box</b>：padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。 
-					</span>
-				</li>
-				<li><a href="">display</a>
-					<span>
-						完整参考资料：<a href="http://www.w3.org/TR/css-display/">W3C</a>
-						<br>当元素float,fixed,abosulte或者为根元素时,总是表现为块级元素(但并不会宽度占据100%,而是根据自己内容扩展,正确理解成inline-block?但又不完全是,由于float的性质为包裹)
-						<table border="1" cellspacing="0" cellpadding="2">
-							<tbody>
-							<tr>
-							<td valign="top">none</td>
-							<td valign="top">隐藏对象,不保留物理空间</td>
-							</tr>
-							<tr>
-							<td valign="top">inline</td>
-							<td valign="top">内联元素 a,span,文本格式化(b,strong,i,em,sub,sup)</td>
-							</tr>
-							<tr>
-							<td valign="top">block</td>
-							<td valign="top">块级元素 div,p,h1~h6,h5,form,ul,ol新元素</td>
-							</tr>
-							<tr>
-							<td valign="top">inline-block</td>
-							<td valign="top">img,表单控件(input,button,textarea,label)</td>
-							</tr>
-							<tr>
-							<td valign="top">list-item</td>
-							<td valign="top">列表项目li</td>
-							</tr>
-							<tr>
-							<td valign="top">table</td>
-							<td valign="top">块级元素级的表格table,表格内部元素表现为对应的table-cell等。
-							<br />table-caption | table-cell 
-							<br />table-row | table-row-group 
-							<br />table-u-column | table-u-column-group
-							<br />table-footer-group | table-header-group</td>
-							</tr>
-							<tr>
-							<td valign="top">inline-table</td>
-							<td valign="top">内联元素级的表格</td>
-							</tr>
-							<tr>
-							<td valign="top">flex</td>
-							<td valign="top">弹性伸缩盒</td>
-							</tr>
-							<tr>
-							<td valign="top">box</td>
-							<td valign="top">inline-box,块/内联块级弹性伸缩盒（旧）</td>
-							</tr>
-							<tr>
-							<td valign="top">flex</td>
-							<td valign="top">inline-flexbox,块/内联块级弹性伸缩盒（新）</td>
-							</tr>
-							<tr>
-							<td valign="top">run-in</td>
-							<td valign="top">根据上下文决定对象是内联对象还是块级对象</td>
-							</tr>
-							</tbody>
-						</table>
-					</span>
-				</li>
-				<li><a href="">zoom</a>
-					<span>设置或检索对象的缩放比例,normal实际尺寸,1.x浮点数,120%百分比.
-						<br />1.可局部用于响应式设计改变DOM尺寸，会有偏移错位（以像素起点对齐变换）
-						<br>2.可用于触发IE6的haslayout,拥有haslayout属性的层会自动管理其宽高,除非设置overflow否则宽高会自动扩展.
-						<br />现代浏览器会溢出显示,但自身宽高不变.
-					</span>
-				</li>
-				<li>
-					<a href="">(hasLayout)</a>
-					<span>
-						<a href="http://baike.baidu.com/view/2945869.htm?fr=aladdin">详细文档</a>
-						<br />触发haslayout的条件：
-						<br />IE6: 
-						<br />* display: inline-block
-						<br />* float: (left 或 right)
-						<br />* position: absolute
-						<br />* width: (任何值除了auto)
-						<br />* height: (任何值除了auto)
-						<br />* writing-mode: tb-rl
-						<br />* zoom: (除 normal 外任意值)
-						<br />IE7:（额外）
-						<br />* min-height: (任意值)
-						<br />* max-height: (除 none 外任意值)
-						<br />* min-width: (任意值)
-						<br />* max-width: (除 none 外任意值)
-						<br />* overflow: (除 visible 外任意值)
-						<br />* overflow-x: (除 visible 外任意值)
-						<br />* overflow-y: (除 visible 外任意值)
-						<br />* position: fixed
-					</span>
-				</li>
-				<li>
-					<a href="">(BFC)</a>
-					<span>
-						block fomatting context<a href="http://www.w3.org/TR/CSS21/visuren.html#block-formatting">详细文档</a>
-						<br>BFC会阻止垂直外边距（margin-top、margin-bottom）折叠
-						<br>BFC不会重叠浮动元素
-						<br>BFC可以包含浮动
-						<br>触发BFC条件
-						<br>* 根元素,fieldset
-						<br>* float的值不为none
-						<br>* overflow的值不为visible
-						<br>* display的值为inline-block、table-cell、table-caption、flex、inline-flex
-						<br>* position的值为absolute或fixed
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 尺寸</h4>
-			<ul>
-				<li><a href="">calc()</a><span>长度计算,width:calc(100% - 50px) <strong>中间必须有空格！</strong></span></li>
-				<li><a href="">width</a><span>宽度
-					<br />1.IE6 BUG:当元素设置百分比宽高时,自动继承父级,宽度由于block默认占比100%,即总是不会缺失,但若父级高度自适应,则IE6会继续向上级继承,而现代浏览器则继承当前父级内容实际产生的高度.
-					<br />2.IE6 BUG:1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a>
-					<br />3.子元素设置100%宽高时不包含父元素的padding!当父元素有padding时,因设置固定尺寸或修改父级模型!
-					<br />4.width:auto 现代浏览器中表示根据内容自动扩展,而IE6-7表示占满父级
-					<br />5.IE6-7对宽度的处理略有差异，特别是IE7下有许多离奇BUG，取百分比小数时，尽量只取到1位或取整
-				</span></li>
-				<li><a href="">height</a><span>高度
-					<br />1.如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%; <a href="http://www.cnblogs.com/clare-zhang/archive/2011/08/26/2154220.html">参考资料</a>
-					<br />2.对于绝对定位拉伸的元素，内部元素可以直接使用百分比
-					<br />3.IE6-7中浮动创建的自适应布局,需要主动给定父级高度，否则绝对定位的元素无法正常定位。
-					<br />4.<a href="http://www.zhangxinxu.com/wordpress/2015/02/different-height-100-height-inherit/">height:inherit</a>的用法(IE8+)
-					</span></li>
-				<li><a href="">min-width/height</a><span>最小宽高
-					<br />ie7-8支持,仅ie6不支持
-					<br />IE6触发haslayout时,总是会自动管理其内容的宽高,自适应增长
-					<br />故可以写成.test{min-height:200px;_height:200px;}
-					</span></li>
-				<li><a href="">max-width/height</a><span>最大宽高
-					<br />1.ie7-8支持,仅ie6不支持
-					</span></li>
-			</ul>
-			<h4>[<span>-</span>] 边框</h4>
-			<ul>
-				<li><a href="">border</a><span>[简写]border:1px solid #ccc;
-					<br />[0px height]元素的边框位置IE6 BUG！
-					<br /><b>当引入一个透明边框时,ie6+会增长内部空间至边框区域(背景色,不含内容),ie6显示黑色边框.</b>
-					<hr>border-width宽度：
-					<br>指定一个宽度,此宽度在双线时等于其间隔.
-					<hr>border-style样式：
-					<br>none：无轮廓（等价border-width:0）
-					<br>dotted：点状轮廓。IE6下显示为dashed效果
-					<br>dashed：虚线轮廓。
-					<br>solid：实线轮廓
-					<br>double：双线轮廓。两条单线与其间隔的和等于指定的border-width值
-					<br>groove：3D凹槽轮廓。
-					<br>ridge：3D凸槽轮廓。
-					<br>inset：3D凹边轮廓。
-					<br>outset：3D凸边轮廓。
-					<hr>border-color颜色：
-					<br>如果想在hover上做边框显示不发生抖动,应将默认状态添加如1px solid transparent
-					<br>三角制作：<a href="http://apps.eky.hk/css-triangle-generator/zh-hant">在线生成</a>（利用宽高0,设置1个夹角边框大值）
-					<br />arrow生成：<a href="http://cssarrowplease.com/">GO TO!</a>
-					<br /><img src="image/css/triangle.png" alt="" />
-					</span></li>
-				<li><a href="">border-top</a><span>
-					单边:border-top/border-bottom/border-left/border-right
-					<br>取消某一边:border:1px solid #ccc;border-bottom:none;
-					</span></li>
-				<li><a href="">border-width/color/style</a><span>
-					border-width/color/style:上 右 下 左;4个值
-				</span></li>
-				<li><a href="">border-radius</a>
-					<span>[边框圆角简写]border-radius:5px 4px 3px 2px;
-					<br>四个半径值分别是左上角、右上角、右下角和左下角,可以设置百分比.
-					<br />提供2个参数，2个参数以“/”分隔，每个参数允许设置1~4个参数值，第1个参数表示水平半径，第2个参数表示垂直半径，如第2个参数省略，则默认等于第1个参数（顺时针顺序）
-					<br />border-radius: 15px 5px 25px 5px / 3px 5px 10px 15px;
-					<br>改变形状：
-					<br>正方形->圆：radius=width|height/2
-					<br>叶子-> 左上+右下,注意书写方式与简写代表
-					<br>半圆->宽度设为高度的一半，并且也只设置左上角和左下角的半径
-					<br />饼->四分之一圆的实现方法是把高度和宽度设置为相等，只设置一个圆角，其半径等于高度或宽度
-					<br />用radius画形状<a href="http://www.xincss.com/?p=221">参考资料</a>
-					<br>在线生成：<a href="http://www.css3maker.com/border-radius.html">GO TO!</a>
-					<hr>
-					扩展:
-					<br>1.<a href="http://stackoverflow.com/questions/17464167/css-image-hover-inside-border-radius">chrome hover radius bug</a>
-					</span></li>
-				<li><a href="">border-top-left-radius</a><span>
-					单角圆角,注意书写格式,先写top/bottom后写left/right
-					<br>提供2个参数，2个参数以空格分隔，每个参数允许设置1个参数值，第1个参数表示水平半径，第2个参数表示垂直半径，如第2个参数省略，则默认等于第1个参数
-					<br />border-top-left-radius:5px 10px。不用“/”分割
-					</span></li>
-				<li><a href="">border-image</a>
-						<span>border-image:url(路径不需要引号) 80 80 80 80 round/stretch
-						<br>在线图片边框生成：<a href="http://iruxu.com/to-be-css/borderimage/index.htm">GO TO!</a>
-						<br /><a href="https://github.com/AlloyTeam/Mars/blob/master/solutions/border-1px.md">移动端1像素边框处理</a>
-						</span></li>
-				<li><a href="">outline</a><span>
-						轮廓边框,在border之外,chrome有焦点样式.另可作为定位参考或特殊动画
-						<br>不支持圆角
-						<br />不允许类似border属性那样能将自身拆分为border-top..
-						<br />IE6-7不支持,IE8支持
-						</span></li>
-				<li><a href="">outline-offset</a>
-						<span>用长度值来定义轮廓偏移。允许负值。
-						<br />0是以border边界作为参考点的，正值从border边界往外延，负值从border边界往里缩.
-						<br />可用outline来制作一些边框动画但又不改变原大小并非真正边框的改变(因为边框大小改变必然内容需要改变)</span></li>
-			</ul>
-			<h4>[<span>-</span>] 补白</h4>
-			<ul>
-				<li><a href="">padding</a>
-					<span>内部补白
-					<br>【设置】
-					<hr>[简写]依次设置上右下左padding:1px 2px 3px 4px;
-					<br>[单边]padding-top/right/bottom/left
-					<br>[缩写]如果只提供一个，将用于全部的四边;如果提供两个，第一个用于上、下，第二个用于左、右;如果提供三个，第一个用于上，第二个用于左、右，第三个用于下。 
-					<hr>【生效】
-					<br>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的内补丁；若要设置上、下两边的内补丁，必须先使该对象表现为块级或内联块级。即内联元素(a等)设置padding水平有效,垂直无效,除非转换display值。margin同理。
-					<hr>【注意】
-					<br />1.默认背景图片的平铺是包含在padding区域的
-					<br />2.padding生效在伪对象之外。
-					<br />3.%比值<b>水平（默认）书写模式下，参照其包含块 width 进行计算，其它情况参照包含块 height，margin同理</b><a href="http://www.ituring.com.cn/article/64581">参考资料</a>
-					<hr>【其它】
-					<br />1.IE7会胡乱继承padding,自适应宽高的地方必要应设置父级宽高并设置隐藏。<br>
-					2.当设置类似必须overflow但内部有元素偏移时，可用padding替代margin。
-					</span></li>
-			</ul>
-			<h4>[<span>-</span>] 边距</h4>
-			<ul>
-				<li><a href="">margin</a>(num/%/auto)<span>
-					取值：num / % /auto<br>
-					1.auto：当margin-left/right同时为auto时水平居中<br>
-					2.%百分比：水平（默认）书写模式下，参照其<b>包含块 width</b> 进行计算，其它情况参照 height。<br>
-					3.num：可以为负值
-					<hr>
-					margin负值：<br>
-					1.当元素不存在width属性或者（width：auto）的时候，负margin-left/right会增加元素的宽度。
-<pre><code data-language="html"><!-- 包裹层加宽应用实例 -->
-<div class="box">
-	<ul class="list">
-		<li class="item">item..</li>
-		<li class="item">item..</li>
-		<li class="item">item..</li>
-	</ul>
-</div>
-<style>
-.box{width:640px;height:200px;background-color:#0cf;overflow:hidden;}
-.list{margin-right:-20px;height:200px;background-color:#93f;list-style:none;}
-.item{width:200px;height:200px;margin-right:20px;float:left;background-color:#f39;}
-</style>
-</code></pre>
-					2.margin-bottom为负值不会产生位移，会减少自身的供css读取的高度。<br>
-<pre><code data-language="html"><!-- 配合一个空的占位块，可实现一个非fixed定位实现的内容固定底部效果 -->
-<div class="box">
-    text
-    <div class="foottmp"></div>
-</div>
-<div class="copyright">&copy; 2018 mgtv.com</div>
-<style>
-    html,body{height:100%;}
-    .box{min-height:100%;margin-bottom:-24px;}
-    .foottmp{height:24px;}
-    .copyright{font-size:12px;height:24px;line-height:24px;}
-</style>
-</code></pre>
-					3.margin负值发生位移后，会影响其后的文档流位置。
-<pre><code data-language="html"><!-- 左右固定，中间自适应（双飞翼） -->
-<div class="main">
-            <div class="main-content">main content</div>
-</div>
-<div class="left">left</div>
-<div class="right">right</div>
-<style>
-	*{
-        margin:0;
-        padding: 0
-    }
-    .main{
-        float: left;
-        width: 100%;
-
-    }
-    .main .main-content{
-        margin: 0 210px;
-        background-color: rgba(33, 114, 214, 0.8);
-        height: 500px
-    }
-    .left{
-        width: 200px;
-        float: left;
-        background-color: rgba(255, 82, 0, 0.8);
-        margin-left: -100%;
-        height: 200px
-
-    }
-    .right{
-        width: 200px;
-        height: 200px;
-        margin-left: -200px;
-        float: left;
-        background-color: rgba(90, 243, 151, 0.8);
-    }
-</style>
-</code></pre>
-					4.margin负值实现自动等高的多列布局。
-<pre><code data-language="html"><!-- 自动等高多列布局 -->
-<div class="box">
-	<ul class="list">
-		<li class="item1 item">item..</li>
-		<li class="item2 item">item..</li>
-		<li class="item3 item">item..</li>
-	</ul>
-</div>
-<style>
-.list{overflow:hidden;}
-.item{margin-bottom:-5000px;padding-bottom:5000px;}
-.item1{height:100px;float:left;width:100px;background-color:#f39;}
-.item2{height:200px;float:left;width:100px;background-color:#f39;}
-.item3{height:300px;float:left;width:100px;background-color:#f39;}
-</style>
-</code></pre>
-
-					<a href="http://www.jianshu.com/p/549aaa5fabaa">参考资料</a>
-				</span></li>
-				<li><a href="">margin-left/right</a><span>
-					1.IE6/7双倍margin
+				<li><a href="">float</a><span>
+					<a href="http://www.zhangxinxu.com/wordpress/?p=583">浮动详解</a> <a href="http://www.imooc.com/view/121">视频版</a>
+					<br>【特性】：
+					<br>1.浮动内置设置：设置了float的元素则自动转换display为block.只有块级元素具有宽高等特性.
+					<br>2.浮动原理1.环绕特性本质，2.脱离文本流特性
+					<br>3.与非浮动元素的margin问题：如果浮动并未被闭合处理，下级非浮动元素默认还是以“环绕”浮动元素，其margin会作用在空的区域，此时应在浮动元素上设置margin
+					<br>【浮动闭合与BFC】 <a href="http://www.cnblogs.com/dolphinX/p/3508869.html">参考文档</a>
+					<br>1.清除浮动解决方案：
+					<br>.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
+					<br>.clearfix:after {content:"";display:table;clear:both;}
+					<br>.clearfix { *zoom:1; }
+					<br><a href="http://www.w3cfuns.com/article-1287-1.html">完整参考资料</a>
+					<br>2.BFC条件：
+					<br>float为 left|right
+					<br>overflow为 hidden|auto|scroll
+					<br>display为 table-cell|table-caption|inline-block
+					<br>position为 absolute|fixed
+					<br>【IE BUG】
+					<br>1:IE6 双倍margin BUG
 					<br>对块状容器元素设置了float和与float相同方向的margin值就会出现双倍margin
-					<br>解决方法：设置BUG元素display:inline;
-					<br>由于当元素float的时候，display样式的值就会自动转换为“block”，无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
+					<br>解决方法：设置BUG元素：display:inline;
+					<br>由于当元素float的时候，display样式的值就会自动转换为“block”,无论display先前设置的属性是什么都会失去效果，不会影响块级特性。
+					<br>2.IE6下3像素bug：
+					<br>当浮动元素与非浮动元素相邻时,会发生3像素间隙,可设置浮动元素_margin-right:-3px;或使非浮动元素浮动.
+					<br><a href="http://pewper.blog.163.com/blog/static/2970860820126261195866/">详细参考资料</a>
+					<br>中间列自适应布局方案:左右各浮动（层级需要都在不浮动之前！），需要解决3px bug
+					<br>3.IE6-7浮动自适应布局
+					<br>IE6-7中浮动创建的自适应布局,需要主动给定父级高度，否则绝对定位的元素无法正常定位。
 				</span></li>
-				<li><a href="">margin-top/bottom</a><span>
-					1.内联元素垂直无效<br>
-					非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的外补丁；若要设置上、下两边的外补丁，必须先使该对象表现为块级或内联块级。<br>
-					2.外边距合并 <a href="http://www.w3school.com.cn/css/css_margin_u-collapsing.asp">参考文档</a><br>
-					当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。<br>
-					当一个元素包含在另一个元素中时【假设没有内边距或边框把外边距分隔开】，它们的上和/或下外边距也会发生合并。<br>
-					假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并
-					如果这个外边距遇到另一个元素的外边距，它还会发生合并。<br>
-					3.不发生margin合并的情况
-					<br>margin折叠只发生在块级元素上，且只发生在垂直上 
-					<br>浮动元素的margin不与任何margin发生折叠；
-					<br>绝对定位元素的margin不与任何margin发生折叠； 
-					<br>设置了display:inline-block的元素不发生折叠； 
-					<br>设置了属性overflow且值不为visible的块级元素，将不与它的子元素发生margin折叠； 
-					<br>根元素的margin不与其它任何margin发生折叠,指html而非body
-					<br>IE6-7中,如果父元素触发了haslayout,则不会发生折叠
-					<!-- IE6bug：<br>
-					当上一个元素为绝对定位元素,IE6~7下margin-top会失效，根据情况设置padding或自身也设置为绝对定位 -->
-				</span></li>
+				<li><a href="">clear</a><span>清除浮动：none,left,right,both
+					<br />清除浮动只影响自己，而不影响其他元素；
+					<br />对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
+					<br /><a href="http://www.dabaoku.com/jiaocheng/wangye/css/2013040918035.shtml">参考资料1</a>
+					<br /><a href="http://www.zhangxinxu.com/wordpress/2014/06/understand-css-clear-left-right-and-use/">参考资料2</a>
+					</span></li>
 			</ul>
-			<h4>[<span>-</span>] 溢出</h4>
+			<h4>[<span>-</span>] 定位</h4>
 			<ul>
-				<li><a href="">visibility</a><span>			
-					此属性为隐藏的对象保留其占据的物理空间如果希望对象为可视，其父对象也必须是可视的。 
-					<br>visible： 设置对象可视 
-					<br>hidden： 设置对象隐藏 
-					<br>collapse： 主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。对于表格外的其他对象，其作用等同于hidden。
-					<hr>使得一个DOM元素不显示在浏览器可视范围内的方法：
-					<br />display:none
-					<br />visibility:hidden
-					<br />width:0;height:0;opacity:0;z-index:-1000
+				<li><a href="">position:static</a><span>对象遵循常规流</span></li>
+				<li><a href="">position:relative</a><span>
+					相对定位：对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素
+					<br>1.相对定位不同于margin-left/top,不会改变原先文档流,html后者层级默认仍然比前者高
+					<br>2.相对定位可设置z-index改变层级
+					</span></li>
+				<li><a href="">position:absolute</a><span>绝对定位：<a href="http://www.imooc.com/learn/192">【参考资料】</a>
+					<br />特征：
+					<br>1.对象脱离常规流,会在正常文档流之上,也可以通过z-index改为负值在正常流之下
+					<br>2.使用top，right，bottom，left等属性进行绝对定位，坐标总是以最近的被定位的父级元素为基准,如没有则以window窗口.
+					<br>3.盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。
+					<br>4.当元素设置为绝对定位时,则该元素变为inline-block块级.（不再占据100%）
+					<br>特殊用法：
+					<br>1.(未定义坐标)：绝对定位的元素，在top，right，bottom，left属性未设置时，会紧随在其前面的兄弟元素之后，但在位置上不影响常规流中的任何元素。如无兄弟元素则贴在父元素起点。<b>即绝对定位在不赋值位置属性时，可作为脱离文档流的相对定位。</b>
+					<br />无依赖的绝对定位主要通过margin来实现位移.
+					<br />可配合text-align+&nbsp；实现一些自动布局。
+					<br />关于跟随性,默认会跟在图片的顶端,由于200B baseline对齐会错位,可通过注释或串联来规避
+					<br>2.(未知/已知元素尺寸)：垂直/水平/双向居中,可设置绝对定位,并设置top+bottom:0 / left+right:0 / top+left+bottom+right:0,并设置对应方向margin:auto【IE8支持，6-7均不支持】
+					<br>3.(已知元素尺寸)：垂直/水平/双向居中,可设置绝对定位,并设置单向距离(left:50% / top:50%),并设置margin-left/top:-尺寸的一半.【IE6支持】
+					<br>4.(自适应宽高)：一个绝对定位元素,如未对其宽高进行设置,但对其对向方位值设置时,则认为宽高总是扩展值定位点.可利用作为自适应宽高.【IE8支持，6-7均不支持】
+					<br>BUG：
+					<br />1.IE6中,父元素区域会管理到内部包含的绝对定位元素范围.
+					</span></li>
+				<li><a href="">position:fixed</a><span>窗口定位：
+					<br>对象脱离常规流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。
+					<br>HACK：
+					<br>IE6不支持fixed定位，通过CSS表达式解决，<a href="http://www.cnblogs.com/hooray/archive/2011/05/20/2052269.html">完整参考资料</a>
+					<br>平板下的fixed有Bug，使用绝对定位代替。
 				</span></li>
-				<li><a href="">overflow</a><span>溢出
-					<br>使overflow生效需要指定尺寸!而非自适应尺寸
-					<br>visible： 对溢出内容不做处理，内容可能会超出容器。 
-					<br>hidden： 隐藏溢出容器的内容且不出现滚动条。 
-					<br>scroll： 隐藏溢出容器的内容，溢出的内容将以卷动滚动条的方式呈现。 
-					<br>auto： 当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。此为body对象和textarea的默认值。
-					<br>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。
-					<br>扩展：
-					<br><a href="http://iruxu.com/fixbug/ie78scroll">IE78scroll无法用滚轮滚动bug</a>
-					<br>当内含一个100%的元素时，外层设置overflow来与一个浮动元素水平衔接。
+				<li><a href="">top/bottom/left/right</a>
+					<span>配合定位属性进行定位,可为负值. <br>
+					值可以为百分比，百分比的值是以自身尺寸为参照。
 					</span></li>
-				<li><a href="">overflow-x</a><span>横向溢出处理</span></li>
-				<li><a href="">overflow-y</a><span>纵向溢出处理
-					<br />对html元素设置overflow:hidden;可隐藏浏览器滚动条,通过js设置让body,html滚动</span>
-				</li>
-				<li><a href="">clip</a>
-					<span>剪裁,【绝对定位元素】.
-					<br>auto：不剪裁
-					<br>rect(50px 20px 10px auto)：上右下左，四个偏移数值，其中任一数值都可用auto替换，即此边不剪切。
-					<br><a href="http://css.doyoe.com/properties/positioning/clip.htm">更多说明</a> 
-					<br>只有为shape时才支持动画性,可做遮罩动画效果
-					</span></li>
-				<li><a href="">webkit-mask-image</a>url(img)<span>
-					<a href="http://www.w3cplus.com/css3/css-masking.html">webkit-mask-image:url(img.png)</a>
+				<li><a href="">z-index</a><span>Z轴设定,可以为负值.
+					<br>同一个层叠上下文中，层叠级别相同的两个元素，依据它们在HTML文档流中的顺序，写在后面的将会覆盖前面的。 
+					<br>不同层叠上下文中，元素的显示顺序依据祖先的层叠级别来决定，与自身的层叠级别无关。 
+					<br>在IE浏览器中，定位元素的z-index层级是相对于各自的父级容器，所以会导致z-index出现错误的表现。解决方法是给其父级元素定义z-index，有些情况下还需要定义position:relative。
+					<br><a href="http://css.doyoe.com/properties/positioning/z-index.htm">实例参考</a>
 				</span></li>
 			</ul>
-			<h4>[<span>+</span>] 方案</h4>
+			<h4>[<span>-</span>] 列表</h4>
+			<ul>
+				<li>display:<a href="">inline-block</a><span>
+					1.IE6-7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；
+					<br>解决方案：
+					<br>div{display:inline-block;*display:inline;*zoom:1;}
+					<br />2.默认inline-block元素之间默认会有间隔,是由于html元素间200B空格导致的(根据上下文字体大小有差异),可以通过连接html元素,或注释,或分行,及其他方式去掉.(浮动亦可,但浮动无法制作横向布局)
+					<br /><a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">详细参考资料</a>
+					<br />3.禁止换行还需要设置white-space:nowrap制作横向滚动效果.
+				</span></li>
+				<li><a href="">ul/li</a>
+					<span>
+						1.用ul+li打造table效果时,可以自适应宽度换行,边框设置的方式,设置全框,负margin,可规避padding及屏幕尺寸变化问题.<br>
+						2.IE6下ul默认表现为block，浮动后依旧占据100%，即使父级浮动，需要自身表现为dbi或fl（设置为dbi如果没有压缩html会出现空格），即用到ul,li来构造布局时，注意给ul,li添加浮动hack。<br>
+						3.在ul,li布局时，如非标准结构，在IE67中可能会解析错误导致bug，当非标准结构时建议使用div替代ul,li。<br>
+						4.ul表现为dbi在部分原生IE8中可能有渲染bug，添加margin强制渲染占据宽度。
+					</span>
+				</li>
+				<li><a href="">list-style</a><span>[简写] img position type,无序列表ul,有序列表ol,自定义列表dl
+						<br>可以用列表来进行布局,清除列表样式ul设置list-style:none,ul{padding:0,margin:0}
+						<br>如标记为图片时一般用背景图来替代
+						</span></li>
+				<li><a href="">list-style-type</a>
+						<span>仅作用于具有display值等于list-item的对象（如li对象）,如修改display值后不再显示(设置为块或其他特性均消失标记).
+						<br>注意：ol,ul,dl对象的type特性为其后的所有列表项目（如li对象）指明列表属性。
+						<br>此样式也可应用于counter计数器样式
+						<table>
+						<tbody>
+						<tr>
+						<th>值</th>
+						<th>描述</th>
+						</tr>
+						<tr>
+						<td>none</td>
+						<td>无标记。</td>
+						</tr>
+						<tr>
+						<td>disc（默认）</td>
+						<td>实心圆。</td>
+						</tr>
+						<tr>
+						<td>circle</td>
+						<td>空心圆。</td>
+						</tr>
+						<tr>
+						<td>square</td>
+						<td>实心方块。</td>
+						</tr>
+						<tr>
+						<td>decimal</td>
+						<td>数字。( 1,2,3…… )</td>
+						</tr>
+						<tr>
+						<td>decimal-leading-zero</td>
+						<td>0开头的数字标记。( 01,02,03…… )</td>
+						</tr>
+						<tr>
+						<td>lower-roman</td>
+						<td>小写罗马数字(i, ii, iii, iv, v, 等。)</td>
+						</tr>
+						<tr>
+						<td>upper-roman</td>
+						<td>大写罗马数字(I, II, III, IV, V, 等。)</td>
+						</tr>
+						<tr>
+						<td>lower-alpha</td>
+						<td>小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)</td>
+						</tr>
+						<tr>
+						<td>upper-alpha</td>
+						<td>大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)</td>
+						</tr>
+						<tr>
+						<td>lower-greek</td>
+						<td>小写希腊字母(alpha, beta, gamma, 等。)</td>
+						</tr>
+						<tr>
+						<td>lower-latin</td>
+						<td>小写拉丁字母(a, b, c, d, e, 等。)</td>
+						</tr>
+						<tr>
+						<td>upper-latin</td>
+						<td>大写拉丁字母(A, B, C, D, E, 等。)</td>
+						</tr>
+						<tr>
+						<td>hebrew</td>
+						<td>传统的希伯来编号方式</td>
+						</tr>
+						<tr>
+						<td>armenian</td>
+						<td>传统的亚美尼亚编号方式</td>
+						</tr>
+						<tr>
+						<td>georgian</td>
+						<td>传统的乔治亚编号方式(an, ban, gan, 等。)</td>
+						</tr>
+						<tr>
+						<td>cjk-ideographic</td>
+						<td>简单的表意数字</td>
+						</tr>
+						<tr>
+						<td>hiragana</td>
+						<td>标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）</td>
+						</tr>
+						<tr>
+						<td>katakana</td>
+						<td>标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）</td>
+						</tr>
+						<tr>
+						<td>hiragana-iroha</td>
+						<td>标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）</td>
+						</tr>
+						<tr>
+						<td>katakana-iroha</td>
+						<td>标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）</td>
+						</tr>
+						</tbody>
+						</table>
+							
+						</span></li>
+				<li><a href="">list-style-image</a>
+						<span>list-style-image:url(img.png) 
+						<br>定位位置上会有问题.以文字中线开始显示图片.
+						<br>并且也只当li依旧为list-item特性时才有效.
+						<br>一般使用背景图来制作列表背景.</span></li>
+				<li><a href="">list-style-position</a><span>
+						<strong>指标记的内外方式,而非(图片)标记坐标位置</strong>
+						<br><b>outside</b>：列表项目标记放置在文本以外，且环绕文本不根据标记对齐（默认值）
+						<br>1.当type在outside时,如RESET样式中设置ul的padding:0,则会看不到type图标(无论li是否设置padding);如设置ul的padding(例如)小于20,则type图标将会溢出在ul之外.
+						<br>2.如设置li的padding-left,则标记位置不更改,而标记与内容之间拉开间距
+						<br>3.如设置li的margin-left,则margin继承到标记之外,标记与父级拉开间距
+						<hr><b>inside</b>：列表项目标记放置在文本以内，且环绕文本根据标记对齐。<a href="http://css.doyoe.com/properties/list/list-style-position.htm">[查看演示]</a>
+						<br>1.当type在inside时,type会和文字一起距离浏览器默认padding缩进,设置padding:0时,则会贴边显示.
+						<br>2.设置li的padding-left和margin-left视觉表现都为标记之外与父级拉开间距
+						</span></li>
+			</ul>
+			<h4>[<span>-</span>] 表格</h4>
+			<ul>
+				<li>display:<a href="">table-cell</a><span>
+					特点：
+					<br />1.table-cell有类似inline-block的可并行性
+					<br />2.表格单元格宽度根据内容扩展，自行设置无效。
+					<br />3.表格单元格同行元素总是等高。
+					<br />注意：
+					<br />1.IE8+有效
+					<br />2.设置了display:table-cell的元素对宽度高度敏感，【对margin值无反应】，响应padding属性
+					<br />3.display:table-cell与float:left或是position:absolute属性不同时使用
+					<br />作用：
+					<br />1.可以通过设置vertical-align:middle内容垂直居中
+					<br />2.可用于宽度自适应布局，因为单元格本质宽度即由内容宽度决定。注意设置vertical-align:top
+					<br />hack处理display:table-cell; width:2000px;*width:auto;*zoom:1;
+					<br />3.可用于等高布局，即使不设置高度也会与同行元素等高。
+					<br />hack处理display:table-cell; width:30%; margin-bottom:-100px; *padding-bottom:110px;*float:left;
+					<br /><a href="http://www.zhangxinxu.com/wordpress/2010/10/%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E7%A7%8Ddisplaytable-cell%E7%9A%84%E5%BA%94%E7%94%A8/">参考资料</a>
+					<br />4.自适应.cell{display:table-cell;*display:inline-block;} //table-cell content + auto side*2
+					<br />5.td中让元素垂直居中对齐，是对元素img设置y而非父级 ，文字则设置父级
+					</span></li>
+				<li>
+					<a href="">table</a>
+					<span>
+						1.表格中插div会脱离表格在外<br />
+						2.表格中对合并后 或tr 表现为block,会只有第一个单元格宽度,可直接应用arrow,tr的显示应用table-row而非block<br />
+						3.垂直th添加scope="col"
+					</span>
+				</li>
+				<li><a href="">table-layout</a><span>
+					适用于：table系元素。
+					<br>auto:默认的自动算法。布局将基于各单元格的内容，换言之，可能你给某个单元格定义宽度为100px，但结果可能并不是100px。表格在每一单元格读取计算之后才会显示出来，速度很慢
+					<br>fixed：固定布局的算法。在这算法中，水平布局是仅仅基于表格的宽度，表格边框的宽度，单元格间距，列的宽度，而和表格内容无关。也就是说，内容可能被裁切
+					<br /><a href="http://www.zhangxinxu.com/wordpress/2014/04/%E8%87%AA%E9%80%82%E5%BA%94%E8%A1%A8%E6%A0%BC-%E5%AD%97%E7%AC%A6%E6%8D%A2%E8%A1%8C-%E6%BA%A2%E5%87%BA%E7%82%B9%E7%82%B9%E7%82%B9-table-text-overflow-ellipsis-word-wrap-break-all/">关于text-overflow在单元格中的失效</a>
+				</span></li>
+				<li><a href="">border-collapse</a><span>
+						separate：边框独立
+						<br>collapse：相邻边被合并
+						<br>只有当表格边框独立（即border-u-collapse属性等于separate时），border-spacing和empty-cells才起作用。
+				</span></li>
+				<li><a href="">border-spacing</a><span>
+					该属性作用等同于标签属性cellspacing(单元格边距)。border-spacing:0等同于cellspacing="0"
+					<br>如果提供全部两个length值时，第一个作用于横向间距，第二个作用于纵向间距。
+					<br>如果只提供一个length值时，这个值将作用于横向和纵向上的间距。
+					<br>*一般将此值与表格内标签属性cellpadding,cellspacing均设为0,通过CSS边距来控制.
+				</span></li>
+				<li><a href="">caption-side</a><span>
+					top：指定caption在表格上边（默认）
+					<br>bottom：指定caption在表格下边
+					<br>要在IE7及以下浏览器中实现top与bottom参数值的效果，可直接在caption标签内定义标签属性valign为top和bottom。
+				</span></li>
+				<li><a href="">empty-cells</a>
+					<span>show：指定当表格的单元格无内容时，显示该单元格的边框。（默认）
+					<br>hide：指定当表格的单元格无内容时，隐藏该单元格的边框。
+					<br>IE7及以下浏览器中默认隐藏无内容的单元格边框，要想使其获得与show参数值相同的效果，可以变相给该空单元格加个占位且不可见的元素，例如全角空格或\&nbsp;等等。
+					</span></li>
+			</ul>
+			<h4>[<span>-</span>] 表单</h4>
+			<ul>
+				<li>
+					form<a href=""></a>
+					<span>
+						<b>text</b><br>
+						1.Chrome、IE、Firefox、Opera各有不同默认的padding和边框。<br>
+						2.IE中,不会因为行高而撑开高度<br />
+						3.所有浏览器均为content-box计算模式. <br>
+						4.IE6-7中,对input设置text-indent会整个缩进,应设为padding<br />
+						5.IE6-7中,过高行高字体显示异常,可能只有一半,则单独设置同字号行高与高度,添加专有padding。<br>
+						故重置text为：重定义padding,重定义边框样式,同时定义等值高度与行高。
+						<hr>
+						<b>button</b><br>
+						1.Chrome、IE、Firefox、Opera各有不同默认的padding和边框。<br />
+						2.所有浏览器中,未定义高度时会受行高撑开高度<br />
+						3.Edge与IE8-中,为content-box计算模式,其他浏览器为border-box模式,但指定box-sizing将不会对IE8-生效。<br>
+						故重置button为：重定义padding,重定义边框样式,同时修改为content-box模式,可定义等值高度与行高,且设置ie7-的行高为normal。
+						<hr>
+						<b>select</b><br>
+						1.各浏览器边框边距以及option的边距略有不同。<br>
+						2.默认所有浏览器均为border-box模式。<br>
+						3.仅firefox在未定义高度时会受行高撑开高度<br />
+						4.右侧padding在IE中会出现在下拉按钮以外。<br>
+						故重置select为：重定义padding,且不设置右侧padding,重定义边框样式,定义高度等于行高+padding+边框。
+						<hr>
+						<b>radio/checkbox</b><br>
+						1.firefox无法修改其尺寸，opera无法修改复选框尺寸。<br>
+						2.单复选框的对齐问题,可用vertical-algin解决。<a href="http://www.zhangxinxu.com/wordpress/?p=56">参考资料</a>
+					</span>
+				</li>
+				<li>
+                    <a href="">:placeholder</a>
+                    <span>占位提示字符
+                    <pre><code data-language="css">
+                    &:-moz-placeholder
+                    &:-ms-input-placeholder
+                    &::-webkit-input-placeholder
+                    //可定义文字样式：颜色、字号、对齐方式、字体等
+                    </code></pre>
+                    </span>
+                </li>
+                <!-- <li><a href="http://blog.163.com/liyali1855@126/blog/static/36910271201110422617984/">-moz-focus-inner</a><span>火狐表单控件居中</span></li>
+                <li><a href="http://www.qianduan.net/search-box-style-custom-webkit.html">-webkit-search</a><span>webkit搜索默认样式</span></li> -->
+			</ul>
+			<h4>[<span>+</span>] 其它</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">p/div</a>
+					<span>
+						充分利用p,h1-h6等标签进行语义化.<b>但不要在p中放置h1-h6,结构出错。</b>
+					</span>
+				</li>
+				<li>
+					<a href="">h1-h6</a>
+					<span>
+						在H内部直接放置浮动右元素，IE7会换行，改用position定位
+					</span>
+				</li>
+				<li>
+					<a href="">a</a>
+					<span>
+						1.IE10-对于a与同级元素，空的a调整层级或顺序仍然无法点击，需要将a包裹其他元素<br>
+						2.在平板中a标签中包含:hover触发改变display:none/block的元素，旧平板无法点击，将display切换改为透明度更改并可能需要修改ie78的filter值<br>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>布局II<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 多列</h4>
+			<ul>
+				<li><a href="">columns</a>(Npx [M])
+						<span>多列,简写时注意加<strong>s</strong>,简写中只含宽度(带单位,不能百分比)和列数.Chrome需要前缀-webkit-
+						<br>应用于除table外的非替换块级元素，display:table-cell 元素, 内联块元素。
+						<br>实现多列的是里面的内容,而非自身.
+						<br>简写方式一：设置width,column:200px 3（固定3列200宽。）
+						<br>简写方式二：column:200px （自动根据父级宽度生成X列）
+						<br>同时指定2个值时，优先先按列数来分配宽.例如浏览器宽度1800px,指定3列200px宽,结果为分配为3列600px宽,忽略200宽指定值;如果指定宽度200px,未指定列数,则按宽度自动平分为9列
+						<br>参考资料：<a href="http://wenku.baidu.com/view/76a20b60011ca300a6c3909d.html">替换/非替换块级/内联元素</a></span></li>
+				<li><a href="">column-width</a>(Npx)<span>列宽</span></li>
+				<li><a href="">column-count</a>(N)<span>列数</span></li>
+				<li><a href="">column-gap</a>(Npx)<span>列间隔</span></li>
+				<li><a href="">column-rule</a>(1px solid #ccc)<span>列间隔边框 1px solid #ccc <br>column-rule-style等同于border样式</span></li>
+				<li><a href="">column-span</a>(N/all)<span>列横跨,适用于：除浮动和绝对定位之外的块级元素
+						<br>是否横跨全部,all和none,不可设置数值非表格,此属性应设置在被应用多列属性的子元素上,多列无继承性,对于不想被继承多列的元素应写在多列父元素之外,而非去设置多列横跨.</span></li>
+			</ul>
+			<h4>[<span>+</span>] Flex</h4>
 			<ul style="display:none">
-				<li><a href="">水平居中</a><span>
-					1.自动margin(固定尺寸, .x(auto) )
-					<br>只适用于水平切为块级元素,margin:0 auto;
-					<br>2.text-align:center( 适用于inline/inline-block, .x )
-					<br>现代浏览器只对inline/inline-block元素有效,且非绝对定位.IE6-7可对block元素有效(需指定尺寸)
-					<br>3.绝对定位( 已知元素尺寸,ct(x,@width) )
-					<br>设置绝对定位,left:50%,并设置margin-left:-尺寸的一半
-					<br>4.绝对定位( 未知元素尺寸,.ct(x) )
-					<br>设置绝对定位,并设置left:0;right:0;margin-left:auto;margin-right:auto; 【IE6不支持】
-					<br>5.自动margin(伸缩尺寸,margin:x)
-					<br>设置margin:value 对边相等margin值,对盒子宽高未设置则自动扩展宽高
+				<li>flex<a href=""></a>
+					<span>
+						<a href="http://www.w3cplus.com/css3/a-visual-guide-to-css3-flexbox-properties.html">教程</a> | 
+						<a href="http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html">兼容旧版box教程</a>
+						<br><a href="http://demo.agektmr.com/flexbox/">在线调试flexbox布局效果</a>
+						<br>display:flex/inline-flex;
+						<br>注意：
+						<br>所有column-*属性在flex容器上都不生效;flex容器上不能使用::first-line和::first-letter伪元素。
+						<br>float，clear和vertical-align属性应用在flex项目上将会无效和无法将其out-of-flow。
+					</span>
+				</li>
+				<li>item <a href="">flex</a>
+					<span>
+						这个属性是flex-grow、flex-shrink和flex-basis属性的简写。<br>
+						如果缩写「flex: 1」, 则其计算值为「1 1 0%」<br>
+						如果缩写「flex: auto」, 则其计算值为「1 1 auto」<br>
+						如果「flex: none」, 则其计算值为「0 0 auto」<br>
+						如果「flex: 0 auto」或者「flex: initial」, 则其计算值为「0 1 auto」，即「flex」初始值
+					</span>
+				</li>
+				<li>item <a href="">flex-grow</a>
+					<span>剩余空间的扩展比例,默认值0。
+					<br>flex-grow的默认值为0，如果没有显示定义该属性，是不会拥有分配剩余空间权利的。</span>
+				</li>
+				<li>item <a href="">flex-shrink</a>
+					<span>剩余空间的收缩比例,默认1。
+					<br>默认情况之下，所有flex项目都可以收缩，但如果将它们设置为0时，他们不会缩小会保持原来的大小。</span>
+				</li>
+				<li>item <a href="">flex-basis</a>
+					<span>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</span>
+				</li>
+				<li>item <a href="">order</a>
+					<span>用整数值来定义排列顺序，数值小的排在前面。可以为负值，默认值0。</span>
+				</li>
+				<li>item <a href="">align-self</a><span>指定flex项目自身的对齐方式或者使用align-items来指定单个flex项目。
+					<br>auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。
+					<br>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+					<br>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+					<br>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+					<br>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+					<br>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
 				</span></li>
-				<li><a href="">垂直居中</a><span>
-					1.绝对定位( 已知元素尺寸,ct(y,@height) )
-					<br>设置绝对定位,top:50%,并设置margin-top:-尺寸的一半
-					<br>2.绝对定位( 未知元素尺寸,.ct(y) )
-					<br>设置绝对定位,并设置top:0;bottom:0;margin-top:auto;margin-top:auto; 【IE6不支持】
-					<br>3.table-cell
-					<br>设置display:table-cell;vertical-align:middle;（子元素为inline或inline-block） 【IE6不支持】
-					<br />4.display:-webkit-box;-webkit-box-align:center;(手机端<a href="http://css.doyoe.com/properties/flexible-box/box-align.htm"></a>)
+				<li>box <a href="">flex-direction</a>
+					<span>该属性设置在flex元素上，非flex项目上。
+						<br>row：横向从左到右排列（左对齐），默认的排列方式。
+						<br>row-reverse：反转横向排列（右对齐，从后往前排，最后一项排在最前面。
+						<br>column：纵向排列。
+						<br>row-reverse：反转纵向排列，从后往前排，最后一项排在最上面。
+						<br>注意：row和row-reverse依赖其写作模式，如果在rtl上下文方式下，他们都将分别被逆转。
+					</span>
+				</li>
+				<li>box <a href="">flex-wrap</a>
+					<span>nowrap：flex容器为单行。该情况下flex子项可能会溢出容器
+					<br>wrap：flex容器为多行。该情况下flex子项溢出的部分会被放置到新行，子项内部会发生断行
+					<br>wrap-reverse：反转 wrap 排列。</span>
+				</li>
+				<li>box <a href="">flex-flow</a><span>
+					这个属性是flex-direction和flex-wrap属性的简写，默认值：row nowrap。
 				</span></li>
-				<li><a href="">中央居中</a><span>
-					1.绝对定位( 已知元素尺寸,ct(o,@width,@height) )
-					<br>设置绝对定位,top:50%,left:50%,并设置margin-top:-尺寸的一半,margin-left:-尺寸的一半
-					<br>2.绝对定位( 未知元素尺寸,.ct )
-					<br>设置绝对定位,并设置top:0;bottom:0;left:0;right:0;margin:auto; 【IE6不支持】
-					<br>3.自动margin(伸缩尺寸,margin:x)
-					<br>设置margin:value 对边相等margin值,对盒子宽高未设置则自动扩展宽高
+				<li>box <a href="">justify-content</a><span>
+					水平方向项目的分布方式。
 				</span></li>
-				<li><a href="">尺寸兼容</a><span>
-					1.hasLayout概念,ie6的自动管理,如不设置overflow总是自动扩展
-					<br />2.当元素设置百分比宽高时,自动继承父级,宽度由于block默认占比100%,即总是不会缺失,但若父级高度自适应,则IE6会继续向上级继承,而现代浏览器则继承当前父级内容实际产生的高度.
-					<br />3.IE6的1像素BUG,尽量设置尺寸为偶数或不设置<a href="http://www.yuzi.me/Share/ie6qishubug.html">参考资料</a>
-					<br />4.IE6-7对百分比小数值例如33.33%解析不正确,因修正为*width:32%
+				<li>box <a href="">align-items</a><span>
+					垂直方向单行项目的分布方式。<br>
+					flex-start：
+					弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。<br>
+					flex-end：
+					弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。<br>
+					center：
+					弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。<br>
+					baseline：
+					如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。<br>
+					stretch：
+					如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
 				</span></li>
-				<li><a href="">% + border</a><span>百分比尺寸下border的处理
-					<br />1.margin:-2px（hover处理则增加双倍）
-					<br />2.box-sizing
-					<br />3.calc函数 ~"calc(100% - 50px)"
-					<br />4.table布局,width=100%-50(无单位)
+				<li>box <a href="">align-content</a><span>
+					垂直方向多行项目的分布方式。
 				</span></li>
-				<li><a href="">自适应宽度</a><span>自适应宽度
-					<br />1.margin:x val,由于默认block宽度占满100%,设置margin即占满剩余宽度【如side float则需要清除3px bug,可选择绝对定位】
-					<br />2.绝对定位,不设置宽高,left:x起始点,right:x结束点.margin:auto.【IE6不兼容】如为相对浏览器窗口可表达式计算
-					<br />3.calc函数 ~"calc(100% - 50px)"
-					<br />4.table-cell,根据内容扩展,占满剩余父级空间
-					<br />5.改table布局,使用width=100%-50(无单位)
+			</ul>
+			<h4>[<span>+</span>] Grid</h4>
+			<ul style="display:none">
+				<li>grid<a href=""></a>
+					<span>
+					<a href="https://css-tricks.com/snippets/css/complete-guide-grid/">教程</a>
+					<br>display: grid | inline-grid | subgrid;
+					<br>注意：
+					<br>grid盒子上column,float,clear,vertical-align都没有效果。
+					</span>
+				</li>
+				<li>box <a href="">grid-template-columns</a>
+					<span>grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+					<br>grid-template-columns: repeat(3, 20px [col-start]) 5%;
+					<br>grid-template-columns: 1fr 1fr 1fr;
+					</span>
+				</li>
+				<li>box <a href="">grid-template-rows</a>
+					<span>grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];</span>
+				</li>
+				<li>box <a href="">grid-template-areas</a>
+					<span>
+						grid-template-areas: "&lt;grid-area-name&gt; | . | none | ..."
+                       <br>"..."
+					</span>
+				</li>
+				<li>box <a href="">grid-column-gap</a>
+					<span>grid-column-gap: 10px;</span>
+				</li>
+				<li>box <a href="">grid-row-gap</a>
+					<span>grid-row-gap: 15px;</span>
+				</li>
+				<li>box <a href="">grid-gap</a>
+					<span>grid-gap: &lt;grid-column-gap&gt; &lt;grid-row-gap&gt;;</span>
+				</li>
+				<li>box <a href="">justify-items</a>
+					<span>水平方向网格内容的对齐方式。
+					<br>justify-items: start | end | center | stretch;</span>
+				</li>
+				<li>box <a href="">align-items</a>
+					<span>垂直方向网格内容的对齐方式。
+					<br>align-items: start | end | center | stretch;</span>
+				</li>
+				<li>box <a href="">justify-content</a>
+					<span>水平方向网格的分布方式。
+					<br>justify-content: start | end | center | stretch | space-around | space-between | space-evenly;</span>
+				</li>
+				<li>box <a href="">align-content</a>
+					<span>垂直方向网格的分布方式。
+					<br>align-content: start | end | center | stretch | space-around | space-between | space-evenly;</span>
+				</li>
+				<li>box <a href="">grid-auto-columns</a>
+					<span>定义隐式自动创建的网格大小
+					<br>grid-template-columns: 60px 60px;</span>
+				</li>
+				<li>box <a href="">grid-auto-rows</a>
+					<span>定义隐式自动创建的网格大小
+					<br>grid-template-rows: 90px 90px</span>
+				</li>
+				<li>box <a href="">grid-auto-flow</a>
+					<span>定义隐式自动创建的网格大小
+					<br>grid-auto-flow: row | column | row dense | column dense</span>
+				</li>
+				<li>box <a href="">grid</a>
+					<span>
+					<pre><code data-language="css">
+					grid: 200px auto / 1fr auto 1fr;
+
+                    grid-template-rows: 200px auto;
+                    grid-template-columns: 1fr auto 1fr;
+                    grid-template-areas: none;
+                    </code></pre>
+					</span>
+				</li>
+				<li>item <a href="">grid-column-start</a>
+					<span></span>
+				</li>
+				<li>item <a href="">grid-column-end</a>
+					<span></span>
+				</li>
+				<li>item <a href="">grid-row-start</a>
+					<span></span>
+				</li>
+				<li>item <a href="">grid-row-end</a>
+					<span></span>
+				</li>
+				<li>item <a href="">grid-column</a>
+					<span></span>
+				</li>
+				<li>item <a href="">grid-row</a>
+					<span></span>
+				</li>
+				<li>item <a href="">grid-area</a>
+					<span></span>
+				</li>
+				<li>item <a href="">justify-self</a>
+					<span></span>
+				</li>
+				<li>item <a href="">align-self</a>
+					<span></span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>] Box</h4>
+			<ul style="display:none">
+				<li><a href="">display:-webkit-box</a><span>旧手机浏览器<br><a href="http://www.w3cplus.com/css3/css3-flexbox-cheat-sheet.html">兼容处理</a></span></li>
+				<li><a href="">-webkit-box-orient</a><span>设置或检索伸缩盒对象的子元素的排列方式。
+					<br>horizontal：设置伸缩盒对象的子元素从左到右水平排列
+					<br>vertical：设置伸缩盒对象的子元素从上到下纵向排列
+					<br>inline-axis：设置伸缩盒对象的子元素沿行轴排列
+					<br>block-axis：设置伸缩盒对象的子元素沿块轴排列
 				</span></li>
-				<li><a href="">自适应高度</a><span>自适应高度
-					<br />1.绝对定位,不设置宽高,top:x起始点,bottom:x结束点.margin:auto.【IE6不兼容】如为相对浏览器窗口可表达式计算
-					<br />2.calc函数 ~"calc(100% - 50px)"
-					<br />3.改table布局,使用height=100%-50(无单位)
+				<li><a href="">-webkit-box-pack</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
+					<br>start：设置伸缩盒对象的子元素从开始位置对齐（大部分情况等同于左对齐，受）
+					<br>center：设置伸缩盒对象的子元素居中对齐
+					<br>end：设置伸缩盒对象的子元素从结束位置对齐（大部分情况等同于右对齐）
+					<br>justify：设置或伸缩盒对象的子元素两端对齐</span></li>
+				<li><a href="">-webkit-box-align</a><span>设置或检索伸缩盒对象的子元素的对齐方式。
+					<br>start：设置伸缩盒对象的子元素从开始位置对齐
+					<br>center：设置伸缩盒对象的子元素居中对齐
+					<br>end：设置伸缩盒对象的子元素从结束位置对齐
+					<br>baseline：设置伸缩盒对象的子元素基线对齐
+					<br>stretch：设置伸缩盒对象的子元素自适应父元素尺寸</span></li>
+				<li><a href="">-webkit-box-flex</a><span>使用浮点数指定对象所分配其父元素剩余空间的比例。
 				</span></li>
-				<li><a href="">水平布局</a><span>水平布局方案
-					<br />1.float
-					<br />2.inline-block,需设置vertical-align:top,去除inline-block的200B空格.【IE6中要使不断行还必须指定父级高度！】
-					<br />3.table-cell(总是等高最高的)【IE6不支持】
-					<hr />
-					<br />float:错乱,换行不低于上行最高值,不等高
-					<br />inline-block:不会错乱,新行整齐,不等高
-					<br />table-cell:不会错乱,同行元素必定等高
-				</span></li>
+				<li><a href="">-webkit-box-flex-group</a><span>用整数值来定义伸缩盒对象的子元素所在的组。</span></li>
+				<li><a href="">-webkit-box-ordinal-group</a><span>用整数值来定义伸缩盒对象的子元素显示顺序。</span></li>
+				<li><a href="">-webkit-box-direction</a><span>设置或检索伸缩盒对象的子元素的排列顺序是否反转。normal | reverse</span></li>
+				<li><a href="">-webkit-box-lines</a><span>设置或检索伸缩盒对象的子元素是否可以换行显示。single | multiple</span></li>
 			</ul>
 		</div>
 	</div>
