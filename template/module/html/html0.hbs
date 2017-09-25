@@ -2,41 +2,48 @@
     <div class="u-block">
         <h3>Meta<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>]Common</h4>
+            <h4>[<span>-</span>]Info</h4>
             <ul>
+                <li><a href="http://www.css88.com/archives/8052" target="_blank"></a>more</li>
                 <li><a href="">!doctype html</a><span>
                     HTML5 
-                    <br /><input type="text" value="<!doctype html>" style="width:380px">
+                    <br /><input type="text" value="<!doctype html>">
                     <br />HTML4无框架
-                    <br /><textarea name="" id="" cols="60" rows="4"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></textarea>
+                    <br /><textarea name="" id=""><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></textarea>
                     <br />HTML4有框架
-                    <br /><textarea name="" id="" cols="60" rows="4"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"></textarea>
+                    <br /><textarea name="" id=""><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"></textarea>
                 </span></li>
-                <li><a href="">html</a><span>根元素
-                <br />语言 lang="zh-CN"
-                <br />缓存 manifest="demo.appcache"
+                <li><a href="">lang</a><span>
+                    简体中文 html lang="zh-cmn-Hans"<br />
+                    繁体中文 html lang="zh-cmn-Hant"<br />
+                    <a href="http://zhi.hu/XyIa" target="_blank">参考资料</a>
                 </span></li>
-                <li><a href="">head</a><span>头部信息</span></li>
-                <li><a href="">body</a><span>内容区域</span></li>
-                <li><a href="">注释</a><span><input type="text" style="width:380px" value='<!--注释-->'/></span></li>
-            </ul>
-            <h4>[<span>-</span>]Meta</h4>
-            <ul>
-                <li><a href="http://zhi.hu/XyIa">lang</a>
-                        <span>简体中文 html lang="zh-cmn-Hans"
-                        <br />繁体中文 html lang="zh-cmn-Hant"</span></li>
                 <li><a href="">title</a><span>标题</span></li>
                 <li><a href="">charset</a><span>
                     HTML5
-                    <br /><input type="text" style="width:380px" value='<meta charset="utf-8">'/>
+                    <br /><input type="text" value='<meta charset="utf-8">'/>
                     <br />HTML4
-                    <br /><input type="text" style="width:380px" value='<meta http-equiv="content-type" content="text/html; charset=utf-8">'/>
+                    <br /><input type="text" value='<meta http-equiv="content-type" content="text/html; charset=utf-8">'/>
                 </span></li>
                 <li><a href="">base</a>
                     <span>定义页面中所有链接的默认地址或默认目标。
                     <br />注释：如果使用了base标签，则必须具备 href 属性或者 target 属性或者两个属性都具备。</span></li>
+            </ul>
+            <h4>[<span>-</span>]Name</h4>
+            <ul>
+                <li><a href=""></a>(SEO)<span>
+                    <table>
+                        <tr><th>name</th><th>content</th></tr>
+                        <tr><td>author</td><td>作者</td></tr>
+                        <tr><td>description</td><td>描述</td></tr>
+                        <tr><td>keywords</td><td>关键词</td></tr>
+                        <tr><td>generator</td><td>创建者/程序</td></tr>
+                        <tr><td>copyright</td><td>版权信息</td></tr>
+                        <tr><td>revised</td><td>页面的最新版本 (  David, 2008/8/8/  )</td></tr>
+                    </table>
+                </span></li>
                 <li><a href="">viewport</a>
-                        <span><input type="text" style="width:380px" value='<meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui"/>'/>
+                        <span><input type="text" value='<meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui"/>'/>
                         <br />width viewport 宽度(数值/device-width)
                         <br />height viewport 高度(数值/device-height)
                         <br />initial-scale 初始缩放比例
@@ -45,107 +52,56 @@
                         <br /><a href="http://bigc.at/ios-webapp-viewport-meta.orz">user-scalable 是否允许用户缩放(yes/no)</a>
                         <br />minimal-ui 在页面加载时最小化上下状态栏(iOS7.1)
                         </span></li>
+                <li><a href="">robots</a><span>
+                    <input type="text" value='<meta name="robots" content="index,follow">'/>
+                    <all></all>
+                    设定为all：文件将被检索，且页面上的链接可以被查询； <br />
+                    设定为none：文件将不被检索，且页面上的链接不可以被查询； <br />
+                    设定为index：文件将被检索； <br />
+                    设定为follow：页面上的链接可以被查询； <br />
+                    设定为noindex：文件将不被检索，但页面上的链接可以被查询； <br />
+                    设定为nofollow：文件将不被检索，页面上的链接可以被查询。<br />
+                    <a href="https://msdn.microsoft.com/zh-cn/library/ff724037(v=expression.40).aspx" target="_blank">参考资料</a>
+                </span></li>
+                <li><a href="">google</a><span>
+                    <pre><code data-language="html"><meta name="googlebot" content="index,follow"></code></pre>
+                    设置搜索引擎的检索，仅对google有效
+                    <pre><code data-language="html"><meta name="google" content="nositelinkssearchbox"></code></pre>
+                    告诉 Google 不显示网站链接的搜索框
+                    <pre><code data-language="html"><meta name="google" content="notranslate"></code></pre>
+                    告诉 Google 不提供此页面的翻译<br />
+                    <a href="https://support.google.com/webmasters/answer/79812?hl=zh-Hans" target="_blank">参考资料</a>
+                </span></li>
+            </ul>
+            <h4>[<span>-</span>]http-equiv</h4>
+            <ul>
                 <li><a href="">X-UA-Compatible</a><span>
-                    <textarea name="" id="" cols="60" rows="10">
-                        强制使用IE最高版本及谷歌内核
+                    <pre><code data-language="html">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-                        360安全浏览器默认使用极速模式渲染
+                        //强制使用IE最高版本及谷歌内核
+
                         <meta name="renderer" content="webkit">
-                    </textarea>
+                        //360安全浏览器默认使用极速模式渲染
+                    </code></pre>
                     <br /><a href="http://se.360.cn/v6/help/meta.html">360浏览器内核控制 Meta 标签说明文档</a></span></li>
                 <li><a href="">Cache-Control</a><span>不允许百度转码 
                         <br />旧写法：
-                        <br /><input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-transform"/>'/>
+                        <br /><input type="text" value='<meta http-equiv="Cache-Control" content="no-transform"/>'/>
                         <br />新写法：
-                        <br /><input type="text" style="width:380px" value='<meta http-equiv="Cache-Control" content="no-siteapp"/>'/>
-                        <br /><a href="http://m.baidu.com/pub/help.php?pn=22&ssid=0&from=844b&bd_page_type=1">参考资料</a>
+                        <br /><input type="text"  value='<meta http-equiv="Cache-Control" content="no-siteapp"/>'/>
                         </span></li>
-                <li><a href="">name</a>(SEO)<span>
-                    <table border="1" cellspacing="0" cellpadding="2">
-                    <tbody>
-                    <tr>
-                    <td rowspan="1" colspan="1" valign="top"><strong>name</strong></td>
-                    <td rowspan="1" colspan="1" valign="top">
-                    <ul>
-                        <li>author</li>
-                        <li><strong>description</strong></li>
-                        <li><strong>keywords</strong></li>
-                        <li>generator</li>
-                        <li>copyright</li>
-                        <li>revised</li>
-                        <li><strong>Robots</strong></li>
-                    </ul>
-                    </td>
-                    <td rowspan="1" colspan="1" valign="top">content</td>
-                    <td rowspan="1" colspan="1" valign="top">
-                    <ul>
-                        <li>作者</li>
-                        <li>描述</li>
-                        <li>关键词</li>
-                        <li>创建者/程序</li>
-                        <li>版权信息</li>
-                        <li>页面的最新版本 (  David, 2008/8/8/  )</li>
-                        <li>all|none|index|noindex|follow|nofollow</li>
-                        <li>设定为all：文件将被检索，且页面上的链接可以被查询；
-                        <br />设定为none：文件将不被检索，且页面上的链接不可以被查询；
-                        <br />设定为index：文件将被检索；
-                        <br />设定为follow：页面上的链接可以被查询；
-                        <br />设定为noindex：文件将不被检索，但页面上的链接可以被查询；
-                        <br />设定为nofollow：文件将不被检索，页面上的链接可以被查询。
-                        <br /><a href="http://msdn.microsoft.com/zh-cn/library/ff724037(v=expression.40).aspx">参考资料</a></li>
-                    </ul>
-                    </td>
-                    </tr>
-                    </tbody>
-                    </table>
-                </span></li>
-                <li><a href="">http-equiv</a><span>
-                    <table  border="1" cellspacing="0" cellpadding="2">
-                    <tbody>
-                    <tr>
-                    <td rowspan="1" colspan="1" valign="top"><strong>http-equiv</strong></td>
-                    <td rowspan="1" colspan="1" valign="top">
-                    <ul>
-                        <li>content-type</li>
-                        <li>content-language</li>
-                        <li>expires</li>
-                        <li><strong>pragma<br clear="none" /></strong></li>
-                        <li>set-cookie</li>
-                        <li>pics-label<strong><br clear="none" /></strong></li>
-                        <li>MSThemeCompatible</li>
-                    </ul>
-                    </td>
-                    <td rowspan="1" colspan="1" valign="top">          content</td>
-                    <td rowspan="1" colspan="1" valign="top">
-                    <ul>
-                        <li>&lt;meta http-equiv="Content-Type" contect="text/html";charset=gb_2312-80"&gt;</li>
-                        <li>&lt;meta http-equiv="Content-Language" contect="zh-CN"&gt;</li>
-                        <li>&lt;meta http-equiv="Expires" contect="Mon,12 May 2001 00:20:00 GMT"&gt; 网页到期时间</li>
-                        <li>&lt;meta http-equiv="Pragma" contect="no-cache"&gt; 禁止缓存和脱机浏览</li>
-                        <li>&lt;meta http-equiv="set-cookie" contect="Mon,12 May 2001 00:20:00 GMT"&gt; Cookie过期自动删除</li>
-                        <li>&lt;meta http-equiv="Pics-label" contect=""&gt; IE网页评级</li>
-                        <li>&lt;Meta http-equiv="MSThemeCompatible" Content="Yes"&gt; 是否在IE中关闭 xp 的主题</li>
-                        <li>注意：关闭 xp 的蓝色立体按钮系统显示样式，从而和win2k 很象。</li>
-                    </ul>
-                    </td>
-                    </tr>
-                    </tbody>
-                    </table>
-                </span></li>
                 <li><a href="">refresh</a><span>
-                    <input type="text" style="width:380px" value='<meta http-equiv="Refresh" contect="n;url=http://yourlink">'/>
+                    <input type="text" value='<meta http-equiv="Refresh" content="n;url=http://yourlink">'/>
                     <br />定时让网页在指定的时间n内，跳转到页面http://yourlink；
                 </span></li>
                 <li><a href="">windows-target</a><span>
-                    <input type="text" style="width:380px" value='<meta http-equiv="windows-Target" contect="_top">'/>
+                    <input type="text" value='<meta http-equiv="windows-Target" content="_top">'/>
                     <br />强制页面在当前窗口中以独立页面显示，可以防止自己的网页被别人当作一个frame页调用
                 </span></li>
                 <li><a href="">Page-Enter</a><span>
-                    <ul>
-                    <li><strong>&lt;meta http-equiv="Page-Enter" content="revealTrans(duration=5.0,transition=20)"&gt;</strong></li>
-                    <li><strong>Duration持续时间</strong>（单位：秒）</li>
-                    <li><strong>Transition滤镜类型</strong>。表示使用哪种特效，取值为0-23:</li>
-                    </ul>
+                    <input type="text" value='<meta http-equiv="Page-Enter" content="revealTrans(duration=5.0,transition=20)">'/>
+                    <strong>Duration持续时间</strong>（单位：秒）<br />
+                    <strong>Transition滤镜类型</strong>。表示使用哪种特效，取值为0-23: <br />
                     <table border="1" cellspacing="0" cellpadding="2">
                     <tbody>
                     <tr>
@@ -183,150 +139,153 @@
                     </tbody>
                     </table>
                 </span></li>
+                <li><a href="">expires</a><span>
+                    <input type="text" value='<meta http-equiv="Expires" content="Mon,12 May 2001 00:20:00 GMT">'/>
+                    网页到期时间
+                </span></li>
+                <li><a href="">pragma</a><span>
+                    <input type="text" value='<meta http-equiv="Pragma" content="no-cache">'/>
+                    禁止缓存和脱机浏览
+                </span></li>
+                <li><a href="">set-cookie</a><span>
+                    <input type="text" value='<meta http-equiv="set-cookie" content="Mon,12 May 2001 00:20:00 GMT">'/>
+                    Cookie过期自动删除
+                </span></li>
+                <li><a href="">pics-label</a><span>
+                    <input type="text" value='<meta http-equiv="Pics-label" content="">'/>
+                    IE网页评级
+                </span></li>
+                <li><a href="">Content-Security-Policy</a><span>
+                    <pre><code data-language="html"><meta http-equiv="Content-Security-Policy" content="default-src 'self'"></code></pre>
+                    对外部资源加载的限制（允许控制从哪里加载资源）<br />
+                    <a href="http://www.ruanyifeng.com/blog/2016/09/csp.html" target="_blank">参考资料</a>
+                </span></li>
+                <li><a href="">x-dns-prefetch-control</a><span>
+                    <pre><code data-language="html"><meta http-equiv="x-dns-prefetch-control" content="off"></code></pre>
+                    通过设置为 “off” 完全退出 DNS 预取
+                    <pre><code data-language="html"><link rel="dns-prefetch" href="//www.spreadfirefox.com"></code></pre>
+                    强制查询特定主机名
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching" target="_blank">参考资料</a>
+                </span></li>
             </ul>
             <h4>[<span>-</span>]Link</h4>
             <ul>
-                <li><a href="">dns-prefetch</a><span>提前域名解析<input type="text" style="width:380px" value='<link rel="dns-prefetch" href="//www.domain1.com">'/></span></li>
-                <li><a href="">style</a><span>可配合条件注释或指定media媒体查询引入样式表<br />
-                <input type="text" style="width:380px" value='<link rel="stylesheet" href="" type="text/css" media="screen"/>'/></span></li>
-                <li><a href="https://github.com/audreyr/favicon-cheat-sheet">favicon</a>
-                    <span>小ICON图标<input type="text" style="width:380px" value='<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />'/></span></li>
-                <li><a href="">RSS订阅</a><span>RSS订阅input
-                <br /><input type="text" style="width:380px" value='<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />'/>
+                <li><a href="">stylesheet</a><span>
+                    可配合条件注释或指定media媒体查询引入样式表<br />
+                    <pre><code data-language="html"><link rel="stylesheet" href=""></code></pre>
+                    </span></li>
+                <li><a href="">icon</a><span>
+                    小ICON图标
+                    <pre><code data-language="html"><link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"></code></pre>
+                    <a href="https://github.com/audreyr/favicon-cheat-sheet" target="_blank">参考资料1</a> | <a href="https://bitsofco.de/all-about-favicons-and-touch-icons/" target="_blank">参考资料2</a>
+                    </span></li>
+                <li><a href="">dns-prefetch</a><span>
+                    提前域名解析
+                    <pre><code data-language="html"><link rel="dns-prefetch" href="//www.domain1.com"></code></pre>
+                    <a href="http://www.css88.com/archives/8052" target="_blank">参考资料1</a> | <a href="https://css-tricks.com/prefetching-preloading-prebrowsing/" target="_blank">参考资料2</a>
+                </span></li>
+                <li><a href="">canonical</a><span>
+                    <pre><code data-language="html"><link rel="canonical" href="https://example.com/2010/06/9-things-to-do-before-entering-social-media.html"></code></pre>有助于防止出现内容重复的问题 <br />
+                    <a href="http://justcoding.iteye.com/blog/1329874" target="_blank">参考资料</a>
                 </span></li>
             </ul>
             <h4>[<span>-</span>]Script</h4>
             <ul>
-                <li><a href="">script</a><span>也可以写在body区域或底部,推荐放在底部加载<br />
-                        <input type="text" style="width:380px" value='<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>'/><br />
+                <li><a href="">script</a><span>
+                        也可以写在body区域或底部,推荐放在底部加载<br />
+                        <pre><code data-language="html"><script src="--"></script></code></pre>
                         defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】 
                         </span></li>
-                <li><a href="">noscript</a><span>禁用脚本提示</span></li>
-                <li><a href="">IE9-支持HTML5</a>
-                        <span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
+                <li><a href="">noscript</a><span>
+                        禁用脚本提示
+                        </span></li>
+                <li><a href="">IE9-</a><span>
+                    IE9-支持HTML5
+                    <pre><code data-language="html"><!--[if lt IE 9]>
                         <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-                        <![endif]-->
-                        </textarea></span></li>
-                <li><a href="">IE9-支持媒体查询</a>
-                        <span><textarea name="" id="" cols="60" rows="10"><!--[if lt IE 9]>
+                        <![endif]--></code></pre>
+                    IE9-支持媒体查询
+                    <pre><code data-language="html"><!--[if lt IE 9]>
                         <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
-                        <![endif]-->
-                        </textarea></span></li>
-                <li><a href="http://modernizr.com/">modernizr</a></li>
-                <li><a href="http://selectivizr.com/">IE9-支持CSS3选择器</a></li>
+                        <![endif]--></code></pre>
+                    <a href="http://selectivizr.com/" target="_blank">IE9-支持CSS3选择器</a><br />
+                    <a href="http://modernizr.com/" target="_blank">modernizr</a>
+                </span></li>
             </ul>
-            <h4>[<span>-</span>]Win8/WinPhone</h4>
-            <ul>
+            <h4>[<span>+</span>]Windows</h4>
+            <ul style="display:none;">
                 <li><a href="">msapplication-TileColor</a><span>
-                    Windows 8 磁贴颜色<br />
-                    <textarea name="" id="" cols="60" rows="10">
-                        <meta name="msapplication-TileColor" content="#000"/>
-                    </textarea></span></li>
+                    Windows磁贴颜色
+                    <pre><code data-language="html"><meta name="msapplication-TileColor" content="#000"/></code></pre>
+                    </span></li>
                 <li><a href="">msapplication-TileImage</a><span>
-                    Windows 8 磁贴图标<br />
-                    <textarea name="" id="" cols="60" rows="10">
-                        <meta name="msapplication-TileImage" content="icon.png"/
-                    </textarea>
+                    Windows磁贴图标
+                    <pre><code data-language="html"><meta name="msapplication-TileImage" content="icon.png"/></code></pre>
                 </span></li>
                 <li><a href="">msapplication-tap-highlight</a><span>
-                    windows phone 点击无高光<br />
-                    <textarea name="" id="" cols="60" rows="10">
-                        <meta name="msapplication-tap-highlight" content="no">
-                    </textarea>
+                    windows phone 点击无高光
+                    <pre><code data-language="html"><meta name="msapplication-tap-highlight" content="no"></code></pre>
                 </span></li>
-                <li><a href="http://blog.csdn.net/freshlover/article/details/25322839">window8</a></li>
+                <li><a href="http://blog.csdn.net/freshlover/article/details/25322839" target="_blank"></a>more</li>
             </ul>
-            <h4>[<span>-</span>]iOS</h4>
-            <ul>
+            <h4>[<span>+</span>]iOS</h4>
+            <ul style="display:none;">
                 <li><a href="">apple-mobile-web-app-capable</a><span>
-                    启用 WebApp 全屏模式<br />
-                    <textarea name="" id="" cols="60" rows="12">
-                        <meta name="apple-mobile-web-app-capable" content="yes" />
-                    </textarea>
+                    启用 WebApp 全屏模式
+                    <pre><code data-language="html">
+                    <meta name="apple-mobile-web-app-capable" content="yes" />
+                    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+                    <meta name="apple-mobile-web-app-title" content="应用标题"/>
+                    </code></pre>
                 </span></li>
                 <li><a href="">format-detection</a><span>
-                    禁止识别电话号码/邮件<br />
-                    <textarea name="" id="" cols="60" rows="12">
-                        <meta name="format-detection" content="telphone=no, email=no" />
-                    </textarea>
+                    禁止识别电话号码/邮件
+                    <pre><code data-language="html"><meta name="format-detection" content="telphone=no, email=no" /></code></pre>
                 </span></li>
-                <li><a href="">apple-mobile-web-app-title</a><span>
-                    添加到主屏后的标题（iOS 6 新增）<br />
-                    <textarea name="" id="" cols="60" rows="12">
-                        <meta name="apple-mobile-web-app-title" content="标题">
-                    </textarea>
+                <li><a href="">apple-itunes-app</a><span>
+                    <pre><code data-language="html">
+                    <!-- 智能应用 Banner -->
+                    <meta name="apple-itunes-app" content="app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT"/>
+                    <!-- iOS 应用深层链接 -->
+                    <meta name="apple-itunes-app" content="app-id=APP-ID, app-argument=http/url-sample.com"/>
+                    <link rel="alternate" href="ios-app://APP-ID/http/url-sample.com"/>
+                    </code></pre>
                 </span></li>
-                <li><a href="">apple-touch-icon-precomposed</a><span>
-                    iOS图标,rel 参数： 
-                    <br />apple-touch-icon 图片自动处理成圆角和高光等效果。 
-                    <br />apple-touch-icon-precomposed 禁止系统自动添加效果，直接显示设计原图。 
-                    <br />iPhone 和 iTouch，默认 57x57 像素，必须有.
-                    <br /><textarea name="" id="" cols="60" rows="20">
-                        默认 57x57 像素，必须有
-                        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png" /> 
-                        iPad，72x72 像素，可以没有，但推荐有
-                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png" /> 
-                        Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有
-                        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png" />
-                        Retina iPad，144x144 像素，可以没有，但推荐有
-                        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png" /> 
-                        IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段
-                        <link rel="apple-touch-icon-precomposed" sizes="180x180" href="retinahd_icon.png">
-                    </textarea>
+                <li><a href="">apple-touch-icon</a><span>
+                    触摸图标，大多数情况下一个180*180即可
+                    <pre><code data-language="html"><link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png"/></code></pre>
                 </span></li>
-                <li><a href="">apple-touch-startup-image</a><span>
-                    iOS 启动画面,<a href="https://developer.apple.com/library/ios/qa/qa1686/_index.html">官方文档</a> <br />
-                    iPad 的启动画面是不包括状态栏区域的。<br />
-                    <textarea name="" id="" cols="60" rows="20">
-                        iPad 竖屏 768 x 1004（标准分辨率）
-                        <link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png" /> 
-                        iPad 竖屏 1536x2008（Retina）
-                        <link rel="apple-touch-startup-image" sizes="1536x2008" href="/splash-screen-1536x2008.png" /> 
-                        iPad 横屏 1024x748（标准分辨率）
-                        <link rel="apple-touch-startup-image" sizes="1024x748" href="/Default-Portrait-1024x748.png" /> 
-                        iPad 横屏 2048x1496（Retina）
-                        <link rel="apple-touch-startup-image" sizes="2048x1496" href="/splash-screen-2048x1496.png" />
-                    </textarea>
-                    iPhone 和 iPod touch 的启动画面是包含状态栏区域的。<br />
-                    <textarea name="" id="" cols="60" rows="20">
-                        iPhone/iPod Touch 竖屏 320x480 (标准分辨率)
-                        <link rel="apple-touch-startup-image" href="/splash-screen-320x480.png" /> 
-                        iPhone/iPod Touch 竖屏 640x960 (Retina)
-                        <link rel="apple-touch-startup-image" sizes="640x960" href="/splash-screen-640x960.png" /> 
-                        iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina)
-                        <link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png" /> 
-                        添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
-                        <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
-                        iPhone 6对应的图片大小是750×1294，iPhone 6 Plus 对应的是1242×2148 。
-                        <link rel="apple-touch-startup-image" href="launch6.png" media="(device-width: 375px)">
-                        <link rel="apple-touch-startup-image" href="launch6plus.png" media="(device-width: 414px)">
-                    </textarea>
-                </span></li>
-                <li><a href="http://www.uisdc.com/ios8-ten-new-feature">iOS8</a></li>
             </ul>
-            <h4>[<span>-</span>]Mobile</h4>
-            <ul>
-                <li><a href="">UC</a><span>
-                    <textarea name="" id="" cols="60" rows="12">
-                        UC强制竖屏
-                        <meta name="screen-orientation" content="portrait">
-                        UC强制全屏
-                        <meta name="full-screen" content="yes">
-                        UC应用模式
-                        <meta name="browsermode" content="application">
-                    </textarea>
+            <h4>[<span>+</span>]Other</h4>
+            <ul style="display:none;">
+                <li><a href=""></a>UC Browser<span>
+                    <pre><code data-language="html">
+                    <!-- 在指定方向上锁定屏幕（锁定横/竖屏） -->
+                    <meta name="screen-orientation" content="landscape/portrait"/>
+                    <!-- 全屏显示此页面 -->
+                    <meta name="full-screen" content="yes"/>
+                    <!-- 即使在“文本模式”下，UC 浏览器也会显示图片 -->
+                    <meta name="imagemode" content="force"/>
+                    <!-- 页面将以“应用模式”显示（全屏、禁止手势等） -->
+                    <meta name="browsermode" content="application"/>
+                    <!-- 在此页面禁用 UC 浏览器的“夜间模式” -->
+                    <meta name="nightmode" content="disable"/>
+                    <!-- 简化页面，减少数据传输 -->
+                    <meta name="layoutmode" content="fitscreen"/>
+                    <!-- 禁用的 UC 浏览器的功能，“当此页面中有较多文本时缩放字体” -->
+                    <meta name="wap-font-scale" content="no"/>
+                    </code></pre>   
                 </span></li>
-                <li><a href="">QQ</a><span>
-                    <textarea name="" id="" cols="60" rows="12">
-                        QQ强制竖屏
-                        <meta name="x5-orientation" content="portrait">
-                        QQ强制全屏
-                        <meta name="x5-fullscreen" content="true">
-                        QQ应用模式
-                        <meta name="x5-page-mode" content="app">
-                    </textarea>
+                <li><a href=""></a>QQ Browser<span>
+                    <pre><code data-language="html">
+                    <!-- 在指定方向上锁定屏幕（锁定横/竖屏） -->
+                    <meta name="x5-orientation" content="landscape/portrait"/>
+                    <!-- 全屏显示此页面 -->
+                    <meta name="x5-fullscreen" content="true"/>
+                    <!-- 页面将以“应用模式”显示（全屏等）-->
+                    <meta name="x5-page-mode" content="app"/>
+                    </code></pre>   
                 </span></li>
-                <li><a href="http://code.lancepollard.com/complete-list-of-html-meta-tags/">other</a></li>
             </ul>
         </div>
     </div>
