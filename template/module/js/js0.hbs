@@ -1,256 +1,134 @@
+<!-- 基本语法、标准库 -->
 <div class="u-col">
     <div class="u-block">
-		<h3>语法<span>-</span></h3>
+		<h3>基本语法<span>-</span></h3>
 		<div class="u-list">
 			<h4>[<span>-</span>]基础</h4>
 			<ul>
-				<li><a href="">全局变量</a><span>
-					x1 = 1;<br />
-					var x2 = 2;<br />
-					window.x3 = 3;<br />
-					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a>
+				<li><a href="">变量</a>
+					<span>
+						x1 = 1;<br />
+						var x2 = 2;<br />
+						window.x3 = 3;<br />
+						<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a>
+						<hr>
+					</span>
+				</li>
+				<li><a href="">字符串</a><span>
+					多行字符串表示法：<br>
+					ES5：'string1 \n' + 'string2' <br>
+					ES6：`string1 <br>string2` <hr>
+					模板字符串：<br>
+					var v_1 = 'string' ;
+					var v_2 = 2;
+					var msg = `test,${v_1},${v_2}` <hr>
+					需要特别注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果。
 				</span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-			</ul>					
-			<h4>[<span>-</span>]其他</h4>
-			<ul>
-				<li><a href="">Global Functions</a><span>
-						<div>
-							<div>全局函数
-							<table>
+				<li><a href="">对象</a><span>
+					访问属性是通过.操作符完成的，但这要求属性名必须是一个有效的变量名。<br>
+					如果属性名包含特殊字符，就必须用''括起来，且用[]来访问；<br>
+					变量的属性需要用[]访问。<hr>
+					检测xiaoming是否拥有某一属性，可以用in操作符。<br>
+					如果in判断一个属性存在，这个属性不一定是自身原有的，它可能是继承得到的。<br>
+					要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。
+				</span></li>
+				<li><a href="">语句</a>
+					<span>
+						<table>
 							<tbody>
-							<tr>
-							<th align="left" width="32%">函数</th>
-							<th align="left" width="68%">描述</th>
-							</tr>
-							<tr>
-							<td>decodeURI()</td>
-							<td>解码某个编码的 URI。</td>
-							</tr>
-							<tr>
-							<td>decodeURIComponent()</td>
-							<td>解码一个编码的 URI 组件。</td>
-							</tr>
-							<tr>
-							<td>encodeURI()</td>
-							<td>把字符串编码为 URI。</td>
-							</tr>
-							<tr>
-							<td>encodeURIComponent()</td>
-							<td>把字符串编码为 URI 组件。</td>
-							</tr>
-							<tr>
-							<td>escape()</td>
-							<td>对字符串进行编码。</td>
-							</tr>
-							<tr>
-							<td>unescape()</td>
-							<td>对由 escape() 编码的字符串进行解码。</td>
-							</tr>
-							<tr>
-							<td>isFinite()</td>
-							<td>检查某个值是否为有穷大的数。</td>
-							</tr>
-							<tr>
-							<td>isNaN()</td>
-							<td>检查某个值是否是数字。</td>
-							</tr>
-							<tr>
-							<td>Number()</td>
-							<td>把对象的值转换为数字。</td>
-							</tr>
-							<tr>
-							<td>parseFloat()</td>
-							<td>解析一个字符串并返回一个浮点数。</td>
-							</tr>
-							<tr>
-							<td>parseInt()</td>
-							<td>解析一个字符串并返回一个整数。</td>
-							</tr>
-							<tr>
-							<td>String()</td>
-							<td>把对象的值转换为字符串。
-							.toString / valueOf除undefined,null</td>
-							</tr>
-							<tr>
-							<td>eval()</td>
-							<td>计算 JavaScript 字符串，并把它作为脚本代码来执行。</td>
-							</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">类型</span></td>
+								<td width="189"><span style="font-size: small;">子类型</span></td>
+								<td width="189"><span style="font-size: small;">语法</span></td>
+								</tr>
+								<tr>
+								<td rowspan="2" width="189"><span style="font-size: small;">声明语句</span></td>
+								<td width="189"><span style="font-size: small;">变量声明语句</span></td>
+								<td width="189"><span style="font-size: small;">var box = 100;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">标签声明语句</span></td>
+								<td width="189"><span style="font-size: small;">label : box;</span></td>
+								</tr>
+								<tr>
+								<td rowspan="4" width="189"><span style="font-size: small;">表达式语句</span></td>
+								<td width="189"><span style="font-size: small;">变量赋值语句</span></td>
+								<td width="189"><span style="font-size: small;">box = 100;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">函数调用语句</span></td>
+								<td width="189"><span style="font-size: small;">box();</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">属性赋值语句</span></td>
+								<td width="189"><span style="font-size: small;">box.property = 100;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">方法调用语句</span></td>
+								<td width="189"><span style="font-size: small;">box.method();</span></td>
+								</tr>
+								<tr>
+								<td rowspan="2" width="189"><span style="font-size: small;">分支语句</span></td>
+								<td width="189"><span style="font-size: small;">条件分支语句</span></td>
+								<td width="189"><span style="font-size: small;">if () {} else {}</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">多重分支语句</span></td>
+								<td width="189"><span style="font-size: small;">switch () { case n : ...};</span></td>
+								</tr>
+								<tr>
+								<td rowspan="4" width="189"><span style="font-size: small;">循环语句</span></td>
+								<td width="189"><span style="font-size: small;">for </span></td>
+								<td width="189"><span style="font-size: small;">for (;;;) {}</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">for ... in</span></td>
+								<td width="189"><span style="font-size: small;">for ( x in x) {}</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">while</span></td>
+								<td width="189"><span style="font-size: small;">while () {};</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">do ... while</span></td>
+								<td width="189"><span style="font-size: small;">do {} while ();</span></td>
+								</tr>
+								<tr>
+								<td rowspan="5" width="189"><span style="font-size: small;">控制结构</span></td>
+								<td width="189"><span style="font-size: small;">继续执行子句</span></td>
+								<td width="189"><span style="font-size: small;">continue ;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">终端执行子句</span></td>
+								<td width="189"><span style="font-size: small;">break ;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">函数返回子句</span></td>
+								<td width="189"><span style="font-size: small;">return ;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">异常触发子句</span></td>
+								<td width="189"><span style="font-size: small;">throw ;</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">异常捕获与处理</span></td>
+								<td width="189"><span style="font-size: small;">try {} catch () {} finally {}</span></td>
+								</tr>
+								<tr>
+								<td width="189"><span style="font-size: small;">其他</span></td>
+								<td width="189"><span style="font-size: small;">空语句</span></td>
+								<td width="189"><span style="font-size: small;">;</span></td>
+								</tr>
+								<tr>
+								<td width="189">&nbsp;</td>
+								<td width="189"><span style="font-size: small;">with语句</span></td>
+								<td width="189"><span style="font-size: small;">with () {}</span></td>
+								</tr>
 							</tbody>
-							</table>
-							</div>
-							</div></span></li>
-				<li><a href="">javascript:void(0)</a></li>
-				<li><a href="">补充说明</a>
-						<span>文件载入 
-						<br>1.尽量使用外置文件，且放置在末尾
-						<br>2.defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】
-						<br>3.页内时引入闭合标签需要转义，页内时以防低版本的解析问题，用cdata片段包含
-						<input value="<![CDATA[ --- ]]>">  </input>
-						<br>4. noscript 脚本禁用时的替代提醒 /noscript
-						<br> 
-						<br>语法细节
-						<br>1.在函数内部定义的变量退出函数无效，在函数内部不用var声明的变量，则为全局变量
-						<br>2.同时一次性定义多个变量，用逗号分隔，不需要再写var
-						<br>  var i=0;var j=1;   ==>    var i=0,j=0
-						</span></li>
+						</table>
+					</span>
+				</li>
 			</ul>
-		</div>
-    </div>
-    <div class="u-block">
-    	<h3>数据类型<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]类型检测</h4>
-			<ul>
-				<li><a href="">Javscript data types</a><span>
-					JS数据类型:
-					<br>Undefined Null Boolean Number String Object 
-					<br>其中Array,function都属于Object
-					<br>一切皆为对象，new Object / new Boolean() / new Number() / new String() / new <br>Array()  / new Function() / new 构造函数名()</span></li>
-				<li><a href="">typeof</a> value
-						<span>typeof数据类型测试返回值（返回的是字符串
-							<table border="1" cellspacing="0" cellpadding="2">
-							<tbody>
-							<tr>
-							<td valign="top">undefined</td>
-							<td valign="top">未定义</td>
-							</tr>
-							<tr>
-							<td valign="top">boolean</td>
-							<td valign="top">布尔值</td>
-							</tr>
-							<tr>
-							<td valign="top">string</td>
-							<td valign="top">字符串/JSON</td>
-							</tr>
-							<tr>
-							<td valign="top">number</td>
-							<td valign="top">数值</td>
-							</tr>
-							<tr>
-							<td valign="top">object</td>
-							<td valign="top">对象/null</td>
-							</tr>
-							<tr>
-							<td valign="top">function</td>
-							<td valign="top">function</td>
-							</tr>
-							</tbody>
-							</table>
-							<ol>
-								<li>
-							不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
-								<li>
-							Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样， 当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
-								<li>
-							undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
-							</ol>
-						</span></li>
-				<li>value <a href="">instanceof</a> types
-						<span>instanceof引用类型数据测试
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-							<tbody>
-							<tr>
-							<td valign="top">value instanceof Array</td>
-							<td valign="top">数组</td>
-							</tr>
-							<tr>
-							<td valign="top">value instanceof Obj</td>
-							<td valign="top">构造函数实例</td>
-							</tr>
-							<tr>
-							<td valign="top">
-							<div>value instanceof Date</div></td>
-							<td valign="top">日期时间</td>
-							</tr>
-							<tr>
-							<td valign="top">value instanceof RegExp</td>
-							<td valign="top">正则表达式</td>
-							</tr>
-							<tr>
-							<td valign="top">
-							<div>value instanceof Math</div></td>
-							<td valign="top">数学</td>
-							</tr>
-							</tbody>
-							</table></span></li>
-				<li><a href="">isNaN</a>(value)<span>是否为非数值,转换后非数值为true，数值false
-					<br>1. 非数值执行运算，会隐藏自动转型（除+）
-					<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
-				<li><a href="">isFinite</a>(value)<span>判断是否为无穷值超出计算范围</span></li>
-				<li><a href="">Array.isArray</a>(value)<span>检测是否为数组（EC5）</span></li>
-			</ul>
-			<h4>[<span>-</span>]类型转换</h4>
-			<ul>
-				<li><a href="">Boolean</a>(value)
-					<span>Boolean(value)布尔转换规则 （控制流会自动转换）
-							<table border="1" cellspacing="0" cellpadding="2">
-							<tbody>
-							<tr>
-							<td valign="top">Boolean(value)</td>
-							<td valign="top">true</td>
-							<td valign="top">false</td>
-							</tr>
-							<tr>
-							<td valign="top">undefined</td>
-							<td valign="top"></td>
-							<td valign="top">undefined</td>
-							</tr>
-							<tr>
-							<td valign="top">boolean</td>
-							<td valign="top">true</td>
-							<td valign="top">false</td>
-							</tr>
-							<tr>
-							<td valign="top">string</td>
-							<td valign="top">非空</td>
-							<td valign="top">空</td>
-							</tr>
-							<tr>
-							<td valign="top">number</td>
-							<td valign="top">非零数值</td>
-							<td valign="top">0与NaN</td>
-							</tr>
-							<tr>
-							<td valign="top">object</td>
-							<td valign="top">对象（包括空的对象）</td>
-							<td valign="top">null（空对象）</td>
-							</tr>
-							</tbody>
-							</table>
-						</span></li>
-				<li><a href="">Number</a>(value)<span>
-						用于任何数据类型
-						<br>number=number
-						<br>boolean=1 / 0
-						<br>undefined=NaN
-						<br>null=0
-						<br>空字符串=0
-						<br>非数值(string+/object)=NaN</span></li>
-				<li><a href="">parseInt</a>(str)<span>
-						用于字符串，自动判定进制
-						<br>忽略空格，空字符串=NaN
-						<br>第一个非空字符不是数值或负号=NaN
-						<br>第一个非空字符是数值，遇到非数值时停止解析=number</span></li>
-				<li><a href="">parseFloat</a>(str)<span>
-					用于字符串
-					<br>第一个小数点有效，第二个无效</span></li>
-				<li>all.<a href="">toString</a>([16])<span>所有类型（除Null,undefined）,数值转成字符串的时候，可以传递进制参数，默认10进制</span></li>
-				<li><a href="">String</a>(value)
-						<span>不确定null和undefined时,返回null和undefined</span></li>
-				<li>str.<a href="">split</a>(符号,num)
-						<span>字符串=>数组，符号+次数，多次分割，子项分割</span></li>
-				<li>arr.<a href="">join</a>(符号)
-						<span>数组=>字符串，把数组的所有元素放入一个字符串，元素通过指定的分隔符进行串联。</span></li>
-				<li><a href="">JSON.parse</a>(json)<span>JSON=>JS对象</span></li>
-				<li><a href="">JSON.stringify</a>(obj)<span>JS对象=>JSON</span></li>
-			</ul>
-		</div>
-    </div>
-    <div class="u-block">
-    	<h3>运算与语句<span>-</span></h3>
-		<div class="u-list">
 			<h4>[<span>+</span>]运算</h4>
 			<ul style="display:none;">
 				<li><a href="">一元运算符</a><span>
@@ -585,109 +463,247 @@
 							</div>
 				</span></li>
 			</ul>
-			<h4>[<span>-</span>]语句</h4>
-			<ul>
-				<li><a href="">Statement</a><span>
-						<table>
-							<tbody>
-							<tr>
-							<td width="189"><span style="font-size: small;">类型</span></td>
-							<td width="189"><span style="font-size: small;">子类型</span></td>
-							<td width="189"><span style="font-size: small;">语法</span></td>
-							</tr>
-							<tr>
-							<td rowspan="2" width="189"><span style="font-size: small;">声明语句</span></td>
-							<td width="189"><span style="font-size: small;">变量声明语句</span></td>
-							<td width="189"><span style="font-size: small;">var box = 100;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">标签声明语句</span></td>
-							<td width="189"><span style="font-size: small;">label : box;</span></td>
-							</tr>
-							<tr>
-							<td rowspan="4" width="189"><span style="font-size: small;">表达式语句</span></td>
-							<td width="189"><span style="font-size: small;">变量赋值语句</span></td>
-							<td width="189"><span style="font-size: small;">box = 100;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">函数调用语句</span></td>
-							<td width="189"><span style="font-size: small;">box();</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">属性赋值语句</span></td>
-							<td width="189"><span style="font-size: small;">box.property = 100;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">方法调用语句</span></td>
-							<td width="189"><span style="font-size: small;">box.method();</span></td>
-							</tr>
-							<tr>
-							<td rowspan="2" width="189"><span style="font-size: small;">分支语句</span></td>
-							<td width="189"><span style="font-size: small;">条件分支语句</span></td>
-							<td width="189"><span style="font-size: small;">if () {} else {}</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">多重分支语句</span></td>
-							<td width="189"><span style="font-size: small;">switch () { case n : ...};</span></td>
-							</tr>
-							<tr>
-							<td rowspan="4" width="189"><span style="font-size: small;">循环语句</span></td>
-							<td width="189"><span style="font-size: small;">for </span></td>
-							<td width="189"><span style="font-size: small;">for (;;;) {}</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">for ... in</span></td>
-							<td width="189"><span style="font-size: small;">for ( x in x) {}</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">while</span></td>
-							<td width="189"><span style="font-size: small;">while () {};</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">do ... while</span></td>
-							<td width="189"><span style="font-size: small;">do {} while ();</span></td>
-							</tr>
-							<tr>
-							<td rowspan="5" width="189"><span style="font-size: small;">控制结构</span></td>
-							<td width="189"><span style="font-size: small;">继续执行子句</span></td>
-							<td width="189"><span style="font-size: small;">continue ;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">终端执行子句</span></td>
-							<td width="189"><span style="font-size: small;">break ;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">函数返回子句</span></td>
-							<td width="189"><span style="font-size: small;">return ;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">异常触发子句</span></td>
-							<td width="189"><span style="font-size: small;">throw ;</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">异常捕获与处理</span></td>
-							<td width="189"><span style="font-size: small;">try {} catch () {} finally {}</span></td>
-							</tr>
-							<tr>
-							<td width="189"><span style="font-size: small;">其他</span></td>
-							<td width="189"><span style="font-size: small;">空语句</span></td>
-							<td width="189"><span style="font-size: small;">;</span></td>
-							</tr>
-							<tr>
-							<td width="189">&nbsp;</td>
-							<td width="189"><span style="font-size: small;">with语句</span></td>
-							<td width="189"><span style="font-size: small;">with () {}</span></td>
-							</tr>
-							</tbody>
-							</table></span></li>
+			<h4>[<span>+</span>]语句</h4>
+			<ul style="display:none;">
 				<li><a href="">Switch</a><span><br />
-					1.<a href="http://www.qttc.net/201207151.html">switch中的case为全等判断</a>
+					1.<a href="http://www.qttc.net/201207151.html">switch中的case为全等判断</a><br>
 					2.多个case使用同一个执行块应写为case 1: case2: ...
 				</span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
+			</ul>
+			<h4>[<span>-</span>]其他</h4>
+			<ul>
+				<li><a href="">Global Functions</a><span>
+						<div>
+							<div>全局函数
+							<table>
+							<tbody>
+							<tr>
+							<th align="left" width="32%">函数</th>
+							<th align="left" width="68%">描述</th>
+							</tr>
+							<tr>
+							<td>decodeURI()</td>
+							<td>解码某个编码的 URI。</td>
+							</tr>
+							<tr>
+							<td>decodeURIComponent()</td>
+							<td>解码一个编码的 URI 组件。</td>
+							</tr>
+							<tr>
+							<td>encodeURI()</td>
+							<td>把字符串编码为 URI。</td>
+							</tr>
+							<tr>
+							<td>encodeURIComponent()</td>
+							<td>把字符串编码为 URI 组件。</td>
+							</tr>
+							<tr>
+							<td>escape()</td>
+							<td>对字符串进行编码。</td>
+							</tr>
+							<tr>
+							<td>unescape()</td>
+							<td>对由 escape() 编码的字符串进行解码。</td>
+							</tr>
+							<tr>
+							<td>eval()</td>
+							<td>计算 JavaScript 字符串，并把它作为脚本代码来执行。</td>
+							</tr>
+							</tbody>
+							</table>
+							</div>
+							</div></span></li>
+			</ul>
+		</div>
+    </div>
+    <div class="u-block">
+    	<h3>数据类型<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]类型检测</h4>
+			<ul>
+				<li><a href=""></a>data type<span>
+					JS数据类型:
+					<br>Undefined Null Boolean Number String Object 
+					<br>其中Array,function都属于Object
+					<br>一切皆为对象，new Object / new Boolean() / new Number() / new String() / new <br>Array()  / new Function() / new 构造函数名()</span></li>
+				<li><a href="">typeof</a> val
+					<span>typeof数据类型测试返回值（返回的是字符串
+						<table border="1" cellspacing="0" cellpadding="2">
+						<tbody>
+						<tr>
+						<td valign="top">undefined</td>
+						<td valign="top">未定义</td>
+						</tr>
+						<tr>
+						<td valign="top">boolean</td>
+						<td valign="top">布尔值</td>
+						</tr>
+						<tr>
+						<td valign="top">string</td>
+						<td valign="top">字符串/JSON</td>
+						</tr>
+						<tr>
+						<td valign="top">number</td>
+						<td valign="top">数值</td>
+						</tr>
+						<tr>
+						<td valign="top">object</td>
+						<td valign="top">对象/null</td>
+						</tr>
+						<tr>
+						<td valign="top">function</td>
+						<td valign="top">function</td>
+						</tr>
+						</tbody>
+						</table>
+						<ol>
+							<li>
+						不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
+							<li>
+						Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样， 当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
+							<li>
+						undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
+						</ol>
+					</span></li>
+				<li>val <a href="">instanceof</a> type
+					<span>instanceof引用类型数据测试
+					<table width="100%" border="1" cellspacing="0" cellpadding="2">
+						<tbody>
+						<tr>
+						<td valign="top">value instanceof Array</td>
+						<td valign="top">数组</td>
+						</tr>
+						<tr>
+						<td valign="top">value instanceof Obj</td>
+						<td valign="top">构造函数实例</td>
+						</tr>
+						<tr>
+						<td valign="top">
+						<div>value instanceof Date</div></td>
+						<td valign="top">日期时间</td>
+						</tr>
+						<tr>
+						<td valign="top">value instanceof RegExp</td>
+						<td valign="top">正则表达式</td>
+						</tr>
+						<tr>
+						<td valign="top">
+						<div>value instanceof Math</div></td>
+						<td valign="top">数学</td>
+						</tr>
+						</tbody>
+						</table></span></li>
+				<li><a href="">isNaN</a>(val)<span>
+					是否为非数值,转换后非数值为true，数值false
+					<br>1. 非数值执行运算，会隐藏自动转型（除+）
+					<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
+				<li><a href="">isFinite</a>(val)<span>判断是否为无穷值超出计算范围</span></li>
+				<li><a href="">Array.isArray</a>(val)<span>检测是否为数组（EC5）</span></li>
+			</ul>
+			<h4>[<span>-</span>]类型转换</h4>
+			<ul>
+				<li><a href="">Boolean</a>(val)
+					<span>Boolean(val)布尔转换规则 （控制流会自动转换）
+						<table border="1" cellspacing="0" cellpadding="2">
+							<tbody>
+							<tr>
+							<th valign="top">Boolean(value)</th>
+							<th valign="top">true</th>
+							<th valign="top">false</th>
+							</tr>
+							<tr>
+							<td valign="top">undefined</td>
+							<td valign="top"></td>
+							<td valign="top">undefined</td>
+							</tr>
+							<tr>
+							<td valign="top">boolean</td>
+							<td valign="top">true</td>
+							<td valign="top">false</td>
+							</tr>
+							<tr>
+							<td valign="top">string</td>
+							<td valign="top">非空</td>
+							<td valign="top">空</td>
+							</tr>
+							<tr>
+							<td valign="top">number</td>
+							<td valign="top">非零数值</td>
+							<td valign="top">0与NaN</td>
+							</tr>
+							<tr>
+							<td valign="top">object</td>
+							<td valign="top">对象（包括空的对象）</td>
+							<td valign="top">null（空对象）</td>
+							</tr>
+							</tbody>
+						</table>
+					</span></li>
+				<li><a href="">Number</a>(val)<span>
+						用于任何数据类型
+						<table>
+							<tr>
+								<th>value</th>
+								<th>返回值</th>
+							</tr>
+							<tr>
+								<td>number</td>
+								<td>number</td>
+							</tr>
+							<tr>
+								<td>boolean</td>
+								<td>1 / 0</td>
+							</tr>
+							<tr>
+								<td>null</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>空字符串</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>undefined</td>
+								<td>NaN</td>
+							</tr>
+							<tr>
+								<td>非数值(string+/object)</td>
+								<td>NaN</td>
+							</tr>
+						</table>
+					</span></li>
+				<li><a href="">parseInt</a>(val)<span>
+					自动判定进制，忽略空格。
+					<table>
+						<tr>
+							<th>value</th>
+							<th>结果</th>
+						</tr>
+						<tr>
+							<td>空字符串</td>
+							<td>NaN</td>
+						</tr>
+						<tr>
+							<td>第一个非空字符不是数值或负号</td>
+							<td>NaN</td>
+						</tr>
+						<tr>
+							<td>第一个非空字符是数值，遇到非数值时停止解析</td>
+							<td>number</td>
+						</tr>
+					</table>
+					</span></li>
+				<li><a href="">parseFloat</a>(val)<span>
+					第一个小数点有效，第二个无效</span></li>
+				<li>all.<a href="">toString</a>([16])<span>所有类型（除Null,undefined）,数值转成字符串的时候，可以传递进制参数，默认10进制</span></li>
+				<li><a href="">String</a>(val)
+					<span>不确定null和undefined时,返回null和undefined</span></li>
+				<li>str.<a href="">split</a>(symbol,count)
+					<span>字符串=>数组，符号+次数，多次分割，子项分割</span></li>
+				<li>arr.<a href="">join</a>(symbol)
+					<span>数组=>字符串，把数组的所有元素放入一个字符串，元素通过指定的分隔符进行串联。</span></li>
+				<li><a href="">JSON.parse</a>(json)<span>JSON=>JS对象</span></li>
+				<li><a href="">JSON.stringify</a>(obj)<span>JS对象=>JSON</span></li>
 			</ul>
 		</div>
     </div>

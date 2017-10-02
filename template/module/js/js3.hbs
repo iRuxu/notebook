@@ -1,180 +1,109 @@
+<!-- 函数、对象 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>数组<span>-</span></h3>
+		<h3>函数<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]基本概念</h4>
+			<h4>[<span>-</span>]内部属性/对象</h4>
 			<ul>
-				<li><a href="">创建方法</a><span><strong><span style="font-size: small;">创建方式</span></strong>
+				<li><a href="">arguments</a><span>函数的参数对象
+					<div><span style="font-size: small;"><b>argument<span style="color: #e30000;">s</span>对象</b> （类数组对象，但检测不是数组类型）</span></div>
 						<div>
-						<div>
-						<table width="88%" border="1" cellspacing="0" cellpadding="2">
+						<table width="100%" border="1" cellspacing="0" cellpadding="2">
 						<tbody>
 						<tr>
-						<td valign="top"><span style="font-size: small;">构造函数</span></td>
 						<td valign="top">
-						<div><span style="font-size: small;">var arr = new Array();</span></div>
-						<div><span style="font-size: small;">arr[0]=value<strong>;</strong> </span></div>
-						<div>
-						<pre xml:space="preserve"></pre>
-						<div><span style="font-size: small;">var arr = new Array(<em>element0</em>, <em>element1</em>, ..., <em>elementn</em>);</span></div>
-						</div>
-						<div><span style="font-size: small;">var arr = new Array(<em>size</em>);  [size=数组项目的个数,只写1位,且必须是数字]</span></div></td>
+						<div><span style="font-size: small;">arguments[0]</span></div></td>
+						<td valign="top">
+						<div><span style="font-size: small;">第一个参数名字</span></div></td>
 						</tr>
 						<tr>
-						<td valign="top"><span style="font-size: small;">字面量</span></td>
-						<td valign="top"><span style="font-size: small;">var arr = [66,80,90,77,59]</span></td>
+						<td valign="top">
+						<div><span style="font-size: small;">arguments.length</span></div></td>
+						<td valign="top">
+						<div><span style="font-size: small;">参数的个数</span></div></td>
+						</tr>
+						<tr>
+						<td valign="top">
+						<div><span style="font-size: small;">arguments.callee</span></div></td>
+						<td valign="top">
+						<div><span style="font-size: small;">主体函数本身，拥有这个参数对象的函数</span></div></td>
 						</tr>
 						</tbody>
 						</table>
-						</div>
-						<div><span style="font-size: small;"> </span></div>
-						<div>
-						<div><span style="font-size: small;"><strong>注意：</strong><br clear="none" />1. ECMAScript中的数组每个元素可以保存任何类型</span></div>
-						<div><span style="font-size: small;">2. ECMAScript 中数组的大小也是可以调整的。</span></div>
-						<div><span style="font-size: small;">3. var arr = new Array(<em>10</em>)  不等于 var arr = [10]</span></div>
-						</div>
+						<div><strong> </strong></div>
 						</div></span></li>
-				<li><a href="">.length</a><span><div><b><span style="font-size: small;">数组属性·长度Length</span></b></div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top"><span style="font-size: small;">str.length</span></td>
-						<td valign="top"><span style="font-size: small;">字符串长度</span></td>
-						</tr>
-						<tr>
-						<td valign="top"><b><span style="font-size: small;">arr.length</span></b></td>
-						<td valign="top"><span style="font-size: small;">数组长度</span></td>
-						</tr>
-						<tr>
-						<td valign="top"><span style="font-size: small;">function.length</span></td>
-						<td valign="top"><span style="font-size: small;">参数长度/个数</span></td>
-						</tr>
-						<tr>
-						<td valign="top"><span style="font-size: small;">object &amp; number类型无length</span></td>
-						<td valign="top"></td>
-						</tr>
-						</tbody>
-						</table>
-						<div><span style="font-size: small;"> </span></div>
-						</div>
-						<div><span style="font-size: small;"> </span></div></span></li>
-				<li><a href="">[index]</a><span><div><b><span style="font-size: small;">数组下标</span></b></div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">var  box =[];</span></div>
-						<div><span style="font-size: small;">box['name']=iRuxu;</span></div>
-						<div><span style="font-size: small;">alert(box);  </span><a><span style="font-size: small;">//空</span></a></div>
-						<div><span style="font-size: small;">alert(box['name']); </span><a><span style="font-size: small;">//iRuxu</span></a></div>
-						<div><span style="font-size: small;">alert(box[0]); </span><a><span style="font-size: small;">//iRuxu</span></a><span style="font-size: small;"> </span></div></td>
-						</tr>
-						</tbody>
-						</table>
-						<div><span style="font-size: small;">如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印</span></div>
-						<div><span style="font-size: small;"> </span></div>
-						<div><b><span style="font-size: small;">数组方法I</span></b></div></span></li>
+				<li><a href="">this</a><span>函数执行的环境对象,函数里的函数中的this为window,闭包中调用父级函数指定var that = this</span></li>
+				<li><a href="">caller</a><span>调用当前函数的函数</span></li>
+				<li><a href="">length</a><span>函数希望接收的命名参数的个数</span></li>
+				<li><a href="">prototype</a><span>原型属性，不可枚举</span></li>
 			</ul>
-			<h4>[<span>-</span>]添加移除</h4>
+			<h4>[<span>-</span>]方法</h4>
 			<ul>
-				<li><a href="">push()</a><span>栈：后方添加项目，返回总数。</span></li>
-				<li><a href="">pop()</a><span>栈：后方移除项目，返回移除项。</span></li>
-				<li><a href="">unshift()</a><span>队列：前方添加项目，返回总数。</span></li>
-				<li><a href="">shift()</a><span>队列：前方移除项目，返回移除项。</span></li>
+				<li>fn<a href="">.apply</a>(obj,arg)<span>func.apply(作用域，[传递参数]/arguments)</span></li>
+				<li>fn<a href="">.call</a>(obj,arg)<span>func.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域<br>call必须明确传入每一个参数</span></li>
+				<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
 			</ul>
-			<h4>[<span>-</span>]串联分割</h4>
+			<h4>[<span>-</span>]其他</h4>
 			<ul>
-				<li><a href="">concat()</a><span>连接两个或更多的数组，并返回结果，返回新数组。（合并数组->新）</span></li>
-				<li><a href="">slice</a>(n,m)<span>从某个已有的数组返回选定的元素，返回新数组。（过滤数组->新）
-						<br>当含1个参数时，起始到末尾全部：slice(1)——索引为1开始到末尾
-						<br>当含2个参数时，起始到末尾-1：slice(1,4)——索引为1~3，不包含4</span></li>
-				<li><a href="">splice</a>(n,m,[val])<span>
-							方法向/从数组中添加/删除/替换项目，然后返回被删除的项目。
-							<br>注释：请注意，splice() 方法与 slice() 方法的作用是不同的，splice()方法会直接对数组进行修改。
-							<br>第1个参数为起始索引位置，第2个参数为删除的数目，当数目为0时则为添加项目，第3个参数开始为添加新的项目（如只删除无此参数）。
-							<br>splice(0,1)——位置0删除1项
-							<br>splice(2,0,arr1,arr2) ——位置2开始添加2项
-							<br>splice(1,1,100) —— 位置1删除并添加1项 
-				</span></li>
-				<li><a href="">join</a>(符号)<span>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</span></li>
-			</ul>
-			<h4>[<span>-</span>]排序</h4>
-			<ul>
-				<li><a href="">reverse()</a><span>反转</span></li>
-				<li><a href="">sort()</a><span>默认升序排列</span></li>
-				<li><a href="">sort</a>(fn)<span>严格升序或降序排列
-					<br>function sortNumber(a,b){return a - b  //降序b-a}
-					<br>sort方法参数如果提供一个函数，那么该函数必须返回以下值之一：
-					<br>负值，所传递的第一个参数比第二个参数小；
-					<br>正值，所传递的第一个参数比第二个参数大；
-					<br>零，两个参数相等。</span></li>
-				</ul>
-			<h4>[<span>-</span>]查找位置</h4>
-			<ul>
-				<li><a href="">indexOf</a>(value,n)<span>正向查找,n为起始索引,如查找不到则返回-1</span></li>
-				<li><a href="">lastIndexOf</a>(value,n)<span>逆向查找 </span></li>
-			</ul>
-			<h4>[<span>-</span>]迭代方法</h4>
-			<ul>
-				<li><a href="">every</a>(fn[item,index,arr])<span>每一项为true，返回true
-						<br>arr.every(function(item,index,array){
-						<br>要求
-						<br>})</span></li>
-				<li><a href="">some</a>(fn[item,index,arr])<span>某一项为true，返回true
-						<br>arr.some(function(item,index,array){
-						<br>要求
-						<br>})</span></li>
-				<li><a href="">filter</a>(fn[item,index,arr])<span>			
-						返回为true的新数组，按某个函数方法过滤
-						<br>arr.filter(function(item,index,array){
-						<br>要求
-						<br>})</span></li>
-				<li><a href="">map</a>(fn[item,index,arr])<span>返回执行函数后的新数组
-						<br>arr.map(function(item,index,array){
-						要求
-						<br>})</span></li>
-				<li><a href="">forEach</a>(fn[item,index,arr])<span>遍历数组去执行某个函数，无返回值
-						<br>arr.forEach(function(item,index,array){
-						<br>要求
-						<br>})</span></li>
-
-			</ul>
-			<h4>[<span>-</span>]递归方法</h4>
-			<ul>
-				<li><a href="">reduce</a><span>返回正向函数执行后的归并值
-							arr.reduce(function(prev,cur,index,array){
-							<br>return prev+cur;
-							<br>})</span></li>
-				<li><a href="">reduceRight</a><span>
-							<br>var arr=[1,2,3]
-							<br>var sum=arr.reduce(function(prev,cur,index,array){
-							<br>return prev+cur;
-							<br>})
-							<br>alert(sum); //6 
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]多维数组</h4>
-			<ul>
-				<li><a href="">二维数组</a><span>
-				<textarea name="" id="" cols="60" rows="10">声明1维，1维循环（声明2维，2维循环），循环条件中参数使用分号，索引号与长度关系。
-					var myarr=new Array(); //先声明一维 
-					for(var i=0;i<x;i++){ //一维长度
-					myarr[i]=new Array(); //在声明二维 
-					for(var j=0;j<y;j++){ //二维长度
-					myarr[i][j]=i+j; // 赋值，每个数组元素的值为i+j
-					}
-					} </textarea>
-				</span></li>
+				<li><a href="">(function(){})()</a><span>匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取</span></li>
 			</ul>
 		</div>
-	</div>
+	</div>	
 	<div class="u-block">
-		<h3>遍历查询<span>-</span></h3>
+		<h3>对象<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Underscore</h4>
+			<h4>[<span>-</span>]Object</h4>
 			<ul>
-				<li><a href=""></a><span></span></li>
+				<li><a href="">new Object()</a><span>
+					<table>
+						<tr>
+							<th>创建方法</th>
+							<th>演示</th>
+						</tr>
+						<tr>
+							<td>new 运算符</td>
+							<td>var obj = new Object();
+						obj.key = value;
+						obj.key = function(){}</td>
+						</tr>
+						<tr>
+							<td>字面量</td>
+							<td>var obj ={
+						key:value,
+						key:function(){}
+						}</td>
+						</tr>
+					</table>
+				</span></li>
+				<li>obj<a href=""></a>[key]<span>
+					obj.property取对象的属性值
+					<ol>
+						<li><strong>中括号表示法时，key需要加上引号法</strong></li>
+						<li><b>当属性含空格、关键字或为变量时，只能用中括号表示</b></li>
+					</ol>
+				</span></li>
+				<li>obj.<a href="">hasOwnProperty()</a><span>判断某个是否非继承自属</span></li>
+				<li>key <a href="">in</a> obj<span>
+					in遍历访问对象的属性/属性值
+<pre><code data-language="javascript">
+	for (var property in obj) {
+		console.log(property);  //遍历对象的全部属性
+		console.log(obj[property]); //遍历所有对象的值
+	} 
+</code></pre>
+				</span></li>
+				<li><a href="">delete </a>obj.key<span>删除属性delete obj.key</span></li>
+			</ul>
+			<h4>[<span>+</span>]Map</h4>
+			<ul>
+				<li><a href="">new Map()</a><span>
+					初始化Map需要一个二维数组，或者直接初始化一个空Map
+					<pre><code data-language="javascript">var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);</code></pre>
+				</span></li>
+				<li>map.<a href="">get</a>(key)<span>取key的值，返回值</span></li>
+				<li>map.<a href="">set</a>(key,val)<span>添加新的key-value</span></li>
+				<li>map.<a href="">has</a>(key)<span>是否存在key，返回布尔值</span></li>
+				<li>map.<a href="">delete</a>(key)<span>删除key</span></li>
 			</ul>
 		</div>
 	</div>

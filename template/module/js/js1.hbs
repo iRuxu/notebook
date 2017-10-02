@@ -1,190 +1,122 @@
+<!-- 字符串 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>函数<span>-</span></h3>
+		<h3>字符串<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]内部属性/对象</h4>
+			<h4>[<span>-</span>]字符位置</h4>
 			<ul>
-				<li><a href="">arguments</a><span>函数的参数对象
-					<div><span style="font-size: small;"><b>argument<span style="color: #e30000;">s</span>对象</b> （类数组对象，但检测不是数组类型）</span></div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
+				<li><a href="">charAt(N)</a><span>返回索引上的字符</span></li>
+				<li><a href="">charCodeAt(N)</a><span>返回在指定的位置的字符的 Unicode 编码</span></li>
+				<li><a href="">indexOf("A",n)</a><span>返回索引位置，正向查找字符所在的索引</span></li>
+				<li><a href="">lastIndexOf("A",n)</a><span>返回索引位置，逆向查找</span></li>
+			</ul>
+			<h4>[<span>-</span>]位置筛选</h4>
+			<ul>
+				<li><a href="">slice / substring(n,m)</a><span>显示索引范围内的字符串，返回新字符串，包含起始不包含结尾</span></li>
+				<li><a href="">substr(n,x)</a><span>显示指定索引起范围内的字符串，返回新字符串
+					<br>slice / substring / substr 负数
+					<br>单个负数：
+					<br>alert(box.slice(-3)); //Lee，6+(-3)=3 位开始 length-n
+					<br>alert(box.substring(-3)); //Mr.Lee 负数返回全部 返回全部
+					<br>alert(box.substr(-3)); //Lee，6+(-3)=3 位开始 length-n
+					<br>第二位负数：
+					<br>alert(box.slice(3, -1)); //Le 6+(-1)=5, (3,5) a,length-n
+					<br>alert(box.substring(3, -1)); //Mr. 第二参为负，直接转 0，并且方法会把较小的数字提前，(0,3) a,0
+					<br>alert(box.substr(3, -1)); //'' 第二参数为负，直接转 0 ，(3,0) a,0
+					</span></li>
+			</ul>
+			<h4>[<span>-</span>]匹配替换</h4>
+			<ul>
+				<li><a href="">match(正则/匹配值)</a><span>返回数组，没找到则返回null，正则识别全局</span></li>
+				<li><a href="">search(正则/匹配值)</a><span>返回起始的索引，没找到则返回-1，始终从头开始找，找到一个即返回，正则无需全局设置 strt </span></li>
+				<li><a href="">replace(正则/匹配值,"替换目标") </a><span>返回新字符串对象，识别正则全局，function可内含一个switch控制流</span></li>
+			</ul>
+			<h4>[<span>-</span>]串联分割</h4>
+			<ul>
+				<li><a href="">concat()</a><span>返回新字符串，串联</span></li>
+				<li><a href="">split(*/正则,N)</a><span>返回数组，把字符串按指定符号或正则分割为字符串数组</span></li>
+			</ul>
+			<h4>[<span>-</span>]其他方法</h4>
+			<ul>
+				<li><a href="">trim()</a><span>返回新字符串，删除前置与后置空格</span></li>
+				<li><a href="">toUpperCase()</a><span>返回新字符串，转换大写 toLocaleUpperCase()</span></li>
+				<li><a href="">toLowerCase()</a><span>返回新字符串，转换小写 toLocaleLowerCase()  </span></li>
+				<li><a href="">localeCompare()</a><span>大写小写，在之后（大于），返回1，在之前（小于），返回-1，相等，返回0</span></li>
+				<li><a href="">String.fromCharCode(编码)</a><span>返回编码转回的字符串</span></li>
+			</ul>
+			<h4>[<span>-</span>]数字</h4>
+			<ul>
+				<li><a href="">Finity</a><span>
+					Finity isFinite(---) 判断是否为无穷
+						<table border="1" cellspacing="0" cellpadding="2">
 						<tbody>
 						<tr>
 						<td valign="top">
-						<div><span style="font-size: small;">arguments[0]</span></div></td>
+						最大值</td>
 						<td valign="top">
-						<div><span style="font-size: small;">第一个参数名字</span></div></td>
+						Number.MAX_VALUE 1.79e+308</td>
 						</tr>
 						<tr>
 						<td valign="top">
-						<div><span style="font-size: small;">arguments.length</span></div></td>
+						<div>最小值</div></td>
 						<td valign="top">
-						<div><span style="font-size: small;">参数的个数</span></div></td>
+						Number.MIN_VALUE 5e-324</td>
 						</tr>
 						<tr>
 						<td valign="top">
-						<div><span style="font-size: small;">arguments.callee</span></div></td>
+						<div>正无穷</div></td>
 						<td valign="top">
-						<div><span style="font-size: small;">主体函数本身，拥有这个参数对象的函数</span></div></td>
+						Number.POSITIVE_INFINITY</td>
+						</tr>
+						<tr>
+						<td valign="top">
+						<div>负无穷</div></td>
+						<td valign="top">
+						Number.NEGATIVE_INFINITY</td>
 						</tr>
 						</tbody>
 						</table>
-						<div><strong> </strong></div>
-						</div></span></li>
-				<li><a href="">this</a><span>函数执行的环境对象,函数里的函数中的this为window,闭包中调用父级函数指定var that = this</span></li>
-				<li><a href="">caller</a><span>调用当前函数的函数</span></li>
-				<li><a href="">length</a><span>函数希望接收的命名参数的个数</span></li>
-				<li><a href="">prototype</a><span>原型属性，不可枚举</span></li>
-			</ul>
-			<h4>[<span>-</span>]方法</h4>
-			<ul>
-				<li>fn<a href="">.apply</a>(obj,arg)<span>func.apply(作用域，[传递参数]/arguments)</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>func.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域<br>call必须明确传入每一个参数</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
-			</ul>
-			<h4>[<span>-</span>]其他</h4>
-			<ul>
-				<li><a href="">(function(){})()</a><span>匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取</span></li>
-			</ul>
-		</div>
-	</div>	
-	<div class="u-block">
-		<h3>面向对象<span>+</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]基础概念</h4>
-			<ul>
-				<li><a href="">对象创建方法</a><span>
-					当对象的属性必须为变量时，则只能使用方括号！
-					<br>in遍历访问对象的属性/属性值
-					<br>for(var property in obj) {
-					<br>console.log(property);  //遍历对象的全部属性
-					<br>console.log(obj[property]); //遍历所有对象的值
-					<br>} 
-					<div>
-						<div>创建对象</div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top">var obj = new Object()
-						obj.key = value
-						obj.key = function(){}</td>
-						<td valign="top">new 运算符</td>
-						</tr>
-						<tr>
-						<td valign="top">var obj ={
-						key:value,
-						key:function(){}
-						}</td>
-						<td valign="top">字面量</td>
-						</tr>
-						</tbody>
-						</table>
-						</div>
-						<div>
-						<ol>
-							<li>new可以省略，字面量方式中属性key可以有或去掉引号</li>
-							<li>对象属性间，不要忘记加逗号分隔</li>
-							<li>函数应用于对象时，对象名不需要加引号  function(obj){}</li>
-						</ol>
-						</div>
-						</div>
-						<div><b><span style="font-size: small;">对象属性</span></b></div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top"><span style="font-size: small;">obj.key</span></td>
-						<td valign="top"><span style="font-size: small;">点表示法</span></td>
-						</tr>
-						<tr>
-						<td valign="top"><span style="font-size: small;">obj['key']</span></td>
-						<td valign="top"><span style="font-size: small;">中括号表示法</span></td>
-						</tr>
-						</tbody>
-						</table>
-						</div>
-						<div>
-						<ol>
-							<li><span style="color: #e30000; font-size: small;"><strong>中括号表示法时，key需要加上引号法</strong></span></li>
-							<li><b><span style="color: #e30000; font-size: small;">当属性含空格、关键字或为变量时，只能用中括号表示</span></b></li>
-							<li><span style="color: #e30000; font-size: small;"><b>删除属性delete obj.key</b></span></li>
-						</ol>
-						</div>
+						<ul>
+							<li>科学计数法，浮点数+e+10的指数</li>
+							<li>0/0=NaN，正数/0=正无穷，负数/0=负无穷</li>
+							<li>正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN</li>
+							<li>无穷乘法操作得到无穷，无穷除法与求余操作得到NaN</li>
+						</ul>
 				</span></li>
-				<li><a href="">对象内部属性</a><span>
-					<div>
-					<div>
-					<div>
-					<div>
-					<div>
-					<table width="88%" border="1" cellspacing="0" cellpadding="2">
-					<tbody>
-					<tr>
-					<td valign="top"><span style="font-size: small;">数据属性</span></td>
-					<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
-					</tr>
-					<tr>
-					<td valign="top"></td>
-					<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
-					</tr>
-					<tr>
-					<td valign="top"></td>
-					<td valign="top"><span style="font-size: small;">writable 属性值是否可写 true/false</span></td>
-					</tr>
-					<tr>
-					<td valign="top"></td>
-					<td valign="top"><span style="font-size: small;">value 包含属性的数据值 undefined</span></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">访问属性</span></td>
-					<td valign="top"><span style="font-size: small;">configurable 能否删除或修改操作 true/false</span></td>
-					</tr>
-					<tr>
-					<td valign="top"></td>
-					<td valign="top"><span style="font-size: small;">enumerable 能否通过for-in枚举遍历 true/false</span></td>
-					</tr>
-					<tr>
-					<td valign="top"></td>
-					<td valign="top"><span style="font-size: small;">get: 读取属性时调用的函数 undefined</span></td>
-					</tr>
-					<tr>
-					<td valign="top"></td>
-					<td valign="top"><span style="font-size: small;">set: 写入属性时调用的函数 undefined</span></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">设置某类属性</span></td>
-					<td valign="top"><strong><span style="font-size: small;">Object.defineProperty(对象名,属性名,{设置块})</span></strong></td>
-					</tr>
-					<tr>
-					<td valign="top"><span style="font-size: small;">设置两类属性</span></td>
-					<td valign="top">
-					<div><strong><span style="font-size: small;">Object.defineProperties(对象名,{</span></strong></div>
-					<div><strong><span style="font-size: small;">属性名:{设置块},</span></strong></div>
-					<div><strong><span style="font-size: small;">})</span></strong></div></td>
-					</tr>
-					</tbody>
-					</table>
-					</div>
-					<div><span style="font-size: small;">configurable，enumerable，writable等默认属性为true，<strong>一旦启用设置函数即使没定义也全部设置为false.</strong></span></div>
-					</div>
-					</div>
-					</div>
-					</div>
+				<li><a href="">NaN</a><span>
+						NaN isNaN(---) 判断是否为NaN
+							<table border="1" cellspacing="0" cellpadding="2">
+							<tbody>
+							<tr>
+							<td valign="top">Number.NaN</td>
+							<td valign="top">
+							得到 NaN 值</td>
+							</tr>
+							<tr>
+							<td valign="top">
+							var box = 0 / 0; //NaN
+							var box = 12 / 0; //Infinity
+							var box = 12 / 0 * 0; //NaN</td>
+							<td valign="top">
+							任何与 NaN 进行运算的结果均为 NaN</td>
+							</tr>
+							<tr>
+							<td valign="top">alert(NaN == NaN) //false</td>
+							<td valign="top">NaN 与自身不相等(NaN 不与任何值相等)</td>
+							</tr>
+							</tbody>
+							</table>
+							<ul>
+								<li>isNaN()函数也适用于对象。</li>
+								<li>在调用 isNaN()函数过程中，首先会调用 valueOf()方法， 然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</li>
+								<li>只要NaN参与的运算均为NaN</li>
+							</ul>
 				</span></li>
-				<li><a href="">函数创建方法</a><span>
-				</span></li>
-				<li><a href="">函数特征说明</a><span>
-				</span></li>
-				<li><a href="">变量与作用域</a><span>
-				</span></li>
-				<li><a href="">匿名函数与块级作用域</a><span>
-				</span></li>
-				<li><a href="">闭包与内存泄露</a><span>
-				</span></li>
-				<li><a href="">私有变量与模块模式</a></li>
-				<li><a href="">构造方法</a></li>
-				<li><a href="">继承方法</a></li>
+				<li><a href="">toFixed(N)</a><span>把数字转换为字符串，结果的小数点后有指定位数的数字。</span></li>
+				<li><a href="">toString(进制)</a><span>把数字转换为字符串，使用指定的基数。</span></li>
+				<li><a href="">toLocaleString()</a><span>根据本地数字格式转换为字符串 1,000.789</span></li>
+				<li><a href="">toExponential(N)</a><span>把对象的值转换为指数计数法。N小数点后位数</span></li>
+				<li><a href="">toPrecision(N)</a><span>把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。</span></li>
 			</ul>
 		</div>
 	</div>
