@@ -3,79 +3,89 @@
 	<div class="u-block">
 		<h3>数组<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]基本概念</h4>
+			<h4>[<span>-</span>]Array</h4>
 			<ul>
-				<li><a href="">创建方法</a><span><strong><span style="font-size: small;">创建方式</span></strong>
-						<div>
-						<div>
-						<table width="88%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
+				<li><a href="">new Array()</a><span>
+					<table>
 						<tr>
-						<td valign="top"><span style="font-size: small;">构造函数</span></td>
-						<td valign="top">
-						<div><span style="font-size: small;">var arr = new Array();</span></div>
-						<div><span style="font-size: small;">arr[0]=value<strong>;</strong> </span></div>
-						<div>
-						<pre xml:space="preserve"></pre>
-						<div><span style="font-size: small;">var arr = new Array(<em>element0</em>, <em>element1</em>, ..., <em>elementn</em>);</span></div>
-						</div>
-						<div><span style="font-size: small;">var arr = new Array(<em>size</em>);  [size=数组项目的个数,只写1位,且必须是数字]</span></div></td>
+							<th>创建方法</th>
+							<th>演示</th>
 						</tr>
 						<tr>
-						<td valign="top"><span style="font-size: small;">字面量</span></td>
-						<td valign="top"><span style="font-size: small;">var arr = [66,80,90,77,59]</span></td>
-						</tr>
-						</tbody>
-						</table>
-						</div>
-						<div><span style="font-size: small;"> </span></div>
-						<div>
-						<div><span style="font-size: small;"><strong>注意：</strong><br clear="none" />1. ECMAScript中的数组每个元素可以保存任何类型</span></div>
-						<div><span style="font-size: small;">2. ECMAScript 中数组的大小也是可以调整的。</span></div>
-						<div><span style="font-size: small;">3. var arr = new Array(<em>10</em>)  不等于 var arr = [10]</span></div>
-						</div>
-						</div></span></li>
-				<li><a href="">.length</a><span><div><b><span style="font-size: small;">数组属性·长度Length</span></b></div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top"><span style="font-size: small;">str.length</span></td>
-						<td valign="top"><span style="font-size: small;">字符串长度</span></td>
+							<td>构造函数</td>
+							<td>
+								var arr = new Array(); <br>
+								arr[0]=value; <br>
+								var arr = new Array(element0, element1, ..., elementn);<br>
+								var arr = new Array(size);  [size=数组项目的个数,只写1位,且必须是数字]
+							</td>
 						</tr>
 						<tr>
-						<td valign="top"><b><span style="font-size: small;">arr.length</span></b></td>
-						<td valign="top"><span style="font-size: small;">数组长度</span></td>
+							<td>字面量</td>
+							<td>var arr = [66,80,90,77,59]</td>
+						</tr>
+					</table>
+					注意：<br>
+					1. ECMAScript中的数组每个元素可以保存任何类型<br>
+					2. ECMAScript 中数组的大小也是可以调整的。<br>
+					3. var arr = new Array(10)  不等于 var arr = [10]
+					</span></li>
+				<li>arr.<a href="">length</a><span>
+					<table>
+						<tr>
+							<th>对象</th>
+							<th>含义</th>
 						</tr>
 						<tr>
-						<td valign="top"><span style="font-size: small;">function.length</span></td>
-						<td valign="top"><span style="font-size: small;">参数长度/个数</span></td>
+							<td>str.length</td>
+							<td>字符串长度</td>
 						</tr>
 						<tr>
-						<td valign="top"><span style="font-size: small;">object &amp; number类型无length</span></td>
-						<td valign="top"></td>
+							<td>arr.length</td>
+							<td>数组长度</td>
 						</tr>
-						</tbody>
-						</table>
-						<div><span style="font-size: small;"> </span></div>
-						</div>
-						<div><span style="font-size: small;"> </span></div></span></li>
-				<li><a href="">[index]</a><span><div><b><span style="font-size: small;">数组下标</span></b></div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
 						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">var  box =[];</span></div>
-						<div><span style="font-size: small;">box['name']=iRuxu;</span></div>
-						<div><span style="font-size: small;">alert(box);  </span><a><span style="font-size: small;">//空</span></a></div>
-						<div><span style="font-size: small;">alert(box['name']); </span><a><span style="font-size: small;">//iRuxu</span></a></div>
-						<div><span style="font-size: small;">alert(box[0]); </span><a><span style="font-size: small;">//iRuxu</span></a><span style="font-size: small;"> </span></div></td>
+							<td>function.length</td>
+							<td>参数长度/个数</td>
 						</tr>
-						</tbody>
-						</table>
-						<div><span style="font-size: small;">如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印</span></div>
-						<div><span style="font-size: small;"> </span></div>
-						<div><b><span style="font-size: small;">数组方法I</span></b></div></span></li>
+						<tr>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>object</td>
+							<td>-</td>
+						</tr>
+					</table>
+				</span></li>
+				<li>arr.<a href="">[index]</a><span>
+<pre><code data-language="javascript">
+	var  box =[];
+	box['name']=iRuxu;
+	alert(box);  //空
+	alert(box['name']); //iRuxu
+	alert(box[0]); //iRuxu 
+</code></pre>
+如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]Set</h4>
+			<ul>
+				<li><a href="">new Set()</a><span>
+					Set是一组key的集合，但不存储value，且key不能重复。<br>
+					要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set。
+<pre><code data-language="javascript">
+	var s1 = new Set(); // 空Set
+	var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+</code></pre>
+				</span></li>
+				<li>set.<a href="">add</a>(key)<span>
+					s.add(4)
+					//Set {1,2,3,4}
+				</span></li>
+				<li>set.<a href="">delete</a>(key)<span>
+					s.delete(3)
+				</span></li>
 			</ul>
 			<h4>[<span>-</span>]添加移除</h4>
 			<ul>
@@ -135,11 +145,6 @@
 						<br>arr.map(function(item,index,array){
 						要求
 						<br>})</span></li>
-				<li><a href="">forEach</a>(fn[item,index,arr])<span>遍历数组去执行某个函数，无返回值
-						<br>arr.forEach(function(item,index,array){
-						<br>要求
-						<br>})</span></li>
-
 			</ul>
 			<h4>[<span>-</span>]递归方法</h4>
 			<ul>
@@ -155,17 +160,43 @@
 							<br>alert(sum); //6 
 				</span></li>
 			</ul>
-			<h4>[<span>-</span>]多维数组</h4>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>iterable<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]迭代</h4>
 			<ul>
-				<li><a href="">二维数组</a><span>
-				<textarea name="" id="" cols="60" rows="10">声明1维，1维循环（声明2维，2维循环），循环条件中参数使用分号，索引号与长度关系。
-					var myarr=new Array(); //先声明一维 
-					for(var i=0;i<x;i++){ //一维长度
-					myarr[i]=new Array(); //在声明二维 
-					for(var j=0;j<y;j++){ //二维长度
-					myarr[i][j]=i+j; // 赋值，每个数组元素的值为i+j
-					}
-					} </textarea>
+				<li><a href="">forEach</a>(fn[val,i,o])<i>ES5.1</i><span>
+				Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身<br>
+				Map的回调函数参数依次为value、key和map本身
+				<table>
+					<tr>
+						<th>类型</th>
+						<th>参数</th>
+					</tr>
+					<tr>
+						<td>array</td>
+						<td>value,index,array</td>
+					</tr>
+					<tr>
+						<td>set</td>
+						<td>value,value,set</td>
+					</tr>
+					<tr>
+						<td>map</td>
+						<td>value,key,map</td>
+					</tr>
+				</table>
+<pre><code data-language="javascript">
+	var a = ['A', 'B', 'C'];
+	a.forEach(function (element, index, array) {
+		// element: 指向当前元素的值
+		// index: 指向当前索引
+		// array: 指向Array对象本身
+	alert(element);
+	});
+</code></pre>
 				</span></li>
 			</ul>
 		</div>

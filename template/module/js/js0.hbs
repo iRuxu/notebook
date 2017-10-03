@@ -3,131 +3,22 @@
     <div class="u-block">
 		<h3>基本语法<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]基础</h4>
+			<h4>[<span>-</span>]变量</h4>
 			<ul>
-				<li><a href="">变量</a>
-					<span>
-						x1 = 1;<br />
-						var x2 = 2;<br />
-						window.x3 = 3;<br />
-						<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a>
-						<hr>
-					</span>
-				</li>
-				<li><a href="">字符串</a><span>
-					多行字符串表示法：<br>
-					ES5：'string1 \n' + 'string2' <br>
-					ES6：`string1 <br>string2` <hr>
-					模板字符串：<br>
-					var v_1 = 'string' ;
-					var v_2 = 2;
-					var msg = `test,${v_1},${v_2}` <hr>
-					需要特别注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果。
+				<li><a href="">var</a><span>
+					x1 = 1;<br />
+					var x2 = 2;<br />
+					window.x3 = 3;<br />
+					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a>
+					<hr>
+					let i = 1;<br>
+					申明一个块级作用域的变量
 				</span></li>
-				<li><a href="">对象</a><span>
-					访问属性是通过.操作符完成的，但这要求属性名必须是一个有效的变量名。<br>
-					如果属性名包含特殊字符，就必须用''括起来，且用[]来访问；<br>
-					变量的属性需要用[]访问。<hr>
-					检测xiaoming是否拥有某一属性，可以用in操作符。<br>
-					如果in判断一个属性存在，这个属性不一定是自身原有的，它可能是继承得到的。<br>
-					要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。
+				<li><a href="">const</a><span>
+					const来定义常量，const与let都具有块级作用域。
+					常量通常使用全大写。
+					const PI = 3.14
 				</span></li>
-				<li><a href="">语句</a>
-					<span>
-						<table>
-							<tbody>
-								<tr>
-								<td width="189"><span style="font-size: small;">类型</span></td>
-								<td width="189"><span style="font-size: small;">子类型</span></td>
-								<td width="189"><span style="font-size: small;">语法</span></td>
-								</tr>
-								<tr>
-								<td rowspan="2" width="189"><span style="font-size: small;">声明语句</span></td>
-								<td width="189"><span style="font-size: small;">变量声明语句</span></td>
-								<td width="189"><span style="font-size: small;">var box = 100;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">标签声明语句</span></td>
-								<td width="189"><span style="font-size: small;">label : box;</span></td>
-								</tr>
-								<tr>
-								<td rowspan="4" width="189"><span style="font-size: small;">表达式语句</span></td>
-								<td width="189"><span style="font-size: small;">变量赋值语句</span></td>
-								<td width="189"><span style="font-size: small;">box = 100;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">函数调用语句</span></td>
-								<td width="189"><span style="font-size: small;">box();</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">属性赋值语句</span></td>
-								<td width="189"><span style="font-size: small;">box.property = 100;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">方法调用语句</span></td>
-								<td width="189"><span style="font-size: small;">box.method();</span></td>
-								</tr>
-								<tr>
-								<td rowspan="2" width="189"><span style="font-size: small;">分支语句</span></td>
-								<td width="189"><span style="font-size: small;">条件分支语句</span></td>
-								<td width="189"><span style="font-size: small;">if () {} else {}</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">多重分支语句</span></td>
-								<td width="189"><span style="font-size: small;">switch () { case n : ...};</span></td>
-								</tr>
-								<tr>
-								<td rowspan="4" width="189"><span style="font-size: small;">循环语句</span></td>
-								<td width="189"><span style="font-size: small;">for </span></td>
-								<td width="189"><span style="font-size: small;">for (;;;) {}</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">for ... in</span></td>
-								<td width="189"><span style="font-size: small;">for ( x in x) {}</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">while</span></td>
-								<td width="189"><span style="font-size: small;">while () {};</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">do ... while</span></td>
-								<td width="189"><span style="font-size: small;">do {} while ();</span></td>
-								</tr>
-								<tr>
-								<td rowspan="5" width="189"><span style="font-size: small;">控制结构</span></td>
-								<td width="189"><span style="font-size: small;">继续执行子句</span></td>
-								<td width="189"><span style="font-size: small;">continue ;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">终端执行子句</span></td>
-								<td width="189"><span style="font-size: small;">break ;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">函数返回子句</span></td>
-								<td width="189"><span style="font-size: small;">return ;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">异常触发子句</span></td>
-								<td width="189"><span style="font-size: small;">throw ;</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">异常捕获与处理</span></td>
-								<td width="189"><span style="font-size: small;">try {} catch () {} finally {}</span></td>
-								</tr>
-								<tr>
-								<td width="189"><span style="font-size: small;">其他</span></td>
-								<td width="189"><span style="font-size: small;">空语句</span></td>
-								<td width="189"><span style="font-size: small;">;</span></td>
-								</tr>
-								<tr>
-								<td width="189">&nbsp;</td>
-								<td width="189"><span style="font-size: small;">with语句</span></td>
-								<td width="189"><span style="font-size: small;">with () {}</span></td>
-								</tr>
-							</tbody>
-						</table>
-					</span>
-				</li>
 			</ul>
 			<h4>[<span>+</span>]运算</h4>
 			<ul style="display:none;">
@@ -173,12 +64,12 @@
 						<div>}; box++;</div></blockquote>
 					</span></li>
 				<li><a href="">算数运算符</a><span>
-						<div><b><span style="font-size: small;">算术运算符</span></b></div>
+						<div><b>算术运算符</span></b></div>
 								<div>
 								<table width="100%" border="1" cellspacing="0" cellpadding="2">
 								<tbody>
 								<tr>
-								<td valign="top"><span style="font-size: small;">+加法，-减法，*乘法，/除法，%求模</span></td>
+								<td valign="top">+加法，-减法，*乘法，/除法，%求模</span></td>
 								</tr>
 								</tbody>
 								</table>
@@ -186,17 +77,17 @@
 								</div>
 								<ul>
 									<li><span style="color: #e30000; font-size: small;"><b>加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</b></span></li>
-									<li><span style="font-size: small;">加法操作中，非数值字符串与数值运算，会串联字符串，减法中，则会得到NaN</span></li>
-									<li><span style="font-size: small;">加法操作中，数值+object类型=字符串（Num[object]），减法中，则会得到NaN</span></li>
-									<li><span style="font-size: small;">乘法操作中，数值*非数值字符串或对象返回NaN，除法与求模同NaN</span></li>
+									<li>加法操作中，非数值字符串与数值运算，会串联字符串，减法中，则会得到NaN</span></li>
+									<li>加法操作中，数值+object类型=字符串（Num[object]），减法中，则会得到NaN</span></li>
+									<li>乘法操作中，数值*非数值字符串或对象返回NaN，除法与求模同NaN</span></li>
 								</ul>
 								<div></div></span></li>
-				<li><a href="">关系运算符</a><span><div><b><span style="font-size: small;">关系运算符 <span style="color: #e30000;">（返回一个布尔值）</span></span></b></div>
+				<li><a href="">关系运算符</a><span><div><b>关系运算符 <span style="color: #e30000;">（返回一个布尔值）</span></span></b></div>
 						<div>
 						<table width="100%" border="1" cellspacing="0" cellpadding="2">
 						<tbody>
 						<tr>
-						<td valign="top"><span style="font-size: small;">&gt;大于，&lt;小于，&gt;=大于等于，&lt;=小于等于，==相等，!=不等，===全等，!==不全等</span></td>
+						<td valign="top">&gt;大于，&lt;小于，&gt;=大于等于，&lt;=小于等于，==相等，!=不等，===全等，!==不全等</span></td>
 						</tr>
 						</tbody>
 						</table>
@@ -204,259 +95,259 @@
 						</div>
 						<div>
 						<ul>
-							<li><span style="font-size: small;">两个操作数都是数值，则数值比较；</span></li>
+							<li>两个操作数都是数值，则数值比较；</span></li>
 							<li><span style="color: #0000ff; font-size: small;">两个操作数都是字符串，则比较两个字符串对应的字符编码值；</span></li>
-							<li><span style="font-size: small;">两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</span></li>
-							<li><span style="font-size: small;">两个操作数有一个是对象，则先调用 valueOf()方法或 toString()方法，再用结果比较；</span></li>
-							<li><span style="font-size: small;">不需要任何转换的情况下，null 和 undefined 是相等的；</span></li>
-							<li><span style="font-size: small;">一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；</span></li>
-							<li><span style="font-size: small;">两个操作数都是对象，则比较他们是否是同一个对象，如果都指向同一个对象，则返回 true，否则返回 false。</span></li>
+							<li>两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</span></li>
+							<li>两个操作数有一个是对象，则先调用 valueOf()方法或 toString()方法，再用结果比较；</span></li>
+							<li>不需要任何转换的情况下，null 和 undefined 是相等的；</span></li>
+							<li>一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；</span></li>
+							<li>两个操作数都是对象，则比较他们是否是同一个对象，如果都指向同一个对象，则返回 true，否则返回 false。</span></li>
 						</ul>
 						</div>
 						<blockquote>
-						<div><span style="font-size: small;">var box = {} == {}; //false，比较的是他们的地址，每个新创建对象的</span></div>
-						<div><span style="font-size: small;">引用地址都不同</span></div>
-						<div><span style="font-size: small;">var age = {};</span></div>
-						<div><span style="font-size: small;">var height = age;</span></div>
-						<div><span style="font-size: small;">var box = age == height; </span><a><span style="font-size: small;">//true，引用地址一样，所以相等</span></a></div>
-						<div><span style="font-size: small;"> </span></div></blockquote></span></li>
+						<div>var box = {} == {}; //false，比较的是他们的地址，每个新创建对象的</span></div>
+						<div>引用地址都不同</span></div>
+						<div>var age = {};</span></div>
+						<div>var height = age;</span></div>
+						<div>var box = age == height; </span><a>//true，引用地址一样，所以相等</span></a></div>
+						<div> </span></div></blockquote></span></li>
 				<li><a href="">逻辑运算符</a><span>
-						<div><span style="font-size: small;"><b>逻辑运算符</b><span style="color: #0000ff;">（通常用于布尔值的操作）</span></span></div>
+						<div><b>逻辑运算符</b><span style="color: #0000ff;">（通常用于布尔值的操作）</span></span></div>
 						<div>
 						<table width="100%" border="1" cellspacing="0" cellpadding="2">
 						<tbody>
 						<tr>
-						<td valign="top"><span style="font-size: small;">&amp;&amp;逻辑与(AND)、||逻辑或(OR)、!逻辑非(NOT)。</span></td>
+						<td valign="top">&amp;&amp;逻辑与(AND)、||逻辑或(OR)、!逻辑非(NOT)。</span></td>
 						</tr>
 						</tbody>
 						</table>
-						<div><span style="font-size: small;"> </span></div>
+						<div> </span></div>
 						</div>
 						<blockquote>
-						<div><span style="font-size: small;"><span style="color: #e30000;">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值</span>，此时，遵循已下规则：</span></div>
-						<div><span style="font-size: small;"> </span></div>
-						<div><b><span style="font-size: small;">&amp;&amp;逻辑与</span></b></div></blockquote>
+						<div><span style="color: #e30000;">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值</span>，此时，遵循已下规则：</span></div>
+						<div> </span></div>
+						<div><b>&amp;&amp;逻辑与</span></b></div></blockquote>
 						<div>
 						<ul>
 							<li>
 						<ul>
-							<li><span style="font-size: small;">第一个操作数是对象，则返回第二个操作数；</span></li>
-							<li><span style="font-size: small;">第二个操作数是对象，则第一个操作数返回 true， 才返回第二个操作数， 否则返回 false;</span></li>
-							<li><span style="font-size: small;">有一个操作数是 null，则返回 null；</span></li>
-							<li><span style="font-size: small;">有一个操作数是 undefined，则返回 undefined。</span></li>
+							<li>第一个操作数是对象，则返回第二个操作数；</span></li>
+							<li>第二个操作数是对象，则第一个操作数返回 true， 才返回第二个操作数， 否则返回 false;</span></li>
+							<li>有一个操作数是 null，则返回 null；</span></li>
+							<li>有一个操作数是 undefined，则返回 undefined。</span></li>
 						</ul>
 						</li>
 						</ul>
 						</div>
 						<blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = 对象 &amp;&amp; (5 &gt; 4); //true，返回第二个操作数</span></div></blockquote>
+						<div>var box = 对象 &amp;&amp; (5 &gt; 4); //true，返回第二个操作数</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = (5 &gt; 4) &amp;&amp; 对象; //[object Object]</span></div></blockquote>
+						<div>var box = (5 &gt; 4) &amp;&amp; 对象; //[object Object]</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = (3 &gt; 4) &amp;&amp; 对象; //false</span></div></blockquote>
+						<div>var box = (3 &gt; 4) &amp;&amp; 对象; //false</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = (5 &gt; 4) &amp;&amp; null; </span><a><span style="font-size: small;">//null</span></a></div></blockquote>
+						<div>var box = (5 &gt; 4) &amp;&amp; null; </span><a>//null</span></a></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;"> </span></div></blockquote>
-						<div><b><span style="font-size: small;">||逻辑或</span></b></div></blockquote>
+						<div> </span></div></blockquote>
+						<div><b>||逻辑或</span></b></div></blockquote>
 						<div>
 						<ul>
 							<li>
 						<ul>
-							<li><span style="font-size: small;">第一个操作数是对象，则返回第一个操作数</span></li>
-							<li><span style="font-size: small;">第一个操作数的求值结果为 false，则返回第二个操作数；</span></li>
-							<li><span style="font-size: small;">两个操作数都是对象，则返回第一个操作数；</span></li>
-							<li><span style="font-size: small;">两个操作数都是 null，则返回 null；</span></li>
-							<li><span style="font-size: small;">两个操作数都是 NaN，则返回 NaN；</span></li>
-							<li><span style="font-size: small;">两个操作数都是 undefined，则返回 undefined；</span></li>
+							<li>第一个操作数是对象，则返回第一个操作数</span></li>
+							<li>第一个操作数的求值结果为 false，则返回第二个操作数；</span></li>
+							<li>两个操作数都是对象，则返回第一个操作数；</span></li>
+							<li>两个操作数都是 null，则返回 null；</span></li>
+							<li>两个操作数都是 NaN，则返回 NaN；</span></li>
+							<li>两个操作数都是 undefined，则返回 undefined；</span></li>
 						</ul>
 						</li>
 						</ul>
 						</div>
 						<blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = 对象 || (5 &gt; 3); //[object Object]</span></div></blockquote>
+						<div>var box = 对象 || (5 &gt; 3); //[object Object]</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = (5 &gt; 3) || 对象; //true</span></div></blockquote>
+						<div>var box = (5 &gt; 3) || 对象; //true</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = 对象 1 || 对象 2; //[object Object]</span></div></blockquote>
+						<div>var box = 对象 1 || 对象 2; //[object Object]</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = null || null; //null</span></div></blockquote>
+						<div>var box = null || null; //null</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = NaN || NaN; //NaN</span></div></blockquote>
+						<div>var box = NaN || NaN; //NaN</span></div></blockquote>
 						<blockquote>
-						<div><span style="font-size: small;">var box = undefined || undefined; //undefined</span></div></blockquote>
-						<div><span style="font-size: small;"> </span></div>
-						<div><b><span style="font-size: small;">!逻辑非 </span></b></div>
-						<div><span style="font-size: small;">逻辑非运算符可以用于任何值。 无论这个值是什么数据类型， 这个运算符都会<b><span style="color: #0000ff;">返回一个布尔值</span></b>。它的流程是：先将这个值转换成布尔值，然后取反。</span></div>
-						<div><span style="font-size: small;">通常来说， 使用一个逻辑非运算符和两个逻辑非运算符可以得到相应的布尔值。</span></div></blockquote>
+						<div>var box = undefined || undefined; //undefined</span></div></blockquote>
+						<div> </span></div>
+						<div><b>!逻辑非 </span></b></div>
+						<div>逻辑非运算符可以用于任何值。 无论这个值是什么数据类型， 这个运算符都会<b><span style="color: #0000ff;">返回一个布尔值</span></b>。它的流程是：先将这个值转换成布尔值，然后取反。</span></div>
+						<div>通常来说， 使用一个逻辑非运算符和两个逻辑非运算符可以得到相应的布尔值。</span></div></blockquote>
 						<ul>
 							<li>
 						<ul>
-							<li><span style="font-size: small;">操作数是一个对象，返回 false；</span></li>
-							<li><span style="font-size: small;">操作数是一个空字符串，返回 true；</span></li>
-							<li><span style="font-size: small;">操作数是一个非空字符串，返回 false；</span></li>
-							<li><span style="font-size: small;">操作数是数值 0，返回 true；</span></li>
-							<li><span style="font-size: small;">操作数是任意非 0 数值(包括 Infinity)，false；</span></li>
-							<li><span style="font-size: small;">操作数是 null，返回 true；</span></li>
-							<li><span style="font-size: small;">操作数是 NaN，返回 true；</span></li>
-							<li><span style="font-size: small;">操作数是 undefined，返回 true；</span></li>
+							<li>操作数是一个对象，返回 false；</span></li>
+							<li>操作数是一个空字符串，返回 true；</span></li>
+							<li>操作数是一个非空字符串，返回 false；</span></li>
+							<li>操作数是数值 0，返回 true；</span></li>
+							<li>操作数是任意非 0 数值(包括 Infinity)，false；</span></li>
+							<li>操作数是 null，返回 true；</span></li>
+							<li>操作数是 NaN，返回 true；</span></li>
+							<li>操作数是 undefined，返回 true；</span></li>
 						</ul>
 						</li>
 						</ul>
 						<div></div>
 				</span></li>
 				<li><a href="">其他运算符</a><span>
-						<h2><span style="font-size: small;">赋值运算符</span></h2>
+						<h2>赋值运算符</span></h2>
 							<table width="100%" border="1" cellspacing="0" cellpadding="2">
 							<tbody>
 							<tr>
-							<td valign="top"><span style="font-size: small;">乘/赋(*=)  除/赋(/=)  模/赋(%=)  加/赋(+=)  减/赋(-=)  左移/赋(&lt;&lt;=)  有符号右移/赋(&gt;&gt;=)  无符号有移/赋(&gt;&gt;&gt;=)</span></td>
+							<td valign="top">乘/赋(*=)  除/赋(/=)  模/赋(%=)  加/赋(+=)  减/赋(-=)  左移/赋(&lt;&lt;=)  有符号右移/赋(&gt;&gt;=)  无符号有移/赋(&gt;&gt;&gt;=)</span></td>
 							</tr>
 							</tbody>
 							</table>
-							<div><span style="font-size: small;"> </span></div>
+							<div> </span></div>
 							<div>
 
 							<hr />
 
 							</div>
-							<h2><span style="font-size: small;">位操作符</span></h2>
+							<h2>位操作符</span></h2>
 							<div>
 							<table width="100%" border="1" cellspacing="0" cellpadding="2">
 							<tbody>
 							<tr>
-							<td valign="top"><span style="font-size: small;">~按位非，&amp;按位与，|按位或，^按位异或，&lt;&lt;左移，&gt;&gt;有符号右移，&gt;&gt;&gt;无符号右移</span></td>
+							<td valign="top">~按位非，&amp;按位与，|按位或，^按位异或，&lt;&lt;左移，&gt;&gt;有符号右移，&gt;&gt;&gt;无符号右移</span></td>
 							</tr>
 							</tbody>
 							</table>
-							<div><span style="font-size: small;">
-							</span><span style="font-size: small;">
+							<div>
+							</span>
 							</span></div>
 							</div>
 							<div>
 
 							<hr />
 
-							<span style="font-size: small;"> </span></div>
-							<div><b><span style="font-size: small;">其他运算符</span></b></div>
+							 </span></div>
+							<div><b>其他运算符</span></b></div>
 							<div>
 							<table width="100%" border="1" cellspacing="0" cellpadding="2">
 							<tbody>
 							<tr>
-							<td valign="top"><span style="font-size: small;">+ 字符串运算符 、 ,逗号运算符 、三元运算符</span></td>
+							<td valign="top">+ 字符串运算符 、 ,逗号运算符 、三元运算符</span></td>
 							</tr>
 							</tbody>
 							</table>
-							<div><span style="font-size: small;"> </span></div>
+							<div> </span></div>
 							</div>
-							<div><span style="font-size: small;">字符串运算符只有一个，即："+"。它的作用是将两个字符串相加。</span></div>
-							<div><span style="font-size: small;">逗号运算符可以在一条语句中执行多个操作。</span></div>
-							<div><span style="font-size: small;">三元条件运算符 a ? b : c</span></div>
+							<div>字符串运算符只有一个，即："+"。它的作用是将两个字符串相加。</span></div>
+							<div>逗号运算符可以在一条语句中执行多个操作。</span></div>
+							<div>三元条件运算符 a ? b : c</span></div>
 				</span></li>
 				<li><a href="">运算符优先级</a><span>
-					<div><b><span style="font-size: small;">运算符优先级</span></b></div>
-							<div><span style="font-size: small;"><span>如果没有使用<strong>圆括号强制优先级</strong>，我们必须遵循以下顺序：
+					<div><b>运算符优先级</span></b></div>
+							<div><span>如果没有使用<strong>圆括号强制优先级</strong>，我们必须遵循以下顺序：
 							</span><strong>算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号</strong></span></div>
 							<div>
 							<table width="100%" border="1" cellspacing="0" cellpadding="2">
 							<tbody>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">运算符</span></div></td>
+							<div>运算符</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">描述</span></div></td>
+							<div>描述</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">. [] () </span></div></td>
+							<div>. [] () </span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">对象成员存取、数组下标、函数调用等</span></div></td>
+							<div>对象成员存取、数组下标、函数调用等</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">++ -- ~ ! delete new typeof void</span></div></td>
+							<div>++ -- ~ ! delete new typeof void</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">一元运算符</span></div></td>
+							<div>一元运算符</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">* / %</span></div></td>
+							<div>* / %</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">乘法、除法、去模</span></div></td>
+							<div>乘法、除法、去模</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">+ - +</span></div></td>
+							<div>+ - +</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">加法、减法、字符串连接</span></div></td>
+							<div>加法、减法、字符串连接</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">&lt;&lt; &gt;&gt; &gt;&gt;&gt;</span></div></td>
+							<div>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">移位</span></div></td>
+							<div>移位</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">&lt; &lt;= &gt; &gt;= instanceof </span></div></td>
+							<div>&lt; &lt;= &gt; &gt;= instanceof </span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">关系比较、检测类实例</span></div></td>
+							<div>关系比较、检测类实例</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">== != === !==</span></div></td>
+							<div>== != === !==</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">恒等(全等)</span></div></td>
+							<div>恒等(全等)</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">&amp; </span></div></td>
+							<div>&amp; </span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">位与</span></div></td>
+							<div>位与</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">^ </span></div></td>
+							<div>^ </span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">位异或</span></div></td>
+							<div>位异或</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">|</span></div></td>
+							<div>|</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">位或</span></div></td>
+							<div>位或</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">&amp;&amp;</span></div></td>
+							<div>&amp;&amp;</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">逻辑与</span></div></td>
+							<div>逻辑与</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">||</span></div></td>
+							<div>||</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">逻辑或</span></div></td>
+							<div>逻辑或</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">?:</span></div></td>
+							<div>?:</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">三元条件</span></div></td>
+							<div>三元条件</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">= x=</span></div></td>
+							<div>= x=</span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">赋值、运算赋值</span></div></td>
+							<div>赋值、运算赋值</span></div></td>
 							</tr>
 							<tr>
 							<td valign="top">
-							<div><span style="font-size: small;">, </span></div></td>
+							<div>, </span></div></td>
 							<td valign="top">
-							<div><span style="font-size: small;">多重赋值、数组元素</span></div></td>
+							<div>多重赋值、数组元素</span></div></td>
 							</tr>
 							</tbody>
 							</table>
@@ -465,10 +356,18 @@
 			</ul>
 			<h4>[<span>+</span>]语句</h4>
 			<ul style="display:none;">
-				<li><a href="">Switch</a><span><br />
+				<li><a href="">if</a><span>if else else if</span></li>
+				<li><a href="">switch</a><span>
 					1.<a href="http://www.qttc.net/201207151.html">switch中的case为全等判断</a><br>
 					2.多个case使用同一个执行块应写为case 1: case2: ...
 				</span></li>
+				<li><a href="">for</a><span>for...in...</span></li>
+				<li><a href="">while</a><span>do...while...</span></li>
+				<li><a href="">continue</a><span></span></li>
+				<li><a href="">break</a><span></span></li>
+				<li><a href="">throw</a><span></span></li>
+				<li><a href="">try</a><span>try {} catch (e) {} finally {}</span></li>
+				<li><a href="">with</a><span></span></li>
 			</ul>
 			<h4>[<span>-</span>]其他</h4>
 			<ul>

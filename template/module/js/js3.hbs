@@ -1,55 +1,6 @@
 <!-- 函数、对象 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>函数<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]内部属性/对象</h4>
-			<ul>
-				<li><a href="">arguments</a><span>函数的参数对象
-					<div><span style="font-size: small;"><b>argument<span style="color: #e30000;">s</span>对象</b> （类数组对象，但检测不是数组类型）</span></div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">arguments[0]</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">第一个参数名字</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">arguments.length</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">参数的个数</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">arguments.callee</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">主体函数本身，拥有这个参数对象的函数</span></div></td>
-						</tr>
-						</tbody>
-						</table>
-						<div><strong> </strong></div>
-						</div></span></li>
-				<li><a href="">this</a><span>函数执行的环境对象,函数里的函数中的this为window,闭包中调用父级函数指定var that = this</span></li>
-				<li><a href="">caller</a><span>调用当前函数的函数</span></li>
-				<li><a href="">length</a><span>函数希望接收的命名参数的个数</span></li>
-				<li><a href="">prototype</a><span>原型属性，不可枚举</span></li>
-			</ul>
-			<h4>[<span>-</span>]方法</h4>
-			<ul>
-				<li>fn<a href="">.apply</a>(obj,arg)<span>func.apply(作用域，[传递参数]/arguments)</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>func.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域<br>call必须明确传入每一个参数</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
-			</ul>
-			<h4>[<span>-</span>]其他</h4>
-			<ul>
-				<li><a href="">(function(){})()</a><span>匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取</span></li>
-			</ul>
-		</div>
-	</div>	
-	<div class="u-block">
 		<h3>对象<span>-</span></h3>
 		<div class="u-list">
 			<h4>[<span>-</span>]Object</h4>
@@ -61,7 +12,7 @@
 							<th>演示</th>
 						</tr>
 						<tr>
-							<td>new 运算符</td>
+							<td>构造函数</td>
 							<td>var obj = new Object();
 						obj.key = value;
 						obj.key = function(){}</td>
@@ -76,13 +27,18 @@
 					</table>
 				</span></li>
 				<li>obj<a href=""></a>[key]<span>
-					obj.property取对象的属性值
 					<ol>
-						<li><strong>中括号表示法时，key需要加上引号法</strong></li>
+						<li>访问属性是通过.操作符完成的，但这要求属性名必须是一个有效的变量名。</li>
 						<li><b>当属性含空格、关键字或为变量时，只能用中括号表示</b></li>
+						<li><strong>中括号表示法时，key需要加上引号法</strong></li>
 					</ol>
 				</span></li>
-				<li>obj.<a href="">hasOwnProperty()</a><span>判断某个是否非继承自属</span></li>
+				<li>obj.<a href="">hasOwnProperty()</a><span>
+					检测xiaoming是否拥有某一属性，可以用in操作符。<br>
+					如果in判断一个属性存在，这个属性不一定是自身原有的，它可能是继承得到的。<br>
+					要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。
+				</span></li>
+				<li><a href="">delete </a>obj.key<span>删除属性delete obj.key</span></li>
 				<li>key <a href="">in</a> obj<span>
 					in遍历访问对象的属性/属性值
 <pre><code data-language="javascript">
@@ -92,18 +48,123 @@
 	} 
 </code></pre>
 				</span></li>
-				<li><a href="">delete </a>obj.key<span>删除属性delete obj.key</span></li>
 			</ul>
 			<h4>[<span>+</span>]Map</h4>
 			<ul>
 				<li><a href="">new Map()</a><span>
-					初始化Map需要一个二维数组，或者直接初始化一个空Map
+					初始化Map需要一个二维数组，或者直接初始化一个空Map。没有字面量方法。
 					<pre><code data-language="javascript">var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);</code></pre>
 				</span></li>
 				<li>map.<a href="">get</a>(key)<span>取key的值，返回值</span></li>
 				<li>map.<a href="">set</a>(key,val)<span>添加新的key-value</span></li>
 				<li>map.<a href="">has</a>(key)<span>是否存在key，返回布尔值</span></li>
 				<li>map.<a href="">delete</a>(key)<span>删除key</span></li>
+				<li>key <a href="">of</a> map<span>
+					遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for ... of循环来遍历。
+<pre><code data-language="javascript">
+	var a = ['A', 'B', 'C'];
+	var s = new Set(['A', 'B', 'C']);
+	var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+	for (var x of a) { // 遍历Array
+	    console.log('arr:' + x);
+	}
+	for (var x of s) { // 遍历Set
+	    console.log('set:' + x);
+	}
+	for (var x of m) { // 遍历Map
+	    console.log('map:' + x[0] + '=' + x[1]);
+	}
+</code></pre>
+				</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>函数<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]内部属性/对象</h4>
+			<ul>
+				<li>define<a href=""></a><span>
+					function fn(arg){...} <br>
+					var fn = function(arg){...} <br>
+					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
+					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
+					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。
+				</span></li>
+				<li><a href="">return</a><span>
+					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
+				</span></li>
+				<li><a href="">arguments</a><span>
+					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。
+					<table>
+						<tr>
+							<th>对象值</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>arguments[0]</td>
+							<td>第一个参数名字</td>
+						</tr>
+						<tr>
+							<td>arguments.length</td>
+							<td>参数的个数</td>
+						</tr>
+						<tr>
+							<td>arguments.callee</td>
+							<td>主体函数本身，拥有这个参数对象的函数</td>
+						</tr>
+					</table>
+					rest参数：<br>
+<pre><code data-language="javascript">
+	function foo(a, b, ...rest) {
+	    console.log('a = ' + a);
+	    console.log('b = ' + b);
+	    console.log(rest);
+	    //rest: [array]
+	}
+</code></pre>
+				</span></li>
+				<li><a href="">this</a><span>
+					<table>
+						<tr>
+							<th>当前环境</th>
+							<th>this指向</th>
+						</tr>
+						<tr>
+							<td>函数</td>
+							<td>非严格模式：window <br>
+							strict模式：undefined
+							</td>
+						</tr>
+						<tr>
+							<td>对象</td>
+							<td>object<br>
+							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
+							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
+							</td>
+						</tr>
+					</table>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料</a>
+				</span></li>
+				<!-- <li><a href="">caller</a><span>调用当前函数的函数</span></li>
+				<li><a href="">prototype</a><span>原型属性，不可枚举</span></li> -->
+			</ul>
+			<h4>[<span>-</span>]方法</h4>
+			<ul>
+				<li>fn<a href="">.apply</a>(obj,[arg])<span>
+					fn.apply(作用域，[传递参数]/arguments) <br>
+					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+				</span></li>
+				<li>fn<a href="">.call</a>(obj,arg)<span>
+					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
+					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
+					对普通函数调用，我们通常把this绑定为null。
+					</span></li>
+				<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
+			</ul>
+			<h4>[<span>-</span>]其他</h4>
+			<ul>
+				<li><a href="">(function(){})()</a><span>匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取</span></li>
 			</ul>
 		</div>
 	</div>
