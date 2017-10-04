@@ -35,6 +35,15 @@ $(function(){
 			$(this).attr('href',link)
 		})
 
+		//侧边栏关联内容卡开关
+		$sidebar_list_item.on('click',function(){
+			$sidebar_list_item.removeClass('on')
+			$(this).addClass('on')
+			var i = $(this).index()
+			$c_tab.removeClass('on').eq(i).addClass('on')
+			window.location.search = '?c=' + i
+		})
+
 		//动态访问指定tab卡
 		var getRequest = function(paras){
 		    var url = location.search;
@@ -63,13 +72,57 @@ $(function(){
 		$sidebar_list_item.eq(category).addClass('on');
 		$c_tab.eq(category).addClass('on');
 
-		//侧边栏关联内容卡开关
-		$sidebar_list_item.on('click',function(){
-			$sidebar_list_item.removeClass('on')
-			$(this).addClass('on')
-			var i = $(this).index()
-			$c_tab.removeClass('on').eq(i).addClass('on')
-		})
+	//内容区
+		var 
+		$main = $("#main"),
+		$btg = $('h3').add('h4'),
+		$mnav = $("#showmenu"),
+		screenW = $(window).width()
+
+		//h3 & 4 Toggle
+			$btg.on('click',function(){
+				$(this).next('div,ul').slideToggle('slow')
+				var status = $(this).children('span').html()
+				if(status=='-'){
+					$(this).children('span').html('+')}
+				else if(status=='+'){
+					$(this).children('span').html('-');
+				}
+			})
+
+		//Tips Layout
+			$main.on('mouseover','h4+ul>li',function(e){
+				$(this).children('span').css({
+						left:e.pageX+12+'px',
+						top:e.pageY+8+'px',
+						display:'block'
+					})
+				}).on('mouseout','h4+ul>li',function(){
+					$(this).children('span').hide()
+				})
+
+		//Snippet Box
+			$("#closebox").click(function(){
+				$("#snippet").hide()
+			})
+			
+			$("#snippet").draggable({
+				handle:'h6',
+				cursor:'move',
+			});
+
+			$("#main").on('click','h4+ul>li',function(){
+				var originFn = $(this).children("a:first-child").html() || ''
+				var prevArg = $(this).children("em:first-child").html() || ''
+				var nextArg = $(this).children("em:nth-child(2)").html() || ''
+				var title =  prevArg + originFn + nextArg
+				//title || (title = "Snippet");
+				var info = $(this).children("span").html();
+
+				$("#snippet").show()
+				$("#box-title").html(title)
+				$("#box").html(info)
+			})
 
 	//公共tab卡功能
 		$(".e-tab li").on('click',function(){
@@ -80,61 +133,6 @@ $(function(){
 			$tabbox.removeClass('on').eq(i).addClass('on')
 		})
 
-
-
-
-	var 
-	$main = $("#main"),
-	$btg = $('h3').add('h4'),
-	$mnav = $("#showmenu"),
-	screenW = $(window).width()
-
-	//h3 & 4 Toggle
-		$btg.on('click',function(){
-			$(this).next('div,ul').slideToggle('slow')
-			var status = $(this).children('span').html()
-			if(status=='-'){
-				$(this).children('span').html('+')}
-			else if(status=='+'){
-				$(this).children('span').html('-');
-			}
-		})
-
-	//Tips Layout
-		$main.on('mouseover','h4+ul>li',function(e){
-			$(this).children('span').css({
-					left:e.pageX+12+'px',
-					top:e.pageY+8+'px',
-					display:'block'
-				})
-			}).on('mouseout','h4+ul>li',function(){
-				$(this).children('span').hide()
-			})
-
-	//Snippet Box
-		$("#closebox").click(function(){
-			$("#snippet").hide()
-		})
-		
-		$("#snippet").draggable({
-			handle:'h6',
-			cursor:'move',
-		});
-
-		$("#main").on('click','h4+ul>li',function(){
-			var title = $(this).children("a:first-child").html();
-			title || (title = "Snippet");
-			var info = $(this).children("span").html();
-			$("#snippet").show()
-			$("#box-title").html(title)
-			$("#box").html(info)
-		})
-
-	//sidebar
-		$("#c-sidebar-folder").on('click',function(){
-			$(this).toggleClass('on');
-			$(".c-main").toggleClass('widthauto');
-			$(".c-sidebar").toggleClass('folder');
-		})
+	//mobile
 
 })

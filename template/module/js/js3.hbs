@@ -84,7 +84,7 @@
 		<div class="u-list">
 			<h4>[<span>-</span>]内部属性/对象</h4>
 			<ul>
-				<li>define<a href=""></a><span>
+				<li><a href="">function</a>()<span>
 					function fn(arg){...} <br>
 					var fn = function(arg){...} <br>
 					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
@@ -146,8 +146,6 @@
 					</table>
 					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料</a>
 				</span></li>
-				<!-- <li><a href="">caller</a><span>调用当前函数的函数</span></li>
-				<li><a href="">prototype</a><span>原型属性，不可枚举</span></li> -->
 			</ul>
 			<h4>[<span>-</span>]方法</h4>
 			<ul>
@@ -160,11 +158,48 @@
 					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
 					对普通函数调用，我们通常把this绑定为null。
 					</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>bind(作用目标) 创建一个作用于某目标的函数实例</span></li>
+				<li>fn<a href="">.bind</a>(obj)<span>
+					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
+					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
+				</span></li>
 			</ul>
 			<h4>[<span>-</span>]其他</h4>
 			<ul>
-				<li><a href="">(function(){})()</a><span>匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取</span></li>
+				<li><em>x => x * x</em><a href=""></a><span>
+<pre><code data-language="javascript">
+	//单个参数
+	var result = x => x * x
+	function (x) {
+	    return x * x;
+	}
+	//语句块
+	x => {
+	    if (x > 0) {
+	        return x * x;
+	    }
+	    else {
+	        return - x * x;
+	    }
+	}
+	//多个参数
+	(x, y) => x * x + y * y
+</code></pre>
+				箭头函数相当于匿名函数，省略了return。<br>
+				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
+				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
+				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
+				</span></li>
+				<li><em>(function(n){})(n)</em><a href=""></a><span>
+					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
+					返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>
+					如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变：
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]generator</h4>
+			<ul>
+				<li><a href="">function*</a>()<span></span></li>
+				<li><a href="">yield</a> val<span></span></li>
+				<li>g.<a href="">next()</a><span></span></li>
 			</ul>
 		</div>
 	</div>
