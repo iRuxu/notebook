@@ -22,55 +22,68 @@ $(function(){
 		var $c_tab = $(".c-tab")
 
 		//当屏幕高度不足以展示侧边栏时
-		var _screen_H = $(window).height()
-		var _sidebar_list_height = $sidebar_list_ul.height()
-		var _sidebar_list_visheight = _screen_H - 38 - 42 - 20;
-		_sidebar_list_height > _sidebar_list_visheight ? $sidebar_list.addClass('scroll') : $sidebar_list.removeClass('scroll');
-
+			var _screen_H = $(window).height()
+			var _sidebar_list_height = $sidebar_list_ul.height()
+			var _sidebar_list_visheight = _screen_H - 38 - 42 - 20;
+			_sidebar_list_height > _sidebar_list_visheight ? $sidebar_list.addClass('scroll') : $sidebar_list.removeClass('scroll');
 		
 		//自动生成侧边栏tab卡指向地址
-		$sidebar_list_item.each(function(){
-			var i = $(this).index()
-			var link = '?c=' + i
-			$(this).attr('href',link)
-		})
+			$sidebar_list_item.each(function(){
+				var i = $(this).index()
+				var link = '#' + i
+				$(this).attr('href',link)
+			})
 
 		//侧边栏关联内容卡开关
-		$sidebar_list_item.on('click',function(){
-			$sidebar_list_item.removeClass('on')
-			$(this).addClass('on')
-			var i = $(this).index()
-			$c_tab.removeClass('on').eq(i).addClass('on')
-			window.location.search = '?c=' + i
-		})
+			$sidebar_list_item.on('click',function(e){
+				$sidebar_list_item.removeClass('on')
+				$(this).addClass('on')
+				var i = $(this).index()
+				$c_tab.removeClass('on').eq(i).addClass('on')
+				window.location.hash = '#' + i
+			})
 
 		//动态访问指定tab卡
-		var getRequest = function(paras){
-		    var url = location.search;
-		    var _request = {};
+			/*var getRequest = function(paras){
+			    var url = location.location;
+			    var _request = {};
 
-		    if( url.indexOf("?") != -1){
-		        var str = url.substr(1),
-		            i = 0,
-		            strs = str.split("&");
+			    if( url.indexOf("?") != -1){
+			        var str = url.substr(1),
+			            i = 0,
+			            strs = str.split("&");
 
-		        for( ;i<strs.length;i+=1 ){
-		            _request[strs[i].split('=')[0]] = unescape(strs[i].split('=')[1]);
-		        }
-		    }
+			        for( ;i<strs.length;i+=1 ){
+			            _request[strs[i].split('=')[0]] = unescape(strs[i].split('=')[1]);
+			        }
+			    }
 
-		    var value = _request[paras.toLowerCase()];
-		    if(typeof(value) == "undefined"){
-		        return "";
-		    } else {
-		        return value;
-		    }
-		};
-		var category = getRequest('c');
-		var category = parseInt(category);
-		isNaN(category) ? category=0 : category=category
-		$sidebar_list_item.eq(category).addClass('on');
-		$c_tab.eq(category).addClass('on');
+			    var value = _request[paras.toLowerCase()];
+			    if(typeof(value) == "undefined"){
+			        return "";
+			    } else {
+			        return value;
+			    }
+			};
+			var category = getRequest('c');
+			var category = parseInt(category);*/
+
+		//通过hash访问
+			var cur_hash = window.location.hash
+			function visitByHash(){
+				//默认访问时
+				if (!cur_hash){
+					cur_hash = '#0'
+					$sidebar_list_item.eq(0).addClass('on')
+					$c_tab.eq(0).addClass('on')
+					return
+				}
+				//有带hash访问时
+				var i = parseInt(cur_hash.slice(1))
+				$sidebar_list_item.eq(i).addClass('on')
+				$c_tab.eq(i).addClass('on')
+			}
+			visitByHash();
 
 	//内容区
 		var 
