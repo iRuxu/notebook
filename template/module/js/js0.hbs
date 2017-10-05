@@ -9,7 +9,8 @@
 					x1 = 1;<br />
 					var x2 = 2;<br />
 					window.x3 = 3;<br />
-					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a>
+					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <br>
+					判断某个全局变量是否存在用typeof window.myVar === 'undefined'
 				</span></li>
 				<li><a href="">let</a><span>
 					let i = 1;<br>
@@ -374,6 +375,12 @@
 				<li><a href="">export</a><span>用来导出函数，以便这些函数能够被导入到外部模块或其他script中。</span></li>
 				<li><a href="">import</a><span>用来引入外部的模块或另一个script中导出的函数。</span></li>
 			</ul>
+			<h4>[<span>+</span>]其它</h4>
+			<ul>
+				<li><a href="">'use strict'</a><span>
+					严格模式下，函数中的this指向Undefined，非window对象。
+				</span></li>
+			</ul>
 		</div>
     </div>
     <div class="u-block">
@@ -458,7 +465,7 @@
 					<br>1. 非数值执行运算，会隐藏自动转型（除+）
 					<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
 				<li><a href="">isFinite</a>(val)<span>判断是否为无穷值超出计算范围</span></li>
-				<li><a href="">Array.isArray</a>(val)<span>检测是否为数组（EC5）</span></li>
+				<li><a href="">Array.isArray</a>(arr)<span>检测是否为数组（EC5）</span></li>
 			</ul>
 			<h4>[<span>-</span>]类型转换</h4>
 			<ul>

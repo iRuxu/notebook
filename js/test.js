@@ -67,5 +67,73 @@ console.log(test)*/
 }
 
 var results = count()*/
-var results = x => x*x
-console.log(results(2))
+/*var results = x => x*x
+console.log(results(2))*/
+
+/*window.test = 'ok'
+console.log(typeof window.aa === 'undefined')*/
+
+/*'use strict'
+function Person(name){
+	this.name = name;
+	this.hi = function (){console.log('hello, ' + name)}
+	console.log(this)
+}
+
+var test = Person()
+console.log(name)
+console.log(hi)*/
+/*var o = new Person('iRuxu')
+var test = o.constructor
+console.log(test)*/
+
+/*function Student(props) {
+    this.name = props.name || 'Unnamed';
+}
+
+Student.prototype.hello = function () {
+    alert('Hello, ' + this.name + '!');
+}
+
+function PrimaryStudent(props) {
+    // 调用Student构造函数，绑定this变量:
+    Student.call(this, props);
+    this.grade = props.grade || 1;
+}
+
+var test = PrimaryStudent({name:'ok'})
+console.log(test)
+
+function inherits(Child, Parent) {
+    var F = function () {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+}*/
+/*class Student {
+    constructor(name,number) {
+        this.name = name;
+        this.number = number;
+    }
+
+    hello() {
+        alert('Hello, ' + this.name + '!');
+    }
+}
+
+class PrimaryStudent extends Student{
+	constructor(name,grade){
+		super(name);
+		this.grade = grade;
+	}
+
+	go(){
+		console.log('ok~~')
+	}
+}
+
+var test = new PrimaryStudent('iRuxu',5)
+console.log(test)
+//console.log(test.hello())
+console.log(test.go())
+*/
