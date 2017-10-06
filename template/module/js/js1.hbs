@@ -5,29 +5,70 @@
 		<div class="u-list">
 			<h4>[<span>-</span>]String</h4>
 			<ul>
-				<li>define<a href=""></a><span>
-					多行字符串表示法：<br>
-					ES5：'string1 \n' + 'string2' <br>
-					ES6：`string1 <br>string2` 
-					<hr>
-					模板字符串：<br>
-					var v_1 = 'string' ;
-					var v_2 = 2;
-					var msg = `test,${v_1},${v_2}` <hr>
+				<li><a href="">new String()</a><span>
+					多行字符串表示法：
+					<pre><code data-language="javascript">
+						//ES5:
+						'string1 \n' + 'string2'
+						//ES6:
+						`string1 
+						string2` 
+					</code></pre>
+				</span></li>
+				<li><a href="">`__ ${varname} __`</a><span>
+					模板字符串
+					<pre><code data-language="javascript">
+						var v_1 = 'string' ;
+						var v_2 = 2;
+						var msg = `test,${v_1},${v_2}` 
+					</code></pre>
+				</span></li>
+				<li>str.<a href="">length</a><span>
+					字符串的长度。<br>
 					需要特别注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果。
 				</span></li>
 			</ul>
-			<h4>[<span>-</span>]字符位置</h4>
+			<h4>[<span>-</span>]转换</h4>
 			<ul>
-				<li><a href="">charAt(N)</a><span>返回索引上的字符</span></li>
-				<li><a href="">charCodeAt(N)</a><span>返回在指定的位置的字符的 Unicode 编码</span></li>
-				<li><a href="">indexOf("A",n)</a><span>返回索引位置，正向查找字符所在的索引</span></li>
-				<li><a href="">lastIndexOf("A",n)</a><span>返回索引位置，逆向查找</span></li>
+				<li>str.<a href="">split</a>(/reg/,[len])<span>
+					参数1：字符串或正则表达式 <br>
+					参数2：最大的数组长度 <br>
+					返回值：数组 <br>
+					原对象：不变 <br>
+					把字符串按指定符号或正则分割为字符串数组</span></li>
+				<li>str.<a href="">trim</a>()<span>
+					移除字符串的两端删除空白字符。<br>
+					空白字符包括所有的空白字符 (space, tab, no-break space 等) 以及所有行终止符字符（如 LF，CR）。
+				</span></li>
+				<li>str.<a href="">toUpperCase</a>()<span>
+					转为大写
+				</span></li>
+				<li>str.<a href="">toLowerCase</a>()<span>
+					转为小写 
+				</span></li>
+				<li><a href="">String.fromCharCode</a>(Unicode)<span>
+					将Unicode编码转为一个字符 <br>
+					参数：Unicode编码数字 <br>
+					返回值：字符串 <br>
+					原对象：不变
+				</span></li>
 			</ul>
-			<h4>[<span>-</span>]位置筛选</h4>
+			<h4>[<span>-</span>]操作</h4>
 			<ul>
-				<li><a href="">slice / substring(n,m)</a><span>显示索引范围内的字符串，返回新字符串，包含起始不包含结尾</span></li>
-				<li><a href="">substr(n,x)</a><span>显示指定索引起范围内的字符串，返回新字符串
+				<li>str.<a href="">concat</a>(str,..)<span>
+					参数：串联一个或更多字符串 <br>
+					返回值：新的字符串 <br>
+					原对象：不变。
+				</span></li>
+				<li>str.<a href="">slice</a>[n,m)<span>
+					参数：起始位置，末尾位置（不包含）<br>
+					返回值：被截取得到的新字符串。<br>
+					原对象：不变。<br>
+					当只有1个参数时，则为起始位置到末尾全部，且包含末尾元素（即m=arr.length）。<br>
+					n和m可为负值，-1 指最后一个元素，-2 指倒数第二个元素。
+				</span></li>
+				<!-- <li>str.<a href="">substring</a>[n,m)<span>
+					显示指定索引起范围内的字符串，返回新字符串
 					<br>slice / substring / substr 负数
 					<br>单个负数：
 					<br>alert(box.slice(-3)); //Lee，6+(-3)=3 位开始 length-n
@@ -37,36 +78,69 @@
 					<br>alert(box.slice(3, -1)); //Le 6+(-1)=5, (3,5) a,length-n
 					<br>alert(box.substring(3, -1)); //Mr. 第二参为负，直接转 0，并且方法会把较小的数字提前，(0,3) a,0
 					<br>alert(box.substr(3, -1)); //'' 第二参数为负，直接转 0 ，(3,0) a,0
-					</span></li>
+					</span></li> -->
+				<li>str.<a href="">replace</a><em>(/reg/g,val|fn([reg]))</em><span>
+					参数1：需要替换的字符或正则表达式，没有全局标识时只替换一次 <br>
+					参数2：替换成的字符串或生成字符串的函数，用return返回 <br>
+					返回值：新的字符串<br>
+					原对象：不变 <hr>
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#指定一个函数作为参数">回调函数参数详情</a>
+				</span></li>
+				<li>str.<a href="">repeat</a>(count)<span>
+					重复指定的字符串
+				</span></li>
 			</ul>
-			<h4>[<span>-</span>]匹配替换</h4>
+			<h4>[<span>-</span>]查找</h4>
 			<ul>
-				<li><a href="">match(正则/匹配值)</a><span>返回数组，没找到则返回null，正则识别全局</span></li>
-				<li><a href="">search(正则/匹配值)</a><span>返回起始的索引，没找到则返回-1，始终从头开始找，找到一个即返回，正则无需全局设置 strt </span></li>
-				<li><a href="">replace(正则/匹配值,"替换目标") </a><span>返回新字符串对象，识别正则全局，function可内含一个switch控制流</span></li>
-			</ul>
-			<h4>[<span>-</span>]串联分割</h4>
-			<ul>
-				<li><a href="">concat()</a><span>返回新字符串，串联</span></li>
-				<li><a href="">split(*/正则,N)</a><span>返回数组，把字符串按指定符号或正则分割为字符串数组</span></li>
-			</ul>
-			<h4>[<span>-</span>]其他方法</h4>
-			<ul>
-				<li><a href="">trim()</a><span>返回新字符串，删除前置与后置空格</span></li>
-				<li><a href="">toUpperCase()</a><span>返回新字符串，转换大写 toLocaleUpperCase()</span></li>
-				<li><a href="">toLowerCase()</a><span>返回新字符串，转换小写 toLocaleLowerCase()  </span></li>
-				<li><a href="">localeCompare()</a><span>大写小写，在之后（大于），返回1，在之前（小于），返回-1，相等，返回0</span></li>
-				<li><a href="">String.fromCharCode(编码)</a><span>返回编码转回的字符串</span></li>
+				<li>str.<a href="">indexOf</a>(val,[i])<span>
+					参数：正向查找指定值,i为起始索引<br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1
+				</span></li>
+				<li>str.<a href="">lastIndexOf</a>(val,[i])<span>
+					参数：逆向查找指定值,i为起始索引 <br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1 
+				</span></li>
+				<li>str.<a href="">search</a>(/reg/)<span>
+					参数：字符串/正则表达式<br>
+					返回：第一个子串的索引/-1<br>
+					始终从头开始找，找到一个即返回，正则无需全局设置
+				</span></li>
+				<li>str.<a href="">match</a>(/reg/g)<span>
+					参数：字符串/正则表达式<br>
+					返回：子串数组/null
+					<br>
+					当没有g正则全局标识时，返回的数组为 ["第一个子串", index: 0, input: "原字符串"] <br>
+					当参数为正则表达式时，返回的数组为 [子串1,子串2]
+				</span></li>
+				<li>str.<a href="">charAt</a>(i)<span>
+					参数：查找的索引位置 <br>
+					返回值：索引上的字符</span></li>
+				<li>str.<a href="">charCodeAt</a>(i)<span>
+					参数：查找的索引位置 <br>
+					返回值：索引上的字符的 Unicode 编码</span></li>
 			</ul>
 			<h4>[<span>-</span>]编码</h4>
 			<ul>
-				<li><a href="">decodeURI()</a><span>解码某个编码的 URI。</span></li>
-				<li><a href="">decodeURIComponent()</a><span>解码一个编码的 URI 组件。</span></li>
-				<li><a href="">encodeURI()</a><span>把字符串编码为 URI。</span></li>
-				<li><a href="">encodeURIComponent()</a><span>把字符串编码为 URI 组件。</span></li>
-				<li><a href="">escape()</a><span>对字符串进行编码。</span></li>
-				<li><a href="">unescape()</a><span>对由 escape() 编码的字符串进行解码。</span></li>
-				<li><a href="">eval()</a><span>计算 JavaScript 字符串，并把它作为脚本代码来执行。</span></li>
+				<li><em>encode/decode</em><a href=""></a><span><a href="http://www.cnblogs.com/shuiyi/p/5277233.html">参考资料</a></span></li>
+				<li><a href="">encodeURI</a>(uri)<span>把字符串编码为 URI。</span></li>
+				<li><a href="">encodeURIComponent</a>(uri)<span>把字符串编码为 URI 组件。</span></li>
+				<li><a href="">decodeURI</a>(uri)<span>解码某个编码的 URI。</span></li>
+				<li><a href="">decodeURIComponent</a>(uri)<span>解码一个编码的 URI 组件。</span></li>
+				<li>str.<a href="">normalize</a><em>([form])</em><i>ES6</i><span>
+					按指定Unicode正规形式将当前字符串正规化。<br>
+					参数：四种 Unicode 正规形式 "NFC", "NFD", "NFKC", 以及 "NFKD" 其中的一个, 默认值为 "NFC".<br>
+					NFC - Normalization Form Canonical Composition.<br>
+					NFD - Normalization Form Canonical Decomposition.<br>
+					NFKC - Normalization Form Compatibility Composition.<br>
+					NFKD - Normalization Form Compatibility Decomposition.<br>
+				</span></li>
+				<li><a href="">escape</a>(str)<span>
+					对字符串进行编码。<br>
+					该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _ + . / 。其他所有的字符都会被转义序列替换。</span></li>
+				<li><a href="">unescape</a>(str)<span>
+					对由 escape() 编码的字符串进行解码。<br>
+					<a href="http://www.cnblogs.com/season-huang/p/3439277.html">参考资料</a>
+				</span></li>
 			</ul>
 		</div>
 	</div>

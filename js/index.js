@@ -1,5 +1,7 @@
 $(function(){
 
+	$("#nt-loading").remove()
+
 	//阻止默认行为
 		$("a:not([href^=http])").each(function(){
 			$(this).click(function(e){
