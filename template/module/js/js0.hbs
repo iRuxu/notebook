@@ -9,8 +9,9 @@
 					x1 = 1;<br />
 					var x2 = 2;<br />
 					window.x3 = 3;<br />
-					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <br>
-					判断某个全局变量是否存在用typeof window.myVar === 'undefined'
+					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
+					判断某个全局变量是否存在用typeof window.myVar === 'undefined' <br>
+					函数内部判断某个变量是否存在用typeof myVar === 'undefined'
 				</span></li>
 				<li><a href="">let</a><span>
 					let i = 1;<br>
@@ -389,8 +390,8 @@
 		<div class="u-list">
 			<h4>[<span>-</span>]类型检测</h4>
 			<ul>
-				<li><a href="">typeof</a> val
-					<span>返回的是字符串。
+				<li><a href="">typeof</a> val<span>
+					返回的是字符串。
 						<table>
 							<tr>
 								<th>测试值</th>
@@ -422,6 +423,7 @@
 							</tr>
 						</table>
 						<ol>
+							<li>判断null请使用myVar === null</li>
 							<li>
 						不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
 							<li>
@@ -543,6 +545,7 @@
 					</span></li>
 				<li><a href="">String</a>(val)
 					<span>不确定null和undefined时,返回null和undefined</span></li>
+				<li><em>包装对象</em><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000"></a><span></span></li>
 			</ul>
 		</div>
     </div>
@@ -630,7 +633,8 @@
 					规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替并四舍五入。
 				</span></li>
 				<li>num.<a href="">toString</a>([ary])<span>
-					转为字符串，并指定进制，默认为10进制。
+					转为字符串，并指定进制，默认为10进制。<br>
+					直接转换时写为123..toString()或(123).toString()
 				</span></li>
 				<li>num.<a href="">toLocaleString</a>(local,[opt])<span>
 					根据本地数字格式转换为字符串 1,000.789 <br>

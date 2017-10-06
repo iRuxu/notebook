@@ -1,0 +1,326 @@
+<div id="RegEXP" class="c-tab nt-tab-regexp">
+	<div class="nt-tab-regexp-l">
+		<h2>常用正则表达式</h2>
+		<table>
+			<tbody>
+				{{#repeat 10}}
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				{{/repeat}}
+			</tbody>
+		</table>
+	</div>
+	<div class="nt-tab-regexp-r">
+
+		<div class="nt-tab-regexp-box">
+			<h2>修饰符 <span>修饰符用于执行区分大小写和全局匹配</span></h2>
+			<table>
+				<tr>
+					<th>修饰符</th>
+					<th>描述</th>
+				</tr>
+				<tr>
+					<td>g</td>
+					<td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）</td>
+				</tr>
+				<tr>
+					<td>i</td>
+					<td>执行对大小写不敏感的匹配</td>
+				</tr>
+				<tr>
+					<td>m</td>
+					<td>执行多行匹配</td>
+				</tr>
+			</table>
+		</div>
+	
+		<div class="nt-tab-regexp-box">
+			<h2>字符类：单个字符和数字</h2>
+			<table>
+				<tbody>
+				<tr>
+					<th>元字符/元符号</th>
+					<th>匹配情况</th>
+				</tr>
+				<tr>
+					<td>.</td>
+					<td>匹配除换行符外的任意字符</td>
+				</tr>
+				<tr>
+					<td>\d</td>
+					<td>匹配数字，等价[0-9]</td>
+				</tr>
+				<tr>
+					<td>\D</td>
+					<td>匹配非数字，同[^0-9]相同</td>
+				</tr>
+				<tr>
+					<td>\w</td>
+					<td>匹配字母和数字及_，等价[0-9a-zA-Z_]</td>
+				</tr>
+				<tr>
+					<td>\W</td>
+					<td>匹配非字母和数字及_</td>
+				</tr>
+				<tr>
+					<td>\s</td>
+					<td>匹配空白字符、空格、制表符和换行符</td>
+				</tr>
+				<tr>
+					<td>\S</td>
+					<td>匹配非空白字符</td>
+				</tr>
+				<tr>
+					<td>\n</td>
+					<td>匹配换行符</td>
+				</tr>
+				<tr>
+					<td>\r</td>
+					<td>匹配回车字符</td>
+				</tr>
+				<tr>
+					<td>\t</td>
+					<td>匹配制表符</td>
+				</tr>
+				<tr>
+					<td>\v</td>
+					<td>查找垂直制表符。</td>
+				</tr>
+				<tr>
+					<td>\f</td>
+					<td>匹配换页字符</td>
+				</tr>
+				<tr>
+					<td>\0</td>
+					<td>匹配 null 字符</td>
+				</tr>
+				<tr>
+					<td>\xxx</td>
+					<td>查找以八进制数 xxx 规定的字符。</td>
+				</tr>
+				<tr>
+					<td>\xdd</td>
+					<td>查找以十六进制数 dd 规定的字符。</td>
+				</tr>
+				<tr>
+					<td>\uxxxx</td>
+					<td>查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>字符类：锚字符</h2>
+			<table>
+				<tbody>
+				<tr>
+					<th>元字符/元符号</th>
+					<th>匹配情况</th>
+				</tr>
+				<tr>
+					<td>^</td>
+					<td>行首匹配（不在方括号内）</td>
+				</tr>
+				<tr>
+					<td>$</td>
+					<td>行尾匹配</td>
+				</tr>
+				<tr>
+					<td>\A</td>
+					<td>只有匹配字符串开始处</td>
+				</tr>
+				<tr>
+					<td>\b</td>
+					<td>匹配空格字符，单词边界，词在[]内时无效</td>
+				</tr>
+				<tr>
+					<td>\B</td>
+					<td>匹配非单词边界</td>
+				</tr>
+				<tr>
+					<td>\G</td>
+					<td>匹配当前搜索的开始位置</td>
+				</tr>
+				<tr>
+					<td>\Z</td>
+					<td>匹配字符串结束处或行尾</td>
+				</tr>
+				<tr>
+					<td>\z </td>
+					<td>只匹配字符串结束处</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>字符类：量词</h2>
+			<table>
+				<tbody>
+				<tr>
+					<th>元字符/元符号</th>
+					<th>匹配情况</th>
+				</tr>
+				<tr>
+					<td>x?</td>
+					<td>匹配 0 个或 1 个 x   <b>(0或1)</b></td>
+				</tr>
+				<tr>
+					<td>x+</td>
+					<td>匹配至少一个 x <b>(&gt;=1)</b></td>
+				</tr>
+				<tr>
+					<td>x<b>*</b></td>
+					<td>匹配 0 个或任意多个 x <b>(&gt;=0)</b></td>
+				</tr>
+				<tr>
+					<td>x<b>{N}</b></td>
+					<td>匹配包含 n 个 x 的序列的字符串。<b>(N个)</b></td>
+				</tr>
+				<tr>
+					<td>x<b>{N,M}</b></td>
+					<td>匹配包含 n~ m个x 的序列的字符串。<b>（N~M个）</b></td>
+				</tr>
+				<tr>
+					<td>x{N,}  x{,M}</td>
+					<td>匹配包含至少n 个x 的序列的字符串。<b>（N个以上）(M个以下)</b></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>表达式：[] <span>方括号用于查找某个范围内的字符</span></h2>
+			<table>
+				<tbody>
+				<tr>
+					<td>[abc]</td>
+					<td>查找方括号之间的任何字符。</td>
+				</tr>
+				<tr>
+					<td>[^abc]</td>
+					<td>查找任何不在方括号之间的字符</td>
+				</tr>
+				<tr>
+					<td>[0-9][a-z][A-Z][A-z]</td>
+					<td>数字/小写字母/大写字母/全部字母</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>分组：() <span>|</span></h2>
+			<table>
+				<tbody>
+				<tr>
+					<td> /(google){4,8}/</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>\1 或$1</td>
+					<td>匹配第一个分组中的内容</td>
+				</tr>
+				<tr>
+					<td>\2 或$2</td>
+					<td>匹配第二个分组中的内容</td>
+				</tr>
+				<tr>
+					<td>\3 或$3 </td>
+					<td>匹配第三个分组中的内容</td>
+				</tr>
+				<tr>
+					<td>RegExp.$1</td>
+					<td>得到第一个分组里的字符串内容 （在此之前必须要运行一次）</td>
+				</tr>
+				<tr>
+					<td>(red<b>|</b>blue<b>|</b>green)</td>
+					<td>查找任何指定的选项。<b>|需要放在分组中</b></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>replacement 中的 $ </h2>
+			<p>字符具有特定的含义。如下表所示，它说明从模式匹配得到的字符串将用于替换。</p>
+			<table>
+				<tbody>
+				<tr>
+					<td>$1、$2、...、$99</td>
+					<td>与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。</td>
+				</tr>
+				<tr>
+					<td>$&amp;</td>
+					<td>与 regexp 相匹配的子串。</td>
+				</tr>
+				<tr>
+					<td>$`</td>
+					<td>位于匹配子串左侧的文本。</td>
+				</tr>
+				<tr>
+					<td>$'</td>
+					<td>位于匹配子串右侧的文本。</td>
+				</tr>
+				<tr>
+					<td>$$</td>
+					<td>直接量符号。</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>贪婪与惰性</h2>
+			<table>
+				<tbody>
+				<tr>
+					<td>贪 婪</td>
+					<td>惰 性</td>
+				</tr>
+				<tr>
+					<td>+</td>
+					<td>+?</td>
+				</tr>
+				<tr>
+					<td>?</td>
+					<td>??</td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>*?</td>
+				</tr>
+				<tr>
+					<td>{n}</td>
+					<td>{n}?</td>
+				</tr>
+				<tr>
+					<td>{n,}</td>
+					<td>{n,}?</td>
+				</tr>
+				<tr>
+					<td>{n,m}</td>
+					<td>{n,m}?</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>分组捕获</h2>
+			<table>
+				<tbody>
+				<tr>
+					<td>?: </td>
+					<td>非捕获分组前 (a)(?:b)</td>
+				</tr>
+				<tr>
+					<td>?=</td>
+					<td>前瞻捕获 (a)(?=b) 返回的是a不是ab，紧跟b的a</td>
+				</tr>
+				<tr>
+					<td>?!</td>
+					<td>(a)(?!b)匹配任何其后没有紧接指定字符串 b 的字符串，不紧跟b的a</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
