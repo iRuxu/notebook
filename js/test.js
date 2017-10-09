@@ -1,20 +1,16 @@
-var obj = {
-    name: '小明',
-    age: '5',
-    date: new Date(),
-    do : function (){
-    	console.log('hi')
+
+$btn.click(function () {
+    try {
+        var
+            x = parseFloat($('#x').val()),
+            y = parseFloat($('#y').val()),
+            r;
+        if (isNaN(x) || isNaN(y)) {
+            throw new Error('输入有误');
+        }
+        r = x + y;
+        alert('计算结果：' + r);
+    } catch (e) {
+        alert('输入有误！');
     }
-};
-
-var test = JSON.stringify(obj,function(key,val){
-	/*if(key == 'age'){
-		return undefined
-	}*/
-	return val
-},4)
-console.log(test)
-
-console.log(JSON.parse('true'))
-
-console.log(eval(test))
+});
