@@ -2,10 +2,78 @@
   <div class="u-block">
       <h3>分支</a><span>-</span></h3>
       <div class="u-list">
-            <h4>[</a><span>-</span>] 历史记录</h4>
+            <h4>[</a><span>-</span>] 创建/切换</h4>
             <ul>
-                
+                  <li>
+                  git <a href="">branch</a>
+                  <span>
+                        查看所有分支
+                  </span>
+                  </li>
+                  <li>
+            	git <a href="">branch</a> $dev
+            	<span>
+            		创建分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">checkout</a> $dev
+            	<span>
+            		切换分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">checkout</a> -b $dev
+            	<span>
+            		创建并切换到该分支
+            	</span>
+            	</li>
             </ul>
+            <h4>[</a><span>-</span>] 删除</h4>
+            <ul>
+            	<li>
+            	git <a href="">branch</a> -d $dev
+            	<span>
+            		删除分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">branch</a> -D $dev
+            	<span>
+            		强行删除分支
+            	</span>
+            	</li>
+            </ul>
+      </div>
+      <h3>合并</a><span>-</span></h3>
+      <div class="u-list">
+      		<h4>[</a><span>-</span>] 合并</h4>
+      		<ul>
+      			<li>
+            	git <a href="">merge</a> $dev
+            	<span>
+            		合并指定分支到当前分支
+            	</span>
+            	</li>
+      		</ul>
+      		<h4>[</a><span>-</span>] 存储</h4>
+      		<ul>
+      			<li>
+            	git <a href="">stash</a>
+            	<span>
+            		存储当前工作内容但不提交
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">stash</a> pop
+            	<span>
+            		恢复存储区内容并删除stash
+            	</span>
+            	</li>
+            	<li>git <a href="">stash</a> list<span>查看</span></li>
+            	<li>git <a href="">stash</a> apply<span>恢复</span></li>
+            	<li>git <a href="">stash</a> drop<span>删除</span></li>
+      		</ul>
       </div>
   </div>
 </div>

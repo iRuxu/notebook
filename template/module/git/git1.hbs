@@ -1,8 +1,8 @@
 <div class="u-col">
   <div class="u-block">
-      <h3>基础</a><span>-</span></h3>
+      <h3>创建</a><span>-</span></h3>
       <div class="u-list">
-      		<h4>[</a><span>-</span>] 创建</h4>
+      		<h4>[</a><span>-</span>] 初始化</h4>
             <ul>
                 <li>
                     git <a href="">init</a>
@@ -30,6 +30,70 @@
                     path为“./”时则在当前目录下克隆内容，不再生成项目名目录</span>
                 </li>
             </ul>
+      </div>
+      <h3>修改</a><span>-</span></h3>
+      <div class="u-list">
+          <h4>[</a><span>-</span>] 添加/提交</h4>
+            <ul>
+                <li>
+                    git <a href="">add</a> [regexp]
+                    <span>
+                        跟踪新文件，加入缓存区INDEX<br>
+                        git add file1 file2 file3 <br>
+                        git add */. <br>
+                        git add *.js
+                    </span>
+                </li>
+                <li>
+                    git <a href="">commit</a> -m "desc"
+                    <span>
+                        提交修改，将缓存区内容添加到仓库中<br>
+                        git commit -m "message" <br>
+                    </span>
+                </li>
+                <li>
+                    git <a href="">commit</a> -a -m "desc"
+                    <span>
+                        git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）
+                    </span>
+                </li>
+                <li>
+                    git <a href="">commit</a>
+                    <span>
+                        git commit 这种方式会启动文本编辑器以便输入本次提交的说明。<br>
+                        默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。<br>
+                        当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件。<br>
+                    </span>
+                </li>
+            </ul>
+            <h4>[</a><span>-</span>] 删除/移动</h4>
+            <ul>
+                <li>
+                    git <a href="">rm</a> file [--cached][-f]
+                    <span>
+                    git rm 将文件从缓存区和你的硬盘中(工作目录)删除<br>
+                    git rm --cached 只从缓存区中移除，工作目录中保存<br>
+                    git rm -f 强制删除，删除之前修改过并且已经放到暂存区域的 <br>
+                    </span>
+                </li>
+                <li>
+                    git <a href="">rm</a> -r dir
+                    <span>
+                        git rm -r dirname 删除目录及目录内容 <br>
+                        当该目录没有stage时，无法进行该操作，直接执行shell命令rm操作即可。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">mv</a> (from) (to) 
+                    <span>
+                        同linux mv命令，自动判定执行“移动”或“重命名”操作。<br>
+                        git mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
+                        git mv 文件名 目录名 : 将文件移动到目标目录 <br>
+                        git mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名（当源文件为空时不可移动） <br>
+                        git mv 目录名 文件名 : 出错
+                    </span>
+                </li>
+            </ul>
             <h4>[</a><span>-</span>] 查看/对比</h4>
             <ul>
                 <li>
@@ -54,54 +118,27 @@
                     </span>
                 </li>
             </ul>
-            <h4>[</a><span>-</span>] 添加/提交</h4>
+      </div>
+      <h3>回退</a><span>-</span></h3>
+      <div class="u-list">
+          <h4>[</a><span>-</span>] 历史</h4>
             <ul>
                 <li>
-                    git <a href="">add</a> [regexp]
-                    <span>
-                        跟踪新文件，加入缓存区INDEX<br>
-                        git add file1 file2 file3 <br>
-                        git add */. <br>
-                        git add *.js
-                    </span>
-                </li>
-                <li>
-                    git <a href="">commit</a> -m "str"
-                    <span>
-                        提交修改，将缓存区内容添加到仓库中<br>
-                        git commit -m "message" <br>
-                    </span>
-                </li>
-                <li>
-                    git <a href="">commit</a> -a -m "str"
-                    <span>
-                        git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）
-                    </span>
-                </li>
-                <li>
-                    git <a href="">commit</a>
-                    <span>
-                        git commit 这种方式会启动文本编辑器以便输入本次提交的说明。<br>
-                        默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。<br>
-                        当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件。<br>
-                    </span>
-                </li>
-            </ul>
-            <h4>[</a><span>-</span>] 历史/回退</h4>
-            <ul>
-                <li>
-                    <a href="">log</a>[--pretty=oneline]
+                    git <a href="">log</a> [--pretty=oneline]
                     <span>
                     git log 显示全部提交记录<br>
                     git log --pretty=oneline 美化显示<br>  
                     </span>
                 </li>
                 <li>
-                  <a href="">reflog</a>
-                  <span>查看每一次命令</span>
+                    git <a href="">reflog</a>
+                    <span>查看每一次命令</span>
                 </li>
+            </ul>
+            <h4>[</a><span>-</span>] 回退</h4>
+            <ul>
                 <li>
-                    <a href="">checkout</a> -- (file)
+                    git <a href="">checkout</a> -- $file
                     <span>
                         git checkout -- filename 撤销对文件的修改，如果被工作区删除也可作为恢复 <br>
                         一种是自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>
@@ -110,8 +147,9 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">reset</a> HEAD [file]
+                    git <a href="">reset</a> HEAD [$file]
                     <span>
+                        HEAD表示当前版本,上个版本HEAD^,上上个版本HEAD^^,上100个版本HEAD~100。<br>
                         git reset HEAD 取消目前所有暂存的文件（仍在工作区）<br>
                         git reset HEAD filename 取消某个文件的暂存状态<br>
                         <hr>
@@ -120,33 +158,9 @@
                         场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
                     </span>
                 </li>
-            </ul>
-            <h4>[</a><span>-</span>] 删除/移动</h4>
-            <ul>
                 <li>
-                    <a href="">rm</a> (file) [--cached][-f]
-                    <span>
-                    git rm 将文件从缓存区和你的硬盘中(工作目录)删除<br>
-                    git rm --cached 只从缓存区中移除，工作目录中保存<br>
-                    git rm -f 强制删除，删除之前修改过并且已经放到暂存区域的 <br>
-                    </span>
-                </li>
-                <li>
-                    <a href="">rm</a> -r (dir)
-                    <span>
-                        git rm -r dirname 删除目录及目录内容 <br>
-                        当该目录没有stage时，无法进行该操作，直接执行shell命令rm操作即可。
-                    </span>
-                </li>
-                <li>
-                    <a href="">mv</a> (from) (to) 
-                    <span>
-                        同linux mv命令，自动判定执行“移动”或“重命名”操作。<br>
-                        git mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
-                        git mv 文件名 目录名 : 将文件移动到目标目录 <br>
-                        git mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名（当源文件为空时不可移动） <br>
-                        git mv 目录名 文件名 : 出错
-                    </span>
+                    git <a href="">reset</a> --hard $commit_id
+                    <span></span>
                 </li>
             </ul>
       </div>
