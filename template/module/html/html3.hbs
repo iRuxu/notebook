@@ -1,0 +1,47 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>DOM事件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 监听</h4>
+            <ul>
+                <li>
+                    dom.<a href="">addEventListener</a>(e,fn(e))
+                    <span>
+                        添加事件监听 <br>
+                        IE8=-：attachEvent() <br>
+                        <pre><code data-language="javascript">
+                            if (document.addEventListener) {
+                                document.addEventListener("click", myFunction);
+                            } else if (document.attachEvent) {
+                                document.attachEvent("onclick", myFunction);
+                            }
+                            function myFunction() {
+                                alert("Hello World!");
+                            }
+                        </code></pre>   
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">removeEventListener</a>
+                    <span>
+                        移除事件监听
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 属性</h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>BOM事件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Document</h4>
+            <ul>
+            </ul>
+            <h4>[<span>-</span>] 属性</h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,326 +1,78 @@
-<!-- DOM,BOM,事件 -->
+<!-- 数据交换 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>DOM<span>+</span></h3>
-		<div class="u-list" style="display:none;">
-			<h4>[<span>-</span>]CSS</h4>
+		<h3>数据<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]JSON</h4>
 			<ul>
-				<li><a href="">.clientWidth</a><span>返回内容的可视宽度（不包括边框，边距或滚动条）<br />
-					document.body.clientWidth; 在页面上返回内容的可视宽度（不包括边框，边距或滚动条）<br />
-					document.body.clientHeight;  在页面上返回内容的可视高度（不包括边框，边距或滚动条）<br />兼容：clientWidth= document.documentElement.clientWidth|| document.body.clientWidth; 在页面上返回内容的可视宽度（不包括边框，边距或滚动条）</span></li>
-				<li><a href="">.clientHeight</a><span>返回内容的可视高度（不包括边框，边距或滚动条）</span></li>
-				<li><a href="">.offsetWidth</a><span>返回元素的宽度，包括边框和padding，但不包括margin</span></li>
-				<li><a href="">.offsetHeight</a><span>返回元素的高度，包括边框和padding，但不包括margin</span></li>
-				<li><a href="">.scrollWidth</a><span>返回元素的整个宽度（包括带滚动条的隐蔽的地方）<br />
-					document.body.scrollWidth; 返回元素的整个宽度（包括带滚动条的隐蔽的地方）<br />
-					document.body.scrollHeight; 返回整个元素的高度（包括带滚动条的隐蔽的地方）<br />
-					兼容：scrollWidth=document.documentElement.scrollWidth|| document.body.scrollWidth; 返回元素的整个宽度（包括带滚动条的隐蔽的地方）
-					</span></li>
-				<li><a href="">.scrollHeight</a><span>返回整个元素的高度（包括带滚动条的隐蔽的地方）</span></li>
-				<li><a href="">.scrollTop</a><span>滚动条滚动距离
-					<br />IE低版本document.documentElement.scrollTop
-					<br />现代浏览器document.body.scrollTop
-					</span></li>
-				<li><a href="">.scrollLeft</a><span>返回当前视图中的实际元素的左边缘和左边缘之间的距离</span></li>
-				<li><a href="">.offsetParent</a><span>返回元素的偏移容器</span></li>
-				<li><a href="">.offsetTop</a><span>返回当前元素的相对垂直偏移</span></li>
-				<li><a href="">.offsetLeft</a><span>返回当前元素的相对水平偏移</span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]文档处理</h4>
-			<ul>
-				<li><a href="">.cookie</a><span></span></li>
-				<li><a href="">.lastModified</a><span></span></li>
-				<li><a href="">.readyState</a><span></span></li>
-				<li><a href="">createElement()</a><span></span></li>
-				<li><a href="">createTextNode()</a><span></span></li>
-				<li><a href="">createAttribute()</a><span></span></li>
-				<li><a href="">normalize()</a><span></span></li>
-				<li><a href="">getElementById()</a><span></span></li>
-				<li><a href="">getElementsByName()</a><span></span></li>
-				<li><a href="">getElementsByTagName()</a><span></span></li>
-				<li>document.<a href="">querySelector("#selector")</a><span></span></li>
-				<li>document.<a href="">querySelectorAll(".selector")</a><span></span></li>
-				<li><a href="">write()</a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]DOM方法</h4>
-			<ul>
-				<li><a href="">getAttribute</a>('attr')<span></span></li>
-				<li><a href="">setAttribute</a>('attr',val)<span></span></li>
-				<li><a href="">.innerHTML</a><span></span></li>
-				<li><a href="">.nodeName</a><span></span></li>
-				<li><a href="">.nodeValue</a><span></span></li>
-				<li><a href="">.nodeType</a><span></span></li>
-				<li><a href="">.attributes</a><span></span></li>
-				<li><a href="">.children[n]</a><span></span></li>
-				<li><a href="">.childNodes</a><span></span></li>
-				<li><a href="">.firstChild</a><span></span></li>
-				<li><a href="">.lastChild</a><span></span></li>
-				<li><a href="">.parentNode</a><span></span></li>
-				<li><a href="">appendChild()</a><span></span></li>
-				<li><a href="">createTextNode()</a><span></span></li>
-				<li><a href="">insertBefore</a>(key,参照节点)<span></span></li>
-				<li><a href="">repalceChild</a>(key,被替换)<span></span></li>
-				<li><a href="">cloneNode</a>(true)<span></span></li>
-				<li><a href="">removeChild()</a><span></span></li>
-				<li><a href=""></a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]Attribute对象</h4>
-			<ul>
-				<li><a href=""></a><span></span></li>
-			</ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>BOM<span>+</span></h3>
-		<div class="u-list" style="display:none;">
-			<h4>[<span>-</span>]Window</h4>
-			<ul>
-				<li><a href="">window properties</a><span>
-					
-						<div>
-						<ol>
-							<li><span style="font-size: small;">window 对象有一系列的属性，这些属性本身也是对象。</span></li>
-							<li><span style="font-size: small;">window 下的属性和方法，可以使用 window.属性、window.方法()或者直接属性、方法()的方式调用。例如：window.alert()和 alert()是一个意思。</span></li>
-							<li><span style="font-size: small;">全局变量不能通过delete操作符删除，而直接在window对象上定义的属性可以，但实际上全局定义归属于对window定义</span></li>
-							<li><span style="font-size: small;">尝试访问未声明的变量会抛出错误，但是可以通过查询window对象知道某个可能未声明的变量是否存在。</span></li>
-						</ol>
-						</div>
-						<div><span style="font-size: small;"> </span></div>
-						<div>
-						<ul>
-							<li><b><span style="font-size: small;">window 对象的属性</span></b></li>
-						</ul>
-						</div>
-						<div>
-						<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top"><span style="font-size: small;">内容</span></td>
-						<td valign="top"></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="font-size: small;">document</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">窗口中当前显示的文档对象</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="font-size: small;">location</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">当前窗口的 URL</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="font-size: small;">history</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">保存有窗口最近加载的 URL</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="color: #0000ff; font-size: small;">screen</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">显示屏幕相关信息，如高度、宽度（以像素为单位）</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">Navigator</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">对 Navigator 对象的只读引用 navigator.userAgent</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">offscreenBuffering</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">用于绘制新窗口内容并在完成后复制已存在的内容，控制屏幕更新</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top"><span style="font-size: small;">层级</span></td>
-						<td valign="top"></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="font-size: small;">name</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">窗口名</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="font-size: small;">opener</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">打开当前窗口的窗口</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">self / <b>window</b></span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">指示当前窗口 / 指示当前窗口，与 self 等效</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">frames</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">窗口中的框架对象数组</span></div>
-						<div><span style="font-size: small;">frames[]    frames.length 存放数组 frames[] 中含有的元素个数    top.frames[n] 页面第几个框架</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">length</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">窗口中的框架数</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">parent</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">指向包含另一个窗口的窗口（由框架使用）</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">top</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">包含特定窗口的最顶层窗口（由框架使用）</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top"><span style="font-size: small;">状态</span></td>
-						<td valign="top"></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><b><span style="font-size: small;">closed</span></b></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">当窗口关闭时为真</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">defaultStatus</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">窗口底部状态栏显示的默认状态消息（IE）</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">status</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">描述由用户交互导致的状态栏的临时消息（IE）</span></div></td>
-						</tr>
-						</tbody>
-						</table>
-						<div><span style="font-size: small;"> </span></div>
-						</div>
+				<li><em>json</em><a href=""></a><span>
+					概念：
+					<br />它是一种表示结构化数据的形式，JSON是一个格式化的字符串，文件格式后缀为.json
+					<hr>
+					语法：
+					<br />简单值：字符串、数值、布尔值、null，不支持undefined
+					<br />对象：一组无序的键值对
+					<br />数组：一组有序的值的列表，可以通过索引来访问
+					<hr>
+					JSON与JS的区别：
+					<br />JSON字符串必须使用双引号（单引号会导致语法错误），且对象的属性必须加双引号
+					<br />在JS中直接引入一段JSON数据应该用单引号将其括起来，因为它其实代表一个字符串
+					<br />如：'{"name" : "Lee","age" : 100}' JSON数组与对象比普通JS少了分号与赋值，其本身表示的是字符串
+					<hr>
+					兼容性：
+					<br>IE7及IE7-需要引用库文件 <a href="https://github.com/douglascrockford/JSON-js/">json-js</a>
+					<textarea><!--[if lte IE 7]> json2.js <![endif]--></textarea>
+					<hr>
+					执行优先级：
+					<br>toJSON() --> 过滤参数 --> 标准序列化 --> 缩进 
+如在toJSON中已被过滤的键值则就算过滤参数中仍有设置也已无效
 				</span></li>
-				<li><a href="">alert/confirm/prompt()</a><span>
-					<table width="100%" border="1" cellspacing="0" cellpadding="2">
-						<tbody>
-						<tr>
-						<td valign="top"><span style="font-size: small;">系统对话框</span></td>
-						<td valign="top"><span style="font-size: small;"> </span></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;"><b>alert</b>(text)</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">警告</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;"><b>confirm</b>(text)</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">确认/取消  返回布尔值：true,false</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;"><b>prompt</b>(text,defaultInput)</span></div></td>
-						<td valign="top">
-						<div><span style="font-size: small;">输入框 返回值：确认&gt;内容，取消&gt;null</span></div></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">print()</span></div></td>
-						<td valign="top"><span style="font-size: small;">打印</span></td>
-						</tr>
-						<tr>
-						<td valign="top">
-						<div><span style="font-size: small;">find()</span></div></td>
-						<td valign="top"><span style="font-size: small;">查找</span></td>
-						</tr>
-						</tbody>
-						</table>
+				<li><a href="">JSON.stringify</a><em>(obj,[arr(key)|fn(key,val)|null],[space|num])</em><span>
+					js对象 -> json字符串 <hr>
+					参数1：传入的对象。<br>
+					如有键值为函数时，会排除该成员。我们可以在转换前将函数用.toString()方法转换为字符串来避免以上问题的发生。<br>
+					如有键值为日期对象时，会转为字符串。
+					<hr>
+					参数2：用于转换结果的函数或数组 <br>
+					当为数组时，显示指定的key，['key1','key2'] <br>
+					当为函数时，每个键值对根据函数规则处理，function(key,value){...return value}，<b>函数需返回新的value</b>。<b>如果此函数返回 undefined，则排除成员。</b>
+					<hr>
+					参数3：缩进空格，当不传入fn只设置缩进时，第2个参数传入null。如果space 是一个数字，则返回值文本在每个级别缩进指定数目的空格。
 				</span></li>
-				<li><a href="">open</a>(url,name,[options])<span>
-					window.open(url,name,[options]) 打开一个新窗口并返回新 window 对象，将open()赋值给一个变量，对变量可以执行对子窗口的设置 
-					<br>■open方法  window.open("URL", "位置", "属性","历史记录");
-					<br>使用 window.open()方法可以导航到一个特定的 URL， 也可以打开一个新的浏览器窗口 。它可以接受四个参数：
-					<br>1.URL   http://www.baidu.com
-					<br>2.窗口名称或窗口目标  _target   /   _parent  /  somename
-					<br>3.一个特性字符串，见下表
-					<br>4.一个表示新页面是否取代浏览器记录中当前加载页面的布尔值：true替换历史记录，false创建新历史记录
+				<li><a href="">JSON.parse</a>(json,[fn(key,val)])<span>
+					json字符串 -> js对象 <br>
+					转换函数需返回value值。
 				</span></li>
-				
-			</ul>
-			<h4>[<span>-</span>]定时器</h4>
-			<ul>
-				<li><a href="">setTimeout</a>(fn,time)<span>设置延迟多久执行，一次性行为</span></li>
-				<li><a href="">clearTimeout(x)</a></li>
-				<li><a href="">setInterval</a>(fn,time)<span>设置间隔多久执行</span></li>
-				<li><a href="">clearInterval(x)</a></li>
-			</ul>
-			<h4>[<span>-</span>]其他</h4>
-			<ul>
-				<li><a href="">location</a><span>
-					location.href 地址
-					<br />location.reload() 重新加载
+				<li>obj.<a href="">toJSON</a><em>:fn(){return json}</em><span>
+				   JS对象中添加toJSON()方法，自定义过滤一些数据，返回新的对象
+<pre><code data-language="javascript">
+	var xiaoming = {
+	    name: '小明',
+	    age: 14,
+	    gender: true,
+	    height: 1.65,
+	    grade: null,
+	    'middle-school': '\"W3C\" Middle School',
+	    skills: ['JavaScript', 'Java', 'Python', 'Lisp'],
+	    toJSON: function () {
+	        return { // 只输出name和age，并且改变了key：
+	            'Name': this.name,
+	            'Age': this.age
+	        };
+	    }
+	};
+
+	JSON.stringify(xiaoming); // '{"Name":"小明","Age":14}'
+</code></pre>
 				</span></li>
-				<li><a href="">encodeURIComponent</a>(url)<span></span></li>
-				<li><a href="">decodeURIComponent</a>(url)<span></span></li>
-				<li><a href="">history.go(n)</a><span></span></li>
 			</ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>事件<span>+</span></h3>
-		<div class="u-list" style="display:none;">
-			<h4>[<span>-</span>]动画</h4>
+			<h4>[<span>-</span>]Ajax</h4>
 			<ul>
-				<li><a href="">手机端需添加-webkit-前缀</a><span></span></li>
-				<li><a href="">transitionend</a><span>CSS 完成过渡后触发</span></li>
-				<li><a href="">animationend</a><span>CSS动画结束播放时触发</span></li>
-				<li><a href="">animationiteration</a><span>CSS 动画重复播放时触发</span></li>
-				<li><a href="">animationstart</a><span>CSS 动画开始播放时触发</span></li>
+				<li></li>
 			</ul>
-			<h4>[<span>-</span>]移动端</h4>
+			<h4>[<span>-</span>]Cookie</h4>
 			<ul>
-				<li><a href="">onorientationchange</a><span>
-					屏幕旋转事件，检测终端类型
-					<br />var screenStatus = "onorientationchange" in window ? "orientationchange" : "resize";
-					<br />window.orientation = 90/-90为横屏
-					</span></li>
-				<li><a href="">touchstart</a><span>当手指接触屏幕时触发</span></li>
-				<li><a href="">touchmove</a><span>当已经接触屏幕的手指开始移动后触发</span></li>
-				<li><a href="">touchend</a><span>当手指离开屏幕时触发</span></li>
-				<li><a href="">gesturestart</a><span>当两个手指接触屏幕时触发</span></li>
-				<li><a href="">gesturechange</a><span>当两个手指接触屏幕后开始移动时触发</span></li>
-				<li><a href="">gestureend</a><span>当两个手指离开屏幕时触发</span></li>
-				<li><a href="">orientationchange </a><span>检测触摸屏幕的手指何时改变方向</span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-				<li><a href=""></a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]Form</h4>
-			<ul>
-				<li><a href=""></a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]鼠标</h4>
-			<ul>
-				<li><a href=""></a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]键盘</h4>
-			<ul>
-				<li><a href=""></a><span></span></li>
+				<li></li>
 			</ul>
 		</div>
 	</div>
