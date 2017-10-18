@@ -117,8 +117,7 @@ $(function(){
 				var originFn = $(this).children("a:first-child").html() || ''
 				var prevArg = $(this).children("em:first-child").html() || ''
 				var nextArg = $(this).children("em:nth-child(2)").html() || ''
-				var title =  prevArg + originFn + nextArg
-				//title || (title = "Snippet");
+				var title =  prevArg + originFn + nextArg || 'Snippet'
 				var info = $(this).children("span").html();
 
 				$("#snippet").show()
