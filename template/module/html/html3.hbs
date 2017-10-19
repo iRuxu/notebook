@@ -1,46 +1,131 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM事件<span>-</span></h3>
+        <h3>DOM遍历<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 监听</h4>
+            <h4>[<span>-</span>] 匹配查找</h4>
             <ul>
                 <li>
-                    dom.<a href="">addEventListener</a>(e,fn(e))
+                    doc.<a href="">documentElement</a>
                     <span>
-                        添加事件监听 <br>
-                        IE8=-：attachEvent() <br>
-                        <pre><code data-language="javascript">
-                            if (document.addEventListener) {
-                                document.addEventListener("click", myFunction);
-                            } else if (document.attachEvent) {
-                                document.attachEvent("onclick", myFunction);
-                            }
-                            function myFunction() {
-                                alert("Hello World!");
-                            }
-                        </code></pre>   
+                        返回文档的根节点（html元素）
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">removeEventListener</a>
+                    doc.<a href="">body</a>
                     <span>
-                        移除事件监听
+                        返回文档的body元素
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">images</a>
+                    <span>
+                        返回文档中所有image对象引用
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">links</a>
+                    <span>
+                        返回文档中所有的a.href + area标签。 <br>
+                        document.links.$id > document.links.$name 可按id和name访问,同名时id高于name,同id时,取顺序在前的<br>
+                        document.links[i] 可按索引访问
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">anchors</a>
+                    <span>
+                        返回文档中所有的锚点的集合。即带有name属性的a标签。 <br>
+                        document.anchors.length
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">scripts</a>
+                    <span>
+                        返回页面中所有脚本的集合
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">forms</a>
+                    <span>
+                        返回文档中所有表单的集合。 <br>
+                        document.forms[0]  <br>
+                        document.forms.name1
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 属性</h4>
+            <h4>[<span>-</span>] 层级筛选</h4>
             <ul>
+                <li>
+                    dom.<a href="">childNodes</a>
+                    <span>
+                        返回元素的子节点数组
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">firstChild</a>
+                    <span>
+                        返回元素的第一个子节点。 <br>
+                        如果不存在则返回null
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">lastChild</a>
+                    <span>
+                        返回元素的最后一个子元素。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasChildNodes()</a>
+                    <span>
+                        检查元素是否具有任何子元素，返回布尔值
+                    </span>
+                </li>
             </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>BOM事件<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] Document</h4>
+            <h4>[<span>-</span>] 条件过滤</h4>
             <ul>
-            </ul>
-            <h4>[<span>-</span>] 属性</h4>
-            <ul>
+                <li>
+                    doc.<a href="">getElementById</a><em>('id')</em>
+                    <span>
+                        返回拥有指定ID的第一个对象的引用。<br>
+                        如果没有指定ID的元素返回null。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">getElementsByTagName</a><em>('tag')</em>
+                    <span>
+                        返回带有指定标签名的对象的集合。 <br>
+                        *返回文档的所有元素。 <br>
+                        *返回的元素集合中的0为html
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">getElementsByClassName</a><em>('cls')</em>
+                    <span>
+                        返回文档中所有指定类名的元素集合。 <br>
+                        IE8及以下不支持。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">getElementsByName</a><em>('name')</em>
+                    <span>
+                        返回带有指定名称的对象的集合。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">querySelector</a>('cssExp')
+                    <span>
+                        返回文档中匹配指定css选择器的第一个元素。 <br>
+                        传入的是css选择器，且仅返回第一个元素。 <br>
+                        IE8支持，IE6-7不支持。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">querySelectorAll</a>('cssExp')
+                    <span>
+                        返回文档中匹配指定css选择器的全部元素。 <br>
+                        HTML5新引入，IE8不支持。 <br>
+                        此方式生成的集合，无法用.访问到id和name。
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

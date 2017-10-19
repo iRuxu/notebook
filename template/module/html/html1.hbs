@@ -1,9 +1,28 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM对象<span>-</span></h3>
+        <h3>DOM属性<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] Document</h4>
             <ul>
+                <li>
+                    doc.<a href="">readyState</a>
+                    <span>
+                        返回当前文档的状态 <br>
+                        <ol>
+                            <li>uninitalized - 还未开始载入</li>
+                            <li>loading - 载入中</li>
+                            <li>interactive - 已加载，文档与用户可以开始交互</li>
+                            <li>complete - 载入完成</li>
+                        </ol>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">referrer</a>
+                    <span>
+                        返回载入当前文档的来源文档的URL。 <br>
+                        如果当前文档不是通过超级链接访问的，则为null。
+                    </span>
+                </li>
                 <li>
                     doc.<a href="">activeElement</a>
                     <span>
@@ -17,10 +36,23 @@
                     </span>
                 </li>
                 <li>
+                    doc.<a href="">URL</a>
+                    <span>
+                        返回文档的URL，必须为大写。
+                    </span>
+                </li>
+                <li>
                     doc.<a href="">cookie</a>
                     <span>
                         设置或返回与当前文档有关的所有cookie <br>
                         key=value;...
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">lastModified</a>
+                    <span>
+                        返回文档最后被修改的日期和时间 <br>
+                        10/19/2017 15:24:30
                     </span>
                 </li>
                 <li class="i-dot-orange">
@@ -44,18 +76,43 @@
                         IE8及以下返回null。支持XML。
                     </span>
                 </li>
+                <li>
+                    doc.<a href="">title</a>
+                    <span>
+                        返回当前文档的标题
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] Element</h4>
             <ul>
-                
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>BOM对象<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 属性</h4>
-            <ul>
+                <li>
+                    ele.<a href="">id</a>
+                    <span>
+                        设置或返回元素的id
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">innerHTML</a>
+                    <span>
+                        设置或返回元素的内容
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">accessKey</a>
+                    <span>
+                        设置或返回accessKey一个元素。 <br>
+                        document.getElementById('w3c').accessKey="w" <br>
+                        可使用Alt + accessKey 设置的键位快捷访问该元素。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">dir</a>
+                    <span>
+                        设置或返回一个元素中的文本方向。 <br>
+                        dir = ltr / rtl
+                    </span>
+                </li>
+
             </ul>
         </div>
     </div>
