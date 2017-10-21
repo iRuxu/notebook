@@ -2,7 +2,7 @@
     <div class="u-block">
         <h3>DOM遍历<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 匹配查找</h4>
+            <h4>[<span>-</span>] 集合归类</h4>
             <ul>
                 <li>
                     doc.<a href="">documentElement</a>
@@ -52,8 +52,14 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 层级筛选</h4>
+            <h4>[<span>-</span>] 层级查找</h4>
             <ul>
+                <li>
+                    ele.<a href="">parentNode</a>
+                    <span>
+                        返回元素的父节点
+                    </span>
+                </li>
                 <li>
                     dom.<a href="">childNodes</a>
                     <span>
@@ -80,17 +86,34 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 条件过滤</h4>
+            <h4>[<span>-</span>] 序列查找</h4>
             <ul>
                 <li>
-                    doc.<a href="">getElementById</a><em>('id')</em>
+                    ele.<a href="">nextSibling</a>
+                    <span>
+                        返回该元素之后紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">previousSibling</a>
+                    <span>
+                        返回该元素之前紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 条件筛选</h4>
+            <ul>
+                <li>
+                    dom.<a href="">getElementById</a><em>('id')</em>
                     <span>
                         返回拥有指定ID的第一个对象的引用。<br>
                         如果没有指定ID的元素返回null。
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">getElementsByTagName</a><em>('tag')</em>
+                    dom.<a href="">getElementsByTagName</a><em>('tag')</em>
                     <span>
                         返回带有指定标签名的对象的集合。 <br>
                         *返回文档的所有元素。 <br>
@@ -98,30 +121,30 @@
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    doc.<a href="">getElementsByClassName</a><em>('cls')</em>
+                    dom.<a href="">getElementsByClassName</a><em>('cls')</em>
                     <span>
                         返回文档中所有指定类名的元素集合。 <br>
                         IE8及以下不支持。
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">getElementsByName</a><em>('name')</em>
+                    dom.<a href="">getElementsByName</a><em>('name')</em>
                     <span>
                         返回带有指定名称的对象的集合。
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">querySelector</a>('cssExp')
+                    dom.<a href="">querySelector</a>('cssExp')
                     <span>
-                        返回文档中匹配指定css选择器的第一个元素。 <br>
+                        返回dom范围中匹配指定css选择器的第一个元素。 <br>
                         传入的是css选择器，且仅返回第一个元素。 <br>
                         IE8支持，IE6-7不支持。
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    doc.<a href="">querySelectorAll</a>('cssExp')
+                    dom.<a href="">querySelectorAll</a>('cssExp')
                     <span>
-                        返回文档中匹配指定css选择器的全部元素。 <br>
+                        返回dom范围中匹配指定css选择器的全部元素。 <br>
                         HTML5新引入，IE8不支持。 <br>
                         此方式生成的集合，无法用.访问到id和name。
                     </span>
@@ -148,6 +171,12 @@
                     <span>
                         向目标节点前添加新的节点。 <br>
                         如果被添加的节点是原文档中的节点，则原节点会被移除。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">replaceChild</a>(new,old)
+                    <span>
+                        将某个子节点替换为另一个。
                     </span>
                 </li>
             </ul>
@@ -197,11 +226,18 @@
             </ul>
             <h4>[<span>-</span>] 移除</h4>
             <ul>
+                <li>
+                    dom.<a href="">removeChild</a>(node)
+                    <span>
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] 合并</h4>
             <ul>
                 <li>
-                    doc.<a href="">normalize()</a>
+                    dom.<a href="">normalize()</a>
                     <span>
                         删除空文本节点，并连接相邻节点
                     </span>

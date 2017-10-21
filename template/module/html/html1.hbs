@@ -76,27 +76,9 @@
                         IE8及以下返回null。支持XML。
                     </span>
                 </li>
-                <li>
-                    doc.<a href="">title</a>
-                    <span>
-                        返回当前文档的标题
-                    </span>
-                </li>
             </ul>
-            <h4>[<span>-</span>] Element</h4>
-            <ul>
-                <li>
-                    ele.<a href="">id</a>
-                    <span>
-                        设置或返回元素的id
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">innerHTML</a>
-                    <span>
-                        设置或返回元素的内容
-                    </span>
-                </li>
+            <h4>[<span>+</span>] Element</h4>
+            <ul style="display:none;">
                 <li>
                     ele.<a href="">accessKey</a>
                     <span>
@@ -106,13 +88,84 @@
                     </span>
                 </li>
                 <li>
+                    ele.<a href="">tabIndex</a>
+                    <span>
+                        设置或返回元素的标签顺序 <br>
+                        即通过tab键切换时的顺序 <br>
+                        <a href="http://www.powerxing.com/html-attribute-tabindex/">参考资料</a>
+                    </span>
+                </li>
+                <li>
                     ele.<a href="">dir</a>
                     <span>
                         设置或返回一个元素中的文本方向。 <br>
                         dir = ltr / rtl
                     </span>
                 </li>
-
+                <li>
+                    ele.<a href="">tagName</a>
+                    <span>
+                        返回元素的标签名（大写）
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">nodeName</a>
+                    <span>
+                        返回元素的标记名（大写）。 <br>
+                        如果节点是一个元素节点，则返回标签名；如为属性节点，则返回属性名。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">nodeType</a>
+                    <span>
+                        返回元素的节点类型（数值）。 <br>
+                        <a href="http://www.runoob.com/jsref/prop-node-nodetype.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">nodeValue</a>
+                    <span>
+                        返回元素的节点值 <br>
+                        需先取到文本节点，再取文本节点的值。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] NodeList</h4>
+            <ul style="display:none;">
+                <li>
+                    nodelist.<a href="">item</a>(i)
+                    <span>
+                        等同于nodelist[i]
+                    </span>
+                </li>
+                <li>
+                    nodelist.<a href="">length</a>
+                    <span>
+                        节点列表长度
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] Attribute</h4>
+            <ul>
+                <li>
+                    attr.<a href="">name</a>
+                    <span>
+                        返回属性名称
+                    </span>
+                </li>
+                <li>
+                    attr.<a href="">value</a>
+                    <span>
+                        设置或返回属性值
+                    </span>
+                </li>
+                <li>
+                    attr.<a href="">specified</a>
+                    <span>
+                        检查属性节点是否存在值，返回布尔值 <br>
+                        注意先需获取到的是属性节点
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
@@ -135,6 +188,19 @@
                         等同 getAttributeNode('attr').value 
                     </span>
                 </li>
+                <li>
+                    ele.<a href="">removeAttribute</a>('attr')
+                    <span>
+                        从元素中删除指定的属性
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">setAttribute</a>('attr','val')
+                    <span>
+                        设置元素指定的属性值 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
                 <li class="i-dot-orange">
                     ele.<a href="">hasAttribute</a>('attr')
                     <span>
@@ -142,7 +208,7 @@
                         IE8及以下不支持
                     </span>
                 </li>
-                <li class="i-dot-orange">
+                <!-- <li class="i-dot-orange">
                     ele.<a href="">hasAttributes()</a>
                     <span>
                         检测元素是否具有任何某个属性，返回true/false <br>
@@ -155,9 +221,57 @@
                         创建一个属性节点，并返回该attr对象。
                     </span>
                 </li>
+                <li>
+                    ele.<a href="">removeAttributeNode</a>('attr')
+                    <span>
+                        删除指定元素节点并返回移除后的节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">setAttributeNode</a>('attr')
+                    <span>
+                        设置或改变指定属性节点 <br>
+                        需通过nodeValue来最终改变对应值
+                    </span>
+                </li> -->
+            </ul>
+            <h4>[<span>-</span>] 内容</h4>
+            <ul>
+                <li>
+                    ele.<a href="">innerHTML</a>
+                    <span>
+                        设置或返回元素的内容
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">textContent</a>
+                    <span>
+                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">id</a>
+                    <span>
+                        设置或返回元素的id
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">title</a>
+                    <span>
+                        设置或返回当前文档/元素的标题
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] 样式</h4>
             <ul>
+                <li>
+                    ele.<a href="">style</a>
+                    <span>
+                        设置或返回元素的样式属性 <br>
+                        返回的是一个对象，通过style.classname来设置具体，只取行内。
+                    </span>
+                </li>
                 <li>
                     ele.<a href="">className</a>
                     <span>
