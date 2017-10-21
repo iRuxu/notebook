@@ -1,145 +1,238 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM操作<span>-</span></h3>
+        <h3>DOM遍历<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 属性</h4>
+            <h4>[<span>-</span>] 匹配查找</h4>
             <ul>
                 <li>
-                    ele.<a href="">attributes</a>
+                    doc.<a href="">documentElement</a>
                     <span>
-                        返回一个元素的属性数组。 <br>
-                        数组中按照html中的顺序排序，无法直接通过.访问，只有索引。
+                        返回文档的根节点（html元素）
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">getAttribute</a>('attr')
+                    doc.<a href="">body</a>
                     <span>
-                        返回指定元素的属性值 <br>
-                        等同 getAttributeNode('attr').value 
+                        返回文档的body元素
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">images</a>
+                    <span>
+                        返回文档中所有image对象引用
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">links</a>
+                    <span>
+                        返回文档中所有的a.href + area标签。 <br>
+                        document.links.$id > document.links.$name 可按id和name访问,同名时id高于name,同id时,取顺序在前的<br>
+                        document.links[i] 可按索引访问
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">anchors</a>
+                    <span>
+                        返回文档中所有的锚点的集合。即带有name属性的a标签。 <br>
+                        document.anchors.length
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">scripts</a>
+                    <span>
+                        返回页面中所有脚本的集合
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">forms</a>
+                    <span>
+                        返回文档中所有表单的集合。 <br>
+                        document.forms[0]  <br>
+                        document.forms.name1
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 层级筛选</h4>
+            <ul>
+                <li>
+                    dom.<a href="">childNodes</a>
+                    <span>
+                        返回元素的子节点数组
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">firstChild</a>
+                    <span>
+                        返回元素的第一个子节点。 <br>
+                        如果不存在则返回null
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">lastChild</a>
+                    <span>
+                        返回元素的最后一个子元素。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasChildNodes()</a>
+                    <span>
+                        检查元素是否具有任何子元素，返回布尔值
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 条件过滤</h4>
+            <ul>
+                <li>
+                    doc.<a href="">getElementById</a><em>('id')</em>
+                    <span>
+                        返回拥有指定ID的第一个对象的引用。<br>
+                        如果没有指定ID的元素返回null。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">getElementsByTagName</a><em>('tag')</em>
+                    <span>
+                        返回带有指定标签名的对象的集合。 <br>
+                        *返回文档的所有元素。 <br>
+                        *返回的元素集合中的0为html
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    ele.<a href="">hasAttribute</a>('attr')
+                    doc.<a href="">getElementsByClassName</a><em>('cls')</em>
                     <span>
-                        检测元素是否具有某个属性，返回true/false <br>
-                        IE8及以下不支持
+                        返回文档中所有指定类名的元素集合。 <br>
+                        IE8及以下不支持。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">getElementsByName</a><em>('name')</em>
+                    <span>
+                        返回带有指定名称的对象的集合。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">querySelector</a>('cssExp')
+                    <span>
+                        返回文档中匹配指定css选择器的第一个元素。 <br>
+                        传入的是css选择器，且仅返回第一个元素。 <br>
+                        IE8支持，IE6-7不支持。
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    ele.<a href="">hasAttributes()</a>
+                    doc.<a href="">querySelectorAll</a>('cssExp')
                     <span>
-                        检测元素是否具有任何某个属性，返回true/false <br>
-                        IE8及以下不支持
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">creatAttribute</a>('attr')
-                    <span>
-                        创建一个属性节点，并返回该attr对象。
+                        返回文档中匹配指定css选择器的全部元素。 <br>
+                        HTML5新引入，IE8不支持。 <br>
+                        此方式生成的集合，无法用.访问到id和name。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 样式</h4>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>DOM更新<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 修改</h4>
             <ul>
                 <li>
-                    ele.<a href="">className</a>
+                    dom.<a href="">appendChild</a>(node)
                     <span>
-                        设置或返回元素的class属性
+                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
+                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
+                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
+                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
                     </span>
                 </li>
-                <li class="i-dot-blue">
-                    ele.<a href="">classList</a>
+                <li>
+                    dom.<a href="">insertBefore</a>(node,exist)
                     <span>
-                        返回该元素的类的一个对象。 IE10以下不支持。 <br>
-                        <table>
-                            <tr>
-                                <th>方法</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>.value</td>
-                                <td>完整类名</td>
-                            </tr>
-                            <tr>
-                                <td>.add(class1,class2,...)</td>
-                                <td>添加新的类名，如果已经存在则不会添加</td>
-                            </tr>
-                            <tr>
-                                <td>.remove(class1,class2,...)</td>
-                                <td>移除指定类名，如果移除不存在的类名，不会报错</td>
-                            </tr>
-                            <tr>
-                                <td>.toggle(class,true/false)</td>
-                                <td>切换指定类名。 <br>
-                                    第一个参数为切换的类名。 <br>
-                                    如果存在时，移除并返回false；如果不存在，添加并返回true。 <br>
-                                    第二个参数，为强制设置布尔值。
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>.contains(class)</td>
-                                <td>返回布尔值，判断指定类名是否存在</td>
-                            </tr>
-                            <tr>
-                                <td>.length</td>
-                                <td>类名个数</td>
-                            </tr>
-                            <tr>
-                                <td>.item(i) / [i]</td>
-                                <td>返回索引上的类名</td>
-                            </tr>
-                        </table>
+                        向目标节点前添加新的节点。 <br>
+                        如果被添加的节点是原文档中的节点，则原节点会被移除。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 尺寸</h4>
+            <h4>[<span>-</span>] 添加</h4>
             <ul>
                 <li>
-                    ele.<a href="">clientWidth</a>
+                    ele.<a href="">cloneNode</a>([true/false])
                     <span>
-                        在页面上返回内容的可视宽度（不包括边框，边距或滚动条）
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">clientHeight</a>
+                    doc.<a href="">creatElement</a>('tag')
                     <span>
-                        在页面上返回内容的可视高度（不包括边框，边距或滚动条）
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatTextNode</a>('str')
+                    <span>
+                        创建文本节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatDocumentFragment()</a>
+                    <span>
+                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
+                        var temp=document.createDocumentFragment();
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatComment</a>('str')
+                    <span>
+                        创建注释节点
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">importNode</a>(node,deep)
+                    <span>
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 交互</h4>
+            <h4>[<span>-</span>] 移除</h4>
+            <ul>
+            </ul>
+            <h4>[<span>-</span>] 合并</h4>
             <ul>
                 <li>
-                    ele.<a href="">focus()</a>
+                    doc.<a href="">normalize()</a>
                     <span>
-                        设置元素获取焦点
+                        删除空文本节点，并连接相邻节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 更新</h4>
+            <ul>
+                <li>
+                    doc.<a href="">write</a>('exp')
+                    <span>
+                        向文档写入内容 <br>
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">blur()</a>
+                    doc.<a href="">writeln</a>('exp')
                     <span>
-                        设置元素移除焦点
+                        向文档写入内容，并在末尾添加一个换行符
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">hasFocus()</a>
+                    doc.<a href="">open</a>([MIME],[replace])
                     <span>
-                        检查元素是否获取焦点，返回布尔值
+                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
+                        MIMEtype，默认值是 "text/html"。 <br>
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">contentEditable</a>
+                    doc.<a href="">close</a>()
                     <span>
-                        设置或返回元素的内容是否可编辑 <br>
-                        返回inherit/true/false <br>
-                        如果父级元素是可编辑，则子元素内容也是可编辑的
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">isContentEditable</a>
-                    <span>
-                        返回元素的内容是否可编辑 <br>
-                        返回true/false
+                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
                     </span>
                 </li>
             </ul>
