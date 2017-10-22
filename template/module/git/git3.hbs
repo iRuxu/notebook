@@ -1,16 +1,50 @@
 <div class="u-col">
   <div class="u-block">
-      <h3>回档</a><span>-</span></h3>
-      <div class="u-list">
-            <h4>[</a><span>-</span>] 回退</h4>
+        <h3>远端</a><span>-</span></h3>
+        <div class="u-list">
+            <h4>[</a><span>-</span>] 连接</h4>
             <ul>
                 <li>
-                    <a href="">reset</a> --hard (SHA1)
-                    <span>
-                    HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，往上100个版本HEAD~100。<br> 
-                    </span>
+                git <a href="">remote</a> add $origin $url
+                <span>
+                    添加一个远端地址。默认的为origin
+                </span>
+                </li>
+                  <li>
+                  git <a href="">remote</a> -v
+                  <span>
+                        查看全部远端
+                  </span>
+                  </li>
+            </ul>
+            <h4>[</a><span>-</span>] 获取</h4>
+            <ul>
+                <li>
+                git <a href="">fetch</a> 
+                <span>
+                    获取远端最新内容
+                </span>
+                </li>
+                <li>
+                git <a href="">pull</a> 
+                <span>
+                    获取并合并远端最新内容
+                </span>
                 </li>
             </ul>
-      </div>
+        </div>
+        <h3>提交</a><span>-</span></h3>
+        <div class="u-list">
+            <h4>[</a><span>-</span>] 提交</h4>
+            <ul>
+            	<li>
+            	git <a href="">push</a> [-u] $origin $master
+            	<span>
+            		发布本地$master分支到远端$origin <br>
+            		第一次添加-u参数
+            	</span>
+            	</li>
+            </ul>
+        </div>
   </div>
 </div>

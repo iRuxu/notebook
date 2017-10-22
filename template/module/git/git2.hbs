@@ -1,21 +1,111 @@
 <div class="u-col">
-  <div class="u-block">
-      <h3>分支</a><span>-</span></h3>
-      <div class="u-list">
-            <h4>[</a><span>-</span>] 历史记录</h4>
+    <div class="u-block">
+        <h3>分支</a><span>-</span></h3>
+        <div class="u-list">
+            <h4>[</a><span>-</span>] 创建/切换</h4>
             <ul>
-                <li>
-                    <a href="">log</a>[--pretty=oneline]
-                    <span>
-                    git log 显示全部提交记录<br>
-                    git log --pretty=oneline 美化显示<br>  
+                  <li>
+                  git <a href="">branch</a>
+                  <span>
+                        查看所有分支
+                  </span>
+                  </li>
+                  <li>
+            	git <a href="">branch</a> $dev
+            	<span>
+            		创建分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">checkout</a> $dev
+            	<span>
+            		切换分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">checkout</a> -b $dev
+            	<span>
+            		创建并切换到该分支
+            	</span>
+            	</li>
+            </ul>
+            <h4>[</a><span>-</span>] 删除</h4>
+            <ul>
+            	<li>
+            	git <a href="">branch</a> -d $dev
+            	<span>
+            		删除分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">branch</a> -D $dev
+            	<span>
+            		强行删除分支
+            	</span>
+            	</li>
+            </ul>
+        </div>
+        <h3>标签</a><span>-</span></h3>
+        <div class="u-list">
+            <h4>[</a><span>-</span>] 创建</h4>
+            <ul>
+                <li>git <a href="">tag</a><span>查看所有标签</span></li>
+                <li>git <a href="">tag</a> $name<span>给当前commit打tag</span></li>
+                <li>git <a href="">tag</a> $name $commit_id<span>给指定commit打tag</span></li>
+                <li>git <a href="">tag</a> -a $name -m "desc"<span>查看所有标签</span></li>
+            </ul>
+            <h4>[</a><span>-</span>] 移除</h4>
+            <ul>
+                <li>git <a href="">tag</a> -d $ver<span>删除tag</span></li>
+                <li>git <a href="">push</a> <em>$origin :refs/tags/$ver</em>
+                    <span>删除远端tag <br>
+                        $ git push origin :refs/tags/v0.1 <br>
+                        To git@github.com:xx/xx.git<br>
+                        - [deleted]         v0.1<br>
                     </span>
                 </li>
+            </ul>
+            <h4>[</a><span>-</span>] 推送</h4>
+            <ul>
+                <li>git <a href="">push</a> $origin $ver<span>推送tag</span></li>
+                <li>git <a href="">push</a> $origin --tags<span>推送全部tag</span></li>
+            </ul>
+        </div>
+        <h3>合并</a><span>-</span></h3>
+        <div class="u-list">
+            <h4>[</a><span>-</span>] 合并</h4>
+            <ul>
                 <li>
-                  <a href="">reflog</a>
-                  <span>查看每一次命令</span>
+                git <a href="">merge</a> $dev
+                <span>
+                    合并指定分支到当前分支
+                </span>
+                </li>
+                <li>
+                git <a href="">merge</a> $origin/$dev
+                <span>
+                    合并指定远端分支到当前分支
+                </span>
                 </li>
             </ul>
-      </div>
-  </div>
+            <h4>[</a><span>-</span>] 存储</h4>
+            <ul>
+                <li>
+                git <a href="">stash</a>
+                <span>
+                    存储当前工作内容但不提交
+                </span>
+                </li>
+                <li>
+                git <a href="">stash</a> pop
+                <span>
+                    恢复存储区内容并删除stash
+                </span>
+                </li>
+                <li>git <a href="">stash</a> list<span>查看</span></li>
+                <li>git <a href="">stash</a> apply<span>恢复</span></li>
+                <li>git <a href="">stash</a> drop<span>删除</span></li>
+            </ul>
+        </div>
+    </div>
 </div>

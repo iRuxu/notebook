@@ -1,42 +1,11 @@
 <div class="u-col">
   <div class="u-block">
-      <h3>设置</a><span>-</span></h3>
+      <h3>配置</a><span>-</span></h3>
       <div class="u-list">
-            <h4>[</a><span>-</span>] 资料</h4>
-            <ul>
-                <li><a href="">下载安装</a>
-                    <span>
-                        <a href="https://git-scm.com/download/linux">Linux</a> / 
-                        <a href="https://git-scm.com/download/mac">Mac</a> / 
-                        <a href="https://git-for-windows.github.io/">Windows</a> /
-                        <a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">更多</a>
-                    </span>
-                </li>
-                <li>
-                    <a href="">帮助命令</a>
-                    <span>
-                        git help $cmd<br>
-                        git $cmd --help 
-                    </span>
-                </li>
-                <li>
-                    <a href="https://git-scm.com/docs">参考手册</a>
-                </li>
-                <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
-            </ul>
-            <h4>[</a><span>+</span>] 教程</h4>
-            <ul style="display:none">
-                <li><a href="https://www.shiyanlou.com/courses/4">Git实践</a></li>
-                <li><a href="https://www.shiyanlou.com/courses/616">Git服务器实践</a></li>
-                <li><a href="http://gitref.org/zh/index.html">Git参考手册</a></li>
-                <li><a href="http://gitbook.liuhui998.com/">Git Community Book 中文版</a></li>
-                <li><a href="http://www.runoob.com/git/git-tutorial.html">菜鸟教程版</a></li>
-                <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰版</a></li>
-            </ul>
-            <h4>[</a><span>-</span>] 配置</h4>
+            <h4>[</a><span>-</span>] 账户</h4>
             <ul>
                 <li>
-                    <a href="">config</a>
+                    <em>config</em><a href=""></a>
                     <span>
                         <b>/etc/gitconfig</b><br>
                         系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。<br>
@@ -48,12 +17,12 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">config --list</a>
+                    git <a href="">config --list</a>
                     <span>查看各项设置值。<br>
                     </span>
                 </li>
                 <li>
-                    <a href="">config user.[option]</a>
+                    git <a href="">config user.[option]</a>
                     <span>
                         $ git config --global user.name "username" <br>
                         $ git config --global user.email user@example.com <br>
@@ -62,7 +31,7 @@
                     </span>
                 </li>
                 <li>
-                    ssh key<a href=""></a>
+                    <em>ssh key</em><a href=""></a>
                     <span>
                         1.查看是否已存在ssh密钥：cd ~/.ssh <br>
                         2.生成密钥： ssh-keygen -t rsa -C "username@mail.com" 按3个回车,密码为空 <br>
@@ -71,7 +40,7 @@
                     </span>
                 </li>
                 <li>
-                    .gitignore<a href=""></a>
+                    <em>.gitignore</em><a href=""></a>
                     <span>需要被忽略的文件<br>
                         <a href="https://github.com/github/gitignore">查看多语言范本</a><br>
                         .gitignore 的格式规范如下：
@@ -89,6 +58,25 @@
                         使用两个星号（*) 表示匹配任意中间目录，比如`a/**/z` 可以匹配 a/z, a/b/z 或 `a/b/c/z`等。
                     </span>
                 </li>
+            </ul>
+            <h4>[</a><span>-</span>] 帮助</h4>
+            <ul>
+                <li>git <a href="">help</a><span></span></li>
+            </ul>
+      </div>
+      <h3>自定义</a><span>-</span></h3>
+      <div class="u-list">
+            <h4>[</a><span>-</span>] 别名</h4>
+            <ul>
+                <li>git <a href="">config</a> --global alias.$new $old<span>
+                    $ git config --global alias.st status <br>
+                    用st替代status
+                </span></li>
+                <li>git <a href="">last</a><span>
+                    $ git config --global alias.last 'log -1' <br>
+                    配置显示最后一次提交信息 <br>
+                    <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375234012342f90be1fc4d81446c967bbdc19e7c03d3000">参考资料</a>
+                </span></li>
             </ul>
       </div>
   </div>

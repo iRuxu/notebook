@@ -1,96 +1,276 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>Canvas<span>-</span></h3>
+        <h3>DOM遍历<span>-</span></h3>
         <div class="u-list">
-			<h4>[<span>-</span>]核心</h4>
+            <h4>[<span>-</span>] 集合归类</h4>
             <ul>
-                <li><a href="">getContext("2d")</a><span></span></li>
-                <li><a href="">createEvent()</a><span></span></li>
-                <li><a href="">toDataURL()</a><span></span></li>
-                <li><a href="">save()</a><span>保存当前环境的状态。</span></li>
-                <li><a href="">restore()</a><span>返回之前保存过的路径状态和属性。</span></li>
+                <li>
+                    doc.<a href="">documentElement</a>
+                    <span>
+                        返回文档的根节点（html元素）
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">body</a>
+                    <span>
+                        返回文档的body元素
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">images</a>
+                    <span>
+                        返回文档中所有image对象引用
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">links</a>
+                    <span>
+                        返回文档中所有的a.href + area标签。 <br>
+                        document.links.$id > document.links.$name 可按id和name访问,同名时id高于name,同id时,取顺序在前的<br>
+                        document.links[i] 可按索引访问
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">anchors</a>
+                    <span>
+                        返回文档中所有的锚点的集合。即带有name属性的a标签。 <br>
+                        document.anchors.length
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">scripts</a>
+                    <span>
+                        返回页面中所有脚本的集合
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">forms</a>
+                    <span>
+                        返回文档中所有表单的集合。 <br>
+                        document.forms[0]  <br>
+                        document.forms.name1
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]图像</h4>
+            <h4>[<span>-</span>] 层级查找</h4>
             <ul>
-                <li><a href="">drawImage</a>(image,x,y)<span><a href="http://www.w3cschool.cc/tags/canvas-drawimage.html">参考资料</a>
-                    <br>在画布上定位图像：
-                    <br>JavaScript 语法：  context.drawImage(img,x,y);
-                    <br>在画布上定位图像，并规定图像的宽度和高度：
-                    <br>JavaScript 语法：  context.drawImage(img,x,y,width,height);
-                    <br>剪切图像，并在画布上定位被剪切的部分：
-                    <br>JavaScript 语法：  context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
-                    <textarea name="" id="" cols="60" rows="10">var c=document.getElementById("myCanvas");
-                    var ctx=c.getContext("2d");
-                    var img=document.getElementById("scream");
-                    ctx.drawImage(img,10,10);</textarea></span></li>
-                <li><a href="">width</a><span>返回 ImageData 对象的宽度。</span></li>
-                <li><a href="">height</a><span>返回 ImageData 对象的高度。</span></li>
-                <li><a href="">data</a><span>返回一个对象，其包含指定的 ImageData 对象的图像数据。</span></li>
-                <li><a href="">createImageData()</a><span>创建新的、空白的 ImageData 对象。</span></li>
-                <li><a href="">getImageData()</a><span>返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据。</span></li>
-                <li><a href="">putImageData()</a><span>把图像数据（从指定的 ImageData 对象）放回画布上。</span></li>
-                <li><a href="">globalAlpha</a><span>设置或返回绘图的当前 alpha 或透明值。</span></li>
-                <li><a href="">globalCompositeOperation</a><span>设置或返回新图像如何绘制到已有的图像上</span></li>
+                <li>
+                    ele.<a href="">parentNode</a>
+                    <span>
+                        返回元素的父节点
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">childNodes</a>
+                    <span>
+                        返回元素的子节点数组
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">firstChild</a>
+                    <span>
+                        返回元素的第一个子节点。 <br>
+                        如果不存在则返回null
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">lastChild</a>
+                    <span>
+                        返回元素的最后一个子元素。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasChildNodes()</a>
+                    <span>
+                        检查元素是否具有任何子元素，返回布尔值
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]颜色样式阴影</h4>
+            <h4>[<span>-</span>] 序列查找</h4>
             <ul>
-                <li><a href="">fillStyle</a>="col/gra/img"<span>设置fillStyle属性可以是CSS颜色，渐变，或图案</span></li>
-                <li><a href="">strokeStyle</a><span>设置或返回用于笔触的颜色、渐变或模式。</span></li>
-                <li><a href="">shadowColor</a><span>设置或返回用于阴影的颜色。</span></li>
-                <li><a href="">shadowBlur</a><span>设置或返回用于阴影的模糊级别。</span></li>
-                <li><a href="">shadowOffsetX</a><span>设置或返回阴影与形状的水平距离。</span></li>
-                <li><a href="">shadowOffsetY</a><span>设置或返回阴影与形状的垂直距离。</span></li>
-                <li><a href="">createLinearGradient</a>(x,y,x1,y1)<span>线条渐变</span></li>
-                <li><a href="">createRadialGradient</a>(x,y,r,x1,y1,r1)<span>径向/圆渐变</span></li>
-                <li><a href="">createRadialGradient()</a>t(x0,y0,r0,x1,y1,r1)<span>创建放射状/环形的渐变（用在画布内容上）。</span></li>
-                <li><a href="">addColorStop()</a><span>指定颜色停止，参数使用坐标来描述，可以是0至1.</span></li>
-                <li><a href="">fillRect</a>(x,y,width,height)<span>fillRect(x,y,width,height) 方法定义了矩形当前的填充方式。</span></li>
+                <li>
+                    ele.<a href="">nextSibling</a>
+                    <span>
+                        返回该元素之后紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">previousSibling</a>
+                    <span>
+                        返回该元素之前紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]路径</h4>
+            <h4>[<span>-</span>] 条件筛选</h4>
             <ul>
-                <li><a href="">fill()</a><span>填充当前绘图（路径）。</span></li>
-                <li><a href="">stroke()</a><span>绘制已定义的路径。</span></li>
-                <li><a href="">beginPath()</a><span>起始一条路径，或重置当前路径。</span></li>
-                <li><a href="">moveTo()</a><span>把路径移动到画布中的指定点，不创建线条。</span></li>
-                <li><a href="">closePath()</a><span>创建从当前点回到起始点的路径。</span></li>
-                <li><a href="">lineTo()</a><span>添加一个新点，然后在画布中创建从该点到最后指定点的线条。</span></li>
-                <li><a href="">clip()</a><span>从原始画布剪切任意形状和尺寸的区域。</span></li>
-                <li><a href="">quadraticCurveTo()</a><span>创建二次贝塞尔曲线。</span></li>
-                <li><a href="">bezierCurveTo()</a><span>创建三次贝塞尔曲线。</span></li>
-                <li><a href="">arc()</a><span>创建弧/曲线（用于创建圆形或部分圆）。</span></li>
-                <li><a href="">arcTo()</a><span>创建两切线之间的弧/曲线。</span></li>
-                <li><a href="">isPointInPath()</a><span>如果指定的点位于当前路径中，则返回 true，否则返回 false。</span></li>
+                <li>
+                    dom.<a href="">getElementById</a><em>('id')</em>
+                    <span>
+                        返回拥有指定ID的第一个对象的引用。<br>
+                        如果没有指定ID的元素返回null。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">getElementsByTagName</a><em>('tag')</em>
+                    <span>
+                        返回带有指定标签名的对象的集合。 <br>
+                        *返回文档的所有元素。 <br>
+                        *返回的元素集合中的0为html
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">getElementsByClassName</a><em>('cls')</em>
+                    <span>
+                        返回文档中所有指定类名的元素集合。 <br>
+                        IE8及以下不支持。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">getElementsByName</a><em>('name')</em>
+                    <span>
+                        返回带有指定名称的对象的集合。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">querySelector</a>('cssExp')
+                    <span>
+                        返回dom范围中匹配指定css选择器的第一个元素。 <br>
+                        传入的是css选择器，且仅返回第一个元素。 <br>
+                        IE8支持，IE6-7不支持。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">querySelectorAll</a>('cssExp')
+                    <span>
+                        返回dom范围中匹配指定css选择器的全部元素。 <br>
+                        HTML5新引入，IE8不支持。 <br>
+                        此方式生成的集合，无法用.访问到id和name。
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]线条</h4>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>DOM更新<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 修改</h4>
             <ul>
-                <li><a href="">lineCap</a><span>设置或返回线条的结束端点样式。</span></li>
-                <li><a href="">lineJoin</a><span>设置或返回两条线相交时，所创建的拐角类型。</span></li>
-                <li><a href="">lineWidth</a><span>设置或返回当前的线条宽度。</span></li>
-                <li><a href="">miterLimit</a><span>设置或返回最大斜接长度。</span></li>
+                <li>
+                    dom.<a href="">appendChild</a>(node)
+                    <span>
+                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
+                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
+                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
+                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">insertBefore</a>(node,exist)
+                    <span>
+                        向目标节点前添加新的节点。 <br>
+                        如果被添加的节点是原文档中的节点，则原节点会被移除。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">replaceChild</a>(new,old)
+                    <span>
+                        将某个子节点替换为另一个。
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]矩形</h4>
+            <h4>[<span>-</span>] 添加</h4>
             <ul>
-                <li><a href="">rect()</a><span>创建矩形。</span></li>
-                <li><a href="">fillRect()</a><span>绘制"被填充"的矩形。</span></li>
-                <li><a href="">strokeRect()</a><span>绘制矩形（无填充）。</span></li>
-                <li><a href="">clearRect()</a><span>在给定的矩形内清除指定的像素。</span></li>
+                <li>
+                    ele.<a href="">cloneNode</a>([true/false])
+                    <span>
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatElement</a>('tag')
+                    <span>
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatTextNode</a>('str')
+                    <span>
+                        创建文本节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatDocumentFragment()</a>
+                    <span>
+                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
+                        var temp=document.createDocumentFragment();
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatComment</a>('str')
+                    <span>
+                        创建注释节点
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">importNode</a>(node,deep)
+                    <span>
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]转换</h4>
+            <h4>[<span>-</span>] 移除</h4>
             <ul>
-                <li><a href="">scale()</a><span>缩放当前绘图至更大或更小。</span></li>
-                <li><a href="">rotate()</a><span>旋转当前绘图。</span></li>
-                <li><a href="">translate()</a><span>重新映射画布上的 (0,0) 位置。</span></li>
-                <li><a href="">transform()</a><span>替换绘图的当前转换矩阵。</span></li>
-                <li><a href="">setTransform()</a><span>将当前转换重置为单位矩阵。然后运行 transform()。</span></li>
+                <li>
+                    dom.<a href="">removeChild</a>(node)
+                    <span>
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>-</span>]文字</h4>
+            <h4>[<span>-</span>] 合并</h4>
             <ul>
-                <li><a href="">font</a><span>设置或返回文本内容的当前字体属性。 ctx.font="30px Arial";</span></li>
-                <li><a href="">textAlign</a><span>设置或返回文本内容的当前对齐方式。</span></li>
-                <li><a href="">textBaseline</a><span>设置或返回在绘制文本时使用的当前文本基线。</span></li>
-                <li><a href="">fillText</a>(text,x,y)<span>实心文本</span></li>
-                <li><a href="">strokeText</a>(text,x,y)<span>空心文本</span></li>
-                <li><a href="">measureText()</a><span>返回包含指定文本宽度的对象。</span></li>
+                <li>
+                    dom.<a href="">normalize()</a>
+                    <span>
+                        删除空文本节点，并连接相邻节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 更新</h4>
+            <ul>
+                <li>
+                    doc.<a href="">write</a>('exp')
+                    <span>
+                        向文档写入内容 <br>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">writeln</a>('exp')
+                    <span>
+                        向文档写入内容，并在末尾添加一个换行符
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">open</a>([MIME],[replace])
+                    <span>
+                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
+                        MIMEtype，默认值是 "text/html"。 <br>
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">close</a>()
+                    <span>
+                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

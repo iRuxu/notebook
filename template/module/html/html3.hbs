@@ -1,0 +1,35 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>DOM事件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 监听</h4>
+            <ul>
+                <li class="i-dot-orange">
+                    dom.<a href="">addEventListener</a>(e,fn(e))
+                    <span>
+                        添加事件监听 <br>
+                        IE8=-：attachEvent() <br>
+                        <pre><code data-language="javascript">
+                            if (document.addEventListener) {
+                                document.addEventListener("click", myFunction);
+                            } else if (document.attachEvent) {
+                                document.attachEvent("onclick", myFunction);
+                            }
+                            function myFunction() {
+                                alert("Hello World!");
+                            }
+                        </code></pre>   
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">removeEventListener</a>(e,fn(e))
+                    <span>
+                        移除事件监听 <br>
+                        IE8=-：detachEvent() <br>
+                        两个参数均为必须，指定要移除的事件及要移除的函数。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

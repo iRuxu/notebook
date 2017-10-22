@@ -1,0 +1,78 @@
+/*
+ * Base.less
+ * Version: 3.2
+ * Author: iRuxu
+ * Creat: 2014/08
+ * Update: 2017/01/22
+ * Description: Base function,ie hack,quick layout
+ * Manual: http://csslab.cc
+ */
+/*-------------------------------------
+    ├   Font                              ┆
+    └------------------------------------*/
+/*-------------------------------------
+    ├   对齐                              ┆
+    └------------------------------------*/
+/*-------------------------------------
+    ├   Text                              ┆
+    └------------------------------------*/
+.nobreak {
+  white-space: nowrap;
+  word-wrap: normal;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/*-------------------------------------
+    ├   Size                              ┆
+    └------------------------------------*/
+.full {
+  width: 100%;
+  height: 100%;
+}
+.half {
+  width: 50%;
+  height: 50%;
+}
+/*-------------------------------------
+    ├   Display                            ┆
+    └------------------------------------*/
+.none {
+  display: none;
+}
+/*-------------------------------------
+    ├   Layout                             ┆
+    └------------------------------------*/
+.fl {
+  float: left;
+  *display: inline;
+}
+.fr {
+  float: right;
+  *display: inline;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: "\200B";
+  display: block;
+  height: 0;
+  clear: both;
+}
+/*-------------------------------------
+    ├   Position                           ┆
+    └------------------------------------*/
+/*-------------------------------------
+    ├   Image                              ┆
+    └------------------------------------*/
+/*-------------------------------------
+    ├   Effect                             ┆
+    └------------------------------------*/
+.tsfix {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+/*-------------------------------------
+    ├   Other                              ┆
+    └------------------------------------*/

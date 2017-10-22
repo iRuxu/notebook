@@ -36,6 +36,13 @@ $(function(){
 				$(this).attr('href',link)
 			})
 
+		//侧边栏导航展开关闭
+			$("#c-sidebar-folder").on('click',function(){
+				$(this).toggleClass('on');
+				$(".c-main").toggleClass('widthauto');
+				$(".c-sidebar").toggleClass('folder');
+			})
+
 		//侧边栏关联内容卡开关
 			$sidebar_list_item.on('click',function(e){
 				$sidebar_list_item.removeClass('on')
@@ -45,30 +52,6 @@ $(function(){
 				window.location.hash = '#' + i
 			})
 
-		//动态访问指定tab卡
-			/*var getRequest = function(paras){
-			    var url = location.location;
-			    var _request = {};
-
-			    if( url.indexOf("?") != -1){
-			        var str = url.substr(1),
-			            i = 0,
-			            strs = str.split("&");
-
-			        for( ;i<strs.length;i+=1 ){
-			            _request[strs[i].split('=')[0]] = unescape(strs[i].split('=')[1]);
-			        }
-			    }
-
-			    var value = _request[paras.toLowerCase()];
-			    if(typeof(value) == "undefined"){
-			        return "";
-			    } else {
-			        return value;
-			    }
-			};
-			var category = getRequest('c');
-			var category = parseInt(category);*/
 
 		//通过hash访问
 			var cur_hash = window.location.hash
@@ -107,6 +90,10 @@ $(function(){
 
 		//Tips Layout
 			$main.on('mouseover','h4+ul>li',function(e){
+				//当为单纯外链时没有浮层
+				if (!$(this).children('span').html()){
+					return;
+				}
 				$(this).children('span').css({
 						left:e.pageX+12+'px',
 						top:e.pageY+8+'px',
@@ -130,8 +117,7 @@ $(function(){
 				var originFn = $(this).children("a:first-child").html() || ''
 				var prevArg = $(this).children("em:first-child").html() || ''
 				var nextArg = $(this).children("em:nth-child(2)").html() || ''
-				var title =  prevArg + originFn + nextArg
-				//title || (title = "Snippet");
+				var title =  prevArg + originFn + nextArg || 'Snippet'
 				var info = $(this).children("span").html();
 
 				$("#snippet").show()

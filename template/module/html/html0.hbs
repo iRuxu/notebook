@@ -156,7 +156,7 @@
                     IE网页评级
                 </span></li>
                 <li><a href="">Content-Security-Policy</a><span>
-                    <pre><code data-language="html"><meta http-equiv="Content-Security-Policy" content="default-src 'self'"></code></pre>
+                    <pre><code data-language="html">&lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'"&gt;</code></pre>
                     对外部资源加载的限制（允许控制从哪里加载资源）<br />
                     <a href="http://www.ruanyifeng.com/blog/2016/09/csp.html" target="_blank">参考资料</a>
                 </span></li>
@@ -193,7 +193,7 @@
             <ul>
                 <li><a href="">script</a><span>
                         也可以写在body区域或底部,推荐放在底部加载<br />
-                        <pre><code data-language="html"><script src="--"></script></code></pre>
+                        <pre><code data-language="html"> &lt;script src="--"&gt;&lt;/script&gt; </code></pre>
                         defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】 
                         </span></li>
                 <li><a href="">noscript</a><span>

@@ -32,9 +32,9 @@
             &>a{padding-right:2px;
                 &[href^=http]{display:block;width:100%;height:100%;}
             }
-            &>span,.tips{
+            &>span,&>.tips{display:none;
                 .z(100);
-                display:none;min-width:180px;max-width:600px;.break;padding:5px;.pa;.clearfix;
+                min-width:180px;max-width:600px;.break;padding:5px;.pa;.clearfix;
                 .tb(0,0,0,0.8);border:1px solid #111;color:#ccc;font-weight:normal;border-radius:4px;
                 textarea{font-family:consolas !important;}
                 table{max-width:98% !important;}
@@ -51,6 +51,26 @@
                 padding:0 2px;
                 .lh(12px);
                 .dbi;transform:scale(0.8);
+            }
+            &.i-dot-orange:before{
+                content:'';
+                .dbi;.size(5px);
+                background-color:orange;
+            }
+            &.i-dot-blue:before{
+                content:'';
+                .dbi;.size(5px);
+                background-color:#66d9ef;
+            }
+            &.i-dot-green:before{
+                content:'';
+                .dbi;.size(5px);
+                background-color:#a6e22e;
+            }
+            &.i-dot-red:before{
+                content:'';
+                .dbi;.size(5px);
+                background-color:#f00;
             }
         }
     }
