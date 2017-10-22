@@ -1,122 +1,32 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>尺寸与坐标<span>-</span></h3>
+        <h3>DOM事件<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 尺寸</h4>
+            <h4>[<span>-</span>] 监听</h4>
             <ul>
-                <li>
-                    ele.<a href="">clientWidth</a>
+                <li class="i-dot-orange">
+                    dom.<a href="">addEventListener</a>(e,fn(e))
                     <span>
-                        返回内容的可视宽度（不包括边框，边距或滚动条）
+                        添加事件监听 <br>
+                        IE8=-：attachEvent() <br>
+                        <pre><code data-language="javascript">
+                            if (document.addEventListener) {
+                                document.addEventListener("click", myFunction);
+                            } else if (document.attachEvent) {
+                                document.attachEvent("onclick", myFunction);
+                            }
+                            function myFunction() {
+                                alert("Hello World!");
+                            }
+                        </code></pre>   
                     </span>
                 </li>
-                <li>
-                    ele.<a href="">clientHeight</a>
+                <li class="i-dot-orange">
+                    dom.<a href="">removeEventListener</a>(e,fn(e))
                     <span>
-                        返回元素的可视高度，包括填充，不包括边框+滚动条+边距
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">offsetWidth</a>
-                    <span>
-                        返回元素的宽度，包括边框+填充，不包括边距
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">offsetHeight</a>
-                    <span>
-                        返回元素的高度，包括边框+填充，不包括边距
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">scrollWidth</a>
-                    <span>
-                        返回元素的宽度，包括带滚动条的隐蔽地方
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">scrollHeight</a>
-                    <span>
-                        返回元素的高度，包括带滚动条的隐蔽地方
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 偏移</h4>
-            <ul>
-                <li>
-                    ele.<a href="">offsetLeft</a>
-                    <span>
-                        返回当前元素的相对水平偏移
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">offsetTop</a>
-                    <span>
-                        返回当前元素的相对垂直偏移
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">offsetParent</a>
-                    <span>
-                        返回当前元素的偏移容器
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">scrollLeft</a>
-                    <span>
-                        返回当前视图中的实际元素的左边缘和左边缘之间的距离
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">scrollTop</a>
-                    <span>
-                        返回当前视图中的实际元素的顶部边缘和顶部边缘之间的距离
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 坐标</h4>
-            <ul>
-                
-            </ul>
-            <h4>[<span>-</span>] window</h4>
-            <ul>
-                <li>
-                    window.<a href="">innerWidth</a>
-                    <span>
-                        返回窗口的文档显示区的宽度
-                    </span>
-                </li>
-                <li>
-                    window.<a href="">innerHeight</a>
-                    <span>
-                        返回窗口的文档显示区的高度
-                    </span>
-                </li>
-                <li>
-                    window.<a href="">outerWidth</a>
-                    <span>
-                        返回窗口的外部宽度，包含工具条与滚动条。
-                    </span>
-                </li>
-                <li>
-                    window.<a href="">outerHeight</a>
-                    <span>
-                        返回窗口的外部高度，包含工具条与滚动条。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] screen</h4>
-            <ul>
-                <li>
-                    screen.<a href="">width</a>
-                    <span>
-                        返回屏幕的总宽度
-                    </span>
-                </li>
-                <li>
-                    screen.<a href="">height</a>
-                    <span>
-                        返回屏幕的总高度
+                        移除事件监听 <br>
+                        IE8=-：detachEvent() <br>
+                        两个参数均为必须，指定要移除的事件及要移除的函数。
                     </span>
                 </li>
             </ul>

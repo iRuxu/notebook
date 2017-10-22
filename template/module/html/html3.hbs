@@ -1,32 +1,121 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM事件<span>-</span></h3>
+        <h3>DOM更新<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 监听</h4>
+            <h4>[<span>-</span>] 修改</h4>
             <ul>
-                <li class="i-dot-orange">
-                    dom.<a href="">addEventListener</a>(e,fn(e))
+                <li>
+                    dom.<a href="">appendChild</a>(node)
                     <span>
-                        添加事件监听 <br>
-                        IE8=-：attachEvent() <br>
-                        <pre><code data-language="javascript">
-                            if (document.addEventListener) {
-                                document.addEventListener("click", myFunction);
-                            } else if (document.attachEvent) {
-                                document.attachEvent("onclick", myFunction);
-                            }
-                            function myFunction() {
-                                alert("Hello World!");
-                            }
-                        </code></pre>   
+                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
+                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
+                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
+                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">insertBefore</a>(node,exist)
+                    <span>
+                        向目标节点前添加新的节点。 <br>
+                        如果被添加的节点是原文档中的节点，则原节点会被移除。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">replaceChild</a>(new,old)
+                    <span>
+                        将某个子节点替换为另一个。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 添加</h4>
+            <ul>
+                <li>
+                    ele.<a href="">cloneNode</a>([true/false])
+                    <span>
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatElement</a>('tag')
+                    <span>
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatTextNode</a>('str')
+                    <span>
+                        创建文本节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatDocumentFragment()</a>
+                    <span>
+                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
+                        var temp=document.createDocumentFragment();
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatComment</a>('str')
+                    <span>
+                        创建注释节点
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    dom.<a href="">removeEventListener</a>(e,fn(e))
+                    doc.<a href="">importNode</a>(node,deep)
                     <span>
-                        移除事件监听 <br>
-                        IE8=-：detachEvent() <br>
-                        两个参数均为必须，指定要移除的事件及要移除的函数。
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 移除</h4>
+            <ul>
+                <li>
+                    dom.<a href="">removeChild</a>(node)
+                    <span>
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 合并</h4>
+            <ul>
+                <li>
+                    dom.<a href="">normalize()</a>
+                    <span>
+                        删除空文本节点，并连接相邻节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 更新</h4>
+            <ul>
+                <li>
+                    doc.<a href="">write</a>('exp')
+                    <span>
+                        向文档写入内容 <br>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">writeln</a>('exp')
+                    <span>
+                        向文档写入内容，并在末尾添加一个换行符
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">open</a>([MIME],[replace])
+                    <span>
+                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
+                        MIMEtype，默认值是 "text/html"。 <br>
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">close</a>()
+                    <span>
+                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
                     </span>
                 </li>
             </ul>

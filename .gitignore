@@ -1,3 +1,7 @@
 temp
 node_modules
 build
+css/test.css
+css/test.less
+js/test.js
+html/test.hbs
