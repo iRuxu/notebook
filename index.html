@@ -2527,340 +2527,6 @@
 					const PI = 3.14
 				</span></li>
 			</ul>
-			<h4>[<span>+</span>]运算</h4>
-			<ul style="display:none;">
-				<li><a href="">一元运算符</a><span>
-					<h2>一元运算符</h2>
-						<div>
-						<table width="100%">
-						<tbody>
-						<tr>
-						<td>i++后置递增，++i前置递增，i--后置递减，--i前置递减，+i取正，-i取负</td>
-						</tr>
-						</tbody>
-						</table>
-						<div></div>
-						</div>
-						<ul>
-							<li>只能操作一个值的运算符叫做一元运算符</li>
-							<li>递增++和递减--、取正+、取负-</li>
-							<li>递增递减中前置和后置的区别</li>
-						</ul>
-						<div>
-						<blockquote>
-						<div>在没有赋值操作， 前置和后置是一样的。 但在赋值操作时， 如果递增或递减运算符前置 ，
-						那么前置的运算符会先累加或累减再赋值，如果是后置运算符则先赋值再累加或累减。</div>
-						<div>var box = 100;
-						var age = ++box; //age 值为 101
-						var height = box++; //height 值为 100</div></blockquote>
-						</div>
-						<div>
-						<ul>
-							<li>非数值执行运算，会隐藏自动转型为数值（除+）</li>
-						</ul>
-						其他类型应用一元运算符的规则</div>
-						<blockquote>
-						<div>var box = '89'; box++; //90，数值字符串自动转换成数值</div>
-						<div>var box = 'ab'; box++; //NaN，字符串包含非数值转成 NaN</div>
-						<div>var box = false; box++; //1，false 转成数值是 0，累加就是 1</div>
-						<div>var box = 2.3; box++; //3.3，直接加 1</div>
-						<div>var box = { //1，不设置 toString 或 valueOf 即为 NaN</div>
-						<div>toString : function() {</div>
-						<div>return 1;</div>
-						<div>}</div>
-						<div>}; box++;</div></blockquote>
-					</span></li>
-				<li><a href="">算数运算符</a><span>
-						<div><b>算术运算符</b></div></span></li></ul></div>
-								<div>
-								<table width="100%">
-								<tbody>
-								<tr>
-								<td>+加法，-减法，*乘法，/除法，%求模</td>
-								</tr>
-								</tbody>
-								</table>
-								<div></div>
-								</div>
-								<ul>
-									<li><span style="color: #e30000; font-size: small;"><b>加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</b></span></li>
-									<li>加法操作中，非数值字符串与数值运算，会串联字符串，减法中，则会得到NaN</li>
-									<li>加法操作中，数值+object类型=字符串（Num[object]），减法中，则会得到NaN</li>
-									<li>乘法操作中，数值*非数值字符串或对象返回NaN，除法与求模同NaN</li>
-								</ul>
-								<div></div>
-				<li><a href="">关系运算符</a><span><div><b>关系运算符 <span style="color: #e30000;">（返回一个布尔值）</span></b></div></span></li></div>
-						<div>
-						<table width="100%">
-						<tbody>
-						<tr>
-						<td>&gt;大于，&lt;小于，&gt;=大于等于，&lt;=小于等于，==相等，!=不等，===全等，!==不全等</td>
-						</tr>
-						</tbody>
-						</table>
-						<div></div>
-						</div>
-						<div>
-						<ul>
-							<li>两个操作数都是数值，则数值比较；</li>
-							<li><span style="color: #0000ff; font-size: small;">两个操作数都是字符串，则比较两个字符串对应的字符编码值；</span></li>
-							<li>两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</li>
-							<li>两个操作数有一个是对象，则先调用 valueOf()方法或 toString()方法，再用结果比较；</li>
-							<li>不需要任何转换的情况下，null 和 undefined 是相等的；</li>
-							<li>一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；</li>
-							<li>两个操作数都是对象，则比较他们是否是同一个对象，如果都指向同一个对象，则返回 true，否则返回 false。</li>
-						</ul>
-						</div>
-						<blockquote>
-						<div>var box = {} == {}; //false，比较的是他们的地址，每个新创建对象的</div>
-						<div>引用地址都不同</div>
-						<div>var age = {};</div>
-						<div>var height = age;</div>
-						<div>var box = age == height; <a>//true，引用地址一样，所以相等</a></div>
-						<div> </div></blockquote>
-				<li><a href="">逻辑运算符</a><span>
-						<div><b>逻辑运算符</b><span style="color: #0000ff;">（通常用于布尔值的操作）</span></div></span></li></div>
-						<div>
-						<table width="100%">
-						<tbody>
-						<tr>
-						<td>&amp;&amp;逻辑与(AND)、||逻辑或(OR)、!逻辑非(NOT)。</td>
-						</tr>
-						</tbody>
-						</table>
-						<div> </div>
-						</div>
-						<blockquote>
-						<div><span style="color: #e30000;">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值</span>，此时，遵循已下规则：</div>
-						<div> </div>
-						<div><b>&amp;&amp;逻辑与</b></div></blockquote>
-						<div>
-						<ul>
-							<li>
-						<ul>
-							<li>第一个操作数是对象，则返回第二个操作数；</li>
-							<li>第二个操作数是对象，则第一个操作数返回 true， 才返回第二个操作数， 否则返回 false;</li>
-							<li>有一个操作数是 null，则返回 null；</li>
-							<li>有一个操作数是 undefined，则返回 undefined。</li>
-						</ul>
-						</li>
-						</ul>
-						</div>
-						<blockquote>
-						<blockquote>
-						<div>var box = 对象 &amp;&amp; (5 &gt; 4); //true，返回第二个操作数</div></blockquote>
-						<blockquote>
-						<div>var box = (5 &gt; 4) &amp;&amp; 对象; //[object Object]</div></blockquote>
-						<blockquote>
-						<div>var box = (3 &gt; 4) &amp;&amp; 对象; //false</div></blockquote>
-						<blockquote>
-						<div>var box = (5 &gt; 4) &amp;&amp; null; <a>//null</a></div></blockquote>
-						<blockquote>
-						<div> </div></blockquote>
-						<div><b>||逻辑或</b></div></blockquote>
-						<div>
-						<ul>
-							<li>
-						<ul>
-							<li>第一个操作数是对象，则返回第一个操作数</li>
-							<li>第一个操作数的求值结果为 false，则返回第二个操作数；</li>
-							<li>两个操作数都是对象，则返回第一个操作数；</li>
-							<li>两个操作数都是 null，则返回 null；</li>
-							<li>两个操作数都是 NaN，则返回 NaN；</li>
-							<li>两个操作数都是 undefined，则返回 undefined；</li>
-						</ul>
-						</li>
-						</ul>
-						</div>
-						<blockquote>
-						<blockquote>
-						<div>var box = 对象 || (5 &gt; 3); //[object Object]</div></blockquote>
-						<blockquote>
-						<div>var box = (5 &gt; 3) || 对象; //true</div></blockquote>
-						<blockquote>
-						<div>var box = 对象 1 || 对象 2; //[object Object]</div></blockquote>
-						<blockquote>
-						<div>var box = null || null; //null</div></blockquote>
-						<blockquote>
-						<div>var box = NaN || NaN; //NaN</div></blockquote>
-						<blockquote>
-						<div>var box = undefined || undefined; //undefined</div></blockquote>
-						<div> </div>
-						<div><b>!逻辑非 </b></div>
-						<div>逻辑非运算符可以用于任何值。 无论这个值是什么数据类型， 这个运算符都会<b><span style="color: #0000ff;">返回一个布尔值</span></b>。它的流程是：先将这个值转换成布尔值，然后取反。</div>
-						<div>通常来说， 使用一个逻辑非运算符和两个逻辑非运算符可以得到相应的布尔值。</div></blockquote>
-						<ul>
-							<li>
-						<ul>
-							<li>操作数是一个对象，返回 false；</li>
-							<li>操作数是一个空字符串，返回 true；</li>
-							<li>操作数是一个非空字符串，返回 false；</li>
-							<li>操作数是数值 0，返回 true；</li>
-							<li>操作数是任意非 0 数值(包括 Infinity)，false；</li>
-							<li>操作数是 null，返回 true；</li>
-							<li>操作数是 NaN，返回 true；</li>
-							<li>操作数是 undefined，返回 true；</li>
-						</ul>
-						</li>
-						</ul>
-						<div></div>
-				
-				<li><a href="">其他运算符</a><span>
-						<h2>赋值运算符</h2></span>
-							<table width="100%">
-							<tbody>
-							<tr>
-							<td>乘/赋(*=)  除/赋(/=)  模/赋(%=)  加/赋(+=)  减/赋(-=)  左移/赋(&lt;&lt;=)  有符号右移/赋(&gt;&gt;=)  无符号有移/赋(&gt;&gt;&gt;=)</td>
-							</tr>
-							</tbody>
-							</table>
-							<div> </div>
-							<div>
-
-							<hr>
-
-							</div>
-							<h2>位操作符</h2>
-							<div>
-							<table width="100%">
-							<tbody>
-							<tr>
-							<td>~按位非，&amp;按位与，|按位或，^按位异或，&lt;&lt;左移，&gt;&gt;有符号右移，&gt;&gt;&gt;无符号右移</td>
-							</tr>
-							</tbody>
-							</table>
-							<div>
-							
-							</div>
-							</div>
-							<div>
-
-							<hr>
-
-							 </div>
-							<div><b>其他运算符</b></div>
-							<div>
-							<table width="100%">
-							<tbody>
-							<tr>
-							<td>+ 字符串运算符 、 ,逗号运算符 、三元运算符</td>
-							</tr>
-							</tbody>
-							</table>
-							<div> </div>
-							</div>
-							<div>字符串运算符只有一个，即："+"。它的作用是将两个字符串相加。</div>
-							<div>逗号运算符可以在一条语句中执行多个操作。</div>
-							<div>三元条件运算符 a ? b : c</div>
-				</li>
-				<li><a href="">运算符优先级</a><span>
-					<div><b>运算符优先级</b></div></span></li></div>
-							<div><span>如果没有使用<strong>圆括号强制优先级</strong>，我们必须遵循以下顺序：
-							</span><strong>算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号</strong></div>
-							<div>
-							<table width="100%">
-							<tbody>
-							<tr>
-							<td>
-							<div>运算符</div></td>
-							<td>
-							<div>描述</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>. [] () </div></td>
-							<td>
-							<div>对象成员存取、数组下标、函数调用等</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>++ -- ~ ! delete new typeof void</div></td>
-							<td>
-							<div>一元运算符</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>* / %</div></td>
-							<td>
-							<div>乘法、除法、去模</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>+ - +</div></td>
-							<td>
-							<div>加法、减法、字符串连接</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</div></td>
-							<td>
-							<div>移位</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>&lt; &lt;= &gt; &gt;= instanceof </div></td>
-							<td>
-							<div>关系比较、检测类实例</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>== != === !==</div></td>
-							<td>
-							<div>恒等(全等)</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>&amp; </div></td>
-							<td>
-							<div>位与</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>^ </div></td>
-							<td>
-							<div>位异或</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>|</div></td>
-							<td>
-							<div>位或</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>&amp;&amp;</div></td>
-							<td>
-							<div>逻辑与</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>||</div></td>
-							<td>
-							<div>逻辑或</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>?:</div></td>
-							<td>
-							<div>三元条件</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>= x=</div></td>
-							<td>
-							<div>赋值、运算赋值</div></td>
-							</tr>
-							<tr>
-							<td>
-							<div>, </div></td>
-							<td>
-							<div>多重赋值、数组元素</div></td>
-							</tr>
-							</tbody>
-							</table>
-							</div>
-				
-			
 			<h4>[<span>+</span>]语句</h4>
 			<ul style="display:none;">
 				<li><a href="">if</a><span>if else else if</span></li>
@@ -2888,7 +2554,7 @@
 				</span></li>
 			</ul>
 		</div>
-    
+    </div>
     <div class="u-block">
     	<h3>数据类型<span>-</span></h3>
 		<div class="u-list">
@@ -3192,7 +2858,7 @@
 			</ul>
 		</div>
     </div>
-
+</div>
 	<!-- 字符串 -->
 <div class="u-col">
 	<div class="u-block">
@@ -4375,7 +4041,7 @@ PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来�
 		</div>
 	</div>
 </div>
-
+</div>
 
 	<div id="DOM" class="c-tab">
 	<div class="u-col">
@@ -8376,7 +8042,7 @@ PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来�
 
 	<p id="nt-loading">+ Loading..</p>
 
-
+</div>
 
 	<div class="c-snippet" id="snippet">
 	<h6 class="u-title" id="box-title">iRuxu's Snippet Box</h6>
