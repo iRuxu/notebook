@@ -3,12 +3,34 @@
 		<h2>常用正则表达式</h2>
 		<table>
 			<tbody>
-				{{#repeat 10}}
 				<tr>
-					<th>usage</th>
-					<td>expression</td>
+					<th>数字</th>
+					<td>^[0-9]*$</td>
 				</tr>
-				{{/repeat}}
+				<tr>
+					<th>n位的数字</th>
+					<td>^\d{n}$</td>
+				</tr>
+				<tr>
+					<th>汉字</th>
+					<td>^[\u4e00-\u9fa5]{0,}$</td>
+				</tr>
+				<tr>
+					<th>英文和数字</th>
+					<td>^[A-Za-z0-9]+$</td>
+				</tr>
+				<tr>
+					<th>email</th>
+					<td>^\w+([-+.]\w+)@\w+([-.]\w+).\w+([-.]\w+)*$</td>
+				</tr>
+				<tr>
+					<th>身份证</th>
+					<td>^\d{15}|\d{18}$</td>
+				</tr>
+				<tr>
+					<th>IP地址</th>
+					<td>\d+.\d+.\d+.\d+</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -58,7 +80,7 @@
 				</tr>
 				<tr>
 					<td>\w</td>
-					<td>匹配字母和数字及_，等价[0-9a-zA-Z_]</td>
+					<td>匹配字母和数字及_或汉字，等价[0-9a-zA-Z_]</td>
 				</tr>
 				<tr>
 					<td>\W</td>
@@ -86,7 +108,7 @@
 				</tr>
 				<tr>
 					<td>\v</td>
-					<td>查找垂直制表符。</td>
+					<td>查找垂直制表符</td>
 				</tr>
 				<tr>
 					<td>\f</td>
