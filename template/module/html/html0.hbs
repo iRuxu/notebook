@@ -77,8 +77,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] Element</h4>
-            <ul>
+            <h4>[<span>+</span>] Element</h4>
+            <ul style="display:none;">
                 <li>
                     ele.<a href="">accessKey</a>
                     <span>
@@ -130,8 +130,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] NodeList</h4>
-            <ul>
+            <h4>[<span>+</span>] NodeList</h4>
+            <ul style="display:none;">
                 <li>
                     nodelist.<a href="">item</a>(i)
                     <span>
@@ -145,8 +145,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] Attribute</h4>
-            <ul>
+            <h4>[<span>+</span>] Attribute</h4>
+            <ul style="display:none;">
                 <li>
                     attr.<a href="">name</a>
                     <span>
@@ -164,6 +164,198 @@
                     <span>
                         检查属性节点是否存在值，返回布尔值 <br>
                         注意先需获取到的是属性节点
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>DOM操作<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 属性</h4>
+            <ul>
+                <li>
+                    ele.<a href="">attributes</a>
+                    <span>
+                        返回一个元素的属性数组。 <br>
+                        数组中按照html中的顺序排序，无法直接通过.访问，只有索引。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">getAttribute</a>('attr')
+                    <span>
+                        返回指定元素的属性值 <br>
+                        等同 getAttributeNode('attr').value 
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">removeAttribute</a>('attr')
+                    <span>
+                        从元素中删除指定的属性
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">setAttribute</a>('attr','val')
+                    <span>
+                        设置元素指定的属性值 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">hasAttribute</a>('attr')
+                    <span>
+                        检测元素是否具有某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <!-- <li class="i-dot-orange">
+                    ele.<a href="">hasAttributes()</a>
+                    <span>
+                        检测元素是否具有任何某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">creatAttribute</a>('attr')
+                    <span>
+                        创建一个属性节点，并返回该attr对象。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">removeAttributeNode</a>('attr')
+                    <span>
+                        删除指定元素节点并返回移除后的节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">setAttributeNode</a>('attr')
+                    <span>
+                        设置或改变指定属性节点 <br>
+                        需通过nodeValue来最终改变对应值
+                    </span>
+                </li> -->
+            </ul>
+            <h4>[<span>-</span>] 内容</h4>
+            <ul>
+                <li>
+                    ele.<a href="">innerHTML</a>
+                    <span>
+                        设置或返回元素的内容
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">textContent</a>
+                    <span>
+                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">id</a>
+                    <span>
+                        设置或返回元素的id
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">title</a>
+                    <span>
+                        设置或返回当前文档/元素的标题
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 样式</h4>
+            <ul>
+                <li>
+                    ele.<a href="">style</a>
+                    <span>
+                        设置或返回元素的样式属性 <br>
+                        返回的是一个对象，通过style.classname来设置具体，只取行内。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">className</a>
+                    <span>
+                        设置或返回元素的class属性
+                    </span>
+                </li>
+                <li class="i-dot-blue">
+                    ele.<a href="">classList</a>
+                    <span>
+                        返回该元素的类的一个对象。 IE10以下不支持。 <br>
+                        <table>
+                            <tr>
+                                <th>方法</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>.value</td>
+                                <td>完整类名</td>
+                            </tr>
+                            <tr>
+                                <td>.add(class1,class2,...)</td>
+                                <td>添加新的类名，如果已经存在则不会添加</td>
+                            </tr>
+                            <tr>
+                                <td>.remove(class1,class2,...)</td>
+                                <td>移除指定类名，如果移除不存在的类名，不会报错</td>
+                            </tr>
+                            <tr>
+                                <td>.toggle(class,true/false)</td>
+                                <td>切换指定类名。 <br>
+                                    第一个参数为切换的类名。 <br>
+                                    如果存在时，移除并返回false；如果不存在，添加并返回true。 <br>
+                                    第二个参数，为强制设置布尔值。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>.contains(class)</td>
+                                <td>返回布尔值，判断指定类名是否存在</td>
+                            </tr>
+                            <tr>
+                                <td>.length</td>
+                                <td>类名个数</td>
+                            </tr>
+                            <tr>
+                                <td>.item(i) / [i]</td>
+                                <td>返回索引上的类名</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 交互</h4>
+            <ul>
+                <li>
+                    ele.<a href="">focus()</a>
+                    <span>
+                        设置元素获取焦点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">blur()</a>
+                    <span>
+                        设置元素移除焦点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">hasFocus()</a>
+                    <span>
+                        检查元素是否获取焦点，返回布尔值
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">contentEditable</a>
+                    <span>
+                        设置或返回元素的内容是否可编辑 <br>
+                        返回inherit/true/false <br>
+                        如果父级元素是可编辑，则子元素内容也是可编辑的
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">isContentEditable</a>
+                    <span>
+                        返回元素的内容是否可编辑 <br>
+                        返回true/false
                     </span>
                 </li>
             </ul>

@@ -2,31 +2,185 @@
     <div class="u-block">
         <h3>DOM事件<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 监听</h4>
+            <h4>[<span>-</span>] 框架/对象事件</h4>
             <ul>
-                <li class="i-dot-orange">
-                    dom.<a href="">addEventListener</a>(e,fn(e))
+                <li>
+                    <a href="">onload</a>
                     <span>
-                        添加事件监听 <br>
-                        IE8=-：attachEvent() <br>
+                        一张页面或一幅图像完成加载
+                    </span>
+                </li>
+                <li>
+                    <a href="">onerror</a>
+                    <span>
+                        在加载文档或图像时发生错误 <br>
+                        包括img/input-type-img/object/script/style/body/frameset等 <br>
+                        不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">onresize</a>
+                    <span>
+                        窗口或框架被重新调整大小
+                    </span>
+                </li>
+                <li>
+                    <a href="">onscroll</a>
+                    <span>
+                        当文档被滚动时发生的事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">onbeforeunload</a>
+                    <span>
+                        该事件在即将离开页面（刷新或关闭）时触发 <br>
+                        chrome中函数需返回一个非空值 
                         <pre><code data-language="javascript">
-                            if (document.addEventListener) {
-                                document.addEventListener("click", myFunction);
-                            } else if (document.attachEvent) {
-                                document.attachEvent("onclick", myFunction);
+                            window.onbeforeunload = function (){
+                                return true
                             }
-                            function myFunction() {
-                                alert("Hello World!");
-                            }
-                        </code></pre>   
+                        </code></pre>       
+                    </span>
+                </li>
+                <li>
+                    <a href="">onhashchange</a>
+                    <span>
+                        该事件在当前 URL 的锚部分发生修改时触发
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    dom.<a href="">removeEventListener</a>(e,fn(e))
+                    <a href="">onpageshow</a>
                     <span>
-                        移除事件监听 <br>
-                        IE8=-：detachEvent() <br>
-                        两个参数均为必须，指定要移除的事件及要移除的函数。
+                        该事件在用户访问页面时触发 <br>
+                        类似于 onload 事件，onload 事件在页面第一次加载时触发， onpageshow 事件在每次加载页面时触发，即 onload 事件在页面从浏览器缓存中读取时不触发。 <br>
+                        为了查看页面是直接从服务器上载入还是从缓存中读取，你可以使用 PageTransitionEvent 对象的 persisted 属性来判断。 如果页面从浏览器的缓存中读取该属性返回 ture，否则返回 false。<br>
+                        IE10及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">onpagehide</a>
+                    <span>
+                        该事件在用户离开当前网页跳转到另外一个页面时触发 <br>
+                        IE10及以下不支持
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 表单事件</h4>
+            <ul>
+                <li>
+                    <a href="">onchange</a>
+                    <span>
+                        表单元素的内容改变时触发 <br>
+                        域的内容改变时发生，也可用于单选框与复选框改变后触发的事件。<br>
+                        常用于input, keygen, select,textarea。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">oninput</a>
+                    <span>
+                        元素获取用户输入时触发 <br>
+                        该事件仅在input或textarea元素的值发生改变时触发。 <br>
+                        oninput事件在元素值发生变化是立即触发，onchange在元素失去焦点时触发 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">onfocus</a>
+                    <span>
+                        对象获得焦点时发生，不支持冒泡 <br>
+                        通常用于 input, select, 和a. 
+                    </span>
+                </li>
+                <li>
+                    <a href="">onfocusin</a>
+                    <span>
+                        元素即将获取焦点时触发，支持冒泡，Firefox不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">onblur</a>
+                    <span>
+                        对象失去焦点时发生，不支持冒泡 <br>
+                        经常用于Javascript验证代码，一般用于表单输入框
+                    </span>
+                </li>
+                <li>
+                    <a href="">onfocusout</a>
+                    <span>
+                        元素即将失去焦点时触发，支持冒泡，Firefox不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">onselect</a>
+                    <span>
+                        仅在“文本框”中的文本被选中时发生
+                    </span>
+                </li>
+                <li>
+                    <a href="">onreset</a>
+                    <span>
+                        表单重置时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">onsubmit</a>
+                    <span>
+                        在表单提交时触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 剪贴板事件</h4>
+            <ul>
+                <li>
+                    <a href="">oncopy</a>
+                    <span>
+                        用户拷贝元素上的内容时触发（包括img）
+                    </span>
+                </li>
+                <li>
+                    <a href="">oncut</a>
+                    <span>
+                        用户剪切元素内容时触发 <br>
+                        对于不可编辑的元素，除非设置contenteditable 为 "true" 
+                    </span>
+                </li>
+                <li>
+                    <a href="">onpaste</a>
+                    <span>
+                        用户粘贴元素内容时触发 <br>
+                        对于不可编辑的元素，除非设置contenteditable 为 "true" 
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 动画事件</h4>
+            <ul>
+                <li>
+                    <a href="">animationstart</a>
+                    <span>
+                        css动画开始时触发 <br>
+                        webkitAnimationStart / mozAnimationStart
+                    </span>
+                </li>
+                <li>
+                    <a href="">animationiteration</a>
+                    <span>
+                        css动画重复播放时触发 <br>
+                        webkitAnimationInteration / mozAnimationInteration
+                    </span>
+                </li>
+                <li>
+                    <a href="">animationend</a>
+                    <span>
+                        css动画结束时触发 <br>
+                        webkitAnimationEnd / mozAnimationEnd
+                    </span>
+                </li>
+                <li>
+                    <a href="">transitionend</a>
+                    <span>
+                        css完成过渡后触发 <br>
+                        如果过渡在完成前移除，例如 CSS transition-property 属性被移除，过渡事件将不被触发 <br>
+                        webkitTransitionEnd / mozTransitionEnd / oTransitionEnd
                     </span>
                 </li>
             </ul>

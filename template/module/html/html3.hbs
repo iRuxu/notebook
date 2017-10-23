@@ -1,121 +1,238 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM更新<span>-</span></h3>
+        <h3>DOM事件<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 修改</h4>
+            <h4>[<span>-</span>] 监听</h4>
             <ul>
-                <li>
-                    dom.<a href="">appendChild</a>(node)
+                <li class="i-dot-orange">
+                    dom.<a href="">addEventListener</a>(e,fn(e))
                     <span>
-                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
-                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
-                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
-                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">insertBefore</a>(node,exist)
-                    <span>
-                        向目标节点前添加新的节点。 <br>
-                        如果被添加的节点是原文档中的节点，则原节点会被移除。
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">replaceChild</a>(new,old)
-                    <span>
-                        将某个子节点替换为另一个。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 添加</h4>
-            <ul>
-                <li>
-                    ele.<a href="">cloneNode</a>([true/false])
-                    <span>
-                        克隆该节点，包括属性和值。 <br> 
-                        传入true表示递归复制该节点的所有子孙节点。
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">creatElement</a>('tag')
-                    <span>
-                        创建元素节点
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">creatTextNode</a>('str')
-                    <span>
-                        创建文本节点
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">creatDocumentFragment()</a>
-                    <span>
-                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
-                        var temp=document.createDocumentFragment();
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">creatComment</a>('str')
-                    <span>
-                        创建注释节点
+                        添加事件监听 <br>
+                        IE8=-：attachEvent() <br>
+                        <pre><code data-language="javascript">
+                            if (document.addEventListener) {
+                                document.addEventListener("click", myFunction);
+                            } else if (document.attachEvent) {
+                                document.attachEvent("onclick", myFunction);
+                            }
+                            function myFunction() {
+                                alert("Hello World!");
+                            }
+                        </code></pre>   
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    doc.<a href="">importNode</a>(node,deep)
+                    dom.<a href="">removeEventListener</a>(e,fn(e))
                     <span>
-                        把一个节点从另一个文档复制到该文档以便应用。 <br>
-                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
-                        IE8及以下不支持。 <br>
-                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                        移除事件监听 <br>
+                        IE8=-：detachEvent() <br>
+                        两个参数均为必须，指定要移除的事件及要移除的函数。
+                    </span>
+                </li>
+                <li>
+                    <em>bind</em><a href=""></a>
+                    <span>
+                        HTML中:<pre><code data-language="html"><element onclick="fn()"></code></pre>
+                        JavaScript 中:<pre><code data-language="javascript">object.onclick=function(){..};</code></pre>
+                        JS中监听：<pre><code data-language="javascript">object.addEventListener('click',fn)</code></pre>
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 移除</h4>
+            <h4>[<span>-</span>] 鼠标事件</h4>
             <ul>
                 <li>
-                    dom.<a href="">removeChild</a>(node)
+                    <a href="">onclick</a>
                     <span>
-                        删除指定的子节点。 <br>
-                        删除成功则返回被删除的节点，删除失败返回null。
+                        点击事件 <br>
+                        鼠标左键/中间：onmousedown -> onmouseup -> onclick <br>
+                        鼠标右键：onmousedonw -> onmouseup -> oncontextmenu
+                    </span>
+                </li>
+                <li>
+                    <a href="">ondbclick</a>
+                    <span>
+                        双击事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmousedown</a>
+                    <span>
+                        鼠标按下
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseup</a>
+                    <span>
+                        鼠标按键被松开
+                    </span>
+                </li>
+                <li>
+                    <a href="">oncontextmenu</a>
+                    <span>
+                        在用户点击鼠标右键打开上下文菜单时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseover</a>
+                    <span>
+                        鼠标移到某元素之上，支持冒泡
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseout</a>
+                    <span>
+                        鼠标从某元素移开，支持冒泡
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseenter</a>
+                    <span>
+                        鼠标移到某元素之上，不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseleave</a>
+                    <span>
+                        鼠标从某元素移开，不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmousemove</a>
+                    <span>
+                        鼠标被移动
+                    </span>
+                </li>
+                <li>
+                    <a href="">onwheel</a>
+                    <span>
+                        该事件在鼠标滚轮在元素上下滚动时触发
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 合并</h4>
+            <h4>[<span>-</span>] 键盘事件</h4>
             <ul>
                 <li>
-                    dom.<a href="">normalize()</a>
+                    <a href="">onkeydown</a>
                     <span>
-                        删除空文本节点，并连接相邻节点
+                        某个键盘按键被按下
+                    </span>
+                </li>
+                <li>
+                    <a href="">onkeypress</a>
+                    <span>
+                        某个键盘按键被按下并松开 <br>
+                        onkeydown -> onkeypress -> onkeyup <br>
+                        在所有浏览器中 onkeypress 事件不是适用于所有按键，如： ALT, CTRL, SHIFT, ESC
+                    </span>
+                </li>
+                <li>
+                    <a href="">onkeyup</a>
+                    <span>
+                        某个键盘按键被松开
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 更新</h4>
+            <h4>[<span>-</span>] 事件对象</h4>
             <ul>
                 <li>
-                    doc.<a href="">write</a>('exp')
+                    <em>e.</em><a href=""></a><em>property</em>
                     <span>
-                        向文档写入内容 <br>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>返回当前 Event 对象表示的事件的名称</td>
+                            </tr>
+                            <tr>
+                                <td>target</td>
+                                <td>返回触发此事件的元素（事件的目标节点）</td>
+                            </tr>
+                            <tr>
+                                <td>currentTarget</td>
+                                <td>返回其事件监听器触发该事件的元素,不一定是点击的元素,是最终监听的元素</td>
+                            </tr>
+                            <tr>
+                                <td>bubbles</td>
+                                <td>返回布尔值，指示事件是否是起泡事件类型</td>
+                            </tr>
+                            <tr>
+                                <td>cancelable</td>
+                                <td>返回布尔值，指示事件是否可拥可取消的默认动作</td>
+                            </tr>
+                            <tr>
+                                <td>timeStamp</td>
+                                <td>返回事件生成的日期和时间</td>
+                            </tr>
+                            <tr>
+                                <td>eventPhase</td>
+                                <td>返回事件传播的当前阶段</td>
+                            </tr>
+                        </table>
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">writeln</a>('exp')
+                    e.<a href="">preventDefault()</a>
                     <span>
-                        向文档写入内容，并在末尾添加一个换行符
+                        通知浏览器不要执行与事件关联的默认动作
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">open</a>([MIME],[replace])
+                    e.<a href="">stopPropagation</a>
                     <span>
-                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
-                        MIMEtype，默认值是 "text/html"。 <br>
-                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。
+                        阻止冒泡
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 鼠标/键盘事件对象</h4>
+            <ul>
+                <li>
+                    e.<a href="">button</a>
+                    <span>
+                        返回当事件被触发时，哪个鼠标按钮被点击 <br>
+                        0左键，1中键，2右键 <br>
+                        IE8及-：1左键，4中键，2右键
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">close</a>()
+                    e.<a href="">key</a>
                     <span>
-                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+                        在按下按键时返回按键的标识符
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">keyCode</a>
+                    <span>
+                        返回按键事件触发的键的值的字符代码
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">altKey/ctrlKey/shiftKey</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>返回值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>altKey</td>
+                                <td>true/false/1/0</td>
+                                <td>返回当事件被触发时，"ALT" 是否被按下</td>
+                            </tr>
+                            <tr>
+                                <td>ctrlKey</td>
+                                <td>true/false/1/0</td>
+                                <td>返回当事件被触发时，"CTRL" 键是否被按下</td>
+                            </tr>
+                            <tr>
+                                <td>shiftKey</td>
+                                <td>true/false/1/0</td>
+                                <td>返回当事件被触发时，"SHIFT" 键是否被按下</td>
+                            </tr>
+                        </table>
                     </span>
                 </li>
             </ul>

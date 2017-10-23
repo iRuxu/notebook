@@ -1,191 +1,152 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM操作<span>-</span></h3>
+        <h3>DOM遍历<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 属性</h4>
+            <h4>[<span>-</span>] 集合归类</h4>
             <ul>
                 <li>
-                    ele.<a href="">attributes</a>
+                    doc.<a href="">documentElement</a>
                     <span>
-                        返回一个元素的属性数组。 <br>
-                        数组中按照html中的顺序排序，无法直接通过.访问，只有索引。
+                        返回文档的根节点（html元素）
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">getAttribute</a>('attr')
+                    doc.<a href="">body</a>
                     <span>
-                        返回指定元素的属性值 <br>
-                        等同 getAttributeNode('attr').value 
+                        返回文档的body元素
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">removeAttribute</a>('attr')
+                    doc.<a href="">images</a>
                     <span>
-                        从元素中删除指定的属性
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    ele.<a href="">setAttribute</a>('attr','val')
-                    <span>
-                        设置元素指定的属性值 <br>
-                        IE8及以下不支持
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    ele.<a href="">hasAttribute</a>('attr')
-                    <span>
-                        检测元素是否具有某个属性，返回true/false <br>
-                        IE8及以下不支持
-                    </span>
-                </li>
-                <!-- <li class="i-dot-orange">
-                    ele.<a href="">hasAttributes()</a>
-                    <span>
-                        检测元素是否具有任何某个属性，返回true/false <br>
-                        IE8及以下不支持
+                        返回文档中所有image对象引用
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">creatAttribute</a>('attr')
+                    doc.<a href="">links</a>
                     <span>
-                        创建一个属性节点，并返回该attr对象。
+                        返回文档中所有的a.href + area标签。 <br>
+                        document.links.$id > document.links.$name 可按id和name访问,同名时id高于name,同id时,取顺序在前的<br>
+                        document.links[i] 可按索引访问
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">removeAttributeNode</a>('attr')
+                    doc.<a href="">anchors</a>
                     <span>
-                        删除指定元素节点并返回移除后的节点
+                        返回文档中所有的锚点的集合。即带有name属性的a标签。 <br>
+                        document.anchors.length
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">setAttributeNode</a>('attr')
+                    doc.<a href="">scripts</a>
                     <span>
-                        设置或改变指定属性节点 <br>
-                        需通过nodeValue来最终改变对应值
-                    </span>
-                </li> -->
-            </ul>
-            <h4>[<span>-</span>] 内容</h4>
-            <ul>
-                <li>
-                    ele.<a href="">innerHTML</a>
-                    <span>
-                        设置或返回元素的内容
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    ele.<a href="">textContent</a>
-                    <span>
-                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
-                        IE8及以下不支持
+                        返回页面中所有脚本的集合
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">id</a>
+                    doc.<a href="">forms</a>
                     <span>
-                        设置或返回元素的id
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">title</a>
-                    <span>
-                        设置或返回当前文档/元素的标题
+                        返回文档中所有表单的集合。 <br>
+                        document.forms[0]  <br>
+                        document.forms.name1
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 样式</h4>
+            <h4>[<span>-</span>] 层级查找</h4>
             <ul>
                 <li>
-                    ele.<a href="">style</a>
+                    ele.<a href="">parentNode</a>
                     <span>
-                        设置或返回元素的样式属性 <br>
-                        返回的是一个对象，通过style.classname来设置具体，只取行内。
+                        返回元素的父节点
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">className</a>
+                    dom.<a href="">childNodes</a>
                     <span>
-                        设置或返回元素的class属性
+                        返回元素的子节点数组
                     </span>
                 </li>
-                <li class="i-dot-blue">
-                    ele.<a href="">classList</a>
+                <li>
+                    dom.<a href="">firstChild</a>
                     <span>
-                        返回该元素的类的一个对象。 IE10以下不支持。 <br>
-                        <table>
-                            <tr>
-                                <th>方法</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>.value</td>
-                                <td>完整类名</td>
-                            </tr>
-                            <tr>
-                                <td>.add(class1,class2,...)</td>
-                                <td>添加新的类名，如果已经存在则不会添加</td>
-                            </tr>
-                            <tr>
-                                <td>.remove(class1,class2,...)</td>
-                                <td>移除指定类名，如果移除不存在的类名，不会报错</td>
-                            </tr>
-                            <tr>
-                                <td>.toggle(class,true/false)</td>
-                                <td>切换指定类名。 <br>
-                                    第一个参数为切换的类名。 <br>
-                                    如果存在时，移除并返回false；如果不存在，添加并返回true。 <br>
-                                    第二个参数，为强制设置布尔值。
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>.contains(class)</td>
-                                <td>返回布尔值，判断指定类名是否存在</td>
-                            </tr>
-                            <tr>
-                                <td>.length</td>
-                                <td>类名个数</td>
-                            </tr>
-                            <tr>
-                                <td>.item(i) / [i]</td>
-                                <td>返回索引上的类名</td>
-                            </tr>
-                        </table>
+                        返回元素的第一个子节点。 <br>
+                        如果不存在则返回null
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">lastChild</a>
+                    <span>
+                        返回元素的最后一个子元素。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasChildNodes()</a>
+                    <span>
+                        检查元素是否具有任何子元素，返回布尔值
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 交互</h4>
+            <h4>[<span>-</span>] 序列查找</h4>
             <ul>
                 <li>
-                    ele.<a href="">focus()</a>
+                    ele.<a href="">nextSibling</a>
                     <span>
-                        设置元素获取焦点
+                        返回该元素之后紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">blur()</a>
+                    ele.<a href="">previousSibling</a>
                     <span>
-                        设置元素移除焦点
+                        返回该元素之前紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 条件筛选</h4>
+            <ul>
+                <li>
+                    dom.<a href="">getElementById</a><em>('id')</em>
+                    <span>
+                        返回拥有指定ID的第一个对象的引用。<br>
+                        如果没有指定ID的元素返回null。
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">hasFocus()</a>
+                    dom.<a href="">getElementsByTagName</a><em>('tag')</em>
                     <span>
-                        检查元素是否获取焦点，返回布尔值
+                        返回带有指定标签名的对象的集合。 <br>
+                        *返回文档的所有元素。 <br>
+                        *返回的元素集合中的0为html
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">getElementsByClassName</a><em>('cls')</em>
+                    <span>
+                        返回文档中所有指定类名的元素集合。 <br>
+                        IE8及以下不支持。
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">contentEditable</a>
+                    dom.<a href="">getElementsByName</a><em>('name')</em>
                     <span>
-                        设置或返回元素的内容是否可编辑 <br>
-                        返回inherit/true/false <br>
-                        如果父级元素是可编辑，则子元素内容也是可编辑的
+                        返回带有指定名称的对象的集合。
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">isContentEditable</a>
+                    dom.<a href="">querySelector</a>('cssExp')
                     <span>
-                        返回元素的内容是否可编辑 <br>
-                        返回true/false
+                        返回dom范围中匹配指定css选择器的第一个元素。 <br>
+                        传入的是css选择器，且仅返回第一个元素。 <br>
+                        IE8支持，IE6-7不支持。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">querySelectorAll</a>('cssExp')
+                    <span>
+                        返回dom范围中匹配指定css选择器的全部元素。 <br>
+                        HTML5新引入，IE8不支持。 <br>
+                        此方式生成的集合，无法用.访问到id和name。
                     </span>
                 </li>
             </ul>
