@@ -3,7 +3,7 @@
 <head>
 <title>iRuxu NoteBook</title>
 <meta charset="utf-8">
-<meta name="keywords" content="javascript,css,html,nodejs,mongoDB,PHP,MySQL,swift">
+<meta name="keywords" content="javascript,css,html,nodejs,python,go,c,git,linux,mongoDB,MySQL,regexp">
 <meta name="description" content="iruxu's Notebook for web develope">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
@@ -20,6 +20,7 @@
 </head>
 
 <body>
+
 	<div class="c-header clearfix">
   <a class="c-logo" href="http://iruxu.com/notebook">Notebook</a>
   <div class="c-nav">
@@ -37,18 +38,24 @@
 	<div class="c-sidebar-list">
 		<ul>
 			<li><a href="">CSS</a></li>
+			<li><a href="">JS</a></li>
 			<li><a href="">HTML</a></li>
+			<li><a href="">HTML5</a></li>
+			<li><a href="">jQuery</a></li>
+			<li><a href="">Node</a></li>
+			<li><a href="">SQL</a></li>
+			<!-- <li><a href="">Python</a></li>
+			<li><a href="">C</a></li>
+			<li><a href="">Go</a></li> -->
 			<li><a href="">Git</a></li>
 			<li><a href="">Linux</a></li>
-			<li><a href="">Python</a></li>
-			<li><a href="">jQuery</a></li>
-			<!-- <li><a href="">Bookmark</a></li> -->
+			<li><a href="">RegEXP</a></li>
 		</ul>
 	</div>
 	<div class="c-sidebar-footer">
 		<p class="u-link">
 			<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=5pSe0KaXl8iFiYs" target="_blank"><img src="image/common/email.png?" width="12px" alt="iruxu的电子邮件" title="Email to me"></a>
-		    <a class="u-twitter" href="https://twitter.com/yuanzi0512" target="_blank"><img src="image/common/twitter.png?" width="12px" alt="iruxu's twitter'" title="Twitter"></a>
+		    <a class="u-twitter" href="https://www.twitter.com/yuanzi0512" target="_blank"><img src="image/common/twitter.png?" width="12px" alt="iruxu's Twitter'" title="Twitter"></a>
 		    <a href="http://weibo.com/yuanzi0512" target="_blank"><img src="image/common/sina.png?" width="12px" alt="iruxu的微博" title="Weibo"></a>
 	    </p>
 	    <span class="u-copyright">&copy;2016 <a href="">iRuxu.com</a></span>
@@ -57,7 +64,6 @@
 </div>
 
 	<div id="main" class="c-main">
-
 
 	<div id="CSS" class="c-tab">
 	<div class="u-col">
@@ -2299,6 +2305,9 @@
         <div class="u-list">
             <h4>[<span>-</span>] Less</h4>
             <ul>
+                <li>
+                    <a href="http://less.bootcss.com/">Less中文文档</a>
+                </li>
             	<li>
                     <a href="">@var</a>变量
                     <span>
@@ -2322,7 +2331,8 @@
                 <li>
                 	<a href="">Mixin 混合</a>
                 	<span>
-                		随机数需在min下捕捉
+                		随机数需在min下捕捉 <br>
+                        <a href="https://stackoverflow.com/questions/43258855/how-to-create-a-random-keyframes-name-by-less-fix-the-space-or-quote-symbol/43271830#43271830" target="_blank">参考资料</a>
                 	</span>
                 </li>
                 <li>
@@ -2471,25 +2481,13 @@
                     <a href="http://css.doyoe.com/">CSS中文参考手册</a>
                 </li>
                 <li>
-                    <a href="https://www.w3.org/">W3C</a>
-                </li>
-                <li>
-                    <a href="http://www.w3schools.com/">W3schools</a>
-                </li>
-                <li>
-                    <a href="http://less.bootcss.com/">Less中文文档</a>
+                    <a href="https://www.w3.org/Style/CSS/">W3C</a>
                 </li>
             </ul>
             <h4>[<span>-</span>] 动态</h4>
             <ul>
                 <li>
                     <a href="http://www.css3.info/">CSS INFO</a>
-                </li>
-                <li>
-                    <a href="https://isux.tencent.com/category/fd">ISUX</a>
-                </li>
-                <li>
-                    <a href="http://ued.taobao.org/blog/">UED</a>
                 </li>
                 <li>
                     <a href="http://www.w3cplus.com/">W3cplus</a>
@@ -2503,7 +2501,3353 @@
 </div>
 </div>
 
-	<div id="CSS" class="c-tab">
+	<div id="JS" class="c-tab">
+	<!-- 基本语法、标准库 -->
+<div class="u-col">
+    <div class="u-block">
+		<h3>基本语法<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]变量</h4>
+			<ul>
+				<li><a href="">var</a><span>
+					x1 = 1;<br>
+					var x2 = 2;<br>
+					window.x3 = 3;<br>
+					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
+					判断某个全局变量是否存在用typeof window.myVar === 'undefined' <br>
+					函数内部判断某个变量是否存在用typeof myVar === 'undefined'
+				</span></li>
+				<li><a href="">let</a><span>
+					let i = 1;<br>
+					申明一个块级作用域的变量
+				</span></li>
+				<li><a href="">const</a><span>
+					const来定义常量，const与let都具有块级作用域。
+					常量通常使用全大写。
+					const PI = 3.14
+				</span></li>
+			</ul>
+			<h4>[<span>+</span>]运算</h4>
+			<ul style="display:none;">
+				<li><a href="">一元运算符</a><span>
+					<h2>一元运算符</h2>
+						<div>
+						<table width="100%">
+						<tbody>
+						<tr>
+						<td>i++后置递增，++i前置递增，i--后置递减，--i前置递减，+i取正，-i取负</td>
+						</tr>
+						</tbody>
+						</table>
+						<div></div>
+						</div>
+						<ul>
+							<li>只能操作一个值的运算符叫做一元运算符</li>
+							<li>递增++和递减--、取正+、取负-</li>
+							<li>递增递减中前置和后置的区别</li>
+						</ul>
+						<div>
+						<blockquote>
+						<div>在没有赋值操作， 前置和后置是一样的。 但在赋值操作时， 如果递增或递减运算符前置 ，
+						那么前置的运算符会先累加或累减再赋值，如果是后置运算符则先赋值再累加或累减。</div>
+						<div>var box = 100;
+						var age = ++box; //age 值为 101
+						var height = box++; //height 值为 100</div></blockquote>
+						</div>
+						<div>
+						<ul>
+							<li>非数值执行运算，会隐藏自动转型为数值（除+）</li>
+						</ul>
+						其他类型应用一元运算符的规则</div>
+						<blockquote>
+						<div>var box = '89'; box++; //90，数值字符串自动转换成数值</div>
+						<div>var box = 'ab'; box++; //NaN，字符串包含非数值转成 NaN</div>
+						<div>var box = false; box++; //1，false 转成数值是 0，累加就是 1</div>
+						<div>var box = 2.3; box++; //3.3，直接加 1</div>
+						<div>var box = { //1，不设置 toString 或 valueOf 即为 NaN</div>
+						<div>toString : function() {</div>
+						<div>return 1;</div>
+						<div>}</div>
+						<div>}; box++;</div></blockquote>
+					</span></li>
+				<li><a href="">算数运算符</a><span>
+						<div><b>算术运算符</b></div></span></li></ul></div>
+								<div>
+								<table width="100%">
+								<tbody>
+								<tr>
+								<td>+加法，-减法，*乘法，/除法，%求模</td>
+								</tr>
+								</tbody>
+								</table>
+								<div></div>
+								</div>
+								<ul>
+									<li><span style="color: #e30000; font-size: small;"><b>加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</b></span></li>
+									<li>加法操作中，非数值字符串与数值运算，会串联字符串，减法中，则会得到NaN</li>
+									<li>加法操作中，数值+object类型=字符串（Num[object]），减法中，则会得到NaN</li>
+									<li>乘法操作中，数值*非数值字符串或对象返回NaN，除法与求模同NaN</li>
+								</ul>
+								<div></div>
+				<li><a href="">关系运算符</a><span><div><b>关系运算符 <span style="color: #e30000;">（返回一个布尔值）</span></b></div></span></li></div>
+						<div>
+						<table width="100%">
+						<tbody>
+						<tr>
+						<td>&gt;大于，&lt;小于，&gt;=大于等于，&lt;=小于等于，==相等，!=不等，===全等，!==不全等</td>
+						</tr>
+						</tbody>
+						</table>
+						<div></div>
+						</div>
+						<div>
+						<ul>
+							<li>两个操作数都是数值，则数值比较；</li>
+							<li><span style="color: #0000ff; font-size: small;">两个操作数都是字符串，则比较两个字符串对应的字符编码值；</span></li>
+							<li>两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</li>
+							<li>两个操作数有一个是对象，则先调用 valueOf()方法或 toString()方法，再用结果比较；</li>
+							<li>不需要任何转换的情况下，null 和 undefined 是相等的；</li>
+							<li>一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；</li>
+							<li>两个操作数都是对象，则比较他们是否是同一个对象，如果都指向同一个对象，则返回 true，否则返回 false。</li>
+						</ul>
+						</div>
+						<blockquote>
+						<div>var box = {} == {}; //false，比较的是他们的地址，每个新创建对象的</div>
+						<div>引用地址都不同</div>
+						<div>var age = {};</div>
+						<div>var height = age;</div>
+						<div>var box = age == height; <a>//true，引用地址一样，所以相等</a></div>
+						<div> </div></blockquote>
+				<li><a href="">逻辑运算符</a><span>
+						<div><b>逻辑运算符</b><span style="color: #0000ff;">（通常用于布尔值的操作）</span></div></span></li></div>
+						<div>
+						<table width="100%">
+						<tbody>
+						<tr>
+						<td>&amp;&amp;逻辑与(AND)、||逻辑或(OR)、!逻辑非(NOT)。</td>
+						</tr>
+						</tbody>
+						</table>
+						<div> </div>
+						</div>
+						<blockquote>
+						<div><span style="color: #e30000;">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值</span>，此时，遵循已下规则：</div>
+						<div> </div>
+						<div><b>&amp;&amp;逻辑与</b></div></blockquote>
+						<div>
+						<ul>
+							<li>
+						<ul>
+							<li>第一个操作数是对象，则返回第二个操作数；</li>
+							<li>第二个操作数是对象，则第一个操作数返回 true， 才返回第二个操作数， 否则返回 false;</li>
+							<li>有一个操作数是 null，则返回 null；</li>
+							<li>有一个操作数是 undefined，则返回 undefined。</li>
+						</ul>
+						</li>
+						</ul>
+						</div>
+						<blockquote>
+						<blockquote>
+						<div>var box = 对象 &amp;&amp; (5 &gt; 4); //true，返回第二个操作数</div></blockquote>
+						<blockquote>
+						<div>var box = (5 &gt; 4) &amp;&amp; 对象; //[object Object]</div></blockquote>
+						<blockquote>
+						<div>var box = (3 &gt; 4) &amp;&amp; 对象; //false</div></blockquote>
+						<blockquote>
+						<div>var box = (5 &gt; 4) &amp;&amp; null; <a>//null</a></div></blockquote>
+						<blockquote>
+						<div> </div></blockquote>
+						<div><b>||逻辑或</b></div></blockquote>
+						<div>
+						<ul>
+							<li>
+						<ul>
+							<li>第一个操作数是对象，则返回第一个操作数</li>
+							<li>第一个操作数的求值结果为 false，则返回第二个操作数；</li>
+							<li>两个操作数都是对象，则返回第一个操作数；</li>
+							<li>两个操作数都是 null，则返回 null；</li>
+							<li>两个操作数都是 NaN，则返回 NaN；</li>
+							<li>两个操作数都是 undefined，则返回 undefined；</li>
+						</ul>
+						</li>
+						</ul>
+						</div>
+						<blockquote>
+						<blockquote>
+						<div>var box = 对象 || (5 &gt; 3); //[object Object]</div></blockquote>
+						<blockquote>
+						<div>var box = (5 &gt; 3) || 对象; //true</div></blockquote>
+						<blockquote>
+						<div>var box = 对象 1 || 对象 2; //[object Object]</div></blockquote>
+						<blockquote>
+						<div>var box = null || null; //null</div></blockquote>
+						<blockquote>
+						<div>var box = NaN || NaN; //NaN</div></blockquote>
+						<blockquote>
+						<div>var box = undefined || undefined; //undefined</div></blockquote>
+						<div> </div>
+						<div><b>!逻辑非 </b></div>
+						<div>逻辑非运算符可以用于任何值。 无论这个值是什么数据类型， 这个运算符都会<b><span style="color: #0000ff;">返回一个布尔值</span></b>。它的流程是：先将这个值转换成布尔值，然后取反。</div>
+						<div>通常来说， 使用一个逻辑非运算符和两个逻辑非运算符可以得到相应的布尔值。</div></blockquote>
+						<ul>
+							<li>
+						<ul>
+							<li>操作数是一个对象，返回 false；</li>
+							<li>操作数是一个空字符串，返回 true；</li>
+							<li>操作数是一个非空字符串，返回 false；</li>
+							<li>操作数是数值 0，返回 true；</li>
+							<li>操作数是任意非 0 数值(包括 Infinity)，false；</li>
+							<li>操作数是 null，返回 true；</li>
+							<li>操作数是 NaN，返回 true；</li>
+							<li>操作数是 undefined，返回 true；</li>
+						</ul>
+						</li>
+						</ul>
+						<div></div>
+				
+				<li><a href="">其他运算符</a><span>
+						<h2>赋值运算符</h2></span>
+							<table width="100%">
+							<tbody>
+							<tr>
+							<td>乘/赋(*=)  除/赋(/=)  模/赋(%=)  加/赋(+=)  减/赋(-=)  左移/赋(&lt;&lt;=)  有符号右移/赋(&gt;&gt;=)  无符号有移/赋(&gt;&gt;&gt;=)</td>
+							</tr>
+							</tbody>
+							</table>
+							<div> </div>
+							<div>
+
+							<hr>
+
+							</div>
+							<h2>位操作符</h2>
+							<div>
+							<table width="100%">
+							<tbody>
+							<tr>
+							<td>~按位非，&amp;按位与，|按位或，^按位异或，&lt;&lt;左移，&gt;&gt;有符号右移，&gt;&gt;&gt;无符号右移</td>
+							</tr>
+							</tbody>
+							</table>
+							<div>
+							
+							</div>
+							</div>
+							<div>
+
+							<hr>
+
+							 </div>
+							<div><b>其他运算符</b></div>
+							<div>
+							<table width="100%">
+							<tbody>
+							<tr>
+							<td>+ 字符串运算符 、 ,逗号运算符 、三元运算符</td>
+							</tr>
+							</tbody>
+							</table>
+							<div> </div>
+							</div>
+							<div>字符串运算符只有一个，即："+"。它的作用是将两个字符串相加。</div>
+							<div>逗号运算符可以在一条语句中执行多个操作。</div>
+							<div>三元条件运算符 a ? b : c</div>
+				</li>
+				<li><a href="">运算符优先级</a><span>
+					<div><b>运算符优先级</b></div></span></li></div>
+							<div><span>如果没有使用<strong>圆括号强制优先级</strong>，我们必须遵循以下顺序：
+							</span><strong>算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号</strong></div>
+							<div>
+							<table width="100%">
+							<tbody>
+							<tr>
+							<td>
+							<div>运算符</div></td>
+							<td>
+							<div>描述</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>. [] () </div></td>
+							<td>
+							<div>对象成员存取、数组下标、函数调用等</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>++ -- ~ ! delete new typeof void</div></td>
+							<td>
+							<div>一元运算符</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>* / %</div></td>
+							<td>
+							<div>乘法、除法、去模</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>+ - +</div></td>
+							<td>
+							<div>加法、减法、字符串连接</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</div></td>
+							<td>
+							<div>移位</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>&lt; &lt;= &gt; &gt;= instanceof </div></td>
+							<td>
+							<div>关系比较、检测类实例</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>== != === !==</div></td>
+							<td>
+							<div>恒等(全等)</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>&amp; </div></td>
+							<td>
+							<div>位与</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>^ </div></td>
+							<td>
+							<div>位异或</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>|</div></td>
+							<td>
+							<div>位或</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>&amp;&amp;</div></td>
+							<td>
+							<div>逻辑与</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>||</div></td>
+							<td>
+							<div>逻辑或</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>?:</div></td>
+							<td>
+							<div>三元条件</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>= x=</div></td>
+							<td>
+							<div>赋值、运算赋值</div></td>
+							</tr>
+							<tr>
+							<td>
+							<div>, </div></td>
+							<td>
+							<div>多重赋值、数组元素</div></td>
+							</tr>
+							</tbody>
+							</table>
+							</div>
+				
+			
+			<h4>[<span>+</span>]语句</h4>
+			<ul style="display:none;">
+				<li><a href="">if</a><span>if else else if</span></li>
+				<li><a href="">switch</a><span>
+					1.<a href="http://www.qttc.net/201207151.html">switch中的case为全等判断</a><br>
+					2.多个case使用同一个执行块应写为case 1: case2: ...
+				</span></li>
+				<li><a href="">for</a><span>
+					for...in... <br>
+					for...of...
+				</span></li>
+				<li><a href="">while</a><span>do...while...</span></li>
+				<li><a href="">continue</a><span></span></li>
+				<li><a href="">break</a><span></span></li>
+				<li><a href="">throw</a><span></span></li>
+				<li><a href="">try</a><span>try {} catch (e) {} finally {}</span></li>
+				<li><a href="">export</a><span>用来导出函数，以便这些函数能够被导入到外部模块或其他script中。</span></li>
+				<li><a href="">import</a><span>用来引入外部的模块或另一个script中导出的函数。</span></li>
+				<li><a href="">eval</a>(str)<span>计算 JavaScript 字符串，并把它作为脚本代码来执行。</span></li>
+			</ul>
+			<h4>[<span>+</span>]其它</h4>
+			<ul>
+				<li><a href="">'use strict'</a><span>
+					严格模式下，函数中的this指向Undefined，非window对象。
+				</span></li>
+			</ul>
+		</div>
+    
+    <div class="u-block">
+    	<h3>数据类型<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]类型检测</h4>
+			<ul>
+				<li><a href="">typeof</a> val<span>
+					返回的是字符串。
+						<table>
+							<tr>
+								<th>测试值</th>
+								<th>结果</th>
+							</tr>
+							<tr>
+								<td>true/false</td>
+								<td>boolean</td>
+							</tr>
+							<tr>
+								<td>数值/NaN</td>
+								<td>boolean</td>
+							</tr>
+							<tr>
+								<td>字符串/JSON</td>
+								<td>string</td>
+							</tr>
+							<tr>
+								<td>fn</td>
+								<td>function</td>
+							</tr>
+							<tr>
+								<td>obj/数组/null</td>
+								<td>object</td>
+							</tr>
+							<tr>
+								<td>undefined/不存在的属性或方法</td>
+								<td>undefined</td>
+							</tr>
+						</table>
+						<ol>
+							<li>判断null请使用myVar === null</li>
+							<li>
+						不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
+							<li>
+						Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样， 当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
+							<li>
+						undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
+						</ol>
+					</span></li>
+				<li><a href="">Array.isArray</a>(arr)<span>检测是否为数组（EC5）</span></li>
+				<li>val <a href="">instanceof</a> type
+					<span>instanceof引用类型数据测试，返回布尔值。
+						<table>
+							<tr>
+								<th>测试目标</th>
+								<th>测试结果</th>
+							</tr>
+							<tr>
+								<td>数组</td>
+								<td>arr instanceof Array</td>
+							</tr>
+							<tr>
+								<td>函数/构造函数</td>
+								<td>fn instanceof Function</td>
+							</tr>
+							<tr>
+								<td>构造函数实例</td>
+								<td>child instanceof parent</td>
+							</tr>
+							<tr>
+								<td>泛对象</td>
+								<td>obj instanceof Object</td>
+							</tr>
+							<tr>
+								<td>日期</td>
+								<td>value instanceof Date</td>
+							</tr>
+							<tr>
+								<td>正则表达式</td>
+								<td>value instanceof RegExp</td>
+							</tr>
+							<tr>
+								<td>数学</td>
+								<td>value instanceof Math</td>
+							</tr>
+						</table>
+					</span></li>
+			</ul>
+			<h4>[<span>-</span>]类型转换</h4>
+			<ul>
+				<li><a href="">Boolean</a>(val)
+					<span>Boolean(val)布尔转换规则 （控制流会自动转换）
+						<table>
+							<tbody>
+							<tr>
+							<th>Boolean(value)</th>
+							<th>true</th>
+							<th>false</th>
+							</tr>
+							<tr>
+							<td>undefined</td>
+							<td></td>
+							<td>undefined</td>
+							</tr>
+							<tr>
+							<td>boolean</td>
+							<td>true</td>
+							<td>false</td>
+							</tr>
+							<tr>
+							<td>string</td>
+							<td>非空</td>
+							<td>空</td>
+							</tr>
+							<tr>
+							<td>number</td>
+							<td>非零数值</td>
+							<td>0与NaN</td>
+							</tr>
+							<tr>
+							<td>object</td>
+							<td>对象（包括空的对象）</td>
+							<td>null（空对象）</td>
+							</tr>
+							</tbody>
+						</table>
+					</span></li>
+				<li><a href="">Number</a>(val)<span>
+						用于任何数据类型
+						<table>
+							<tr>
+								<th>value</th>
+								<th>返回值</th>
+							</tr>
+							<tr>
+								<td>number</td>
+								<td>number</td>
+							</tr>
+							<tr>
+								<td>boolean</td>
+								<td>1 / 0</td>
+							</tr>
+							<tr>
+								<td>null</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>空字符串</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>undefined</td>
+								<td>NaN</td>
+							</tr>
+							<tr>
+								<td>非数值(string+/object)</td>
+								<td>NaN</td>
+							</tr>
+						</table>
+					</span></li>
+				<li><a href="">String</a>(val)
+					<span>不确定null和undefined时,返回null和undefined</span></li>
+				<li><em>包装对象</em><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000"></a><span></span></li>
+			</ul>
+		</div>
+    </div>
+    <div class="u-block">
+    	<h3>数字<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>+</span>]Number</h4>
+			<ul style="display: none;">
+				<li><a href="">Finity</a><span>
+					Finity isFinite(---) 判断是否为无穷
+						<table>
+						<tbody>
+						<tr>
+						<td>
+						最大值</td>
+						<td>
+						Number.MAX_VALUE 1.79e+308</td>
+						</tr>
+						<tr>
+						<td>
+						<div>最小值</div></td>
+						<td>
+						Number.MIN_VALUE 5e-324</td>
+						</tr>
+						<tr>
+						<td>
+						<div>正无穷</div></td>
+						<td>
+						Number.POSITIVE_INFINITY</td>
+						</tr>
+						<tr>
+						<td>
+						<div>负无穷</div></td>
+						<td>
+						Number.NEGATIVE_INFINITY</td>
+						</tr>
+						</tbody>
+						</table>
+						<ul>
+							<li>科学计数法，浮点数+e+10的指数</li>
+							<li>0/0=NaN，正数/0=正无穷，负数/0=负无穷</li>
+							<li>正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN</li>
+							<li>无穷乘法操作得到无穷，无穷除法与求余操作得到NaN</li>
+						</ul>
+				</span></li>
+				<li><a href="">NaN</a><span>
+						NaN isNaN(---) 判断是否为NaN
+							<table>
+							<tbody>
+							<tr>
+							<td>Number.NaN</td>
+							<td>
+							得到 NaN 值</td>
+							</tr>
+							<tr>
+							<td>
+							var box = 0 / 0; //NaN
+							var box = 12 / 0; //Infinity
+							var box = 12 / 0 * 0; //NaN</td>
+							<td>
+							任何与 NaN 进行运算的结果均为 NaN</td>
+							</tr>
+							<tr>
+							<td>alert(NaN == NaN) //false</td>
+							<td>NaN 与自身不相等(NaN 不与任何值相等)</td>
+							</tr>
+							</tbody>
+							</table>
+							<ul>
+								<li>isNaN()函数也适用于对象。</li>
+								<li>在调用 isNaN()函数过程中，首先会调用 valueOf()方法， 然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</li>
+								<li>只要NaN参与的运算均为NaN</li>
+							</ul>
+				</span></li>
+				<li>Number.<a href="">MAX_VALUE</a><span>1.7976931348623157e+308</span></li>
+				<li>Number.<a href="">MIN_VALUE</a><span>5e-324 <br>MIN_VALUE 是 JavaScript 最接近0的数,不是负值</span></li>
+				<li>Number.<a href="">NEGATIVE_INFINITY</a><span>-Infinity 负无穷</span></li>
+				<li>Number.<a href="">POSITIVE_INFINITY</a><span>Infinity 正无穷</span></li>
+			</ul>
+			<h4>[<span>-</span>]表示</h4>
+			<ul>
+				<li>num.<a href="">toFixed</a>([bit])<span>
+					指定小数点后位数。<br>
+					把 Number 四舍五入为指定小数位数的数字，返回的是一个字符串。<br>
+					规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替并四舍五入。
+				</span></li>
+				<li>num.<a href="">toString</a>([ary])<span>
+					转为字符串，并指定进制，默认为10进制。<br>
+					直接转换时写为123..toString()或(123).toString()
+				</span></li>
+				<li>num.<a href="">toLocaleString</a>(local,[opt])<span>
+					根据本地数字格式转换为字符串 1,000.789 <br>
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">参考资料</a>
+				</span></li>
+				<li>num.<a href="">toExponential</a>([bit])<span>
+					使用指数计数法。<br>
+					把对象的值转换为指数计数法，返回的是一个字符串。<br>
+					参数可选。规定指数计数法中的小数位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将使用尽可能多的数字。
+				</span></li>
+				<li>num.<a href="">toPrecision</a>([bit])<span>
+					把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]检测</h4>
+			<ul>
+				<li>[Number.]<a href="">isNaN</a>(val)<span>
+					是否为非数值,转换后非数值为true，数值false
+					<br>1. 非数值执行运算，会隐藏自动转型（除+）
+					<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
+				<li>[Number.]<a href="">isFinite</a>(val)<span>判断是否为无穷值超出计算范围</span></li>
+				<li>Number.<a href="">isInteger</a>(val)<span>
+					判断给定的参数是否为整数
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]转换</h4>
+			<ul>
+				<li>[Number.]<a href="">parseInt</a>(val)<span>
+					自动判定进制，忽略空格。
+					<table>
+						<tr>
+							<th>value</th>
+							<th>结果</th>
+						</tr>
+						<tr>
+							<td>空字符串</td>
+							<td>NaN</td>
+						</tr>
+						<tr>
+							<td>第一个非空字符不是数值或负号</td>
+							<td>NaN</td>
+						</tr>
+						<tr>
+							<td>第一个非空字符是数值，遇到非数值时停止解析</td>
+							<td>number</td>
+						</tr>
+					</table>
+					</span></li>
+				<li>[Number.]<a href="">parseFloat</a>(val)<span>
+					第一个小数点有效，第二个无效</span></li>
+			</ul>
+		</div>
+    </div>
+
+	<!-- 字符串 -->
+<div class="u-col">
+	<div class="u-block">
+		<h3>字符串<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]String</h4>
+			<ul>
+				<li><a href="">new String()</a><span>
+					多行字符串表示法：
+					<pre><code data-language="javascript">
+						//ES5:
+						'string1 \n' + 'string2'
+						//ES6:
+						`string1 
+						string2` 
+					</code></pre>
+				</span></li>
+				<li><a href="">`__ ${varname} __`</a><span>
+					模板字符串
+					<pre><code data-language="javascript">
+						var v_1 = 'string' ;
+						var v_2 = 2;
+						var msg = `test,${v_1},${v_2}` 
+					</code></pre>
+				</span></li>
+				<li>str.<a href="">length</a><span>
+					字符串的长度。<br>
+					需要特别注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]转换</h4>
+			<ul>
+				<li>str.<a href="">split</a>(/reg/,[len])<span>
+					参数1：字符串或正则表达式 <br>
+					参数2：最大的数组长度 <br>
+					返回值：数组 <br>
+					原对象：不变 <br>
+					把字符串按指定符号或正则分割为字符串数组</span></li>
+				<li>str.<a href="">trim</a>()<span>
+					移除字符串的两端删除空白字符。<br>
+					空白字符包括所有的空白字符 (space, tab, no-break space 等) 以及所有行终止符字符（如 LF，CR）。
+				</span></li>
+				<li>str.<a href="">toUpperCase</a>()<span>
+					转为大写
+				</span></li>
+				<li>str.<a href="">toLowerCase</a>()<span>
+					转为小写 
+				</span></li>
+				<li><a href="">String.fromCharCode</a>(Unicode)<span>
+					将Unicode编码转为一个字符 <br>
+					参数：Unicode编码数字 <br>
+					返回值：字符串 <br>
+					原对象：不变
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]操作</h4>
+			<ul>
+				<li>str.<a href="">concat</a>(str,..)<span>
+					参数：串联一个或更多字符串 <br>
+					返回值：新的字符串 <br>
+					原对象：不变。
+				</span></li>
+				<li>str.<a href="">slice</a>[n,m)<span>
+					参数：起始位置，末尾位置（不包含）<br>
+					返回值：被截取得到的新字符串。<br>
+					原对象：不变。<br>
+					当只有1个参数时，则为起始位置到末尾全部，且包含末尾元素（即m=arr.length）。<br>
+					n和m可为负值，-1 指最后一个元素，-2 指倒数第二个元素。
+				</span></li>
+				<!-- <li>str.<a href="">substring</a>[n,m)<span>
+					显示指定索引起范围内的字符串，返回新字符串
+					<br>slice / substring / substr 负数
+					<br>单个负数：
+					<br>alert(box.slice(-3)); //Lee，6+(-3)=3 位开始 length-n
+					<br>alert(box.substring(-3)); //Mr.Lee 负数返回全部 返回全部
+					<br>alert(box.substr(-3)); //Lee，6+(-3)=3 位开始 length-n
+					<br>第二位负数：
+					<br>alert(box.slice(3, -1)); //Le 6+(-1)=5, (3,5) a,length-n
+					<br>alert(box.substring(3, -1)); //Mr. 第二参为负，直接转 0，并且方法会把较小的数字提前，(0,3) a,0
+					<br>alert(box.substr(3, -1)); //'' 第二参数为负，直接转 0 ，(3,0) a,0
+					</span></li> -->
+				<li>str.<a href="">replace</a><em>(/reg/g,val|fn([reg]))</em><span>
+					参数1：需要替换的字符或正则表达式，没有全局标识时只替换一次 <br>
+					参数2：替换成的字符串或生成字符串的函数，用return返回 <br>
+					返回值：新的字符串<br>
+					原对象：不变 <hr>
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#指定一个函数作为参数">回调函数参数详情</a>
+				</span></li>
+				<li>str.<a href="">repeat</a>(count)<span>
+					重复指定的字符串
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]查找</h4>
+			<ul>
+				<li>str.<a href="">indexOf</a>(val,[i])<span>
+					参数：正向查找指定值,i为起始索引<br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1
+				</span></li>
+				<li>str.<a href="">lastIndexOf</a>(val,[i])<span>
+					参数：逆向查找指定值,i为起始索引 <br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1 
+				</span></li>
+				<li>str.<a href="">search</a>(/reg/)<span>
+					参数：字符串/正则表达式<br>
+					返回：第一个子串的索引/-1<br>
+					始终从头开始找，找到一个即返回，正则无需全局设置
+				</span></li>
+				<li>str.<a href="">match</a>(/reg/g)<span>
+					参数：字符串/正则表达式<br>
+					返回：子串数组/null
+					<br>
+					当没有g正则全局标识时，返回的数组为 ["第一个子串", index: 0, input: "原字符串"] <br>
+					当参数为正则表达式时，返回的数组为 [子串1,子串2]
+				</span></li>
+				<li>str.<a href="">charAt</a>(i)<span>
+					参数：查找的索引位置 <br>
+					返回值：索引上的字符</span></li>
+				<li>str.<a href="">charCodeAt</a>(i)<span>
+					参数：查找的索引位置 <br>
+					返回值：索引上的字符的 Unicode 编码</span></li>
+			</ul>
+			<h4>[<span>-</span>]编码</h4>
+			<ul>
+				<li><em>encode/decode</em><a href=""></a><span><a href="http://www.cnblogs.com/shuiyi/p/5277233.html">参考资料</a></span></li>
+				<li><a href="">encodeURI</a>(uri)<span>把字符串编码为 URI。</span></li>
+				<li><a href="">encodeURIComponent</a>(uri)<span>把字符串编码为 URI 组件。</span></li>
+				<li><a href="">decodeURI</a>(uri)<span>解码某个编码的 URI。</span></li>
+				<li><a href="">decodeURIComponent</a>(uri)<span>解码一个编码的 URI 组件。</span></li>
+				<li>str.<a href="">normalize</a><em>([form])</em><i>ES6</i><span>
+					按指定Unicode正规形式将当前字符串正规化。<br>
+					参数：四种 Unicode 正规形式 "NFC", "NFD", "NFKC", 以及 "NFKD" 其中的一个, 默认值为 "NFC".<br>
+					NFC - Normalization Form Canonical Composition.<br>
+					NFD - Normalization Form Canonical Decomposition.<br>
+					NFKC - Normalization Form Compatibility Composition.<br>
+					NFKD - Normalization Form Compatibility Decomposition.<br>
+				</span></li>
+				<li><a href="">escape</a>(str)<span>
+					对字符串进行编码。<br>
+					该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _ + . / 。其他所有的字符都会被转义序列替换。</span></li>
+				<li><a href="">unescape</a>(str)<span>
+					对由 escape() 编码的字符串进行解码。<br>
+					<a href="http://www.cnblogs.com/season-huang/p/3439277.html">参考资料</a>
+				</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<!-- 数组 -->
+<div class="u-col">
+	<div class="u-block">
+		<h3>数组<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]Array</h4>
+			<ul>
+				<li><a href="">new Array()</a><span>
+					<table>
+						<tr>
+							<th>创建方法</th>
+							<th>演示</th>
+						</tr>
+						<tr>
+							<td>构造函数</td>
+							<td>
+								var arr = new Array(); <br>
+								arr[0]=value; <br>
+								var arr = new Array(element0, element1, ..., elementn);<br>
+								var arr = new Array(size);  [size=数组项目的个数,只写1位,且必须是数字]
+							</td>
+						</tr>
+						<tr>
+							<td>字面量</td>
+							<td>var arr = [66,80,90,77,59]</td>
+						</tr>
+					</table>
+					注意：<br>
+					1. ECMAScript中的数组每个元素可以保存任何类型<br>
+					2. ECMAScript 中数组的大小也是可以调整的。<br>
+					3. var arr = new Array(10)  不等于 var arr = [10]
+					</span></li>
+				<li><a href="">Array of</a>(val)<span>
+					Array.of() 和 Array 构造函数之间的区别在于处理整数参数：Array.of(7) 创建一个具有单个元素 7 的数组，而 Array(7) 创建一个包含 7 个 undefined 元素的数组。且不需要new运算符。<br>
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of">参考资料</a>
+				</span></li>
+				<li>arr.<a href="">length</a><span>
+					<table>
+						<tr>
+							<th>对象</th>
+							<th>含义</th>
+						</tr>
+						<tr>
+							<td>str.length</td>
+							<td>字符串长度</td>
+						</tr>
+						<tr>
+							<td>arr.length</td>
+							<td>数组长度</td>
+						</tr>
+						<tr>
+							<td>function.length</td>
+							<td>参数长度/个数</td>
+						</tr>
+						<tr>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>object</td>
+							<td>-</td>
+						</tr>
+					</table>
+				</span></li>
+				<li>arr<a href="">[index]</a><span>
+<pre><code data-language="javascript">
+	var  box =[];
+	box['name']=iRuxu;
+	alert(box);  //空
+	alert(box['name']); //iRuxu
+	alert(box[0]); //iRuxu 
+</code></pre>
+如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]Set</h4>
+			<ul>
+				<li><a href="">new Set()</a><span>
+					Set是一组key的集合，但不存储value，且key不能重复。<br>
+					要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set。
+<pre><code data-language="javascript">
+	var s1 = new Set(); // 空Set
+	var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+</code></pre>
+				</span></li>
+				<li>set.<a href="">add</a>(key)<span>
+					s.add(4)
+					//Set {1,2,3,4}
+				</span></li>
+				<li>set.<a href="">delete</a>(key)<span>
+					s.delete(3)
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]转换</h4>
+			<ul>
+				<li><a href="">Array.from</a>(o)<span>
+					把类数组实例化为一个数组。<br>
+					参数：包括字符串，set，map，arguments等 <br>
+					返回：新数组 <br>
+					原对象：不变。<br>
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from">参考资料</a>
+				</span></li>
+				<li>arr.<a href="">toString</a>()<span>
+					把数组转换为字符串 <br>
+					参数：无 <br>
+					返回：新字符串，数组中的元素之间用逗号分隔。<br>
+					原对象：不变。
+				</span></li>
+				<li>arr.<a href="">join</a>(symbol)<span>
+					使用指定符号把数组元素拼接为字符串<br>
+					参数：符号<br>
+					返回：新字符串<br>
+					原对象：不变。
+					</span></li>
+			</ul>
+			<h4>[<span>-</span>]操作</h4>
+			<ul>
+				<li>arr.<a href="">concat</a>(item|arr,..)<span>
+					参数：串联一个新的数组元素或数组内的元素（当串联的是一个新数组时，只取数组里的值）。<br>
+					返回：一个新的数组。<br>
+					原数组：不变。
+				</span></li>
+				<li>arr.<a href="">slice</a>[n,m)<span>
+					参数：起始位置，末尾位置（不包含）<br>
+					返回值：被截取得到的新数组。<br>
+					原数组：不变。<br>
+					当只有1个参数时，则为起始位置到末尾全部，且包含末尾元素（即m=arr.length）。<br>
+					n和m可为负值，-1 指最后一个元素，-2 指倒数第二个元素。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]查找</h4>
+			<ul>
+				<li>arr.<a href="">indexOf</a>(val,[i])<span>
+					参数：正向查找指定值,i为起始索引 <br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1
+				</span></li>
+				<li>arr.<a href="">lastIndexOf</a>(val,[i])<span>
+					参数：逆向查找指定值,i为起始索引 <br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1
+				 </span></li>
+				 <li>arr.<a href="">findIndex</a>(fn(item,[i],[arr]),[obj])<span>
+				 	返回符合测试条件的第一个数组元素索引，如果没有符合条件的则返回 -1。
+				 	回调函数返回true/false <br>
+				 	整个执行函数返回索引或-1。
+				 </span></li>
+				 <li>arr.<a href="">includes</a>(val,[i])<i>ES7</i><span>
+				 	返回值：true/false <br>
+				 	参数：从i索引处开始查找val,默认为 0。<br>
+				 	如果i为负值，则按升序从array.length + fromIndex 的索引开始搜索。<br>
+				 	指定了i的时候升序查找到末端不会再从头查找。
+				 </span></li>
+			</ul>
+						<h4>[<span>-</span>]排序</h4>
+			<ul>
+				<li>arr.<a href="">sort</a>([fn(a,b)])<span>
+					对数组进行升序排序。<br>
+					参数：指定一个函数 <br>
+					返回：新的改变后的数组。<br>
+					原对象：改变。
+					<hr>
+					默认排序顺序为按字母升序（字符串模式） <br>
+					默认把所有元素先转换为String再排序。即结果'10'排在了'2'的前面，因为字符'1'比字符'2'的ASCII码小，大写比小写靠前。<br>
+					函数执行完返回的是对数组的引用，请注意，数组在原数组上进行排序并修改原数组，并不生成副本。
+					<hr>
+					sort方法参数如果提供一个函数，那么该函数必须返回以下值之一：<br>
+					负值，所传递的第一个参数比第二个参数小；<br>
+					正值，所传递的第一个参数比第二个参数大；<br>
+					零，两个参数相等。<br>
+<pre><code data-language="javascript">
+	arr.sort(function(a,b){
+		//升序
+		return a - b;
+		//降序
+		return b - a;
+
+		//升序
+		if (x < y) {
+		    return -1;
+		}
+		if (x > y) {
+		    return 1;
+		}
+			return 0;
+		})
+</code></pre>
+					</span></li>
+				<li>arr.<a href="">reverse</a>()<span>
+					反转当前数组排序
+				</span></li>
+				</ul>
+			<h4>[<span>-</span>]添加</h4>
+			<ul>
+				<li>arr.<a href="">push</a>(item,..)<span>
+					参数：在数组末端添加若干个元素<br>
+					返回值：数组的新长度。<br>
+					原数组：改变。
+				</span></li>
+				<li>arr.<a href="">unshift</a>(item,..)<span>
+					参数：在数组最前方添加若干个元素<br>
+					返回值：数组的新长度。<br>
+					原数组：改变。
+				</span></li>
+				<li>arr.<a href="">splice</a><em>(i,0,item,..)</em><span>
+					参数：在数组指定的i索引位置添加若干个元素<br>
+					返回值：空数组。<br>
+					原数组：改变。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]移除</h4>
+			<ul>
+				<li>arr.<a href="">pop</a>()<span>
+					参数：移除数组的最后一个元素，无参数。<br>
+					返回值：被删除的元素。<br>
+					原数组：改变。
+				</span></li>
+				<li>arr.<a href="">shift</a>()<span>
+					参数：移除数组的第一个元素，无参数。<br>
+					返回值：被删除的元素。<br>
+					原数组：改变。
+				</span></li>
+				<li>arr.<a href="">splice</a><em>(i,[delnum],[item],...)</em><span>
+					参数：在数组指定的i索引位置删除和添加若干个元素<br>
+					返回值：被删除的元素组成的数组。<br>
+					原数组：改变。<br>
+					delnum=空：如第2个参数缺省，则删除从索引位置起到数组末尾的全部元素。<br>
+					delnum=1：如第2个参数存在，且=1，则相当于删除索引位置的元素。<br>
+					delnum=n：如第2个参数存在，且>1，删除arr[i]~arr[i+n-1]的元素。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]替换</h4>
+			<ul>
+				<li>arr.<a href="">fill</a>(val,[n],[m])<span>
+					参数：用一个固定值替换数组的元素。<br>
+					返回值：新的数组。<br>
+					原数组：改变。<br>
+					包含n位置，不包含m位置。如果m不定义，则为剩余全部元素。
+				</span></li>
+				<li>arr.<a href="">copyWithin</a>(i,n,[m])<span>
+					参数：复制（索引n ~ 索引m-1）的元素，替换（索引i ~ 索引i+m-n-1）的元素。<br>
+					返回值：新的数组。<br>
+					原数组：改变。<br>
+					复制选取的部分包含n，但不包含m。如果m不定义，即到数组末端。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]迭代</h4>
+			<ul>
+				<li>arr.<a href="">map</a><em>(fn(item,[i],[arr]),[obj])</em><span>
+					通过指定函数处理数组的每个元素，并返回处理后的数组，map()不会改变原始数组。<br>
+					obj对象作为该执行回调时使用，传递给函数，用作 "this" 的值。如果省略了 thisValue ，"this" 的值为 "undefined"。<hr>
+					map()与forEach()的区别：<br>
+					<table>
+						<tr>
+							<th>map</th>
+							<th>forEach</th>
+						</tr>
+						<tr>
+							<td>返回新的数组</td>
+							<td>返回undefine</td>
+						</tr>
+						<tr>
+							<td>执行回调，应在回调中return计算后的新值</td>
+							<td>只执行回调函数，对应的打印等操作或新建数组需在回调中声明</td>
+						</tr>
+					</table>
+					</span></li>
+				<li>ite.<a href="">forEach</a><em>(fn(val,[i],[o]))</em><span>
+				每个元素都执行一次回调函数，可应用与Iterable类型 (Array/Map/Set)<br>
+				Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身<br>
+				Map的回调函数参数依次为value、key和map本身
+				<table>
+					<tr>
+						<th>类型</th>
+						<th>参数</th>
+					</tr>
+					<tr>
+						<td>array</td>
+						<td>value,index,array</td>
+					</tr>
+					<tr>
+						<td>set</td>
+						<td>value,value,set</td>
+					</tr>
+					<tr>
+						<td>map</td>
+						<td>value,key,map</td>
+					</tr>
+				</table>
+<pre><code data-language="javascript">
+	var a = ['A', 'B', 'C'];
+	a.forEach(function (element, index, array) {
+		// element: 指向当前元素的值
+		// index: 指向当前索引
+		// array: 指向Array对象本身
+	alert(element);
+	});
+</code></pre>
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]递归</h4>
+			<ul>
+				<li>arr.<a href="">reduce</a><em>(fn(cur,item,[i],[arr]),[init])</em><span>
+					方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始缩减，最终为一个值。<br>
+					回调函数需返回cur，执行完成reduce会返回最终total值。<br>
+					<a href="http://www.runoob.com/jsref/jsref-reduce.html">参考资料</a>
+					</span></li>
+				<li>arr.<a href="">reduceRight</a><em>(fn(cur,item,[i],[arr]),[init])</em><span>
+					从右向左递归。
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]遍历</h4>
+			<ul>
+				<li>arr.<a href="">filter</a><em>(fn(item,[i],[arr]),[obj])</em><span>			
+					检测数值元素，并返回符合条件所有元素的数组。<br>
+					和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。<br>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014351219769203e3fbe1ed611475db3d439393add8997000">参考资料</a>
+					</span></li>
+				<li>arr.<a href="">every</a><em>(fn(item,[i],[arr]),[obj])</em><span>
+					every()方法用于检测数组所有元素是否都符合指定条件，如果数组中检测到有一个元素不满足，则整个表达式返回 false，且剩余的元素不会再进行检测；如果所有元素都满足条件，则返回 true。
+<pre><code data-language="javascript">
+	var ages = [32, 33, 16, 40];
+	function checkAdult(age) {
+	    return age >= 18;
+	}
+</code></pre>
+					</span></li>
+				<li>arr.<a href="">some</a><em>(fn(item,[i],[arr]),[obj])</em><span>
+					some() 方法用于检测数组中的元素是否满足指定条件，如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。如果没有满足条件的元素，则返回false。
+				</span></li>
+				<li>arr.<a href="">find</a><em>(fn(item,[i],[arr]),[obj])</em><span>
+					find() 方法返回传入一个测试条件（函数）符合条件的数组第一个元素。当数组中的元素在测试条件时返回 true 时, find() 返回符合条件的元素，之后的值不会再调用执行函数。如果没有符合条件的元素返回 undefined。
+				</span></li>
+				<li><em>遍历方法对比一览</em><a href=""></a><span>
+					<table>
+						<tr>
+							<th>方法</th>
+							<th>用途</th>
+							<th>回调函数返回值</th>
+							<th>方法返回值</th>
+						</tr>
+						<tr>
+							<td>map</td>
+							<td>遍历每一个执行函数</td>
+							<td>return new_item</td>
+							<td>retrun new_array</td>
+						</tr>
+						<tr>
+							<td>forEach</td>
+							<td>遍历每一个执行函数</td>
+							<td>-</td>
+							<td>undefine</td>
+						</tr>
+						<tr>
+							<td>reduce/reduceRight</td>
+							<td>从左向右/从右向左递归</td>
+							<td>return cur_value</td>
+							<td>return total_value</td>
+						</tr>
+						<tr>
+							<td>filter</td>
+							<td>筛选所有满足条件的项</td>
+							<td>return true/false</td>
+							<td>return filter_array</td>
+						</tr>
+						<tr>
+							<td>every/some</td>
+							<td>遍历是否每一项/存在项满足条件</td>
+							<td>return true/false</td>
+							<td>return true/false</td>
+						</tr>
+						<tr>
+							<td>find</td>
+							<td>查找是否存在满足条件的项，并返回第一个</td>
+							<td>return true/false</td>
+							<td>return value/undefined</td>
+						</tr>
+					</table>
+				</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<!-- 函数、对象 -->
+<div class="u-col">
+	<div class="u-block">
+		<h3>对象<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]Object</h4>
+			<ul>
+				<li><a href="">new Object()</a><span>
+					<table>
+						<tr>
+							<th>创建方法</th>
+							<th>演示</th>
+						</tr>
+						<tr>
+							<td>字面量</td>
+							<td>
+<pre><code data-language="javascript">
+var obj ={
+	key:value,
+	key:function(){...}
+}
+</code></pre>	
+							</td>
+						</tr>
+						<tr>
+							<td>new运算符</td>
+							<td>
+<pre><code data-language="javascript">
+var obj = new Object();
+obj.key = value;
+obj.key = function(){...}
+</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>构造函数</td>
+							<td>
+<pre><code data-language="javascript">
+function Obj(name){
+	this.name = value;
+	this.key = function (){...}
+}
+var o = new Obj(name)
+</code></pre>
+注意，如果不写new，这就是一个普通函数，它返回undefined。但是，如果写了new，它就变成了一个构造函数，它绑定的this指向新创建的对象，并默认返回this，也就是说，不需要在最后写return this;。<br>
+如果忘记写new运算符，在strict模式下，this.name = name将报错，因为this绑定为undefined，在非strict模式下，this.name = name不报错，因为this绑定为window，于是无意间创建了全局变量name，并且返回undefined，这个结果更糟糕。
+							</td>
+						</tr>
+					</table>
+				</span></li>
+				<li>obj<a href=""></a>[key]<span>
+					<ol>
+						<li>访问属性是通过.操作符完成的，但这要求属性名必须是一个有效的变量名。</li>
+						<li><b>当属性含空格、关键字或为变量时，只能用中括号表示</b></li>
+						<li><strong>中括号表示法时，key需要加上引号法</strong></li>
+					</ol>
+				</span></li>
+				<li>obj.<a href="">hasOwnProperty()</a><span>
+					检测xiaoming是否拥有某一属性，可以用in操作符。<br>
+					如果in判断一个属性存在，这个属性不一定是自身原有的，它可能是继承得到的。<br>
+					要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。
+				</span></li>
+				<li><a href="">delete </a>obj.key<span>删除属性delete obj.key</span></li>
+				<li>key <a href="">in</a> obj<span>
+					in遍历访问对象的属性/属性值
+<pre><code data-language="javascript">
+	for (var property in obj) {
+		console.log(property);  //遍历对象的全部属性
+		console.log(obj[property]); //遍历所有对象的值
+	} 
+</code></pre>
+				</span></li>
+			</ul>
+			<h4>[<span>+</span>]Map</h4>
+			<ul>
+				<li><a href="">new Map()</a><span>
+					初始化Map需要一个二维数组，或者直接初始化一个空Map。没有字面量方法。
+					<pre><code data-language="javascript">var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);</code></pre>
+				</span></li>
+				<li>map.<a href="">get</a>(key)<span>取key的值，返回值</span></li>
+				<li>map.<a href="">set</a>(key,val)<span>添加新的key-value</span></li>
+				<li>map.<a href="">has</a>(key)<span>是否存在key，返回布尔值</span></li>
+				<li>map.<a href="">delete</a>(key)<span>删除key</span></li>
+				<li>key <a href="">of</a> map<span>
+					遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for ... of循环来遍历。
+<pre><code data-language="javascript">
+	var a = ['A', 'B', 'C'];
+	var s = new Set(['A', 'B', 'C']);
+	var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+	for (var x of a) { // 遍历Array
+	    console.log('arr:' + x);
+	}
+	for (var x of s) { // 遍历Set
+	    console.log('set:' + x);
+	}
+	for (var x of m) { // 遍历Map
+	    console.log('map:' + x[0] + '=' + x[1]);
+	}
+</code></pre>
+				</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>函数<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]Function</h4>
+			<ul>
+				<li><a href="">function</a>()<span>
+					function fn(arg){...} <br>
+					var fn = function(arg){...} <br>
+					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
+					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
+					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。
+				</span></li>
+				<li><a href="">(function(n){})(n)</a><span>
+					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
+					返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>
+					如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
+				</span></li>
+				<li><a href="">x => x * x</a><span>
+<pre><code data-language="javascript">
+	//单个参数
+	var result = x => x * x
+	function (x) {
+	    return x * x;
+	}
+	//语句块
+	x => {
+	    if (x > 0) {
+	        return x * x;
+	    }
+	    else {
+	        return - x * x;
+	    }
+	}
+	//多个参数
+	(x, y) => x * x + y * y
+</code></pre>
+				箭头函数相当于匿名函数，省略了return。<br>
+				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
+				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
+				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
+				</span></li>
+			</ul>
+			<h4>[<span>+</span>]Generator</h4>
+			<ul style="display:none;">
+				<li><a href="">function*</a>()<span></span></li>
+				<li><a href="">yield</a> val<span></span></li>
+				<li>g.<a href="">next()</a><span></span></li>
+			</ul>
+			<h4>[<span>-</span>]内部</h4>
+			<ul>
+				<li><a href="">return</a><span>
+					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
+				</span></li>
+				<li><a href="">arguments</a><span>
+					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。
+					<table>
+						<tr>
+							<th>对象值</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>arguments[0]</td>
+							<td>第一个参数名字</td>
+						</tr>
+						<tr>
+							<td>arguments.length</td>
+							<td>参数的个数</td>
+						</tr>
+						<tr>
+							<td>arguments.callee</td>
+							<td>主体函数本身，拥有这个参数对象的函数</td>
+						</tr>
+					</table>
+					rest参数：<br>
+<pre><code data-language="javascript">
+	function foo(a, b, ...rest) {
+	    console.log('a = ' + a);
+	    console.log('b = ' + b);
+	    console.log(rest);
+	    //rest: [array]
+	}
+</code></pre>
+				</span></li>
+				<li><a href="">this</a><span>
+					<table>
+						<tr>
+							<th>当前环境</th>
+							<th>this指向</th>
+						</tr>
+						<tr>
+							<td>函数</td>
+							<td>非严格模式：window <br>
+							strict模式：undefined
+							</td>
+						</tr>
+						<tr>
+							<td>对象</td>
+							<td>object<br>
+							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
+							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
+							</td>
+						</tr>
+					</table>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料</a>
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]方法</h4>
+			<ul>
+				<li>fn<a href="">.apply</a>(obj,[arg])<span>
+					fn.apply(作用域，[传递参数]/arguments) <br>
+					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+				</span></li>
+				<li>fn<a href="">.call</a>(obj,arg)<span>
+					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
+					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
+					对普通函数调用，我们通常把this绑定为null。
+					</span></li>
+				<li>fn<a href="">.bind</a>(obj)<span>
+					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
+					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
+				</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>类与面向对象<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]原型继承</h4>
+			<ul>
+				<li>obj.<a href="">__proto__</a><span>
+					JS中所有对象都是实例，所谓继承关系不过是把一个对象的原型指向另一个对象而已。
+				</span></li>
+				<li><a href="">Object.create</a>(proto_obj)<span>
+					在编写JavaScript代码时，不要直接用obj.__proto__去改变一个对象的原型，并且，低版本的IE也无法使用__proto__。Object.create()方法可以传入一个原型对象，并创建一个基于该原型的新对象，但是新对象什么属性都没有。
+<pre><code data-language="javascript">
+	// 原型对象:
+	var Student = {
+	    name: 'Robot',
+	    height: 1.2,
+	    run: function () {
+	        console.log(this.name + ' is running...');
+	    }
+	};
+
+	function createStudent(name) {
+	    // 基于Student原型创建一个新对象:
+	    var s = Object.create(Student);
+	    // 初始化新对象:
+	    s.name = name;
+	    return s;
+	}
+
+	var xiaoming = createStudent('小明');
+	xiaoming.run(); // 小明 is running...
+	xiaoming.__proto__ === Student; // true
+</code></pre>
+				</span></li>
+                <li><em>demo</em><a href=""></a><span>
+<pre><code data-language="javascript">
+function inherits(Child, Parent) {
+    var F = function () {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+}
+</code></pre>
+<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997013405abfb7f0e1904a04ba6898a384b1e925000">参考资料</a>
+                </span></li>
+			</ul>
+            <h4>[<span>-</span>]构造函数</h4>
+            <ul>
+                <li>obj.<a href="">constructor</a><span>
+                    用new Obj()创建的对象还从原型上获得了一个constructor属性，它指向构造函数本身
+                </span></li>
+                <li>cst.<a href="">prototype</a><span>
+                    为减少内存消耗，将公共方法写在构造函数的原型上 <br>
+                    <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a>
+                </span></li>
+                <li><em>demo</em><a href=""></a><span>
+<pre><code data-language="javascript">
+    function Student(props) {
+        this.name = props.name || '匿名'; // 默认值为'匿名'
+        this.grade = props.grade || 1; // 默认值为1
+    }
+
+    Student.prototype.hello = function () {
+        alert('Hello, ' + this.name + '!');
+    };
+
+    function createStudent(props) {
+        return new Student(props || {})
+    }
+</code></pre>
+                    <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a>
+                </span></li>
+            </ul>
+            <h4>[<span>-</span>]类</h4>
+            <ul>
+                <li><a href="">class </a>ClassName<span>
+<pre><code data-language="javascript">
+class Student {
+    constructor(name) {
+        this.name = name;
+    }
+
+    hello() {
+        alert('Hello, ' + this.name + '!');
+    }
+}
+var test = new Student('test')
+</code></pre>
+                </span></li>
+                <li>class Child <a href="">extends</a> Parent<span>
+<pre><code data-language="javascript">
+class PrimaryStudent extends Student {
+    constructor(name, grade) {
+        super(name); // 记得用super调用父类的构造方法!
+        this.grade = grade;
+    }
+
+    myGrade() {
+        alert('I am at grade ' + this.grade);
+    }
+}
+</code></pre>
+PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
+                </span></li>
+                <li><a href="">super</a>(parent_key)<span></span></li>
+            </ul>
+		</div>
+	</div>
+</div>
+	<!-- 数据交换 -->
+<div class="u-col">
+	<div class="u-block">
+		<h3>数据<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]JSON</h4>
+			<ul>
+				<li><em>json</em><a href=""></a><span>
+					概念：
+					<br>它是一种表示结构化数据的形式，JSON是一个格式化的字符串，文件格式后缀为.json
+					<hr>
+					语法：
+					<br>简单值：字符串、数值、布尔值、null，不支持undefined
+					<br>对象：一组无序的键值对
+					<br>数组：一组有序的值的列表，可以通过索引来访问
+					<hr>
+					JSON与JS的区别：
+					<br>JSON字符串必须使用双引号（单引号会导致语法错误），且对象的属性必须加双引号
+					<br>在JS中直接引入一段JSON数据应该用单引号将其括起来，因为它其实代表一个字符串
+					<br>如：'{"name" : "Lee","age" : 100}' JSON数组与对象比普通JS少了分号与赋值，其本身表示的是字符串
+					<hr>
+					兼容性：
+					<br>IE7及IE7-需要引用库文件 <a href="https://github.com/douglascrockford/JSON-js/">json-js</a>
+					<textarea><!--[if lte IE 7]> json2.js <![endif]--></textarea>
+					<hr>
+					执行优先级：
+					<br>toJSON() --> 过滤参数 --> 标准序列化 --> 缩进 
+如在toJSON中已被过滤的键值则就算过滤参数中仍有设置也已无效
+				</span></li>
+				<li><a href="">JSON.stringify</a><em>(obj,[arr(key)|fn(key,val)|null],[space|num])</em><span>
+					js对象 -> json字符串 <hr>
+					参数1：传入的对象。<br>
+					如有键值为函数时，会排除该成员。我们可以在转换前将函数用.toString()方法转换为字符串来避免以上问题的发生。<br>
+					如有键值为日期对象时，会转为字符串。
+					<hr>
+					参数2：用于转换结果的函数或数组 <br>
+					当为数组时，显示指定的key，['key1','key2'] <br>
+					当为函数时，每个键值对根据函数规则处理，function(key,value){...return value}，<b>函数需返回新的value</b>。<b>如果此函数返回 undefined，则排除成员。</b>
+					<hr>
+					参数3：缩进空格，当不传入fn只设置缩进时，第2个参数传入null。如果space 是一个数字，则返回值文本在每个级别缩进指定数目的空格。
+				</span></li>
+				<li><a href="">JSON.parse</a>(json,[fn(key,val)])<span>
+					json字符串 -> js对象 <br>
+					转换函数需返回value值。
+				</span></li>
+				<li>obj.<a href="">toJSON</a><em>:fn(){return json}</em><span>
+				   JS对象中添加toJSON()方法，自定义过滤一些数据，返回新的对象
+<pre><code data-language="javascript">
+	var xiaoming = {
+	    name: '小明',
+	    age: 14,
+	    gender: true,
+	    height: 1.65,
+	    grade: null,
+	    'middle-school': '\"W3C\" Middle School',
+	    skills: ['JavaScript', 'Java', 'Python', 'Lisp'],
+	    toJSON: function () {
+	        return { // 只输出name和age，并且改变了key：
+	            'Name': this.name,
+	            'Age': this.age
+	        };
+	    }
+	};
+
+	JSON.stringify(xiaoming); // '{"Name":"小明","Age":14}'
+</code></pre>
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]Ajax</h4>
+			<ul>
+				<li></li>
+			</ul>
+			<h4>[<span>-</span>]Cookie</h4>
+			<ul>
+				<li>
+					document.<a href="">cookie</a>
+					<span>
+						key=val1,val2;key=val3,val4
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<!-- 标准库 -->
+<div class="u-col">
+	<div class="u-block">
+		<h3>标准对象<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]数学</h4>
+			<ul>
+				<li><a href="">Math.random()</a><span>
+					返回 0 ~ 1 之间的随机数 <br>
+					1.随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 ) <br>
+					2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();}
+				</span></li>
+				<li><a href="">Math.max/min</a>(x,y,z..n)<span>
+					返回 x,y,z,...,n 中的最高/低值 <br>
+					参数中最大的值。如果没有参数，则返回 -Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。
+				</span></li>
+				<li><a href="">Math.abs</a>(x)<span>返回 x 的绝对值</span></li>
+				<li><a href="">Math.ceil/floor/round</a>(x)<span>对数进行上/下舍入/四舍五入</span></li>
+				<li><a href="">Math.sqrt</a>(x)<span>返回x的平方根</span></li>
+				<li><a href="">Math.pow</a>(x,y)<span>返回x的y次幂</span></li>
+				<li><a href="">Math.exp</a>(x)<span>返回E(x)的指数</span></li>
+				<li><a href="">Math.log</a>(x)<span>返回数的自然对数（底为e）</span></li>
+				<li><a href="">Math.CONST</a><span>
+					<table>
+						<tr>
+							<th>属性</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>E</td>
+							<td>返回算术常量 e，即自然对数的底数（约等于2.718）</td>
+						</tr>
+						<tr>
+							<td>LN2</td>
+							<td>返回 2 的自然对数（约等于0.693）</td>
+						</tr>
+						<tr>
+							<td>LN10</td>
+							<td>返回 10 的自然对数（约等于2.302）</td>
+						</tr>
+						<tr>
+							<td>LOG2E</td>
+							<td>返回以 2 为底的 e 的对数（约等于 1.414）</td>
+						</tr>
+						<tr>
+							<td>LOG10E</td>
+							<td>返回以 10 为底的 e 的对数（约等于0.434）</td>
+						</tr>
+						<tr>
+							<td>PI</td>
+							<td>返回圆周率（约等于3.14159）</td>
+						</tr>
+						<tr>
+							<td>SQRT1_2</td>
+							<td>返回返回 2 的平方根的倒数（约等于 0.707）</td>
+						</tr>
+						<tr>
+							<td>SQRT2</td>
+							<td>返回 2 的平方根（约等于 1.414）</td>
+						</tr>
+					</table>
+				</span></li>
+				<li><a href="">Math.三角函数</a><span>
+					<table>
+						<tr>
+							<th>函数</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>Math.sin(x)</td>
+							<td>返回数的正弦</td>
+						</tr>
+						<tr>
+							<td>>Math.asin(x)</td>
+							<td>返回 x 的反正弦值</td>
+						</tr>
+						<tr>
+							<td>Math.cos(x)</td>
+							<td>返回数的余弦</td>
+						</tr>
+						<tr>
+							<td>Math.acos(x)</td>
+							<td>返回 x 的反余弦值</td>
+						</tr>
+						<tr>
+							<td>Math.tan(x)</td>
+							<td>返回角的正切</td>
+						</tr>
+						<tr>
+							<td>Math.atan(x)</td>
+							<td>以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值</td>
+						</tr>
+						<tr>
+							<td>Math.atan2(y,x)</td>
+							<td>返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）</td>
+						</tr>
+					</table>
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]日期时间</h4>
+			<ul>
+				<li><a href="">new Date</a>([arg..,timestamp])<span>
+					返回：日期对象 <hr>
+					无参数时：创建计算机当前时间的日期对象 <br>
+					var date = new Date(); <br>
+					Sat Oct 07 2017 01:20:24 GMT+0800 (中国标准时间) <hr>
+					有参数时：创建指定时间的日期对象 <br>
+					var date = new Date(2015, 5, 19, 20, 15, 30, 123); <br>
+					var date = new Date(1435146562875); <br>
+					当前时间是浏览器从本机操作系统获取的时间，所以不一定准确，因为用户可以把当前时间设定为任何值。
+				</span></li>
+				<li>date.<a href="">getFullYear()</a>{2017}<span>年份</span></li>
+				<li>date.<a href="">getMonth()</a>{0~11}<span>月份，范围0~11</span></li>
+				<li>date.<a href="">getDate()</a>{1~31}<span>日期</span></li>
+				<li>date.<a href="">getDay()</a>{1~7}<span>星期</span></li>
+				<li>date.<a href="">getHours()</a>{0~24}<span>时，24小时制</span></li>
+				<li>date.<a href="">getMinutes()</a>{0~60}<span>分</span></li>
+				<li>date.<a href="">getSeconds()</a>{0~60}<span>秒</span></li>
+				<li>date.<a href="">getMilliseconds()</a>{0~1000}<span>毫秒</span></li>
+				<li><a href="">Date.now()</a>{timestamp}<span>当前时间戳</span></li>
+				<li>date.<a href="">getTime()</a>{timestamp}<span>时间戳</span></li>
+				<li><a href="">Date.parse(ISO)</a>{timestamp}<span>
+					解析一个符合ISO 8601格式的字符串，并返回对应时间戳 <br>
+					var d = Date.parse('2015-06-24T19:49:22.875+08:00'); <br>
+					d; // 1435146562875
+				</span></li>
+				<li>date.<a href="">toString</a>()<span>
+					Sat Oct 07 2017 01:36:58 GMT+0800 (中国标准时间)
+				</span></li>
+				<li>date.<a href="">toLocaleString</a>()<span>
+					2017/10/7 上午1:33:06
+				</span></li>
+				<li>date.<a href="">toUTCString</a>()<span>
+					Fri, 06 Oct 2017 17:33:06 GMT
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]正则表达式</h4>
+			<ul>
+				<li><a href="">new RegExp</a>('exp')<span>
+					第一种方式是直接通过/正则表达式/写出来，第二种方式是通过new RegExp('正则表达式')创建一个RegExp对象。<br>
+					var re1 = /ABC\-001/; <br>
+					var re2 = new RegExp('ABC\\-001');<br>
+					注意，如果使用第二种写法，因为字符串的转义问题，字符串的两个\\实际上是一个\。
+				</span></li>
+				<li>RegExp.<a href="">test</a>(str)<span>
+					返回：true/false
+				</span></li>
+				<li>RegExp.<a href="">exec</a>(str)<span>
+					返回：匹配值/null <br>
+					全局匹配可以多次执行exec()方法来搜索一个匹配的字符串。当我们指定g标志后，每次运行exec()，正则表达式本身会更新lastIndex属性，表示上次匹配到的最后索引。
+				</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<!-- 代码规范技巧，参考资料（工具、第三方库） -->
+<div class="u-col">
+	<div class="u-block">
+		<h3>规范技巧<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]错误处理</h4>
+			<ul>
+				<li><a href="">new Error</a>(tips)<span>还有从Error派生的TypeError、ReferenceError等错误对象 <hr>
+				如果在一个函数内部发生了错误，它自身没有捕获，错误就会被抛到外层调用函数，如果外层函数也没有捕获，该错误会一直沿着函数调用链向上抛出，直到被JavaScript引擎捕获，代码终止执行。所以，我们不必在每一个函数内部捕获错误，只需要在合适的地方来个统一捕获，一网打尽。<hr>
+				涉及到异步代码，无法在调用时捕获，原因就是在捕获的当时，回调函数并未执行。<br>
+				类似的，当我们处理一个事件时，在绑定事件的代码处，无法捕获事件处理函数的错误。
+				</span></li>
+				<li><a href="">try{...}cath(e){...}</a><span>
+<pre><code data-language="javascript">
+	try {
+	    //可能出错的语句
+	} catch (e) {
+	    //捕获e错误对象
+	} finally {
+	    //总会执行
+	}
+</code></pre>
+				</span></li>
+				<li><a href="">try{..throw new Error('')..}</a><span></span></li>
+				<li><em>source map</em><a href=""></a><span>
+				Source map就是一个信息文件，里面储存着位置信息。也就是说，转换后的代码的每一个位置，所对应的转换前的位置。有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。<a href="http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html">参考资料</a>
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]调试</h4>
+			<ul>
+				<li><em>断点</em><a href=""></a><span></span></li>
+			</ul>
+			<h4>[<span>+</span>]笔记</h4>
+			<ul style="display:none;">
+				<li><a href="">条件判断</a><span>
+					取属性的时候可多加一层判断，以防属性值不存在报错。
+					<pre><code data-language="javascript">
+						if (banner && banner.length)
+					</code></pre>
+				</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>开源项目<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]框架</h4>
+			<ul>
+				<li><a href=""></a></li>
+			</ul>
+			<h4>[<span>-</span>]类型</h4>
+			<ul>
+				
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>参考资料<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]文档</h4>
+			<ul>
+				<li><a href="http://kangax.github.io/compat-table/es6/">ES6支持程度</a></li>
+				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Index">ECMAScript参考手册</a></li>
+				<li><a href="http://www.runoob.com/jsref/jsref-tutorial.html">Javascript参考手册</a></li>
+				<li><a href="http://devdocs.io/">全栈API参考手册</a></li>
+			</ul>
+			<h4>[<span>-</span>]动态</h4>
+			<ul>
+				<li><a href="https://www.awesomes.cn/">前端库大全</a></li>
+				<li><a href="https://juejin.im/welcome/frontend">掘金社区</a></li>
+				<li><a href="https://www.zhihu.com/topic/19550901/hot">知乎话题</a></li>
+			</ul>
+			<h4>[<span>-</span>]工具</h4>
+			<ul>
+				<li><a href="https://codepen.io/pen">CodePen</a></li>
+				<li><a href="http://www.bejson.com/">Bejson</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+	<div id="DOM" class="c-tab">
+	<div class="u-col">
+    <div class="u-block">
+        <h3>DOM属性<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Document</h4>
+            <ul>
+                <li>
+                    doc.<a href="">readyState</a>
+                    <span>
+                        返回当前文档的状态 <br>
+                        <ol>
+                            <li>uninitalized - 还未开始载入</li>
+                            <li>loading - 载入中</li>
+                            <li>interactive - 已加载，文档与用户可以开始交互</li>
+                            <li>complete - 载入完成</li>
+                        </ol>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">referrer</a>
+                    <span>
+                        返回载入当前文档的来源文档的URL。 <br>
+                        如果当前文档不是通过超级链接访问的，则为null。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">activeElement</a>
+                    <span>
+                        返回当前获取焦点元素
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">domain</a>
+                    <span>
+                        返回当前文档的域名
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">URL</a>
+                    <span>
+                        返回文档的URL，必须为大写。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">cookie</a>
+                    <span>
+                        设置或返回与当前文档有关的所有cookie <br>
+                        key=value;...
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">lastModified</a>
+                    <span>
+                        返回文档最后被修改的日期和时间 <br>
+                        10/19/2017 15:24:30
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">inputEncoding</a>
+                    <span>
+                        返回文档的字符编码 <br>
+                        IE8及以下，Oprea不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">baseURI</a>
+                    <span>
+                        返回文档绝对基础URI <br>
+                        IE不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">doctype</a>
+                    <span>
+                        返回文档类型声明。<br>
+                        IE8及以下返回null。支持XML。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] Element</h4>
+            <ul style="display:none;">
+                <li>
+                    ele.<a href="">accessKey</a>
+                    <span>
+                        设置或返回accessKey一个元素。 <br>
+                        document.getElementById('w3c').accessKey="w" <br>
+                        可使用Alt + accessKey 设置的键位快捷访问该元素。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">tabIndex</a>
+                    <span>
+                        设置或返回元素的标签顺序 <br>
+                        即通过tab键切换时的顺序 <br>
+                        <a href="http://www.powerxing.com/html-attribute-tabindex/">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">dir</a>
+                    <span>
+                        设置或返回一个元素中的文本方向。 <br>
+                        dir = ltr / rtl
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">tagName</a>
+                    <span>
+                        返回元素的标签名（大写）
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">nodeName</a>
+                    <span>
+                        返回元素的标记名（大写）。 <br>
+                        如果节点是一个元素节点，则返回标签名；如为属性节点，则返回属性名。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">nodeType</a>
+                    <span>
+                        返回元素的节点类型（数值）。 <br>
+                        <a href="http://www.runoob.com/jsref/prop-node-nodetype.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">nodeValue</a>
+                    <span>
+                        返回元素的节点值 <br>
+                        需先取到文本节点，再取文本节点的值。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] NodeList</h4>
+            <ul style="display:none;">
+                <li>
+                    nodelist.<a href="">item</a>(i)
+                    <span>
+                        等同于nodelist[i]
+                    </span>
+                </li>
+                <li>
+                    nodelist.<a href="">length</a>
+                    <span>
+                        节点列表长度
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] Attribute</h4>
+            <ul style="display:none;">
+                <li>
+                    attr.<a href="">name</a>
+                    <span>
+                        返回属性名称
+                    </span>
+                </li>
+                <li>
+                    attr.<a href="">value</a>
+                    <span>
+                        设置或返回属性值
+                    </span>
+                </li>
+                <li>
+                    attr.<a href="">specified</a>
+                    <span>
+                        检查属性节点是否存在值，返回布尔值 <br>
+                        注意先需获取到的是属性节点
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>DOM操作<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 属性</h4>
+            <ul>
+                <li>
+                    ele.<a href="">attributes</a>
+                    <span>
+                        返回一个元素的属性数组。 <br>
+                        数组中按照html中的顺序排序，无法直接通过.访问，只有索引。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">getAttribute</a>('attr')
+                    <span>
+                        返回指定元素的属性值 <br>
+                        等同 getAttributeNode('attr').value 
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">removeAttribute</a>('attr')
+                    <span>
+                        从元素中删除指定的属性
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">setAttribute</a>('attr','val')
+                    <span>
+                        设置元素指定的属性值 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">hasAttribute</a>('attr')
+                    <span>
+                        检测元素是否具有某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <!-- <li class="i-dot-orange">
+                    ele.<a href="">hasAttributes()</a>
+                    <span>
+                        检测元素是否具有任何某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">creatAttribute</a>('attr')
+                    <span>
+                        创建一个属性节点，并返回该attr对象。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">removeAttributeNode</a>('attr')
+                    <span>
+                        删除指定元素节点并返回移除后的节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">setAttributeNode</a>('attr')
+                    <span>
+                        设置或改变指定属性节点 <br>
+                        需通过nodeValue来最终改变对应值
+                    </span>
+                </li> -->
+            </ul>
+            <h4>[<span>-</span>] 内容</h4>
+            <ul>
+                <li>
+                    ele.<a href="">innerHTML</a>
+                    <span>
+                        设置或返回元素的内容
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">textContent</a>
+                    <span>
+                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">id</a>
+                    <span>
+                        设置或返回元素的id
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">title</a>
+                    <span>
+                        设置或返回当前文档/元素的标题
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 样式</h4>
+            <ul>
+                <li>
+                    ele.<a href="">style</a>
+                    <span>
+                        设置或返回元素的样式属性 <br>
+                        返回的是一个对象，通过style.classname来设置具体，只取行内。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">className</a>
+                    <span>
+                        设置或返回元素的class属性
+                    </span>
+                </li>
+                <li class="i-dot-blue">
+                    ele.<a href="">classList</a>
+                    <span>
+                        返回该元素的类的一个对象。 IE10以下不支持。 <br>
+                        <table>
+                            <tr>
+                                <th>方法</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>.value</td>
+                                <td>完整类名</td>
+                            </tr>
+                            <tr>
+                                <td>.add(class1,class2,...)</td>
+                                <td>添加新的类名，如果已经存在则不会添加</td>
+                            </tr>
+                            <tr>
+                                <td>.remove(class1,class2,...)</td>
+                                <td>移除指定类名，如果移除不存在的类名，不会报错</td>
+                            </tr>
+                            <tr>
+                                <td>.toggle(class,true/false)</td>
+                                <td>切换指定类名。 <br>
+                                    第一个参数为切换的类名。 <br>
+                                    如果存在时，移除并返回false；如果不存在，添加并返回true。 <br>
+                                    第二个参数，为强制设置布尔值。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>.contains(class)</td>
+                                <td>返回布尔值，判断指定类名是否存在</td>
+                            </tr>
+                            <tr>
+                                <td>.length</td>
+                                <td>类名个数</td>
+                            </tr>
+                            <tr>
+                                <td>.item(i) / [i]</td>
+                                <td>返回索引上的类名</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 交互</h4>
+            <ul>
+                <li>
+                    ele.<a href="">focus()</a>
+                    <span>
+                        设置元素获取焦点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">blur()</a>
+                    <span>
+                        设置元素移除焦点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">hasFocus()</a>
+                    <span>
+                        检查元素是否获取焦点，返回布尔值
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">contentEditable</a>
+                    <span>
+                        设置或返回元素的内容是否可编辑 <br>
+                        返回inherit/true/false <br>
+                        如果父级元素是可编辑，则子元素内容也是可编辑的
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">isContentEditable</a>
+                    <span>
+                        返回元素的内容是否可编辑 <br>
+                        返回true/false
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>DOM遍历<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 集合归类</h4>
+            <ul>
+                <li>
+                    doc.<a href="">documentElement</a>
+                    <span>
+                        返回文档的根节点（html元素）
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">body</a>
+                    <span>
+                        返回文档的body元素
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">images</a>
+                    <span>
+                        返回文档中所有image对象引用
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">links</a>
+                    <span>
+                        返回文档中所有的a.href + area标签。 <br>
+                        document.links.$id > document.links.$name 可按id和name访问,同名时id高于name,同id时,取顺序在前的<br>
+                        document.links[i] 可按索引访问
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">anchors</a>
+                    <span>
+                        返回文档中所有的锚点的集合。即带有name属性的a标签。 <br>
+                        document.anchors.length
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">scripts</a>
+                    <span>
+                        返回页面中所有脚本的集合
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">forms</a>
+                    <span>
+                        返回文档中所有表单的集合。 <br>
+                        document.forms[0]  <br>
+                        document.forms.name1
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 层级查找</h4>
+            <ul>
+                <li>
+                    ele.<a href="">parentNode</a>
+                    <span>
+                        返回元素的父节点
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">childNodes</a>
+                    <span>
+                        返回元素的子节点数组
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">firstChild</a>
+                    <span>
+                        返回元素的第一个子节点。 <br>
+                        如果不存在则返回null
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">lastChild</a>
+                    <span>
+                        返回元素的最后一个子元素。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasChildNodes()</a>
+                    <span>
+                        检查元素是否具有任何子元素，返回布尔值
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 序列查找</h4>
+            <ul>
+                <li>
+                    ele.<a href="">nextSibling</a>
+                    <span>
+                        返回该元素之后紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">previousSibling</a>
+                    <span>
+                        返回该元素之前紧跟的一个节点（处在同一树层级中） <br>
+                        如没有则返回null
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 条件筛选</h4>
+            <ul>
+                <li>
+                    dom.<a href="">getElementById</a><em>('id')</em>
+                    <span>
+                        返回拥有指定ID的第一个对象的引用。<br>
+                        如果没有指定ID的元素返回null。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">getElementsByTagName</a><em>('tag')</em>
+                    <span>
+                        返回带有指定标签名的对象的集合。 <br>
+                        *返回文档的所有元素。 <br>
+                        *返回的元素集合中的0为html
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">getElementsByClassName</a><em>('cls')</em>
+                    <span>
+                        返回文档中所有指定类名的元素集合。 <br>
+                        IE8及以下不支持。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">getElementsByName</a><em>('name')</em>
+                    <span>
+                        返回带有指定名称的对象的集合。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">querySelector</a>('cssExp')
+                    <span>
+                        返回dom范围中匹配指定css选择器的第一个元素。 <br>
+                        传入的是css选择器，且仅返回第一个元素。 <br>
+                        IE8支持，IE6-7不支持。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">querySelectorAll</a>('cssExp')
+                    <span>
+                        返回dom范围中匹配指定css选择器的全部元素。 <br>
+                        HTML5新引入，IE8不支持。 <br>
+                        此方式生成的集合，无法用.访问到id和name。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>DOM更新<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 修改</h4>
+            <ul>
+                <li>
+                    dom.<a href="">appendChild</a>(node)
+                    <span>
+                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
+                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
+                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
+                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">insertBefore</a>(node,exist)
+                    <span>
+                        向目标节点前添加新的节点。 <br>
+                        如果被添加的节点是原文档中的节点，则原节点会被移除。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">replaceChild</a>(new,old)
+                    <span>
+                        将某个子节点替换为另一个。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 添加</h4>
+            <ul>
+                <li>
+                    ele.<a href="">cloneNode</a>([true/false])
+                    <span>
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatElement</a>('tag')
+                    <span>
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatTextNode</a>('str')
+                    <span>
+                        创建文本节点
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatDocumentFragment()</a>
+                    <span>
+                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
+                        var temp=document.createDocumentFragment();
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatComment</a>('str')
+                    <span>
+                        创建注释节点
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">importNode</a>(node,deep)
+                    <span>
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 移除</h4>
+            <ul>
+                <li>
+                    dom.<a href="">removeChild</a>(node)
+                    <span>
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 合并</h4>
+            <ul>
+                <li>
+                    dom.<a href="">normalize()</a>
+                    <span>
+                        删除空文本节点，并连接相邻节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 更新</h4>
+            <ul>
+                <li>
+                    doc.<a href="">write</a>('exp')
+                    <span>
+                        向文档写入内容 <br>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">writeln</a>('exp')
+                    <span>
+                        向文档写入内容，并在末尾添加一个换行符
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">open</a>([MIME],[replace])
+                    <span>
+                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
+                        MIMEtype，默认值是 "text/html"。 <br>
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">close</a>()
+                    <span>
+                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>DOM事件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 监听</h4>
+            <ul>
+                <li class="i-dot-orange">
+                    dom.<a href="">addEventListener</a>(e,fn(e))
+                    <span>
+                        添加事件监听 <br>
+                        IE8=-：attachEvent() <br>
+                        <pre><code data-language="javascript">
+                            if (document.addEventListener) {
+                                document.addEventListener("click", myFunction);
+                            } else if (document.attachEvent) {
+                                document.attachEvent("onclick", myFunction);
+                            }
+                            function myFunction() {
+                                alert("Hello World!");
+                            }
+                        </code></pre>   
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    dom.<a href="">removeEventListener</a>(e,fn(e))
+                    <span>
+                        移除事件监听 <br>
+                        IE8=-：detachEvent() <br>
+                        两个参数均为必须，指定要移除的事件及要移除的函数。
+                    </span>
+                </li>
+                <li>
+                    <em>bind</em><a href=""></a>
+                    <span>
+                        HTML中:<pre><code data-language="html"><element onclick="fn()"></element></code></pre>
+                        JavaScript 中:<pre><code data-language="javascript">object.onclick=function(){..};</code></pre>
+                        JS中监听：<pre><code data-language="javascript">object.addEventListener('click',fn)</code></pre>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 鼠标事件</h4>
+            <ul>
+                <li>
+                    <a href="">onclick</a>
+                    <span>
+                        点击事件 <br>
+                        鼠标左键/中间：onmousedown -> onmouseup -> onclick <br>
+                        鼠标右键：onmousedonw -> onmouseup -> oncontextmenu
+                    </span>
+                </li>
+                <li>
+                    <a href="">ondbclick</a>
+                    <span>
+                        双击事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmousedown</a>
+                    <span>
+                        鼠标按下
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseup</a>
+                    <span>
+                        鼠标按键被松开
+                    </span>
+                </li>
+                <li>
+                    <a href="">oncontextmenu</a>
+                    <span>
+                        在用户点击鼠标右键打开上下文菜单时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseover</a>
+                    <span>
+                        鼠标移到某元素之上，支持冒泡
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseout</a>
+                    <span>
+                        鼠标从某元素移开，支持冒泡
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseenter</a>
+                    <span>
+                        鼠标移到某元素之上，不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmouseleave</a>
+                    <span>
+                        鼠标从某元素移开，不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">onmousemove</a>
+                    <span>
+                        鼠标被移动
+                    </span>
+                </li>
+                <li>
+                    <a href="">onwheel</a>
+                    <span>
+                        该事件在鼠标滚轮在元素上下滚动时触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 键盘事件</h4>
+            <ul>
+                <li>
+                    <a href="">onkeydown</a>
+                    <span>
+                        某个键盘按键被按下
+                    </span>
+                </li>
+                <li>
+                    <a href="">onkeypress</a>
+                    <span>
+                        某个键盘按键被按下并松开 <br>
+                        onkeydown -> onkeypress -> onkeyup <br>
+                        在所有浏览器中 onkeypress 事件不是适用于所有按键，如： ALT, CTRL, SHIFT, ESC
+                    </span>
+                </li>
+                <li>
+                    <a href="">onkeyup</a>
+                    <span>
+                        某个键盘按键被松开
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 事件对象</h4>
+            <ul>
+                <li>
+                    <em>e.</em><a href=""></a><em>property</em>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>返回当前 Event 对象表示的事件的名称</td>
+                            </tr>
+                            <tr>
+                                <td>target</td>
+                                <td>返回触发此事件的元素（事件的目标节点）</td>
+                            </tr>
+                            <tr>
+                                <td>currentTarget</td>
+                                <td>返回其事件监听器触发该事件的元素,不一定是点击的元素,是最终监听的元素</td>
+                            </tr>
+                            <tr>
+                                <td>bubbles</td>
+                                <td>返回布尔值，指示事件是否是起泡事件类型</td>
+                            </tr>
+                            <tr>
+                                <td>cancelable</td>
+                                <td>返回布尔值，指示事件是否可拥可取消的默认动作</td>
+                            </tr>
+                            <tr>
+                                <td>timeStamp</td>
+                                <td>返回事件生成的日期和时间</td>
+                            </tr>
+                            <tr>
+                                <td>eventPhase</td>
+                                <td>返回事件传播的当前阶段</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">preventDefault()</a>
+                    <span>
+                        通知浏览器不要执行与事件关联的默认动作
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">stopPropagation</a>
+                    <span>
+                        阻止冒泡
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 鼠标/键盘事件对象</h4>
+            <ul>
+                <li>
+                    e.<a href="">button</a>
+                    <span>
+                        返回当事件被触发时，哪个鼠标按钮被点击 <br>
+                        0左键，1中键，2右键 <br>
+                        IE8及-：1左键，4中键，2右键
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">key</a>
+                    <span>
+                        在按下按键时返回按键的标识符
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">keyCode</a>
+                    <span>
+                        返回按键事件触发的键的值的字符代码
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">altKey/ctrlKey/shiftKey</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>返回值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>altKey</td>
+                                <td>true/false/1/0</td>
+                                <td>返回当事件被触发时，"ALT" 是否被按下</td>
+                            </tr>
+                            <tr>
+                                <td>ctrlKey</td>
+                                <td>true/false/1/0</td>
+                                <td>返回当事件被触发时，"CTRL" 键是否被按下</td>
+                            </tr>
+                            <tr>
+                                <td>shiftKey</td>
+                                <td>true/false/1/0</td>
+                                <td>返回当事件被触发时，"SHIFT" 键是否被按下</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>DOM事件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 框架/对象事件</h4>
+            <ul>
+                <li>
+                    <a href="">onload</a>
+                    <span>
+                        一张页面或一幅图像完成加载
+                    </span>
+                </li>
+                <li>
+                    <a href="">onerror</a>
+                    <span>
+                        在加载文档或图像时发生错误 <br>
+                        包括img/input-type-img/object/script/style/body/frameset等 <br>
+                        不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">onresize</a>
+                    <span>
+                        窗口或框架被重新调整大小
+                    </span>
+                </li>
+                <li>
+                    <a href="">onscroll</a>
+                    <span>
+                        当文档被滚动时发生的事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">onbeforeunload</a>
+                    <span>
+                        该事件在即将离开页面（刷新或关闭）时触发 <br>
+                        chrome中函数需返回一个非空值 
+                        <pre><code data-language="javascript">
+                            window.onbeforeunload = function (){
+                                return true
+                            }
+                        </code></pre>       
+                    </span>
+                </li>
+                <li>
+                    <a href="">onhashchange</a>
+                    <span>
+                        该事件在当前 URL 的锚部分发生修改时触发
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">onpageshow</a>
+                    <span>
+                        该事件在用户访问页面时触发 <br>
+                        类似于 onload 事件，onload 事件在页面第一次加载时触发， onpageshow 事件在每次加载页面时触发，即 onload 事件在页面从浏览器缓存中读取时不触发。 <br>
+                        为了查看页面是直接从服务器上载入还是从缓存中读取，你可以使用 PageTransitionEvent 对象的 persisted 属性来判断。 如果页面从浏览器的缓存中读取该属性返回 ture，否则返回 false。<br>
+                        IE10及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">onpagehide</a>
+                    <span>
+                        该事件在用户离开当前网页跳转到另外一个页面时触发 <br>
+                        IE10及以下不支持
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 表单事件</h4>
+            <ul>
+                <li>
+                    <a href="">onchange</a>
+                    <span>
+                        表单元素的内容改变时触发 <br>
+                        域的内容改变时发生，也可用于单选框与复选框改变后触发的事件。<br>
+                        常用于input, keygen, select,textarea。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">oninput</a>
+                    <span>
+                        元素获取用户输入时触发 <br>
+                        该事件仅在input或textarea元素的值发生改变时触发。 <br>
+                        oninput事件在元素值发生变化是立即触发，onchange在元素失去焦点时触发 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">onfocus</a>
+                    <span>
+                        对象获得焦点时发生，不支持冒泡 <br>
+                        通常用于 input, select, 和a. 
+                    </span>
+                </li>
+                <li>
+                    <a href="">onfocusin</a>
+                    <span>
+                        元素即将获取焦点时触发，支持冒泡，Firefox不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">onblur</a>
+                    <span>
+                        对象失去焦点时发生，不支持冒泡 <br>
+                        经常用于Javascript验证代码，一般用于表单输入框
+                    </span>
+                </li>
+                <li>
+                    <a href="">onfocusout</a>
+                    <span>
+                        元素即将失去焦点时触发，支持冒泡，Firefox不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">onselect</a>
+                    <span>
+                        仅在“文本框”中的文本被选中时发生
+                    </span>
+                </li>
+                <li>
+                    <a href="">onreset</a>
+                    <span>
+                        表单重置时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">onsubmit</a>
+                    <span>
+                        在表单提交时触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 剪贴板事件</h4>
+            <ul>
+                <li>
+                    <a href="">oncopy</a>
+                    <span>
+                        用户拷贝元素上的内容时触发（包括img）
+                    </span>
+                </li>
+                <li>
+                    <a href="">oncut</a>
+                    <span>
+                        用户剪切元素内容时触发 <br>
+                        对于不可编辑的元素，除非设置contenteditable 为 "true" 
+                    </span>
+                </li>
+                <li>
+                    <a href="">onpaste</a>
+                    <span>
+                        用户粘贴元素内容时触发 <br>
+                        对于不可编辑的元素，除非设置contenteditable 为 "true" 
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 动画事件</h4>
+            <ul>
+                <li>
+                    <a href="">animationstart</a>
+                    <span>
+                        css动画开始时触发 <br>
+                        webkitAnimationStart / mozAnimationStart
+                    </span>
+                </li>
+                <li>
+                    <a href="">animationiteration</a>
+                    <span>
+                        css动画重复播放时触发 <br>
+                        webkitAnimationInteration / mozAnimationInteration
+                    </span>
+                </li>
+                <li>
+                    <a href="">animationend</a>
+                    <span>
+                        css动画结束时触发 <br>
+                        webkitAnimationEnd / mozAnimationEnd
+                    </span>
+                </li>
+                <li>
+                    <a href="">transitionend</a>
+                    <span>
+                        css完成过渡后触发 <br>
+                        如果过渡在完成前移除，例如 CSS transition-property 属性被移除，过渡事件将不被触发 <br>
+                        webkitTransitionEnd / mozTransitionEnd / oTransitionEnd
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>尺寸与坐标<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 尺寸</h4>
+            <ul>
+                <li>
+                    ele.<a href="">clientWidth</a>
+                    <span>
+                        返回内容的可视宽度（不包括边框，边距或滚动条） <br>
+                        即元素宽度 - 边框 - 边距 - 17px(滚动条)
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">clientHeight</a>
+                    <span>
+                        返回元素的可视高度，包括填充，不包括边框+滚动条+边距 <br>
+                        即元素高度 - 边框 - 边距 - 17px(滚动条)
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">scrollWidth</a>
+                    <span>
+                        返回元素的宽度，包括填充，不包括边框+滚动条+边距，但包括带滚动条的隐蔽地方 <br>
+                        即当有子元素的溢出宽度时，等于子元素的宽度，否则等于可视宽度
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">scrollHeight</a>
+                    <span>
+                        返回元素的高度，包括填充，不包括边框+滚动条+边距，但包括带滚动条的隐蔽地方 <br>
+                        即当有子元素的溢出高度时，等于子元素的高度，否则等于可视高度
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetWidth</a>
+                    <span>
+                        返回元素的宽度，包括填充，也包括边框+滚动条，不包括边距 <br>
+                        即元素盒模型宽度
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetHeight</a>
+                    <span>
+                        返回元素的高度，包括填充，也包括边框+滚动条，不包括边距 <br>
+                        即元素盒模型高度
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 坐标</h4>
+            <ul>
+                <li>
+                    e.<a href="">clientX</a>
+                    <span>
+                        返回当事件被触发时，鼠标指针在浏览器中的水平坐标
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">clientY</a>
+                    <span>
+                        返回当事件被触发时，鼠标指针在浏览器中的垂直坐标
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">screenX</a>
+                    <span>
+                        返回当事件被触发时，鼠标指针在屏幕中的水平坐标
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">screenY</a>
+                    <span>
+                        返回当事件被触发时，鼠标指针在屏幕中的垂直坐标
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 偏移</h4>
+            <ul>
+                <li>
+                    ele.<a href="">offsetLeft</a>
+                    <span>
+                        返回当前元素的相对水平偏移
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetTop</a>
+                    <span>
+                        返回当前元素的相对垂直偏移
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetParent</a>
+                    <span>
+                        返回当前元素的偏移容器
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 滚动</h4>
+            <ul>
+                <li>
+                    ele.<a href="">scrollLeft</a>
+                    <span>
+                        当元素有overflow时生效，设置或返回距左边缘起始点的滚动位置点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">scrollTop</a>
+                    <span>
+                        当元素有overflow时生效，设置或返回距顶部边缘起始点的滚动位置点
+                    </span>
+                </li>
+                <li>
+                    window.<a href="">scrollTo</a>(x,y)
+                    <span>
+                        把内容滚动到指定的坐标
+                    </span>
+                </li>
+                <li>
+                    window.<a href="">scrollBy</a>(x,y)
+                    <span>
+                        按照指定的像素值来滚动内容
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    window.<a href="">pageXOffset</a>
+                    <span>
+                        设置或返回当前页面相对于窗口显示区左上角的 X 位置 <br>
+                        IE8及以下不支持，用document.documentElement.scrollLeft来替代
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    window.<a href="">pageYOffset</a>
+                    <span>
+                        设置或返回当前页面相对于窗口显示区左上角的 Y 位置<br>
+                        IE8及以下不支持，用document.documentElement.scrollTop来替代
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] window</h4>
+            <ul>
+                <li class="i-dot-orange">
+                    window.<a href="">innerWidth</a>
+                    <span>
+                        返回窗口的文档显示区的宽度（包括滚动条）<br>
+                        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    window.<a href="">innerHeight</a>
+                    <span>
+                        返回窗口的文档显示区的高度（包括滚动条） <br>
+                        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] screen</h4>
+            <ul>
+                <li>
+                    screen.<a href="">width</a>
+                    <span>
+                        返回屏幕的总宽度
+                    </span>
+                </li>
+                <li>
+                    screen.<a href="">height</a>
+                    <span>
+                        返回屏幕的总高度
+                    </span>
+                </li>
+                <li>
+                    screen.<a href="">availWidth</a>
+                    <span>
+                        返回屏幕的宽度（不包括Windows任务栏）
+                    </span>
+                </li>
+                <li>
+                    screen.<a href="">availHeight</a>
+                    <span>
+                        返回屏幕的高度（不包括Windows任务栏）
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>BOM<span>-</span></h3>
+        <div class="u-list">
+        	<h4>[<span>-</span>] 窗口</h4>
+        	<ul>
+        		<li>
+        			window.<a href="">print()</a>
+        			<span>
+        				打印当前窗口内容
+        			</span>
+        		</li>
+        		<li>
+        			window.<a href="">open</a>([url],[pos],[specs])
+        			<span>
+        				打开一个新浏览器窗口或查找一个已命名的窗口。 <br>
+        				url:打开指定的页面的URL，如果没有指定URL，打开与新的空白窗口。 <br>
+        				name:指定target属性或窗口的名称，_blank/_parent/_self/_top/$name <br>
+        				specs:指定尺寸是显示模式等。
+        				<a href="http://www.runoob.com/jsref/met-win-open.html">参考资料</a>
+        			</span>
+        		</li>
+        		<li>
+        			window.<a href="">close()</a>
+        			<span>
+        				关于浏览器窗口
+        			</span>
+        		</li>
+        		<li>
+            		window.<a href="">opener</a>
+            		<span>
+            			返回对创建此窗口的窗口的引用
+            		</span>
+            	</li>
+        	</ul>
+            <h4>[<span>-</span>] 框架</h4>
+            <ul>
+            	<li>
+            		window.<a href="">length</a>
+            		<span>
+            			返回在当前窗口中frames的数量（包括iframes）
+            		</span>
+            	</li>
+            	<li>
+            		window.<a href="">parent</a>
+            		<span>
+            			返回父窗口对象。
+            		</span>
+            	</li>
+            	<li>
+            		window.<a href="">self</a>
+            		<span>
+            			返回对当前窗口的引用。
+            		</span>
+            	</li>
+            	<li>
+            		window.<a href="">top</a>
+            		<span>
+            			返回当前窗口的最顶层浏览器窗口<br>
+            			可通过window.top!=window.self判断在iframe中
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] 弹窗</h4>
+            <ul>
+            	<li>
+            		<a href="">alert</a>('msg')
+            		<span>
+            			显示带有一段消息和一个确认按钮的警告框
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">confirm</a>('msg')
+            		<span>
+            			显示一个带有指定消息和确认及取消按钮的对话框 <br>
+            			点击确定返回true，否则返回false。
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">prompt</a>('msg',[txt])
+            		<span>
+            			显示可提示用户进行输入的对话框 <br>
+            			txt为默认填写的内容，可选。 <br>
+            			返回用户输入的字符串。
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] 定时器</h4>
+            <ul>
+            	<li>
+            		<a href="">setTimeout</a>(fn,time)
+            		<span>
+            			在指定的毫秒数后调用函数或计算表达式
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">setInterval</a>(fn,time)
+            		<span>
+            			按照指定的周期（以毫秒计）来调用函数或计算表达式
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearTimeout</a>(timeout)
+            		<span>
+            			取消由 setTimeout() 方法设置的 timeout
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearInterval</a>(timeout)
+            		<span>
+            			取消由 setInterval() 设置的 timeout
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] Navigator</h4>
+            <ul>
+                <li>
+                    navigator.<a href="">appVersion</a>
+                    <span>
+                        返回浏览器的平台和版本信息
+                    </span>
+                </li>
+                <li>
+                    navigator.<a href="">userAgent</a>
+                    <span>
+                        返回由客户机发送服务器的user-agent 头部的值
+                    </span>
+                </li>
+                <li>
+                    navigator.<a href="">cookieEnabled</a>
+                    <span>
+                        返回指明浏览器中是否启用 cookie 的布尔值
+                    </span>
+                </li>
+                <li>
+                    navigator.<a href="">platform</a>
+                    <span>
+                        返回运行浏览器的操作系统平台 <br>
+                        Win32
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] Location</h4>
+            <ul>
+                <li>
+                    location.<a href="">href</a>
+                    <span>
+                        返回完整的url
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">hash</a>
+                    <span>
+                        返回一个url的锚部分：#hash
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">search</a>
+                    <span>
+                        返回一个url的查询部分：?x=search
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">pathname</a>
+                    <span>
+                        返回url路径（除去域名协议部分）
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">hostname</a>
+                    <span>
+                        返回url的主机名 <br>
+                        www.xxx.com
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">port</a>
+                    <span>
+                        返回url服务器使用的端口
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">protocol</a>
+                    <span>
+                        返回一个url协议 <br> http:
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">reload</a>([true])
+                    <span>
+                        重新载入当前文档。当设置true时，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">replace</a>(url)
+                    <span>
+                        用新的文档替换当前文档
+                    </span>
+                </li>
+                <li>
+                    location.<a href="">assign</a>(url)
+                    <span>
+                        载入一个新的文档
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+	<div id="HTML5" class="c-tab">
 	<div class="u-col">
     <div class="u-block">
         <h3>Meta<span>-</span></h3>
@@ -2662,7 +6006,7 @@
                     IE网页评级
                 </span></li>
                 <li><a href="">Content-Security-Policy</a><span>
-                    <pre><code data-language="html"><meta http-equiv="Content-Security-Policy" content="default-src 'self'"></code></pre>
+                    <pre><code data-language="html">&lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'"&gt;</code></pre>
                     对外部资源加载的限制（允许控制从哪里加载资源）<br>
                     <a href="http://www.ruanyifeng.com/blog/2016/09/csp.html" target="_blank">参考资料</a>
                 </span></li>
@@ -2699,7 +6043,7 @@
             <ul>
                 <li><a href="">script</a><span>
                         也可以写在body区域或底部,推荐放在底部加载<br>
-                        <pre><code data-language="html"><script src="--?"></script></code></pre>
+                        <pre><code data-language="html"> &lt;script src="--"&gt;&lt;/script&gt; </code></pre>
                         defer延迟执行，async异步加载不影响其他加载【但不要含文档修改】 
                         </span></li>
                 <li><a href="">noscript</a><span>
@@ -2796,1425 +6140,32 @@
         </div>
     </div>
 </div>
-</div>
-
-	<div id="Git" class="c-tab">
-	<div class="u-col">
-  <div class="u-block">
-      <h3>设置<span>-</span></h3>
-      <div class="u-list">
-            <h4>[<span>-</span>] 资料</h4>
-            <ul>
-                <li><a href="">下载安装</a>
-                    <span>
-                        <a href="https://git-scm.com/download/linux">Linux</a> / 
-                        <a href="https://git-scm.com/download/mac">Mac</a> / 
-                        <a href="https://git-for-windows.github.io/">Windows</a> /
-                        <a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">更多</a>
-                    </span>
-                </li>
-                <li>
-                    <a href="">帮助命令</a>
-                    <span>
-                        git help $cmd<br>
-                        git $cmd --help 
-                    </span>
-                </li>
-                <li>
-                    <a href="https://git-scm.com/docs">参考手册</a>
-                </li>
-                <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
-            </ul>
-            <h4>[<span>+</span>] 教程</h4>
-            <ul style="display:none">
-                <li><a href="https://www.shiyanlou.com/courses/4">Git实践</a></li>
-                <li><a href="https://www.shiyanlou.com/courses/616">Git服务器实践</a></li>
-                <li><a href="http://gitref.org/zh/index.html">Git参考手册</a></li>
-                <li><a href="http://gitbook.liuhui998.com/">Git Community Book 中文版</a></li>
-                <li><a href="http://www.runoob.com/git/git-tutorial.html">菜鸟教程版</a></li>
-                <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰版</a></li>
-            </ul>
-            <h4>[<span>-</span>] 配置</h4>
-            <ul>
-                <li>
-                    <a href="">config</a>
-                    <span>
-                        <b>/etc/gitconfig</b><br>
-                        系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。<br>
-                        <b>~/.gitconfig</b><br>
-                        用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。<br>
-                        <b>.git/config</b><br>
-                        当前项目的 Git 目录中的配置文件（也就是工作目录中的）<br>
-                        这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
-                    </span>
-                </li>
-                <li>
-                    <a href="">config --list</a>
-                    <span>查看各项设置值。<br>
-                    </span>
-                </li>
-                <li>
-                    <a href="">config user.[option]</a>
-                    <span>
-                        $ git config --global user.name "username" <br>
-                        $ git config --global user.email user@example.com <br>
-
-                        使用了 --global 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 --global 选项的命令来配置。
-                    </span>
-                </li>
-                <li>
-                    ssh key<a href=""></a>
-                    <span>
-                        1.查看是否已存在ssh密钥：cd ~/.ssh <br>
-                        2.生成密钥： ssh-keygen -t rsa -C "username@mail.com" 按3个回车,密码为空 <br>
-                        3.得到文件：id_rsa私钥和id_rsa.pub公钥 <br>
-                        4.添加密钥到ssh：ssh-add $file.name
-                    </span>
-                </li>
-                <li>
-                    .gitignore<a href=""></a>
-                    <span>需要被忽略的文件<br>
-                        <a href="https://github.com/github/gitignore">查看多语言范本</a><br>
-                        .gitignore 的格式规范如下：
-                        <hr>
-                        所有空行或者以 ＃ 开头的行都会被 Git 忽略。<br>
-                        可以使用标准的 glob 模式匹配。<br>
-                        匹配模式可以以（/）开头防止递归。<br>
-                        匹配模式可以以（/）结尾指定目录。<br>
-                        要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。<br>
-                        <hr>
-                        所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。 <br>
-                        星号（*）匹配零个或多个任意字符；<br>
-                        [abc] 匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；<br>
-                        问号（?）只匹配一个任意字符；<br>如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 [0-9] 表示匹配所有 0 到 9 的数字）。 <br>
-                        使用两个星号（*) 表示匹配任意中间目录，比如`a/**/z` 可以匹配 a/z, a/b/z 或 `a/b/c/z`等。
-                    </span>
-                </li>
-            </ul>
-      </div>
-  </div>
-</div>
-	<div class="u-col">
-  <div class="u-block">
-      <h3>基础<span>-</span></h3>
-      <div class="u-list">
-      		<h4>[<span>-</span>] 创建</h4>
-            <ul>
-                <li>
-                    <a href="">init</a>
-                    <span>git init 使用当前目录初始化一个项目</span>
-                </li>
-                <li>
-                    <a href="">init</a> (path)
-                    <span>git init dirname 使用指定目录初始化一个项目</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 克隆</h4>
-            <ul>
-                <li>
-                    fork<a href=""></a>
-                    <span>从别人的项目分支一个版本至你的git服务器仓库</span>
-                </li>
-                <li>
-                    (url)<a href=""></a>
-                    <span>
-                        支持多种数据传输协议，url可以为https:// 、git:// 、git@ 、user@server:path/to/repo.git等。
-                    </span>
-                </li>
-                <li>
-                    <a href="">clone</a> (url)
-                    <span>dir缺省时，会创建一个和项目同名的目录</span>
-                </li>
-                <li>
-                    <a href="">clone</a> (url) (path)
-                    <span>指定dir时生成对应的文件夹名</span>
-                </li>
-                <li>
-                    <a href="">clone</a> (url) ./
-                    <span>./时则在此目录下直接克隆</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 添加/提交</h4>
-            <ul>
-                <li>
-                    <a href="">add</a> [glob]
-                    <span>
-                        跟踪新文件，加入缓存区INDEX<br>
-                        git add file1 file2 file3 <br>
-                        git add */. <br>
-                        git add *.js
-                    </span>
-                </li>
-                <li>
-                    <a href="">commit</a> -m 
-                    <span>
-                        提交修改，将缓存区内容添加到仓库中<br>
-                        git commit -m "message" <br>
-                    </span>
-                </li>
-                <li>
-                    <a href="">commit</a> -a -m
-                    <span>
-                        git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）
-                    </span>
-                </li>
-                <li>
-                    <a href="">commit</a>
-                    <span>
-                        git commit 这种方式会启动文本编辑器以便输入本次提交的说明。<br>
-                        默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。<br>
-                        当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件。<br>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 查看/对比</h4>
-            <ul>
-                <li>
-                    <a href="">status</a> [-s]
-                    <span>检查状态<br>
-                        git status -s 简易查看 <br>
-                        新添加的未跟踪文件前面有 ?? 标记 <br>
-                        新添加到暂存区中的文件前面有 A 标记<br>
-                        修改过的文件前面有 M 标记。 <br>
-                        出现在右边的 M 表示该文件被修改了但是还没放入暂存区<br>
-                        出现在靠左边的 M 表示该文件被修改了并放入了暂存区。<br>
-                        AM状态的意思是，这个文件在我们将它添加到缓存之后又有改动
-                    </span>
-                </li>
-                <li>
-                    <a href="">diff</a> [--cached]
-                    <span>查看修改<br>
-                    git diff : 尚未缓存的改动 <br>
-                    git diff --cached : 查看已缓存的改动 (同git diff --staged [1.6+]) <br>
-                    git diff HEAD : 查看已缓存的与未缓存的所有改动 <br>
-                    git diff --stat : 显示摘要而非整个 diff
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 修改/回退</h4>
-            <ul>
-                <li>
-                    <a href="">checkout</a> -- (file)
-                    <span>
-                        git checkout -- filename 撤销对文件的修改，如果被工作区删除也可作为恢复 <br>
-                        一种是自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>
-                        一种是已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>
-                        总之，就是让这个文件回到最近一次git commit或git add时的状态。
-                    </span>
-                </li>
-                <li>
-                    <a href="">reset</a> HEAD [file]
-                    <span>
-                        git reset HEAD 取消目前所有暂存的文件（仍在工作区）<br>
-                        git reset HEAD filename 取消某个文件的暂存状态<br>
-                        <hr>
-                        场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。<br>
-                        场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。<br>
-                        场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 删除/移动</h4>
-            <ul>
-                <li>
-                    <a href="">rm</a> (file) [--cached][-f]
-                    <span>
-                    git rm 将文件从缓存区和你的硬盘中(工作目录)删除<br>
-                    git rm --cached 只从缓存区中移除，工作目录中保存<br>
-                    git rm -f 强制删除，删除之前修改过并且已经放到暂存区域的 <br>
-                    </span>
-                </li>
-                <li>
-                    <a href="">rm</a> -r (dir)
-                    <span>
-                        git rm -r dirname 删除目录及目录内容 <br>
-                        当该目录没有stage时，无法进行该操作，直接执行shell命令rm操作即可。
-                    </span>
-                </li>
-                <li>
-                    <a href="">mv</a> (from) (to) 
-                    <span>
-                        同linux mv命令，自动判定执行“移动”或“重命名”操作。<br>
-                        git mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
-                        git mv 文件名 目录名 : 将文件移动到目标目录 <br>
-                        git mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名（当源文件为空时不可移动） <br>
-                        git mv 目录名 文件名 : 出错
-                    </span>
-                </li>
-            </ul>
-      </div>
-  </div>
-</div>
-	<div class="u-col">
-  <div class="u-block">
-      <h3>分支<span>-</span></h3>
-      <div class="u-list">
-            <h4>[<span>-</span>] 历史记录</h4>
-            <ul>
-                <li>
-                    <a href="">log</a>[--pretty=oneline]
-                    <span>
-                    git log 显示全部提交记录<br>
-                    git log --pretty=oneline 美化显示<br>  
-                    </span>
-                </li>
-                <li>
-                  <a href="">reflog</a>
-                  <span>查看每一次命令</span>
-                </li>
-            </ul>
-      </div>
-  </div>
-</div>
-	<div class="u-col">
-  <div class="u-block">
-      <h3>回档<span>-</span></h3>
-      <div class="u-list">
-            <h4>[<span>-</span>] 回退</h4>
-            <ul>
-                <li>
-                    <a href="">reset</a> --hard (SHA1)
-                    <span>
-                    HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，往上100个版本HEAD~100。<br> 
-                    </span>
-                </li>
-            </ul>
-      </div>
-  </div>
-</div>
-</div>
-
-	<div id="linux" class="c-tab">
-	<div class="u-col">
-  <div class="u-block">
-	  	<h3>文件夹<span>-</span></h3>
-	  	<div class="u-list">
-			<h4>[<span>-</span>] 创建与切换</h4>
-			<ul>
-				<li>
-					<a href="">mkdir</a> (dirname)
-					<span>创建文件夹 mkdir testdir</span>
-				</li>
-				<li>
-					<a href="">cd</a> (path)
-					<span>切换至文件夹 cd /web/www/ <br>
-					切换至上级目录 cd .. 
-					</span>
-				</li>
-				<li>
-					<a href="">pwd</a>
-					<span>显示当前目录</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 查看</h4>
-			<ul>
-				<li>
-					<a href="">ls</a>
-					<span>列出当前目录下文件</span>
-				</li>
-				<li>
-					<a href="">ls -al</a>
-					<span>列出当前目录下文件（包含隐藏文件）</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 删除</h4>
-			<ul>
-				<li>
-					<a href="">rm -r</a> (dir)
-					<span>删除文件夹 rm -r dir1</span>
-				</li>
-			</ul>
-	  	</div>
-	  	<h3>文件<span>-</span></h3>
-	  	<div class="u-list">
-			<h4>[<span>-</span>] 创建</h4>
-			<ul>
-				<li>
-					<a href="">touch</a> (file)
-					<span>创建文件 touch file1 file2..</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 查看</h4>
-			<ul>
-				<li>
-					<a href="">cat</a> (file)
-					<span>查看文件内容 cat file.txt</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 修改</h4>
-			<ul>
-				<li>
-					<a href="">echo</a> (text) >> (file)
-					<span>对文件输出内容 echo "text" >> file.txt</span>
-				</li>
-				<li>
-					<a href="">vim</a> (file)
-					<span>编辑文件内容 vim file.txt</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 删除</h4>
-			<ul>
-				<li>
-					<a href="">rm</a> (file)
-					<span>删除文件 rm file1 file2..</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 移动与重命名</h4>
-			<ul>
-				<li>
-					<a href="">mv</a> (file)
-					<span></span>
-				</li>
-			</ul>
-	  	</div>
-	  	<h3>文件夹/文件<span>-</span></h3>
-	  	<div class="u-list">
-			<h4>[<span>-</span>] 移动</h4>
-			<ul>
-				<li>
-					<a href="">rm</a> (from) (to)
-					<span>
-						mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
-						mv 文件名 目录名 : 将文件移动到目标目录 <br>
-						mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名 <br>
-						mv 目录名 文件名 : 出错
-					</span>
-				</li>
-			</ul>
-	  	</div>
-  	</div>
-</div>
-	<div class="u-col">
-  <div class="u-block">
-      <h3>Vim<span>-</span></h3>
-      <div class="u-list">
-            <h4>[<span>-</span>] 查看</h4>
-            <ul>
-                <li>
-                    <a href="https://git-scm.com/docs">参考手册</a>
-                </li>
-                <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
-            </ul>
-      </div>
-      <!-- 快乐命令行 -->
-  </div>
-</div>
-</div>
-
-	<div id="Python" class="c-tab">
 	<div class="u-col">
     <div class="u-block">
-        <h3>基础<span>-</span></h3>
+        <h3>Web Workers<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 安装使用</h4>
+            <h4>[<span>-</span>] </h4>
             <ul>
-                <li>
-                    <a href="">交互模式与文件运行区别</a>
-                    <span>1.直接输入python进入交互模式，相当于启动了Python解释器，但是等待你一行一行地输入源代码，每输入一行就执行一行。<br>
-                    2.直接运行oython xxx.py文件相当于启动了Python解释器，然后一次性把.py文件的源代码给执行了，你是没有机会输入源代码的。</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 语法规则</h4>
-            <ul>
-                <li>
-                    <a href="">保留字</a>
-                    <span>
-                        <pre><code data-language="python">
-                        >>> import keyword
-                        >>> keyword.kwlist
-                        ['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
-                        </code></pre>
-                    </span>
-                </li>
-                <li>
-                    <a href="">注释</a>
-                    <span>
-                        <pre><code data-language="python">
-                        # 单行注释
-                        '''
-                            三个单引号
-                        '''
-                        """
-                            三个双引号
-                        """
-                        </code></pre>
-                    </span>
-                </li>
-                <li>
-                    <a href="">编码</a>
-                    <span>
-                        Python 3 源码文件以 UTF-8 编码，所有字符串都是 unicode 字符串。 <br>
-                        当然你也可以为源码文件指定不同的编码：<br>
-                        # -*- coding: cp-1252 -*-
-                    </span>
-                </li>
-                <li>
-                    <a href="">多行</a>\ '''
-                    <span>
-                        【<b>\</b>】代码多行连接：<br>
-                        Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠(\)来实现多行语句，例如：
-                        <pre><code data-language="python">
-                        total = item_one + \
-                                item_two + \
-                                item_three
-                        </code></pre>
-                        但在 [], {}, 或 () 中的多行语句，不需要使用反斜杠(\)，例如：
-                        <pre><code data-language="python">
-                        total = ['item_one', 'item_two', 'item_three',
-                                'item_four', 'item_five']
-                        </code></pre>
-                        <hr>
-                        【<b>'''</b>】三引号段落多行连接：<br>
-                        使用三引号('''或""")可以指定一个多行字符串。
-                        <pre><code data-language="python">
-                        paragraph = """这是一个段落，
-                        可以由多行组成"""
-                        </code></pre>
-                    </span>
-                </li>
-                <li>
-                    <a href="">转义符</a>\ r
-                    <span>
-                        \n 换行符 <br>
-                        \t 制表符 <br>
-                        自然字符串， 通过在字符串前加r或R。 如 r"this is a line with \n" 则\n会显示，并不是换行。
-                    </span>
-                </li>
-                <li>
-                    <a href="">变量</a>
-                    <span>
-                        变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。<br>
-                        1.<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658624177ea4f8fcb06bc4d0e8aab2fd7aa65dd95000">变量的指向</a><br>
-                        2.Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。<br>
-                        3.同时为多个变量赋值：a = b = c = 1 <br>
-                        4.为多个对象指定多个变量：a, b, c = 1, 2, "test"
-                    </span>
-                </li>
-                <li>
-                    <a href="">常量</a>
-                    <span>
-                        常量仍然可以修改，全部大写定义。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 运算</h4>
-            <ul>
-                <li>
-                    <a href="">算数运算符</a>
-                    <span>
-                        <table>
-                            <caption>算数运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>+</td>
-                                <td>相加</td>
-                                <td>数据串联</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>相减，负数</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>*</td>
-                                <td>相乘</td>
-                                <td>重复若干次的数据</td>
-                            </tr>
-                            <tr>
-                                <td>**</td>
-                                <td>乘方</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>/</td>
-                                <td>精确除法</td>
-                                <td>总是返回一个浮点数，例如6/3=2.0</td>
-                            </tr>
-                            <tr>
-                                <td>//</td>
-                                <td>地板除</td>
-                                <td>只取整数部分</td>
-                            </tr>
-                            <tr>
-                                <td>%</td>
-                                <td>取余数</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">比较运算符</a>
-                    <span>
-                        <table>
-                            <caption>比较运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>==</td>
-                                <td>等于</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>!=</td>
-                                <td>不等于</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&gt;</td>
-                                <td>大于</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&lt;</td>
-                                <td>小于</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&gt;=</td>
-                                <td>大于等于</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&lt;=</td>
-                                <td>小于等于</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">赋值运算符</a>
-                    <span>
-                        <table>
-                            <caption>赋值运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>=</td>
-                                <td>简单的赋值运算符</td>
-                                <td>c = a + b 将 a + b 的运算结果赋值为 c</td>
-                            </tr>
-                            <tr>
-                                <td>+=</td>
-                                <td>加法赋值运算符</td>
-                                <td>c += a 等效于 c = c + a</td>
-                            </tr>
-                            <tr>
-                                <td>-=</td>
-                                <td>减法赋值运算符</td>
-                                <td>c -= a 等效于 c = c - a</td>
-                            </tr>
-                            <tr>
-                                <td>*=</td>
-                                <td>乘法赋值运算符</td>
-                                <td>c *= a 等效于 c = c * a</td>
-                            </tr>
-                            <tr>
-                                <td>/=</td>
-                                <td>除法赋值运算符</td>
-                                <td>c /= a 等效于 c = c / a</td>
-                            </tr>
-                            <tr>
-                                <td>%=</td>
-                                <td>取模赋值运算符</td>
-                                <td>c %= a 等效于 c = c % a</td>
-                            </tr>
-                            <tr>
-                                <td>**=</td>
-                                <td>幂赋值运算符</td>
-                                <td>c **= a 等效于 c = c ** a</td>
-                            </tr>
-                            <tr>
-                                <td>//=</td>
-                                <td>取整除赋值运算符</td>
-                                <td>c //= a 等效于 c = c // a</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">位运算符</a>
-                    <span>
-                        <table>
-                            <caption>位运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>&</td>
-                                <td>按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0</td>
-                                <td>(a & b) 输出结果 12 ，二进制解释： 0000 1100</td>
-                            </tr>
-                            <tr>
-                                <td>|</td>
-                                <td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。</td>
-                                <td>(a | b) 输出结果 61 ，二进制解释： 0011 1101</td>
-                            </tr>
-                            <tr>
-                                <td>^</td>
-                                <td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
-                                <td>(a ^ b) 输出结果 49 ，二进制解释： 0011 0001</td>
-                            </tr>
-                            <tr>
-                                <td>~</td>
-                                <td>按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1</td>
-                                <td>(~a ) 输出结果 -61 ，二进制解释： 1100 0011， 在一个有符号二进制数的补码形式。</td>
-                            </tr>
-                            <tr>
-                                <td><<</td>
-                                <td>左移动运算符：运算数的各二进位全部左移若干位，由"<<"右边的数指定移动的位数，高位丢弃，低位补0。< td="">
-                                <td>a << 2 输出结果 240 ，二进制解释： 1111 0000</td>
-                            </"右边的数指定移动的位数，高位丢弃，低位补0。<></td></tr>
-                            <tr>
-                                <td>>></td>
-                                <td>右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，">>"右边的数指定移动的位数</td>
-                                <td>a >> 2 输出结果 15 ，二进制解释： 0000 1111</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">逻辑运算符</a>
-                    <span>
-                        以下假设变量 a 为 10, b为 20:
-                        <table>
-                            <caption>逻辑运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>and</td>
-                                <td>x and y。布尔"与"。如果 x 为 False，返回 False，否则它返回 y 的计算值。</td>
-                                <td>(a and b) 返回 20。</td>
-                            </tr>
-                            <tr>
-                                <td>or</td>
-                                <td>x or y。布尔"或"。如果 x 是 True，它返回 True，否则它返回 y 的计算值。</td>
-                                <td>(a or b) 返回 10。</td>
-                            </tr>
-                            <tr>
-                                <td>not</td>
-                                <td>not x。布尔"非"。如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
-                                <td>not(a and b) 返回 False</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">成员运算符</a>
-                    <span>
-                        <table>
-                            <caption>成员运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>in</td>
-                                <td>如果在指定的序列中找到值返回 True，否则返回 False。</td>
-                                <td>x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
-                            </tr>
-                            <tr>
-                                <td>not in</td>
-                                <td>如果在指定的序列中没有找到值返回 True，否则返回 False。</td>
-                                <td>x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">身份运算符</a>
-                    <span>
-                        <table>
-                            <caption>身份运算符</caption>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                                <th>更多</th>
-                            </tr>
-                            <tr>
-                                <td>is</td>
-                                <td>is是判断两个标识符是不是引用自一个对象</td>
-                                <td>x is y, 如果 id(x) 等于 id(y) , is 返回结果True</td>
-                            </tr>
-                            <tr>
-                                <td>is not</td>
-                                <td>is not是判断两个标识符是不是引用自不同对象</td>
-                                <td>x is not y, 如果 id(x) 不等于 id(y). is not 返回结果True</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">运算符优先级</a>
-                    <span>
-                        <table>
-                            <tr>
-                                <th>运算符</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>**</td>
-                                <td>指数 (最高优先级)</td>
-                            </tr>
-                            <tr>
-                                <td>~ + -</td>
-                                <td>按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)</td>
-                            </tr>
-                            <tr>
-                                <td>* / % //</td>
-                                <td>乘，除，取模和取整除</td>
-                            </tr>
-                            <tr>
-                                <td>+ -</td>
-                                <td>加法减法</td>
-                            </tr>
-                            <tr>
-                                <td>>> <<</td>
-                                <td>右移，左移运算符</td>
-                            </tr>
-                            <tr>
-                                <td>&</td>
-                                <td>位 'AND'</td>
-                            </tr>
-                            <tr>
-                                <td>^ |</td>
-                                <td>位运算符</td>
-                            </tr>
-                            <tr>
-                                <td><= <=""> >=</=></td>
-                                <td>比较运算符</td>
-                            </tr>
-                            <tr>
-                                <td><> == !=</td>
-                                <td>等于运算符</td>
-                            </tr>
-                            <tr>
-                                <td>= %= /= //= -= += *= **=</td>
-                                <td>赋值运算符</td>
-                            </tr>
-                            <tr>
-                                <td>is is not</td>
-                                <td>身份运算符</td>
-                            </tr>
-                            <tr>
-                                <td>in not in</td>
-                                <td>成员运算符</td>
-                            </tr>
-                            <tr>
-                                <td>not or and</td>
-                                <td>逻辑运算符</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] I/O</h4>
-            <ul>
-                <li>
-                    <a href="">print()</a>
-                    <span>
-                        输出<br>
-                        print 默认输出是换行的，如果要实现不换行需要在变量末尾加上,end=""<br>
-                        print ('test') <br>
-                        print ('a','b','c') 每个逗号生成一个空格<br>
-                        print ("Let's go") <br>
-                        print ('Let\'s go') <br>
-                        print (r"Let's go") <br>
-                        python2.x可以无括号。
-                    </span>
-                </li>
-                <li>
-                    <a href="">input()</a>
-                    <span>
-                        输入 <br>
-                        input('输入提示信息：') <br>
-                        python2.x为raw_input()
-                    </span>
-                </li>
-                <li>
-                    <a href="">exit()</a>
-                    <span>
-                        退出
-                    </span>
-                </li>
-                <li>
-                    <a href="">help()</a>
-                    <span>
-                        help(fn) 查看帮助
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 控制流</h4>
-            <ul>
-                <li>
-                    <a href="">if..elif..else..</a>
-                    <span>条件语句
-                    </span>
-                </li>
-                <li>
-                    <a href="">while...</a>[else]
-                    <span>条件循环
-                    </span>
-                </li>
-                <li>
-                    <a href="">for...in...</a>[else]
-                    <span>迭代循环
-                    </span>
-                </li>
-                <li>
-                    <a href="">break</a>
-                    <span>中断循环，可写在默认循环结果句前
-                    </span>
-                </li>
-                <li>
-                    <a href="">continue</a>
-                    <span>跳过当前循环，可写在默认循环结果句前中断循环之后
-                    </span>
-                </li>
-                <li>
-                    <a href="">pass</a>
-                    <span>指示一个没有内容的语句块</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 函数</h4>
-            <ul>
-                <li>
-                    <a href="">def</a>fn(var)
-                    <span>定义函数<br>
-                    函数中可用'''...'''定义一段文档字符串。<br>
-                    使用print(fn.__doc__)可打印查看
-                    </span>
-                </li>
-                <li>
-                    <a href="">global</a>var
-                    <span>定义或声明变量为全局</span>
-                </li>
-                <li>
-                    <a href="">return</a>
-                    <span>中断函数或从函数中返回一个值。<br>
-                    如果 return 语句没有搭配任何一个值则代表着 返回 None。<br>每一个函数都在其末尾隐含了一句 return None，除非你写了你自己的 return 语句。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 模块</h4>
-            <ul>
-                <li>
-                    <a href="">import</a>module
-                    <span>引入一个模块</span>
-                </li>
-                <li>
-                    <a href="">form module import $</a>
-                    <span>将外部模块变量本地化<br>
-                    form module import * <br>
-                    引入全部变量与函数，但不包括以下划线开头部分。
-                    </span>
-                </li>
-                <li>
-                    <a href="">__name__</a>
-                    <span>当模块为独立运行时，值为__main__</span>
-                </li>
-                <li>
-                    <a href="">dir</a>([module])
-                    <span>返回这一指定模块的名称列表，会包括函数内所定义的函数、类与变量。<br>
-                    参数为空时，返回当前模块的相关列表。</span>
-                </li>
             </ul>
         </div>
     </div>
-</div>
-	<div class="u-col">
     <div class="u-block">
-        <h3>数据<span>-</span></h3>
+        <h3>SSE<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 数据类型</h4>
+            <h4>[<span>-</span>] </h4>
             <ul>
-                <li>
-                    <a href="">None</a>None
-                    <span>
-                        空值
-                    </span>
-                </li>
-                <li>
-                    <a href="">int</a>
-                    <span>
-                        整数，支持16进制，0xff00
-                    </span>
-                </li>
-                <li>
-                    <a href="">float</a>1.23e-5
-                    <span>
-                        1.23e9，1.23e-5
-                    </span>
-                </li>
-                <li>
-                    <a href="">bool</a>True / False
-                    <span>
-                        True / False <br>
-                        区分大小写 <br>
-                        在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。
-                    </span>
-                </li>
-                <li>
-                    <a href="">complex</a>3+4j
-                    <span>
-                    </span>
-                </li>
-                <li>
-                    <a href="">string</a>'str'
-                    <span>
-                        字符串用单引号(')或双引号(")括起来，同时使用反斜杠(\)转义特殊字符。<br>
-                        Python 字符串不能被改变。向一个索引位置赋值，比如word[0] = 'm'会导致错误。<br>
-                        索引值以 0 为开始值，-1 为从末尾的开始位置。 <br>
-                        字符串截取：变量[头下标:尾下标]，不包含最后位置 <br>
-                        加号 (+) 是字符串的连接符 <br>
-                        星号 (*) 表示复制当前字符串 
-                        <pre><code data-language="python">
-                        str = 'ABCDEFG'
-                        print (str)          # 输出字符串
-                        print (str[0:-1])    # 输出第一个个到倒数第二个的所有字符
-                        print (str[0])       # 输出字符串第一个字符
-                        print (str[2:5])     # 输出从第三个开始到第五个的字符
-                        print (str[2:])      # 输出从第三个开始的后的所有字符
-                        print (str * 2)      # 输出字符串两次
-                        print (str + "TEST") # 连接字符串
-                        </code></pre>
-                    </span>
-                </li>
-                <li>
-                    <a href="">tuple</a>(1,'a')
-                    <span>
-                        元组（tuple）与列表类似，不同之处：<br>
-                        1.元组的元素不能修改 <br>
-                        2.元组写在小括号()里 <br>
-                        3.空元组 tup1 = () <br>
-                        4.一个元素，需要在元素后添加逗号 tup2 = (20,) 否则非元组，而是单元素<br>
-                        5.tuple的元素不可改变，但它可以包含可变的对象，比如list列表。
-                    </span>
-                </li>
-                <li>
-                    <a href="">list</a>[1,'a']
-                    <span>
-                        列表是写在方括号[]之间、用逗号分隔开的元素列表。<br>
-                        List中的元素是可以改变的。<br>
-                        索引值以 0 为开始值，-1 为从末尾的开始位置。 <br>
-                        列表截取：变量[头下标:尾下标]，不包含最后位置 <br>
-                        加号 (+) 是字符串的连接符 <br>
-                        星号 (*) 表示复制当前字符串
-                        <pre><code data-language="python">
-                        list = [ 'abcd', 786 , 2.23, 'runoob', 70.2 ]
-                        tinylist = [123, 'runoob']
-
-                        print (list)            # 输出完整列表
-                        print (list[0])         # 输出列表第一个元素
-                        print (list[1:3])       # 从第二个开始输出到第三个元素
-                        print (list[2:])        # 输出从第三个元素开始的所有元素
-                        print (tinylist * 2)    # 输出两次列表
-                        print (list + tinylist) # 连接列表
-                        </code></pre>
-                    </span>
-                </li>
-                <li>
-                    <a href="">set</a>{'a','b'}/set('aabc')
-                    <span>
-                        集合（set）是一个无序不重复元素的序列。基本功能是进行成员关系测试和删除重复元素。<br>
-                        可以使用大括号({})或者 set()函数创建集合。<br>
-                        创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。<br>
-                        使用set()时最多传入1个参数。
-                        <hr>
-                        <table>
-                            <tr>
-                                <th>运算符</th>
-                                <th>结果</th>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>前者存在后者不存在</td>
-                            </tr>
-                            <tr>
-                                <td>^</td>
-                                <td>不同时存在的元素</td>
-                            </tr>
-                            <tr>
-                                <td>|</td>
-                                <td>并集</td>
-                            </tr>
-                            <tr>
-                                <td>&</td>
-                                <td>交集</td>
-                            </tr>
-                            
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">dictionary</a>{'k':'v'}/dict()
-                    <span>
-                        列表是有序的对象结合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。字典是一种映射类型，字典用"{ }"标识，它是一个无序的键(key) : 值(value)对集合。键(key)必须使用不可变类型。在同一个字典中，键(key)必须是唯一的。<br>
-                        内置函数：clear()清空、keys()键组、values()值组。
-                        <pre><code data-language="python">
-                        tinydict = {'name': 'test','code':1, 'site': 'www.test.com'}
-                        print (tinydict.keys())   # 输出所有键
-                        #tinydict_keys(['name', 'site', 'code'])
-                        print (tinydict.values()) # 输出所有值
-                        #tinydict_values(['test', 'www.test.com', 1])
-                        </code></pre>
-                        构造函数 dict() 可以直接从键值对序列中构建字典如下：
-                        <pre><code data-language="python">
-                        >>> dict([('Runoob', 1), ('Google', 2), ('Taobao', 3)])
-                        {'Taobao': 3, 'Runoob': 1, 'Google': 2}
-
-                        >>> dict(Runoob=1, Google=2, Taobao=3)
-                        {'Taobao': 3, 'Runoob': 1, 'Google': 2}
-
-                        >>> {x: x**2 for x in (2, 4, 6)}
-                        {2: 4, 4: 16, 6: 36}
-                        </code></pre>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 类型检测</h4>
-            <ul>
-                <li>
-                    <a href="">type</a>(var)
-                    <span>
-                        查询变量所指的对象类型
-                    </span>
-                </li>
-                <li>
-                    <a href="">isinstance</a>(var,$type)
-                    <span>
-                        判断变量所指的对象类型 <br>
-                        isinstance(a, int) <br>
-                        type()不会认为子类是一种父类类型。isinstance()会认为子类是一种父类类型。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 类型转换</h4>
-            <ul>
-            	<li>
-            		<a href="">int</a>(x [,base])
-            		<span>将x转换为一个整数</span>
-            	</li>
-            	<li>
-            		<a href="">float</a>(x)
-            		<span>将x转换到一个浮点数</span>
-            	</li>
-            	<li>
-            		<a href="">bool</a>(x)
-            		<span>将x转换到布尔值</span>
-            	</li>
-            	<li>
-            		<a href="">complex</a>(real [,imag])
-            		<span>
-            			创建一个复数 <br>
-						complex(x) 将x转换到一个复数，实数部分为 x，虚数部分为 0。<br>
-						complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">str</a>(x)
-            		<span>将对象 x 转换为字符串</span>
-            	</li>
-            	<li>
-            		<a href="">repr</a>(x)
-            		<span>将对象 x 转换为表达式字符串</span>
-            	</li>
-            	<li>
-            		<a href="">eval</a>(str)
-            		<span>用来计算在字符串中的有效Python表达式,并返回一个对象</span>
-            	</li>
-            	<li>
-            		<a href="">tuple</a>(s)
-            		<span>将序列 s 转换为一个元组</span>
-            	</li>
-            	<li>
-            		<a href="">list</a>(s)
-            		<span>将序列 s 转换为一个列表</span>
-            	</li>
-            	<li>
-            		<a href="">set</a>(s)
-            		<span>转换为可变集合</span>
-            	</li>
-            	<li>
-            		<a href="">frozenset</a>(s)
-            		<span>转换为不可变集合</span>
-            	</li>
-            	<li>
-            		<a href="">dict</a>(d)
-            		<span>创建一个字典。d 必须是一个序列 (key,value)元组。</span>
-            	</li>
-            	<li>
-            		<a href="">chr</a>(x)
-            		<span>将一个整数转换为Unicode字符</span>
-            	</li>
-            	<li>
-            		<a href="">ord</a>(x)
-            		<span>将一个字符转换为它的整数值（只能传入1个字符）</span>
-            	</li>
-            	<li>
-            		<a href="">hex</a>(x)
-            		<span>将一个整数转换为一个十六进制字符串，生成的是字符串</span>
-            	</li>
-            	<li>
-            		<a href="">oct</a>(x)
-            		<span>将一个整数转换为一个八进制字符串</span>
-            	</li>
-            </ul>
-            <h4>[<span>-</span>] 数据属性</h4>
-            <ul>
-            	<li>
-            		data<a href="">.clear()</a>
-            		<span>
-            			清空
-            		</span>
-            	</li>
-            	<li>
-            		data<a href="">.keys()</a>
-            		<span>
-            			键组
-            		</span>
-            	</li>
-            	<li>
-            		data<a href="">.values()</a>
-            		<span>
-            			值组
-            		</span>
-            	</li>
-                <li>
-                    dict<a href="">.items()</a>
-                    <span>
-                        键值对
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 对象操作</h4>
-			<ul>
-				<li>
-                    <a href="">del</a>var1,var2
-                    <span>
-                        通过使用del语句删除单个或多个对象
-                    </span>
-                </li>
-			</ul>
-
-            
-        </div>
-    </div>
-</div>
-	<div class="u-col">
-    <div class="u-block">
-        <h3>数字<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 数学函数</h4>
-            <ul>
-                <li>
-                    <a href="">max</a>(x,y,z)
-                    <span>返回给定参数的最大值，参数可以为序列。</span>
-                </li>
-                <li>
-                    <a href="">min</a>(x,y,z)
-                    <span>返回给定参数的最小值，参数可以为序列。</span>
-                </li>
-                <li>
-                    <a href="">abs</a>(x)
-                    <span>绝对值，返回数字的绝对值，如abs(-10) 返回 10</span>
-                </li>
-                <li>
-                    math.<a href="">fabs</a>(x)
-                    <span>绝对值，返回数字的绝对值，如math.fabs(-10) 返回10.0</span>
-                </li>
-                <li>
-                    <a href="">round</a>(x,[n])
-                    <span>返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</span>
-                </li>
-                <li>
-                    math.<a href="">ceil</a>(x)
-                    <span>向上取整，返回数字的上入整数，如math.ceil(4.1) 返回 5</span>
-                </li>
-                <li>
-                    math.<a href="">floor</a>(x)
-                    <span>向下取整，返回数字的下舍整数，如math.floor(4.9)返回 4</span>
-                </li>
-                <li>
-                    <a href="">pow</a>(x,y,[z])
-                    <span>
-                        返回 xy（x的y次方） 的值。<br>
-                        如果z在存在，则再对结果进行取模，其结果等效于pow(x,y) %z
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">sqrt</a>(x)
-                    <span>返回数字x的平方根，数字可以为负数，返回类型为实数，如math.sqrt(4)返回 2+0j</span>
-                </li>
-                <li>
-                    math.<a href="">exp</a>(x)
-                    <span>返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</span>
-                </li>
-                <li>
-                    math.<a href="">log</a>(x)
-                    <span>如math.log(math.e)返回1.0。math.log(100,10)返回2.0</span>
-                </li>
-                <li>
-                    math.<a href="">log10</a>(x)
-                    <span>返回以10为基数的x的对数，如math.log10(100)返回 2.0</span>
-                </li>
-                <li>
-                    math.<a href="">modf</a>(x)
-                    <span>返回x的小数部分与整数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 随机数函数</h4>
-            <ul>
-                <li>
-                    random.<a href="">choice</a>(seq)
-                    <span>
-                        从序列的元素中随机挑选一个元素 <br>
-                        seq -- 可以是一个列表，元组或字符串。<br>
-                        比如random.choice(range(10))，从0到9中随机挑选一个整数。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">randrange</a>([start,] stop [,step])
-                    <span>
-                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
-                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
-                        stop -- 指定范围内的结束值，不包含在范围内。<br>
-                        step -- 指定递增基数，缺省为1。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">random()</a>
-                    <span>
-                        随机生成下一个实数，它在[0,1)范围内。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">seed</a>(x)
-                    <span>
-                        改变随机数生成器的种子seed。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">shuffle</a>(lst)
-                    <span>
-                        将序列的所有元素随机排序 <br>
-                        lst -- 可以是一个序列或者元组。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">uniform</a>(x,y)
-                    <span>
-                       随机生成下一个实数，它在[x,y]范围内。 
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 三角函数</h4>
-            <ul>
-                
-                <li>
-                    math.<a href="">acos</a>(x)
-                    <span>
-                        返回x的反余弦弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">asin</a>(x)
-                    <span>
-                        返回x的反正弦弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">atan</a>(x)
-                    <span>
-                        返回x的反正切弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">atan2</a>(y,x)
-                    <span>
-                        返回给定的 X 及 Y 坐标值的反正切值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">cos</a>(x)
-                    <span>
-                        返回x的弧度的余弦值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">sin</a>(x)
-                    <span>
-                        返回的x弧度的正弦值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">tan</a>(x)
-                    <span>
-                        返回x弧度的正切值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">hypot</a>(x, y)
-                    <span>
-                        返回欧几里德范数 sqrt(x*x + y*y)。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">degrees</a>(x)
-                    <span>
-                        将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">radians</a>(x)
-                    <span>
-                        将角度转换为弧度
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 数学常数</h4>
-            <ul>
-                <li>
-                    math.<a href="">e</a>
-                    <span>自然常数e（约为2.71828）</span>
-                </li>
-                <li>
-                    math.<a href="">pi</a>
-                    <span>圆周率（约为3.14159）</span>
-                </li>
             </ul>
         </div>
     </div>
-</div>
-	<div class="u-col">
     <div class="u-block">
-        <h3>字符串<span>-</span></h3>
+        <h3>Web Socket<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] </h4>
             <ul>
                 <li>
-                    <a href="">.format()</a>
+                    <a href="">onmessage</a>
                     <span>
-                        1/字符串中使用{}来替代需要格式化的内容,索引号可缺省，亦可使用关键词指代。<br>
-                        2/{}中使用:.5f来指定浮点数位数。<br>
-                        3/{}中使用:+^12来指定符号填充至固定字符串长度。+符号,12长度。
+                        该事件通过或者从对象(WebSocket, Web Worker, Event Source 或者子 frame 或父窗口)接收到消息时触发
                     </span>
                 </li>
             </ul>
@@ -4223,35 +6174,102 @@
 </div>
 	<div class="u-col">
     <div class="u-block">
-        <h3>序列<span>-</span></h3>
+        <h3>拖放<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] </h4>
             <ul>
-                <li>
-                    <a href=""></a>
-                    <span></span>
-                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>地理定位<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
             </ul>
         </div>
     </div>
 </div>
 	<div class="u-col">
     <div class="u-block">
-        <h3>函数<span>-</span></h3>
+        <h3>Storage<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] </h4>
             <ul>
-                <li>
-                    <a href="">range</a>(m,n,step)
-                    <span>每次只返回一个数，step代表递增的加数默认为1</span>
+            	<li>
+                    <a href="">onstorage</a>
+                    <span>
+                        该事件在 Web Storage(HTML 5 Web 存储)更新时触发
+                    </span>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>Web SQL<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>Cache Manifest<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>MathML<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+	<div class="u-col">
+	<div class="u-block">
+        <h3>Canvas<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>SVG<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>视频<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
+            </ul>
+        </div>
+        <h3>音频<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] </h4>
+            <ul>
             </ul>
         </div>
     </div>
 </div>
 </div>
 
-	<div id="jQuery" class="c-tab">
+	<div id="jquery" class="c-tab">
 	<div class="u-col">
     <div class="u-block">
     <h3>选择器<span>-</span></h3>
@@ -5317,10 +7335,1048 @@
 </div>
 </div>
 
-
-
-
+	<div id="NODE" class="c-tab">
+	<div class="u-col">
+    <div class="u-block">
+        <h3>基本语法<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 命令行参数</h4>
+            <ul>
+            	<li>node<a href="">--use_strict</a><span></span></li>
+            </ul>
+            <h4>[<span>-</span>] 模块</h4>
+            <ul>
+            	<li><a href="">module.exports = loc_var</a><span>
+            		在模块中对外输出变量 <br>
+            		<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434502419592fd80bbb0613a42118ccab9435af408fd000">实现原理</a>
+            	</span></li>
+            	<li><a href="">var foo = require('quo_mod')</a><span>引入其他模块输出的对象</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>全局对象<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] global</h4>
+            <ul>
+            	<li><a href="">global</a><span>
+            		全局对象
+            	</span></li>
+            	<li><a href="">process</a><span>
+            		当前Node.js进程
+            	</span></li>
+            	<li><a href="">module</a><span></span></li>
+            	<li><a href="">exports</a><span></span></li>
+                <li><a href="">require()</a><span></span></li>
+                <li><a href="">console</a><span></span></li>
+                <li><a href="">__dirname</a><span></span></li>
+                <li><a href="">__filename</a><span></span></li>
+                <li><a href="">Buffer</a><span></span></li>
+                <li><a href="">setImmediate</a><em>(callback[, ...args])</em><span></span></li>
+                <li><a href="">clearImmediate</a><em>(immediateObject)</em><span></span></li>
+                <li><a href="">setInterval</a><em>(callback, delay[, ...args])</em><span></span></li>
+                <li><a href="">clearInterval</a><em>(intervalObject)</em><span></span></li>
+                <li><a href="">setTimeout</a><em>(callback, delay[, ...args])</em><span></span></li>
+                <li><a href="">clearTimeout</a><em>(timeoutObject)</em><span></span></li>
+            </ul>
+        </div>
+    </div>
 </div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>文件系统<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] fs</h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+	
+	
+	
+	
+	<div class="u-col">
+    <div class="u-block">
+        <h3>参考资料<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Doc</h4>
+            <ul>
+            	<li><a href="https://nodejs.org/dist/latest-v6.x/docs/api/">官方文档</a><span></span></li>
+            	<li><a href="http://nodejs.cn/api/">中文文档</a><span></span></li>
+            </ul>
+        </div>
+        <div class="u-list">
+            <h4>[<span>-</span>] Help</h4>
+            <ul>
+                <li><a href="">SublimeText3环境配置</a><span>
+                    1.安装<a href="https://github.com/tanepiper/SublimeText-Nodejs">插件Nodejs</a> <br>
+                    2.首选项-浏览插件目录-nodejs <br>
+                    3.修改Nodejs.sublime-build中的"encoding": "utf8" <br>
+                    4.修改Nodejs.sublime-settings中的"node_command": "C:\\Program Files\\nodejs\\node.exe" <br>
+                    5.修改Nodejs.sublime-settings中的"npm_command": "C:\\Program Files\\nodejs\\npm.cmd"
+                </span></li>
+                <li><a href="https://code.visualstudio.com/">vscode</a><span></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+	<div id="SQL" class="c-tab">
+	+ to be continued..
+</div>
+
+
+
+
+	<div id="Git" class="c-tab">
+	<div class="u-col">
+  <div class="u-block">
+      <h3>配置<span>-</span></h3>
+      <div class="u-list">
+            <h4>[<span>-</span>] 账户</h4>
+            <ul>
+                <li>
+                    <em>config</em><a href=""></a>
+                    <span>
+                        <b>/etc/gitconfig</b><br>
+                        系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。<br>
+                        <b>~/.gitconfig</b><br>
+                        用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。<br>
+                        <b>.git/config</b><br>
+                        当前项目的 Git 目录中的配置文件（也就是工作目录中的）<br>
+                        这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">config --list</a>
+                    <span>查看各项设置值。<br>
+                    </span>
+                </li>
+                <li>
+                    git <a href="">config user.[option]</a>
+                    <span>
+                        $ git config --global user.name "username" <br>
+                        $ git config --global user.email user@example.com <br>
+
+                        使用了 --global 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 --global 选项的命令来配置。
+                    </span>
+                </li>
+                <li>
+                    <em>ssh key</em><a href=""></a>
+                    <span>
+                        1.查看是否已存在ssh密钥：cd ~/.ssh <br>
+                        2.生成密钥： ssh-keygen -t rsa -C "username@mail.com" 按3个回车,密码为空 <br>
+                        3.得到文件：id_rsa私钥和id_rsa.pub公钥 <br>
+                        4.添加密钥到ssh：ssh-add $file.name
+                    </span>
+                </li>
+                <li>
+                    <em>.gitignore</em><a href=""></a>
+                    <span>需要被忽略的文件<br>
+                        <a href="https://github.com/github/gitignore">查看多语言范本</a><br>
+                        .gitignore 的格式规范如下：
+                        <hr>
+                        所有空行或者以 ＃ 开头的行都会被 Git 忽略。<br>
+                        可以使用标准的 glob 模式匹配。<br>
+                        匹配模式可以以（/）开头防止递归。<br>
+                        匹配模式可以以（/）结尾指定目录。<br>
+                        要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。<br>
+                        <hr>
+                        所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。 <br>
+                        星号（*）匹配零个或多个任意字符；<br>
+                        [abc] 匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；<br>
+                        问号（?）只匹配一个任意字符；<br>如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 [0-9] 表示匹配所有 0 到 9 的数字）。 <br>
+                        使用两个星号（*) 表示匹配任意中间目录，比如`a/**/z` 可以匹配 a/z, a/b/z 或 `a/b/c/z`等。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 帮助</h4>
+            <ul>
+                <li>git <a href="">help</a><span></span></li>
+            </ul>
+      </div>
+      <h3>自定义<span>-</span></h3>
+      <div class="u-list">
+            <h4>[<span>-</span>] 别名</h4>
+            <ul>
+                <li>git <a href="">config</a> --global alias.$new $old<span>
+                    $ git config --global alias.st status <br>
+                    用st替代status
+                </span></li>
+                <li>git <a href="">last</a><span>
+                    $ git config --global alias.last 'log -1' <br>
+                    配置显示最后一次提交信息 <br>
+                    <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375234012342f90be1fc4d81446c967bbdc19e7c03d3000">参考资料</a>
+                </span></li>
+            </ul>
+      </div>
+  </div>
+</div>
+	<div class="u-col">
+  <div class="u-block">
+      <h3>创建<span>-</span></h3>
+      <div class="u-list">
+      		<h4>[<span>-</span>] 初始化</h4>
+            <ul>
+                <li>
+                    git <a href="">init</a>
+                    <span>git init 使用当前目录初始化一个项目</span>
+                </li>
+                <li>
+                    git <a href="">init</a> [path]
+                    <span>git init dirname 使用指定目录初始化一个项目</span>
+                </li>
+                <li>
+                    <em>fork</em><a href=""></a>
+                    <span>从别人的项目分支一个版本至你的git服务器仓库</span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 克隆</h4>
+            <ul>
+                <li>
+                    git <a href="">clone</a> [url]
+                    <span>dir缺省时，会创建一个和项目同名的目录 <br>
+                    url支持多种数据传输协议，url可以为https:// 、git:// 、git@ 、user@server:path/to/repo.git等。</span>
+                </li>
+                <li>
+                    git <a href="">clone</a> [url] [path]
+                    <span>指定dir时生成对应的文件夹名 <br> 
+                    path为“./”时则在当前目录下克隆内容，不再生成项目名目录</span>
+                </li>
+            </ul>
+      </div>
+      <h3>修改<span>-</span></h3>
+      <div class="u-list">
+          <h4>[<span>-</span>] 添加/提交</h4>
+            <ul>
+                <li>
+                    git <a href="">add</a> [regexp]
+                    <span>
+                        跟踪新文件，加入缓存区INDEX<br>
+                        git add file1 file2 file3 <br>
+                        git add */. <br>
+                        git add *.js
+                    </span>
+                </li>
+                <li>
+                    git <a href="">commit</a> -m "desc"
+                    <span>
+                        提交修改，将缓存区内容添加到仓库中<br>
+                        git commit -m "message" <br>
+                    </span>
+                </li>
+                <li>
+                    git <a href="">commit</a> -a -m "desc"
+                    <span>
+                        git commit -a -m "message" 跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）
+                    </span>
+                </li>
+                <li>
+                    git <a href="">commit</a>
+                    <span>
+                        git commit 这种方式会启动文本编辑器以便输入本次提交的说明。<br>
+                        默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。<br>
+                        当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件。<br>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 删除/移动</h4>
+            <ul>
+                <li>
+                    git <a href="">rm</a> file [--cached][-f]
+                    <span>
+                    git rm 将文件从缓存区和你的硬盘中(工作目录)删除<br>
+                    git rm --cached 只从缓存区中移除，工作目录中保存<br>
+                    git rm -f 强制删除，删除之前修改过并且已经放到暂存区域的 <br>
+                    </span>
+                </li>
+                <li>
+                    git <a href="">rm</a> -r dir
+                    <span>
+                        git rm -r dirname 删除目录及目录内容 <br>
+                        当该目录没有stage时，无法进行该操作，直接执行shell命令rm操作即可。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">mv</a> (from) (to) 
+                    <span>
+                        同linux mv命令，自动判定执行“移动”或“重命名”操作。<br>
+                        git mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
+                        git mv 文件名 目录名 : 将文件移动到目标目录 <br>
+                        git mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名（当源文件为空时不可移动） <br>
+                        git mv 目录名 文件名 : 出错
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 查看/对比</h4>
+            <ul>
+                <li>
+                    git <a href="">status</a> [-s]
+                    <span>检查状态<br>
+                        git status -s 简易查看 <br>
+                        新添加的未跟踪文件前面有 ?? 标记 <br>
+                        新添加到暂存区中的文件前面有 A 标记<br>
+                        修改过的文件前面有 M 标记。 <br>
+                        出现在右边的 M 表示该文件被修改了但是还没放入暂存区<br>
+                        出现在靠左边的 M 表示该文件被修改了并放入了暂存区。<br>
+                        AM状态的意思是，这个文件在我们将它添加到缓存之后又有改动
+                    </span>
+                </li>
+                <li>
+                    git <a href="">diff</a> [--cached]
+                    <span>查看修改<br>
+                    git diff : 尚未缓存的改动 <br>
+                    git diff --cached : 查看已缓存的改动 (同git diff --staged [1.6+]) <br>
+                    git diff HEAD : 查看已缓存的与未缓存的所有改动 <br>
+                    git diff --stat : 显示摘要而非整个 diff
+                    </span>
+                </li>
+            </ul>
+      </div>
+      <h3>回退<span>-</span></h3>
+      <div class="u-list">
+          <h4>[<span>-</span>] 历史</h4>
+            <ul>
+                <li>
+                    git <a href="">log</a> [--pretty=oneline]
+                    <span>
+                    git log 显示全部提交记录<br>
+                    git log --pretty=oneline 美化显示<br>  
+                    </span>
+                </li>
+                <li>
+                    git <a href="">reflog</a>
+                    <span>查看每一次命令</span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 回退</h4>
+            <ul>
+                <li>
+                    git <a href="">checkout</a> -- $file
+                    <span>
+                        git checkout -- filename 撤销对文件的修改，如果被工作区删除也可作为恢复 <br>
+                        一种是自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>
+                        一种是已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>
+                        总之，就是让这个文件回到最近一次git commit或git add时的状态。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">reset</a> HEAD [$file]
+                    <span>
+                        HEAD表示当前版本,上个版本HEAD^,上上个版本HEAD^^,上100个版本HEAD~100。<br>
+                        git reset HEAD 取消目前所有暂存的文件（仍在工作区）<br>
+                        git reset HEAD filename 取消某个文件的暂存状态<br>
+                        <hr>
+                        场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。<br>
+                        场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。<br>
+                        场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">reset</a> --hard $commit_id
+                    <span></span>
+                </li>
+            </ul>
+      </div>
+  </div>
+</div>
+	<div class="u-col">
+    <div class="u-block">
+        <h3>分支<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 创建/切换</h4>
+            <ul>
+                  <li>
+                  git <a href="">branch</a>
+                  <span>
+                        查看所有分支
+                  </span>
+                  </li>
+                  <li>
+            	git <a href="">branch</a> $dev
+            	<span>
+            		创建分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">checkout</a> $dev
+            	<span>
+            		切换分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">checkout</a> -b $dev
+            	<span>
+            		创建并切换到该分支
+            	</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] 删除</h4>
+            <ul>
+            	<li>
+            	git <a href="">branch</a> -d $dev
+            	<span>
+            		删除分支
+            	</span>
+            	</li>
+            	<li>
+            	git <a href="">branch</a> -D $dev
+            	<span>
+            		强行删除分支
+            	</span>
+            	</li>
+            </ul>
+        </div>
+        <h3>标签<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 创建</h4>
+            <ul>
+                <li>git <a href="">tag</a><span>查看所有标签</span></li>
+                <li>git <a href="">tag</a> $name<span>给当前commit打tag</span></li>
+                <li>git <a href="">tag</a> $name $commit_id<span>给指定commit打tag</span></li>
+                <li>git <a href="">tag</a> -a $name -m "desc"<span>查看所有标签</span></li>
+            </ul>
+            <h4>[<span>-</span>] 移除</h4>
+            <ul>
+                <li>git <a href="">tag</a> -d $ver<span>删除tag</span></li>
+                <li>git <a href="">push</a> <em>$origin :refs/tags/$ver</em>
+                    <span>删除远端tag <br>
+                        $ git push origin :refs/tags/v0.1 <br>
+                        To git@github.com:xx/xx.git<br>
+                        - [deleted]         v0.1<br>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 推送</h4>
+            <ul>
+                <li>git <a href="">push</a> $origin $ver<span>推送tag</span></li>
+                <li>git <a href="">push</a> $origin --tags<span>推送全部tag</span></li>
+            </ul>
+        </div>
+        <h3>合并<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 合并</h4>
+            <ul>
+                <li>
+                git <a href="">merge</a> $dev
+                <span>
+                    合并指定分支到当前分支
+                </span>
+                </li>
+                <li>
+                git <a href="">merge</a> $origin/$dev
+                <span>
+                    合并指定远端分支到当前分支
+                </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 存储</h4>
+            <ul>
+                <li>
+                git <a href="">stash</a>
+                <span>
+                    存储当前工作内容但不提交
+                </span>
+                </li>
+                <li>
+                git <a href="">stash</a> pop
+                <span>
+                    恢复存储区内容并删除stash
+                </span>
+                </li>
+                <li>git <a href="">stash</a> list<span>查看</span></li>
+                <li>git <a href="">stash</a> apply<span>恢复</span></li>
+                <li>git <a href="">stash</a> drop<span>删除</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+	<div class="u-col">
+  <div class="u-block">
+        <h3>远端<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 连接</h4>
+            <ul>
+                <li>
+                git <a href="">remote</a> add $origin $url
+                <span>
+                    添加一个远端地址。默认的为origin
+                </span>
+                </li>
+                  <li>
+                  git <a href="">remote</a> -v
+                  <span>
+                        查看全部远端
+                  </span>
+                  </li>
+            </ul>
+            <h4>[<span>-</span>] 获取</h4>
+            <ul>
+                <li>
+                git <a href="">fetch</a> 
+                <span>
+                    获取远端最新内容
+                </span>
+                </li>
+                <li>
+                git <a href="">pull</a> 
+                <span>
+                    获取并合并远端最新内容
+                </span>
+                </li>
+            </ul>
+        </div>
+        <h3>提交<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 提交</h4>
+            <ul>
+            	<li>
+            	git <a href="">push</a> [-u] $origin $master
+            	<span>
+            		发布本地$master分支到远端$origin <br>
+            		第一次添加-u参数
+            	</span>
+            	</li>
+            </ul>
+        </div>
+  </div>
+</div>
+	<div class="u-col">
+  <div class="u-block">
+      <h3>子库<span>-</span></h3>
+      <div class="u-list">
+            <h4>[<span>-</span>] -</h4>
+            <ul>
+            </ul>
+      </div>
+  </div>
+</div>
+	<div class="u-col">
+  <div class="u-block">
+      <h3>服务器<span>-</span></h3>
+      <div class="u-list">
+            <h4>[<span>-</span>] -</h4>
+            <ul>
+            	<li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000">搭建</a><span></span></li>
+            </ul>
+      </div>
+  </div>
+</div>
+	<div class="u-col">
+  <div class="u-block">
+      <h3>参考资料<span>-</span></h3>
+      <div class="u-list">
+		<h4>[<span>-</span>] 手册</h4>
+		<ul>
+		    <li>
+		        <a href="https://git-scm.com/docs">参考手册</a>
+		    </li>
+		    <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
+		</ul>
+		<h4>[<span>+</span>] 教程</h4>
+		<ul style="display:none">
+		    <li><a href="https://www.shiyanlou.com/courses/4">Git实践</a></li>
+		    <li><a href="https://www.shiyanlou.com/courses/616">Git服务器实践</a></li>
+		    <li><a href="http://gitbook.liuhui998.com/">Git Community Book 中文版</a></li>
+		    <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰版</a></li>
+		</ul>
+		<h4>[<span>+</span>] 其他</h4>
+		<ul>
+			<li><a href="">GUI乱码</a><span>
+			gitconfig文件设置 <br>
+			[gui] <br>
+    		encoding = utf-8 <br>
+			</span></li>
+		</ul>
+	</div>
+  </div>
+</div>
+</div>
+
+	<div id="linux" class="c-tab">
+	<div class="u-col">
+  <div class="u-block">
+	  	<h3>文件夹<span>-</span></h3>
+	  	<div class="u-list">
+			<h4>[<span>-</span>] 创建与切换</h4>
+			<ul>
+				<li>
+					<a href="">mkdir</a> (dirname)
+					<span>创建文件夹 mkdir testdir</span>
+				</li>
+				<li>
+					<a href="">cd</a> (path)
+					<span>切换至文件夹 cd /web/www/ <br>
+					切换至上级目录 cd .. 
+					</span>
+				</li>
+				<li>
+					<a href="">pwd</a>
+					<span>显示当前目录</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 查看</h4>
+			<ul>
+				<li>
+					<a href="">ls</a>
+					<span>列出当前目录下文件</span>
+				</li>
+				<li>
+					<a href="">ls -al</a>
+					<span>列出当前目录下文件（包含隐藏文件）</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 删除</h4>
+			<ul>
+				<li>
+					<a href="">rm -r</a> (dir)
+					<span>删除文件夹 rm -r dir1</span>
+				</li>
+			</ul>
+	  	</div>
+	  	<h3>文件<span>-</span></h3>
+	  	<div class="u-list">
+			<h4>[<span>-</span>] 创建</h4>
+			<ul>
+				<li>
+					<a href="">touch</a> (file)
+					<span>创建文件 touch file1 file2..</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 查看</h4>
+			<ul>
+				<li>
+					<a href="">cat</a> (file)
+					<span>查看文件内容 cat file.txt</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 修改</h4>
+			<ul>
+				<li>
+					<a href="">echo</a> (text) >> (file)
+					<span>对文件输出内容 echo "text" >> file.txt</span>
+				</li>
+				<li>
+					<a href="">vim</a> (file)
+					<span>编辑文件内容 vim file.txt</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 删除</h4>
+			<ul>
+				<li>
+					<a href="">rm</a> (file)
+					<span>删除文件 rm file1 file2..</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 移动与重命名</h4>
+			<ul>
+				<li>
+					<a href="">mv</a> (file)
+					<span></span>
+				</li>
+			</ul>
+	  	</div>
+	  	<h3>文件夹/文件<span>-</span></h3>
+	  	<div class="u-list">
+			<h4>[<span>-</span>] 移动</h4>
+			<ul>
+				<li>
+					<a href="">rm</a> (from) (to)
+					<span>
+						mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
+						mv 文件名 目录名 : 将文件移动到目标目录 <br>
+						mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名 <br>
+						mv 目录名 文件名 : 出错
+					</span>
+				</li>
+			</ul>
+	  	</div>
+  	</div>
+</div>
+	<div class="u-col">
+  <div class="u-block">
+      <h3>Vim<span>-</span></h3>
+      <div class="u-list">
+            <h4>[<span>-</span>] 查看</h4>
+            <ul>
+                <li>
+                    <a href="https://git-scm.com/docs">参考手册</a>
+                </li>
+                <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
+            </ul>
+      </div>
+      <!-- 快乐命令行 -->
+  </div>
+</div>
+</div>
+
+	<div id="RegEXP" class="c-tab nt-tab-regexp">
+	<div class="nt-tab-regexp-l">
+		<h2>常用正则表达式</h2>
+		<table>
+			<tbody>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+				<tr>
+					<th>usage</th>
+					<td>expression</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="nt-tab-regexp-r">
+
+		<div class="nt-tab-regexp-box">
+			<h2>修饰符 <span>修饰符用于执行区分大小写和全局匹配</span></h2>
+			<table>
+				<tr>
+					<th>修饰符</th>
+					<th>描述</th>
+				</tr>
+				<tr>
+					<td>g</td>
+					<td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）</td>
+				</tr>
+				<tr>
+					<td>i</td>
+					<td>执行对大小写不敏感的匹配</td>
+				</tr>
+				<tr>
+					<td>m</td>
+					<td>执行多行匹配</td>
+				</tr>
+			</table>
+		</div>
+	
+		<div class="nt-tab-regexp-box">
+			<h2>字符类：单个字符和数字</h2>
+			<table>
+				<tbody>
+				<tr>
+					<th>元字符/元符号</th>
+					<th>匹配情况</th>
+				</tr>
+				<tr>
+					<td>.</td>
+					<td>匹配除换行符外的任意字符</td>
+				</tr>
+				<tr>
+					<td>\d</td>
+					<td>匹配数字，等价[0-9]</td>
+				</tr>
+				<tr>
+					<td>\D</td>
+					<td>匹配非数字，同[^0-9]相同</td>
+				</tr>
+				<tr>
+					<td>\w</td>
+					<td>匹配字母和数字及_，等价[0-9a-zA-Z_]</td>
+				</tr>
+				<tr>
+					<td>\W</td>
+					<td>匹配非字母和数字及_</td>
+				</tr>
+				<tr>
+					<td>\s</td>
+					<td>匹配空白字符、空格、制表符和换行符</td>
+				</tr>
+				<tr>
+					<td>\S</td>
+					<td>匹配非空白字符</td>
+				</tr>
+				<tr>
+					<td>\n</td>
+					<td>匹配换行符</td>
+				</tr>
+				<tr>
+					<td>\r</td>
+					<td>匹配回车字符</td>
+				</tr>
+				<tr>
+					<td>\t</td>
+					<td>匹配制表符</td>
+				</tr>
+				<tr>
+					<td>\v</td>
+					<td>查找垂直制表符。</td>
+				</tr>
+				<tr>
+					<td>\f</td>
+					<td>匹配换页字符</td>
+				</tr>
+				<tr>
+					<td>\0</td>
+					<td>匹配 null 字符</td>
+				</tr>
+				<tr>
+					<td>\xxx</td>
+					<td>查找以八进制数 xxx 规定的字符。</td>
+				</tr>
+				<tr>
+					<td>\xdd</td>
+					<td>查找以十六进制数 dd 规定的字符。</td>
+				</tr>
+				<tr>
+					<td>\uxxxx</td>
+					<td>查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>字符类：锚字符</h2>
+			<table>
+				<tbody>
+				<tr>
+					<th>元字符/元符号</th>
+					<th>匹配情况</th>
+				</tr>
+				<tr>
+					<td>^</td>
+					<td>行首匹配（不在方括号内）</td>
+				</tr>
+				<tr>
+					<td>$</td>
+					<td>行尾匹配</td>
+				</tr>
+				<tr>
+					<td>\A</td>
+					<td>只有匹配字符串开始处</td>
+				</tr>
+				<tr>
+					<td>\b</td>
+					<td>匹配空格字符，单词边界，词在[]内时无效</td>
+				</tr>
+				<tr>
+					<td>\B</td>
+					<td>匹配非单词边界</td>
+				</tr>
+				<tr>
+					<td>\G</td>
+					<td>匹配当前搜索的开始位置</td>
+				</tr>
+				<tr>
+					<td>\Z</td>
+					<td>匹配字符串结束处或行尾</td>
+				</tr>
+				<tr>
+					<td>\z </td>
+					<td>只匹配字符串结束处</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>字符类：量词</h2>
+			<table>
+				<tbody>
+				<tr>
+					<th>元字符/元符号</th>
+					<th>匹配情况</th>
+				</tr>
+				<tr>
+					<td>x?</td>
+					<td>匹配 0 个或 1 个 x   <b>(0或1)</b></td>
+				</tr>
+				<tr>
+					<td>x+</td>
+					<td>匹配至少一个 x <b>(&gt;=1)</b></td>
+				</tr>
+				<tr>
+					<td>x<b>*</b></td>
+					<td>匹配 0 个或任意多个 x <b>(&gt;=0)</b></td>
+				</tr>
+				<tr>
+					<td>x<b>{N}</b></td>
+					<td>匹配包含 n 个 x 的序列的字符串。<b>(N个)</b></td>
+				</tr>
+				<tr>
+					<td>x<b>{N,M}</b></td>
+					<td>匹配包含 n~ m个x 的序列的字符串。<b>（N~M个）</b></td>
+				</tr>
+				<tr>
+					<td>x{N,}  x{,M}</td>
+					<td>匹配包含至少n 个x 的序列的字符串。<b>（N个以上）(M个以下)</b></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>表达式：[] <span>方括号用于查找某个范围内的字符</span></h2>
+			<table>
+				<tbody>
+				<tr>
+					<td>[abc]</td>
+					<td>查找方括号之间的任何字符。</td>
+				</tr>
+				<tr>
+					<td>[^abc]</td>
+					<td>查找任何不在方括号之间的字符</td>
+				</tr>
+				<tr>
+					<td>[0-9][a-z][A-Z][A-z]</td>
+					<td>数字/小写字母/大写字母/全部字母</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>分组：() <span>|</span></h2>
+			<table>
+				<tbody>
+				<tr>
+					<td> /(google){4,8}/</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>\1 或$1</td>
+					<td>匹配第一个分组中的内容</td>
+				</tr>
+				<tr>
+					<td>\2 或$2</td>
+					<td>匹配第二个分组中的内容</td>
+				</tr>
+				<tr>
+					<td>\3 或$3 </td>
+					<td>匹配第三个分组中的内容</td>
+				</tr>
+				<tr>
+					<td>RegExp.$1</td>
+					<td>得到第一个分组里的字符串内容 （在此之前必须要运行一次）</td>
+				</tr>
+				<tr>
+					<td>(red<b>|</b>blue<b>|</b>green)</td>
+					<td>查找任何指定的选项。<b>|需要放在分组中</b></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>replacement 中的 $ </h2>
+			<p>字符具有特定的含义。如下表所示，它说明从模式匹配得到的字符串将用于替换。</p>
+			<table>
+				<tbody>
+				<tr>
+					<td>$1、$2、...、$99</td>
+					<td>与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。</td>
+				</tr>
+				<tr>
+					<td>$&amp;</td>
+					<td>与 regexp 相匹配的子串。</td>
+				</tr>
+				<tr>
+					<td>$`</td>
+					<td>位于匹配子串左侧的文本。</td>
+				</tr>
+				<tr>
+					<td>$'</td>
+					<td>位于匹配子串右侧的文本。</td>
+				</tr>
+				<tr>
+					<td>$$</td>
+					<td>直接量符号。</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>贪婪与惰性</h2>
+			<table>
+				<tbody>
+				<tr>
+					<td>贪 婪</td>
+					<td>惰 性</td>
+				</tr>
+				<tr>
+					<td>+</td>
+					<td>+?</td>
+				</tr>
+				<tr>
+					<td>?</td>
+					<td>??</td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>*?</td>
+				</tr>
+				<tr>
+					<td>{n}</td>
+					<td>{n}?</td>
+				</tr>
+				<tr>
+					<td>{n,}</td>
+					<td>{n,}?</td>
+				</tr>
+				<tr>
+					<td>{n,m}</td>
+					<td>{n,m}?</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="nt-tab-regexp-box">
+			<h2>分组捕获</h2>
+			<table>
+				<tbody>
+				<tr>
+					<td>?: </td>
+					<td>非捕获分组前 (a)(?:b)</td>
+				</tr>
+				<tr>
+					<td>?=</td>
+					<td>前瞻捕获 (a)(?=b) 返回的是a不是ab，紧跟b的a</td>
+				</tr>
+				<tr>
+					<td>?!</td>
+					<td>(a)(?!b)匹配任何其后没有紧接指定字符串 b 的字符串，不紧跟b的a</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+
+
+	<p id="nt-loading">+ Loading..</p>
+
+
 
 	<div class="c-snippet" id="snippet">
 	<h6 class="u-title" id="box-title">iRuxu's Snippet Box</h6>
@@ -5330,6 +8386,5 @@
 	</div>
 </div>
 
-	<div style="display:none"><script src="http://s6.cnzz.com/z_stat.php?id=1253473928&web_id=1253473928?" language="JavaScript"></script></div>
 </body>
 </html>
