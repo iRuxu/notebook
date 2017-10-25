@@ -228,105 +228,109 @@ var o = new Obj(name)
 	<div class="u-block">
 		<h3>类与面向对象<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]原型继承</h4>
+			<h4>[<span>-</span>]原型链</h4>
 			<ul>
-				<li>obj.<a href="">__proto__</a><span>
-					JS中所有对象都是实例，所谓继承关系不过是把一个对象的原型指向另一个对象而已。
+                <li>cst.<a href="">prototype</a><span>
+                	构造函数创建的实例的原型，prototype是函数才会有的属性 <br>
+                    为减少内存消耗，将公共方法写在构造函数的原型上，<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a>
+                </span></li>
+                <li>obj.<a href="">__proto__</a><span>
+					任何一个对象都有__proto__，实例对象的这个属性指向该对象的原型 <br>
+					Object.getPrototypeOf(obj) === CST.prototype
 				</span></li>
-				<li><a href="">Object.create</a>(proto_obj)<span>
-					在编写JavaScript代码时，不要直接用obj.__proto__去改变一个对象的原型，并且，低版本的IE也无法使用__proto__。Object.create()方法可以传入一个原型对象，并创建一个基于该原型的新对象，但是新对象什么属性都没有。
-<pre><code data-language="javascript">
-	// 原型对象:
-	var Student = {
-	    name: 'Robot',
-	    height: 1.2,
-	    run: function () {
-	        console.log(this.name + ' is running...');
-	    }
-	};
-
-	function createStudent(name) {
-	    // 基于Student原型创建一个新对象:
-	    var s = Object.create(Student);
-	    // 初始化新对象:
-	    s.name = name;
-	    return s;
-	}
-
-	var xiaoming = createStudent('小明');
-	xiaoming.run(); // 小明 is running...
-	xiaoming.__proto__ === Student; // true
-</code></pre>
-				</span></li>
-                <li><em>demo</em><a href=""></a><span>
-<pre><code data-language="javascript">
-function inherits(Child, Parent) {
-    var F = function () {};
-    F.prototype = Parent.prototype;
-    Child.prototype = new F();
-    Child.prototype.constructor = Child;
-}
-</code></pre>
-<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997013405abfb7f0e1904a04ba6898a384b1e925000">参考资料</a>
+                <li>proto.<a href="">constructor</a><span>
+                    原型对象的这个属性指向构造函数 <br>
+                    <img src="image/js/prototype.png" alt=""> <br>
+                    实例对象本身并没有constructor属性，但会直接从实例的原型对象查找，所以会得出结果。
                 </span></li>
 			</ul>
-            <h4>[<span>-</span>]构造函数</h4>
+            <h4>[<span>-</span>]继承</h4>
             <ul>
-                <li>obj.<a href="">constructor</a><span>
-                    用new Obj()创建的对象还从原型上获得了一个constructor属性，它指向构造函数本身
-                </span></li>
-                <li>cst.<a href="">prototype</a><span>
-                    为减少内存消耗，将公共方法写在构造函数的原型上 <br>
-                    <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a>
+				<li><a href="">Object.create</a>(proto_obj)<span>
+					在编写JavaScript代码时，不要直接用obj.__proto__去改变一个对象的原型，并且，低版本的IE也无法使用__proto__。 <br>
+					Object.create()方法可以传入一个原型对象，并创建一个基于该原型的新对象，但是新对象什么属性都没有。
+					<pre><code data-language="javascript">
+						// 原型对象:
+						var Student = {
+						    name: 'Robot',
+						    height: 1.2,
+						    run: function () {
+						        console.log(this.name + ' is running...');
+						    }
+						};
+
+						function createStudent(name) {
+						    // 基于Student原型创建一个新对象:
+						    var s = Object.create(Student);
+						    // 初始化新对象:
+						    s.name = name;
+						    return s;
+						}
+
+						var xiaoming = createStudent('小明');
+						xiaoming.run(); // 小明 is running...
+						xiaoming.__proto__ === Student; // true
+					</code></pre>
+				</span></li>
+                <li><em>demo</em><a href=""></a><span>
+					<pre><code data-language="javascript">
+						function inherits(Child, Parent) {
+						    var F = function () {};
+						    F.prototype = Parent.prototype;
+						    Child.prototype = new F();
+						    Child.prototype.constructor = Child;
+						}
+					</code></pre>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997013405abfb7f0e1904a04ba6898a384b1e925000">参考资料</a>
                 </span></li>
                 <li><em>demo</em><a href=""></a><span>
-<pre><code data-language="javascript">
-    function Student(props) {
-        this.name = props.name || '匿名'; // 默认值为'匿名'
-        this.grade = props.grade || 1; // 默认值为1
-    }
+					<pre><code data-language="javascript">
+					    function Student(props) {
+					        this.name = props.name || '匿名'; // 默认值为'匿名'
+					        this.grade = props.grade || 1; // 默认值为1
+					    }
 
-    Student.prototype.hello = function () {
-        alert('Hello, ' + this.name + '!');
-    };
+					    Student.prototype.hello = function () {
+					        alert('Hello, ' + this.name + '!');
+					    };
 
-    function createStudent(props) {
-        return new Student(props || {})
-    }
-</code></pre>
+					    function createStudent(props) {
+					        return new Student(props || {})
+					    }
+					</code></pre>
                     <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a>
                 </span></li>
             </ul>
             <h4>[<span>-</span>]类</h4>
             <ul>
                 <li><a href="">class </a>ClassName<span>
-<pre><code data-language="javascript">
-class Student {
-    constructor(name) {
-        this.name = name;
-    }
+					<pre><code data-language="javascript">
+					class Student {
+					    constructor(name) {
+					        this.name = name;
+					    }
 
-    hello() {
-        alert('Hello, ' + this.name + '!');
-    }
-}
-var test = new Student('test')
-</code></pre>
+					    hello() {
+					        alert('Hello, ' + this.name + '!');
+					    }
+					}
+					var test = new Student('test')
+					</code></pre>
                 </span></li>
                 <li>class Child <a href="">extends</a> Parent<span>
-<pre><code data-language="javascript">
-class PrimaryStudent extends Student {
-    constructor(name, grade) {
-        super(name); // 记得用super调用父类的构造方法!
-        this.grade = grade;
-    }
+					<pre><code data-language="javascript">
+					class PrimaryStudent extends Student {
+					    constructor(name, grade) {
+					        super(name); // 记得用super调用父类的构造方法!
+					        this.grade = grade;
+					    }
 
-    myGrade() {
-        alert('I am at grade ' + this.grade);
-    }
-}
-</code></pre>
-PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
+					    myGrade() {
+					        alert('I am at grade ' + this.grade);
+					    }
+					}
+					</code></pre>
+					PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
                 </span></li>
                 <li><a href="">super</a>(parent_key)<span></span></li>
             </ul>

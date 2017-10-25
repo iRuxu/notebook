@@ -2,11 +2,16 @@
 
 
 jQuery(function($){
-	
-	window.onunload = function (){
-	alert('不要~~~')
-}
-
-
 
 });
+
+
+var data = [];
+
+for (var i = 0; i < 3; i++) {
+  data[i] = function () {
+    console.log(i);
+  };
+}
+
+console.log(data.toString())

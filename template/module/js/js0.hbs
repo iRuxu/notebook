@@ -11,7 +11,10 @@
 					window.x3 = 3;<br />
 					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
 					判断某个全局变量是否存在用typeof window.myVar === 'undefined' <br>
-					函数内部判断某个变量是否存在用typeof myVar === 'undefined'
+					函数内部判断某个变量是否存在用typeof myVar === 'undefined' <hr>
+					js采用词法作用域，即静态作用域。函数的作用域在函数定义的时候就决定，而动态动作用域则在函数调用的时候才决定的。
+					<a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
+					JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的，不管何时何地执行函数，这种绑定在执行时依然有效。
 				</span></li>
 				<li><a href="">let</a><span>
 					let i = 1;<br>
@@ -139,6 +142,12 @@
 			</ul>
 			<h4>[<span>-</span>]类型转换</h4>
 			<ul>
+				<li>
+					<a href="">.toString()</a>
+					<span>
+						任何对象都有toString方法
+					</span>
+				</li>
 				<li><a href="">Boolean</a>(val)
 					<span>Boolean(val)布尔转换规则 （控制流会自动转换）
 						<table>
@@ -211,7 +220,9 @@
 					</span></li>
 				<li><a href="">String</a>(val)
 					<span>不确定null和undefined时,返回null和undefined</span></li>
-				<li><em>包装对象</em><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000"></a><span></span></li>
+				<li><em>包装对象</em><a href=""></a><span>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000">参考资料</a>
+				</span></li>
 			</ul>
 		</div>
     </div>
