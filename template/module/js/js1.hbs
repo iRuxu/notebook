@@ -46,12 +46,6 @@
 				<li>str.<a href="">toLowerCase</a>()<span>
 					转为小写 
 				</span></li>
-				<li><a href="">String.fromCharCode</a>(Unicode)<span>
-					将Unicode编码转为一个字符 <br>
-					参数：Unicode编码数字 <br>
-					返回值：字符串 <br>
-					原对象：不变
-				</span></li>
 			</ul>
 			<h4>[<span>-</span>]操作</h4>
 			<ul>
@@ -119,14 +113,26 @@
 					参数：查找的索引位置 <br>
 					返回值：索引上的字符的 Unicode 编码</span></li>
 			</ul>
-			<h4>[<span>-</span>]编码</h4>
+			<h4>[<span>-</span>]URI</h4>
 			<ul>
-				<li><em>encode/decode</em><a href=""></a><span><a href="http://www.cnblogs.com/shuiyi/p/5277233.html">参考资料</a></span></li>
+				<li><em>encode/decode</em><a href=""></a><span>
+					<a href="http://www.cnblogs.com/shuiyi/p/5277233.html">参考资料1</a>、
+					<a href="http://www.cnblogs.com/season-huang/p/3439277.html">参考资料2</a>
+				</span></li>
 				<li><a href="">encodeURI</a>(uri)<span>把字符串编码为 URI。</span></li>
 				<li><a href="">encodeURIComponent</a>(uri)<span>把字符串编码为 URI 组件。</span></li>
 				<li><a href="">decodeURI</a>(uri)<span>解码某个编码的 URI。</span></li>
 				<li><a href="">decodeURIComponent</a>(uri)<span>解码一个编码的 URI 组件。</span></li>
-				<li>str.<a href="">normalize</a><em>([form])</em><i>ES6</i><span>
+			</ul>
+			<h4>[<span>-</span>]编码解码</h4>
+			<ul>
+				<li><a href="">String.fromCharCode</a>(Unicode)<span>
+					将Unicode编码转为一个字符 <br>
+					参数：Unicode编码数字 <br>
+					返回值：字符串 <br>
+					原对象：不变
+				</span></li>
+				<li>str.<a href="">normalize</a><em>([NFC])</em><span>
 					按指定Unicode正规形式将当前字符串正规化。<br>
 					参数：四种 Unicode 正规形式 "NFC", "NFD", "NFKC", 以及 "NFKD" 其中的一个, 默认值为 "NFC".<br>
 					NFC - Normalization Form Canonical Composition.<br>
@@ -135,12 +141,23 @@
 					NFKD - Normalization Form Compatibility Decomposition.<br>
 				</span></li>
 				<li><a href="">escape</a>(str)<span>
-					对字符串进行编码。<br>
 					该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _ + . / 。其他所有的字符都会被转义序列替换。</span></li>
 				<li><a href="">unescape</a>(str)<span>
 					对由 escape() 编码的字符串进行解码。<br>
-					<a href="http://www.cnblogs.com/season-huang/p/3439277.html">参考资料</a>
 				</span></li>
+				<li>
+					<a href="">btoa</a>(str)
+					<span>
+						将字符串或二进制值转为Base64编码 <br>
+						<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/btoa">参考资料</a>
+					</span>
+				</li>
+				<li>
+					<a href="">atob</a>(base64)
+					<span>
+						将Base64编码转为原来的编码
+					</span>
+				</li>
 			</ul>
 		</div>
 	</div>

@@ -35,6 +35,9 @@
 					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of">参考资料</a>
 				</span></li>
 				<li>arr.<a href="">length</a><span>
+					length属性不过滤空位。<a href="http://javascript.ruanyifeng.com/grammar/array.html">参考资料</a><br>
+					将数组清空的一个有效方法，就是将length属性设为0。 <br>
+					使用delete命令删除一个数组成员，会形成空位，并且不会影响length属性。
 					<table>
 						<tr>
 							<th>对象</th>
@@ -95,7 +98,8 @@
 			<ul>
 				<li><a href="">Array.from</a>(o)<span>
 					把类数组实例化为一个数组。<br>
-					参数：包括字符串，set，map，arguments等 <br>
+					类同：Array.prototype.slice.call(o) <br>
+					参数：包括字符串，set，map，arguments，DOM元素集等 <br>
 					返回：新数组 <br>
 					原对象：不变。<br>
 					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from">参考资料</a>
