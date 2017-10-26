@@ -5,6 +5,34 @@
 		<div class="u-list">
 			<h4>[<span>-</span>]Function</h4>
 			<ul>
+				<li>
+					<em>fn</em><a href=""></a>
+					<span>
+						<b>参数</b> <br>
+						函数不能省略靠前的参数，如果一定要省略靠前的参数，只有显式传入undefined。 <br>
+						函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。即在函数内部，传入的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。这意味着，在函数体内修改参数值，不会影响到函数外部。 <br>
+						函数参数如果是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的原始值的地址，因此在函数内部修改参数，将会影响到原始值。 <br>
+						注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
+						如果有同名的参数，则取最后出现的那个值。
+						<hr>
+						<b>作用域</b> <br>
+						函数作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。<br>
+						函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。  <br>
+						同样的，函数体内部声明的函数，作用域绑定函数体内部。
+						<hr>
+						<b>属性</b> <br>
+						fn.name : 返回紧跟在function关键字之后的那个函数名(匿名函数为空字符串) <br>
+						fn.length : 返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数)。 <br>
+						fn.toString() : 返回函数的源码，注释也可以返回。
+						<hr>
+						<b>闭包</b> <br>
+						定义在一个函数内部的函数。闭包最大的特点，就是它可以“记住”诞生的环境。 <br>
+						闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。 <br>
+						闭包中返回i++，返回的是此次i的值，i再+1；i +=1 等同 ++i； <br>
+						返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。 <br>
+						如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
+					</span>
+				</li>
 				<li><a href="">function</a>()<span>
 					<b>1.function命令 - 函数的声明</b><br>
 					function fn(arg){...} <br>
@@ -22,12 +50,11 @@
 					<hr>
 					如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。 <br>
 					如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-					根据ECMAScript的规范，不得在非函数的代码块中声明函数
+					根据ECMAScript的规范，不得在非函数的代码块中声明函数。
 				</span></li>
 				<li><a href="">(function(n){})(n)</a><span>
+					IIFE = Immediately-Invoked Function Expression,立即调用的函数表达式 <br>
 					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
-					返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>
-					如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
 				</span></li>
 				<li><a href="">x => x * x</a><span>
 					<pre><code data-language="javascript">
@@ -54,20 +81,14 @@
 				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
 				</span></li>
 			</ul>
-			<h4>[<span>+</span>]Generator</h4>
-			<ul style="display:none;">
-				<li><a href="">function*</a>()<span></span></li>
-				<li><a href="">yield</a> val<span></span></li>
-				<li>g.<a href="">next()</a><span></span></li>
-			</ul>
 			<h4>[<span>-</span>]内部</h4>
 			<ul>
 				<li><a href="">return</a><span>
 					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
 				</span></li>
 				<li><a href="">arguments</a><span>
-					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。
-					<table>
+					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。 <br>
+					严格模式下为只读对象，不允许修改。
 						<tr>
 							<th>对象值</th>
 							<th>描述</th>
@@ -82,7 +103,7 @@
 						</tr>
 						<tr>
 							<td>arguments.callee</td>
-							<td>主体函数本身，拥有这个参数对象的函数</td>
+							<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
 						</tr>
 					</table>
 					rest参数：<br>
@@ -133,6 +154,12 @@
 					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
 					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
 				</span></li>
+			</ul>
+			<h4>[<span>+</span>]Generator</h4>
+			<ul style="display:none;">
+				<li><a href="">function*</a>()<span></span></li>
+				<li><a href="">yield</a> val<span></span></li>
+				<li>g.<a href="">next()</a><span></span></li>
 			</ul>
 		</div>
 	</div>
