@@ -14,6 +14,8 @@
 						<tr>
 							<td>字面量</td>
 							<td>
+								对象的所有键名都是字符串，可以不加引号。但如果不符合表示名的条件，则需要加引号。<a href="http://javascript.ruanyifeng.com/grammar/object.html">参考资料</a> <br>
+								对象的属性之间用逗号分隔，最后一个属性后面可以加逗号，也可以不加。
 <pre><code data-language="javascript">
 var obj ={
 	key:value,
@@ -29,6 +31,14 @@ var obj ={
 var obj = new Object();
 obj.key = value;
 obj.key = function(){...}
+</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>原型创建</td>
+							<td>
+<pre><code data-language="javascript">
+var obj = Object.creat(Object.prototype)
 </code></pre>
 							</td>
 						</tr>
@@ -52,7 +62,7 @@ var o = new Obj(name)
 					<ol>
 						<li>访问属性是通过.操作符完成的，但这要求属性名必须是一个有效的变量名。</li>
 						<li><b>当属性含空格、关键字或为变量时，只能用中括号表示</b></li>
-						<li><strong>中括号表示法时，key需要加上引号法</strong></li>
+						<li>中括号表示法时，key需要加上引号</li>
 					</ol>
 				</span></li>
 				<li>obj.<a href="">hasOwnProperty()</a><span>
@@ -60,7 +70,16 @@ var o = new Obj(name)
 					如果in判断一个属性存在，这个属性不一定是自身原有的，它可能是继承得到的。<br>
 					要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。
 				</span></li>
-				<li><a href="">delete </a>obj.key<span>删除属性delete obj.key</span></li>
+				<li>
+					<a href="">delete </a>obj.key
+					<span>
+						删除属性delete obj.key，删除成功后返回true <br>
+						注意，删除一个不存在的属性，delete不报错，而且返回true。 <br>
+						只有一种情况，delete命令会返回false，那就是该属性存在，且不得删除。<br>
+						delete命令只能删除对象本身的属性，无法删除继承的属性 <br>
+						delete命令不能删除var命令声明的变量，只能用来删除属性。
+					</span>
+				</li>
 				<li>key <a href="">in</a> obj<span>
 					in遍历访问对象的属性/属性值
 <pre><code data-language="javascript">
@@ -68,10 +87,16 @@ var o = new Obj(name)
 		console.log(property);  //遍历对象的全部属性
 		console.log(obj[property]); //遍历所有对象的值
 	} 
+	
+	var props = [];
+	var i = 0;
+	for (props[i++] in obj);
 </code></pre>
+					它遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性 <br>
+					它不仅遍历对象自身的属性，还遍历继承的属性。
 				</span></li>
 			</ul>
-			<h4>[<span>+</span>]Map</h4>
+			<h4>[<span>-</span>]Map</h4>
 			<ul>
 				<li><a href="">new Map()</a><span>
 					初始化Map需要一个二维数组，或者直接初始化一个空Map。没有字面量方法。
@@ -102,132 +127,88 @@ var o = new Obj(name)
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>函数<span>-</span></h3>
+		<h3>OOP<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Function</h4>
+			<h4>[<span>-</span>]对象</h4>
 			<ul>
-				<li><a href="">function</a>()<span>
-					function fn(arg){...} <br>
-					var fn = function(arg){...} <br>
-					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
-					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
-					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。
-				</span></li>
-				<li><a href="">(function(n){})(n)</a><span>
-					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
-					返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>
-					如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
-				</span></li>
-				<li><a href="">x => x * x</a><span>
-<pre><code data-language="javascript">
-	//单个参数
-	var result = x => x * x
-	function (x) {
-	    return x * x;
-	}
-	//语句块
-	x => {
-	    if (x > 0) {
-	        return x * x;
-	    }
-	    else {
-	        return - x * x;
-	    }
-	}
-	//多个参数
-	(x, y) => x * x + y * y
-</code></pre>
-				箭头函数相当于匿名函数，省略了return。<br>
-				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
-				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
-				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
-				</span></li>
+				<li>
+					<em>object</em><a href=""></a>
+					<span>
+						如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。 <br>
+					但如果取消某一个变量对于原对象的引用，不会影响到另一个变量。 <br>
+					这种引用只局限于对象，对于原始类型的数据则是传值引用，也就是说，都是值的拷贝。 <hr>
+					如果行首是大括号，一律解释为语句（即代码块）。如果要解释为表达式（即对象），必须在大括号前加上圆括号。 <hr>
+					如果读取一个不存在的键，会返回undefined，而不是报错。
+					</span>
+				</li>
+				<li>
+					<a href="">with</a>(obj)
+					<span>
+						操作同一个对象的多个属性时，提供一些书写的方便. <a href="http://javascript.ruanyifeng.com/grammar/object.html">参考资料</a> <br>
+						注意，with区块内部的变量，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。这是因为with区块没有改变作用域，它的内部依然是当前作用域。
+					</span>
+				</li>
+				<li>
+					<a href="">Object.defineProperty</a><em>(obj,key,desc)</em>
+					<span>
+						desc是一个对象。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()参考资料</a>|<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties">Object.defineProperties()参考资料</a>
+						<table>
+							<tr>
+								<th>设置</th>
+								<th>描述</th>
+							</tr>
+							<tr>
+								<td>configurable : false/true</td>
+								<td>当且仅当该属性的 configurable 为 true 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除</td>
+							</tr>
+							<tr>
+								<td>enumerable : false/true</td>
+								<td>当且仅当该属性的 enumerable 为 true 时，该属性才能够出现在对象的枚举属性中</td>
+							</tr>
+							<tr>
+								<td>value : 属性值</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>writable : false/true</td>
+								<td>当且仅当该属性的 writable 为 true 时，该属性才能被赋值运算符改变。</td>
+							</tr>
+						</table>
+					</span>
+				</li>
+				<li>
+					<a href="">Object.freeze</a>(obj)
+					<span>
+						冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。也就是说，这个对象永远是不可变的。
+					</span>
+				</li>
+				<li>
+					<a href="">Object.keys</a>(obj)
+					<span>
+						查看一个对象的所有属性，返回一个key的数组
+					</span>
+				</li>
+				<li>
+					<a href="">Object.entries</a>(obj)
+					<span>
+						返回一个给定对象自身可枚举属性的键值对的二维数组 <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">参考资料</a>
+					</span>
+				</li>
+				<li>
+					<a href="">Object.create</a>(proto_obj)
+					<span>
+						使用指定的原型对象和其属性创建一个新的对象
+					</span>
+				</li>
+				<li>
+					<a href="">Object.assign</a>(to,from...)
+					<span>
+						将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。跳过那些值为 null 或 undefined 的源对象。
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">参考资料</a>
+					</span>
+				</li>
 			</ul>
-			<h4>[<span>+</span>]Generator</h4>
-			<ul style="display:none;">
-				<li><a href="">function*</a>()<span></span></li>
-				<li><a href="">yield</a> val<span></span></li>
-				<li>g.<a href="">next()</a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>]内部</h4>
-			<ul>
-				<li><a href="">return</a><span>
-					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
-				</span></li>
-				<li><a href="">arguments</a><span>
-					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。
-					<table>
-						<tr>
-							<th>对象值</th>
-							<th>描述</th>
-						</tr>
-						<tr>
-							<td>arguments[0]</td>
-							<td>第一个参数名字</td>
-						</tr>
-						<tr>
-							<td>arguments.length</td>
-							<td>参数的个数</td>
-						</tr>
-						<tr>
-							<td>arguments.callee</td>
-							<td>主体函数本身，拥有这个参数对象的函数</td>
-						</tr>
-					</table>
-					rest参数：<br>
-<pre><code data-language="javascript">
-	function foo(a, b, ...rest) {
-	    console.log('a = ' + a);
-	    console.log('b = ' + b);
-	    console.log(rest);
-	    //rest: [array]
-	}
-</code></pre>
-				</span></li>
-				<li><a href="">this</a><span>
-					<table>
-						<tr>
-							<th>当前环境</th>
-							<th>this指向</th>
-						</tr>
-						<tr>
-							<td>函数</td>
-							<td>非严格模式：window <br>
-							strict模式：undefined
-							</td>
-						</tr>
-						<tr>
-							<td>对象</td>
-							<td>object<br>
-							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
-							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
-							</td>
-						</tr>
-					</table>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料</a>
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]方法</h4>
-			<ul>
-				<li>fn<a href="">.apply</a>(obj,[arg])<span>
-					fn.apply(作用域，[传递参数]/arguments) <br>
-					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
-				</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>
-					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
-					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
-					对普通函数调用，我们通常把this绑定为null。
-					</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>
-					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
-					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
-				</span></li>
-			</ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>类与面向对象<span>-</span></h3>
-		<div class="u-list">
 			<h4>[<span>-</span>]原型链</h4>
 			<ul>
                 <li>cst.<a href="">prototype</a><span>
