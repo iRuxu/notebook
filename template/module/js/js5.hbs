@@ -8,7 +8,8 @@
 				<li><a href="">Math.random()</a><span>
 					返回 0 ~ 1 之间的随机数 <br>
 					1.随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 ) <br>
-					2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();}
+					2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();} <br>
+					<a href="http://javascript.ruanyifeng.com/stdlib/math.html">参考资料</a>
 				</span></li>
 				<li><a href="">Math.max/min</a>(x,y,z..n)<span>
 					返回 x,y,z,...,n 中的最高/低值 <br>
@@ -118,7 +119,7 @@
 				<li>date.<a href="">getSeconds()</a>{0~60}<span>秒</span></li>
 				<li>date.<a href="">getMilliseconds()</a>{0~1000}<span>毫秒</span></li>
 				<li><a href="">Date.now()</a>{timestamp}<span>当前时间戳</span></li>
-				<li>date.<a href="">getTime()</a>{timestamp}<span>时间戳</span></li>
+				<li>date.<a href="">getTime()</a>{timestamp}<span>时间戳，等同于date.valueOf()</span></li>
 				<li><a href="">Date.parse(ISO)</a>{timestamp}<span>
 					解析一个符合ISO 8601格式的字符串，并返回对应时间戳 <br>
 					var d = Date.parse('2015-06-24T19:49:22.875+08:00'); <br>
@@ -140,7 +141,12 @@
 					第一种方式是直接通过/正则表达式/写出来，第二种方式是通过new RegExp('正则表达式')创建一个RegExp对象。<br>
 					var re1 = /ABC\-001/; <br>
 					var re2 = new RegExp('ABC\\-001');<br>
-					注意，如果使用第二种写法，因为字符串的转义问题，字符串的两个\\实际上是一个\。
+					注意，如果使用第二种写法，因为字符串的转义问题，字符串的两个\\实际上是一个\。 <hr>
+					修饰符：<br>
+					i：忽略大小写。 <br>
+					g：全局匹配。 <br>
+					m：多行模式。<br>
+					<a href="http://javascript.ruanyifeng.com/stdlib/regexp.html">参考资料</a>
 				</span></li>
 				<li>RegExp.<a href="">test</a>(str)<span>
 					返回：true/false

@@ -1,362 +1,454 @@
 <!-- 基本语法、标准库 -->
 <div class="u-col">
     <div class="u-block">
-		<h3>基本语法<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]变量</h4>
-			<ul>
-				<li><a href="">var</a><span>
-					x1 = 1;<br />
-					var x2 = 2;<br />
-					window.x3 = 3;<br />
-					<a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
-					判断某个全局变量是否存在用typeof window.myVar === 'undefined' <br>
-					函数内部判断某个变量是否存在用typeof myVar === 'undefined' <hr>
-					js采用词法作用域，即静态作用域。函数的作用域在函数定义的时候就决定，而动态动作用域则在函数调用的时候才决定的。
-					<a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
-					JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的，不管何时何地执行函数，这种绑定在执行时依然有效。
-				</span></li>
-				<li><a href="">let</a><span>
-					let i = 1;<br>
-					申明一个块级作用域的变量
-				</span></li>
-				<li><a href="">const</a><span>
-					const来定义常量，const与let都具有块级作用域。
-					常量通常使用全大写。
-					const PI = 3.14
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]语句</h4>
-			<ul>
-				<li><a href="">switch</a><span>
-					1.switch中的case为全等判断<br>
-					2.多个case使用同一个执行块应写为case 1: case2: ... <br>
-					3.每个case代码块内部的break不能少，否则会接着执行下一个case
-				</span></li>
-				<li>
-					<a href="">label/break/continue</a>
-					<span>
-						switch/for/while中均可以使用break跳出整个循环。 <br>
-						continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 <br>
-						不带参数的break和continue语句都只针对最内层的循环 <br>
-						当指定了label时，break则跳出整个label循环块；<br>
-						continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环，如果continue语句后面不使用标签，则只能进入下一轮的内层循环。
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>]其它</h4>
-			<ul>
-				<li><a href="">'use strict'</a><span>
-					严格模式下，函数中的this指向Undefined，非window对象。
-				</span></li>
-			</ul>
-		</div>
+        <h3>基本语法<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>]变量</h4>
+            <ul>
+                <li><a href="">var</a><span>
+                    x1 = 1;<br />
+                    var x2 = 2;<br />
+                    window.x3 = 3;<br />
+                    <a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
+                    判断某个全局变量是否存在用typeof window.myVar === 'undefined' <br>
+                    函数内部判断某个变量是否存在用typeof myVar === 'undefined' <hr>
+                    js采用词法作用域，即静态作用域。函数的作用域在函数定义的时候就决定，而动态动作用域则在函数调用的时候才决定的。
+                    <a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
+                    JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的，不管何时何地执行函数，这种绑定在执行时依然有效。
+                </span></li>
+                <li><a href="">let</a><span>
+                    let i = 1;<br>
+                    申明一个块级作用域的变量
+                </span></li>
+                <li><a href="">const</a><span>
+                    const来定义常量，const与let都具有块级作用域。
+                    常量通常使用全大写。
+                    const PI = 3.14
+                </span></li>
+            </ul>
+            <h4>[<span>-</span>]语句</h4>
+            <ul>
+                <li><a href="">switch</a><span>
+                    1.switch中的case为全等判断<br>
+                    2.多个case使用同一个执行块应写为case 1: case2: ... <br>
+                    3.每个case代码块内部的break不能少，否则会接着执行下一个case
+                </span></li>
+                <li>
+                    <a href="">label/break/continue</a>
+                    <span>
+                        switch/for/while中均可以使用break跳出整个循环。 <br>
+                        continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 <br>
+                        不带参数的break和continue语句都只针对最内层的循环 <br>
+                        当指定了label时，break则跳出整个label循环块；<br>
+                        continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环，如果continue语句后面不使用标签，则只能进入下一轮的内层循环。
+                    </span>
+                </li>
+                <li>
+                    <a href="">eval</a>(str)
+                    <span>
+                        将字符串当作语句执行。<br>
+                        eval没有自己的作用域，都在当前作用域内执行。<br>
+                        JavaScript规定，如果使用严格模式，eval内部声明的变量，不会影响到外部作用域。不过，即使在严格模式下，eval依然可以读写当前作用域的变量。<br>
+                        eval的使用分成两种情况，一种是直接调用eval(expression)，这叫做“直接使用”，这种情况下eval的作用域就是当前作用域。除此之外的调用方法，都叫“间接调用”，此时eval的作用域总是全局作用域
+                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc25">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>]其它</h4>
+            <ul>
+                <li><a href="">'use strict'</a><span>
+                    严格模式下，函数中的this指向Undefined，非window对象。
+                </span></li>
+                <li>
+                    <a href=""></a><em>运算</em>
+                    <span>
+                        + ：只要有一个运算子是字符串，则两个运算子都转为字符串，执行字符串连接运算。一个值加上空字符串，会使得该值转为字符串形式。 <hr>
+                        加法运算符以外的其他算术运算符（比如减法、除法和乘法），都不会发生重载。它们的规则是：所有运算子一律转为数值，再进行相应的数学运算。 <hr>
+                        % ： 运算结果的正负号由第一个运算子的正负号决定。为了得到正确的负数的余数值，需要先使用绝对值函数。 <hr>
+                        i++/++i : 放在变量之后，会先返回变量操作前的值，再进行自增/自减操作；放在变量之前，会先进行自增/自减操作，再返回变量操作后的值。 <hr>
+                        +/- : 数值运算符的作用在于可以将任何值转为数值（与Number函数的作用相同）。 <hr>
+                        >/< : 即任何值（包括NaN本身）与NaN比较，返回的都是false。（涉及数值比较的需判断非NaN） <hr>
+                        两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象。 <hr>
+                        &amp; : 且运算符可以多个连用，这时返回第一个布尔值为false的表达式的值。短路可替代if。 <hr>
+                        | : 或运算符可以多个连用，这时返回第一个布尔值为true的表达式的值。 <hr> 
+                        ?: : 三元条件表达式是表达式，具有返回值。if结构不具有 <hr>
+                        void : void运算符的作用是执行一个表达式，然后不返回任何值，或者说返回undefined。 <hr>
+                        优先级：算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号<br>圆括号强制优先级<br>
+                        赋值运算符（=）和三元条件运算符（?:）才用先计算右结合。 <hr>
+                        <a href="http://javascript.ruanyifeng.com/grammar/operator.html">参考资料</a>
+
+                    </span>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="u-block">
-    	<h3>数据类型<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]类型检测</h4>
-			<ul>
-				<li><a href="">typeof</a> val<span>
-					返回的是字符串。
-						<table>
-							<tr>
-								<th>测试值</th>
-								<th>结果</th>
-							</tr>
-							<tr>
-								<td>true/false</td>
-								<td>boolean</td>
-							</tr>
-							<tr>
-								<td>数值/NaN</td>
-								<td>boolean</td>
-							</tr>
-							<tr>
-								<td>字符串/JSON</td>
-								<td>string</td>
-							</tr>
-							<tr>
-								<td>fn</td>
-								<td>function</td>
-							</tr>
-							<tr>
-								<td>obj/数组/null</td>
-								<td>object</td>
-							</tr>
-							<tr>
-								<td>undefined/不存在的属性或方法</td>
-								<td>undefined</td>
-							</tr>
-						</table>
-						<ol>
-							<li>判断null请使用myVar === null</li>
-							<li>
-						不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
-							<li>
-						Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样，当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
-							<li>
-						undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
-						</ol>
-					</span></li>
-				<li><a href="">Array.isArray</a>(arr)<span>检测是否为数组（EC5）</span></li>
-				<li>val <a href="">instanceof</a> type
-					<span>instanceof引用类型数据测试，返回布尔值。
-						<table>
-							<tr>
-								<th>测试目标</th>
-								<th>测试结果</th>
-							</tr>
-							<tr>
-								<td>数组</td>
-								<td>arr instanceof Array</td>
-							</tr>
-							<tr>
-								<td>函数/构造函数</td>
-								<td>fn instanceof Function</td>
-							</tr>
-							<tr>
-								<td>构造函数实例</td>
-								<td>child instanceof parent</td>
-							</tr>
-							<tr>
-								<td>泛对象</td>
-								<td>obj instanceof Object</td>
-							</tr>
-							<tr>
-								<td>日期</td>
-								<td>value instanceof Date</td>
-							</tr>
-							<tr>
-								<td>正则表达式</td>
-								<td>value instanceof RegExp</td>
-							</tr>
-							<tr>
-								<td>数学</td>
-								<td>value instanceof Math</td>
-							</tr>
-						</table>
-					</span></li>
-			</ul>
-			<h4>[<span>-</span>]类型转换</h4>
-			<ul>
-				<li><a href="">Boolean</a>(val)
-					<span>Boolean(val)布尔转换规则 （控制流会自动转换） <br>
-						undefined,null,false,0,NaN,"",''为false，其余均为ture。空数组空对象为true。
-						<table>
-							<tbody>
-							<tr>
-							<th>Boolean(value)</th>
-							<th>true</th>
-							<th>false</th>
-							</tr>
-							<tr>
-							<td>undefined</td>
-							<td></td>
-							<td>undefined</td>
-							</tr>
-							<tr>
-							<td>boolean</td>
-							<td>true</td>
-							<td>false</td>
-							</tr>
-							<tr>
-							<td>string</td>
-							<td>非空</td>
-							<td>空</td>
-							</tr>
-							<tr>
-							<td>number</td>
-							<td>非零数值</td>
-							<td>0与NaN</td>
-							</tr>
-							<tr>
-							<td>object</td>
-							<td>对象（包括空的对象）</td>
-							<td>null（空对象）</td>
-							</tr>
-							</tbody>
-						</table>
-					</span></li>
-				<li><a href="">Number</a>(val)<span>
-						用于任何数据类型
-						<table>
-							<tr>
-								<th>value</th>
-								<th>返回值</th>
-							</tr>
-							<tr>
-								<td>number</td>
-								<td>number</td>
-							</tr>
-							<tr>
-								<td>boolean</td>
-								<td>1 / 0</td>
-							</tr>
-							<tr>
-								<td>null</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>空字符串</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>undefined</td>
-								<td>NaN</td>
-							</tr>
-							<tr>
-								<td>非数值(string+/object)</td>
-								<td>NaN</td>
-							</tr>
-						</table>
-					</span></li>
-				<li><a href="">String</a>(val)
-					<span>不确定null和undefined时,返回null和undefined</span></li>
-				<li><em>包装对象</em><a href=""></a><span>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000">参考资料</a>
-				</span></li>
-			</ul>
-		</div>
+        <h3>数据类型<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>]类型检测</h4>
+            <ul>
+                <li><a href="">typeof</a> val<span>
+                    返回的是字符串。
+                        <table>
+                            <tr>
+                                <th>测试值</th>
+                                <th>结果</th>
+                            </tr>
+                            <tr>
+                                <td>true/false</td>
+                                <td>boolean</td>
+                            </tr>
+                            <tr>
+                                <td>数值/NaN</td>
+                                <td>boolean</td>
+                            </tr>
+                            <tr>
+                                <td>字符串/JSON</td>
+                                <td>string</td>
+                            </tr>
+                            <tr>
+                                <td>fn</td>
+                                <td>function</td>
+                            </tr>
+                            <tr>
+                                <td>obj/数组/null</td>
+                                <td>object</td>
+                            </tr>
+                            <tr>
+                                <td>undefined/不存在的属性或方法</td>
+                                <td>undefined</td>
+                            </tr>
+                        </table>
+                        <ol>
+                            <li>判断null请使用myVar === null</li>
+                            <li>
+                        不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。</li>
+                            <li>
+                        Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样，当检查 null 值就知道是否已经变量是否已经分配了对象引用了。</li>
+                            <li>
+                        undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
+                        </ol>
+                    </span></li>
+                <li><a href="">Array.isArray</a>(arr)<span>检测是否为数组（EC5）</span></li>
+                <li>val <a href="">instanceof</a> type
+                    <span>instanceof引用类型数据测试，返回布尔值。
+                        <table>
+                            <tr>
+                                <th>测试目标</th>
+                                <th>测试结果</th>
+                            </tr>
+                            <tr>
+                                <td>数组</td>
+                                <td>arr instanceof Array</td>
+                            </tr>
+                            <tr>
+                                <td>函数/构造函数</td>
+                                <td>fn instanceof Function</td>
+                            </tr>
+                            <tr>
+                                <td>构造函数实例</td>
+                                <td>child instanceof parent</td>
+                            </tr>
+                            <tr>
+                                <td>泛对象</td>
+                                <td>obj instanceof Object</td>
+                            </tr>
+                            <tr>
+                                <td>日期</td>
+                                <td>value instanceof Date</td>
+                            </tr>
+                            <tr>
+                                <td>正则表达式</td>
+                                <td>value instanceof RegExp</td>
+                            </tr>
+                            <tr>
+                                <td>数学</td>
+                                <td>value instanceof Math</td>
+                            </tr>
+                        </table>
+                    </span></li>
+                <li>
+                    <em>type</em><a href=""></a>(val)
+                    <span>
+<pre><code data-language="javascript">
+var type = function (o){
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+</code></pre>
+<pre><code data-language="javascript">
+['Null',
+ 'Undefined',
+ 'Object',
+ 'Array',
+ 'String',
+ 'Number',
+ 'Boolean',
+ 'Function',
+ 'RegExp'
+].forEach(function (t) {
+  type['is' + t] = function (o) {
+    return type(o) === t.toLowerCase();
+  };
+});
+//type.isNumber(value)
+</code></pre>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>]类型转换</h4>
+            <ul>
+                <li><a href="">Boolean</a>(val)
+                    <span>
+                        <table>
+                            <tbody>
+                            <tr>
+                            <th>value</th>
+                            <th>true</th>
+                            <th>false</th>
+                            </tr>
+                            <tr>
+                            <td>undefined</td>
+                            <td></td>
+                            <td>undefined</td>
+                            </tr>
+                            <tr>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>false</td>
+                            </tr>
+                            <tr>
+                            <td>string</td>
+                            <td>非空</td>
+                            <td>空</td>
+                            </tr>
+                            <tr>
+                            <td>number</td>
+                            <td>非零数值</td>
+                            <td>0与NaN</td>
+                            </tr>
+                            <tr>
+                            <td>object</td>
+                            <td>对象（包括空的对象、数组）</td>
+                            <td>null（空对象）</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </span></li>
+                <li><a href="">Number</a>(val)<span>
+                        <table>
+                            <tr>
+                                <th>value</th>
+                                <th>返回值</th>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                            </tr>
+                            <tr>
+                                <td>boolean</td>
+                                <td>1 / 0</td>
+                            </tr>
+                            <tr>
+                                <td>null</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>空字符串</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>undefined</td>
+                                <td>NaN</td>
+                            </tr>
+                            <tr>
+                                <td>非数值(string+/object)</td>
+                                <td>NaN (包含单个数值的数组则为数值)</td>
+                            </tr>
+                        </table>
+                    </span></li>
+                <li><a href="">String</a>(val)
+                    <span>
+                        <table>
+                            <tr>
+                                <th>value</th>
+                                <th>返回值</th>
+                            </tr>
+                            <tr>
+                                <td>数值</td>
+                                <td>转为相应的字符串</td>
+                            </tr>
+                            <tr>
+                                <td>字符串</td>
+                                <td>转换后还是原来的值</td>
+                            </tr>
+                            <tr>
+                                <td>布尔值</td>
+                                <td>true转为"true"，false转为"false"</td>
+                            </tr>
+                            <tr>
+                                <td>undefined</td>
+                                <td>转为"undefined"</td>
+                            </tr>
+                            <tr>
+                                <td>null</td>
+                                <td>转为"null"</td>
+                            </tr>
+                            <tr>
+                                <td>对象</td>
+                                <td>返回一个类型字符串 "[object Object]"</td>
+                            </tr>
+                            <tr>
+                                <td>数组</td>
+                                <td>返回该数组的字符串形式  "1,2,3"</td>
+                            </tr>
+                        </table>
+                    </span></li>
+                <li><em>其它</em><a href=""></a><span>
+                    <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000">包装对象</a> <br>
+                    o.toString() | o.valueOf()
+                </span></li>
+            </ul>
+        </div>
     </div>
     <div class="u-block">
-    	<h3>数值<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>+</span>]Number</h4>
-			<ul style="display: none;">
-				<li><a href="">Finity</a><span>
-					Finity isFinite(---) 判断是否为无穷
-						<table>
-						<tbody>
-						<tr>
-						<td>
-						最大值</td>
-						<td>
-						Number.MAX_VALUE 1.79e+308</td>
-						</tr>
-						<tr>
-						<td>
-						<div>最小值</div></td>
-						<td>
-						Number.MIN_VALUE 5e-324</td>
-						</tr>
-						<tr>
-						<td>
-						<div>正无穷</div></td>
-						<td>
-						Number.POSITIVE_INFINITY</td>
-						</tr>
-						<tr>
-						<td>
-						<div>负无穷</div></td>
-						<td>
-						Number.NEGATIVE_INFINITY</td>
-						</tr>
-						</tbody>
-						</table>
-						<ul>
-							<li>科学计数法，浮点数+e+10的指数</li>
-							<li>0/0=NaN，正数/0=正无穷，负数/0=负无穷</li>
-							<li>正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN</li>
-							<li>无穷乘法操作得到无穷，无穷除法与求余操作得到NaN</li>
-						</ul>
-				</span></li>
-				<li><a href="">NaN</a><span>
-						NaN isNaN(---) 判断是否为NaN
-							<table>
-							<tbody>
-							<tr>
-							<td>Number.NaN</td>
-							<td>
-							得到 NaN 值</td>
-							</tr>
-							<tr>
-							<td>
-							var box = 0 / 0; //NaN
-							var box = 12 / 0; //Infinity
-							var box = 12 / 0 * 0; //NaN</td>
-							<td>
-							任何与 NaN 进行运算的结果均为 NaN</td>
-							</tr>
-							<tr>
-							<td>alert(NaN == NaN) //false</td>
-							<td>NaN 与自身不相等(NaN 不与任何值相等)</td>
-							</tr>
-							</tbody>
-							</table>
-							<ul>
-								<li>isNaN()函数也适用于对象。</li>
-								<li>在调用 isNaN()函数过程中，首先会调用 valueOf()方法， 然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</li>
-								<li>只要NaN参与的运算均为NaN</li>
-							</ul>
-				</span></li>
-				<li>Number.<a href="">MAX_VALUE</a><span>1.7976931348623157e+308</span></li>
-				<li>Number.<a href="">MIN_VALUE</a><span>5e-324 <br>MIN_VALUE 是 JavaScript 最接近0的数,不是负值</span></li>
-				<li>Number.<a href="">NEGATIVE_INFINITY</a><span>-Infinity 负无穷</span></li>
-				<li>Number.<a href="">POSITIVE_INFINITY</a><span>Infinity 正无穷</span></li>
-			</ul>
-			<h4>[<span>-</span>]表示</h4>
-			<ul>
-				<li>num.<a href="">toFixed</a>([bit])<span>
-					指定小数点后位数。<br>
-					把 Number 四舍五入为指定小数位数的数字，返回的是一个字符串。<br>
-					规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替并四舍五入。
-				</span></li>
-				<li>num.<a href="">toString</a>([ary])<span>
-					转为字符串，并指定进制，默认为10进制。<br>
-					直接转换时写为123..toString()或(123).toString()
-				</span></li>
-				<li>num.<a href="">toLocaleString</a>(local,[opt])<span>
-					根据本地数字格式转换为字符串 1,000.789 <br>
-					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">参考资料</a>
-				</span></li>
-				<li>num.<a href="">toExponential</a>([bit])<span>
-					使用指数计数法。<br>
-					把对象的值转换为指数计数法，返回的是一个字符串。<br>
-					参数可选。规定指数计数法中的小数位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将使用尽可能多的数字。
-				</span></li>
-				<li>num.<a href="">toPrecision</a>([bit])<span>
-					把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]检测</h4>
-			<ul>
-				<li>[Number.]<a href="">isNaN</a>(val)<span>
-					是否为非数值,转换后非数值为true，数值false
-					<br>1. 非数值执行运算，会隐藏自动转型（除+）
-					<br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
-				<li>[Number.]<a href="">isFinite</a>(val)<span>判断是否为无穷值超出计算范围</span></li>
-				<li>Number.<a href="">isInteger</a>(val)<span>
-					判断给定的参数是否为整数
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]转换</h4>
-			<ul>
-				<li>[Number.]<a href="">parseInt</a>(val,[ary])<span>
-					自动判定进制，忽略空格。
-					<table>
-						<tr>
-							<th>value</th>
-							<th>结果</th>
-						</tr>
-						<tr>
-							<td>空字符串</td>
-							<td>NaN</td>
-						</tr>
-						<tr>
-							<td>第一个非空字符不是数值或负号</td>
-							<td>NaN</td>
-						</tr>
-						<tr>
-							<td>第一个非空字符是数值，遇到非数值时停止解析</td>
-							<td>number</td>
-						</tr>
-					</table>
-					parseInt方法还可以接受第二个参数（2到36之间），表示被解析的值的进制，返回该值对应的十进制数。默认情况下，parseInt的第二个参数为10，即默认是十进制转十进制。
-					</span></li>
-				<li>[Number.]<a href="">parseFloat</a>(val)<span>
-					第一个小数点有效，第二个无效</span></li>
-			</ul>
-		</div>
+        <h3>数值<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>]Number</h4>
+            <ul style="display: none;">
+                <li><a href="">Finity</a><span>
+                    Finity isFinite(---) 判断是否为无穷
+                        <table>
+                        <tbody>
+                        <tr>
+                        <td>
+                        最大值</td>
+                        <td>
+                        Number.MAX_VALUE 1.79e+308</td>
+                        </tr>
+                        <tr>
+                        <td>
+                        <div>最小值</div></td>
+                        <td>
+                        Number.MIN_VALUE 5e-324</td>
+                        </tr>
+                        <tr>
+                        <td>
+                        <div>正无穷</div></td>
+                        <td>
+                        Number.POSITIVE_INFINITY</td>
+                        </tr>
+                        <tr>
+                        <td>
+                        <div>负无穷</div></td>
+                        <td>
+                        Number.NEGATIVE_INFINITY</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        <ul>
+                            <li>科学计数法，浮点数+e+10的指数</li>
+                            <li>0/0=NaN，正数/0=正无穷，负数/0=负无穷</li>
+                            <li>正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN</li>
+                            <li>无穷乘法操作得到无穷，无穷除法与求余操作得到NaN</li>
+                        </ul>
+                </span></li>
+                <li><a href="">NaN</a><span>
+                        NaN isNaN(---) 判断是否为NaN
+                            <table>
+                            <tbody>
+                            <tr>
+                            <td>Number.NaN</td>
+                            <td>
+                            得到 NaN 值</td>
+                            </tr>
+                            <tr>
+                            <td>
+                            var box = 0 / 0; //NaN
+                            var box = 12 / 0; //Infinity
+                            var box = 12 / 0 * 0; //NaN</td>
+                            <td>
+                            任何与 NaN 进行运算的结果均为 NaN</td>
+                            </tr>
+                            <tr>
+                            <td>alert(NaN == NaN) //false</td>
+                            <td>NaN 与自身不相等(NaN 不与任何值相等)</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            <ul>
+                                <li>isNaN()函数也适用于对象。</li>
+                                <li>在调用 isNaN()函数过程中，首先会调用 valueOf()方法， 然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</li>
+                                <li>只要NaN参与的运算均为NaN</li>
+                            </ul>
+                </span></li>
+                <li>Number.<a href="">MAX_VALUE</a><span>1.7976931348623157e+308</span></li>
+                <li>Number.<a href="">MIN_VALUE</a><span>5e-324 <br>MIN_VALUE 是 JavaScript 最接近0的数,不是负值</span></li>
+                <li>Number.<a href="">NEGATIVE_INFINITY</a><span>-Infinity 负无穷</span></li>
+                <li>Number.<a href="">POSITIVE_INFINITY</a><span>Infinity 正无穷</span></li>
+            </ul>
+            <h4>[<span>-</span>]表示</h4>
+            <ul>
+                <li>num.<a href="">toFixed</a>([bit])<span>
+                    指定小数点后位数。<br>
+                    把 Number 四舍五入为指定小数位数的数字，返回的是一个字符串。<br>
+                    规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替并四舍五入。
+                </span></li>
+                <li>num.<a href="">toString</a>([ary])<span>
+                    转为字符串，并指定进制，默认为10进制。<br>
+                    直接转换时写为123..toString()或(123).toString()
+                </span></li>
+                <li>num.<a href="">toLocaleString</a>(local,[opt])<span>
+                    根据本地数字格式转换为字符串 1,000.789 <br>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">参考资料</a>
+                </span></li>
+                <li>num.<a href="">toExponential</a>([bit])<span>
+                    使用指数计数法。<br>
+                    把对象的值转换为指数计数法，返回的是一个字符串。<br>
+                    参数可选。规定指数计数法中的小数位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将使用尽可能多的数字。
+                </span></li>
+                <li>num.<a href="">toPrecision</a>([bit])<span>
+                    把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。
+                </span></li>
+            </ul>
+            <h4>[<span>-</span>]检测</h4>
+            <ul>
+                <li>[Number.]<a href="">isNaN</a>(val)<span>
+                    是否为非数值,转换后非数值为true，数值false
+                    <br>1. 非数值执行运算，会隐藏自动转型（除+）
+                    <br>2. 加法操作中，数值字符串与数值运算，则改变为字符串串联，减法中，会继续自动转换数值进行运算</span></li>
+                <li>[Number.]<a href="">isFinite</a>(val)<span>判断是否为无穷值超出计算范围</span></li>
+                <li>Number.<a href="">isInteger</a>(val)<span>
+                    判断给定的参数是否为整数
+                </span></li>
+            </ul>
+            <h4>[<span>-</span>]转换</h4>
+            <ul>
+                <li>[Number.]<a href="">parseInt</a>(val,[ary])<span>
+                    自动判定进制，忽略空格。
+                    <table>
+                        <tr>
+                            <th>value</th>
+                            <th>结果</th>
+                        </tr>
+                        <tr>
+                            <td>空字符串</td>
+                            <td>NaN</td>
+                        </tr>
+                        <tr>
+                            <td>第一个非空字符不是数值或负号</td>
+                            <td>NaN</td>
+                        </tr>
+                        <tr>
+                            <td>第一个非空字符是数值，遇到非数值时停止解析</td>
+                            <td>number</td>
+                        </tr>
+                    </table>
+                    parseInt方法还可以接受第二个参数（2到36之间），表示被解析的值的进制，返回该值对应的十进制数。默认情况下，parseInt的第二个参数为10，即默认是十进制转十进制。
+                    </span></li>
+                <li>[Number.]<a href="">parseFloat</a>(val)<span>
+                    第一个小数点有效，第二个无效</span></li>
+            </ul>
+        </div>
     </div>
 </div>

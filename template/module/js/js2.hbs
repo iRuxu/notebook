@@ -147,7 +147,7 @@
 				 	回调函数返回true/false <br>
 				 	整个执行函数返回索引或-1。
 				 </span></li>
-				 <li>arr.<a href="">includes</a>(val,[i])<i>ES7</i><span>
+				 <li>arr.<a href="">includes</a>(val,[i])<span>
 				 	返回值：true/false <br>
 				 	参数：从i索引处开始查找val,默认为 0。<br>
 				 	如果i为负值，则按升序从array.length + fromIndex 的索引开始搜索。<br>
@@ -270,7 +270,8 @@
 				<li>ite.<a href="">forEach</a><em>(fn(val,[i],[o]))</em><span>
 				每个元素都执行一次回调函数，可应用与Iterable类型 (Array/Map/Set)<br>
 				Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身<br>
-				Map的回调函数参数依次为value、key和map本身
+				Map的回调函数参数依次为value、key和map本身 <br>
+				forEach方法无法中断执行，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用for循环。
 				<table>
 					<tr>
 						<th>类型</th>

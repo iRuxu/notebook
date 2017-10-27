@@ -1,39 +1,166 @@
-<!-- 代码规范技巧，参考资料（工具、第三方库） -->
+<!-- 其他 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>规范技巧<span>-</span></h3>
+		<h3>调试<span>-</span></h3>
 		<div class="u-list">
 			<h4>[<span>-</span>]错误处理</h4>
 			<ul>
-				<li><a href="">new Error</a>(tips)<span>还有从Error派生的TypeError、ReferenceError等错误对象 <hr>
-				如果在一个函数内部发生了错误，它自身没有捕获，错误就会被抛到外层调用函数，如果外层函数也没有捕获，该错误会一直沿着函数调用链向上抛出，直到被JavaScript引擎捕获，代码终止执行。所以，我们不必在每一个函数内部捕获错误，只需要在合适的地方来个统一捕获，一网打尽。<hr>
-				涉及到异步代码，无法在调用时捕获，原因就是在捕获的当时，回调函数并未执行。<br>
-				类似的，当我们处理一个事件时，在绑定事件的代码处，无法捕获事件处理函数的错误。
+				<li><a href="">new Error</a>('msg')<span>
+					错误对象属性：
+					<table>
+						<tr>
+							<th>属性</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>err.message</td>
+							<td>错误提示信息</td>
+						</tr>
+						<tr>
+							<td>err.name</td>
+							<td>错误名称（非标准属性）</td>
+						</tr>
+						<tr>
+							<td>err.stack</td>
+							<td>错误的堆栈（非标准属性）</td>
+						</tr>
+					</table>
+					<br>
+					原生错误类型：
+					<table>
+						<tr>
+							<th>名称</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>SyntaxError</td>
+							<td>解析代码时发生的语法错误</td>
+						</tr>
+						<tr>
+							<td>ReferenceError</td>
+							<td>引用一个不存在的变量时发生的错误；将一个值分配给无法分配的对象</td>
+						</tr>
+						<tr>
+							<td>RangeError</td>
+							<td>当一个值超出有效范围时发生的错误</td>
+						</tr>
+						<tr>
+							<td>TypeError</td>
+							<td>变量或参数不是预期类型时发生的错误</td>
+						</tr>
+						<tr>
+							<td>URIError</td>
+							<td>URI相关函数的参数不正确时抛出的错误</td>
+						</tr>
+						<tr>
+							<td>EvalError</td>
+							<td>eval函数没有被正确执行</td>
+						</tr>
+						<tr>
+							<td>自定义错误</td>
+							<td><a href="http://javascript.ruanyifeng.com/grammar/error.html">参考资料</a></td>
+						</tr>
+					</table>
+
+					<br><br>
+					如果在一个函数内部发生了错误，它自身没有捕获，错误就会被抛到外层调用函数，如果外层函数也没有捕获，该错误会一直沿着函数调用链向上抛出，直到被JavaScript引擎捕获，代码终止执行。所以，我们不必在每一个函数内部捕获错误，只需要在合适的地方来个统一捕获，一网打尽。<hr>
+					涉及到异步代码，无法在调用时捕获，原因就是在捕获的当时，回调函数并未执行。<br>
+					类似的，当我们处理一个事件时，在绑定事件的代码处，无法捕获事件处理函数的错误。
 				</span></li>
-				<li><a href="">try{...}cath(e){...}</a><span>
+				<li><a href="">throw</a> err<span>
+					throw语句的作用是中断程序执行，抛出一个意外或错误。它接受一个表达式作为参数，可以抛出各种值。 <br>
+					throw可以接受各种值作为参数。JavaScript引擎一旦遇到throw语句，就会停止执行后面的语句，并将throw语句的参数值，返回给用户。
+				</span></li>
+				<li><a href="">try{..}cath(e){..}finally{..}</a><span>
 					<pre><code data-language="javascript">
 						try {
 						    //可能出错的语句
+						    throw new Error('出错了!');
 						} catch (e) {
-						    //捕获e错误对象
+						    //捕获e错误对象,try中抛出的错误对象
 						} finally {
 						    //总会执行
+						    //执行finally代码块以后，程序就中断在错误抛出的地方。
 						}
 					</code></pre>
 				</span></li>
-				<li><a href="">try{..throw new Error('')..}</a><span></span></li>
+				
 				<li><em>source map</em><a href=""></a><span>
 				Source map就是一个信息文件，里面储存着位置信息。也就是说，转换后的代码的每一个位置，所对应的转换前的位置。有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。<a href="http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html">参考资料</a>
 				</span></li>
 			</ul>
+			<h4>[<span>-</span>]控制台</h4>
+			<ul style="display: none;">
+				<li>
+					console.<a href="">log</a>()
+					<span>
+						console.log() <br>
+						console.debug() <br>
+						console.info() - 蓝色图标 <br>
+						console.warn() - 黄色三角 <br>
+						console.error() - 红色叉叉 <br>
+						console.table() - 表格显示 <br>
+						console.clear() - 清空
+					</span>
+				</li>
+				<li>
+					console.<a href="">count</a>(var)
+					<span>
+						用于计数，输出它被调用了多少次
+					</span>
+				</li>
+				<li>
+					console.<a href="">dir</a>(dom)
+					<span>
+						该方法对于输出 DOM 对象非常有用，因为会显示 DOM 对象的所有属性。 <br>
+						console.dirxml(dom) : 以目录树的形式，显示 DOM 节点
+					</span>
+				</li>
+				<li>
+					console.<a href="">assert</a>(false,'msg')
+					<span>
+						<a href="http://javascript.ruanyifeng.com/stdlib/console.html">参考资料</a>
+					</span>
+				</li>
+				<li>
+					console.<a href="">time/timeEnd</a>(name)
+					<span>
+						time方法表示计时开始，timeEnd方法表示计时结束。它们的参数是计时器的名称。 <br>
+						放在一个需要计时的代码起始与末尾。
+					</span>
+				</li>
+				<li>
+					console.<a href="">profile/profileEnd</a>(name)
+					<span>
+						新建一个性能测试器。类同time，在profile面板中，可以看到这个性能调试器的运行结果
+					</span>
+				</li>
+				<li>
+					console.<a href="">group/groupend</a>(name)
+					<span>
+						分组展示，可用鼠标折叠展开。 <br>
+						console.groupCollapsed() 默认第一次是折叠的。
+					</span>
+				</li>
+				<li>
+					console.<a href="">trace()</a>
+					<span>
+						显示当前执行的代码在堆栈中的调用路径
+					</span>
+				</li>
+				<li>
+					<a href="">debugger</a>
+					<span>
+						debugger语句主要用于除错，作用是设置断点
+					</span>
+				</li>
+			</ul>
 			<h4>[<span>+</span>]笔记</h4>
 			<ul style="display:none;">
 				<li><a href="">避免变量未定义报错</a><span>
-					1.条件判断：取属性的时候可多加一层判断，以防属性值对象报错。
-					<pre><code data-language="javascript">
-						if (banner && banner.length)
-					</code></pre>
-					2.未定义检测：typeof v === "undefined"
+					1.条件判断：取属性的时候可多加一层判断，以防属性值对象报错。 <br>
+					if (banner && banner.length) <br>
+					2.未定义检测：typeof v === "undefined" <br>
 				</span></li>
 			</ul>
 		</div>
