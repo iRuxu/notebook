@@ -118,10 +118,7 @@
                     </span>
                 </li>
             </ul>
-      </div>
-      <h3>回退</a><span>-</span></h3>
-      <div class="u-list">
-          <h4>[</a><span>-</span>] 历史</h4>
+            <h4>[</a><span>-</span>] 历史</h4>
             <ul>
                 <li>
                     git <a href="">log</a> [--pretty=oneline]
@@ -135,34 +132,60 @@
                     <span>查看每一次命令</span>
                 </li>
             </ul>
-            <h4>[</a><span>-</span>] 回退</h4>
+      </div>
+      <h3>分支</a><span>-</span></h3>
+        <div class="u-list">
+            <h4>[</a><span>-</span>] 创建/切换</h4>
             <ul>
                 <li>
-                    git <a href="">checkout</a> -- $file
-                    <span>
-                        git checkout -- filename 撤销对文件的修改，如果被工作区删除也可作为恢复 <br>
-                        一种是自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>
-                        一种是已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>
-                        总之，就是让这个文件回到最近一次git commit或git add时的状态。
-                    </span>
+                git <a href="">branch</a>
+                  <span>
+                        查看所有分支
+                  </span>
+                  </li>
+                <li>
+                git <a href="">branch</a> $dev
+                <span>
+                    创建分支
+                </span>
                 </li>
                 <li>
-                    git <a href="">reset</a> HEAD [$file]
-                    <span>
-                        HEAD表示当前版本,上个版本HEAD^,上上个版本HEAD^^,上100个版本HEAD~100。<br>
-                        git reset HEAD 取消目前所有暂存的文件（仍在工作区）<br>
-                        git reset HEAD filename 取消某个文件的暂存状态<br>
-                        <hr>
-                        场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。<br>
-                        场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。<br>
-                        场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
-                    </span>
+                git <a href="">checkout</a> $dev
+                <span>
+                    切换分支
+                </span>
                 </li>
                 <li>
-                    git <a href="">reset</a> --hard $commit_id
-                    <span></span>
+                git <a href="">checkout</a> -b $dev
+                <span>
+                    创建并切换到该分支
+                </span>
                 </li>
             </ul>
-      </div>
+            <h4>[</a><span>-</span>] 删除</h4>
+            <ul>
+                <li>
+                git <a href="">branch</a> -d $dev
+                <span>
+                    删除分支
+                </span>
+                </li>
+                <li>
+                git <a href="">branch</a> -D $dev
+                <span>
+                    强行删除分支
+                </span>
+                </li>
+            </ul>
+            <h4>[</a><span>-</span>] 对比</h4>
+            <ul>
+                <li>
+                    git <a href="">diff</a> $master $dev
+                    <span>
+                        对比两个分支
+                    </span>
+                </li>
+            </ul>
+        </div>
   </div>
 </div>

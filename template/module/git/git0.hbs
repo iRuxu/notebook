@@ -61,17 +61,22 @@
             </ul>
             <h4>[</a><span>-</span>] 帮助</h4>
             <ul>
-                <li>git <a href="">help</a><span></span></li>
+                <li>git <a href="">help</a> $cmd<span></span></li>
             </ul>
       </div>
       <h3>自定义</a><span>-</span></h3>
       <div class="u-list">
+            <h4>[</a><span>-</span>] 全局配置</h4>
+            <ul>
+                <li>
+                    git <a href="">config</a> --global [key] [val]
+                    <span>
+                        git config --global <配置名称> <配置的值>
+                    </span>
+                </li>
+            </ul>
             <h4>[</a><span>-</span>] 别名</h4>
             <ul>
-                <li>git <a href="">config</a> --global alias.$new $old<span>
-                    $ git config --global alias.st status <br>
-                    用st替代status
-                </span></li>
                 <li>git <a href="">last</a><span>
                     $ git config --global alias.last 'log -1' <br>
                     配置显示最后一次提交信息 <br>

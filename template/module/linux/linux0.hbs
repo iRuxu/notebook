@@ -5,18 +5,18 @@
 			<h4>[</a><span>-</span>] 创建与切换</h4>
 			<ul>
 				<li>
-					<a href="">mkdir</a> (dirname)
+					<a href="">mkdir</a> dirname
 					<span>创建文件夹 mkdir testdir</span>
 				</li>
 				<li>
-					<a href="">cd</a> (path)
+					<a href="">cd</a> path
 					<span>切换至文件夹 cd /web/www/ <br>
 					切换至上级目录 cd .. 
 					</span>
 				</li>
 				<li>
 					<a href="">pwd</a>
-					<span>显示当前目录</span>
+					<span>显示当前路径</span>
 				</li>
 			</ul>
 			<h4>[</a><span>-</span>] 查看</h4>
@@ -33,7 +33,7 @@
 			<h4>[</a><span>-</span>] 删除</h4>
 			<ul>
 				<li>
-					<a href="">rm -r</a> (dir)
+					<a href="">rm -r</a> dir
 					<span>删除文件夹 rm -r dir1</span>
 				</li>
 			</ul>
@@ -43,49 +43,42 @@
 			<h4>[</a><span>-</span>] 创建</h4>
 			<ul>
 				<li>
-					<a href="">touch</a> (file)
+					<a href="">touch</a> file
 					<span>创建文件 touch file1 file2..</span>
 				</li>
 			</ul>
 			<h4>[</a><span>-</span>] 查看</h4>
 			<ul>
 				<li>
-					<a href="">cat</a> (file)
+					<a href="">cat</a> file
 					<span>查看文件内容 cat file.txt</span>
 				</li>
 			</ul>
-			<h4>[</a><span>-</span>] 修改</h4>
+			<h4>[</a><span>-</span>] 编辑</h4>
 			<ul>
 				<li>
-					<a href="">echo</a> (text) >> (file)
+					<a href="">echo</a> "txt" >> file
 					<span>对文件输出内容 echo "text" >> file.txt</span>
 				</li>
 				<li>
-					<a href="">vim</a> (file)
+					<a href="">vim</a> file
 					<span>编辑文件内容 vim file.txt</span>
 				</li>
 			</ul>
 			<h4>[</a><span>-</span>] 删除</h4>
 			<ul>
 				<li>
-					<a href="">rm</a> (file)
+					<a href="">rm</a> file
 					<span>删除文件 rm file1 file2..</span>
-				</li>
-			</ul>
-			<h4>[</a><span>-</span>] 移动与重命名</h4>
-			<ul>
-				<li>
-					<a href="">mv</a> (file)
-					<span></span>
 				</li>
 			</ul>
 	  	</div>
 	  	<h3>文件夹/文件</a><span>-</span></h3>
 	  	<div class="u-list">
-			<h4>[</a><span>-</span>] 移动</h4>
+			<h4>[</a><span>-</span>] 移动/重命名</h4>
 			<ul>
 				<li>
-					<a href="">rm</a> (from) (to)
+					<a href="">mv</a> $from $to
 					<span>
 						mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
 						mv 文件名 目录名 : 将文件移动到目标目录 <br>
