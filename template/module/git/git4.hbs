@@ -1,9 +1,55 @@
 <div class="u-col">
   <div class="u-block">
-      <h3>子库</a><span>-</span></h3>
+      <h3>子库<span>-</span></h3>
       <div class="u-list">
-            <h4>[</a><span>-</span>] -</h4>
+            <h4>[<span>-</span>] 添加</h4>
             <ul>
+            	<li>
+            		git <a href="">submodule</a> add $url [path]
+            		<span>
+            			添加子模块
+            		</span>
+            	</li>
+            	<li>
+            		git <a href="">submodule</a> status
+            		<span>
+            			子模块状态
+            		</span>
+            	</li>
+            	<li>
+            		git <a href="">submodule</a> init
+            		<span>
+            			子模块初始化
+            		</span>
+            	</li>
+            	<li>
+            		git <a href="">submodule</a> update
+            		<span>
+            			更新子模块
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] 更新</h4>
+            <ul>
+            	<li>
+            		git <a href="">submodule</a> sync
+            		<span>
+            			1.更新 .gitsubmodule中对应submodule的条目URL <br>
+						2.更新 .git/config 中对应submodule的条目的URL <br>
+						3.执行 git submodule sync
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] 删除</h4>
+            <ul>
+            	<li>
+            		git <a href="">rm</a> --cached $subpath
+            		<span>
+            			1.删除 .gitsubmodule中对应submodule的条目 <br>
+						2.删除 .git/config 中对应submodule的条目 <br>
+						3.执行 git rm --cached {submodule_path}
+            		</span>
+            	</li>	
             </ul>
       </div>
   </div>

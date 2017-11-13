@@ -1,8 +1,77 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>合并</a><span>-</span></h3>
+        <h3>分支<span>-</span></h3>
         <div class="u-list">
-            <h4>[</a><span>-</span>] 合并</h4>
+            <h4>[<span>-</span>] 创建/切换</h4>
+            <ul>
+                <li>
+                git <a href="">branch</a>
+                  <span>
+                        查看所有分支
+                  </span>
+                  </li>
+                <li>
+                git <a href="">branch</a> $dev
+                <span>
+                    创建分支
+                </span>
+                </li>
+                <li>
+                git <a href="">checkout</a> $dev
+                <span>
+                    切换分支
+                </span>
+                </li>
+                <li>
+                git <a href="">checkout</a> -b $dev
+                <span>
+                    创建并切换到该分支
+                </span>
+                </li>
+                <li>
+                    git <a href="">checkout</a> -b $name origin
+                    <span>
+                        基于远程分支"origin"，创建一个分支
+                    </span>
+                </li>
+                <li>
+                    git <a href="">symbolic-ref</a>
+                    <span>
+                        创建新的空分支：   <br>
+                        git symbolic-ref HEAD refs/heads/$branchname <br>
+                        rm .git/index <br>
+                        git clean -fdx
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 删除</h4>
+            <ul>
+                <li>
+                git <a href="">branch</a> -d $dev
+                <span>
+                    删除分支
+                </span>
+                </li>
+                <li>
+                git <a href="">branch</a> -D $dev
+                <span>
+                    强行删除分支
+                </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 对比</h4>
+            <ul>
+                <li>
+                    git <a href="">diff</a> $master $dev
+                    <span>
+                        对比两个分支
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <h3>合并<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 合并</h4>
             <ul>
                 <li>
                 git <a href="">merge</a> $dev
@@ -17,7 +86,7 @@
                 </span>
                 </li>
             </ul>
-            <h4>[</a><span>-</span>] 存储</h4>
+            <h4>[<span>-</span>] 存储</h4>
             <ul>
                 <li>
                 git <a href="">stash</a>
@@ -26,19 +95,25 @@
                 </span>
                 </li>
                 <li>
+                    git <a href="">stash</a> save "$temp"
+                    <span>
+                        临时存储
+                    </span>
+                </li>
+                <li>git <a href="">stash</a> list<span>查看</span></li>
+                <li>
                 git <a href="">stash</a> pop
                 <span>
                     恢复存储区内容并删除stash
                 </span>
                 </li>
-                <li>git <a href="">stash</a> list<span>查看</span></li>
                 <li>git <a href="">stash</a> apply<span>恢复</span></li>
                 <li>git <a href="">stash</a> drop<span>删除</span></li>
             </ul>
         </div>
-        <h3>回退</a><span>-</span></h3>
+        <h3>恢复<span>-</span></h3>
         <div class="u-list">
-            <h4>[</a><span>-</span>] 回退</h4>
+            <h4>[<span>-</span>] 回退</h4>
             <ul>
                 <li>
                     git <a href="">checkout</a> -- $file
@@ -68,6 +143,27 @@
                 <li>
                     git <a href="">reset</a> --hard $commit_id
                     <span>恢复到指定commit版本</span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 找回</h4>
+            <ul>
+                <li>
+                    git <a href="">fsck</a> --lost-found
+                    <span>
+                        找出删除的提交对象
+                    </span>
+                </li>
+                <li>
+                    git <a href="">show</a> $commit_id
+                    <span>
+                        查看某个提交对象的内容
+                    </span>
+                </li>
+                <li>
+                    git <a href="">rebase</a> $commit_id
+                    <span>
+                        恢复指定commit
+                    </span>
                 </li>
             </ul>
         </div>
