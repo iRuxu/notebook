@@ -1,15 +1,31 @@
 <div class="u-col">
-  <div class="u-block">
-      <h3>Vim<span>-</span></h3>
-      <div class="u-list">
-            <h4>[<span>-</span>] 查看</h4>
+    <div class="u-block">
+        <h3>用户<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 账号</h4>
             <ul>
                 <li>
-                    <a href="https://git-scm.com/docs">参考手册</a>
+                    <a href="">useradd</a> $user
+                    <span>
+                        添加用户
+                    </span>
                 </li>
-                <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
+                <li>
+                    <a href="">passwd</a> $user
+                    <span>
+                        给$user设置密码
+                    </span>
+                </li>
             </ul>
-      </div>
-      <!-- 快乐命令行 -->
-  </div>
+            <h4>[<span>-</span>] 权限</h4>
+            <ul>
+                <li>
+                    <a href="">chown</a> -R $user $dir
+                    <span>
+                        将目录权限给指定用户
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
