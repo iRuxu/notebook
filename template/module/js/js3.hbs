@@ -142,26 +142,6 @@ var o = new Obj(name)
 					</span>
 				</li>
 				<li>
-					<em>cst</em><a href=""></a>
-					<span>
-<pre><code data-language="javascript">
-    function Student(props) {
-        this.name = props.name || '匿名'; // 默认值为'匿名'
-        this.grade = props.grade || 1; // 默认值为1
-    }
-
-    Student.prototype.hello = function () {
-        alert('Hello, ' + this.name + '!');
-    };
-
-    function createStudent(props) {
-        return new Student(props || {})
-    }
-</code></pre>
-<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a>
-					</span>
-				</li>
-				<li>
 					<a href="">with</a>(obj)
 					<span>
 						操作同一个对象的多个属性时，提供一些书写的方便. <a href="http://javascript.ruanyifeng.com/grammar/object.html">参考资料</a> <br>
@@ -169,8 +149,8 @@ var o = new Obj(name)
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]对象实例方法</h4>
-			<ul>
+			<h4>[<span>+</span>]对象实例方法</h4>
+			<ul style="display:none;">
 				<li>
 					obj.<a href="">propertyIsEnumerable</a>(key)
 					<span>
@@ -245,8 +225,8 @@ var o = new Obj(name)
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]对象属性与值</h4>
-			<ul>
+			<h4>[<span>+</span>]对象属性与值</h4>
+			<ul style="display:none;">
 				<li>
 					<a href="">Object.keys</a>(obj)
 					<span>
@@ -398,6 +378,25 @@ var extend = function (to, from) {
 					<a href="">Object.isFrozen</a>(obj)
 					<span>
 						判断一个对象是否被冻结
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]构造函数</h4>
+			<ul>
+				<li>
+					<a href="">new</a>
+					<span>
+						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
+						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
+						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
+						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
+						方法应挂载在prototype上，避免内存占用
+					</span>
+				</li>
+				<li>
+					<a href="">this</a>
+					<span>
+						
 					</span>
 				</li>
 			</ul>
