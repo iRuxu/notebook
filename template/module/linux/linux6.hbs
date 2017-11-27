@@ -1,0 +1,122 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>Vim<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 模式切换</h4>
+            <ul>
+                <li>
+                    <a href="">i</a> 
+                    <span>
+                        普通模式下，按i进入插入模式
+                    </span>
+                </li>
+                <li>
+                    <a href="">:</a>
+                    <span>
+                        普通模式下，按:进入命令行模式 <br>
+                        <table>
+                            <tr>
+                                <th>命令</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>:w [$name/$path]</td>
+                                <td>保存</td>
+                            </tr>
+                            <tr>
+                                <td>:q</td>
+                                <td>退出</td>
+                            </tr>
+                            <tr>
+                                <td>:wq / :x</td>
+                                <td>保存并退出</td>
+                            </tr>
+                            <tr>
+                                <td>:q!</td>
+                                <td>强制退出不保存</td>
+                            </tr>
+                            <tr>
+                                <td>:wq!</td>
+                                <td>强制保存并退出</td>
+                            </tr>
+                        </table>
+                        普通模式下 shift+zz = 保存退出
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 文本编辑</h4>
+            <ul>
+                <li>
+                    <a href="">Delete</a>
+                    <span>
+                        删除文本（普通模式） <br>
+                        x: 删除游标所在的字符 <br>
+                        dd: 删除整行 <br>
+                        d$: 删除至行尾 <br>
+                        d^: 删除至行首 <br>
+                        dG: 删除至文档结尾处
+                    </span>
+                </li>
+                <li>
+                    <a href="">. / Ncmd</a>
+                    <span>
+                        重复操作（普通模式） <br>
+                        .(小数点)表示重复上一次的命令操作 <br>
+                        Ncommand，N表示重复后面的次数
+                    </span>
+                </li>
+                <li>
+                    <a href="">nG / gg / G</a>
+                    <span>
+                        行间跳转（普通模式） <br>
+                        第N行 / gg第一行 / G最后一行
+                    </span>
+                </li>
+                <li>
+                    <a href="">^ / $</a>
+                    <span>
+                        行内跳转（普通模式）<br>
+                        行首 / 行尾 <br>
+                        Ctrl+o快速回到上一次(跳转前)光标所在位置
+                    </span>
+                </li>
+                <li>
+                    <a href="">y</a>
+                    <span>
+                        复制（普通模式） <br>
+                        普通模式中，yy复制游标所在的整行（3yy表示复制3行）<br>
+                        普通模式中，y^ 复制至行首，或y0。不含光标所在处字符。<br>
+                        普通模式中，y$ 复制至行尾。含光标所在处字符。<br>
+                        普通模式中，yw 复制一个单词。<br>
+                        普通模式中，y2w 复制两个单词。<br>
+                        普通模式中，yG 复制至文本末。<br>
+                        普通模式中，y1G 复制至文本开头。
+                    </span>
+                </li>
+                <li>
+                    <a href="">p</a>
+                    <span>
+                        粘贴（普通模式）<br>
+                        普通模式中，p(小写)代表粘贴至光标后（下）<br>
+                        普通模式中，P(大写)代表粘贴至光标前（上）
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它更多</h4>
+            <ul>
+                <li>
+                    <a href="">vim -x $file</a>
+                    <span>
+                        创建加密文档
+                    </span>
+                </li>
+                <li>
+                    <a href="">:set nu</a>
+                    <span>
+                        显示行号
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

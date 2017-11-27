@@ -1,26 +1,26 @@
 <div class="u-col">
   <div class="u-block">
-        <h3>远端</a><span>-</span></h3>
+        <h3>远端<span>-</span></h3>
         <div class="u-list">
-            <h4>[</a><span>-</span>] 连接</h4>
+            <h4>[<span>-</span>] 连接</h4>
             <ul>
                 <li>
-                git <a href="">remote</a> add $origin $url
-                <span>
-                    添加一个远端地址。默认的为origin
-                </span>
-                </li>
-                  <li>
-                  git <a href="">remote</a> -v
-                  <span>
+                    git <a href="">remote</a> -v
+                    <span>
                         查看全部远端
-                  </span>
-                  </li>
+                    </span>
+                </li>
+                <li>
+                    git <a href="">remote</a> add $origin $url
+                    <span>
+                        添加一个远端地址。默认的为origin
+                    </span>
+                </li>
             </ul>
-            <h4>[</a><span>-</span>] 获取</h4>
+            <h4>[<span>-</span>] 获取</h4>
             <ul>
                 <li>
-                git <a href="">fetch</a> 
+                git <a href="">fetch</a> [$oigin $master]
                 <span>
                     获取远端最新内容
                 </span>
@@ -32,18 +32,51 @@
                 </span>
                 </li>
             </ul>
-        </div>
-        <h3>提交</a><span>-</span></h3>
-        <div class="u-list">
-            <h4>[</a><span>-</span>] 提交</h4>
+            <h4>[<span>-</span>] 提交</h4>
             <ul>
-            	<li>
-            	git <a href="">push</a> [-u] $origin $master
-            	<span>
-            		发布本地$master分支到远端$origin <br>
-            		第一次添加-u参数
-            	</span>
-            	</li>
+                <li>
+                git <a href="">push</a> [-u] $origin $master
+                <span>
+                    发布本地$master分支到远端$origin <br>
+                    第一次添加-u参数
+                </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 追踪</h4>
+            <ul>
+                <li>
+                    git <a href="">branch</a> --track $name $origin/$name
+                    <span>
+                        git branch --track $name $origin/$name <br>
+                        创建一个本地与远端分支的追踪映射。当执行git pull $name时自动同步拉取
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <h3>标签<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 创建</h4>
+            <ul>
+                <li>git <a href="">tag</a><span>查看所有标签</span></li>
+                <li>git <a href="">tag</a> $name<span>给当前commit打tag</span></li>
+                <li>git <a href="">tag</a> $name $commit_id<span>给指定commit打tag</span></li>
+                <li>git <a href="">tag</a> -a $name $commit_id -m "desc"<span>指定标签同时添加描述<br>git tag -a $name $commit_id -m "desc"</span></li>
+            </ul>
+            <h4>[<span>-</span>] 移除</h4>
+            <ul>
+                <li>git <a href="">tag</a> -d $ver<span>删除tag</span></li>
+                <li>git <a href="">push</a> <em>$origin :refs/tags/$ver</em>
+                    <span>删除远端tag <br>
+                        $ git push origin :refs/tags/v0.1 <hr>
+                        To git@github.com:xx/xx.git<br>
+                        - [deleted]         v0.1<br>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 推送</h4>
+            <ul>
+                <li>git <a href="">push</a> $origin $ver<span>推送tag</span></li>
+                <li>git <a href="">push</a> $origin --tags<span>推送全部tag</span></li>
             </ul>
         </div>
   </div>

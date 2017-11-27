@@ -1,8 +1,8 @@
 <div class="u-col">
-  <div class="u-block">
-      <h3>配置</a><span>-</span></h3>
-      <div class="u-list">
-            <h4>[</a><span>-</span>] 账户</h4>
+    <div class="u-block">
+        <h3>配置<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 账户</h4>
             <ul>
                 <li>
                     <em>config</em><a href=""></a>
@@ -14,6 +14,12 @@
                         <b>.git/config</b><br>
                         当前项目的 Git 目录中的配置文件（也就是工作目录中的）<br>
                         这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">config</a> --global [key] [val]
+                    <span>
+                        git config --global <配置名称> <配置的值>
                     </span>
                 </li>
                 <li>
@@ -39,6 +45,17 @@
                         4.添加密钥到ssh：ssh-add $file.name
                     </span>
                 </li>
+            </ul>
+            <h4>[<span>-</span>] 文件</h4>
+            <ul>
+                <li>
+                    <em>GUI乱码</em><a href=""></a>
+                    <span>
+                        gitconfig文件设置 <br>
+                        [gui] <br>
+                        encoding = utf-8 
+                    </span>
+                </li>
                 <li>
                     <em>.gitignore</em><a href=""></a>
                     <span>需要被忽略的文件<br>
@@ -59,25 +76,48 @@
                     </span>
                 </li>
             </ul>
-            <h4>[</a><span>-</span>] 帮助</h4>
+            <h4>[<span>-</span>] 别名</h4>
             <ul>
-                <li>git <a href="">help</a><span></span></li>
+                <li>git <a href="">config</a> --global alias.$cmd "$cmd_old"
+                    <span>设置别名 <br>
+                        git config --global alias.$cmd "$cmd_old" <br>
+                        如需删除在.git/config中修改 <hr>
+                        git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" <br>
+                        git config --global alias.last 'log -1' <br>
+                        <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375234012342f90be1fc4d81446c967bbdc19e7c03d3000">参考资料</a>
+                    </span>
+                </li>
             </ul>
-      </div>
-      <h3>自定义</a><span>-</span></h3>
-      <div class="u-list">
-            <h4>[</a><span>-</span>] 别名</h4>
+        </div>
+        <h3>其它<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 其它</h4>
             <ul>
-                <li>git <a href="">config</a> --global alias.$new $old<span>
-                    $ git config --global alias.st status <br>
-                    用st替代status
-                </span></li>
-                <li>git <a href="">last</a><span>
-                    $ git config --global alias.last 'log -1' <br>
-                    配置显示最后一次提交信息 <br>
-                    <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375234012342f90be1fc4d81446c967bbdc19e7c03d3000">参考资料</a>
-                </span></li>
+                <li>git <a href="">help</a> $cmd<span></span></li>
+                <li>
+                    git <a href="">gc</a>
+                    <span>
+                        压缩仓库
+                    </span>
+                </li>
+                <li>
+                    git <a href="">fsck</a>
+                    <span>
+                        仓库一致性检测
+                    </span>
+                </li>
             </ul>
-      </div>
-  </div>
+        </div>
+        <h3>资料<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 手册</h4>
+            <ul>
+                <li>
+                    <a href="https://git-scm.com/docs">参考手册</a>
+                </li>
+                <li><a href="https://git-scm.com/book/zh/v2/">官方教程</a></li>
+                <li><a href="http://www.runoob.com/git/git-install-setup.html">下载安装</a></li>
+            </ul>
+        </div>
+    </div>
 </div>

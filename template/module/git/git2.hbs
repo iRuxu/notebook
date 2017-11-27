@@ -1,79 +1,77 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>分支</a><span>-</span></h3>
+        <h3>分支<span>-</span></h3>
         <div class="u-list">
-            <h4>[</a><span>-</span>] 创建/切换</h4>
+            <h4>[<span>-</span>] 创建/切换</h4>
             <ul>
-                  <li>
-                  git <a href="">branch</a>
+                <li>
+                git <a href="">branch</a>
                   <span>
                         查看所有分支
                   </span>
                   </li>
-                  <li>
-            	git <a href="">branch</a> $dev
-            	<span>
-            		创建分支
-            	</span>
-            	</li>
-            	<li>
-            	git <a href="">checkout</a> $dev
-            	<span>
-            		切换分支
-            	</span>
-            	</li>
-            	<li>
-            	git <a href="">checkout</a> -b $dev
-            	<span>
-            		创建并切换到该分支
-            	</span>
-            	</li>
-            </ul>
-            <h4>[</a><span>-</span>] 删除</h4>
-            <ul>
-            	<li>
-            	git <a href="">branch</a> -d $dev
-            	<span>
-            		删除分支
-            	</span>
-            	</li>
-            	<li>
-            	git <a href="">branch</a> -D $dev
-            	<span>
-            		强行删除分支
-            	</span>
-            	</li>
-            </ul>
-        </div>
-        <h3>标签</a><span>-</span></h3>
-        <div class="u-list">
-            <h4>[</a><span>-</span>] 创建</h4>
-            <ul>
-                <li>git <a href="">tag</a><span>查看所有标签</span></li>
-                <li>git <a href="">tag</a> $name<span>给当前commit打tag</span></li>
-                <li>git <a href="">tag</a> $name $commit_id<span>给指定commit打tag</span></li>
-                <li>git <a href="">tag</a> -a $name -m "desc"<span>查看所有标签</span></li>
-            </ul>
-            <h4>[</a><span>-</span>] 移除</h4>
-            <ul>
-                <li>git <a href="">tag</a> -d $ver<span>删除tag</span></li>
-                <li>git <a href="">push</a> <em>$origin :refs/tags/$ver</em>
-                    <span>删除远端tag <br>
-                        $ git push origin :refs/tags/v0.1 <br>
-                        To git@github.com:xx/xx.git<br>
-                        - [deleted]         v0.1<br>
+                <li>
+                git <a href="">branch</a> $dev
+                <span>
+                    创建分支
+                </span>
+                </li>
+                <li>
+                git <a href="">checkout</a> $dev
+                <span>
+                    切换分支
+                </span>
+                </li>
+                <li>
+                git <a href="">checkout</a> -b $dev
+                <span>
+                    创建并切换到该分支
+                </span>
+                </li>
+                <li>
+                    git <a href="">checkout</a> -b $name origin
+                    <span>
+                        基于远程分支"origin"，创建一个分支
+                    </span>
+                </li>
+                <li>
+                    git <a href="">symbolic-ref</a>
+                    <span>
+                        创建新的空分支：   <br>
+                        git symbolic-ref HEAD refs/heads/$branchname <br>
+                        rm .git/index <br>
+                        git clean -fdx
                     </span>
                 </li>
             </ul>
-            <h4>[</a><span>-</span>] 推送</h4>
+            <h4>[<span>-</span>] 删除</h4>
             <ul>
-                <li>git <a href="">push</a> $origin $ver<span>推送tag</span></li>
-                <li>git <a href="">push</a> $origin --tags<span>推送全部tag</span></li>
+                <li>
+                git <a href="">branch</a> -d $dev
+                <span>
+                    删除分支
+                </span>
+                </li>
+                <li>
+                git <a href="">branch</a> -D $dev
+                <span>
+                    强行删除分支
+                </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 对比</h4>
+            <ul>
+                <li>
+                    git <a href="">diff</a> $master $dev
+                    <span>
+                        对比两个分支
+                    </span>
+                </li>
             </ul>
         </div>
-        <h3>合并</a><span>-</span></h3>
+        <h3>合并<span>-</span></h3>
         <div class="u-list">
-            <h4>[</a><span>-</span>] 合并</h4>
+            <h4>[<span>-</span>] 合并</h4>
             <ul>
                 <li>
                 git <a href="">merge</a> $dev
@@ -88,7 +86,7 @@
                 </span>
                 </li>
             </ul>
-            <h4>[</a><span>-</span>] 存储</h4>
+            <h4>[<span>-</span>] 存储</h4>
             <ul>
                 <li>
                 git <a href="">stash</a>
@@ -97,14 +95,76 @@
                 </span>
                 </li>
                 <li>
+                    git <a href="">stash</a> save "$temp"
+                    <span>
+                        临时存储
+                    </span>
+                </li>
+                <li>git <a href="">stash</a> list<span>查看</span></li>
+                <li>
                 git <a href="">stash</a> pop
                 <span>
                     恢复存储区内容并删除stash
                 </span>
                 </li>
-                <li>git <a href="">stash</a> list<span>查看</span></li>
                 <li>git <a href="">stash</a> apply<span>恢复</span></li>
                 <li>git <a href="">stash</a> drop<span>删除</span></li>
+            </ul>
+        </div>
+        <h3>恢复<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 回退</h4>
+            <ul>
+                <li>
+                    git <a href="">checkout</a> -- $file
+                    <span>
+                        git checkout -- filename 撤销对文件的修改，如果被工作区删除也可作为恢复 <br>
+                        一种是自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>
+                        一种是已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>
+                        总之，就是让这个文件回到最近一次git commit或git add时的状态。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">reset</a> HEAD [$file]
+                    <span>
+                        HEAD表示当前版本,上个版本HEAD^,上上个版本HEAD^^,上100个版本HEAD~100。<br>
+                        git reset HEAD 取消目前所有暂存的文件（仍在工作区）<br>
+                        git reset HEAD filename 取消某个文件的暂存状态<br>
+                        <hr>
+                        场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。<br>
+                        场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。<br>
+                        场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset --hard $SHA1，不过前提是没有推送到远程库。
+                    </span>
+                </li>
+                <li>
+                    git <a href="">reset</a> --hard HEAD
+                    <span>恢复到上一个版本</span>
+                </li>
+                <li>
+                    git <a href="">reset</a> --hard $commit_id
+                    <span>恢复到指定commit版本</span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 找回</h4>
+            <ul>
+                <li>
+                    git <a href="">fsck</a> --lost-found
+                    <span>
+                        找出删除的提交对象
+                    </span>
+                </li>
+                <li>
+                    git <a href="">show</a> $commit_id
+                    <span>
+                        查看某个提交对象的内容
+                    </span>
+                </li>
+                <li>
+                    git <a href="">rebase</a> $commit_id
+                    <span>
+                        恢复指定commit
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
