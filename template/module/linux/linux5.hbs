@@ -1,0 +1,82 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>Shell<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 基本语法</h4>
+            <ul>
+                <li>
+                    <a href="">#!/bin/bash</a>
+                    <span>
+                        指定解释器。需设置为777有执行权限
+                    </span>
+                </li>
+                <li>
+                    <a href="">$0 $1 ..</a>
+                    <span>
+                        传递参数。$0为执行的文件名。
+                    </span>
+                </li>
+                <li>
+                    <a href="">`expr 2 + 2`</a>
+                    <span>
+                        条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。 <br>
+                        val=`expr $a \* $b`,乘号(*)前边必须加反斜杠(\)才能实现乘法运算；
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 变量</h4>
+            <ul>
+                <li>
+                    <a href="">${var}</a>
+                    <span>
+                        定义变量 var=xxx ; 变量定义时不能留空格<br>
+                        使用变量 echo ${var}
+                    </span>
+                </li>
+                <li>
+                    <a href="">readonly</a> var
+                    <span>
+                        设置变量为只读
+                    </span>
+                </li>
+                <li>
+                    <a href="">unset</a> var
+                    <span>
+                        删除变量，不能删除只读变量
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 字符串</h4>
+            <ul>
+                <li>
+                    <a href="">${#string}</a>
+                    <span>
+                        获取字符串长度
+                    </span>
+                </li>
+                <li>
+                    <a href="">${string:1:4}</a>
+                    <span>
+                        提取子字符串，起始位置与字符个数
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数组</h4>
+            <ul>
+                <li>
+                    <a href="">arr=(val0 val1 ..)</a>
+                    <span>
+                        定义数组
+                    </span>
+                </li>
+                <li>
+                    <a href="">${arr[0]}</a>
+                    <span>
+                        数组元素，可使用@读取全部元素
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] </h4>
+        </div>
+    </div>
+</div>

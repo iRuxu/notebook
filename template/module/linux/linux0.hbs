@@ -1,14 +1,10 @@
 <div class="u-col">
   <div class="u-block">
-	  	<h3>文件夹<span>-</span></h3>
+	  	<h3>文件夹/文件<span>-</span></h3>
 	  	<div class="u-list">
-			<h4>[<span>-</span>] 创建与切换</h4>
-			<ul>
-				<li>
-					<a href="">mkdir</a> dirname
-					<span>创建文件夹 mkdir testdir</span>
-				</li>
-				<li>
+	  		<h4>[<span>-</span>] 显示/切换</h4>
+	  		<ul>
+	  			<li>
 					<a href="">cd</a> path
 					<span>切换至文件夹 cd /web/www/ <br>
 					切换至上级目录 cd .. 
@@ -18,63 +14,46 @@
 					<a href="">pwd</a>
 					<span>显示当前路径</span>
 				</li>
-			</ul>
-			<h4>[<span>-</span>] 查看</h4>
-			<ul>
-				<li>
-					<a href="">ls</a>
-					<span>列出当前目录下文件</span>
+	  		</ul>
+	  		<h4>[<span>-</span>] 创建</h4>
+	  		<ul>
+	  			<li>
+					<a href="">mkdir</a> dirname
+					<span>创建文件夹 mkdir testdir</span>
 				</li>
-				<li>
-					<a href="">ls -al</a>
-					<span>列出当前目录下文件（包含隐藏文件）</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 删除</h4>
-			<ul>
-				<li>
-					<a href="">rm -r</a> dir
-					<span>删除文件夹 rm -r dir1</span>
-				</li>
-			</ul>
-	  	</div>
-	  	<h3>文件<span>-</span></h3>
-	  	<div class="u-list">
-			<h4>[<span>-</span>] 创建</h4>
-			<ul>
 				<li>
 					<a href="">touch</a> file
 					<span>创建文件 touch file1 file2..</span>
 				</li>
-			</ul>
-			<h4>[<span>-</span>] 查看</h4>
-			<ul>
+	  		</ul>
+	  		<h4>[<span>-</span>] 查看</h4>
+	  		<ul>
+	  			<li>
+					<a href="">ls</a>
+					<span>
+						列出当前目录下文件 <br>
+						ls -al 列出当前目录下文件（包含隐藏文件）<br>
+						-a ：全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来(常用)<br>
+						-d ：仅列出目录本身，而不是列出目录内的文件数据(常用)<br>
+						-l ：长数据串列出，包含文件的属性与权限等等数据；(常用)
+					</span>
+				</li>
 				<li>
 					<a href="">cat</a> file
 					<span>查看文件内容 cat file.txt</span>
 				</li>
-			</ul>
-			<h4>[<span>-</span>] 编辑</h4>
-			<ul>
+	  		</ul>
+	  		<h4>[<span>-</span>] 编辑</h4>
+	  		<ul>
+	  			<li>
+					<a href="">vim</a> file
+					<span>编辑文件内容 vim file.txt</span>
+				</li>
 				<li>
 					<a href="">echo</a> "txt" >> file
 					<span>对文件输出内容 echo "text" >> file.txt</span>
 				</li>
-				<li>
-					<a href="">vim</a> file
-					<span>编辑文件内容 vim file.txt</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 删除</h4>
-			<ul>
-				<li>
-					<a href="">rm</a> file
-					<span>删除文件 rm file1 file2..</span>
-				</li>
-			</ul>
-	  	</div>
-	  	<h3>文件夹/文件<span>-</span></h3>
-	  	<div class="u-list">
+	  		</ul>
 			<h4>[<span>-</span>] 移动/重命名</h4>
 			<ul>
 				<li>
@@ -84,6 +63,40 @@
 						mv 文件名 目录名 : 将文件移动到目标目录 <br>
 						mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名 <br>
 						mv 目录名 文件名 : 出错
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 复制/粘贴</h4>
+			<ul>
+				<li>
+					<a href="">cp</a> dir/file
+					<span>
+						复制文件或目录
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 删除</h4>
+			<ul>
+				<li>
+					<a href="">rm</a> dir/file
+					<span>
+						删除文件夹 rm -r dir1 <br>
+						删除文件 rm file1 file2..
+					</span>
+				</li>
+				<li>
+					<a href="">rmdir</a> dir
+					<span>
+						删除空文件夹
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 删除</h4>
+			<ul>
+				<li>
+					<a href="">chmod</a> 777 $file
+					<span>
+						更改文件权限
 					</span>
 				</li>
 			</ul>

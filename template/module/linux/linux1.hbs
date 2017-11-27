@@ -16,6 +16,18 @@
                         给$user设置密码
                     </span>
                 </li>
+                <li>
+                    <a href="">userdel</a> $user
+                    <span>
+                        删除用户
+                    </span>
+                </li>
+                <li>
+                    <a href="">usermod</a> $user
+                    <span>
+                        修改用户
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] 权限</h4>
             <ul>
@@ -23,6 +35,33 @@
                     <a href="">chown</a> -R $user $dir
                     <span>
                         将目录权限给指定用户
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 用户组</h4>
+            <ul>
+                <li>
+                    <a href="">groupadd</a> $group
+                    <span>
+                        新增用户组
+                    </span>
+                </li>
+                <li>
+                    <a href="">groupdel</a> $group
+                    <span>
+                        删除用户组
+                    </span>
+                </li>
+                <li>
+                    <a href="">groupmod</a> $group
+                    <span>
+                        修改用户组
+                    </span>
+                </li>
+                <li>
+                    <a href="">newgrp</a> $group
+                    <span>
+                        切换用户组
                     </span>
                 </li>
             </ul>
