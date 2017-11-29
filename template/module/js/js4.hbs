@@ -32,6 +32,16 @@
 						如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
 					</span>
 				</li>
+				<li>
+					<a href="">new</a> fn
+					<span>
+						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
+						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
+						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
+						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
+						方法应挂载在prototype上，避免内存占用
+					</span>
+				</li>
 				<li><a href="">function</a>()<span>
 					<b>1.function命令 - 函数的声明</b><br>
 					function fn(arg){...} <br>
@@ -135,7 +145,7 @@
 							</td>
 						</tr>
 					</table>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料</a>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料1</a> | <a href="http://javascript.ruanyifeng.com/oop/this.html">参考资料2</a>
 				</span></li>
 			</ul>
 			<h4>[<span>-</span>]方法</h4>
@@ -147,7 +157,8 @@
 				<li>fn<a href="">.call</a>(obj,arg)<span>
 					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
 					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
-					对普通函数调用，我们通常把this绑定为null。
+					对普通函数调用，我们通常把this绑定为null。 <br>
+					如果参数为空、null和undefined，则默认传入全局对象。
 					</span></li>
 				<li>fn<a href="">.bind</a>(obj)<span>
 					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
@@ -160,6 +171,35 @@
 				<li><a href="">yield</a> val<span></span></li>
 				<li>g.<a href="">next()</a><span></span></li>
 			</ul>
+			<h4>[<span>-</span>] 定时器</h4>
+            <ul>
+            	<li>
+            		<a href="">setTimeout</a>(fn,time)
+            		<span>
+            			在指定的毫秒数后调用函数或计算表达式 <br>
+            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
+            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当time=0时的应用，同样需等待队列完成</a>
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">setInterval</a>(fn,time)
+            		<span>
+            			按照指定的周期（以毫秒计）来调用函数或计算表达式
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearTimeout</a>(timeout)
+            		<span>
+            			取消由 setTimeout() 方法设置的 timeout
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearInterval</a>(timeout)
+            		<span>
+            			取消由 setInterval() 设置的 timeout
+            		</span>
+            	</li>
+            </ul>
 		</div>
 	</div>
 	<div class="u-block">

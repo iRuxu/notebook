@@ -53,11 +53,18 @@
                         <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc25">参考资料</a>
                     </span>
                 </li>
+                <li>
+                    <a href="">with</a>(obj)
+                    <span>
+                        操作同一个对象的多个属性时，提供一些书写的方便. <a href="http://javascript.ruanyifeng.com/grammar/object.html">参考资料</a> <br>
+                        注意，with区块内部的变量，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。这是因为with区块没有改变作用域，它的内部依然是当前作用域。
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>]其它</h4>
             <ul>
                 <li><a href="">'use strict'</a><span>
-                    严格模式下，函数中的this指向Undefined，非window对象。
+                    严格模式下，函数中的this指向Undefined，非window对象。 <a href="http://javascript.ruanyifeng.com/advanced/strict.html">参考资料</a>
                 </span></li>
                 <li>
                     <a href=""></a><em>运算</em>
@@ -76,7 +83,6 @@
                         优先级：算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号<br>圆括号强制优先级<br>
                         赋值运算符（=）和三元条件运算符（?:）才用先计算右结合。 <hr>
                         <a href="http://javascript.ruanyifeng.com/grammar/operator.html">参考资料</a>
-
                     </span>
                 </li>
             </ul>
@@ -130,8 +136,8 @@
                         </ol>
                     </span></li>
                 <li><a href="">Array.isArray</a>(arr)<span>检测是否为数组（EC5）</span></li>
-                <li>val <a href="">instanceof</a> type
-                    <span>instanceof引用类型数据测试，返回布尔值。
+                <li>obj <a href="">instanceof</a> cst
+                    <span>instanceof运算符返回一个布尔值，表示某个对象是否为指定的构造函数的实例。
                         <table>
                             <tr>
                                 <th>测试目标</th>
