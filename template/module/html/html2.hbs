@@ -1,9 +1,31 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM更新<span>-</span></h3>
+        <h3>DOM操作<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 修改</h4>
+            <h4>[<span>-</span>] 元素</h4>
             <ul>
+                <li>
+                    doc.<a href="">creatElement</a>('tag')
+                    <span>
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">cloneNode</a>([true/false])
+                    <span>
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">importNode</a>(node,deep)
+                    <span>
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                    </span>
+                </li>
                 <li>
                     dom.<a href="">appendChild</a>(node)
                     <span>
@@ -23,29 +45,21 @@
                 <li>
                     ele.<a href="">replaceChild</a>(new,old)
                     <span>
-                        将某个子节点替换为另一个。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 添加</h4>
-            <ul>
-                <li>
-                    ele.<a href="">cloneNode</a>([true/false])
-                    <span>
-                        克隆该节点，包括属性和值。 <br> 
-                        传入true表示递归复制该节点的所有子孙节点。
+                        将某个子节点替换为另一个。 <br>
+                        它返回被替换走的那个节点
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">creatElement</a>('tag')
+                    dom.<a href="">removeChild</a>(node)
                     <span>
-                        创建元素节点
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">creatTextNode</a>('str')
+                    dom.<a href="">remove()</a>
                     <span>
-                        创建文本节点
+                        将当前元素节点从DOM树删除
                     </span>
                 </li>
                 <li>
@@ -61,36 +75,206 @@
                         创建注释节点
                     </span>
                 </li>
-                <li class="i-dot-orange">
-                    doc.<a href="">importNode</a>(node,deep)
-                    <span>
-                        把一个节点从另一个文档复制到该文档以便应用。 <br>
-                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
-                        IE8及以下不支持。 <br>
-                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
-                    </span>
-                </li>
             </ul>
-            <h4>[<span>-</span>] 移除</h4>
+            <h4>[<span>-</span>] 文本</h4>
             <ul>
                 <li>
-                    dom.<a href="">removeChild</a>(node)
+                    doc.<a href="">creatTextNode</a>('str')
                     <span>
-                        删除指定的子节点。 <br>
-                        删除成功则返回被删除的节点，删除失败返回null。
+                        创建文本节点 <br>
+                        这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作HTML代码渲染。因此，可以用来展示用户的输入，避免XSS攻击。
                     </span>
                 </li>
-            </ul>
-            <h4>[<span>-</span>] 合并</h4>
-            <ul>
                 <li>
                     dom.<a href="">normalize()</a>
                     <span>
-                        删除空文本节点，并连接相邻节点
+                        合并相邻的文本节点并删除空的文本节点
+                    </span>
+                </li>
+                <li>
+                    txt.<a href="">splitText</a>(n)
+                    <span>
+                        splitText方法将Text节点一分为二，变成两个毗邻的Text节点。它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。 <br>
+                        分割后，该方法返回分割位置后方的字符串，而原Text节点变成只包含分割位置前方的字符串。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">textContent</a>
+                    <span>
+                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
+                        textContent属性自动忽略当前节点内部的HTML标签，返回所有文本内容。 <br>
+                        同理对textContent的字符串设置中如有标签，当做字符串处理，不会解析为Html标签 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">innerHTML</a>
+                    <span>
+                        设置或返回元素的内容 <br>
+                        如果插入的文本包含 HTML 标签，会被解析成为节点对象插入 DOM。注意，如果文本之中含有script标签，虽然可以生成script节点，但是插入的代码不会执行。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">outerHTML</a>
+                    <span>
+                        返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。 <br>
+                        被替换后，原变量将保存原信息在内存中
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 更新</h4>
+            <h4>[<span>-</span>] 属性</h4>
+            <ul>
+                <li>
+                    ele.<a href="">getAttribute</a>('attr')
+                    <span>
+                        返回指定元素的属性值 <br>
+                        等同 getAttributeNode('attr').value 
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">removeAttribute</a>('attr')
+                    <span>
+                        从元素中删除指定的属性
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">setAttribute</a><em>('attr','val')</em>
+                    <span>
+                        设置元素指定的属性值 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">hasAttribute</a>('attr')
+                    <span>
+                        检测元素是否具有某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <!-- <li class="i-dot-orange">
+                    ele.<a href="">hasAttributes()</a>
+                    <span>
+                        检测元素是否具有任何某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">creatAttribute</a>('attr')
+                    <span>
+                        创建一个属性节点，并返回该attr对象。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">removeAttributeNode</a>('attr')
+                    <span>
+                        删除指定元素节点并返回移除后的节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">setAttributeNode</a>('attr')
+                    <span>
+                        设置或改变指定属性节点 <br>
+                        需通过nodeValue来最终改变对应值
+                    </span>
+                </li> -->
+            </ul>
+            <h4>[<span>-</span>] 样式</h4>
+            <ul>
+                <li>
+                    ele.<a href="">style</a>
+                    <span>
+                        设置或返回元素的样式属性 <br>
+                        返回的是一个对象，通过style.classname来设置具体，只取行内。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">className</a>
+                    <span>
+                        设置或返回元素的class属性，每个class之间用空格分割。
+                    </span>
+                </li>
+                <li class="i-dot-blue">
+                    ele.<a href="">classList</a>
+                    <span>
+                        返回该元素的类的一个对象。 IE10以下不支持。 <br>
+                        <table>
+                            <tr>
+                                <th>方法</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>.value</td>
+                                <td>完整类名</td>
+                            </tr>
+                            <tr>
+                                <td>.add(class1,class2,...)</td>
+                                <td>添加新的类名，如果已经存在则不会添加</td>
+                            </tr>
+                            <tr>
+                                <td>.remove(class1,class2,...)</td>
+                                <td>移除指定类名，如果移除不存在的类名，不会报错</td>
+                            </tr>
+                            <tr>
+                                <td>.toggle(class,true/false)</td>
+                                <td>切换指定类名。 <br>
+                                    第一个参数为切换的类名。 <br>
+                                    如果存在时，移除并返回false；如果不存在，添加并返回true。 <br>
+                                    第二个参数，为强制设置布尔值。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>.contains(class)</td>
+                                <td>返回布尔值，判断指定类名是否存在</td>
+                            </tr>
+                            <tr>
+                                <td>.length</td>
+                                <td>类名个数</td>
+                            </tr>
+                            <tr>
+                                <td>.item(i) / [i]</td>
+                                <td>返回索引上的类名</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 交互</h4>
+            <ul>
+                <li>
+                    ele.<a href="">focus()</a>
+                    <span>
+                        设置元素获取焦点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">blur()</a>
+                    <span>
+                        设置元素移除焦点
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasFocus()</a>
+                    <span>
+                        检查元素是否获取焦点，返回布尔值
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">contentEditable</a>
+                    <span>
+                        设置或返回元素的内容是否可编辑 <br>
+                        返回inherit/true/false <br>
+                        如果父级元素是可编辑，则子元素内容也是可编辑的
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">isContentEditable</a>
+                    <span>
+                        返回元素的内容是否可编辑 <br>
+                        返回true/false
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它</h4>
             <ul>
                 <li>
                     doc.<a href="">write</a>('exp')
@@ -109,7 +293,8 @@
                     <span>
                         打开一个输出流来收集docment.write()方法输出的内容。 <br>
                         MIMEtype，默认值是 "text/html"。 <br>
-                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。 <br>
+                        它实际上等于清除当前文档，重新写入内容。
                     </span>
                 </li>
                 <li>

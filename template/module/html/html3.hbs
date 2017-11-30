@@ -2,12 +2,13 @@
     <div class="u-block">
         <h3>DOM事件<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 监听</h4>
+            <h4>[<span>-</span>] 监听触发</h4>
             <ul>
                 <li class="i-dot-orange">
-                    dom.<a href="">addEventListener</a>(e,fn(e))
+                    dom.<a href="">addEventListener</a><em>(type,fn(e)[,false])</em>
                     <span>
                         添加事件监听 <br>
+                        内部的this对象总是指向触发事件的那个节点。 <br>
                         IE8=-：attachEvent() <br>
                         <pre><code data-language="javascript">
                             if (document.addEventListener) {
@@ -18,15 +19,31 @@
                             function myFunction() {
                                 alert("Hello World!");
                             }
-                        </code></pre>   
+                        </code></pre>
+                        <hr>
+                        type：事件名称，大小写敏感。<br>
+                        listener：监听函数。事件发生时，会调用该监听函数。<br>
+                        useCapture：布尔值，表示监听函数是否在捕获阶段（capture）触发（参见后文《事件的传播》部分），默认为false（监听函数只在冒泡阶段被触发）。老式浏览器规定该参数必写，较新版本的浏览器允许该参数可选。为了保持兼容，建议总是写上该参数。 
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    dom.<a href="">removeEventListener</a>(e,fn(e))
+                    dom.<a href="">removeEventListener</a><em>(type,fn(e)[,false])</em>
                     <span>
                         移除事件监听 <br>
                         IE8=-：detachEvent() <br>
                         两个参数均为必须，指定要移除的事件及要移除的函数。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">dispatchEvent</a>(event)
+                    <span>
+                        触发事件,参数是一个Event对象的实例 <br>
+                        dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。 <hr>
+<pre><code data-language="javascript">
+    para.addEventListener('click', hello, false);
+    var event = new Event('click');
+    para.dispatchEvent(event);
+</code></pre>
                     </span>
                 </li>
                 <li>
@@ -35,11 +52,206 @@
                         HTML中:<pre><code data-language="html"><element onclick="fn()"></code></pre>
                         JavaScript 中:<pre><code data-language="javascript">object.onclick=function(){..};</code></pre>
                         JS中监听：<pre><code data-language="javascript">object.addEventListener('click',fn)</code></pre>
+                        <hr>
+                        当监听函数部署在Element节点的on-属性上面，this不会指向触发事件的元素节点，除非函数内容也写在标签中写明。 <a href="http://javascript.ruanyifeng.com/dom/event.html">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 事件对象</h4>
+            <ul>
+                                <li>
+                    <a href="">new Event</a>(type[,option])
+                    <span>
+                        事件发生以后，会生成一个事件对象，作为参数传给监听函数。浏览器原生提供一个Event对象，所有的事件都是这个对象的实例，或者说继承了Event.prototype对象。Event对象本身就是一个构造函数，可以用来生成新的实例。 <hr>
+                        bubbles：布尔值，可选，默认为false，表示事件对象是否冒泡。<br>
+                        cancelable：布尔值，可选，默认为false，表示事件是否可以被取消。 <br>
+<pre><code data-language="javascript">
+var ev = new Event(
+  'look',
+  {
+    'bubbles': true,
+    'cancelable': false
+  }
+);
+document.dispatchEvent(ev);
+</code></pre>
+                        IE8及以下版本，事件对象不作为参数传递，而是通过window对象的event属性读取，并且事件对象的target属性叫做srcElement属性。所以，以前获取事件信息，往往要写成下面这样。
+<pre><code data-language="javascript">
+function myEventHandler(event) {
+  var actualEvent = event || window.event;
+  var actualTarget = actualEvent.target || actualEvent.srcElement;
+  // ...
+}
+</code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">new CustomEvent</a>(type,option)
+                    <span>
+                        CustomEvent构造函数的第一个参数是事件名称，第二个参数是一个对象，可传递数据 <br>
+                        <a href="http://javascript.ruanyifeng.com/dom/event.html#toc21">IE模拟支持</a>
+<pre><code data-language="javascript">
+(function () {
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+   }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.CustomEvent = CustomEvent;
+})();
+</code></pre>
+                    </span>
+                </li>
+                <li>
+                    document.<a href="">createEvent</a>($etype)
+                    <span>
+                        var event = document.createEvent('Event') <br>
+                        createEvent方法接受一个字符串作为参数，可能的值参见下表“数据类型”一栏。使用了某一种“事件类型”，就必须使用对应的事件初始化方法。
+                        <table>
+                            <tr>
+                                <th>事件类型</th>
+                                <th>事件初始化方法</th>
+                            </tr>
+                            <tr>
+                                <td>UIEvents</td>
+                                <td>event.initUIEvent</td>
+                            </tr>
+                            <tr>
+                                <td>MouseEvents</td>
+                                <td>event.initMouseEvent</td>
+                            </tr>
+                            <tr>
+                                <td>MutationEvents</td>
+                                <td>event.initMutationEvent</td>
+                            </tr>
+                            <tr>
+                                <td>HTMLEvents</td>
+                                <td>event.initEvent</td>
+                            </tr>
+                            <tr>
+                                <td>Event</td>
+                                <td>event.initEvent</td>
+                            </tr>
+                            <tr>
+                                <td>CustomEvent</td>
+                                <td>event.initCustomEvent</td>
+                            </tr>
+                            <tr>
+                                <td>KeyboardEvent</td>
+                                <td>event.initKeyEvent</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    event.<a href="">initEvent</a><em>(type,true,true,data)</em>
+                    <span>
+                        事件对象的initEvent方法，用来初始化事件对象，还能向事件对象添加属性。该方法的参数必须是一个使用Document.createEvent()生成的Event实例，而且必须在dispatchEvent方法之前调用。
+<pre><code data-language="javascript">
+    var event = document.createEvent('Event');
+    event.initEvent('my-custom-event', true, true, {foo:'bar'});
+    someElement.dispatchEvent(event);
+</code></pre>
+                    4个参数： <br>
+                    type：事件名称，格式为字符串。<br>
+                    bubbles：事件是否应该冒泡，格式为布尔值。可以使用event.bubbles属性读取它的值。<br>
+                    cancelable：事件是否能被取消，格式为布尔值。可以使用event.cancelable属性读取它的值。<br>
+                    option：为事件对象指定额外的属性。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 事件属性</h4>
+            <ul>
+                <li>
+                    e.<a href="">type</a>
+                    <span>
+                        返回当前 Event 对象表示的事件的名称
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">target</a>
+                    <span>
+                        返回触发此事件的元素（事件的目标节点）
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">currentTarget</a>
+                    <span>
+                        返回其事件监听器触发该事件的元素,不一定是点击的元素,是最终监听的元素
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">bubbles</a>
+                    <span>
+                       返回布尔值，指示事件是否是起泡事件类型 
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">cancelable</a>
+                    <span>
+                        返回布尔值，指示事件是否可拥可取消的默认动作
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">defaultPrevented</a>
+                    <span>
+                        返回一个布尔值，表示该事件是否调用过preventDefault方法
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">timeStamp</a>
+                    <span>
+                        返回事件生成的日期和时间 <br>
+                        该属性返回的是一个高精度时间戳，也就是说，毫秒之后还带三位小数，精确到微秒。并且，这个值不再从Unix纪元开始计算，而是从PerformanceTiming.navigationStart开始计算，即表示距离用户导航至该网页的时间。如果想将这个值转为Unix纪元时间戳，就要计算event.timeStamp + performance.timing.navigationStart。
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">isTrusted</a>
+                    <span>
+                        返回一个布尔值，表示该事件是否为真实用户触发。
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">eventPhase</a>
+                    <span>
+                        返回事件传播的当前阶段 <br>
+                        0：事件没有发生 <br>
+                        1：从window对象传导到目标节点，称为“捕获阶段”（capture phase）。<br>
+                        2：在目标节点上触发，称为“目标阶段”（target phase）。<br>
+                        3：从目标节点传导回window对象，称为“冒泡阶段”（bubbling phase）。
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">preventDefault()</a>
+                    <span>
+                        通知浏览器不要执行与事件关联的默认动作
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">stopPropagation()</a>
+                    <span>
+                        阻止冒泡
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">stopImmediatePropagation()</a>
+                    <span>
+                        stopPropagation方法只会阻止当前监听函数的传播，不会阻止节点上的其他click事件的监听函数。如果想要不再触发那些监听函数，可以使用stopImmediatePropagation方法。
                     </span>
                 </li>
             </ul>
             <h4>[<span>-</span>] 鼠标事件</h4>
             <ul>
+                <li>
+                    <a href="">new MouseEvent</a>(type[,option])
+                    <span>
+                        鼠标事件
+                    </span>
+                </li>
                 <li>
                     <a href="">onclick</a>
                     <span>
@@ -132,60 +344,6 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 事件对象</h4>
-            <ul>
-                <li>
-                    <em>e.</em><a href=""></a><em>property</em>
-                    <span>
-                        <table>
-                            <tr>
-                                <th>属性</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>type</td>
-                                <td>返回当前 Event 对象表示的事件的名称</td>
-                            </tr>
-                            <tr>
-                                <td>target</td>
-                                <td>返回触发此事件的元素（事件的目标节点）</td>
-                            </tr>
-                            <tr>
-                                <td>currentTarget</td>
-                                <td>返回其事件监听器触发该事件的元素,不一定是点击的元素,是最终监听的元素</td>
-                            </tr>
-                            <tr>
-                                <td>bubbles</td>
-                                <td>返回布尔值，指示事件是否是起泡事件类型</td>
-                            </tr>
-                            <tr>
-                                <td>cancelable</td>
-                                <td>返回布尔值，指示事件是否可拥可取消的默认动作</td>
-                            </tr>
-                            <tr>
-                                <td>timeStamp</td>
-                                <td>返回事件生成的日期和时间</td>
-                            </tr>
-                            <tr>
-                                <td>eventPhase</td>
-                                <td>返回事件传播的当前阶段</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">preventDefault()</a>
-                    <span>
-                        通知浏览器不要执行与事件关联的默认动作
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">stopPropagation</a>
-                    <span>
-                        阻止冒泡
-                    </span>
-                </li>
-            </ul>
             <h4>[<span>-</span>] 鼠标/键盘事件对象</h4>
             <ul>
                 <li>
@@ -194,6 +352,12 @@
                         返回当事件被触发时，哪个鼠标按钮被点击 <br>
                         0左键，1中键，2右键 <br>
                         IE8及-：1左键，4中键，2右键
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">detail</a>
+                    <span>
+                        属性返回一个数值，表示事件的某种信息。具体含义与事件类型有关，对于鼠标事件，表示鼠标按键在某个位置按下的次数，比如对于dblclick事件，detail属性的值总是2。
                     </span>
                 </li>
                 <li>

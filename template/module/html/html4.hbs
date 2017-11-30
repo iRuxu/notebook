@@ -2,8 +2,30 @@
     <div class="u-block">
         <h3>DOM事件<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 框架/对象事件</h4>
+            <h4>[<span>-</span>] 页面/框架/对象事件</h4>
             <ul>
+                <li>
+                    <a href="">readystatechange</a>
+                    <span>
+                        doc的状态变化
+                    </span>
+                </li>
+                <li>
+                    <a href="">DOMContentLoaded</a>
+                    <span>
+                        页面解析完成（IE9+） <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/DOMContentLoaded">参考资料</a> <br>
+                        当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架de完成加载。 <hr>
+                        DOM文档加载的步骤为:
+                        <ol>
+                            <li>解析HTML结构。</li>
+                            <li>加载外部脚本和样式表文件。</li>
+                            <li>解析并执行脚本代码。</li>
+                            <li>DOM树构建完成。//DOMContentLoaded</li>
+                            <li>加载图片等外部文件。</li>
+                            <li>页面加载完毕。//load</li>
+                        </ol>
+                    </span>
+                </li>
                 <li>
                     <a href="">onload</a>
                     <span>
