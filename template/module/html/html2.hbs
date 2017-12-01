@@ -2,126 +2,6 @@
     <div class="u-block">
         <h3>DOM操作<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 元素</h4>
-            <ul>
-                <li>
-                    doc.<a href="">creatElement</a>('tag')
-                    <span>
-                        创建元素节点
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">cloneNode</a>([true/false])
-                    <span>
-                        克隆该节点，包括属性和值。 <br> 
-                        传入true表示递归复制该节点的所有子孙节点。
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    doc.<a href="">importNode</a>(node,deep)
-                    <span>
-                        把一个节点从另一个文档复制到该文档以便应用。 <br>
-                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
-                        IE8及以下不支持。 <br>
-                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">appendChild</a>(node)
-                    <span>
-                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
-                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
-                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
-                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">insertBefore</a>(node,exist)
-                    <span>
-                        向目标节点前添加新的节点。 <br>
-                        如果被添加的节点是原文档中的节点，则原节点会被移除。
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">replaceChild</a>(new,old)
-                    <span>
-                        将某个子节点替换为另一个。 <br>
-                        它返回被替换走的那个节点
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">removeChild</a>(node)
-                    <span>
-                        删除指定的子节点。 <br>
-                        删除成功则返回被删除的节点，删除失败返回null。
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">remove()</a>
-                    <span>
-                        将当前元素节点从DOM树删除
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">creatDocumentFragment()</a>
-                    <span>
-                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
-                        var temp=document.createDocumentFragment();
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">creatComment</a>('str')
-                    <span>
-                        创建注释节点
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 文本</h4>
-            <ul>
-                <li>
-                    doc.<a href="">creatTextNode</a>('str')
-                    <span>
-                        创建文本节点 <br>
-                        这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作HTML代码渲染。因此，可以用来展示用户的输入，避免XSS攻击。
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">normalize()</a>
-                    <span>
-                        合并相邻的文本节点并删除空的文本节点
-                    </span>
-                </li>
-                <li>
-                    txt.<a href="">splitText</a>(n)
-                    <span>
-                        splitText方法将Text节点一分为二，变成两个毗邻的Text节点。它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。 <br>
-                        分割后，该方法返回分割位置后方的字符串，而原Text节点变成只包含分割位置前方的字符串。
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    ele.<a href="">textContent</a>
-                    <span>
-                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
-                        textContent属性自动忽略当前节点内部的HTML标签，返回所有文本内容。 <br>
-                        同理对textContent的字符串设置中如有标签，当做字符串处理，不会解析为Html标签 <br>
-                        IE8及以下不支持
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">innerHTML</a>
-                    <span>
-                        设置或返回元素的内容 <br>
-                        如果插入的文本包含 HTML 标签，会被解析成为节点对象插入 DOM。注意，如果文本之中含有script标签，虽然可以生成script节点，但是插入的代码不会执行。
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">outerHTML</a>
-                    <span>
-                        返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。 <br>
-                        被替换后，原变量将保存原信息在内存中
-                    </span>
-                </li>
-            </ul>
             <h4>[<span>-</span>] 属性</h4>
             <ul>
                 <li>
@@ -178,15 +58,49 @@
                     </span>
                 </li> -->
             </ul>
-            <h4>[<span>-</span>] 样式</h4>
+            <h4>[<span>-</span>] 交互</h4>
             <ul>
                 <li>
-                    ele.<a href="">style</a>
+                    ele.<a href="">focus()</a>
                     <span>
-                        设置或返回元素的样式属性 <br>
-                        返回的是一个对象，通过style.classname来设置具体，只取行内。
+                        设置元素获取焦点
                     </span>
                 </li>
+                <li>
+                    ele.<a href="">blur()</a>
+                    <span>
+                        设置元素移除焦点
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">hasFocus()</a>
+                    <span>
+                        检查元素是否获取焦点，返回布尔值
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">contentEditable</a>
+                    <span>
+                        设置或返回元素的内容是否可编辑 <br>
+                        返回inherit/true/false <br>
+                        如果父级元素是可编辑，则子元素内容也是可编辑的
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">isContentEditable</a>
+                    <span>
+                        返回元素的内容是否可编辑 <br>
+                        返回true/false
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>CSS操作<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 类名</h4>
+            <ul>
                 <li>
                     ele.<a href="">className</a>
                     <span>
@@ -238,69 +152,314 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 交互</h4>
+            <h4>[<span>-</span>] 样式</h4>
             <ul>
                 <li>
-                    ele.<a href="">focus()</a>
+                    ele.<a href="">style</a>[.prop]
                     <span>
-                        设置元素获取焦点
+                        设置或返回元素的样式属性 <br>
+                        返回的是一个对象，通过style.classname来设置具体，只取行内。 <br>
+                        其中cssText属性，可以读写或删除整个样式
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">blur()</a>
+                    window.<a href="">getComputedStyle(dom,[':before'])</a><em>[.prop]</em>
                     <span>
-                        设置元素移除焦点
+                        返回一个包含该节点最终样式信息的对象。 <br>
+                        所谓“最终样式信息”，指的是各种CSS规则叠加后的结果。 <hr>
+                        getComputedStyle方法还可以接受第二个参数，表示指定节点的伪元素（比如:before、:after、:first-line、:first-letter等）。
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">hasFocus()</a>
+                    style.<a href="">getPropertyValue</a><em>(prop)</em>
                     <span>
-                        检查元素是否获取焦点，返回布尔值
+                        读取某个CSS属性
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">contentEditable</a>
+                    style.<a href="">setProperty</a><em>(prop,val)</em>
                     <span>
-                        设置或返回元素的内容是否可编辑 <br>
-                        返回inherit/true/false <br>
-                        如果父级元素是可编辑，则子元素内容也是可编辑的
+                        设置某个CSS属性
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">isContentEditable</a>
+                    style.<a href="">removeProperty</a><em>(prop)</em>
                     <span>
-                        返回元素的内容是否可编辑 <br>
-                        返回true/false
+                        删除某个CSS属性
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 其它</h4>
+            <h4>[<span>-</span>] 样式表</h4>
             <ul>
                 <li>
-                    doc.<a href="">write</a>('exp')
+                    doc.<a href="">styleSheets</a>
                     <span>
-                        向文档写入内容 <br>
+                        返回网页的所有样式表的类数组对象 <br>
+                        它包括link节点加载的样式表和style节点内嵌的样式表。
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                                <th>示例</th>
+                            </tr>
+                            <tr>
+                                <td>media</td>
+                                <td>media属性表示这个样式表是用于屏幕（screen），还是用于打印（print），或两者都适用（all）。该属性只读，默认值是screen。</td>
+                                <td>document.styleSheets[0].media.mediaText //all</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>一旦样式表设置了disabled属性，这张样式表就将失效。注意，disabled属性只能在JavaScript脚本中设置，不能在HTML语句中设置。</td>
+                                <td>document.querySelector('#linkElement').disabled = 'disabled';</td>
+                            </tr>
+                            <tr>
+                                <td>href</td>
+                                <td>href属性是只读属性，返回StyleSheet对象连接的样式表地址。对于内嵌的style节点，该属性等于null。</td>
+                                <td>document.styleSheets[0].href</td>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>type属性返回StyleSheet对象的type值，通常是text/css </td>
+                                <td>document.styleSheets[0].type  // "text/css"</td>
+                            </tr>
+                            <tr>
+                                <td>title</td>
+                                <td>title属性返回StyleSheet对象的title值。</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>parentStyleSheet</td>
+                                <td>CSS的@import命令允许在样式表中加载其他样式表。parentStyleSheet属性返回包含了当前样式表的那张样式表。如果当前样式表是顶层样式表，则该属性返回null。</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>ownerNode</td>
+                                <td>ownerNode属性返回StyleSheet对象所在的DOM节点，通常是link或style。对于那些由其他样式表引用的样式表，该属性为null。</td>
+                                <td>document.styleSheets[0].ownerNode // [object HTMLLinkElement]</td>
+                            </tr>
+                            <tr>
+                                <td>cssRules</td>
+                                <td>cssRules属性指向一个类似数组的对象，里面每一个成员就是当前样式表的一条CSS规则。</td>
+                                <td>sheet.cssRules[0].cssText <br>
+                                styleSheet.cssRules[0].style.color = 'red';
+                                </td>
+                            </tr>
+                        </table>
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">writeln</a>('exp')
+                    sheet.<a href="">insertRule</a>('str',n)
                     <span>
-                        向文档写入内容，并在末尾添加一个换行符
+                        在当前样式表的cssRules对象插入CSS规则
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">open</a>([MIME],[replace])
+                    sheet.<a href="">deleteRule</a>(n)
                     <span>
-                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
-                        MIMEtype，默认值是 "text/html"。 <br>
-                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。 <br>
-                        它实际上等于清除当前文档，重新写入内容。
+                        删除cssRules对象的CSS规则
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">close</a>()
+                    cssRule.<a href="">*</a>
                     <span>
-                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>cssText</td>
+                                <td>返回当前规则的文本</td>
+                            </tr>
+                            <tr>
+                                <td>parentStyleSheet</td>
+                                <td>返回定义当前规则的样式表对象</td>
+                            </tr>
+                            <tr>
+                                <td>parentRule</td>
+                                <td>返回包含当前规则的那条CSS规则。</td>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>返回有一个整数值，表示当前规则的类型 <br>
+                                    1：样式规则，部署了CSSStyleRule接口<br>
+                                    3：输入规则，部署了CSSImportRule接口<br>
+                                    4：Media规则，部署了CSSMediaRule接口<br>
+                                    5：字体规则，部署了CSSFontFaceRule接口
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>selectorText</td>
+                                <td>返回当前规则的选择器  //.class</td>
+                            </tr>
+                            <tr>
+                                <td>style.prop</td>
+                                <td>style属性返回一个对象</td>
+                            </tr>
+                        </table>
+                        <a href="http://javascript.ruanyifeng.com/dom/css.html">CSSStyleDeclaration对象</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>盒模型<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 尺寸</h4>
+            <ul>
+                <li>
+                    ele.<a href="">clientWidth</a>
+                    <span>
+                        返回内容的可视宽度（不包括边框，边距或滚动条） <br>
+                        即元素宽度 - 边框 - 边距 - 17px(滚动条)
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">clientHeight</a>
+                    <span>
+                        返回元素的可视高度，包括填充，不包括边框+滚动条+边距 <br>
+                        即元素高度 - 边框 - 边距 - 17px(滚动条)
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">scrollWidth</a>
+                    <span>
+                        返回元素的宽度，包括填充，不包括边框+滚动条+边距，但包括带滚动条的隐蔽地方 <br>
+                        即当有子元素的溢出宽度时，等于子元素的宽度，否则等于可视宽度
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">scrollHeight</a>
+                    <span>
+                        返回元素的高度，包括填充，不包括边框+滚动条+边距，但包括带滚动条的隐蔽地方 <br>
+                        即当有子元素的溢出高度时，等于子元素的高度，否则等于可视高度
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetWidth</a>
+                    <span>
+                        返回元素的宽度，包括填充，也包括边框+滚动条，不包括边距 <br>
+                        即元素盒模型宽度
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetHeight</a>
+                    <span>
+                        返回元素的高度，包括填充，也包括边框+滚动条，不包括边距 <br>
+                        即元素盒模型高度
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 偏移</h4>
+            <ul>
+                <li>
+                    ele.<a href="">offsetLeft</a>
+                    <span>
+                        返回当前元素的相对水平偏移
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetTop</a>
+                    <span>
+                        返回当前元素的相对垂直偏移
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">offsetParent</a>
+                    <span>
+                        返回当前元素的偏移容器
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">getBoundingClientRect()</a>.left/top
+                    <span>
+                        某个元素距离视口左上角的坐标
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 滚动</h4>
+            <ul>
+                <li>
+                    ele.<a href="">scrollLeft</a>
+                    <span>
+                        当元素有overflow时生效，设置或返回距左边缘起始点的滚动位置点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">scrollTop</a>
+                    <span>
+                        当元素有overflow时生效，设置或返回距顶部边缘起始点的滚动位置点
+                    </span>
+                </li>
+                <li>
+                    window.<a href="">scrollTo</a>(x,y)
+                    <span>
+                        把内容滚动到指定的坐标
+                    </span>
+                </li>
+                <li>
+                    window.<a href="">scrollBy</a>(x,y)
+                    <span>
+                        按照指定的像素值来滚动内容
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    window.<a href="">pageXOffset</a>
+                    <span>
+                        设置或返回当前页面相对于窗口显示区左上角的 X 位置 <br>
+                        IE8及以下不支持，用document.documentElement.scrollLeft来替代
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    window.<a href="">pageYOffset</a>
+                    <span>
+                        设置或返回当前页面相对于窗口显示区左上角的 Y 位置<br>
+                        IE8及以下不支持，用document.documentElement.scrollTop来替代
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] window</h4>
+            <ul>
+                <li class="i-dot-orange">
+                    window.<a href="">innerWidth</a>
+                    <span>
+                        返回窗口的文档显示区的宽度（包括滚动条）<br>
+                        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    window.<a href="">innerHeight</a>
+                    <span>
+                        返回窗口的文档显示区的高度（包括滚动条） <br>
+                        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] screen</h4>
+            <ul>
+                <li>
+                    screen.<a href="">width</a>
+                    <span>
+                        返回屏幕的总宽度
+                    </span>
+                </li>
+                <li>
+                    screen.<a href="">height</a>
+                    <span>
+                        返回屏幕的总高度
+                    </span>
+                </li>
+                <li>
+                    screen.<a href="">availWidth</a>
+                    <span>
+                        返回屏幕的宽度（不包括Windows任务栏）
+                    </span>
+                </li>
+                <li>
+                    screen.<a href="">availHeight</a>
+                    <span>
+                        返回屏幕的高度（不包括Windows任务栏）
                     </span>
                 </li>
             </ul>

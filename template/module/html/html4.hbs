@@ -1,15 +1,81 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM事件<span>-</span></h3>
+        <h3>加载事件<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 页面/框架/对象事件</h4>
+            <h4>[<span>-</span>] 进度事件</h4>
             <ul>
                 <li>
-                    <a href="">readystatechange</a>
+                    <a href="">new ProgressEvent</a>
                     <span>
-                        doc的状态变化
+                        进度事件用来描述一个事件进展的过程，比如XMLHttpRequest对象发出的HTTP请求的过程、img、audio、video、style、link加载外部资源的过程。下载和上传都会发生进度事件。 <br>
+                        <b>lengthComputable</b>：<br>返回一个布尔值，表示当前进度是否具有可计算的长度。如果为false，就表示当前进度无法测量。<br>
+                        <b>total</b>：<br>返回一个数值，表示当前进度的总长度。如果是通过HTTP下载某个资源，表示内容本身的长度，不含HTTP头部的长度。如果lengthComputable属性为false，则total属性就无法取得正确的值。<br>
+                        <b>loaded</b>：<br>返回一个数值，表示当前进度已经完成的数量。该属性除以total属性，就可以得到目前进度的百分比。
                     </span>
                 </li>
+                <li>
+                    <a href="">abort</a>
+                    <span>
+                        当进度事件被中止时触发。如果发生错误，导致进程中止，不会触发该事件。
+                    </span>
+                </li>
+                <li>
+                    <a href="">error</a>
+                    <span>
+                        由于错误导致资源无法加载时触发 <br>
+                        包括img/input-type-img/object/script/style/body/frameset等 <br>
+                        不支持冒泡，不可取消
+                    </span>
+                </li>
+                <li>
+                    <a href="">load</a>
+                    <span>
+                        进度成功结束时触发 <br>
+                        有时候，图片加载会在脚本运行之前就完成，尤其是当脚本放置在网页底部的时候，因此有可能使得load和error事件的监听函数根本不会被执行。所以，比较可靠的方式，是用complete属性先判断一下是否加载完成。 <br>
+<pre><code data-language="javascript">
+    function loaded() {
+      // code after image loaded
+    }
+
+    if (image.complete) {
+      loaded();
+    } else {
+      image.addEventListener('load', loaded);
+    }
+</code></pre>
+由于DOM没有提供像complete属性那样的，判断是否发生加载错误的属性，所以error事件的监听函数最好放在img元素的HTML属性中，这样才能保证发生加载错误时百分之百会执行。
+<pre><code data-language="javascript">
+    <img src="/wrong/url" onerror="this.style.display='none';" />
+</code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">loadstart</a>
+                    <span>
+                        进度开始时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">loadend</a>
+                    <span>
+                        进度停止时触发，发生顺序排在error事件\abort事件\load事件后面
+                    </span>
+                </li>
+                <li>
+                    <a href="">progress</a>
+                    <span>
+                        当操作处于进度之中，由传输的数据块不断触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">timeout</a>
+                    <span>
+                        进度超过限时触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 文档事件</h4>
+            <ul>
                 <li>
                     <a href="">DOMContentLoaded</a>
                     <span>
@@ -24,156 +90,236 @@
                             <li>加载图片等外部文件。</li>
                             <li>页面加载完毕。//load</li>
                         </ol>
-                    </span>
-                </li>
-                <li>
-                    <a href="">onload</a>
-                    <span>
-                        一张页面或一幅图像完成加载
-                    </span>
-                </li>
-                <li>
-                    <a href="">onerror</a>
-                    <span>
-                        在加载文档或图像时发生错误 <br>
-                        包括img/input-type-img/object/script/style/body/frameset等 <br>
-                        不支持冒泡，不可取消
-                    </span>
-                </li>
-                <li>
-                    <a href="">onresize</a>
-                    <span>
-                        窗口或框架被重新调整大小
-                    </span>
-                </li>
-                <li>
-                    <a href="">onscroll</a>
-                    <span>
-                        当文档被滚动时发生的事件
-                    </span>
-                </li>
-                <li>
-                    <a href="">onbeforeunload</a>
-                    <span>
-                        该事件在即将离开页面（刷新或关闭）时触发 <br>
-                        chrome中函数需返回一个非空值 
-                        <pre><code data-language="javascript">
-                            window.onbeforeunload = function (){
-                                return true
-                            }
-                        </code></pre>       
-                    </span>
-                </li>
-                <li>
-                    <a href="">onhashchange</a>
-                    <span>
-                        该事件在当前 URL 的锚部分发生修改时触发
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    <a href="">onpageshow</a>
-                    <span>
-                        该事件在用户访问页面时触发 <br>
-                        类似于 onload 事件，onload 事件在页面第一次加载时触发， onpageshow 事件在每次加载页面时触发，即 onload 事件在页面从浏览器缓存中读取时不触发。 <br>
-                        为了查看页面是直接从服务器上载入还是从缓存中读取，你可以使用 PageTransitionEvent 对象的 persisted 属性来判断。 如果页面从浏览器的缓存中读取该属性返回 ture，否则返回 false。<br>
-                        IE10及以下不支持
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    <a href="">onpagehide</a>
-                    <span>
-                        该事件在用户离开当前网页跳转到另外一个页面时触发 <br>
-                        IE10及以下不支持
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 表单事件</h4>
-            <ul>
-                <li>
-                    <a href="">onchange</a>
-                    <span>
-                        表单元素的内容改变时触发 <br>
-                        域的内容改变时发生，也可用于单选框与复选框改变后触发的事件。<br>
-                        常用于input, keygen, select,textarea。
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    <a href="">oninput</a>
-                    <span>
-                        元素获取用户输入时触发 <br>
-                        该事件仅在input或textarea元素的值发生改变时触发。 <br>
-                        oninput事件在元素值发生变化是立即触发，onchange在元素失去焦点时触发 <br>
+                        <hr>
+                        注意，网页的JavaScript脚本是同步执行的，所以定义DOMContentLoaded事件的监听函数，应该放在所有脚本的最前面。否则脚本一旦发生堵塞，将推迟触发DOMContentLoaded事件。 <br>
                         IE8及以下不支持
                     </span>
                 </li>
                 <li>
-                    <a href="">onfocus</a>
+                    <a href="">readystatechange</a>
+                    <span>
+                        readystatechange事件发生在Document对象和XMLHttpRequest对象，当它们的readyState属性发生变化时触发。 <br>
+                        IE8不支持DOMContentLoaded事件，但是支持这个事件。因此，可以使用readystatechange事件，在低版本的IE中代替DOMContentLoaded事件。
+                    </span>
+                </li>
+                <li>
+                    <a href="">beforeunload</a>
+                    <span>
+                        该事件在即将离开页面（刷新或关闭）时触发 <br>
+                        只要在该事件的回调函数中，调用了event.preventDefault()，或者event.returnValue属性的值是一个非空的值，就会自动跳出一个确认框，让用户确认是否关闭网页。如果用户点击“取消”按钮，网页就不会关闭。 <br>
+<pre><code data-language="javascript">
+    window.addEventListener('beforeunload', function (e) {
+      var confirmationMessage = '确认关闭窗口？';
+
+      e.returnValue = confirmationMessage;
+      return confirmationMessage;
+    });;
+</code></pre>       
+                    </span>
+                </li>
+                <li>
+                    <a href="">load/error</a>
+                    <span>
+                        load事件在页面加载成功时触发，error事件在页面加载失败时触发。<br>
+                        注意，页面从浏览器缓存加载，并不会触发load事件。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">pageshow/pagehide</a>
+                    <span>
+                        该事件在用户访问页面时触发、离开当前网页跳转到另外一个页面时触发 <br>
+                        类似于 onload 事件，onload 事件在页面第一次加载时触发， onpageshow 事件在每次加载页面时触发，即 onload 事件在页面从浏览器缓存中读取时不触发。第一次加载时，它的触发顺序排在load事件后面。 <hr>
+                        <b>e.persisted ? true/false</b> <br>
+                        为了查看页面是直接从服务器上载入还是从缓存中读取，你可以使用 PageTransitionEvent 对象的  属性来判断。 如果页面从浏览器的缓存中读取该属性返回 ture，否则返回 false。<br>
+                        IE10及以下不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">scroll</a>
+                    <span>
+                        当文档被滚动时发生的事件 <br>
+                        由于该事件会连续地大量触发，所以它的监听函数之中不应该有非常耗费计算的操作。推荐的做法是使用requestAnimationFrame或setTimeout控制该事件的触发频率，然后可以结合customEvent抛出一个新事件。 <br>
+<pre><code data-language="javascript">
+    (function() {
+      var throttle = function(type, name, obj) {
+        var obj = obj || window;
+        var running = false;
+        var func = function() {
+          if (running) { return; }
+          running = true;
+          requestAnimationFrame(function() {
+            obj.dispatchEvent(new CustomEvent(name));
+            running = false;
+          });
+        };
+        obj.addEventListener(type, func);
+      };
+
+      // 将scroll事件重定义为optimizedScroll事件
+      throttle('scroll', 'optimizedScroll');
+    })();
+
+    window.addEventListener('optimizedScroll', function() {
+      console.log("Resource conscious scroll callback!");
+    });
+</code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">resize</a>
+                    <span>
+                        窗口或框架被重新调整大小(window、body、frameset) <br>
+                        该事件也会连续地大量触发，所以最好像上面的scroll事件一样，通过throttle函数控制事件触发频率。
+                    </span>
+                </li>
+                <li>
+                    <a href="">hashchange</a>
+                    <span>
+                        该事件在当前 URL 的锚部分发生修改时触发 <br>
+                        e.oldURL 变化前URL <br>
+                        e.newURL 变化后URL
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>交互事件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 焦点事件</h4>
+            <ul>
+                <li>
+                    <a href="">focus</a>
                     <span>
                         对象获得焦点时发生，不支持冒泡 <br>
-                        通常用于 input, select, 和a. 
+                        通常用于 input, select, 和a.  <br>
+                        由于focus和blur事件不会冒泡，只能在捕获阶段触发，所以addEventListener方法的第三个参数需要设为true。
                     </span>
                 </li>
                 <li>
-                    <a href="">onfocusin</a>
-                    <span>
-                        元素即将获取焦点时触发，支持冒泡，Firefox不支持
-                    </span>
-                </li>
-                <li>
-                    <a href="">onblur</a>
+                    <a href="">blur</a>
                     <span>
                         对象失去焦点时发生，不支持冒泡 <br>
                         经常用于Javascript验证代码，一般用于表单输入框
                     </span>
                 </li>
                 <li>
-                    <a href="">onfocusout</a>
+                    <a href="">focusin</a>
+                    <span>
+                        元素即将获取焦点时触发，支持冒泡，Firefox不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">focusout</a>
                     <span>
                         元素即将失去焦点时触发，支持冒泡，Firefox不支持
                     </span>
                 </li>
                 <li>
-                    <a href="">onselect</a>
+                    e.<a href="">target</a>
                     <span>
-                        仅在“文本框”中的文本被选中时发生
+                        返回事件的目标节点
                     </span>
                 </li>
                 <li>
-                    <a href="">onreset</a>
+                    e.<a href="">relatedTarget</a>
+                    <span>
+                        返回一个element节点
+                        <table>
+                            <tr>
+                                <th>事件类型</th>
+                                <th>相关节点</th>
+                            </tr>
+                            <tr>
+                                <td>focusin</td>
+                                <td>失去焦点的节点</td>
+                            </tr>
+                            <tr>
+                                <td>focusout</td>
+                                <td>将要接受焦点的节点</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 表单事件</h4>
+            <ul>
+                <li>
+                    <a href="">change</a>
+                    <span>
+                        表单元素的内容改变时触发 <br>
+                        域的内容改变时发生，也可用于单选框与复选框改变后触发的事件。<br>
+                        常用于input, keygen, select, textarea。 <hr>
+                        change事件与input事件的最大不同，就是不会连续触发，只有当全部修改完成时才会触发 <br>
+                        激活单选框（radio）或复选框（checkbox）时触发。<br>
+                        用户提交时触发。比如，从下列列表（select）完成选择，在日期或文件输入框完成选择。<br>
+                        当文本框或textarea元素的值发生改变，并且丧失焦点时触发。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    <a href="">input</a>
+                    <span>
+                        元素获取用户输入时触发 <br>
+                        该事件仅在input或textarea元素的值发生改变时触发，打开contenteditable属性的元素，只要值发生变化，也会触发input事件。。 <br>
+                        input事件的一个特点，就是会连续触发，比如用户每次按下一次按键，就会触发一次input事件。<br>
+                        oninput事件在元素值发生变化是立即触发，onchange在元素失去焦点时触发 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    <a href="">select</a>
+                    <span>
+                        仅在“文本框”(input/textarea)中的文本被选中时发生
+                    </span>
+                </li>
+                <li>
+                    <a href="">reset</a>
                     <span>
                         表单重置时触发
                     </span>
                 </li>
                 <li>
-                    <a href="">onsubmit</a>
+                    <a href="">submit</a>
                     <span>
-                        在表单提交时触发
+                        在表单提交时触发 <br>
+                        注意，submit事件的发生对象是form元素，而不是button元素（即使它的类型是submit），因为提交的是表单，而不是按钮。
                     </span>
                 </li>
             </ul>
             <h4>[<span>-</span>] 剪贴板事件</h4>
             <ul>
                 <li>
-                    <a href="">oncopy</a>
+                    <a href="">copy</a>
                     <span>
                         用户拷贝元素上的内容时触发（包括img）
                     </span>
                 </li>
                 <li>
-                    <a href="">oncut</a>
+                    <a href="">cut</a>
                     <span>
                         用户剪切元素内容时触发 <br>
                         对于不可编辑的元素，除非设置contenteditable 为 "true" 
                     </span>
                 </li>
                 <li>
-                    <a href="">onpaste</a>
+                    <a href="">paste</a>
                     <span>
                         用户粘贴元素内容时触发 <br>
                         对于不可编辑的元素，除非设置contenteditable 为 "true" 
                     </span>
                 </li>
+                <li>
+                    e.<a href="">clipboardData</a>
+                    <span>
+                        该属性存放剪贴的数据,只读属性
+                    </span>
+                </li>
             </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>其它事件<span>-</span></h3>
+        <div class="u-list">
             <h4>[<span>-</span>] 动画事件</h4>
             <ul>
                 <li>
@@ -203,6 +349,21 @@
                         css完成过渡后触发 <br>
                         如果过渡在完成前移除，例如 CSS transition-property 属性被移除，过渡事件将不被触发 <br>
                         webkitTransitionEnd / mozTransitionEnd / oTransitionEnd
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它事件</h4>
+            <ul>
+                <li>
+                    <a href="">message</a>
+                    <span>
+                        该事件通过或者从对象(WebSocket, Web Worker, Event Source 或者子 frame 或父窗口)接收到消息时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">toggle</a>
+                    <span>
+                        该事件在用户打开或关闭 <details> 元素时触发
                     </span>
                 </li>
             </ul>

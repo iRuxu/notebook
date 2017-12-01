@@ -1,5 +1,6 @@
-// html代码为 <p id="p">foobar</p>
-var p = document.getElementById('p');
-var test = p.firstChild;
-var newText = test.splitText(3);
-console.log(newText)
+var body = document.body
+body.onfocus = function (e){
+	console.log('ok')
+	console.log(e.target)
+	console.log(e.relatedTarget)
+}

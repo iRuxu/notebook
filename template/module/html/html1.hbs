@@ -76,12 +76,6 @@
                         返回页面中所有脚本的集合
                     </span>
                 </li>
-                <li>
-                    doc.<a href="">styleSheets</a>
-                    <span>
-                        返回网页的所有样式表
-                    </span>
-                </li>
             </ul>
             <h4>[<span>-</span>] 层级查找</h4>
             <ul>
@@ -200,6 +194,230 @@
                     <span>
                         返回位于页面指定视窗位置最上层的Element子节点。 <br>
                         如果位于该位置的HTML元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值或超过视口大小），则返回null。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>DOM更新<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 文本</h4>
+            <ul>
+                <li>
+                    doc.<a href="">creatTextNode</a>('str')
+                    <span>
+                        创建文本节点 <br>
+                        这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作HTML代码渲染。因此，可以用来展示用户的输入，避免XSS攻击。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">normalize()</a>
+                    <span>
+                        合并相邻的文本节点并删除空的文本节点
+                    </span>
+                </li>
+                <li>
+                    txt.<a href="">splitText</a>(n)
+                    <span>
+                        splitText方法将Text节点一分为二，变成两个毗邻的Text节点。它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。 <br>
+                        分割后，该方法返回分割位置后方的字符串，而原Text节点变成只包含分割位置前方的字符串。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">textContent</a>
+                    <span>
+                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
+                        textContent属性自动忽略当前节点内部的HTML标签，返回所有文本内容。 <br>
+                        同理对textContent的字符串设置中如有标签，当做字符串处理，不会解析为Html标签 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">innerHTML</a>
+                    <span>
+                        设置或返回元素的内容 <br>
+                        如果插入的文本包含 HTML 标签，会被解析成为节点对象插入 DOM。注意，如果文本之中含有script标签，虽然可以生成script节点，但是插入的代码不会执行。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">outerHTML</a>
+                    <span>
+                        返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。 <br>
+                        被替换后，原变量将保存原信息在内存中
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 添加</h4>
+            <ul>
+                <li>
+                    doc.<a href="">creatElement</a>('tag')
+                    <span>
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">cloneNode</a>([true/false])
+                    <span>
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">importNode</a>(node,deep)
+                    <span>
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatDocumentFragment()</a>
+                    <span>
+                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
+                        var temp=document.createDocumentFragment();
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatComment</a>('str')
+                    <span>
+                        创建注释节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 修改</h4>
+            <ul>
+                <li>
+                    dom.<a href="">appendChild</a>(node)
+                    <span>
+                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
+                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
+                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
+                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">insertBefore</a>(node,exist)
+                    <span>
+                        向目标节点前添加新的节点。 <br>
+                        如果被添加的节点是原文档中的节点，则原节点会被移除。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">replaceChild</a>(new,old)
+                    <span>
+                        将某个子节点替换为另一个。 <br>
+                        它返回被替换走的那个节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 删除</h4>
+            <ul>
+                <li>
+                    dom.<a href="">removeChild</a>(node)
+                    <span>
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">remove()</a>
+                    <span>
+                        将当前元素节点从DOM树删除
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它</h4>
+            <ul>
+                <li>
+                    doc.<a href="">write</a>('exp')
+                    <span>
+                        向文档写入内容 <br>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">writeln</a>('exp')
+                    <span>
+                        向文档写入内容，并在末尾添加一个换行符
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">open</a>([MIME],[replace])
+                    <span>
+                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
+                        MIMEtype，默认值是 "text/html"。 <br>
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。 <br>
+                        它实际上等于清除当前文档，重新写入内容。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">close</a>()
+                    <span>
+                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] MutationObserver</h4>
+            <ul>
+                <li>
+                    <a href="">new MutationObserver</a><em>(fn(arr,obs))</em>
+                    <span>
+                        使用时，首先使用MutationObserver构造函数，新建一个观察器实例，同时指定这个实例的回调函数。 <br>
+                        回调函数，会在每次 DOM 变动后调用。该回调函数接受两个参数，第一个是变动数组，第二个是观察器实例
+                    </span>
+                </li>
+                <li>
+                    obs.<a href="">observe</a><em>(dom,option)</em>
+                    <span>
+                        observe方法用来开始监听，它接受两个参数 <br>
+                        第一个参数是所要观察的 DOM 节点 <br>
+                        第二个参数是一个配置对象，用来指定所要观察的特定变动
+<pre><code data-language="javascript">
+    var article = document.querySelector('article');
+
+    var  options = {
+      'childList': true,
+      'attributes':true
+    } ;
+
+    observer.observe(article, options);
+</code></pre>
+                    观察器所能观察的 DOM 变动类型（即上面代码的options对象），有以下几种 <br>
+                    childList：子节点的变动。<br>
+                    attributes：属性的变动。<br>
+                    characterData：节点内容或节点文本的变动。<br>
+                    subtree：所有后代节点的变动。<br>
+                    attributeOldValue：类型为布尔值，表示观察attributes变动时，是否需要记录变动前的属性值。<br>
+                    characterDataOldValue：类型为布尔值，表示观察characterData变动时，是否需要记录变动前的值。<br>
+                    attributeFilter：类型为数组，表示需要观察的特定属性（比如['class','src']）
+                    </span>
+                </li>
+                <li>
+                    obs.<a href="">disconnect()</a>
+                    <span>
+                        停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器
+                    </span>
+                </li>
+                <li>
+                    obs.<a href="">takeRecords()</a>
+                    <span>
+                        清除变动记录，即不再处理未处理的变动。该方法返回变动记录的数组。
+                    </span>
+                </li>
+                <li>
+                    <em>MutationRecord</em><a href=""></a>
+                    <span>
+                        DOM 每次发生变化，就会生成一条变动记录。这个变动记录对应一个MutationRecord对象，该对象包含了与变动相关的所有信息。Mutation Observer 处理的是一个个MutationRecord对象所组成的数组。
+                        <hr>
+                        type：观察的变动类型（attribute、characterData或者childList）。 <br>
+                        target：发生变动的DOM节点。<br>
+                        addedNodes：新增的DOM节点。<br>
+                        removedNodes：删除的DOM节点。<br>
+                        previousSibling：前一个同级节点，如果没有则返回null。<br>
+                        nextSibling：下一个同级节点，如果没有则返回null。<br>
+                        attributeName：发生变动的属性。如果设置了attributeFilter，则只返回预先指定的属性。<br>
+                        oldValue：变动前的值。这个属性只对attribute和characterData变动有效，如果发生childList变动，则返回null。
                     </span>
                 </li>
             </ul>

@@ -2,181 +2,44 @@
     <div class="u-block">
         <h3>BOM<span>-</span></h3>
         <div class="u-list">
-        	<h4>[<span>-</span>] 窗口</h4>
-        	<ul>
-        		<li>
-        			window.<a href="">print()</a>
-        			<span>
-        				打印当前窗口内容
-        			</span>
-        		</li>
-        		<li>
-        			window.<a href="">open</a>([url],[pos],[specs])
-        			<span>
-        				打开一个新浏览器窗口或查找一个已命名的窗口。 <br>
-        				url:打开指定的页面的URL，如果没有指定URL，打开与新的空白窗口。 <br>
-        				name:指定target属性或窗口的名称，_blank/_parent/_self/_top/$name <br>
-        				specs:指定尺寸是显示模式等。
-        				<a href="http://www.runoob.com/jsref/met-win-open.html">参考资料</a>
-        			</span>
-        		</li>
-        		<li>
-        			window.<a href="">close()</a>
-        			<span>
-        				关于浏览器窗口
-        			</span>
-        		</li>
-        		<li>
-            		window.<a href="">opener</a>
-            		<span>
-            			返回对创建此窗口的窗口的引用
-            		</span>
-            	</li>
-        	</ul>
-            <h4>[<span>-</span>] 框架</h4>
-            <ul>
-            	<li>
-            		window.<a href="">length</a>
-            		<span>
-            			返回在当前窗口中frames的数量（包括iframes）
-            		</span>
-            	</li>
-            	<li>
-            		window.<a href="">parent</a>
-            		<span>
-            			返回父窗口对象。
-            		</span>
-            	</li>
-            	<li>
-            		window.<a href="">self</a>
-            		<span>
-            			返回对当前窗口的引用。
-            		</span>
-            	</li>
-            	<li>
-            		window.<a href="">top</a>
-            		<span>
-            			返回当前窗口的最顶层浏览器窗口<br>
-            			可通过window.top!=window.self判断在iframe中
-            		</span>
-            	</li>
-            </ul>
-            <h4>[<span>-</span>] 弹窗</h4>
-            <ul>
-            	<li>
-            		<a href="">alert</a>('msg')
-            		<span>
-            			显示带有一段消息和一个确认按钮的警告框
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">confirm</a>('msg')
-            		<span>
-            			显示一个带有指定消息和确认及取消按钮的对话框 <br>
-            			点击确定返回true，否则返回false。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">prompt</a>('msg',[txt])
-            		<span>
-            			显示可提示用户进行输入的对话框 <br>
-            			txt为默认填写的内容，可选。 <br>
-            			返回用户输入的字符串。
-            		</span>
-            	</li>
-            </ul>
-            <h4>[<span>-</span>] Navigator</h4>
-            <ul>
-                <li>
-                    navigator.<a href="">appVersion</a>
-                    <span>
-                        返回浏览器的平台和版本信息
-                    </span>
-                </li>
-                <li>
-                    navigator.<a href="">userAgent</a>
-                    <span>
-                        返回由客户机发送服务器的user-agent 头部的值
-                    </span>
-                </li>
-                <li>
-                    navigator.<a href="">cookieEnabled</a>
-                    <span>
-                        返回指明浏览器中是否启用 cookie 的布尔值
-                    </span>
-                </li>
-                <li>
-                    navigator.<a href="">platform</a>
-                    <span>
-                        返回运行浏览器的操作系统平台 <br>
-                        Win32
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] Location</h4>
-            <ul>
-                <li>
-                    location.<a href="">href</a>
-                    <span>
-                        返回完整的url
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">hash</a>
-                    <span>
-                        返回一个url的锚部分：#hash
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">search</a>
-                    <span>
-                        返回一个url的查询部分：?x=search
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">pathname</a>
-                    <span>
-                        返回url路径（除去域名协议部分）
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">hostname</a>
-                    <span>
-                        返回url的主机名 <br>
-                        www.xxx.com
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">port</a>
-                    <span>
-                        返回url服务器使用的端口
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">protocol</a>
-                    <span>
-                        返回一个url协议 <br> http:
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">reload</a>([true])
-                    <span>
-                        重新载入当前文档。当设置true时，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">replace</a>(url)
-                    <span>
-                        用新的文档替换当前文档
-                    </span>
-                </li>
-                <li>
-                    location.<a href="">assign</a>(url)
-                    <span>
-                        载入一个新的文档
-                    </span>
-                </li>
-            </ul>
-        </div>
+			<h4>[<span>-</span>] 渲染</h4>
+			<ul>
+				<li>
+					window.<a href="">requestAnimationFrame</a><em>(fn)</em>
+					<span>
+						一般浏览器是每秒60帧，即显示频率是16.7ms，这也是为何setTimeout的定时器值推荐最小使用16.7ms的原因（16.7 = 1000 / 60, 即每秒60帧）。 <br>
+						<a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/">参考资料</a> | <a href="http://javascript.ruanyifeng.com/bom/engine.html#toc11">浏览器渲染原理</a>
+<pre><code data-language="javascript">
+(function() {
+    var lastTime = 0;
+    var vendors = ['webkit', 'moz'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
+                                      window[vendors[x] + 'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+            var id = window.setTimeout(function() {
+                callback(currTime + timeToCall);
+            }, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+    }
+    if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+    }
+}());
+</code></pre>
+					</span>
+				</li>
+			</ul>
+		</div>
     </div>
 </div>
