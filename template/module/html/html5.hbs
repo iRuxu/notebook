@@ -32,9 +32,27 @@
             			返回对创建此窗口的窗口的引用
             		</span>
             	</li>
+                <li>
+                    window.<a href="">focus()</a>
+                    <span>
+                        激活指定当前窗口，使其获得焦点
+                    </span>
+                </li>
         	</ul>
             <h4>[<span>-</span>] 框架</h4>
             <ul>
+                <li>
+                    window.<a href="">name</a>
+                    <span>
+                        用于设置当前浏览器窗口的名字,当浏览器窗口关闭后，所保存的值就会消失
+                    </span>
+                </li>
+                <li>
+                    window.<a href="">frames</a>
+                    <span>
+                        返回一个类似数组的对象，成员为页面内所有框架窗口，包括frame元素和iframe元素。window.frames[0]表示页面中第一个框架窗口。
+                    </span>
+                </li>
             	<li>
             		window.<a href="">length</a>
             		<span>
@@ -110,6 +128,18 @@
                     <span>
                         返回运行浏览器的操作系统平台 <br>
                         Win32
+                    </span>
+                </li>
+                <li>
+                    navigator.<a href="">plugins</a>
+                    <span>
+                        返回一个类似数组的对象，成员是浏览器安装的插件，比如Flash、ActiveX等。
+                    </span>
+                </li>
+                <li>
+                    navigator.<a href="">geolocation</a>
+                    <span>
+                        返回一个Geolocation对象，包含用户地理位置的信息。
                     </span>
                 </li>
             </ul>
