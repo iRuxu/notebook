@@ -1,24 +1,371 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>Drag<span>-</span></h3>
+        <h3>Touch<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] </h4>
+            <h4>[<span>-</span>] Touch事件类型</h4>
             <ul>
                 <li>
-                    <a href=""></a>
+                    <a href="">touchstart</a>
                     <span>
-                        <a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc17">参考资料</a>
-                        <a href="https://www.awesomes.cn/repo/Shopify/draggable"></a>
+                        用户接触触摸屏时触发
                     </span>
+                </li>
+                <li>
+                    <a href="">touchend</a>
+                    <span>
+                        用户不再接触触摸屏时（或者移出屏幕边缘时）触发 
+                    </span>
+                </li>
+                <li>
+                    <a href="">touchmove</a>
+                    <span>
+                        用户移动触摸点时触发 <br>
+                        如果触摸的半径、角度、力度发生变化，也会触发该事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">touchcancel</a>
+                    <span>
+                        当触点由于某些原因被中断时触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] Touch对象</h4>
+            <ul>
+                <li>
+                    <a href="">new Touch()</a>
+                    <span>
+                        Touch对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">identifier</a>
+                    <span>
+                        identifier属性表示Touch实例的独一无二的识别符。它在整个触摸过程中保持不变。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">target</a>
+                    <span>
+                        target属性返回一个Element节点，代表触摸发生的那个节点。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">screenX/screenY</a>
+                    <span>
+                        触摸点相对于屏幕左上角的横坐标和纵坐标，与页面是否滚动无关。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">client/clientY</a>
+                    <span>
+                        表示触摸点相对于浏览器视口左上角的横坐标和纵坐标，与页面是否滚动无关。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">pageX/pageY</a>
+                    <span>
+                        表示触摸点相对于当前页面左上角的横坐标和纵坐标，包含了页面滚动带来的位移。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">radiusX/radiusY/rotationAngle</a>
+                    <span>
+                        radiusX属性和radiusY属性，分别返回触摸点周围受到影响的椭圆范围的X轴和Y轴，单位为像素 <br>
+                        rotationAngle属性表示触摸区域的椭圆的旋转角度，单位为度数，在0到90度之间。<br>
+                        上面这三个属性共同定义了用户与屏幕接触的区域，对于描述手指这一类非精确的触摸，很有帮助。指尖接触屏幕，触摸范围会形成一个椭圆，这三个属性就用来描述这个椭圆区域。
+                    </span>
+                </li>
+                <li>
+                    touch.<a href="">force</a>
+                    <span>
+                        force属性返回一个0到1之间的数值，表示触摸压力。0代表没有压力，1代表硬件所能识别的最大压力。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] TouchList对象</h4>
+            <ul>
+                <li>
+                    <a href="">TouchList</a>
+                    <span>
+                        TouchList对象是一个类似数组的对象，成员是与某个触摸事件相关的所有触摸点。比如，用户用三根手指触摸，产生的TouchList对象就有三个成员，每根手指对应一个Touch对象。
+                    </span>
+                </li>
+                <li>
+                    touchList.<a href="">length</a>
+                    <span>
+                        返回touchList对象的成员数量
+                    </span>
+                </li>
+                <li>
+                    touchList.<a href="">indentified</a>(id)
+                    <span>
+                        列表中标示符与指定值匹配的第一个Touch 对象会被返回
+                    </span>
+                </li>
+                <li>
+                    touchList.<a href="">item</a>(index)
+                    <span>
+                        返回列表中以指定值作为索引的 Touch 对象
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] TouchEvent对象</h4>
+            <ul>
+                <li>
+                    <a href="">new TouchEvent()</a>
+                    <span>
+                        TouchEvent对象继承Event对象和UIEvent对象，表示触摸引发的事件。
+                    </span>
+                </li>
+                <li>
+                    touchEvent.<a href="">type</a>
+                    <span>
+                        触摸事件的类型
+                    </span>
+                </li>
+                <li>
+                    touchEvent.<a href="">touches</a>
+                    <span>
+                        返回一个TouchList对象，当前屏幕上所有触摸点的集合列表 <br>
+                        <a href="https://segmentfault.com/q/1010000002870710/a-1020000004869367">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    touchEvent.<a href="">targetTouches</a>
+                    <span>
+                        返回一个TouchList对象，绑定事件的那个节点上的触摸点的集合列表
+                    </span>
+                </li>
+                <li>
+                    touchEvent.<a href="">changedTouches</a>
+                    <span>
+                        返回一个TouchList对象，触发事件时改变的触摸点的集合<br>
+                        对于touchstart事件，它代表被激活的触摸点；对于touchmove事件，代表发生变化的触摸点；对于touchend事件，代表消失的触摸点（即不再被触碰的点）
+                    </span>
+                </li>
+                <li>
+                    touchEvent.<a href=""><em>altKey/ctrlKey/metaKey/shiftKey</em></a>
+                    <span>
+                        返回一个布尔值，表示触摸的同时，是否按下某个键。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 开源库</h4>
+            <ul>
+                <li>
+                    <a href="https://www.awesomes.cn/repo/hammerjs/hammer-js">hammer.js</a>
+                </li>
+                <li>
+                    <a href="https://www.awesomes.cn/repo/ftlabs/fastclick">fastclick</a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>Touch<span>-</span></h3>
+        <h3>Drag<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] </h4>
+            <h4>[<span>-</span>] Drag事件类型</h4>
             <ul>
+                <li>
+                    <a href="">drag</a>
+                    <span>
+                        拖拉过程中，在被拖拉的节点上持续触发 <hr>
+                        拖拉过程只触发以下这些拖拉事件，尽管鼠标在移动，但是鼠标事件不会触发。 <br>
+                        将文件从操作系统拖拉进浏览器，不会触发dragStart和dragend事件。 <br>
+                        dragenter和dragover事件的监听函数，用来指定可以放下（drop）拖拉的数据。由于网页的大部分区域不适合作为drop的目标节点，所以这两个事件的默认设置为当前节点不允许drop。如果想要在目标节点上drop拖拉的数据，首先必须阻止这两个事件的默认行为，或者取消这两个事件。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dragstart</a>
+                    <span>
+                        拖拉开始时在被拖拉的节点上触发 <br>
+                        该事件的target属性是被拖拉的节点。 <br>
+                        通常应该在这个事件的监听函数中，指定拖拉的数据。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dragend</a>
+                    <span>
+                        拖拉结束时（释放鼠标键或按下escape键）在被拖拉的节点上触发<br>
+                        该事件的target属性是被拖拉的节点。 <br>
+                        它与dragstart事件，在同一个节点上触发。不管拖拉是否跨窗口，或者中途被取消，dragend事件总是会触发的。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dragenter</a>
+                    <span>
+                        拖拉进入当前节点时，在当前节点上触发 <br> 该事件的target属性是当前节点。 <br>
+                        通常应该在这个事件的监听函数中，指定是否允许在当前节点放下（drop）拖拉的数据。如果当前节点没有该事件的监听函数，或者监听函数不执行任何操作，就意味着不允许在当前节点放下数据。在视觉上显示拖拉进入当前节点，也是在这个事件的监听函数中设置。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dragover</a>
+                    <span>
+                        拖拉到当前节点上方时，在当前节点上持续触发 <br>
+                        该事件的target属性是当前节点。 <br>
+                        该事件与dragenter事件基本类似，默认会重置当前的拖拉事件的效果（DataTransfer对象的dropEffect属性）为none，即不允许放下被拖拉的节点，所以如果允许在当前节点drop数据，通常会使用preventDefault方法，取消重置拖拉效果为none。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dragleave</a>
+                    <span>
+                        拖拉离开当前节点范围时，在当前节点上触发 <br>
+                        该事件的target属性是当前节点。 <br>
+                        在视觉上显示拖拉离开当前节点，就在这个事件的监听函数中设置。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dragexit</a>
+                    <span>
+                        当元素不再是拖动操作的选择目标时触发此事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">drop</a>
+                    <span>
+                        被拖拉的节点或选中的文本，释放到目标节点时，在目标节点上触发。 <br>
+                        注意，如果当前节点不允许drop，即使在该节点上方松开鼠标键，也不会触发该事件。如果用户按下Escape键，取消这个操作，也不会触发该事件。该事件的监听函数负责取出拖拉数据，并进行相关处理。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] Drag事件对象</h4>
+            <ul>
+                <li>
+                    <a href="">new DragEvent()</a>
+                    <span>
+                        继承MouseEvent对象，因此也就继承了UIEvent和Event对象。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent">参考资料</a><br>
+                        element节点默认不可拖拉，如果不取消拖拉事件或者阻止默认行为，就不可能在div节点上drop被拖拉的节点。
+                    </span>
+                </li>
+                <li>
+                    dragEvent.<a href="">DataTransfer</a>
+                    <span>
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DataTransfer">参考资料</a> <br>
+                        所有的拖拉事件都有一个dataTransfer属性，用来保存需要传递的数据。这个属性的值是一个DataTransfer对象。 <br>
+                        拖拉的数据保存两方面的数据：数据的种类（又称格式）和数据的值。数据的种类是一个MIME字符串，比如 text/plain或者image/jpeg，数据的值是一个字符串。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] DataTransfer对象</h4>
+            <ul>
+                <li>
+                    dataTransfer.<a href="">dropEffect</a>
+                    <span>
+                        dropEffect属性一般在dragenter和dragover事件的监听函数中设置
+                        <table>
+                            <tr>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>copy</td>
+                                <td>复制被拖拉的节点</td>
+                            </tr>
+                            <tr>
+                                <td>move</td>
+                                <td>移动被拖拉的节点</td>
+                            </tr>
+                            <tr>
+                                <td>link</td>
+                                <td>创建指向被拖拉的节点的链接</td>
+                            </tr>
+                            <tr>
+                                <td>none</td>
+                                <td>无法放下被拖拉的节点</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    dataTransfer.<a href="">effectAllowed</a>
+                    <span>
+                        设置本次拖拉中允许的效果
+                        <table>
+                            <tr>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>copy</td>
+                                <td>复制被拖拉的节点</td>
+                            </tr>
+                            <tr>
+                                <td>move</td>
+                                <td>移动被拖拉的节点</td>
+                            </tr>
+                            <tr>
+                                <td>link</td>
+                                <td>创建指向被拖拉的节点的链接</td>
+                            </tr>
+                            <tr>
+                                <td>copyLink</td>
+                                <td>允许copy或link</td>
+                            </tr>
+                            <tr>
+                                <td>copyMove</td>
+                                <td>允许copy或move</td>
+                            </tr>
+                            <tr>
+                                <td>linkMove</td>
+                                <td>允许link或move</td>
+                            </tr>
+                            <tr>
+                                <td>all</td>
+                                <td>允许所有效果</td>
+                            </tr>
+                            <tr>
+                                <td>uninitialized</td>
+                                <td>默认值，等同于all</td>
+                            </tr>
+                            <tr>
+                                <td>none</td>
+                                <td>无法放下被拖拉的节点</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    dataTransfer.<a href="">files</a>
+                    <span>
+                        files属性是一个FileList对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则属性为空的FileList对象。
+                    </span>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME类型</a>
+                </li>
+                <li>
+                    dataTransfer.<a href="">types</a>
+                    <span>
+                        types属性是一个数组，保存每一次拖拉的数据格式，比如拖拉文件，则格式信息就为File。
+                    </span>
+                </li>
+                <li>
+                    dataTransfer.<a href="">setData</a>(type,val)
+                    <span>
+                        设置事件所带有的指定类型的数据。它接受两个参数，第一个是数据类型，第二个是具体数据。
+                    </span>
+                </li>
+                <li>
+                    dataTransfer.<a href="">getData</a>(type)
+                    <span>
+                        返回事件所带的指定类型的数据,通常是用setData方法添加的数据. <br>
+                        如果指定类型的数据不存在，则返回空字符串。通常只有drop事件触发后，才能取出数据。如果取出另一个域名存放的数据，将会报错。
+                    </span>
+                </li>
+                <li>
+                    dataTransfer.<a href="">clearData</a>(type)
+                    <span>
+                        删除事件所带的指定类型的数据。 <br>
+                        如果没有指定类型，则删除所有数据。如果指定类型不存在，则原数据不受影响。
+                    </span>
+                </li>
+                <li>
+                    dataTransfer.<a href="">setDragImage</a>(img,x,y)
+                    <span>
+                        拖动过程中（dragstart事件触发后），浏览器会显示一张图片跟随鼠标一起移动，表示被拖动的节点。这张图片是自动创造的，通常显示为被拖动节点的外观，不需要自己动手设置。setDragImage方法可以用来自定义这张图片，它接受三个参数，第一个是img图片元素或者canvas元素，如果省略或为null则使用被拖动的节点的外观，第二个和第三个参数为鼠标相对于该图片左上角的横坐标和右坐标。
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

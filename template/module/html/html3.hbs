@@ -62,6 +62,7 @@
                 <li>
                     <a href="">new CustomEvent</a>(type,option)
                     <span>
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CustomEvent">参考资料</a> <br>
                         CustomEvent构造函数的第一个参数是事件名称，第二个参数是一个对象，可传递数据 <br>
                         <a href="http://javascript.ruanyifeng.com/dom/event.html#toc21">IE模拟支持</a>
 <pre><code data-language="javascript">
@@ -137,13 +138,19 @@
                     option：为事件对象指定额外的属性。
                     </span>
                 </li>
+                <li>
+                    <a href="">UIEvent</a>
+                    <span>
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/UIEvent">参考资料</a>
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] 事件对象</h4>
             <ul>
                 <li>
                     <a href="">new Event</a>(type[,option])
                     <span>
-                        事件发生以后，会生成一个事件对象，作为参数传给监听函数。浏览器原生提供一个Event对象，所有的事件都是这个对象的实例，或者说继承了Event.prototype对象。Event对象本身就是一个构造函数，可以用来生成新的实例。 <hr>
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event">参考资料</a> <br>事件发生以后，会生成一个事件对象，作为参数传给监听函数。浏览器原生提供一个Event对象，所有的事件都是这个对象的实例，或者说继承了Event.prototype对象。Event对象本身就是一个构造函数，可以用来生成新的实例。 <hr>
                         bubbles：布尔值，可选，默认为false，表示事件对象是否冒泡。<br>
                         cancelable：布尔值，可选，默认为false，表示事件是否可以被取消。 <br>
 <pre><code data-language="javascript">
@@ -319,23 +326,7 @@ function myEventHandler(event) {
                 <li>
                     <a href="">new MouseEvent</a><em>(typeArg, mouseEventInit)</em>
                     <span>
-                        鼠标事件，第一个参数是事件名称，第二个参数是一个事件初始化对象。
-                        <a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc6">参考资料</a> <hr>
-                        screenX，设置鼠标相对于屏幕的水平坐标（但不会移动鼠标），默认为0，等同于MouseEvent.screenX属性。<br>
-                        screenY，设置鼠标相对于屏幕的垂直坐标，默认为0，等同于MouseEvent.screenY属性。<br>
-                        clientX，设置鼠标相对于窗口的水平坐标，默认为0，等同于MouseEvent.clientX属性。<br>
-                        clientY，设置鼠标相对于窗口的垂直坐标，默认为0，等同于MouseEvent.clientY属性。<br>
-                        ctrlKey，设置是否按下ctrl键，默认为false，等同于MouseEvent.ctrlKey属性。<br>
-                        shiftKey，设置是否按下shift键，默认为false，等同于MouseEvent.shiftKey属性。<br>
-                        altKey，设置是否按下alt键，默认为false，等同于MouseEvent.altKey属性。<br>
-                        metaKey，设置是否按下meta键，默认为false，等同于MouseEvent.metaKey属性。<br>
-                        button，设置按下了哪一个鼠标按键，默认为0。-1表示没有按键，0表示按下主键（通常是左键），1表示按下辅助键（通常是中间的键），2表示按下次要键（通常是右键）。<br>
-                        buttons，设置按下了鼠标哪些键，是一个3个比特位的二进制值，默认为0。1表示按下主键（通常是左键），2表示按下次要键（通常是右键），4表示按下辅助键（通常是中间的键）。<br>
-                        relatedTarget，设置一个Element节点，在mouseenter和mouseover事件时，表示鼠标刚刚离开的那个Element节点，在mouseout和mouseleave事件时，表示鼠标正在进入的那个Element节点。默认为null，等同于MouseEvent.relatedTarget属性。<br>
-                        bubbles，布尔值，设置事件是否冒泡，默认为false，等同于Event.bubbles属性。<br>
-                        cancelable，布尔值，设置事件是否可取消，默认为false，等同于Event.cancelable属性。<br>
-                        view，设置事件的视图，一般是window或document.defaultView，等同于Event.view属性。<br>
-                        detail，设置鼠标点击的次数，等同于Event.detail属性。
+                        鼠标事件，第一个参数是事件名称，第二个参数是一个事件初始化对象。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent">参考资料</a>
                     </span>
                 </li>
                 <li>
@@ -508,7 +499,7 @@ function myEventHandler(event) {
                 <li>
                     <a href="">new KeyboardEvent</a><em>(typeArg, KeyboardEventInit)</em>
                     <span>
-                        
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent">参考资料</a>
                     </span>
                 </li>
                 <li>
