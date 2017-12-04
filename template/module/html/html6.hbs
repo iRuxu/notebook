@@ -10,36 +10,65 @@
 						一般浏览器是每秒60帧，即显示频率是16.7ms，这也是为何setTimeout的定时器值推荐最小使用16.7ms的原因（16.7 = 1000 / 60, 即每秒60帧）。 <br>
 						<a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/">参考资料</a> | <a href="http://javascript.ruanyifeng.com/bom/engine.html#toc11">浏览器渲染原理</a>
 <pre><code data-language="javascript">
-(function() {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
-                                      window[vendors[x] + 'CancelRequestAnimationFrame'];
-    }
+    (function() {
+        var lastTime = 0;
+        var vendors = ['webkit', 'moz'];
+        for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
+                                          window[vendors[x] + 'CancelRequestAnimationFrame'];
+        }
 
-    if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
-            var id = window.setTimeout(function() {
-                callback(currTime + timeToCall);
-            }, timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-    }
-    if (!window.cancelAnimationFrame) {
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-    }
-}());
+        if (!window.requestAnimationFrame) {
+            window.requestAnimationFrame = function(callback, element) {
+                var currTime = new Date().getTime();
+                var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+                var id = window.setTimeout(function() {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+        }
+        if (!window.cancelAnimationFrame) {
+            window.cancelAnimationFrame = function(id) {
+                clearTimeout(id);
+            };
+        }
+    }());
 </code></pre>
 					</span>
 				</li>
 			</ul>
+            <h4>[<span>-</span>] Cookie</h4>
+            <ul>
+                <li>
+                    navigator.<a href="">cookieEnabled</a>
+                    <span>
+                        返回一个布尔值，表示浏览器是否打开 Cookie 功能。
+                    </span>
+                </li>
+                <li>
+                    document.<a href="">cookie</a>
+                    <span>
+                        Cookie 的值必须写成key=value的形式。 <br>
+                        注意，等号两边不能有空格。 <br>
+                        另外，写入 Cookie 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 Cookie 的值），这可以用encodeURIComponent方法达到。 <br>
+                        document.cookie一次只能写入一个 Cookie，而且写入并不是覆盖，而是添加，读取的时候一次性读取全部。  <br>
+                        删除一个 Cookie 的唯一方法是设置其expires为一个过去的日期。
+                        <hr>
+                        expires : 指定cookie过期时间，格式采用Date.toUTCString()的格式 <br>
+                        domain : 指定cookie所在的域名 <br>
+                        path : 用来指定路径，必须是绝对路径（比如/、/mydir），如果未指定，默认为请求该 Cookie 的网页路径。 <br>
+                        secure : 指定Cookie只能在加密协议HTTPS下发送到服务器 <br>
+                        max-age : 指定Cookie有效期，比如60 * 60 * 24 * 365（即一年31536e3秒） <br>
+                        HttpOnly : 设置该Cookie不能被JavaScript读取 <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="https://github.com/js-cookie/js-cookie">js-cookie</a>
+                </li>
+            </ul>
 		</div>
     </div>
 </div>
