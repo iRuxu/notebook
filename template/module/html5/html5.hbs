@@ -1,6 +1,6 @@
 <div class="u-col">
-	<div class="u-block">
-        <h3>Canvas<span>-</span></h3>
+    <div class="u-block">
+        <h3>Video<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] </h4>
             <ul>
@@ -8,10 +8,36 @@
         </div>
     </div>
     <div class="u-block">
-        <h3>SVG<span>-</span></h3>
+        <h3>Audio<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] </h4>
             <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>WebRTC<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] WebRTC</h4>
+            <ul>
+                <li>
+                    navigator.<a href="">getUserMedia</a>(option,sfn,efn)
+                    <span>
+                        getUserMedia的第一个参数是一个对象，表示要获取哪些多媒体设备; <br>
+                        第2个参数是一个回调函数，在获取多媒体设备成功时调用； <br>
+                        第3个参数也是一个回调函数，在取多媒体设备失败时调用。 <br>
+                        <a href="http://javascript.ruanyifeng.com/htmlapi/webrtc.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">MediaStreamTrack.getSources</a>
+                    <span>
+                        如果本机有多个摄像头/麦克风，这时就需要使用MediaStreamTrack.getSources方法指定，到底使用哪一个摄像头/麦克风。
+                    </span>
+                </li>
+                <li>
+                    <a href="https://github.com/andyet/SimpleWebRTC">SimpleWebRTC</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -1,25 +1,310 @@
 <div class="u-col">
     <div class="u-block">
+        <h3>Web Socket<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 实例属性</h4>
+            <ul>
+                <li>
+                    <a href="">new WebSocket</a>(url)
+                    <span>
+                        url格式为ws://path:80
+                    </span>
+                </li>
+                <li>
+                    ws.<a href="">readyState</a>
+                    <span>
+                        返回实例对象的当前状态 <br>
+                        CONNECTING：值为0，表示正在连接。 <br>
+                        OPEN：值为1，表示连接成功，可以通信了。<br>
+                        CLOSING：值为2，表示连接正在关闭。<br>
+                        CLOSED：值为3，表示连接已经关闭，或者打开连接失败。<br>
+                    </span>
+                </li>
+                <li>
+                    ws.<a href="">bufferedAmount</a>
+                    <span>
+                        表示还有多少字节的二进制数据没有发送出去。它可以用来判断发送是否结束。
+                    </span>
+                </li>
+                <li>
+                    ws.<a href="">send</a>(data)
+                    <span>
+                        实例对象的send()方法用于向服务器发送数据
+                    </span>
+                </li>
+                <li><a href="https://github.com/socketio/socket.io">socket.io</a></li>
+            </ul>
+            <h4>[<span>-</span>] 相关事件</h4>
+            <ul>
+                <li>
+                    ws.<a href="">onopen</a>(fn)
+                    <span>
+                        指定连接成功后的回调函数 <br>
+                        如果要指定多个回调函数，可以使用addEventListener方法。
+                    </span>
+                </li>
+                <li>
+                    ws.<a href="">onclose</a>(fn)
+                    <span>
+                        指定连接关闭后的回调函数
+                    </span>
+                </li>
+                <li>
+                    ws.<a href="">onmessage</a>(fn)
+                    <span>
+                        指定收到服务器数据后的回调函数
+                    </span>
+                </li>
+                <li>
+                    ws.<a href="">onerror</a>(fn)
+                    <span>
+                        用于指定报错时的回调函数
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
         <h3>File<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] </h4>
+            <h4>[<span>-</span>] File API</h4>
             <ul>
+                <li>
+                    <a href="">new File()</a>
+                    <span>
+                        通常情况下， File 对象是来自用户在一个input元素上选择文件后返回的 FileList 对象,也可以是来自由拖放操作生成的 DataTransfer 对象，或者来自 HTMLCanvasElement 上的 mozGetAsFile() API。
+                    </span>
+                </li>
+                <li>
+                    file.<a href="">lastModified</a>
+                    <span>
+                        返回当前 File 对象所引用文件最后修改时间， 自 1970年1月1日0:00 以来的毫秒数。
+                    </span>
+                </li>
+                <li>
+                    file.<a href="">name</a>
+                    <span>
+                        返回当前 File 对象所引用文件的名字
+                    </span>
+                </li>
+                <li>
+                    file.<a href="">size</a>
+                    <span>
+                        返回文件的大小
+                    </span>
+                </li>
+                <li>
+                    file.<a href="">type</a>
+                    <span>
+                        返回文件的MIME类型
+                    </span>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader">fileReader</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME类型</a>
+                </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>Cache Manifest<span>-</span></h3>
+        <h3>Performance API<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] </h4>
+            <h4>[<span>-</span>] performance.timing对象</h4>
             <ul>
+                <li>
+                    <a href="">performance.timing</a>
+                    <span>
+                        <a href="http://javascript.ruanyifeng.com/bom/performance.html">参考资料</a>
+<pre><code data-language="javascript">
+    var t = performance.timing;
+    var pageloadtime = t.loadEventStart - t.navigationStart; //页面加载的耗时
+    var dns = t.domainLookupEnd - t.domainLookupStart; //域名解析的耗时
+    var tcp = t.connectEnd - t.connectStart; //TCP连接的耗时
+    var ttfb = t.responseStart - t.navigationStart; //读取页面第一个字节之前的耗时
+</code></pre>
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">navigationStart</a>
+                    <span>
+                        前浏览器窗口的前一个网页关闭，发生unload事件时的Unix毫秒时间戳。如果没有前一个网页，则等于fetchStart属性。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">unloadEventStart</a>
+                    <span>
+                        如果前一个网页与当前网页属于同一个域名，则返回前一个网页的unload事件发生时的Unix毫秒时间戳。如果没有前一个网页，或者之前的网页跳转不是在同一个域名内，则返回值为0。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">unloadEventEnd</a>
+                    <span>
+                        如果前一个网页与当前网页属于同一个域名，则返回前一个网页unload事件的回调函数结束时的Unix毫秒时间戳。如果没有前一个网页，或者之前的网页跳转不是在同一个域名内，则返回值为0。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">redirectStart</a>
+                    <span>
+                        返回第一个HTTP跳转开始时的Unix毫秒时间戳。如果没有跳转，或者不是同一个域名内部的跳转，则返回值为0。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">redirectEnd</a>
+                    <span>
+                        回最后一个HTTP跳转结束时（即跳转回应的最后一个字节接受完成时）的Unix毫秒时间戳。如果没有跳转，或者不是同一个域名内部的跳转，则返回值为0。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">fetchStart</a>
+                    <span>
+                        返回浏览器准备使用HTTP请求读取文档时的Unix毫秒时间戳。该事件在网页查询本地缓存之前发生。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domainLookupStart</a>
+                    <span>
+                        回域名查询开始时的Unix毫秒时间戳。如果使用持久连接，或者信息是从本地缓存获取的，则返回值等同于fetchStart属性的值。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domainLookupEnd</a>
+                    <span>
+                        返回域名查询结束时的Unix毫秒时间戳。如果使用持久连接，或者信息是从本地缓存获取的，则返回值等同于fetchStart属性的值。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">connectStart</a>
+                    <span>
+                        返回HTTP请求开始向服务器发送时的Unix毫秒时间戳。如果使用持久连接（persistent connection），则返回值等同于fetchStart属性的值。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">connectEnd</a>
+                    <span>
+                        回浏览器与服务器之间的连接建立时的Unix毫秒时间戳。如果建立的是持久连接，则返回值等同于fetchStart属性的值。连接建立指的是所有握手和认证过程全部结束。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">secureConnectionStart</a>
+                    <span>
+                        返回浏览器与服务器开始安全链接的握手时的Unix毫秒时间戳。如果当前网页不要求安全连接，则返回0。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">requestStart</a>
+                    <span>
+                        返回浏览器向服务器发出HTTP请求时（或开始读取本地缓存时）的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">responseStart</a>
+                    <span>
+                        返回浏览器从服务器收到（或从本地缓存读取）第一个字节时的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">responseEnd</a>
+                    <span>
+                        回浏览器从服务器收到（或从本地缓存读取）最后一个字节时（如果在此之前HTTP连接已经关闭，则返回关闭时）的Unix毫秒时间戳
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domLoading</a>
+                    <span>
+                        返回当前网页DOM结构开始解析时（即Document.readyState属性变为“loading”、相应的readystatechange事件触发时）的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domInteractive</a>
+                    <span>
+                        返回当前网页DOM结构结束解析、开始加载内嵌资源时（即Document.readyState属性变为“interactive”、相应的readystatechange事件触发时）的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domContentLoadedEventStart</a>
+                    <span>
+                        返回当前网页DOMContentLoaded事件发生时（即DOM结构解析完毕、所有脚本开始运行时）的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domContentLoadedEventEnd</a>
+                    <span>
+                        返回当前网页所有需要执行的脚本执行完成时的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">domComplete</a>
+                    <span>
+                        返回当前网页DOM结构生成时（即Document.readyState属性变为“complete”，以及相应的readystatechange事件发生时）的Unix毫秒时间戳。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">loadEventStart</a>
+                    <span>
+                        返回当前网页load事件的回调函数开始时的Unix毫秒时间戳。如果该事件还没有发生，返回0。
+                    </span>
+                </li>
+                <li>
+                    t.<a href="">loadEventEnd</a>
+                    <span>
+                        返回当前网页load事件的回调函数运行结束时的Unix毫秒时间戳。如果该事件还没有发生，返回0。
+                    </span>
+                </li>
             </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>Web Workers<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] </h4>
+            <h4>[<span>-</span>] 相关方法</h4>
             <ul>
+                <li>
+                    performance.<a href="">now()</a>
+                    <span>
+                        返回当前网页自从performance.timing.navigationStart到当前时间之间的微秒数（毫秒的千分之一）。也就是说，它的精度可以达到100万分之一秒。 <br>
+                        可以通过两次调用performance.now方法，可以得到间隔的准确时间，用来衡量某种操作的耗时
+                    </span>
+                </li>
+                <li>
+                    performance.<a href="">mark</a>(name)
+                    <span>
+                        为相应的视点做标记
+                    </span>
+                </li>
+                <li>
+                    performance.<a href="">clearMarks</a>([name])
+                    <span>
+                        用于清除标记，如果不加参数，就表示清除所有标记
+                    </span>
+                </li>
+                <li>
+                    performance.<a href="">getEntries()</a>[n]
+                    <span>
+                        浏览器获取网页时，会对网页中每一个对象（脚本文件、样式表、图片文件等等）发出一个HTTP请求。performance.getEntries方法以数组形式，返回这些请求的时间统计信息，有多少个请求，返回数组就会有多少个成员。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 用户行为</h4>
+            <ul>
+                <li>
+                    performance.<a href="">navigation</a>
+                    <span>
+                        除了时间信息，performance还可以提供一些用户行为信息，主要都存放在performance.navigation对象上面。
+                    </span>
+                </li>
+                <li>
+                    pn.<a href="">type</a>
+                    <span>
+                        该属性返回一个整数值，表示网页的加载来源，可能有以下4种情况：
+                        0：网页通过点击链接、地址栏输入、表单提交、脚本操作等方式加载，相当于常数performance.navigation.TYPE_NAVIGATENEXT。 <br>
+                        1：网页通过“重新加载”按钮或者location.reload()方法加载，相当于常数performance.navigation.TYPE_RELOAD。<br>
+                        2：网页通过“前进”或“后退”按钮加载，相当于常数performance.navigation.TYPE_BACK_FORWARD。<br>
+                        255：任何其他来源的加载，相当于常数performance.navigation.TYPE_UNDEFINED。
+                    </span>
+                </li>
+                <li>
+                    pn.<a href="">redirectCount</a>
+                    <span>
+                        该属性表示当前网页经过了多少次重定向跳转。
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
