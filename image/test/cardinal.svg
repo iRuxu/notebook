@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<title>Test</title>
-<meta charset="utf-8"/>
-<meta name="keywords" content="javascript,css,html,nodejs,mongoDB,PHP,MySQL,swift" />
-<meta name="description" content="iruxu's Notebook for web develope" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="renderer" content="webkit">
-<meta http-equiv="Cache-Control" content="no-transform"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<link rel="icon" type="image/x-icon" href="image/favicon.ico">
-<script src="js/jquery-1-10-2.min.js"></script>
-<link rel="stylesheet" href="css/test.css" />
-</head>
-<body>
-	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="100 100 200 200" width="512px" height="512px" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <g>
 	<path style="fill:#F6A725;" d="M173.857,295.698c0,60.609,51.568,109.222,53.763,111.263c5.626,5.228,14.427,4.907,19.656-0.721
 		c5.225-5.624,4.906-14.416-0.712-19.646c-0.756-0.713-44.891-42.713-44.891-90.895h-27.816V295.698z"/>
@@ -93,7 +79,3 @@
 <g>
 </g>
 </svg>
-
-<script src="js/test.js"></script>
-</body>
-</html>

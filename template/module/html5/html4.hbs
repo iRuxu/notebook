@@ -503,10 +503,260 @@
         </div>
     </div>
     <div class="u-block">
-        <h3>SVG<span>-</span></h3>
+        <h3>WebGL<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>+</span>] 其它更多</h4>
             <ul style="display:none;">
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API">WebGL</a></li>
+                <li>
+                    <a href="">three.js</a>
+                    <span>
+                        <a href="https://www.awesomes.cn/repo/mrdoob/three-js">three.js</a> | 
+                        <a href="http://www.hewebgl.com/">中文教程</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>SVG<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 基础</h4>
+            <ul>
+                <li><a href="">viewBox</a><span>
+                    viewBox="x, y, width, height" <br>
+                    可视区域 <br>
+                    当设定了固定尺寸，且尺寸大于可视区时，相当于放大了图片指定区域的效果
+                </span></li>
+            </ul>
+            <h4>[<span>+</span>] 图形</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">rect</a>
+                    <span>
+                        x=起始水平,y=起始垂直,width=宽度,height=高度,rx=圆角水平半径,ry=圆角垂直半径
+                    </span>
+                </li>
+                <li>
+                    <a href="">circle</a>
+                    <span>
+                        cx=圆心水平,cy=圆心垂直,r=半径
+                    </span>
+                </li>
+                <li>
+                    <a href="">ellipse</a>
+                    <span>
+                        cx=圆心水平,cy=圆心垂直,rx=椭圆水平半径,ry=椭圆垂直半径
+                    </span>
+                </li>
+                <li>
+                    <a href="">line</a>
+                    <span>
+                        x1=起始水平坐标,y1起始垂直坐标,x2=结束水平坐标,y2=结束垂直坐标
+                    </span>
+                </li>
+                <li>
+                    <a href="">polygon</a>
+                    <span>
+                        points="x1,y1 x2,y2 ...,xN,yN" <br>
+                        定义多边形每个角的x和y坐标,每一组数x,y xn,yn每一组点之间用空格分开
+                    </span>
+                </li>
+                <li>
+                    <a href="">polyline</a>
+                    <span>
+                        points="x1,y1 x2,y2 ...,xN,yN" <br>
+                        定义折线每个点的x和y坐标,每一组数x,y xn,yn每一组点之间用空格分开
+                    </span>
+                </li>
+                <li>
+                    <a href="">path</a>
+                    <span>
+                        d="M150 0 L75 200 L225 200 Z" 定义路径
+                        <br />所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
+                        <br />M = moveto （移动到）
+                        <br />L = lineto （连线）
+                        <br />H = horizontal lineto （水平连线）
+                        <br />V = vertical lineto （垂直连线）
+                        <br />C = curveto （曲线）
+                        <br />S = smooth curveto （平滑曲线）
+                        <br />Q = quadratic Bézier curve （二次贝塞尔曲线）
+                        <br />=》M x0 y0 q x1 y1 x2 y2 小写代表相对,即后面的值表示正数+水平向下/负数-水平向上
+                        <br />T = smooth quadratic Bézier curveto （平滑贝塞尔曲线）
+                        <br />A = elliptical Arc （椭圆弧形）
+                        <br />Z = closepath （闭合路径）
+                    </span>
+                </li>
+                <li><a href="">path</a><span>路径 d=". . ."</span></li>
+            </ul>
+            <h4>[<span>+</span>] 文本</h4>
+            <ul style="display:none;">
+                <li><a href="">text</a><span>
+                    文字，基于基线对齐
+                </span></li>
+                <li><a href="">textPath</a><span>
+                    路径文字 textPath xlink:href="#id"
+                    <br />超出路径的部分不会被渲染
+                    <br />位移控制：
+                    <br />水平：x(起始位置点),text-anchor:start/end/middle(文字的哪个点对齐文本x起始点),startOffset:%(文本以哪个开始作为与路径对齐的点),dx(切线起点)
+                    <br />垂直：y(无),dy(法线位置,dx/dy会对后续字符一起影响)
+                </span></li>
+                <li><a href="">tspan</a><span>
+                    text中多行文本,可拥有单独样式
+                </span></li>
+                <li><a href="">a</a> xlink:href<span>
+                    a标签可以添加到任意图形上<br />
+                    链接文本,应包围在text外面,xlink:title提示
+                </span></li>
+            </ul>
+            <h4>[<span>+</span>] 样式</h4>
+            <ul style="display:none;">
+                <li><a href="">fill</a>(#fff)<span>填充颜色</span></li>
+                <li><a href="">fill-opacity</a>(0-1)<span>填充透明度</span></li>
+                <li><a href="">stroke</a>(#f39)<span>轮廓颜色</span></li>
+                <li><a href="">stroke-opacity</a>(0-1)<span>轮廓线透明度</span></li>
+                <li><a href="">stroke-width</a>(8)<span>轮廓宽度(可不要单位)</span></li>
+                <li><a href="">stroke-linecap</a>(round)<span>轮廓笔触样式
+                    <br />butt:结尾柄
+                    <br />round:圆
+                    <br />square:方
+                    </span></li>
+                <li><a href="">stroke-dasharray</a><span>虚线样式
+                    <br />自定义虚线的结构
+                    <br />stroke-dasharray="5,5" 
+                    <br />stroke-dasharray="20,10,5,5,5,10"
+                    <br />SVG描边动画,设置stroke-dasharray: 1000;stroke-dashoffset: 1000;设置keyframe{ to{stroke-dashoffset: 0;}}
+                    </span></li>
+                <li><a href="">transform</a><span>变换是基于自身坐标系！矩阵等同线性代数矩阵</span></li>
+            </ul>
+            <h4>[<span>+</span>] 渐变</h4>
+            <ul style="display:none;">
+                <li><a href="">linearGradient</a><span>线性渐变
+                    <br />id="id 属性可为渐变定义一个唯一的名称。引用必须"
+                    <br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'.使用视图框或对象，以确定相对位置矢量点。 （默认为'objectBoundingBox）"
+                    <br />gradientTransform="适用于渐变的转变"
+                    <br />x1="渐变向量x启动点（默认0％）"
+                    <br />y1="渐变向量y启动点（默认0％）" 
+                    <br />x2="渐变向量x的终点。 （默认100％）"
+                    <br />y2="渐变向量y的终点。 （默认0％）" 
+                    <br />spreadMethod="'pad' or 'reflect' or 'repeat'"
+                    <br />xlink:href="reference to another gradient whose attribute values are used as defaults and stops included. Recursive"
+                </span></li>
+                <li><a href="">radialGradient</a><span>径向渐变
+                    <br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'. 使用视图框或对象以确定相对位置的矢量点。 （默认为'objectBoundingBox）"
+                    <br />gradientTransform="适用于渐变的变换" 
+                    <br />cx="渐变的中心点（数字或％ - 50％是默认）"
+                    <br />cy="渐变的中心点。 （默认50％）"
+                    <br />r="渐变的半径。 （默认50％）" 
+                    <br />fx="渐变的焦点。 （默认0％）"
+                    <br />fy="渐变的焦点。 （默认0％）"
+                    <br />spreadMethod="'pad' or 'reflect' or 'repeat'"
+                    <br />xlink:href="引用到另一个渐变，其属性值作为默认值。递归"
+                </span></li>
+            </ul>
+            <h4>[<span>+</span>] 滤镜</h4>
+            <ul style="display:none">
+                <li><a href="">filter</a><span>
+                    所有互联网的SVG滤镜定义在defs元素中。defs元素定义短并含有特殊元素（如滤镜）定义。
+                    filter标签用来定义SVG滤镜。filter标签使用必需的id属性来定义向图形应用哪个滤镜
+                </span></li>
+                <li><a href="">feBlend</a><span>与图像相结合的滤镜</span></li>
+                <li><a href="">feOffset</a><span>过滤阴影</span></li>
+                <li><a href="">feGaussianBlur</a><span>高斯模糊</span></li>
+                <li><a href="">feColorMatrix</a><span>用于彩色滤光片转换</span></li>
+                <li><a href="">feComponentTransfer</a><span></span></li>
+                <li><a href="">feComposite</a><span></span></li>
+                <li><a href="">feConvolveMatrix</a><span></span></li>
+                <li><a href="">feDiffuseLighting</a><span></span></li>
+                <li><a href="">feDisplacementMap</a><span></span></li>
+                <li><a href="">feFlood</a><span></span></li>
+                <li><a href="">feImage</a><span></span></li>
+                <li><a href="">feMerge</a><span></span></li>
+                <li><a href="">feMorphology</a><span></span></li>
+                <li><a href="">feSpecularLighting</a><span>feTile</span></li>
+                <li><a href="">feTurbulence</a><span></span></li>
+                <li><a href="">feDistantLight</a><span>用于照明过滤</span></li>
+                <li><a href="">fePointLight</a><span>用于照明过滤</span></li>
+                <li><a href="">feSpotLight</a><span>用于照明过滤</span></li>
+            </ul>
+            <h4>[<span>+</span>] 动画</h4>
+            <ul style="display:none">
+                <li><a href="">set</a><span>
+                    可以在特定时间之后修改某个属性值 <br>
+                    <a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/">参考资料</a>
+                </span></li>
+                <li><a href="">animate</a><span>随时间动态改变属性
+                    <br />attributeName="目标属性名称"
+                    <br />from="起始值"
+                    <br />to="结束值"
+                    <br />dur="持续时间"
+                    <br />repeatCount="动画时间将发生"</span></li>
+                <li><a href="">animateColor</a><span>定义随着时间的推移颜色转换
+                    <br />by="相对偏移值"
+                    <br />from="起始值"
+                    <br />to="结束值"</span></li>
+                <li><a href="">animateMotion</a><span>使元素沿着动作路径移动
+                    <br />calcMode="动画的插补模式。可以是'discrete', 'linear', 'paced', 'spline'"
+                    <br />path="运动路径"
+                    <br />keyPoints="沿运动路径的对象目前时间应移动多远"
+                    <br />rotate="应用旋转变换"
+                    <br />xlink:href="一个URI引用<path>元素，它定义运动路径"</span></li>
+                <li><a href="">animateTransform</a><span>
+                    动画上一个目标元素变换属性，从而使动画控制平移，缩放，旋转或倾斜
+                    <br />by="相对偏移值"
+                    <br />from="起始值"
+                    <br />to="结束值"
+                    <br />type="类型的转换其值是随时间变化。可以是 'translate', 'scale', 'rotate', 'skewX', 'skewY'"</span></li>
+            </ul>
+            <h4>[<span>+</span>] 其它</h4>
+            <ul style="display:none">
+                <li><a href="">preserveAspectRatio</a><span>
+                    preserveAspectRatio="xMidYMid meet" <a href="http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/">参考资料</a>
+                    <br />第1个值表示，viewBox如何与SVG viewport对齐，自由组合；
+                    <br />xMin  viewport和viewBox左边对齐
+                    <br />xMid  viewport和viewBox x轴中心对齐
+                    <br />xMax  viewport和viewBox右边对齐
+                    <br />YMin  viewport和viewBox上边缘对齐。注意Y是大写。
+                    <br />YMid  viewport和viewBox y轴中心点对齐。注意Y是大写。
+                    <br />YMax  viewport和viewBox下边缘对齐。注意Y是大写。
+                    <br />第2个值表示，如何维持高宽比（如果有）。
+                    <br />meet  保持纵横比缩放viewBox适应viewport
+                    <br />slice 保持纵横比同时比例小的方向放大填满viewport
+                    <br />none  扭曲纵横比以充分适应viewport
+                </span></li>
+                <li><a href="">g</a><span>编组</span></li>
+                <li><a href="">defs</a><span>引用的元素容器</span></li>
+                <li><a href="">pattern</a><span>定义一个可用于平铺的图案,fill:url(#id)</span></li>
+                <li><a href="">use</a><span>
+                    svg画布铺满整个浏览器,需要设置html+body~font-size:0;line-height:0;<br />
+                    use xlink:href="#id"</span></li>
+                <li><a href="">clipPath</a><span>clipPath定义一个用于剪裁的形状,clip-path="url(#id)"通过引用对某个图像进行剪裁
+                    <br /><b>单词！！【定义】clipPath 《=》 【引用】clip-path="url(#id)"</b>
+                    <br /><b>被剪裁形状内的区间为显示区间！！</b>
+                    <br />css制作遮罩动画中,遮罩图形的尺寸不可操作,只有transform属性
+                    </span></li>
+                <li><a href="">mask</a><span>蒙版
+                    <br />maskUnits="'userSpaceOnUse' or 'objectBoundingBox'.设定裁剪面是否是相对完整的视窗或对象（默认：'objectBoundingBox'）"
+                    <br />maskContentUnits="第二个掩码相对对象的图形位置使用百分比'userSpaceOnUse'或'objectBoundingBox'（默认：'userSpaceOnUse'）"
+                    <br />x="裁剪面掩码（默认值：-10％）" 
+                    <br />y="裁剪面掩码（默认值：-10％）" 
+                    <br />width="裁剪面掩码（默认是：120％）"
+                    <br />height="裁剪面掩码（默认是：120％）"</span></li>
+                <li><a href="">image</a><span>
+                    定义图像    
+                    <br />x="图像的左上角的x轴坐标"
+                    <br />y="图像的左上角的y轴坐标"
+                    <br />width="图像的宽度". 必须.
+                    <br />height="图像的高度". 必须.
+                    <br />xlink:href="图像的路径". 必须.
+                </span></li>
+            </ul>
+            <h4>[<span>+</span>] 资料</h4>
+            <ul style="display:none;">
+                <li><a href="http://www.runoob.com/svg/svg-reference.html">参考手册</a></li>
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element">SVG Element</a></li>
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute">SVG Property</a></li>
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model#SVG_接口">SVG API</a></li>
                 <li><a href="https://www.awesomes.cn/repo/adobe-webplatform/snap-svg">snap.svg</a></li>
                 <li><a href="https://www.awesomes.cn/repo/d3/d3">D3</a></li>
             </ul>
