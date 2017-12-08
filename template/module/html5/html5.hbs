@@ -1,17 +1,678 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>Video<span>-</span></h3>
+        <h3>Object/Embed<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] </h4>
-            <ul>
+            <h4>[<span>+</span>] Object</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">object</a>
+                    <span>
+                        对象，比如图像、音频、视频、Java applets、ActiveX、PDF 以及 Flash。 <br>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>data</td>
+                                <td>规定对象使用的资源的 URL</td>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>规定 data 属性中规定的数据的 MIME 类型</td>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>为对象规定名称</td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>对象的宽度</td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>对象的高度</td>
+                            </tr>
+                            <tr>
+                                <td>usemap</td>
+                                <td>规定与对象一同使用的客户端图像映射的名称</td>
+                            </tr>
+                            <tr>
+                                <td>form</td>
+                                <td>规定对象所属的一个或多个表单(h5)</td>
+                            </tr>
+                        </table>
+                        如果未显示 object 元素，就会执行位于object之间的代码。通过这种方式，我们能够嵌套多个 object 元素（每个对应一个浏览器）。
+                    </span>
+                </li>
+                <li>
+                    <a href="">param</a>
+                    <span>
+                        为object/applet标签提供参数
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>定义参数的名称</td>
+                            </tr>
+                            <tr>
+                                <td>value</td>
+                                <td>描述参数值</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    obj.<a href="">playState</a>
+                    <span>
+                        播放状态，0未开始，1暂停中，2正在播放
+                    </span>
+                </li>
+                <li>
+                    obj.<a href="">play()</a>
+                    <span>
+                        播放
+                    </span>
+                </li>
+                <li>
+                    obj.<a href="">pause()</a>
+                    <span>
+                        暂停
+                    </span>
+                </li>
+                <li>
+                    obj.<a href="">stop()</a>
+                    <span>
+                        停止
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] Embed</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">embed</a>[h5]
+                    <span>
+                        嵌入外部应用或者互动程序（插件）
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>规定嵌入内容的宽度</td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>规定嵌入内容的高度</td>
+                            </tr>
+                            <tr>
+                                <td>src</td>
+                                <td>规定被嵌入内容的 URL</td>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>规定嵌入内容的 MIME 类型</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
             </ul>
         </div>
-    </div>
-    <div class="u-block">
-        <h3>Audio<span>-</span></h3>
+        <h3>Video/Audio<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] </h4>
+            <h4>[<span>+</span>] 标签</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">audio</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>autoplay</td>
+                                <td>autoplay</td>
+                                <td>自动播放</td>
+                            </tr>
+                            <tr>
+                                <td>controls</td>
+                                <td>controls</td>
+                                <td>显示音频控件</td>
+                            </tr>
+                            <tr>
+                                <td>loop</td>
+                                <td>loop</td>
+                                <td>自动循环</td>
+                            </tr>
+                            <tr>
+                                <td>muted</td>
+                                <td>muted</td>
+                                <td>静音</td>
+                            </tr>
+                            <tr>
+                                <td>src</td>
+                                <td>url</td>
+                                <td>音频文件源url</td>
+                            </tr>
+                            <tr>
+                                <td>preload</td>
+                                <td>
+                                    auto - 当页面加载后载入整个音频 <br>
+                                    meta - 当页面加载后只载入元数据 <br>
+                                    none - 当页面加载后不载入音频
+                                </td>
+                                <td>是否预加载音频</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">video</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>autoplay</td>
+                                <td>autoplay</td>
+                                <td>自动播放</td>
+                            </tr>
+                            <tr>
+                                <td>controls</td>
+                                <td>controls</td>
+                                <td>显示音频控件</td>
+                            </tr>
+                            <tr>
+                                <td>loop</td>
+                                <td>loop</td>
+                                <td>自动循环</td>
+                            </tr>
+                            <tr>
+                                <td>muted</td>
+                                <td>muted</td>
+                                <td>静音</td>
+                            </tr>
+                            <tr>
+                                <td>src</td>
+                                <td>url</td>
+                                <td>音频文件源url</td>
+                            </tr>
+                            <tr>
+                                <td>preload</td>
+                                <td>
+                                    auto - 当页面加载后载入整个音频 <br>
+                                    meta - 当页面加载后只载入元数据 <br>
+                                    none - 当页面加载后不载入音频
+                                </td>
+                                <td>是否预加载音频</td>
+                            </tr>
+                            <tr>
+                                <td>poster</td>
+                                <td>url</td>
+                                <td>规定视频正在下载时显示的图像，直到用户点击播放按钮</td>
+                            </tr>
+                            <tr>
+                                <td>width/height</td>
+                                <td>pixels</td>
+                                <td>设置视频播放器的尺寸</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">source</a>
+                    <span>
+                        为媒体元素（比如video和audio）定义媒体资源。
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>src</td>
+                                <td>url</td>
+                                <td>规定媒体文件的 URL</td>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>MIME_type</td>
+                                <td>规定媒体资源的 MIME 类型</td>
+                            </tr>
+                            <tr>
+                                <td>media</td>
+                                <td>media_query</td>
+                                <td>规定媒体资源的类型，供浏览器决定是否下载</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">track</a>
+                    <span>
+                        为媒体元素（比如video和audio）规定外部文本轨道。
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>default</td>
+                                <td>default</td>
+                                <td>规定该轨道是默认的。如果用户没有选择任何轨道，则使用默认轨道。</td>
+                            </tr>
+                            <tr>
+                                <td>src</td>
+                                <td>url</td>
+                                <td>规定轨道文件的 URL</td>
+                            </tr>
+                            <tr>
+                                <td>label</td>
+                                <td>text</td>
+                                <td>规定文本轨道的标签和标题</td>
+                            </tr>
+                            <tr>
+                                <td>kind</td>
+                                <td>captions/chapters/descriptions/metadata/subtitles</td>
+                                <td>规定文本轨道的文本类型 <a href="http://www.runoob.com/tags/att-track-kind.html">参考资料</a></td>
+                            </tr>
+                            <tr>
+                                <td>srclang</td>
+                                <td>language_code</td>
+                                <td>规定轨道文本数据的语言。</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 属性-进度</h4>
             <ul>
+                <li>
+                    media.<a href="">networkState</a>
+                    <span>
+                        返回音频/视频的当前网络状态 <hr>
+                        0 = NETWORK_EMPTY - 音频/视频尚未初始化 <br>
+                        1 = NETWORK_IDLE - 音频/视频是活动的且已选取资源，但并未使用网络<br>
+                        2 = NETWORK_LOADING - 浏览器正在下载数据<br>
+                        3 = NETWORK_NO_SOURCE - 未找到音频/视频来源
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">readyState</a>
+                    <span>
+                        回音频/视频的当前就绪状态 <hr>
+                        0 = HAVE_NOTHING - 没有关于音频/视频是否就绪的信息 <br>
+                        1 = HAVE_METADATA - 关于音频/视频就绪的元数据 <br>
+                        2 = HAVE_CURRENT_DATA - 关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒 <br>
+                        3 = HAVE_FUTURE_DATA - 当前及至少下一帧的数据是可用的 <br>
+                        4 = HAVE_ENOUGH_DATA - 可用数据足以开始播放
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">currentTime</a>
+                    <span>
+                        设置或返回音频/视频播放的当前位置（以秒计）。 <br>
+                        当设置该属性时，播放会跳跃到指定的位置。
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">duration</a>
+                    <span>
+                        返回当前音频/视频的长度，以秒计 <br>
+                        如果未设置音频/视频，则返回 NaN
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">playbackspeed</a>
+                    <span>
+                        设置或返回音频/视频的当前播放速度 <hr>
+                        1.0 正常速度  <br>
+                        0.5 半速（更慢） <br>
+                        2.0 倍速（更快） <br>
+                        -1.0 向后，正常速度 <br>
+                        -0.5 向后，半速
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">buffered</a>
+                    <span>
+                        表示音频/视频的已缓冲部分 <br>
+                        buffered 属性返回 TimeRanges 对象。TimeRanges 对象表示用户的音频/视频缓冲范围。<br>
+                        缓冲范围指的是已缓冲音频/视频的时间范围。如果用户在音频/视频中跳跃播放，会得到多个缓冲范围。  <hr>
+                        TimeRanges.length - 获得音频/视频中已缓冲范围的数量<br>
+                        TimeRanges.start(index) - 获得某个已缓冲范围的开始位置<br>
+                        TimeRanges.end(index) - 获得某个已缓冲范围的结束位置
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">played</a>
+                    <span>
+                        返回表示用户已经播放或看到的音频/视频范围的TimeRanges 对象。 <br>
+                        length - 获得音频/视频中已播范围的数量 <br>
+                        start(index) - 获得某个已播范围的开始位置 <br>
+                        end(index) - 获得某个已播范围的结束位置
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">seekable</a>
+                    <span>
+                        seekable 属性返回 TimeRanges 对象。 <br>
+                        TimeRanges 对象表示音频/视频中用户可寻址的范围。 <br>
+                        可寻址范围指的是用户在音频/视频中可寻址（移动播放位置）的时间范围。 <br>
+                        对于非流视频，通常可以寻址到视频中的任何位置，即使其尚未完成缓冲。 <hr>
+                        length - 获得音频/视频中可寻址范围的数量 <br>
+                        start(index) - 获得可寻址范围的开始位置 <br>
+                        end(index) - 获得可寻址范围的结束位置
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 属性-状态</h4>
+            <ul>
+                <li>
+                    media.<a href="">src</a>
+                    <span>
+                        设置或返回音频/视频的当前来源
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">currentSrc</a>
+                    <span>
+                        返回当前音频/视频的 URL
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">volume</a>
+                    <span>
+                        设置或返回音频/视频的当前音量,0~1
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">textTracks</a>
+                    <span>
+                        返回 TextTrackList 对象。 <br>
+                        TextTrackList 对象表示音频/视频的可用文本轨道。 <br>
+                        <a href="http://www.runoob.com/tags/av-prop-texttracks.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">preload</a>
+                    <span>
+                        设置或返回是否在页面加载后立即加载音频/视频。 <br>
+                        auto：指示一旦页面加载，则开始加载音频/视频。<br>
+                        metadata：指示当页面加载后仅加载音频/视频的元数据。<br>
+                        none：指示页面加载后不应加载音频/视频。
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">mediaGroup</a>
+                    <span>
+                        设置或返回音频/视频所属的媒体组合的名称
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">controls</a>
+                    <span>
+                        值：true/false <br>
+                        设置或返回音频/视频是否显示控件
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">autoplay</a>
+                    <span>
+                        值：true/false <br>
+                        设置或返回是否在加载完成后随即播放音频/视频
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">loop</a>
+                    <span>
+                        值：true/false <br>
+                        设置或返回音频/视频是否应该在结束时重新播放
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">muted</a>
+                    <span>
+                        值：true/false <br>
+                        设置或返回音频/视频是否应该被静音
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">defaultMuted</a>
+                    <span>
+                        值：true/false <br>
+                        设置或返回音频/视频是否默认静音 <br>
+                        设置该属性仅会改变默认的静音状态，而不是当前的。要改变当前的静音状态，请使用 muted 属性。
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">paused</a>
+                    <span>
+                        值：true/false <br>
+                        返回音频/视频是否已暂停
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">ended</a>
+                    <span>
+                        值：true/false <br>
+                        返回音频/视频的播放是否已结束
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">seeking</a>
+                    <span>
+                        值：true/false <br>
+                        seeking 属性返回用户目前是否正在音频/视频中寻址 <br>
+                        寻址中（Seeking）指的是用户在音频/视频中移动/跳跃到新的位置。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 方法</h4>
+            <ul>
+                <li>
+                    media.<a href="">canPlayType()</a>
+                    <span>
+                        检测浏览器是否能播放指定的音频/视频类型 <hr>
+                        返回值： <br>
+                        "probably" - 浏览器最可能支持该音频/视频类型<br>
+                        "maybe" - 浏览器也许支持该音频/视频类型<br>
+                        "" - （空字符串）浏览器不支持该音频/视频类型 <br>
+                        <a href="http://www.runoob.com/tags/av-met-canplaytype.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">load()</a>
+                    <span>
+                        重新加载
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">play()</a>
+                    <span>
+                        开始播放
+                    </span>
+                </li>
+                <li>
+                    media.<a href="">pause()</a>
+                    <span>
+                        暂停播放
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 事件-加载</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">loadstart</a>
+                    <span>
+                        当加载过程开始时，浏览器开始寻找指定的音频/视频时
+                    </span>
+                </li>
+                <li>
+                    <a href="">durationchange</a>
+                    <span>
+                        当指定音频/视频的时长数据发生变化时，会发生 durationchange 事件 <br>
+                        当音频/视频加载后，时长将由 "NaN" 变为音频/视频的实际时长
+                    </span>
+                </li>
+                <li>
+                    <a href="">loadedmetadata</a>
+                    <span>
+                        当指定的音频/视频的元数据已加载时，会发生 loadedmetadata 事件。 <br>
+                        音频/视频的元数据包括：时长、尺寸（仅视频）以及文本轨道。
+                    </span>
+                </li>
+                <li>
+                    <a href="">loadeddata</a>
+                    <span>
+                        当当前帧的数据已加载，但没有足够的数据来播放指定音频/视频的下一帧时，会发生 loadeddata 事件。
+                    </span>
+                </li>
+                <li>
+                    <a href="">waiting</a>
+                    <span>
+                        当视频由于需要缓冲下一帧而停止时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">progress</a>
+                    <span>
+                        当浏览器正在下载指定的音频/视频时，会发生 progress 事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">canplay</a>
+                    <span>
+                        当浏览器能够开始播放指定的音频/视频时，会发生 canplay 事件
+                    </span>
+                </li>
+                <li>
+                    <a href="">canplaythrough</a>
+                    <span>
+                        当浏览器预计能够在不停下来进行缓冲的情况下持续播放指定的音频/视频时，会发生 canplaythrough 事件。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 事件-状态</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">play</a>
+                    <span>
+                        play 事件在音频/视频(audio/video)开始播放时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">playing</a>
+                    <span>
+                        playing 事件在音频/视频(audio/video)因缓冲而暂停或停止后已就绪时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">pause</a>
+                    <span>
+                        pause 事件在音频/视频(audio/video)暂停时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">ended</a>
+                    <span>
+                        ended 事件在音频/视频(audio/video)播放完成后触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 事件-交互</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">ratechange</a>
+                    <span>
+                        ratechange 事件在音频/视频(audio/video)播放速度发生改变时触发(如用户切换到慢速或快速播放模式)
+                    </span>
+                </li>
+                <li>
+                    <a href="">seeking</a>
+                    <span>
+                        当用户开始移动/跳跃到音频/视频中的新位置时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">seeked</a>
+                    <span>
+                        当用户已移动/跳跃到音频/视频中的新位置时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">timeupdate</a>
+                    <span>
+                        当目前的播放位置已更改时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">volumechange</a>
+                    <span>
+                        当音量已更改时触发
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 事件-异常</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">emptied</a>
+                    <span>
+                        当目前的播放列表为空时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">abort</a>
+                    <span>
+                        多媒体数据终止下载时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">stalled</a>
+                    <span>
+                        当浏览器尝试获取媒体数据，但数据不可用时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">error</a>
+                    <span>
+                        当在音频/视频加载期间发生错误时触发
+                    </span>
+                </li>
+                <li>
+                    <a href="">suspend</a>
+                    <span>
+                        媒体数据被阻止加载时触发。 可以是完成加载后触发，或者因为被暂停的原因。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 特殊</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">ios,safari</a>
+                    <span>
+                        1.在ios,Safari下,不能自动播放audio,要求与用户交互后才加载。可关联touchend事件 <br>
+                        2.ios,Safari同一时间只能播放一个音频/视频，使用audio sprite <a href="https://www.cnblogs.com/fly-snow/p/5179755.html">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 其它更多</h4>
+            <ul style="display:none;">
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API">Web Audio API</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API">Media Streams API</a></li>
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Media_events">Media Event</a></li>
+                <li><a href="https://www.awesomes.cn/repo/videojs/video-js">video.js</a></li>
+                <li><a href="https://www.awesomes.cn/repo/goldfire/howler-js">howler.js</a></li>
             </ul>
         </div>
     </div>
