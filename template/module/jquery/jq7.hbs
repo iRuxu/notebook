@@ -1,38 +1,86 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>延迟对象<span>+</span></h3>
-        <div class="u-list" style="display:none">
+        <h3>回调对象<span>-</span></h3>
+        <div class="u-list">
             <ul>
-                <li><a href="">def.done</a>(d,[d])<span></span></li>
-                <li><a href="">def.fail</a>(failCallbacks)<span></span></li>
-                <li><a href="">def.reject</a>(args)<span></span></li>
-                <li><a href="">def.rejectWith</a>(c,[a])<span></span></li>
-                <li><a href="">def.resolve</a>(args)<span></span></li>
-                <li><a href="">def.resolveWith</a>(c,[a])<span></span></li>
-                <li><a href="">def.promise</a>([ty],[ta])<span></span></li>
-                <li><a href="">def.always</a>(al,[al])<span></span></li>
-                <li><a href="">def.notify</a>(args)<span></span></li>
-                <li><a href="">def.notifyWith</a>(c,[a])<span></span></li>
-                <li><a href="">def.progress</a>(proCal) <span></span></li>
-                <li><a href="">def.state()</a><span></span></li>
+                <li>
+                    <a href="">$.Callbacks</a>(flags)
+                    <span>
+                        返回一个多功能对象，此对象提供了一种强大的方法来管理回调列表。它能够增加、删除、触发、禁用回调函数。 
+                        <a href="http://www.runoob.com/jquery/misc-callbacks.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    callbacks.<a href="">add</a>(callbacks)
+                    <span>在回调列表中添加一个回调或回调的集合</span>
+                </li>
+                <li>
+                    callbacks.<a href="">disable()</a>
+                    <span>禁用回调列表中的回调函数</span>
+                </li>
+                <li>
+                    callbacks.<a href="">disabled()</a>
+                    <span>
+                        确定回调列表是否已被禁用
+                    </span>
+                </li>
+                <li>
+                    callbacks.<a href="">empty()</a>
+                    <span>从列表中清空所有的回调</span>
+                </li>
+                <li>
+                    callbacks.<a href="">fire</a>(arguments)
+                    <span>传入指定的参数调用所有的回调</span>
+                </li>
+                <li>
+                    callbacks.<a href="">fired()</a>
+                    <span>确定回调是否至少已经调用一次</span>
+                </li>
+                <li>
+                    callbacks.<a href="">fireWith</a>([c] [,a])
+                    <span>给定的上下文和参数访问列表中的所有回调</span>
+                </li>
+                <li>
+                    callbacks.<a href="">has</a>(callback)
+                    <span>判断回调列表中是否添加过某回调函数</span>
+                </li>
+                <li>
+                    callbacks.<a href="">lock()</a>
+                    <span>锁定当前状态的回调列表</span>
+                </li>
+                <li>
+                    callbacks.<a href="">locked()</a>
+                    <span>判断回调列表是否被锁定</span>
+                </li>
+                <li>
+                    callbacks.<a href="">remove</a>(callbacks)
+                    <span>从回调列表中的删除一个回调或回调集合</span>
+                </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>回调函数<span>+</span></h3>
-        <div class="u-list" style="display:none">
+        <h3>延迟对象<span>-</span></h3>
+        <div class="u-list">
             <ul>
-                <li><a href="">cal.add</a>(callbacks)<span></span></li>
-                <li><a href="">cal.disable()</a><span></span></li>
-                <li><a href="">cal.empty()</a><span></span></li>
-                <li><a href="">cal.fire</a>(arguments)<span></span></li>
-                <li><a href="">cal.fired()</a><span></span></li>
-                <li><a href="">cal.fireWith</a>([c] [,a])<span></span></li>
-                <li><a href="">cal.has</a>(callback)<span></span></li>
-                <li><a href="">cal.lock()</a><span></span></li>
-                <li><a href="">cal.locked()</a><span></span></li>
-                <li><a href="">cal.remove</a>(callbacks)<span></span></li>
-                <li><a href="">$.callbacks</a>(flags)<span></span></li>
+                <li>
+                    <a href="">$.Deferred</a>
+                    <span>
+                        返回一个链式实用对象方法来注册多个回调
+                    </span>
+                </li>
+                <li>dfd.<a href="">always</a>(al,[al])<span>当Deferred（延迟）对象被受理或被拒绝时，调用添加的处理程序</span></li>
+                <li>dfd.<a href="">done</a>(d,[d])<span>当Deferred（延迟）对象被受理时，调用添加的处理程序</span></li>
+                <li>dfd.<a href="">fail</a>(failCallbacks)<span>    当Deferred（延迟）对象被拒绝时，调用添加的处理程序</span></li>
+                <li>dfd.<a href="">progress</a>(proCal) <span>当Deferred（延迟）对象生成进度通知时，调用添加处理程序</span></li>
+                <li>dfd.<a href="">promise</a>([ty],[ta])<span>返回 Deferred(延迟)的 Promise 对象</span></li>
+                <li>dfd.<a href="">reject</a>(args)<span>拒绝 Deferred（延迟）对象，并根据给定的参数调用任何 failCallbacks 回调函数</span></li>
+                <li>dfd.<a href="">rejectWith</a>(c,[a])<span>拒绝 Deferred（延迟）对象，并根据给定的 context 和 args 参数调用任何 failCallbacks 回调函数</span></li>
+                <li>dfd.<a href="">resolve</a>(args)<span>解决Deferred（延迟）对象，并根据给定的参数调用任何 doneCallbacks 回调函数</span></li>
+                <li>dfd.<a href="">resolveWith</a>(c,[a])<span>解决Deferred（延迟）对象，并根据给定的context 和 args 参数调用任何 doneCallbacks 回调函数</span></li>
+                <li>dfd.<a href="">state()</a><span>确定一个Deferred（延迟）对象的当前状态</span></li>
+                <li>dfd.<a href="">notify</a>(args)<span>给定一个参数，调用正在延迟对象上进行的回调函数</span></li>
+                <li>dfd.<a href="">notifyWith</a>(c,[a])<span>给定上下文和参数，调用正在延迟对象上进行的回调函数</span></li>
             </ul>
         </div>
     </div>
@@ -41,7 +89,7 @@
         <div class="u-list" >
             <h4>[<span>-</span>] 资料</h4>
             <ul>
-                <li><a href="http://jquery.bootcss.com/">中文API文档</a></li>
+                <li><a href="https://www.jquery123.com/">中文API文档</a></li>
                 <li><a href="http://hemin.cn/jq/">JQ中文手册</a></li>
             </ul>
             <h4>[<span>-</span>] 扩展</h4>

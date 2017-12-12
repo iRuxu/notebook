@@ -91,11 +91,18 @@
                     结束当前链中最近的一次筛选操作，并把匹配元素集合返回到前一次的状态
                 </span></li>
             </ul>
-            <h4>[<span>-</span>] 检测</h4>
+            <h4>[<span>-</span>] 检测判断</h4>
             <ul>
                 <li><a href="">is</a>(selector)<span>根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。
                 <br />$("#checbox").is(:checked)</span></li>
                 <li><a href="">hasClass</a>(class)<span>检查当前的元素是否含有某个特定的类，如果有，则返回true。里面只写class名称不要加点</span></li>
+                <li>
+                    <a href="">$.contains</a>(parent,child)
+                    <span>
+                        判断另一个DOM元素是否是指定DOM元素的后代 <br>
+                        传入的是element，非jq，返回一个布尔值
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

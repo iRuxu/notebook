@@ -2,213 +2,218 @@
     <div class="u-block">
         <h3>核心<span>-</span></h3>
         <div class="u-list">
-         <h4>[<span>-</span>] 基本</h4>
-         <ul>
-          <li><a href="">$(selector)</a>
-           <span>返回匹配的元素集合
-           <br><div><b>传入参数</b>
-           <div>
-           <table width="100%" border="1" cellspacing="0" cellpadding="2">
-           <tbody>
-           <tr>
-           <td valign="top">selector,[context]</td>
-           <td valign="top">选择器表达式,查找范围：返回选择器对象的引用对象
-
-           $('div.foo').click(function() {
-           $('span', this).addClass('bar'); // 限定查找范围
-           });</td>
-           </tr>
-           <tr>
-           <td valign="top">HttpTags,[props]</td>
-           <td valign="top">创建DOM元素,元素属性：返回包含了这些DOM元素引用的JQ对象
-
-           $("&lt;div/&gt;", {
-           "class": "test",
-           text: "Click me!",
-           click: function(){
-           $(this).toggleClass("test");
-           }
-           }).appendTo("body");</td>
-           </tr>
-           <tr>
-           <td valign="top">element / elementArray</td>
-           <td valign="top">DOM 元素或 DOM元素数组： 返回DOM封装到 jQuery 对象
-
-           $('div.foo').click(function() {
-           $(this).slideUp();
-           });</td>
-           </tr>
-           <tr>
-           <td valign="top">object</td>
-           <td valign="top">普通 JavaScript 对象：封装成jQuery 对象并返回
-
-           // 定义一个普通 JavaScript 对象
-           var foo = {foo:'bar', hello:'world'};
-           // 封装成 jQuery 对象
-           var $foo = $(foo);
-           // 绑定一个事件
-           $foo.on('custom', function (){
-           console.log('custom event was called');
-           });
-           // 触发这个事件
-           $foo.trigger('custom');</td>
-           </tr>
-           <tr>
-           <td valign="top">callback</td>
-           <td valign="top"><b><span style="color: #e30000;">如果传入一个函数，则在 document 上绑定一个 ready 事件监听函数，当 DOM 结构加载完成时执行。</span>
-           </b>
-           jQuery(function($) {
-           // 你可以在这里继续使用$作为别名...
-           });</td>
-           </tr>
-           <tr>
-           <td valign="top">jQuery Object</td>
-           <td valign="top">如果传入一个 jQuery 对象，则创建该 jQuery 对象的一个副本并返回，副本与传入的jQuery 对象引用完全相同的 DOM 元素。</td>
-           </tr>
-           <tr>
-           <td valign="top">空</td>
-           <td valign="top">返回一个空的jQuery对象。</td>
-           </tr>
-           </tbody>
-           </table>
-           </div>
-           </div>
-           <a href="http://jquery.bootcss.com/jQuery/">more info &raquo;</a></span></li>
-          <li><a href="">.length</a>(.size())<span>jQuery 对象中元素的个数</span></li>
-          <li><a href="">.index([sel])</a><span>
-           <br>无参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。
-           <br>如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。
-                 <br>如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。</span></li>
-          <li><a href="">.get(index)/[index]</a><span>取得其中一个匹配的元素</span></li>
-          <li><a href="">.each</a>(fn[i,ele])
-           <span>静态方法 jQuery.each() 是一个通用的遍历迭代方法，用于无缝地遍历对象和数组。
-             <br>对于数组和含有 length 属性的类数组对象（如函数参数对象 arguments） ，该方法通过下标遍历，从 0 到 length-1 ；
-             <br>对于其他对象则通过属性名遍历（for-in） 。
-             <br>在遍历过程中，如果回调函数返回 false，则结束遍历。 
-             <br>函数中的this关键字都指向一个不同的DOM元素（每次都是一个不同的匹配元素）
-             <br>返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。
-             <br>返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。
-             <br>.each() 方法用来让DOM循环结构更简单更不易出错。它会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 this 总是指向这个元素。
-           </span></li>
-          <li><a href="">.toArray()</a>
-           <span>
-            把jQuery集合中所有DOM元素恢复成一个数组。
-           </span></li>
-          <li><a href="">jQuery.noConflict()</a><span>
-           <a href="http://jquery.bootcss.com/jQuery.noConflict/">more info &raquo;</a>
-           <br>关于命名
-           <br>1.将 jQuery 库在 Base 库之前引入，那么“$”的所有权就归 Base 库所有，而 jQuery 可以直接用 jQuery 对象调用，或者创建一个“$$”符给 jQuery 使用。
-           <br>var $$ = jQuery; //创建一个$$的 jQuery 对象
-           <br>$(function () { //这是 Base 的$
-           <br>alert($('#box').ge(0)); //这是 Base 的$
-           <br>alert($$('#box').width()); //这是 jQuery 的$$
-           <br>});
-           <br>2.如果将 jQuery 库在 Base 库之后引入， 那么 “$” 的所有权就归 jQuery 库所有， 而 Base库将会冲突而失去作用。这里，jQuery 提供了一个方法：
-           <br>jQuery.noConflict(); //将$符所有权剔除
-           <br>var $$ = jQuery;
-           <br>$(function () {
-           <br>alert($('#box').ge(0));
-           <br>alert($$('#box').width());
-           <br>});
-           <br>3.继续内部使用$作为参数：
-           <br>jQuery.noConflict(); //将$符所有权剔除
-           <br>jQuery(function ($) {
-           <br>alert($('#box').ge(0));
-           <br>});</span></li></ul>
-         <h4>[<span>-</span>] 数据</h4>
-         <ul>
-          <li><a href="">.date()</a><span>在匹配元素上存储任意相关数据 或 返回匹配的元素集合中的第一个元素的给定名称的数据存储的值<br><a href="http://jquery.bootcss.com/data/">more info &raquo;</a></span></li>
-          <li><a href="">.removeDate()</a>
-          <span>.removeData()方法允许我们移除用.data()绑定的值。
-          <br>当带name参数调用的时候，.removeData()<br>将删除那个特有的值，当不带任何参数的时候，所有的值将被移除。
-          <br>从jQuery的内部.data() 缓存不影响任何在文档中的HTML5的data-属性，使用.removeAttr()可以移除这些属性。
-          <br>当使用.removeData("name")时，如果没有这个属性名字是在内部数据缓存，jQuery将试图在元素上找到一个 data-的属性。
-          <br>为了避免重复查询 data- 属性，将这个名称设置为无论是null 或 undefined的值(例如 .data("name", undefined))，而不是使用.removeData()。<br><a href="http://jquery.bootcss.com/removeData/">more info &raquo;</a></span></li>
-          </ul>
-         <h4>[<span>-</span>] 插件</h4>
-         <ul>
-          <li><a href="">jQuery.extend</a>(obj)<span><a href="http://hemin.cn/jq/jQuery.extend_object.html">ex</a></span></li>
-          <li><a href="">jQuery.fn.extend</a>(arg)<span><a href="http://hemin.cn/jq/jQuery.fn.extend.html">ex</a>
-          <pre><code data-language="javascript">
-          ;(function($){
-           $.fn.extend({
-             'method':function(){
-               //some code
-               return this;
-             }
-           })
-          })(jQuery);
-          </code></pre>
-          <br>JQ插件中的this就是已经封装过的元素是JQ对象，在JQ插件内部进行JQ方法中的This是DOM元素需要自己再封装
-          </span></li>
-         </ul>
+            <h4>[<span>-</span>] 基本</h4>
+            <ul>
+                <li>
+                    <a href="">$</a>(selector)
+                    <span>
+                        返回一个包装对象 <br>
+                        <a href="https://www.jquery123.com/jQuery/">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">jQuery.noConflict()</a>
+                    <span>
+                        放弃jQuery控制$ 变量
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 索引</h4>
+            <ul>
+                <li><a href="">length</a>
+                    <span>jQuery 对象中元素的个数</span>
+                </li>
+                <li><a href="">index</a>([sel])<span>
+                    无参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。<br>
+                    如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。<br>
+                    如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。
+                </span></li>
+            </ul>
+            <h4>[<span>-</span>] 取DOM</h4>
+            <ul>
+                <li><a href="">get</a>(index)/[index]<span>
+                    取得其中一个匹配的元素，返回的是DOM</span>
+                </li>
+                <li>
+                    <a href="">toArray()</a>
+                    <span>
+                        返回一个包含jQuery对象集合中的所有DOM元素的数组
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数据</h4>
+            <ul>
+                <li>
+                    <a href="">data</a>(name,[val])
+                    <span>
+                        向被选元素附加数据，或者从被选元素获取数据 <br>
+                        <a href="http://www.runoob.com/jquery/misc-data.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">removeData</a>([name])
+                    <span>
+                        移除之前存放的数据
+                    </span>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="u-block">
         <h3>工具<span>-</span></h3>
         <div class="u-list">
-         <h4>[<span>-</span>] 数组/对象操作</h4>
-         <ul>
-          <li><a href="">$.each</a>(obj,fn[i,val])
-           <span>遍历执行对象/数组,回调函数i为数组索引index或对象属性name,val为原值
-           <br>不同于例遍 jQuery 对象的 $().each() 方法，此方法可用于例遍任何对象。
-            回调函数拥有两个参数：第一个为对象的成员或数组的索引，第二个为对应变量或内容。
-            如果需要退出 each 循环可使回调函数返回 false，其它返回值将被忽略。
-
-           <br><a href="http://jquery.bootcss.com/jQuery.each/">more info &raquo;</a>
-           </span></li>
-          <li><a href="">$.map</a>(obj,fn[val,i])
-           <span>遍历执行对象/数组,this为全局window对象,返回新的对象/数组
-           <br><a href="http://jquery.bootcss.com/jQuery.map/">more info &raquo;</a>
-           </span></li>
-          <li><a href="">$.grep</a>(arr,fn[ele,index])
-           <span>数组过滤,原始数组不受影响.回调函数ele为元素,index为索引
-           <br><a href="http://jquery.bootcss.com/jQuery.grep/">more info &raquo;</a>
-           </span></li>
-          <li><a href="">$.inArray</a>(val,arr,fromi)
-           <span>数组元素查找,类似indexOf,没有返回-1
-           <br><a href="http://jquery.bootcss.com/jQuery.inArray/">more info &raquo;</a>
-           </span></li>
-          <li><a href="">$.merge</a>(arr1,arr2)
-           <span>数组合并
-           <br>第一个用于合并的数组，其中将会包含合并后的第二个数组的内容。
-           <br>第二个用于合并的数组，该数组不会被修改，其中的内容将会被合并到第一个数组中。
-           <br><a href="http://jquery.bootcss.com/jQuery.merge/">more info &raquo; </a>
-           </span></li>
-          <li><a href="">$.unique</a>(arrDOM)
-           <span>数组DOM重复元素删除
-           <br>排序数组，并移除任何重复的节点。 如果一个节点和已经在数组中的节点完全相同，那么它被认为是重复的;  两个不同的节点具有相同的属性是被认为不重复的.
-           </span></li> 
-         </ul>
-         <h4>[<span>-</span>] 测试操作</h4>
-         <ul>
-          <li><a href="">$.type</a>(data)<span>判断数据类型</span></li>
-          <li><a href="">$.isWindow</a>(data)<span>判断数据是否为 window 对象</span></li>
-          <li><a href="">$.isNumeric</a>(data)<span>判断数据是否为数值</span></li>
-          <li><a href="">$.isArray</a>(obj)
-           <span>判断是否为数组对象，是返回 true</span>
-           </li>
-          <li><a href="">$.isFunction</a>(obj)
-           <span>判断是否为函数，是返回 true</span>
-           </li>
-          <li><a href="">$.isEmptyObject</a>(obj)
-           <span>判断是否为空对象，是返回 true</span>
-           </li>
-          <li><a href="">$.isPlainObjet</a>(obj)
-           <span>判断是否为纯粹对象，是返回 true
-           <br>通过 "{}" 或者 "new Object" 创建的</span></li>
-          <li><a href="">$.contains</a>(obj)
-           <span>判断 DOM 节点是否含另一个 DOM 节点， 是返回 true</span>
-           </li> 
-         </ul>
-         <h4>[<span>-</span>] 其他</h4>
-         <ul>
-          <li><a href="">$.now()</a><span>$.now()方法是表达式(new Date).getTime()返回数值的一个简写</span></li>
-          <li><a href="">$.trim(str)</a><span>等同字符串trim()方法,去掉前后空格</span></li>
-          <li><a href="">$.noop</a><span>一个空函数<br>当你仅仅想要传递一个空函数的时候，就用他吧。<br>这对一些插件作者很有用，当插件提供了一个可选的回调函数接口，那么如果调用的时候没有传递这个回调函数，就用jQuery.noop来代替执行。</span></li> 
-          <li><a href="">$.proxy</a>(obj,fn)<span>调整this指针
-           <br><a href="http://jquery.bootcss.com/jQuery.proxy/">more info &raquo;</a></span></li> 
-         </ul>
+            <h4>[<span>-</span>] 常用</h4>
+            <ul>
+                <li>
+                    <a href="">$.type</a>(o)
+                    <span>
+                        确定JavaScript内置对象的类型
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.trim</a>(str)
+                    <span>
+                        移除字符串开始和末尾处的所有换行符，空格(包括连续的空格)和制表符
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.now()</a>
+                    <span>
+                        返回当前时间的Unix时间戳
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数组/对象</h4>
+            <ul>
+                <li>
+                    $(ele).<a href="">each</a>(fn(index,ele))
+                    <span>
+                        为每个匹配元素执行函数 <br>
+                        ele代表当前的元素 <br>
+                        返回 false 可用于及早停止循环
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.each</a><em>(o,fn(index,item))</em>
+                    <span>
+                        遍历指定的对象和数组 <br>
+                        <a href="http://www.runoob.com/jquery/misc_each.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.map</a><em>(o,fn(item,index))</em>
+                    <span>
+                        需要指定return值 <br>
+                        指定函数处理数组中的每个元素(或对象的每个属性)，并将处理结果封装为新的数组返回 <br>
+                        该函数返回值将作为结果数组中的一个元素，如果返回值为null或undefined，则不会被添加到结果数组中.
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.grep</a><em>(arr,fn(item,index))</em>
+                    <span>
+                        过滤并返回满足指定函数的数组元素 <br>
+                        <a href="http://www.runoob.com/jquery/misc-grep.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.merge</a>(arr1,arr2)
+                    <span>
+                        合并两个数组内容到第一个数组
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.inArray</a>(item,arr)
+                    <span>
+                        数组中查找指定值并返回它的索引值（如果没有找到，则返回-1）
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.makeArray</a>(o)
+                    <span>
+                        将一个类似数组的对象转换为真正的数组对象
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 扩展/插件</h4>
+            <ul>
+                <li>
+                    <a href="">$.extend</a>(o1,o2)
+                    <span>
+                        将一个或多个对象的内容合并到目标对象 <br>
+                        <a href="https://www.jquery123.com/jQuery.extend/">参考资料</a> <hr>
+                        当我们提供两个或多个对象给$.extend()，对象的所有属性都添加到目标对象（target参数）。 <br>
+                        如果只有一个参数提供给$.extend()，这意味着目标参数被省略。在这种情况下，jQuery对象本身被默认为目标对象。
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.fn.extend</a>(o)
+                    <span>
+                        为jQuery扩展一个或多个实例属性和方法 <br>
+                        <a href="http://www.runoob.com/jquery/misc-fn-extend.html">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它</h4>
+            <ul>
+                <li>
+                    <a href="">$.sub()</a>
+                    <span>
+                        创建一个新的jQuery副本，其属性和方法可以修改，而不会影响原来的jQuery对象 <br>
+                        <a href="http://www.runoob.com/jquery/misc-jquery-sub.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.globalEval</a>(jsstr)
+                    <span>
+                        全局性地执行一段JavaScript代码
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 检测</h4>
+            <ul style="display: none;">
+                <li>
+                    <a href="">$.isArray</a>(o)
+                    <span>
+                        判断指定参数是否是一个数组
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.isFunction</a>(o)
+                    <span>
+                        判断指定参数是否是一个函数
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.isNumeric</a>(o)
+                    <span>
+                            判断指定参数是否是一个数字值
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.isEmptyObject</a>(o)
+                    <span>
+                        检查对象是否为空（不包含任何属性）
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.isPlainObject</a>(o)
+                    <span>
+                        判断指定参数是否是一个纯粹的对象
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.isWindow</a>(o)
+                    <span>
+                        判断指定参数是否是一个窗口
+                    </span>
+                </li>
+                <li>
+                    <a href="">$.isXMLDoc</a>(o)
+                    <span>
+                        判断一个DOM节点是否位于XML文档中，或者其本身就是XML文档
+                    </span>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
