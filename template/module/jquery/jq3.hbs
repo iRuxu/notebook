@@ -2,136 +2,151 @@
     <div class="u-block">
         <h3>属性<span>-</span></h3>
         <div class="u-list">
-        <h4>[<span>-</span>] 属性</h4>
-        <ul>
-        <li><a href="">attr</a>({key,[val|fn]})<span>attr('key') 获取第一个元素指定属性的值,如遍历获取则需each<br/>attr('key','value') 设置key的值为value<br/>attr('key',fn[index,old-value]) 回调参数:索引,原值 <br/>attr({key1:'value1',key2:'value2'}) 设置多个属性的值,用逗号分隔</span></li>
-        <li><a href="">removeAttr</a>(key)<span>removeAttr('key') 从每一个匹配的元素中删除某个属性</span></li>
-        <li><a href="">prop</a>({key,[true/false|fn]})<span>prop('key') 获取匹配元素中第一个元素的属性<br/>
-        prop('key',true/false) 设置每一个匹配元素的一个属性<br/>
-        prop('key',fn[index,old-value]) 回调参数:索引,原值 <br/>                  prop({key1:'value1',key2:'value2'})" </span></li>
-        <li><a href="">removeProp</a>(key)<span>removeProp('key') 从每一个匹配的元素中删除某个属性</span></li>
-        </ul>
-        <h4>[<span>-</span>] CSS类</h4>
-        <ul>
-        <li><a href="">addClass</a>(class|fn)<span>addClass('name') 添加一个样式<br/>
-        addClass('name1 name2') 添加多个样式,空格分开<br/>
-        addClass(fn[index,old-value]) 回调参数:索引,原样式名;返回一个或空格隔开的class名</span></li>
-        <li><a href="">removeClass</a>(class|fn)<span>removeClass('name') 移除一个样式<br/>                    removeClass('name1 name2') 移除多个样式,空格分开<br/>                    removeClass(fn[index,old-value]) 回调参数:索引,原样式名;返回一个或空格隔开的class名</span></li>
-        <li><a href="">toggleClass</a>(class|fn[,sw])<span>toggleClass('name') 元素如果存在（不存在）就删除（添加）一个类<br/>                    toggleClass('name',switch) 要切换的CSS类名,用于决定元素是否包含class的switch case值<br/>                    toggleClass(fn[index,old-value],switch) 回调参数:索引,原样式名;返回一个或空格隔开的class名</span></li>
-        </ul>
-        <h4>[<span>-</span>] HTML代码/文本/值</h4>
-        <ul>
-        <li><a href="">html</a>([text|fn])<span>html() 无参数,返回元素集合中第一个元素的内容<br/>                    html('text') 设置所有选择器元素的内容<br/>                    html(fn[index,old-value]) 返回一个HTML字符串,回调参数:索引,原先的HTML值 <br/>                    *限HTML/XHTML </span></li>
-        <li><a href="">text</a>([text|fn])<span>text() 无参数,返回元素集合中第一个元素的内容<br/>                    text('text') 设置所有选择器元素的内容<br/>                    text(fn[index,old-value]) 返回字符串,回调参数:索引,原先的值 <br/>                    *可用于XML  </span></li>
-        <li><a href="">val</a>([val|fn|arr])<span>val() 无参数,返回元素集合中第一个元素的值<br/>                    val('text') 设置所有选择器元素属性值<br/>                    val(fn[index,old-value]) 返回要设置的值,回调参数:索引,原先的值 <br/>                    val('value') 设定一个select/checkbox的值<br/>                    val(['value1','value2']) 设定多选时的多个select/checkbox的值</span></li>
-        </ul>
+            <h4>[<span>-</span>] 属性</h4>
+            <ul>
+                <li><a href="">attr</a>({key,[val|fn]})<span>attr('key') 获取第一个元素指定属性的值,如遍历获取则需each<br/>attr('key','value') 设置key的值为value<br/>attr('key',fn[index,old-value]) 回调参数:索引,原值 <br/>attr({key1:'value1',key2:'value2'}) 设置多个属性的值,用逗号分隔</span></li>
+                <li><a href="">removeAttr</a>(key)<span>removeAttr('key') 从每一个匹配的元素中删除某个属性</span></li>
+                <li><a href="">prop</a>({key,[true/false|fn]})<span>prop('key') 获取匹配元素中第一个元素的属性<br/>
+                prop('key',true/false) 设置每一个匹配元素的一个属性<br/>
+                prop('key',fn[index,old-value]) 回调参数:索引,原值 <br/>                  prop({key1:'value1',key2:'value2'})" </span></li>
+                <li><a href="">removeProp</a>(key)<span>removeProp('key') 从每一个匹配的元素中删除某个属性</span></li>
+            </ul>
+            <h4>[<span>-</span>] CSS类</h4>
+            <ul>
+                <li><a href="">addClass</a>(class|fn)<span>addClass('name') 添加一个样式<br/>
+                addClass('name1 name2') 添加多个样式,空格分开<br/>
+                addClass(fn[index,old-value]) 回调参数:索引,原样式名;返回一个或空格隔开的class名</span></li>
+                <li><a href="">removeClass</a>(class|fn)<span>removeClass('name') 移除一个样式<br/>                    removeClass('name1 name2') 移除多个样式,空格分开<br/>                    removeClass(fn[index,old-value]) 回调参数:索引,原样式名;返回一个或空格隔开的class名</span></li>
+                <li><a href="">toggleClass</a>(class|fn[,sw])<span>toggleClass('name') 元素如果存在（不存在）就删除（添加）一个类<br/>                    toggleClass('name',switch) 要切换的CSS类名,用于决定元素是否包含class的switch case值<br/>                    toggleClass(fn[index,old-value],switch) 回调参数:索引,原样式名;返回一个或空格隔开的class名</span></li>
+            </ul>
+            <h4>[<span>-</span>] HTML代码/文本/值</h4>
+            <ul>
+                <li><a href="">html</a>([text|fn])<span>html() 无参数,返回元素集合中第一个元素的内容<br/>                    html('text') 设置所有选择器元素的内容<br/>                    html(fn[index,old-value]) 返回一个HTML字符串,回调参数:索引,原先的HTML值 <br/>                    *限HTML/XHTML </span></li>
+                <li><a href="">text</a>([text|fn])<span>text() 无参数,返回元素集合中第一个元素的内容<br/>                    text('text') 设置所有选择器元素的内容<br/>                    text(fn[index,old-value]) 返回字符串,回调参数:索引,原先的值 <br/>                    *可用于XML  </span></li>
+                <li><a href="">val</a>([val|fn|arr])<span>val() 无参数,返回元素集合中第一个元素的值<br/>                    val('text') 设置所有选择器元素属性值<br/>                    val(fn[index,old-value]) 返回要设置的值,回调参数:索引,原先的值 <br/>                    val('value') 设定一个select/checkbox的值<br/>                    val(['value1','value2']) 设定多选时的多个select/checkbox的值</span></li>
+            </ul>
         </div>
     </div>
     <div class="u-block">
         <h3>CSS<span>-</span></h3>
         <div class="u-list">
-         <h4>[<span>-</span>] CSS</h4>
-         <ul>
-          <li><a href="">css</a>({key,[val|fn]})<span>css('key') 获取第一个元素的样式值<br/>                    css('key','value') 设置每一个匹配元素一个指定的样式<br/>                    prop('key',fn[index,old-value]) 回调参数:索引,原值 <br/>                    css({key1:'value1',key2:'value2'}) 设置每一个匹配元素多个指定的样式<br/>*<b>坐标和尺寸注意加px单位,属性值加引号!</b></span></li>
-          <li><a href="">jQuery.cssHooks</a></li>
-         </ul>
-         <h4>[<span>-</span>] 元素位置[!px]</h4>
-         <ul>
-          <li><a href="">offset()</a>.l/t<span>offset() 计算元素在视窗中的坐标,返回值对对象<br/>                    offset().left 获得元素视窗水平坐标<br/>                    offset().top 获得元素视窗垂直坐标<br/>                    <b>*offset()值已包含scroll后实际视窗位置</b>  </span></li>
-          <li><a href="">offset</a>({top:y,left:x})<span>offset({top:y,left:x}) 设置元素视窗坐标<br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *设置值对时不需要引号，且不带单位</span></li>
-          <li><a href="">position()</a>.l/t [!arg]<span>position() 获取相对父元素的偏移值对对象<br/>                    position().left 水平位移<br/>                    position().top 垂直位移<br/>                    *<b>不能用于设置，只能获取，可通过获取后设置新的变量值赋值给css</b><br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>                    *注意Body清空padding margin否则继承出问题</span></li>
-          <li><a href="">scrollTop</a>([y])<span>获取/设置匹配元素相对滚动条垂直的偏移<br />
-           通过offset可获取元素位置,设置$(document).scrollTop(num)跳转至对应锚点<br />
-           </span></li>
-          <li><a href="">scrollLeft</a>([x]) <span>获取/设置匹配元素相对滚动条水平的偏移</span></li>
-         </ul>
-         <h4>[<span>-</span>] 指针位置</h4>
-         <ul>
-          <li><a href="">e.pageX</a><span>鼠标指针所在文档位置,已计算scroll
-          <br>event.screenX 原生JS:鼠标指针所在显示屏位置
-          <br>event.screenY 原生JS:鼠标指针所在显示屏位置
-          <hr>
-          <br>event.clientX 原生JS:鼠标指针所在视窗位置,非文档位置<br/>计算文档位置：event.clientX+document.documentElement.scrollLeft || document.body.scrollLeft
-          <br>event.clientY 原生JS:鼠标指针所在视窗位置,非文档位置<br/>计算文档位置：event.clientY+document.documentElement.scrollTop || document.body.scrollTop
-          <hr>
-          <br>clientWidth=document.documentElement.clientWidth|| document.body.clientWidth<br/>在页面上返回内容的可视宽度（不包括边框，边距或滚动条）
-          <br>clientHeight= document.documentElement.clientHeight|| document.body.clientHeight <br/>                在页面上返回内容的可视高度（不包括边框，边距或滚动条）
-          <hr>
-          <br>scrollWidth=document.documentElement.scrollWidth|| document.body.scrollWidth <br/>                返回元素的整个宽度（包括带滚动条的隐蔽的地方）
-          <br>scrollHeight=document.documentElement.scrollHeight|| document.body.scrollHeight <br/>                返回整个元素的高度（包括带滚动条的隐蔽的地方）
-          </span></li>
-          <li><a href="">e.pageY</a><span>鼠标指针所在文档位置,已计算scroll</span></li>
-         </ul>
-         <h4>[<span>+</span>] 元素尺寸</h4>
-         <ul style="display:none">
-          <li><a href="">height</a>([val|fn])<span>height() 无参数,获取第一个元素的高度<br/>                  height(y) 设置所有元素的高度,无单位                  height(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
-          <li><a href="">width</a>([val|fn])<span>width() 无参数,获取第一个元素的宽度<br/>                  width(x) 设置所有元素的宽度,无单位                  width(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
-          <li><a href="">innerHeight</a>([y])<span>获取/设置内高，含padding，不含边框和margin </span></li>
-          <li><a href="">innerWidth</a>([x])<span>获取/设置内宽，含padding，不含边框和margin</span></li>
-          <li><a href="">outerHeight</a>([y])<span>获取/设置外高,含padding,border,margin</span></li>
-          <li><a href="">outerWidth</a>([x])<span>获取/设置外宽,含padding,border,margin</span></li>
-         </ul>
+            <h4>[<span>-</span>] 属性与值</h4>
+            <ul>
+            <li><a href="">css</a>({key,[val|fn]})<span>
+                css('key') 获取第一个元素的样式值<br/>
+                css('key','value') 设置每一个匹配元素一个指定的样式<br/>                    
+                prop('key',fn[index,old-value]) 回调参数:索引,原值 <br/>                    css({key1:'value1',key2:'value2'}) 设置每一个匹配元素多个指定的样式<br/>*<b>坐标和尺寸注意加px单位,属性值加引号!</b>
+            </span></li>
+            </ul>
+            <h4>[<span>-</span>] 元素位置[!px]</h4>
+            <ul>
+                <li><a href="">offset()</a>.l/t<span>
+                    offset() 计算元素在视窗中的坐标,返回值对对象<br/>                    
+                    offset().left 获得元素视窗水平坐标<br/>                    
+                    offset().top 获得元素视窗垂直坐标<br/>                    
+                    <b>*offset()值已包含scroll后实际视窗位置</b>  
+                </span></li>
+                <li><a href="">offset</a>({top:y,left:x})<span>
+                    offset({top:y,left:x}) 设置元素视窗坐标<br/>                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>*设置值对时不需要引号，且不带单位
+                </span></li>
+                <li><a href="">position()</a>.l/t [!arg]<span>
+                    position() 获取相对父元素的偏移值对对象<br/>                    
+                    position().left 水平位移<br/>                    
+                    position().top 垂直位移<br/>                    
+                    *<b>不能用于设置，只能获取，可通过获取后设置新的变量值赋值给css</b><br/>
+                    *计算的坐标以元素外围为起始点，包含padding和border，不包含margin<br/>
+                    *注意Body清空padding margin否则继承出问题
+                </span></li>
+                <li><a href="">scrollTop</a>([y])<span>
+                    获取/设置匹配元素相对滚动条垂直的偏移<br />
+                    通过offset可获取元素位置,设置$(document).scrollTop(num)跳转至对应锚点
+                </span></li>
+                <li><a href="">scrollLeft</a>([x]) <span>
+                    获取/设置匹配元素相对滚动条水平的偏移
+                </span></li>
+            </ul>
+            <h4>[<span>+</span>] 元素尺寸</h4>
+            <ul style="display:none">
+                <li><a href="">height</a>([val|fn])<span>height() 无参数,获取第一个元素的高度<br/>                  height(y) 设置所有元素的高度,无单位                  height(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
+                <li><a href="">width</a>([val|fn])<span>width() 无参数,获取第一个元素的宽度<br/>                  width(x) 设置所有元素的宽度,无单位                  width(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
+                <li><a href="">innerHeight</a>([y])<span>获取/设置内高，含padding，不含边框和margin </span></li>
+                <li><a href="">innerWidth</a>([x])<span>获取/设置内宽，含padding，不含边框和margin</span></li>
+                <li><a href="">outerHeight</a>([y])<span>获取/设置外高,含padding,border,margin</span></li>
+                <li><a href="">outerWidth</a>([x])<span>获取/设置外宽,含padding,border,margin</span></li>
+            </ul>
         </div>
     </div>
     <div class="u-block">
         <h3>效果<span>-</span></h3>
         <div class="u-list">
-         <h4>[<span>-</span>] 基本</h4>
-         <ul>
-          <li><a href="">show</a>([time,fn])<span>显示</span></li>
-          <li><a href="">hide</a>([time,fn])<span>隐藏</span></li>
-          <li><a href="">toggle</a>([time,fn])<span>开关</span></li>
-          <li><a href="">ani</a>(arg..callee)<span>A.ani(fnX function(){$(this).pre/next.ani(fnX)}  <br>
-                  A.ani(function(){$(this).pre/next.ani(arguments.callee)})<br>
-                  所有动画额外参数:(回调函数前) linear匀速,swing缓动(默认)</span></li>
-         </ul>
-         <h4>[<span>-</span>] 滑动</h4>
-         <ul>
-          <li><a href="">slideDown</a>([time,fn])<span>向下展开</span></li>
-          <li><a href="">slideUp</a>([time,fn])<span>向上折叠</span></li>
-          <li><a href="">slideToggle</a>([time,fn])<span>滑块开关</span></li>
-         </ul>
-         <h4>[<span>-</span>] 隐现</h4>
-         <ul>
-          <li><a href="">fadeIn</a>([time,fn])<span>淡入</span></li>
-          <li><a href="">fadeOut</a>([time,fn])<span>淡出</span></li>
-          <li><a href="">fadeTo</a>([time,0-1,fn])<span>变换到指定透明度</span></li>
-          <li><a href="">fadeToggle</a>([time,fn])<span>淡入淡出切换</span></li>
-         </ul>
-         <h4>[<span>-</span>] 自定义/队列</h4>
-         <ul>
-          <li><a href="">animate</a>({arg},time,[fn])<span>$(ele).animate({css:'value'},speed,fn)<br>
-              $(ele).animate({css:+-some},speed,fn)<br>
-              <b>单属性不能像css那样,简写！</b><br />
-              <br />百分比不是一个整数,是字符串应添加引号!
-              可以通过在属性值前面指定+=或-=来让元素做相对运动(注意是+=,而不是+,需要赋值)<br>
-              <b>注意：所有指定的属性必须用骆驼形式</b><br>
-              队列动画:<br>
-              1.回调函数嵌套<br>
-              2.连缀（同一目标）<br>
-              3.顺序（同一目标）<br></span></li>
-          <li><a href="">queue</a>(next)<span>支持连缀或非连缀<br>
-              实现队列动画赋参数next,并在末尾执行next() <br>
-              或不传参数在末尾添加$(this).dequeue() <br>
-              当通过队列添加方法后再次连缀执行的动画如为基本动画(hide,show,toggle)必须赋参数!<br>
-              取得当前+后续的队列动画长度,queue('fx').length</span></li>
-          <li><a href="">clearQueue()</a><span>清理列队的功能方法：.clearQueue()。<br>
-              把它放入一个列队的回调函数或.queue()方法里，就可以把剩下为执行的列队给移除。<br>
-              <b>*而非在连缀中书写！</b></span></li>
-          <li><a href="">stop</a>([true],[true])<span>无参数: <br>  
-              普通动画,暂停动画,恢复动画后继续完成动画<br> 
-              列队动画,停止列队动画中的第一个动画,并停留在停止时的位置<br> 
-              有参数：<br> 
-              第一个参数:true,停止并清除后续队列动画,默认为false<br> 
-              第二个参数:true,停止并立即跳到动画完成所在的位置(中间队列进行的特性改变等不执行)</span></li>
-          <li><a href="">finish()</a><span>类同stop,但会导致所有排队的动画的CSS属性跳转到他们的最终值。</span></li>
-          <li><a href="">delay</a>(time,[fx])<span>延迟,支持连缀,时间参数</span></li>
-         </ul>
-         <h4>[<span>-</span>] 设置</h4>
-         <ul>
-          <li><a href="">jQuery.fx.interval</a><span>设置每秒运行的帧数,默认13,数值越大频率越慢</span></li>
-          <li><a href="">jQuery.fx.off</a><span>关闭所有动画效果,关闭true,开启false</span></li>
-         </ul>
+            <h4>[<span>-</span>] 基本</h4>
+            <ul>
+                <li><a href="">show</a>([speed,fn])<span>显示</span></li>
+                <li><a href="">hide</a>([speed,fn])<span>隐藏</span></li>
+                <li><a href="">toggle</a>([speed,fn])<span>开关</span></li>
+            </ul>
+            <h4>[<span>-</span>] 滑动</h4>
+            <ul>
+                <li><a href="">slideDown</a>([speed,fn])<span>向下展开</span></li>
+                <li><a href="">slideUp</a>([speed,fn])<span>向上折叠</span></li>
+                <li><a href="">slideToggle</a>([speed,fn])<span>滑块开关</span></li>
+            </ul>
+            <h4>[<span>-</span>] 隐现</h4>
+            <ul>
+                <li><a href="">fadeIn</a>([speed,fn])<span>淡入</span></li>
+                <li><a href="">fadeOut</a>([speed,fn])<span>淡出</span></li>
+                <li><a href="">fadeTo</a>([speed,0-1,fn])<span>变换到指定透明度</span></li>
+                <li><a href="">fadeToggle</a>([speed,fn])<span>淡入淡出切换</span></li>
+            </ul>
+            <h4>[<span>-</span>] 自定义/操控</h4>
+            <ul>
+                <li>
+                    <a href="">animate</a>({opt},speed,[fn])
+                    <span>
+                        <a href="http://www.runoob.com/jquery/eff-animate.html">参考资料</a>
+                        <hr>
+                        <ol>
+                            <li>单属性不能像css那样简写</li>
+                            <li>百分比不是一个整数,是字符串应添加引号</li>
+                            <li>可以通过在属性值前面指定+=或-=来让元素做相对运动(注意是+=,而不是+,需要赋值)</li>
+                        </ol>
+                        <hr>
+                        队列动画:<br>
+                        1.回调函数嵌套<br>
+                        2.连缀（同一目标）<br>
+                        3.顺序（同一目标
+                    </span>
+                </li>
+                <li>
+                    <a href="">stop</a>([stopAll,goToEnd)])
+                    <span>
+                        停止被选元素上当前正在运行的动画
+                    </span>
+                </li>
+                <li>
+                    <a href="">delay</a>([speed])
+                    <span>
+                        对被选元素的所有排队函数（仍未运行）设置延迟
+                    </span>
+                </li>
+                <li>
+                    <a href="">finish()</a>
+                    <span>
+                        对被选元素停止、移除并完成所有排队动画
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 队列</h4>
+            <ul style="display: none;"> 
+                <li><a href="">.queue</a>([name],fn[next])<span>无名称则为fx动画队列,返回第一个元素关联的函数队列或修改</span></li>
+                <li><a href="">.dequeue</a>([name])<span>出队(移除)并执行元素函数队列的下一个函数（非动画函数需要手动调用dequeue）</span></li>
+                <li><a href="">.clearQueue</a>()<span>移除队列</span></li>
+            </ul>
+            <h4>[<span>+</span>] 设置</h4>
+            <ul style="display: none;">
+                <li><a href="">jQuery.fx.interval</a><span>设置每秒运行的帧数,默认13,数值越大频率越慢</span></li>
+                <li><a href="">jQuery.fx.off</a><span>关闭所有动画效果,关闭true,开启false</span></li>
+            </ul>
         </div>
     </div>
 </div>
