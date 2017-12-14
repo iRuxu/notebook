@@ -5,29 +5,42 @@
         <div class="u-list">
             <h4>[<span>-</span>]变量</h4>
             <ul>
-                <li><a href="">var</a><span>
-                    x1 = 1;<br />
-                    var x2 = 2;<br />
-                    window.x3 = 3;<br />
-                    <a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
-                    判断某个全局变量是否存在用typeof window.myVar === 'undefined' <br>
-                    函数内部判断某个变量是否存在用typeof myVar === 'undefined' <hr>
-                    js采用词法作用域，即静态作用域。函数的作用域在函数定义的时候就决定，而动态动作用域则在函数调用的时候才决定的。
-                    <a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
-                    JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的，不管何时何地执行函数，这种绑定在执行时依然有效。
-                </span></li>
-                <li><a href="">let</a><span>
-                    let i = 1;<br>
-                    申明一个块级作用域的变量
-                </span></li>
-                <li><a href="">const</a><span>
-                    const来定义常量，const与let都具有块级作用域。
-                    常量通常使用全大写。
-                    const PI = 3.14
-                </span></li>
+                <li>
+                    <a href="">var</a>
+                    <span>
+                        x1 = 1;<br />
+                        var x2 = 2;<br />
+                        window.x3 = 3;<br />
+                        <a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
+                        1.变量会提升，在没有声明前调用，会输出undefined <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">let</a>
+                    <span>
+                        let i = 1;<br>
+                        申明一个块级作用域的变量 <hr>
+                        1.只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。 <br>
+                        2.避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。
+                    </span>
+                </li>
+                <li>
+                    <a href="">const</a>
+                    <span>
+                        const PI = 3.14 <br>
+                        const来定义常量。const与let都具有块级作用域。一旦声明，常量的值就不能改变。常量通常使用全大写。 <hr>
+                        const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动。
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>]语句</h4>
             <ul>
+                <li>
+                    <a href="">for</a>
+                    <span>
+                        1.设置循环变量的部分和循环体内部有各自单独的作用域，变量彼此不影响（使用let时）。
+                    </span>
+                </li>
                 <li><a href="">switch</a><span>
                     1.switch中的case为全等判断<br>
                     2.多个case使用同一个执行块应写为case 1: case2: ... <br>
@@ -71,6 +84,7 @@
                     <span>
                         + ：只要有一个运算子是字符串，则两个运算子都转为字符串，执行字符串连接运算。一个值加上空字符串，会使得该值转为字符串形式。 <hr>
                         加法运算符以外的其他算术运算符（比如减法、除法和乘法），都不会发生重载。它们的规则是：所有运算子一律转为数值，再进行相应的数学运算。 <hr>
+                        ** : 指数运算符，ES6新增 <hr>
                         % ： 运算结果的正负号由第一个运算子的正负号决定。为了得到正确的负数的余数值，需要先使用绝对值函数。 <hr>
                         i++/++i : 放在变量之后，会先返回变量操作前的值，再进行自增/自减操作；放在变量之前，会先进行自增/自减操作，再返回变量操作后的值。 <hr>
                         +/- : 数值运算符的作用在于可以将任何值转为数值（与Number函数的作用相同）。 <hr>
@@ -83,6 +97,15 @@
                         优先级：算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号<br>圆括号强制优先级<br>
                         赋值运算符（=）和三元条件运算符（?:）才用先计算右结合。 <hr>
                         <a href="http://javascript.ruanyifeng.com/grammar/operator.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">babel</a>
+                    <span>
+                        npm install --save-dev babel-cli babel-preset-env <br>
+                        npm install --save-dev babel-polyfill<br>
+                        npm install --save-dev babel-preset-react<br>
+                        <a href="https://babeljs.cn/">参考资料</a>
                     </span>
                 </li>
             </ul>

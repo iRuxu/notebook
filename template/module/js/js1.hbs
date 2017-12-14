@@ -80,9 +80,18 @@
 					原对象：不变 <hr>
 					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#指定一个函数作为参数">回调函数参数详情</a>
 				</span></li>
-				<li>str.<a href="">repeat</a>(count)<span>
-					重复指定的字符串
+				<li>str.<a href="">repeat</a>(n)<span>
+					参数：重复次数(包含原) <br>
+					返回值：新的字符串 <br>
+					原对象：不变 <br>
+					会向下取整，当为0时变为空字符串
 				</span></li>
+				<li>
+					str.<a href="">padStart/padEnd</a>(len,[rep])
+					<span>
+						参数：最小长度，用于补全的替代 <br>
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>]查找</h4>
 			<ul>
@@ -112,6 +121,27 @@
 				<li>str.<a href="">charCodeAt</a>(i)<span>
 					参数：查找的索引位置 <br>
 					返回值：索引上的字符的 Unicode 编码</span></li>
+				<li>
+					str.<a href="">includes</a>(str,[i])
+					<span>
+						返回布尔值，表示是否找到了参数字符串 <br>
+						第二个参数，表示开始搜索的位置
+					</span>
+				</li>
+				<li>
+					str.<a href="">startsWith</a>(str,[i])
+					<span>
+						返回布尔值，表示参数字符串是否在原字符串的头部。 <br>
+						第二个参数，表示开始搜索的位置
+					</span>
+				</li>
+				<li>
+					str.<a href="">endsWidth</a>(str,[i])
+					<span>
+						返回布尔值，表示参数字符串是否在原字符串的尾部。 <br>
+						第二个参数表示针对前n个字符
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>]JSON</h4>
 			<ul>

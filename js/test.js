@@ -1,2 +1,2 @@
-
-document.creatElementNS(ns,svg)
+var test = `\`Yo\` World!`;
+console.log(test)
