@@ -1,5 +1,117 @@
 <div class="u-col">
     <div class="u-block">
+        <h3>NPM<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] NPM</h4>
+            <ul>
+                <li>
+                    npm <a href="">install --save-dev</a> $pak
+                    <span>
+                        本地安装项目，并添加到package中
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">install --g</a> $pak
+                    <span>
+                        全局安装项目 <hr>
+                        当目标环境没有时，不会自动依赖安装
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">list</a>[-g]
+                    <span>
+                        查看所有(全局)安装的模块
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">list $pak</a>
+                    <span>
+                        查看某个模块的版本号
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">uninstall</a> $pak
+                    <span>
+                        卸载模块
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">update</a> $pak
+                    <span>
+                        更新模块
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">search</a> $pak
+                    <span>
+                        搜索模块
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">init</a>
+                    <span>
+                        创建一个npm模块
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">adduser</a>
+                    <span>
+                        注册npm资源库
+                        npm login 登录
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">publish</a>
+                    <span>
+                        发布npm模块
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">unpublish</a> $pak@ver
+                    <span>
+                        撤销发布自己发布过的某个版本代码
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] package.json</h4>
+            <ul>
+                <li>
+                    <a href="">name</a>
+                    <span>
+                        name - 包名。<br>
+                        version - 包的版本号。<br>
+                        description - 包的描述。<br>
+                        homepage - 包的官网 url 。<br>
+                        author - 包的作者姓名。<br>
+                        contributors - 包的其他贡献者姓名。<br>
+                        repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
+                    </span>
+                </li>
+                <li>
+                    <a href="">dependencies</a>
+                    <span>
+                        依赖包 {"pro":"ver"}<br>
+                        dependencies 存放项目或组件代码中依赖到的 <br>
+                        devDependencies 存放测试代码依赖的包或构建工具的包 <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">main</a>
+                    <span>
+                        main 字段指定了程序的主入口文件，require('moduleName') 就会加载这个文件
+                    </span>
+                </li>
+                <li>
+                    <a href="">scripts</a>
+                    <span>
+                        可执行的脚本，通过npm run $cmd <br>
+                        {"build":"babel src -d lib"}
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
         <h3>参考资料<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] Doc</h4>
@@ -11,14 +123,7 @@
         <div class="u-list">
             <h4>[<span>-</span>] Help</h4>
             <ul>
-                <li><a href="">SublimeText3环境配置</a><span>
-                    1.安装<a href="https://github.com/tanepiper/SublimeText-Nodejs">插件Nodejs</a> <br>
-                    2.首选项-浏览插件目录-nodejs <br>
-                    3.修改Nodejs.sublime-build中的"encoding": "utf8" <br>
-                    4.修改Nodejs.sublime-settings中的"node_command": "C:\\Program Files\\nodejs\\node.exe" <br>
-                    5.修改Nodejs.sublime-settings中的"npm_command": "C:\\Program Files\\nodejs\\npm.cmd"
-                </span></li>
-                <li><a href="https://code.visualstudio.com/">vscode</a><span></span></li>
+                <li><a href="https://nodejs.org/en/download/package-manager/">sudo yum -y install nodejs</a></li>
             </ul>
         </div>
     </div>
