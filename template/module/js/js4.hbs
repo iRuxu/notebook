@@ -127,7 +127,195 @@
 	<div class="u-block">
 		<h3>ES6 Object<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Proxy</h4>
+			<h4>[<span>+</span>]Proxy</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">new Proxy</a>(target,handler)
+					<span>
+						在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/proxy">参考资料</a> <hr>
+						通过改写return值，可实现链式操作
+					</span>
+				</li>
+				<li>
+					<a href="">get</a><em>(target, propKey, receiver)</em>
+					<span>
+						拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+					</span>
+				</li>
+				<li>
+					<a href="">set</a><em>(target, propKey, value, receiver)</em>
+					<span>
+						拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">has</a><em>(target, propKey)</em>
+					<span>
+						拦截propKey in proxy的操作，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">deleteProperty</a><em>(target, propKey)</em>
+					<span>
+						拦截delete proxy[propKey]的操作，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+					</span>
+				</li>
+				<li>
+					<a href="">getOwnPropertyDescriptor</a><em>(target, propKey)</em>
+					<span>
+						拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+					</span>
+				</li>
+				<li>
+					<a href="">defineProperty</a><em>(target, propKey, propDesc)</em>
+					<span>
+						拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">preventExtensions</a><em>(target)</em>
+					<span>
+						拦截Object.preventExtensions(proxy)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">getPrototypeOf</a><em>(target)</em>
+					<span>
+						拦截Object.getPrototypeOf(proxy)，返回一个对象。
+					</span>
+				</li>
+				<li>
+					<a href="">isExtensible</a><em>(target)</em>
+					<span>
+						拦截Object.isExtensible(proxy)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">setPrototypeOf</a><em>(target, proto)</em>
+					<span>
+						拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+					</span>
+				</li>
+				<li>
+					<a href="">apply</a><em>(target, object, args)</em>
+					<span>
+						拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+					</span>
+				</li>
+				<li>	
+					<a href="">construct</a><em>(target, args)</em>
+					<span>
+						拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+					</span>
+				</li>
+				<li>
+					<a href="">Proxy.revocable</a>(target, handler)
+					<span>
+						返回一个可取消的 Proxy 实例
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]Reflect</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">Reflect</a>
+					<span>
+						1.将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。 <br>
+						2.修改某些Object方法的返回结果，让其变得更合理。 <br>
+						3.让Object操作都变成函数行为。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/reflect">参考资料</a>
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">get</a><em>(target,name,[receiver])</em>
+					<span>
+						查找并返回target对象的name属性，如果没有该属性，则返回undefined。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">set</a><em>(target,name,value,[receiver])</em>
+					<span>
+						设置target对象的name属性等于value
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">has</a><em>(obj,name)</em>
+					<span>
+						对应name in obj里面的in运算符
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">deleteProperty</a><em>(obj,name)</em>
+					<span>
+						等同于delete obj[name]，用于删除对象的属性
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">construct</a><em>(target,args)</em>
+					<span>
+						等同于new target(...args)，这提供了一种不使用new，来调用构造函数的方法。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">getPrototypeOf</a><em>(obj)</em>
+					<span>
+						用于读取对象的__proto__属性，对应Object.getPrototypeOf(obj)。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">setPrototypeOf</a><em>(obj,newProto)</em>
+					<span>
+						用于设置对象的__proto__属性，返回第一个参数对象，对应Object.setPrototypeOf(obj, newProto)。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">apply</a><em>(fn,thisArg,args)</em>
+					<span>
+						等同于Function.prototype.apply.call(func, thisArg, args)，用于绑定this对象后执行给定函数。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">defineProperty</a><em>(target,propertyKey,attributes)</em>
+					<span>
+						基本等同于Object.defineProperty，用来为对象定义属性。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">getOwnPropertyDescriptor</a><em>(target,propertyKey)</em>
+					<span>
+						基本等同于Object.getOwnPropertyDescriptor，用于得到指定属性的描述对象
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">isExtensible</a><em>(target)</em>
+					<span>
+						对应Object.isExtensible，返回一个布尔值，表示当前对象是否可扩展。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">preventExtensions</a><em>(target)</em>
+					<span>
+						对应Object.preventExtensions方法，用于让一个对象变为不可扩展。它返回一个布尔值，表示是否操作成功。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						返回对象的所有属性，基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]Promise</h4>
+			<ul>
+				
+			</ul>
 		</div>
 	</div>
 </div>
