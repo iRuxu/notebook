@@ -30,8 +30,9 @@
 					2. ECMAScript 中数组的大小也是可以调整的。<br>
 					3. var arr = new Array(10)  不等于 var arr = [10]
 					</span></li>
-				<li><a href="">Array of</a>(val)<span>
-					Array.of() 和 Array 构造函数之间的区别在于处理整数参数：Array.of(7) 创建一个具有单个元素 7 的数组，而 Array(7) 创建一个包含 7 个 undefined 元素的数组。且不需要new运算符。<br>
+				<li><a href="">Array of</a>(val..)<span>
+					Array.of() 和 Array 构造函数之间的区别在于处理整数参数： <br>
+					Array.of(7) 创建一个具有单个元素 7 的数组，而 Array(7) 创建一个包含 7 个 undefined 元素的数组。且不需要new运算符。<br>
 					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of">参考资料</a>
 				</span></li>
 				<li>arr.<a href="">length</a><span>
@@ -75,24 +76,13 @@
 </code></pre>
 如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印
 				</span></li>
-			</ul>
-			<h4>[<span>-</span>]Set</h4>
-			<ul>
-				<li><a href="">new Set()</a><span>
-					Set是一组key的集合，但不存储value，且key不能重复。<br>
-					要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set。
-<pre><code data-language="javascript">
-	var s1 = new Set(); // 空Set
-	var s2 = new Set([1, 2, 3]); // 含1, 2, 3
-</code></pre>
-				</span></li>
-				<li>set.<a href="">add</a>(key)<span>
-					s.add(4)
-					//Set {1,2,3,4}
-				</span></li>
-				<li>set.<a href="">delete</a>(key)<span>
-					s.delete(3)
-				</span></li>
+				<li>
+					<a href="">...[arr]</a>
+					<span>
+						扩展运算符，好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列 <br>
+						该运算符可以将一个数组，变为参数序列
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>]转换</h4>
 			<ul>
@@ -267,39 +257,6 @@
 						</tr>
 					</table>
 					</span></li>
-				<li>ite.<a href="">forEach</a><em>(fn(val,[i],[o]))</em><span>
-				每个元素都执行一次回调函数，可应用与Iterable类型 (Array/Map/Set)<br>
-				Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身<br>
-				Map的回调函数参数依次为value、key和map本身 <br>
-				forEach方法无法中断执行，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用for循环。
-				<table>
-					<tr>
-						<th>类型</th>
-						<th>参数</th>
-					</tr>
-					<tr>
-						<td>array</td>
-						<td>value,index,array</td>
-					</tr>
-					<tr>
-						<td>set</td>
-						<td>value,value,set</td>
-					</tr>
-					<tr>
-						<td>map</td>
-						<td>value,key,map</td>
-					</tr>
-				</table>
-<pre><code data-language="javascript">
-	var a = ['A', 'B', 'C'];
-	a.forEach(function (element, index, array) {
-		// element: 指向当前元素的值
-		// index: 指向当前索引
-		// array: 指向Array对象本身
-	alert(element);
-	});
-</code></pre>
-				</span></li>
 			</ul>
 			<h4>[<span>-</span>]递归</h4>
 			<ul>

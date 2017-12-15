@@ -1,198 +1,213 @@
-<!-- 标准库 -->
+<!-- 函数 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>标准对象<span>-</span></h3>
+		<h3>函数<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]数学</h4>
+			<h4>[<span>-</span>]Function</h4>
 			<ul>
-				<li><a href="">Math.random()</a><span>
-					返回 0 ~ 1 之间的随机数 <br>
-					1.随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 ) <br>
-					2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();} <br>
-					<a href="http://javascript.ruanyifeng.com/stdlib/math.html">参考资料</a>
+				<li>
+					<em>fn</em><a href=""></a>
+					<span>
+						<b>参数</b> <br>
+						函数不能省略靠前的参数，如果一定要省略靠前的参数，只有显式传入undefined。 <br>
+						函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。即在函数内部，传入的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。这意味着，在函数体内修改参数值，不会影响到函数外部。 <br>
+						函数参数如果是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的原始值的地址，因此在函数内部修改参数，将会影响到原始值。 <br>
+						注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
+						如果有同名的参数，则取最后出现的那个值。
+						<hr>
+						<b>作用域</b> <br>
+						函数作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。<br>
+						函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。  <br>
+						同样的，函数体内部声明的函数，作用域绑定函数体内部。<br>
+                        <a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
+                        ES6中块级作用域中声明的函数，在块级作用域之外不可引用
+						<hr>
+						<b>属性</b> <br>
+						fn.name : 返回紧跟在function关键字之后的那个函数名(匿名函数为空字符串) <br>
+						fn.length : 返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数)。 <br>
+						fn.toString() : 返回函数的源码，注释也可以返回。
+						<hr>
+						<b>闭包</b> <br>
+						定义在一个函数内部的函数。闭包最大的特点，就是它可以“记住”诞生的环境。 <br>
+						闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。 <br>
+						返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。 <br>
+						如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
+					</span>
+				</li>
+				<li>
+					<a href="">new</a> fn
+					<span>
+						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
+						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
+						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
+						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
+						方法应挂载在prototype上，避免内存占用
+					</span>
+				</li>
+				<li><a href="">function</a>()<span>
+					<b>1.function命令 - 函数的声明</b><br>
+					function fn(arg){...} <br>
+					<hr>
+					<b>2.函数表达式</b> <br>
+					var fn = function(arg){...} <br>
+					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
+					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
+					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。 <br>
+					采用函数表达式声明函数时，function命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。 <br>
+					<hr>
+					<b>3.Function构造函数</b> <br>
+					var fn = new Function(arg..,函数体) <br>
+					你可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
+					<hr>
+					如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。 <br>
+					如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
+					根据ECMAScript的规范，不得在非函数的代码块中声明函数。
 				</span></li>
-				<li><a href="">Math.max/min</a>(x,y,z..n)<span>
-					返回 x,y,z,...,n 中的最高/低值 <br>
-					参数中最大的值。如果没有参数，则返回 -Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。
+				<li><a href="">(function(n){})(n)</a><span>
+					IIFE = Immediately-Invoked Function Expression,立即调用的函数表达式 <br>
+					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
 				</span></li>
-				<li><a href="">Math.abs</a>(x)<span>返回 x 的绝对值</span></li>
-				<li><a href="">Math.ceil/floor/round</a>(x)<span>对数进行上/下舍入/四舍五入</span></li>
-				<li><a href="">Math.sqrt</a>(x)<span>返回x的平方根</span></li>
-				<li><a href="">Math.pow</a>(x,y)<span>返回x的y次幂</span></li>
-				<li><a href="">Math.exp</a>(x)<span>返回E(x)的指数</span></li>
-				<li><a href="">Math.log</a>(x)<span>返回数的自然对数（底为e）</span></li>
-				<li><a href="">Math.CONST</a><span>
-					<table>
+				<li><a href="">x => x * x</a><span>
+					<pre><code data-language="javascript">
+						//单个参数
+						var result = x => x * x
+						function (x) {
+						    return x * x;
+						}
+						//语句块
+						x => {
+						    if (x > 0) {
+						        return x * x;
+						    }
+						    else {
+						        return - x * x;
+						    }
+						}
+						//多个参数
+						(x, y) => x * x + y * y
+					</code></pre>
+				箭头函数相当于匿名函数，省略了return。<br>
+				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
+				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
+				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]内部</h4>
+			<ul>
+				<li><a href="">return</a><span>
+					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
+				</span></li>
+				<li><a href="">arguments</a><span>
+					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。 <br>
+					严格模式下为只读对象，不允许修改。
 						<tr>
-							<th>属性</th>
+							<th>对象值</th>
 							<th>描述</th>
 						</tr>
 						<tr>
-							<td>E</td>
-							<td>返回算术常量 e，即自然对数的底数（约等于2.718）</td>
+							<td>arguments[0]</td>
+							<td>第一个参数名字</td>
 						</tr>
 						<tr>
-							<td>LN2</td>
-							<td>返回 2 的自然对数（约等于0.693）</td>
+							<td>arguments.length</td>
+							<td>参数的个数</td>
 						</tr>
 						<tr>
-							<td>LN10</td>
-							<td>返回 10 的自然对数（约等于2.302）</td>
-						</tr>
-						<tr>
-							<td>LOG2E</td>
-							<td>返回以 2 为底的 e 的对数（约等于 1.414）</td>
-						</tr>
-						<tr>
-							<td>LOG10E</td>
-							<td>返回以 10 为底的 e 的对数（约等于0.434）</td>
-						</tr>
-						<tr>
-							<td>PI</td>
-							<td>返回圆周率（约等于3.14159）</td>
-						</tr>
-						<tr>
-							<td>SQRT1_2</td>
-							<td>返回返回 2 的平方根的倒数（约等于 0.707）</td>
-						</tr>
-						<tr>
-							<td>SQRT2</td>
-							<td>返回 2 的平方根（约等于 1.414）</td>
+							<td>arguments.callee</td>
+							<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
 						</tr>
 					</table>
+					rest参数：<br>
+					<pre><code data-language="javascript">
+						function foo(a, b, ...rest) {
+						    console.log('a = ' + a);
+						    console.log('b = ' + b);
+						    console.log(rest);
+						    //rest: [array]
+						}
+					</code></pre>
 				</span></li>
-				<li><a href="">Math.三角函数</a><span>
+				<li>
+					<a href="">...rest</a>
+					<span>
+						rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 <br>
+						rest 参数之后不能再有其他参数（即只能是最后一个参数）
+					</span>
+				</li>
+				<li><a href="">this</a><span>
 					<table>
 						<tr>
-							<th>函数</th>
-							<th>描述</th>
+							<th>当前环境</th>
+							<th>this指向</th>
 						</tr>
 						<tr>
-							<td>Math.sin(x)</td>
-							<td>返回数的正弦</td>
+							<td>函数</td>
+							<td>非严格模式：window <br>
+							strict模式：undefined
+							</td>
 						</tr>
 						<tr>
-							<td>>Math.asin(x)</td>
-							<td>返回 x 的反正弦值</td>
-						</tr>
-						<tr>
-							<td>Math.cos(x)</td>
-							<td>返回数的余弦</td>
-						</tr>
-						<tr>
-							<td>Math.acos(x)</td>
-							<td>返回 x 的反余弦值</td>
-						</tr>
-						<tr>
-							<td>Math.tan(x)</td>
-							<td>返回角的正切</td>
-						</tr>
-						<tr>
-							<td>Math.atan(x)</td>
-							<td>以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值</td>
-						</tr>
-						<tr>
-							<td>Math.atan2(y,x)</td>
-							<td>返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）</td>
+							<td>对象</td>
+							<td>object<br>
+							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
+							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
+							</td>
 						</tr>
 					</table>
+					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料1</a> | <a href="http://javascript.ruanyifeng.com/oop/this.html">参考资料2</a>
 				</span></li>
 			</ul>
-			<h4>[<span>+</span>]Math[es6]</h4>
-			<ul style="display:none">
-				<li>
-					<a href="">Math.trunc</a>(x)
-					<span>
-						去除一个数的小数部分，返回整数部分
-					</span>
-				</li>
-				<li>
-					<a href="">Math.sign</a>(x)
-					<span>
-						判断一个数到底是正数、负数、还是零。 <hr>
-						参数为正数，返回+1； <br>
-						参数为负数，返回-1；<br>
-						参数为 0，返回0；<br>
-						参数为-0，返回-0;<br>
-						其他值，返回NaN。
-					</span>
-				</li>
-				<li>
-					<a href="">Math.cbrt</a>(x)
-					<span>
-						计算一个数的立方根
-					</span>
-				</li>
-				<li>
-					<a href="">Math.hypot</a>(x,y..)
-					<span>
-						返回所有参数的平方和的平方根
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]日期时间</h4>
+			<h4>[<span>-</span>]方法</h4>
 			<ul>
-				<li><a href="">new Date</a>([arg..,timestamp])<span>
-					返回：日期对象 <hr>
-					无参数时：创建计算机当前时间的日期对象 <br>
-					var date = new Date(); <br>
-					Sat Oct 07 2017 01:20:24 GMT+0800 (中国标准时间) <hr>
-					有参数时：创建指定时间的日期对象 <br>
-					var date = new Date(2015, 5, 19, 20, 15, 30, 123); <br>
-					var date = new Date(1435146562875); <br>
-					当前时间是浏览器从本机操作系统获取的时间，所以不一定准确，因为用户可以把当前时间设定为任何值。
+				<li>fn<a href="">.apply</a>(obj,[arg])<span>
+					fn.apply(作用域，[传递参数]/arguments) <br>
+					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
 				</span></li>
-				<li>date.<a href="">getFullYear()</a>{2017}<span>年份</span></li>
-				<li>date.<a href="">getMonth()</a>{0~11}<span>月份，范围0~11</span></li>
-				<li>date.<a href="">getDate()</a>{1~31}<span>日期</span></li>
-				<li>date.<a href="">getDay()</a>{1~7}<span>星期</span></li>
-				<li>date.<a href="">getHours()</a>{0~24}<span>时，24小时制</span></li>
-				<li>date.<a href="">getMinutes()</a>{0~60}<span>分</span></li>
-				<li>date.<a href="">getSeconds()</a>{0~60}<span>秒</span></li>
-				<li>date.<a href="">getMilliseconds()</a>{0~1000}<span>毫秒</span></li>
-				<li><a href="">Date.now()</a>{timestamp}<span>当前时间戳</span></li>
-				<li>date.<a href="">getTime()</a>{timestamp}<span>时间戳，等同于date.valueOf()</span></li>
-				<li><a href="">Date.parse(ISO)</a>{timestamp}<span>
-					解析一个符合ISO 8601格式的字符串，并返回对应时间戳 <br>
-					var d = Date.parse('2015-06-24T19:49:22.875+08:00'); <br>
-					d; // 1435146562875
-				</span></li>
-				<li>date.<a href="">toString</a>()<span>
-					Sat Oct 07 2017 01:36:58 GMT+0800 (中国标准时间)
-				</span></li>
-				<li>date.<a href="">toLocaleString</a>()<span>
-					2017/10/7 上午1:33:06
-				</span></li>
-				<li>date.<a href="">toUTCString</a>()<span>
-					Fri, 06 Oct 2017 17:33:06 GMT
+				<li>fn<a href="">.call</a>(obj,arg)<span>
+					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
+					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
+					对普通函数调用，我们通常把this绑定为null。 <br>
+					如果参数为空、null和undefined，则默认传入全局对象。
+					</span></li>
+				<li>fn<a href="">.bind</a>(obj)<span>
+					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
+					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
 				</span></li>
 			</ul>
-			<h4>[<span>-</span>]正则表达式</h4>
-			<ul>
-				<li><a href="">new RegExp</a>('exp')<span>
-					第一种方式是直接通过/正则表达式/写出来，第二种方式是通过new RegExp('正则表达式')创建一个RegExp对象。<br>
-					var re1 = /ABC\-001/; <br>
-					var re2 = new RegExp('ABC\\-001');<br>
-					注意，如果使用第二种写法，因为字符串的转义问题，字符串的两个\\实际上是一个\。 <hr>
-					修饰符：<br>
-					i：忽略大小写。 <br>
-					g：全局匹配。 <br>
-					m：多行模式。<br>
-					<a href="http://javascript.ruanyifeng.com/stdlib/regexp.html">参考资料</a>
-				</span></li>
-				<li>RegExp.<a href="">test</a>(str)<span>
-					返回：true/false
-				</span></li>
-				<li>RegExp.<a href="">exec</a>(str)<span>
-					返回：匹配值/null <br>
-					全局匹配可以多次执行exec()方法来搜索一个匹配的字符串。当我们指定g标志后，每次运行exec()，正则表达式本身会更新lastIndex属性，表示上次匹配到的最后索引。
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]其它</h4>
-			<ul>
-				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects">new FormData()</a></li>
-				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects">更多</a></li>
-			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>内置函数<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 定时器</h4>
+            <ul>
+            	<li>
+            		<a href="">setTimeout</a>(fn,time)
+            		<span>
+            			在指定的毫秒数后调用函数或计算表达式 <br>
+            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
+            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当time=0时的应用，同样需等待队列完成</a>
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">setInterval</a>(fn,time)
+            		<span>
+            			按照指定的周期（以毫秒计）来调用函数或计算表达式
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearTimeout</a>(timeout)
+            		<span>
+            			取消由 setTimeout() 方法设置的 timeout
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearInterval</a>(timeout)
+            		<span>
+            			取消由 setInterval() 设置的 timeout
+            		</span>
+            	</li>
+            </ul>
 		</div>
 	</div>
 </div>

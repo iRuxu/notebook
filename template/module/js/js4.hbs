@@ -1,410 +1,133 @@
-<!-- 函数 -->
+<!-- ES6 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>函数<span>-</span></h3>
+		<h3>ES6 Array<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Function</h4>
+			<h4>[<span>-</span>]Set</h4>
+			<ul>
+				<li><a href="">new Set()</a><span>
+					Set是一组key的集合，但不存储value，且key不能重复。<br>
+					要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set。
+<pre><code data-language="javascript">
+	var s1 = new Set(); // 空Set
+	var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+</code></pre>
+				</span></li>
+				<li>set.<a href="">add</a>(key)<span>
+					s.add(4)
+					//Set {1,2,3,4}
+				</span></li>
+			</ul>
+			<h4>[<span>-</span>]Map</h4>
+			<ul>
+				<li><a href="">new Map()</a><span>
+					初始化Map需要一个二维数组，或者直接初始化一个空Map。没有字面量方法。
+					<pre><code data-language="javascript">var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);</code></pre>
+				</span></li>
+				<li>map.<a href="">get</a>(key)<span>取key的值，返回值</span></li>
+				<li>map.<a href="">set</a>(key,val)<span>添加新的key-value</span></li>
+			</ul>
+			<h4>[<span>-</span>]Set/Map</h4>
 			<ul>
 				<li>
-					<em>fn</em><a href=""></a>
+					set/map.<a href="">size</a>
 					<span>
-						<b>参数</b> <br>
-						函数不能省略靠前的参数，如果一定要省略靠前的参数，只有显式传入undefined。 <br>
-						函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。即在函数内部，传入的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。这意味着，在函数体内修改参数值，不会影响到函数外部。 <br>
-						函数参数如果是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的原始值的地址，因此在函数内部修改参数，将会影响到原始值。 <br>
-						注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-						如果有同名的参数，则取最后出现的那个值。
-						<hr>
-						<b>作用域</b> <br>
-						函数作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。<br>
-						函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。  <br>
-						同样的，函数体内部声明的函数，作用域绑定函数体内部。<br>
-                        <a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
-                        ES6中块级作用域中声明的函数，在块级作用域之外不可引用
-						<hr>
-						<b>属性</b> <br>
-						fn.name : 返回紧跟在function关键字之后的那个函数名(匿名函数为空字符串) <br>
-						fn.length : 返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数)。 <br>
-						fn.toString() : 返回函数的源码，注释也可以返回。
-						<hr>
-						<b>闭包</b> <br>
-						定义在一个函数内部的函数。闭包最大的特点，就是它可以“记住”诞生的环境。 <br>
-						闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。 <br>
-						返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。 <br>
-						如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
+						返回实例的成员总数
 					</span>
 				</li>
 				<li>
-					<a href="">new</a> fn
+					set/map.<a href="">has</a>(key)
 					<span>
-						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
-						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
-						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
-						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
-						方法应挂载在prototype上，避免内存占用
+						返回一个布尔值，表示该值是否为实例的成员。
 					</span>
 				</li>
-				<li><a href="">function</a>()<span>
-					<b>1.function命令 - 函数的声明</b><br>
-					function fn(arg){...} <br>
-					<hr>
-					<b>2.函数表达式</b> <br>
-					var fn = function(arg){...} <br>
-					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
-					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
-					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。 <br>
-					采用函数表达式声明函数时，function命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。 <br>
-					<hr>
-					<b>3.Function构造函数</b> <br>
-					var fn = new Function(arg..,函数体) <br>
-					你可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
-					<hr>
-					如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。 <br>
-					如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-					根据ECMAScript的规范，不得在非函数的代码块中声明函数。
-				</span></li>
-				<li><a href="">(function(n){})(n)</a><span>
-					IIFE = Immediately-Invoked Function Expression,立即调用的函数表达式 <br>
-					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
-				</span></li>
-				<li><a href="">x => x * x</a><span>
-					<pre><code data-language="javascript">
-						//单个参数
-						var result = x => x * x
-						function (x) {
-						    return x * x;
-						}
-						//语句块
-						x => {
-						    if (x > 0) {
-						        return x * x;
-						    }
-						    else {
-						        return - x * x;
-						    }
-						}
-						//多个参数
-						(x, y) => x * x + y * y
-					</code></pre>
-				箭头函数相当于匿名函数，省略了return。<br>
-				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
-				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
-				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]内部</h4>
-			<ul>
-				<li><a href="">return</a><span>
-					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
-				</span></li>
-				<li><a href="">arguments</a><span>
-					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。 <br>
-					严格模式下为只读对象，不允许修改。
-						<tr>
-							<th>对象值</th>
-							<th>描述</th>
-						</tr>
-						<tr>
-							<td>arguments[0]</td>
-							<td>第一个参数名字</td>
-						</tr>
-						<tr>
-							<td>arguments.length</td>
-							<td>参数的个数</td>
-						</tr>
-						<tr>
-							<td>arguments.callee</td>
-							<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
-						</tr>
-					</table>
-					rest参数：<br>
-					<pre><code data-language="javascript">
-						function foo(a, b, ...rest) {
-						    console.log('a = ' + a);
-						    console.log('b = ' + b);
-						    console.log(rest);
-						    //rest: [array]
-						}
-					</code></pre>
+				<li>set/map.<a href="">delete</a>(key)<span>
+					s.delete(3)
 				</span></li>
 				<li>
-					<a href="">...rest</a>
+					set/map.<a href="">clear()</a>
 					<span>
-						rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 <br>
-						rest 参数之后不能再有其他参数（即只能是最后一个参数）
+						清除所有成员，没有返回值
 					</span>
 				</li>
-				<li><a href="">this</a><span>
-					<table>
-						<tr>
-							<th>当前环境</th>
-							<th>this指向</th>
-						</tr>
-						<tr>
-							<td>函数</td>
-							<td>非严格模式：window <br>
-							strict模式：undefined
-							</td>
-						</tr>
-						<tr>
-							<td>对象</td>
-							<td>object<br>
-							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
-							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
-							</td>
-						</tr>
-					</table>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料1</a> | <a href="http://javascript.ruanyifeng.com/oop/this.html">参考资料2</a>
-				</span></li>
+				<li>
+					set/map.<a href="">keys()</a>
+					<span>
+						返回键名的遍历器
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">values()</a>
+					<span>
+						返回键值的遍历器
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">entries()</a>
+					<span>
+						返回所有成员的遍历器
+					</span>
+				</li>
 			</ul>
-			<h4>[<span>-</span>]方法</h4>
+			<h4>[<span>-</span>]Iterable</h4>
 			<ul>
-				<li>fn<a href="">.apply</a>(obj,[arg])<span>
-					fn.apply(作用域，[传递参数]/arguments) <br>
-					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+				<li>ite.<a href="">forEach</a><em>(fn(val,[i],[o]))</em><span>
+				每个元素都执行一次回调函数，可应用与Iterable类型 (Array/Map/Set)<br>
+				Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身<br>
+				Map的回调函数参数依次为value、key和map本身 <br>
+				forEach方法无法中断执行，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用for循环。
+				<table>
+					<tr>
+						<th>类型</th>
+						<th>参数</th>
+					</tr>
+					<tr>
+						<td>array</td>
+						<td>value,index,array</td>
+					</tr>
+					<tr>
+						<td>set</td>
+						<td>value,value,set</td>
+					</tr>
+					<tr>
+						<td>map</td>
+						<td>value,key,map</td>
+					</tr>
+				</table>
+<pre><code data-language="javascript">
+	var a = ['A', 'B', 'C'];
+	a.forEach(function (element, index, array) {
+		// element: 指向当前元素的值
+		// index: 指向当前索引
+		// array: 指向Array对象本身
+	alert(element);
+	});
+</code></pre>
 				</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>
-					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
-					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
-					对普通函数调用，我们通常把this绑定为null。 <br>
-					如果参数为空、null和undefined，则默认传入全局对象。
-					</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>
-					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
-					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
+				<li>key <a href="">of</a> ite<span>
+					遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for ... of循环来遍历。
+<pre><code data-language="javascript">
+	var a = ['A', 'B', 'C'];
+	var s = new Set(['A', 'B', 'C']);
+	var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+	for (var x of a) { // 遍历Array
+	    console.log('arr:' + x);
+	}
+	for (var x of s) { // 遍历Set
+	    console.log('set:' + x);
+	}
+	for (var x of m) { // 遍历Map
+	    console.log('map:' + x[0] + '=' + x[1]);
+	}
+</code></pre>
 				</span></li>
 			</ul>
-			<h4>[<span>+</span>]Generator</h4>
-			<ul style="display:none;">
-				<li><a href="">function*</a>()<span></span></li>
-				<li><a href="">yield</a> val<span></span></li>
-				<li>g.<a href="">next()</a><span></span></li>
-			</ul>
-			<h4>[<span>-</span>] 定时器</h4>
-            <ul>
-            	<li>
-            		<a href="">setTimeout</a>(fn,time)
-            		<span>
-            			在指定的毫秒数后调用函数或计算表达式 <br>
-            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
-            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当time=0时的应用，同样需等待队列完成</a>
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">setInterval</a>(fn,time)
-            		<span>
-            			按照指定的周期（以毫秒计）来调用函数或计算表达式
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearTimeout</a>(timeout)
-            		<span>
-            			取消由 setTimeout() 方法设置的 timeout
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearInterval</a>(timeout)
-            		<span>
-            			取消由 setInterval() 设置的 timeout
-            		</span>
-            	</li>
-            </ul>
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>Ajax<span>-</span></h3>
+		<h3>ES6 Object<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]创建</h4>
-			<ul>
-				<li>
-					<a href="">new XMLHttpRequest()</a>
-					<span>
-						IE5-6不支持，用ActiveX对象替代，new ActiveXObject("Microsoft.XMLHTTP")
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">open</a><em>(method,url,async)</em>
-					<span>
-						规定请求的类型、URL 以及是否异步处理请求。 <br>
-						method：请求的类型，GET 或 POST <br>
-						url：文件在服务器上的位置<br>
-						async：true（异步）或 false（同步）
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">setRequestHeader</a><em>(header,val)</em>
-					<span>
-						向请求添加HTTP头 <br>
-						xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded") <br>
-						该方法必须在open()之后、send()之前调用。
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">send</a>(str)
-					<span>
-						将请求发送到服务器。 <br>
-						string：仅用于post请求 
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]事件</h4>
-			<ul>
-				<li>
-					xhr.<a href="">onreadystatechange</a>
-					<span>
-						存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。 <br>
-						当 readyState 等于 4 且状态为 200 时，表示响应已就绪 <br>
-						XMLHttpRequest第一版，只能对onreadystatechange这一个事件指定回调函数。
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">onloadstart</a>
-					<span>
-						请求发出
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">onprogress</a>
-					<span>
-						正在发送和加载数据
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">onabort</a>
-					<span>
-						请求被中止，比如用户调用了abort()方法
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">onerror</a>
-					<span>
-						请求失败
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">onload</a>
-					<span>
-						请求成功完成
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">ontimeout</a>
-					<span>
-						用户指定的时限到期，请求还未完成
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">onloadend</a>
-					<span>
-						请求完成，不管成果或失败
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]属性</h4>
-			<ul>
-				<li>
-					xhr.<a href="">timeout</a>
-					<span>
-						等于一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">withCredentials</a>
-					<span>
-						withCredentials属性是一个布尔值，表示跨域请求时，用户信息（比如Cookie和认证的HTTP头信息）是否会包含在请求之中，默认为false。 <br>
-						如果你需要通过跨域AJAX发送Cookie，需要打开withCredentials。 <br>
-						为了让这个属性生效，服务器必须显式返回Access-Control-Allow-Credentials这个头信息
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]方法</h4>
-			<ul>
-				<li>
-					xhr.<a href="">abort()</a>
-					<span>
-						终止已经发出的HTTP请求 <br>
-						ajax.abort();<br>
-    					ajax = null;
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">getAllResponseHeaders()</a>
-					<span>
-						getAllResponseHeaders方法返回服务器发来的所有HTTP头信息。格式为字符串，每个头信息之间使用CRLF分隔，如果没有受到服务器回应，该属性返回null。
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">getResponseHeader</a>(key)
-					<span>
-						返回HTTP头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，则该属性为null。
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">overrideMimeType()</a>
-					<span>
-						该方法用来指定服务器返回数据的MIME类型。该方法必须在send()之前调用。
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]状态</h4>
-			<ul>
-				<li>
-					xhr.<a href="">readyState</a>
-					<span>
-						0: 请求未初始化 <br>
-						1: 服务器连接已建立 <br>
-						2: 请求已接收 <br>
-						3: 请求处理中 <br>
-						4: 请求已完成，且响应已就绪
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">status</a>
-					<span>
-						200, OK，访问正常 <br>
-						301, Moved Permanently，永久移动<br>
-						302, Move temporarily，暂时移动<br>
-						304, Not Modified，未修改<br>
-						307, Temporary Redirect，暂时重定向<br>
-						401, Unauthorized，未授权<br>
-						403, Forbidden，禁止访问<br>
-						404, Not Found，未发现指定网址<br>
-						500, Internal Server Error，服务器发生错误
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]响应</h4>
-			<ul>
-				<li>
-					xhr.<a href="">response</a>
-					<span>
-						只读，返回接收到的数据体
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">responseText</a>
-					<span>
-						获得字符串形式的响应数据
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">responseXML</a>
-					<span>
-						获得 XML 形式的响应数据
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">repsonseType</a>
-					<span>
-						“”：字符串（默认值）  <br>
-						“arraybuffer”：ArrayBuffer对象<br>
-						“blob”：Blob对象,blob类型适合读取二进制数据，比如图片文件<br>
-						“document”：Document对象,document类型适合返回XML文档的情况<br>
-						“json”：JSON对象<br>
-						“text”：字符串
-					</span>
-				</li>
-			</ul>
+			<h4>[<span>-</span>]Proxy</h4>
 		</div>
 	</div>
 </div>

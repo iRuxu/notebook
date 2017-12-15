@@ -96,40 +96,7 @@ var o = new Obj(name)
 					它不仅遍历对象自身的属性，还遍历继承的属性。
 				</span></li>
 			</ul>
-			<h4>[<span>-</span>]Map</h4>
-			<ul>
-				<li><a href="">new Map()</a><span>
-					初始化Map需要一个二维数组，或者直接初始化一个空Map。没有字面量方法。
-					<pre><code data-language="javascript">var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);</code></pre>
-				</span></li>
-				<li>map.<a href="">get</a>(key)<span>取key的值，返回值</span></li>
-				<li>map.<a href="">set</a>(key,val)<span>添加新的key-value</span></li>
-				<li>map.<a href="">has</a>(key)<span>是否存在key，返回布尔值</span></li>
-				<li>map.<a href="">delete</a>(key)<span>删除key</span></li>
-				<li>key <a href="">of</a> map<span>
-					遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for ... of循环来遍历。
-<pre><code data-language="javascript">
-	var a = ['A', 'B', 'C'];
-	var s = new Set(['A', 'B', 'C']);
-	var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
-	for (var x of a) { // 遍历Array
-	    console.log('arr:' + x);
-	}
-	for (var x of s) { // 遍历Set
-	    console.log('set:' + x);
-	}
-	for (var x of m) { // 遍历Map
-	    console.log('map:' + x[0] + '=' + x[1]);
-	}
-</code></pre>
-				</span></li>
-			</ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>面向对象<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]属性与值</h4>
+			<h4>[<span>-</span>]取值方法</h4>
 			<ul>
 				<li>
 					<a href="">Object.getOwnPropertyNames</a><em>(obj)</em>
@@ -149,10 +116,67 @@ var o = new Obj(name)
 					</span>
 				</li>
 				<li>
+					<a href="">Object.values</a>(obj)
+					<span>
+						返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+					</span>
+				</li>
+				<li>
 					<a href="">Object.entries</a>(obj)
 					<span>
 						返回一个给定对象自身可枚举属性的键值对的二维数组 <br>
 						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">参考资料</a>
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getOwnPropertySymbols</a>(obj)
+					<span>
+						返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]属性描述</h4>
+			<ul>
+				<li>
+					Attributes Object<a href=""></a>
+					<span>
+						数据对象与DOM对象的双向绑定：<a href="http://javascript.ruanyifeng.com/stdlib/attributes.html">参考资料</a>
+					</span>
+				</li>
+				<li>
+					ab.<a href="">value</a>
+					<span>
+						存放该属性的属性值，默认为undefined
+					</span>
+				</li>
+				<li>
+					ab.<a href="">writable</a>
+					<span>
+						存放一个布尔值，表示属性值是否可改变	
+					</span>
+				</li>
+				<li>
+					ab.<a href="">enumerable</a>
+					<span>
+						存放一个布尔值，表示该属性是否可枚举
+					</span>
+				</li>
+				<li>
+					ab.<a href="">configurable</a>
+					<span>
+						存放一个布尔值，表示“可配置性”。如果设为false，将阻止某些操作改写该属性，比如，无法删除该属性，也不得改变该属性的属性描述对象（value属性除外）。也就是说，configurable属性控制了属性描述对象的可写性。
+					</span>
+				</li>
+				<li>
+					ab.<a href="">get</a>
+					<span>
+						存放一个函数，表示该属性的取值函数（getter），默认为undefined
+					</span>
+				</li>
+				<li>
+					ab.<a href="">set</a>
+					<span>
+						存放一个函数，表示该属性的存值函数（setter），默认为undefined
 					</span>
 				</li>
 				<li>
@@ -162,74 +186,8 @@ var o = new Obj(name)
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>+</span>]属性模型</h4>
-			<ul style="display:none;">
-				<li>
-					<em>attributes object</em><a href=""></a>
-					<span>
-						属性描述对象 <br>
-						<table>
-							<tr>
-								<th>设置</th>
-								<th>描述</th>
-							</tr>
-							<tr>
-								<td>value</td>
-								<td>存放该属性的属性值，默认为undefined</td>
-							</tr>
-							<tr>
-								<td>writable</td>
-								<td>存放一个布尔值，表示属性值是否可改变</td>
-							</tr>
-							<tr>
-								<td>enumerable</td>
-								<td>存放一个布尔值，表示该属性是否可枚举</td>
-							</tr>
-							<tr>
-								<td>configurable</td>
-								<td>存放一个布尔值，表示“可配置性”。如果设为false，将阻止某些操作改写该属性，比如，无法删除该属性，也不得改变该属性的属性描述对象（value属性除外）。也就是说，configurable属性控制了属性描述对象的可写性。</td>
-							</tr>	
-							<tr>
-								<td>get</td>
-								<td>存放一个函数，表示该属性的取值函数（getter），默认为undefined</td>
-							</tr>
-							<tr>
-								<td>set</td>
-								<td>存放一个函数，表示该属性的存值函数（setter），默认为undefined</td>
-							</tr>
-						</table>
-						数据对象与DOM对象的双向绑定：<a href="http://javascript.ruanyifeng.com/stdlib/attributes.html">参考资料</a>
-					</span>
-				</li>
-				<li>
-					<a href="">Object.defineProperty</a><em>(obj,key,{desc})</em>
-					<span>
-						通过attributes对象，定义某个属性。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">参考资料</a>
-					</span>
-				</li>
-				<li>
-					<a href="">Object.defineProperties</a><em>(obj,{key:{desc}})</em>
-					<span>
-						通过attributes对象，定义多个属性。
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties">参考资料</a>
-					</span>
-				</li>
-				<li>
-					<a href="">Object.getOwnPropertyDescriptor</a><em>(obj,key)</em>
-					<span>
-						返回指定对象上一个自有属性对应的属性描述符 <br>
-						自有属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性
-					</span>
-				</li>
-				<li>
-					<a href="">Object.getOwnPropertyDescriptors</a><em>(obj,key)</em>
-					<span>
-						获取一个对象的所有自身属性的描述符。
-					</span>
-				</li>
-			</ul>
 			<h4>[<span>+</span>]状态控制</h4>
-			<ul style="display:none;">
+			<ul>
 				<li>
 					<a href="">Object.preventExtensions</a>(obj)
 					<span>
@@ -267,6 +225,11 @@ var o = new Obj(name)
 					</span>
 				</li>
 			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>面向对象<span>-</span></h3>
+		<div class="u-list">
 			<h4>[<span>-</span>]原型链</h4>
 			<ul>
 				<li>
@@ -286,6 +249,12 @@ var o = new Obj(name)
                     为减少内存消耗，将公共方法写在构造函数的原型上，<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a> <hr>
                     在改变原型对象时，一般要同时设置constructor属性
                 </span></li>
+                <li>
+                	<a href="">super</a>
+                	<span>
+                		this关键字总是指向函数所在的当前对象，ES6 又新增了另一个类似的关键字super，指向当前对象的原型对象。
+                	</span>
+                </li>
                 <li>proto.<a href="">constructor</a><span>
                     原型对象的这个属性指向构造函数 <br>
                     <img src="image/js/prototype.png" alt=""> <br>
