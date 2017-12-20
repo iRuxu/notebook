@@ -6,7 +6,7 @@
 			<h4>[<span>-</span>]Function</h4>
 			<ul>
 				<li>
-					<em>fn</em><a href=""></a>
+					<a href="">function</a> <em>name(arg)</em>
 					<span>
 						<b>参数</b> <br>
 						函数不能省略靠前的参数，如果一定要省略靠前的参数，只有显式传入undefined。 <br>
@@ -44,7 +44,7 @@
 						方法应挂载在prototype上，避免内存占用
 					</span>
 				</li>
-				<li><a href="">function</a>()<span>
+				<li><a href="">function</a>(arg)<span>
 					<b>1.function命令 - 函数的声明</b><br>
 					function fn(arg){...} <br>
 					<hr>
@@ -68,24 +68,24 @@
 					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
 				</span></li>
 				<li><a href="">x => x * x</a><span>
-					<pre><code data-language="javascript">
-						//单个参数
-						var result = x => x * x
-						function (x) {
-						    return x * x;
-						}
-						//语句块
-						x => {
-						    if (x > 0) {
-						        return x * x;
-						    }
-						    else {
-						        return - x * x;
-						    }
-						}
-						//多个参数
-						(x, y) => x * x + y * y
-					</code></pre>
+<pre><code data-language="javascript">
+	//单个参数
+	var result = x => x * x
+	function (x) {
+	    return x * x;
+	}
+	//语句块
+	x => {
+	    if (x > 0) {
+	        return x * x;
+	    }
+	    else {
+	        return - x * x;
+	    }
+	}
+	//多个参数
+	(x, y) => x * x + y * y
+</code></pre>
 				箭头函数相当于匿名函数，省略了return。<br>
 				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
 				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
@@ -94,9 +94,6 @@
 			</ul>
 			<h4>[<span>-</span>]内部</h4>
 			<ul>
-				<li><a href="">return</a><span>
-					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
-				</span></li>
 				<li><a href="">arguments</a><span>
 					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。 <br>
 					严格模式下为只读对象，不允许修改。
@@ -134,6 +131,9 @@
 						rest 参数之后不能再有其他参数（即只能是最后一个参数）
 					</span>
 				</li>
+				<li><a href="">return</a> value<span>
+					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
+				</span></li>
 				<li><a href="">this</a><span>
 					<table>
 						<tr>
@@ -182,7 +182,7 @@
 			<h4>[<span>-</span>] 定时器</h4>
             <ul>
             	<li>
-            		<a href="">setTimeout</a>(fn,time)
+            		<a href="">setTimeout</a>(fn,time,[arg])
             		<span>
             			在指定的毫秒数后调用函数或计算表达式 <br>
             			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
@@ -205,6 +205,48 @@
             		<a href="">clearInterval</a>(timeout)
             		<span>
             			取消由 setInterval() 设置的 timeout
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>+</span>] Generator</h4>
+            <ul style="display: none;">
+            	<li>
+            		<a href="">function*</a> name(arg)
+            		<span>
+            			定义一个generator函数.调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是遍历器对象.
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">yield</a> value
+            		<span>
+            			暂停性地return
+            		</span>
+            	</li>
+            	<li>
+            		gnt.<a href="">next()</a>
+            		<span>
+            			必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>+</span>] Async</h4>
+            <ul style="display: none;">
+            	<li>
+            		<a href="">async function</a> name(arg)
+            		<span>
+            			async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">await</a> promise
+            		<span>
+            			await表示紧跟在后面的表达式需要等待结果
+            		</span>
+            	</li>
+            	<li>
+            		asc.<a href="">then</a>(fn)
+            		<span>
+            			async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。
             		</span>
             	</li>
             </ul>
