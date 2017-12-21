@@ -1,10 +1,9 @@
-var someString = "hi";
-typeof someString[Symbol.iterator]
-// "function"
+class Test {
+	constructor(x,y){
+		this.x = x;
+		this.y = y;
+	}
+}
 
-var iterator = someString[Symbol.iterator]();
-
-var test = iterator.next()  // { value: "h", done: false }
-console.log(test)
-iterator.next()  // { value: "i", done: false }
-iterator.next()  // { value: undefined, done: true }
+var test2 = new Test(1,2)
+console.log(typeof(test2))

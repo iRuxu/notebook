@@ -197,7 +197,7 @@
                     defer : 延迟加载 <br />
                     async : 异步加载 <br />
                     一般来说，如果脚本之间没有依赖关系，就使用async属性，如果脚本之间有依赖关系，就使用defer属性。如果同时使用async和defer属性，后者不起作用，浏览器行为由async属性决定。 <br /> 
-                    <a href="http://javascript.ruanyifeng.com/bom/engine.html#toc5">参考资料</a><br /> 
+                    defer与async的区别是：defer要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行；async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。一句话，defer是“渲染完再执行”，async是“下载完就执行”。另外，如果有多个defer脚本，会按照它们在页面出现的顺序加载，而多个async脚本是不能保证加载顺序的。
                     </span></li>
                 <li><a href="">noscript</a><span>
                     禁用脚本提示

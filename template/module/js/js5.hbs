@@ -252,4 +252,69 @@
             </ul>
 		</div>
 	</div>
+	<div class="u-block">
+		<h3>模块<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] Module</h4>
+			<ul>
+				<li>
+            		<a href="">export</a><em>{v1,v2..}</em>
+            		<span>
+            			export {var..} <br>
+            			export fn
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">import</a><em>{v1,v2...} from 'path/file'</em>
+            		<span>
+            			import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js后缀可以省略。
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">export</a><em>{$inner as $outer}</em>
+            		<span>
+            			export输出的变量就是本来的名字，但是可以使用as关键字重命名。
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">import</a><em>{$old as $new} from 'path/file'</em>
+            		<span>
+            			如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">import * as $obj</a><em> from 'path/file'</em>
+            		<span>
+            			除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">export</a><em>{v1,v2...} from 'path/file'</em>
+            		<span>
+            			如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。
+            		</span>
+            	</li>
+			</ul>
+			<h4>[<span>-</span>] Default</h4>
+			<ul>
+				<li>
+            		<a href="">export default $name</a>
+            		<span>
+            			此时import命令，可以用任意名称指向输出的方法，这时就不需要知道原模块输出的函数名。
+            			
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">import $custom form 'path/file'</a>
+            		<span>
+            			需要注意的是，这时import命令后面，不使用大括号。 
+            		</span>
+            	</li>
+			</ul>
+            <ul>
+            	
+            	
+            </ul>
+		</div>
+	</div>
 </div>
