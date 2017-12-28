@@ -1,6 +1,68 @@
 <!-- 系统、进程 -->
 <div class="u-col">
     <div class="u-block">
+        <h3>timers<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Immediate类</h4>
+            <ul>
+                <li>
+                    <a href="">setImmediate</a>(fn,[arg])
+                    <span>
+                        预定立即执行的 callback，它是在 I/O 事件的回调之后被触发。 <br>
+                        当多次调用 setImmediate() 时，callback 函数会按照它们被创建的顺序依次执行。 每次事件循环迭代都会处理整个回调队列。 如果一个立即定时器是被一个正在执行的回调排入队列的，则该定时器直到下一次事件循环迭代才会被触发。
+                    </span>
+                </li>
+                <li>
+                    <a href="">clearImmediate</a>(immediate)
+                    <span>
+                        取消一个由 setImmediate() 创建的 Immediate 对象。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] Timeout类</h4>
+            <ul>
+                <li>
+                    <a href="">setInterval</a>(fn,delay,[arg])
+                    <span>
+                        预定每隔 delay 毫秒重复执行的 callback。
+                    </span>
+                </li>
+                <li>
+                    <a href="">clearInterval</a>(timeout)
+                    <span>
+                        取消一个由 setInterval() 创建的 Timeout 对象。
+                    </span>
+                </li>
+                <li>
+                    <a href="">setTimeout</a>(fn,delay,[arg])
+                    <span>
+                        预定在 delay 毫秒之后执行的单次 callback。
+                    </span>
+                </li>
+                <li>
+                    <a href="">clearTimeout</a>(timeout)
+                    <span>
+                        取消一个由 setTimeout() 创建的 Timeout 对象。
+                    </span>
+                </li>
+                <li>
+                    <a href="">timeout.ref()</a>
+                    <span>
+                        调用时，只要 Timeout 处于活动状态就要求 Node.js 事件循环不要退出。<br>
+                        返回 Timeout 的一个引用。
+                    </span>
+                </li>
+                <li>
+                    <a href="">timeout.unref()</a>
+                    <span>
+                        当调用时，活动的 Timeout 对象不要求 Node.js 事件循环保持活动。 <br>
+                        返回对 Timeout 的一个引用。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
         <h3>os<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] 操作系统</h4>
@@ -17,17 +79,9 @@
         </div>
     </div>
     <div class="u-block">
-        <h3>process<span>-</span></h3>
+        <h3>util<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 进程</h4>
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>child_process<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 子进程</h4>
+            <h4>[<span>-</span>] 实用工具</h4>
             <ul>
             </ul>
         </div>
@@ -44,6 +98,22 @@
         <h3>vm<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] 虚拟机</h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>repl<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 交互式解释器</h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>c++插件<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] c++插件</h4>
             <ul>
             </ul>
         </div>

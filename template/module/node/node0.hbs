@@ -3,8 +3,106 @@
     <div class="u-block">
         <h3>global<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] require</h4>
+            <h4>[<span>-</span>] global变量</h4>
             <ul>
+                <li>
+                    <a href="">global</a>
+                    <span>
+                        全局对象
+                    </span>
+                </li>
+                <li>
+                    <a href="">module</a>
+                    <span>
+                        对当前模块的引用 <br>
+                        全局变量在所有模块中均可使用，但以下变量的作用域只在模块内
+                    </span>
+                </li>
+                <li>
+                    <a href="">__filename</a>
+                    <span>
+                        当前正在执行的脚本的文件名，它将输出文件所在位置的绝对路径 <br>
+                        如果在模块中，返回的值是模块文件的路径。
+                    </span>
+                </li>
+                <li>
+                    <a href="">__dirname</a>
+                    <span>
+                        表示当前执行脚本所在的目录
+                    </span>
+                </li>
+                <li>
+                    <a href="">exports</a>
+                    <span>
+                        这是一个对于 module.exports 的更简短的引用形式 <br>
+                        如果一个新的值被赋值给 exports，它就不再绑定到 module.exports <br>
+                        但如果是对exports.prop进行赋值，则依然当做module.exports.prop输出 <br>
+                        当 module.exports 属性被一个新的对象完全替代时，也会重新赋值 exports
+                    </span>
+                </li>
+                <li>
+                    <a href="">require</a>(mod)
+                    <span>
+                        引入模块 <br>
+                        缓存 > 原生模块 > 文件模块 > node_modules > 全局目录
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] module对象</h4>
+            <ul>
+                <li>
+                    module.<a href="">exports</a>
+                    <span>
+                        模块对外输出 <br>
+                        单个函数输出，需要 module.exports = fn(){} <br>
+                        作为对象输出，可以exports.prop = fn(){} <br>
+                        或者 module.exports = $obj
+                    </span>
+                </li>
+                <li>
+                    module.<a href="">children</a>
+                    <span>
+                        被该模块引用的模块对象，返回数组 <br>
+                        不会包括内置对象
+                    </span>
+                </li>
+                <li>
+                    module.<a href="">parent</a>
+                    <span>
+                        最先引用该模块的模块
+                    </span>
+                </li>
+                <li>
+                    module.<a href="">id</a>
+                    <span>
+                        模块的标识符。 通常是完全解析后的文件名 <br>
+                        被引入的模块，同__filename
+                    </span>
+                </li>
+                <li>
+                    module.<a href="">filename</a>
+                    <span>
+                        模块的完全解析后的文件名
+                    </span>
+                </li>
+                <li>
+                    module.<a href="">loaded</a>
+                    <span>
+                        模块是否已经加载完成，或正在加载中
+                    </span>
+                </li>
+                <li>
+                    module.<a href="">paths</a>
+                    <span>
+                        模块的搜索路径,返回数组
+                    </span>
+                </li>
+                <li>
+                    require.<a href="">cache</a>
+                    <span>
+                        被引入的模块将被缓存在这个对象中。从此对象中删除键值对将会导致下一次 require 重新加载被删除的模块。
+                    </span>
+                </li>
                 <li>
                     require.<a href="">main</a>
                     <span>
@@ -12,51 +110,6 @@
                         通过检查 require.main.filename 来获取当前应用程序的入口点
                     </span>
                 </li>
-            </ul>
-            <h4>[<span>-</span>] 全局变量</h4>
-            <ul>
-            	<li><a href="">global</a><span>
-            		全局对象
-            	</span></li>
-            	<li><a href="">process</a><span>
-            		当前Node.js进程
-            	</span></li>
-            	<li><a href="">module</a><span></span></li>
-            	<li><a href="">exports</a><span></span></li>
-                <li><a href="">console</a><span></span></li>
-                <li><a href="">__dirname</a><span></span></li>
-                <li><a href="">__filename</a><span></span></li>
-                <li><a href="">Buffer</a><span></span></li>
-                <li><a href="">setImmediate</a><em>(callback[, ...args])</em><span></span></li>
-                <li><a href="">clearImmediate</a><em>(immediateObject)</em><span></span></li>
-                <li><a href="">setInterval</a><em>(callback, delay[, ...args])</em><span></span></li>
-                <li><a href="">clearInterval</a><em>(intervalObject)</em><span></span></li>
-                <li><a href="">setTimeout</a><em>(callback, delay[, ...args])</em><span></span></li>
-                <li><a href="">clearTimeout</a><em>(timeoutObject)</em><span></span></li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>util<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 实用工具</h4>
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>repl<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 交互式解释器</h4>
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>c++插件<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] c++插件</h4>
-            <ul>
             </ul>
         </div>
     </div>
