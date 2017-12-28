@@ -3,8 +3,142 @@
     <div class="u-block">
         <h3>events<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 事件</h4>
+            <h4>[<span>-</span>] EventEmitter类</h4>
             <ul>
+                <li>
+                    <a href="">var EventEmitter = require('events')</a>
+                    <span>
+                        引入events模块，得到EventEmitter类
+                    </span>
+                </li>
+                <li>
+                    <a href="">class $EMT extends EventEmitter {}</a>
+                    <span>
+                        需要监听事件的对象，继承事件对象 <br>
+                        大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它。包括 fs、net、 http 在内的，只要是支持事件响应的核心模块都是 EventEmitter 的子类。
+                    </span>
+                </li>
+                <li>
+                    <a href="">var evt = new $EMT()</a>
+                    <span>
+                        创建一个EventEmitter 实例
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 添加/移除/触发监听器</h4>
+            <ul>
+                <li>
+                    eet.<a href="">on</a>(evt,listener)
+                    <span>
+                        绑定事件及事件处理程序 <br>
+                        也可以写作eet.addListener(evt,fn) <br>
+                        一个事件可以有多个监听器，但参数应是一致的，否则应作为多个事件处理
+                        <hr>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">prependListener</a>(evt,listener)
+                    <span>
+                        添加 listener 函数到名为 eventName 的事件的监听器数组的开头。 <br>
+                        不会检查 listener 是否已被添加。 多次调用并传入相同的 eventName 和 listener 会导致 listener 被添加与调用多次。
+                        <hr>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">once</a>(evt,listener)
+                    <span>
+                        为指定事件注册一个单次监听器，即监听器最多只会触发一次，触发后立刻解除该监听器。 <hr>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">prependOnceListener</a>(evt,listener)
+                    <span>
+                        添加一个单次 listener 函数到名为 eventName 的事件的监听器数组的开头。 <br> 下次触发 eventName 事件时，监听器会被移除，然后调用。
+                        <hr>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">removeListener</a>(evt,listener)
+                    <span>
+                        移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器。 <br>
+                        removeListener 最多只会从监听器数组里移除一个监听器实例。 如果任何单一的监听器被多次添加到指定 eventName 的监听器数组中，则必须多次调用 removeListener 才能移除每个实例。 <hr>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">removeAllListeners</a>([evt])
+                    <span>
+                        移除全部或指定 eventName 的监听器。 <hr>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">emit</a>(evt,[arg])
+                    <span>
+                        触发事件 <br>
+                        arg为监听器回调函数传入的参数，同一个事件下的监听器应使用同样的参数 <hr>
+                        返回值：布尔值，如果事件有监听器，则返回 true ，否则返回 false。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 内置事件</h4>
+            <ul>
+                <li>
+                    [evt]<a href="">newListener</a>
+                    <span>
+                        EventEmitter 实例会在一个监听器被添加到其内部监听器数组之前触发自身的 'newListener' 事件。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">removeListener</a>
+                    <span>
+                        'removeListener' 事件在 listener 被移除后触发。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">error</a>
+                    <span>
+                        我们一般要为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它属性/方法</h4>
+            <ul>
+                <li>
+                    eet.<a href="">eventNames()</a>
+                    <span>
+                        列出触发器上所有绑定的事件，返回一个数组。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">getMaxListeners()</a>
+                    <span>
+                        返回 EventEmitter 当前的最大监听器限制值，默认10
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">setMaxListeners</a>(n)
+                    <span>
+                        值设为 Infinity（或 0）表明不限制监听器的数量。 <br>
+                        返回值：返回一个 EventEmitter 引用，可以链式调用。
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">listenerCount</a>(evt)
+                    <span>
+                        返回指定事件的监听器的数量
+                    </span>
+                </li>
+                <li>
+                    eet.<a href="">listeners</a>(evt)
+                    <span>
+                        返回指定事件的监听器数组的副本
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
