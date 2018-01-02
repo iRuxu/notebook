@@ -3,8 +3,8 @@
     <div class="u-block">
         <h3>fs<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 基本参数</h4>
-            <ul>
+            <h4>[<span>+</span>] 基本参数</h4>
+            <ul style="display:none">
                 <li>
                     <a href="">flags</a>
                     <span>
@@ -43,11 +43,229 @@
                     </span>
                 </li>
             </ul>
+            <h4>[<span>+</span>] 文件系统常量</h4>
+            <ul style="display:none">
+                <li>
+                    fs.<a href="">constants</a>
+                    <span>
+                        返回一个包含常用文件系统操作的常量的对象。
+                    </span>
+                </li>
+                <li>
+                    <a href="">文件访问常量</a>
+                    <span>
+                        以下常量用于 fs.access()
+                        <table>
+                          <tr>
+                            <th>常量</th>
+                            <th>描述</th>
+                          </tr>
+                          <tr>
+                            <td>F_OK</td>
+                            <td>该标志表明文件对于调用进程是可见的。</td>
+                          </tr>
+                          <tr>
+                            <td>R_OK</td>
+                            <td>该标志表明文件可被调用进程读取。</td>
+                          </tr>
+                          <tr>
+                            <td>W_OK</td>
+                            <td>该标志表明文件可被调用进程写入。</td>
+                          </tr>
+                          <tr>
+                            <td>X_OK</td>
+                            <td>该标志表明文件可被调用进程执行。</td>
+                          </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">文件打开常量</a>
+                    <span>
+                        以下常量用于 fs.open()
+                        <table>
+                          <tbody><tr>
+                            <th>常量</th>
+                            <th>描述</th>
+                          </tr>
+                          <tr>
+                            <td><code>O_RDONLY</code></td>
+                            <td>该标志表明打开一个文件用于只读访问。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_WRONLY</code></td>
+                            <td>该标志表明打开一个文件用于只写访问。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_RDWR</code></td>
+                            <td>该标志表明打开一个文件用于读写访问。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_CREAT</code></td>
+                            <td>该标志表明如果文件不存在则创建一个文件。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_EXCL</code></td>
+                            <td>该标志表明如果设置了 <code>O_CREAT</code> 标志且文件已经存在，则打开一个文件应该失败。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_NOCTTY</code></td>
+                            <td>该标志表明如果路径是一个终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_TRUNC</code></td>
+                            <td>该标志表明如果文件存在且为一个常规文件、且文件被成功打开为写入访问，则它的长度应该被截断至零。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_APPEND</code></td>
+                            <td>该标志表明数据会被追加到文件的末尾。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_DIRECTORY</code></td>
+                            <td>该标志表明如果路径不是一个目录，则打开应该失败。</td>
+                          </tr>
+                          <tr>
+                          <td><code>O_NOATIME</code></td>
+                            <td>该标志表明文件系统的读取访问权不再引起相关文件 <code>atime</code> 信息的更新。该标志只在 Linux 操作系统有效。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_NOFOLLOW</code></td>
+                            <td>该标志表明如果路径是一个符号链接，则打开应该失败。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_SYNC</code></td>
+                            <td>该标志表明文件打开用于同步 I/O。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_DSYNC</code></td>
+                            <td>该标志标明文件为同步I/O打开，写入操作会等待数据完整性</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_SYMLINK</code></td>
+                            <td>该标志表明打开符号链接自身，而不是它指向的资源。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_DIRECT</code></td>
+                            <td>当设置它时，会尝试最小化文件 I/O 的缓存效果。</td>
+                          </tr>
+                          <tr>
+                            <td><code>O_NONBLOCK</code></td>
+                            <td>该标志表明当可能时以非阻塞模式打开文件。</td>
+                          </tr>
+                        </tbody></table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">文件类型常量</a>
+                    <span>
+                        以下常量用于 fs.Stats 对象中用于决定一个文件的类型的 mode 属性
+                        <table>
+                          <tbody><tr>
+                            <th>常量</th>
+                            <th>描述</th>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFMT</code></td>
+                            <td>用于提取文件类型码的位掩码。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFREG</code></td>
+                            <td>表示一个常规文件的文件类型常量。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFDIR</code></td>
+                            <td>表示一个目录的文件类型常量。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFCHR</code></td>
+                            <td>表示一个面向字符的设备文件的文件类型常量。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFBLK</code></td>
+                            <td>表示一个面向块的设备文件的文件类型常量。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFIFO</code></td>
+                            <td>表示一个 FIFO/pipe 的文件类型常量。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFLNK</code></td>
+                            <td>表示一个符号链接的文件类型常量。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IFSOCK</code></td>
+                            <td>表示一个 socket 的文件类型常量。</td>
+                          </tr>
+                        </tbody></table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">文件模式常量</a>
+                    <span>
+                        以下常量用于 fs.Stats 对象中用于决定一个文件访问权限的 mode 属性
+                        <table>
+                          <tbody><tr>
+                            <th>常量</th>
+                            <th>描述</th>
+                          </tr>
+                          <tr>
+                            <td><code>S_IRWXU</code></td>
+                            <td>该文件模式表明可被所有者读取、写入、执行。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IRUSR</code></td>
+                            <td>该文件模式表明可被所有者读取。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IWUSR</code></td>
+                            <td>该文件模式表明可被所有者写入。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IXUSR</code></td>
+                            <td>该文件模式表明可被所有者执行。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IRWXG</code></td>
+                            <td>该文件模式表明可被群组读取、写入、执行。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IRGRP</code></td>
+                            <td>该文件模式表明可被群组读取。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IWGRP</code></td>
+                            <td>该文件模式表明可被群组写入。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IXGRP</code></td>
+                            <td>该文件模式表明可被群组执行。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IRWXO</code></td>
+                            <td>该文件模式表明可被其他人读取、写入、执行。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IROTH</code></td>
+                            <td>该文件模式表明可被其他人读取。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IWOTH</code></td>
+                            <td>该文件模式表明可被其他人写入。</td>
+                          </tr>
+                          <tr>
+                            <td><code>S_IXOTH</code></td>
+                            <td>该文件模式表明可被其他人执行。</td>
+                          </tr>
+                        </tbody></table>
+                    </span>
+                </li>
+            </ul>
             <h4>[<span>+</span>] 获取文件信息</h4>
             <ul style="display:none">
                 <li>
                     fs.<a href="">stat</a><em>(path,fn(err,stats))</em>
                     <span>
+                        异步获取文件信息 <hr>
                         不建议在调用 fs.open() 、fs.readFile() 或 fs.writeFile() 之前使用 fs.stat() 检查一个文件是否存在。 作为替代，用户代码应该直接打开/读取/写入文件，当文件无效时再处理错误。<br>
                         如果要检查一个文件是否存在且不操作它，推荐使用 fs.access()。 <hr>
                         如果发生错误，则 err.code 会是常见系统错误之一。
@@ -56,25 +274,26 @@
                 <li>
                     fs.<a href="">statSync</a><em>(path)</em>
                     <span>
-                        同步的 stat(2)。 返回一个 fs.Stats 实例。
+                        同步获取文件信息
                     </span>
                 </li>
                 <li>
                     fs.<a href="">fstat</a><em>(fd,fn(err,stats))</em>
                     <span>
-                        异步的 fstat(2)。 回调获得两个参数 (err, stats)，其中 stats 是一个 fs.Stats 对象。 fstat() 与 stat() 类似，除了文件是通过文件描述符 fd 指定的。 <hr>
+                        异步获取文件信息（文件是通过文件描述符 fd 指定的） <hr>
                         fstat系统调用接受的是 一个“文件描述符”，而另外两个则直接接受“文件全路径”。文件描述符是需要我们用open系统调用后才能得到的，而文件全路经直接写就可以了。
                     </span>
                 </li>
                 <li>
                     fs.<a href="">fstatSync</a><em>(fd)</em>
                     <span>
-                        同步的 fstat(2)。返回一个 fs.Stats 实例。
+                        同步获取文件信息
                     </span>
                 </li>
                 <li>
                     fs.<a href="">lstat</a><em>(path,fn(err,stats))</em>
                     <span>
+                        异步获取文件信息 <hr>
                         当文件是一个符号链接时，lstat返回的是该符号链接本身的信息；而stat返回的是该链接指向的文件的信息。
                         <a href="http://www.cnitblog.com/guopingleee/archive/2008/11/13/51411.aspx">参考资料</a>
                     </span>
@@ -82,7 +301,7 @@
                 <li>
                     fs.<a href="">lstatSync</a><em>(path)</em>
                     <span>
-                        同步的 lstat(2)。返回一个 fs.Stats 实例。
+                        异步获取文件信息
                     </span>
                 </li>
                 <li>
@@ -160,7 +379,7 @@
                 <li>
                     fs.<a href="">access</a><em>(path,[mode],fn)</em>
                     <span>
-                        异步测试指定的文件或目录的用户权限 <hr>
+                        判断用户是否有权限操作给定的目录或者是文件<hr>
                         fs.constants.F_OK - path 文件对调用进程可见。 这在确定文件是否存在时很有用，但不涉及 rwx 权限。 如果没指定 mode，则默认为该值。 <br>
                         fs.constants.R_OK - path 文件可被调用进程读取。 <br>
                         fs.constants.W_OK - path 文件可被调用进程写入。<br>
@@ -170,16 +389,125 @@
                 <li>
                     fs.<a href="">accessSync</a><em>(path,[mode])</em>
                     <span>
-                        同步测试指定的文件或目录的用户权限
+                        判断用户是否有权限操作给定的目录或者是文件
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">existsSync</a><em>(path)</em>
+                    <span>
+                        检测文件是否存在。 <br>
+                        返回值：布尔（true存在.false不存在)
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 文件系统常量</h4>
+            <h4>[<span>+</span>] 文件权限</h4>
+            <ul style="display:none">
+                <li>
+                    fs.<a href="">chmod</a><em>(path,mode,fn(err))</em>
+                    <span>
+                        修改文件/文件夹权限
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">chmodSync</a><em>(path,mode)</em>
+                    <span>
+                        修改文件/文件夹权限
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">fchomod</a><em>(fd,mode,fn(err))</em>
+                    <span>
+                        修改文件/文件夹权限
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">fchomodSync</a><em>(fd,mode,fn(err))</em>
+                    <span>
+                        修改文件/文件夹权限
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">lchmod</a><em>(path,mode,fn(err))</em>
+                    <span>
+                        修改文件/文件夹权限(不解析符号链接) <hr>
+                        只在 macOS 有效
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">chown</a><em>(path,uid,gid,fn(err))</em>
+                    <span>
+                        更改文件/文件夹所有权
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">chownSync</a><em>(path,uid,gid)</em>
+                    <span>
+                        更改文件/文件夹所有权
+                    </span>
+                </li>
+                
+                <li>
+                    fs.<a href="">fchown</a><em>(fd,uid,gid,fn(err))</em>
+                    <span>
+                        更改文件/文件夹所有权
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">fchownSync</a><em>(fd,uid,gid)</em>
+                    <span>
+                        更改文件/文件夹所有权
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">lchown</a><em>(path,uid,gid,fn(err))</em>
+                    <span>
+                        更改文件/文件夹所有权(不解析符号链接)
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 文件监视</h4>
             <ul>
                 <li>
-                    fs.<a href="">constants</a>
+                    fs.<a href="">watch</a><em>(file,[opt],listener(evtype,which))</em>
                     <span>
-                        返回一个包含常用文件系统操作的常量的对象。
+                        监听file的变化，返回的对象是一个fs.FSWatcher <hr>
+                        file - 可以是一个文件或一个目录 <br>
+                        opt - 如果是一个字符串则指定encoding，否则以对象传入。
+                        <ol>
+                            <li>persistent - boolean,指明如果文件正在被监视，进程是否应该继续运行。默认 = true</li>
+                            <li>recursive - boolean,指明是否全部子目录应该被监视，或只是当前目录。 适用于当一个目录被指定时，且只在支持的平台（详见 Caveats）。默认 = false</li>
+                            <li>
+                                encoding - 指定用于传给监听器的文件名的字符编码。默认 = 'utf8'
+                            </li>
+                        </ol>
+                        evtype - rename、change、error <br>
+                        which - 触发事件的文件的名称 <hr>
+                        注意，在大多数平台，当一个文件出现或消失在一个目录里时，'rename' 会被触发 <a href="http://nodejs.cn/api/fs.html#fs_fs_watch_filename_options_listener">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    FSWatcher.<a href="">close()</a>
+                    <span>
+                        停止监听 fs.FSWatcher 的变化
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">watchFile</a><em>(file,[opt],listener(current,previous))</em>
+                    <span>
+                        监视file的变化,回调 listener 会在每次访问文件时被调用 <hr>
+                        <ol>
+                            <li>persistent - boolean,指明如果文件正在被监视，进程是否应该继续运行。默认 = true</li>
+                            <li>interval - 表示目标应该每隔多少毫秒被轮询。默认 = 5007</li>
+                        </ol>
+                        listener的两个参数表示当前的状态对象和以前的状态对象，是一个fs.Stat实例。
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">unwatchFile</a><em>(file,listener)</em>
+                    <span>
+                        停止监视file的变化 <br>
+                        如果指定了 listener，则只移除特定的监听器。 否则，所有的监听器都会被移除，且已经有效地停止监视 filename。 <br>
+                        调用 fs.unwatchFile() 且带上一个未被监视的文件名，将会是一个空操作，而不是一个错误
                     </span>
                 </li>
             </ul>
@@ -203,19 +531,44 @@
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">ftruncate</a><em>(fd,len,fn)</em>
+                    fs.<a href="">fdatasync</a><em>(fd,fn(err))</em>
                     <span>
-                        异步截取文件 <br>
-                        使用文件描述符来读取文件。 <hr>
-                        fd - 通过 fs.open() 方法返回的文件描述符。<br>
-                        len - 文件内容截取的长度。<br>
-                        callback - 回调函数，没有参数。
+                        刷新数据到磁盘
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">ftruncateSync</a><em>(fd,len)</em>
+                    fs.<a href="">fdatasyncSync</a><em>(fd)</em>
                     <span>
-                        同步截取文件
+                        刷新数据到磁盘
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">fsync</a><em>(fd,fn(err))</em>
+                    <span>
+                        同步缓存数据到磁盘
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">fsyncSync</a><em>(fd,fn(err))</em>
+                    <span>
+                        同步缓存数据到磁盘
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 读取文件</h4>
+            <ul>
+                <li>
+                    fs.<a href="">readFile</a><em>(path,[opt],fn(err,data))</em>
+                    <span>
+                        异步读取一个文件的全部内容 <hr>
+                        如果未指定字符编码，则返回的data为原始buffer。
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">readFileSync</a><em>(path,[opt])</em>
+                    <span>
+                        同步读取一个文件的全部内容 <br>
+                        返回path的内容
                     </span>
                 </li>
                 <li>
@@ -252,9 +605,36 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 读取文件</h4>
-            <ul>
-                
+            <h4>[<span>+</span>] 截取文件</h4>
+            <ul style="display:none;">
+                <li>
+                    fs.<a href="">truncate</a><em>(path,len,fn(err))</em>
+                    <span>
+                        异步截取文件
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">truncateSync</a><em>(path,len)</em>
+                    <span>
+                        同步截取文件
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">ftruncate</a><em>(fd,len,fn)</em>
+                    <span>
+                        异步截取文件 <br>
+                        使用文件描述符来读取文件。 <hr>
+                        fd - 通过 fs.open() 方法返回的文件描述符。<br>
+                        len - 文件内容截取的长度。<br>
+                        callback - 回调函数，没有参数。
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">ftruncateSync</a><em>(fd,len)</em>
+                    <span>
+                        同步截取文件
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] 写入文件</h4>
             <ul>
@@ -285,6 +665,75 @@
                     fs.<a href="">appendFileSync</a><em>(file,data,[opt])</em>
                     <span>
                         同步地追加数据到一个文件，如果文件不存在则创建文件。 
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">write</a><em>(fd,buffer,[offset],[length],[position],fn(err,bytes,buffer))</em>
+                    <span>
+                        异步写入文件
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">writeSync</a><em>(fd,buffer,[offset],[length],[position])</em>
+                    <span>
+                        同步写入文件
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">write</a><em>(fd,string,[position],[encoding],fn(err,written,string))</em>
+                    <span>
+                        异步写入字符串
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">writeSync</a><em>(fd,string,[position],[encoding])</em>
+                    <span>
+                        同步写入字符串
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 修改时间戳</h4>
+            <ul style="display:none;">
+                <li>
+                    fs.<a href="">utimes</a><em>(path,atime,mtime,fn(err))</em>
+                    <span>
+                        修改文件时间戳 <hr>
+                        atime 参数和 mtime 参数遵循以下规则： <br>
+                        值可以是 Unix 时间戳数值、Date 对象、或数值字符串如 '123456789.0'。<br>
+                        如果值不能被转换为数值，或值是 NaN 、 Infinity 或 -Infinity，则会抛出错误。
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">utimesSync</a><em>(path,atime,mtime)</em>
+                    <span>
+                        修改文件时间戳
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">futimes</a><em>(fd,atime,mtime,fn(err))</em>
+                    <span>
+                        修改文件时间戳
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">futimesSync</a><em>(fd,atime,mtime)</em>
+                    <span>
+                        修改文件时间戳
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 重命名</h4>
+            <ul>
+                <li>
+                    fs.<a href="">rename</a><em>(old,new,fn(err))</em>
+                    <span>
+                        异步重命名文件
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">renameSync</a><em>(old,new)</em>
+                    <span>
+                        同步重命名文件
                     </span>
                 </li>
             </ul>
@@ -320,39 +769,12 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 文件权限</h4>
-            <ul>
-                <li>
-                    fs.<a href="">chmod</a><em>(path,mode,fn(err))</em>
-                    <span>
-                        异步修改指定路径的权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">chmodSync</a><em>(path,mode)</em>
-                    <span>
-                        同步修改指定路径的权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">chown</a><em>(path,uid,gid,fn(err))</em>
-                    <span>
-                        异步修改指定路径的用户权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">chownSync</a><em>(path,uid,gid)</em>
-                    <span>
-                        同步修改指定路径的用户权限
-                    </span>
-                </li>
-            </ul>
             <h4>[<span>-</span>] 目录操作</h4>
             <ul>
                 <li>
                     fs.<a href="">mkdir</a><em>(path,[mode],fn)</em>
                     <span>
-                        异步创建目录 <hr>
+                        异步创建目录，如果目录已存在，将抛出异常 <hr>
                         path - 文件路径。 <br>
                         mode - 设置目录权限，默认为 0777。<br>
                         callback - 回调函数，没有参数。
@@ -361,7 +783,23 @@
                 <li>
                     fs.<a href="">mkdirSync</a><em>(path,[mode])</em>
                     <span>
-                        同步创建目录
+                        同步创建目录，如果目录已存在，将抛出异常
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">mkdtemp</a><em>(prefix,[opt],fn(err,folder))</em>
+                    <span>
+                        异步创建一个唯一的临时目录 <hr>
+                        prefix - 临时文件夹名，会生成六位随机字符在其后 <br>
+                        option - 可以是一个字符串并指定一个字符编码，或是一个对象且由一个 encoding 属性指定使用的字符编码。 <br>
+                        folder - 生成的临时目录的路径 <hr>
+                        如果目的是要在 /tmp 里创建一个临时目录，则 prefix 必须 以一个指定平台的路径分隔符（require('path').sep）结尾
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">mkdtempSync</a><em>(prefix,[opt])</em>
+                    <span>
+                        同步创建一个唯一的临时目录
                     </span>
                 </li>
                 <li>
@@ -390,6 +828,98 @@
                         同步删除目录
                     </span>
                 </li>
+            </ul>
+            <h4>[<span>+</span>] 链接操作</h4>
+            <ul style="display:none;">
+                <li>
+                    fs.<a href="">link</a><em>(old,new,fn(err))</em>
+                    <span>
+                        创建硬链接(只能在本券中)
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">linkSync</a><em>(old,new)</em>
+                    <span>
+                        创建硬链接(只能在本券中)
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">symlink</a><em>(target,path,[type],fn(err))</em>
+                    <span>
+                        创建符号链接 <br>
+                        异步创建一个名为path且指向target的符号链接 <hr>
+                        type 参数可以设为 'dir'、'file' 或 'junction'（默认为 'file'），且仅在 Windows 上有效（在其他平台上忽略）。 注意，Windows 结点要求目标路径是绝对的。 当使用 'junction' 时，target 参数会被自动标准化为绝对路径。
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">symlinkSync</a><em>(target,path,[type])</em>
+                    <span>
+                        创建符号链接
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">readlink</a><em>(path,[opt],fn(err,link))</em>
+                    <span>
+                        读取软连接信息
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">readlinkSync</a><em>(path,[opt])</em>
+                    <span>
+                        读取软连接信息
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">realpath</a><em>(path,[opt],fn(err,path))</em>
+                    <span>
+                        获取真实路径
+                    </span>
+                </li>
+                <li>
+                    fs.<a href="">realpathSync</a><em>(path,[opt])</em>
+                    <span>
+                        获取真实路径
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>stream<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] ReadStream</h4>
+            <ul>
+                <li> 
+                    fs.<a href="">createReadStream</a>(path,[opt])
+                    <span>
+                        
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] WriteStream</h4>
+            <ul>
+                <li>
+                    fs.<a href="">createWriteStream</a>(path,[opt])
+                    <span>
+                        
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>buffer<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 缓冲器</h4>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>readline<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 逐行读取</h4>
+            <ul>
             </ul>
         </div>
     </div>
