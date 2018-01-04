@@ -40,6 +40,55 @@
         </div>
     </div>
     <div class="u-block">
+        <h3>querystring<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 查询字符串</h4>
+            <ul>
+                <li>
+                    <a href="">const qrstr = require('querystring')</a>
+                    <span>
+                        querystring 模块提供了一些实用函数，用于解析与格式化 URL 查询字符串。
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">stringify</a><em>(str,[sep],[eq],[opt])</em>
+                    <span>
+                        通过遍历给定的 obj 对象的自身属性，生成 URL 查询字符串。 <hr>
+                        如果 obj 对象中的属性的类型为str,num,bool,arr则属性的值会被序列化。 其他类型的属性的值会被强制转换为空字符串。
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">parse</a><em>(str,[sep],[eq],[opt])</em>
+                    <span>
+                        把一个 URL 查询字符串 str 解析成一个键值对的集合 <hr>
+                        str = 要解析的 URL 查询字符串  <br>
+                        sep = 用于界定查询字符串中的键值对的子字符串。默认为 '&amp;'。 <br>
+                        eq = 用于界定查询字符串中的键与值的子字符串。默认为 '='。 <br>
+                        opt(obj) = <br>
+                        <ol>
+                            <li>decodeURIComponent - 解码查询字符串的字符时使用的函数。默认为 querystring.unescape()</li>
+                            <li>maxKeys - 指定要解析的键的最大数量。默认为 1000。指定为 0 则不限制。 </li>
+                        </ol>
+                        <hr>
+                        返回一个对象
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">escape</a>(str)
+                    <span>
+                        该方法是提供给 querystring.stringify() 使用的，通常不直接使用。 它之所以对外开放，是为了在需要时可以通过给 querystring.escape 赋值一个函数来重写编码的实现。
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">unescape</a>(str)
+                    <span>
+                        对给定的 str 进行解码。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
         <h3>net<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] 网络</h4>
