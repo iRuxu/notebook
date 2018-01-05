@@ -3,8 +3,157 @@
     <div class="u-block">
         <h3>os<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 操作系统</h4>
+            <h4>[<span>-</span>] 特征</h4>
             <ul>
+                <li>
+                    os.<a href="">hostname()</a>
+                    <span>
+                        返回操作系统的主机名
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">release()</a>
+                    <span>
+                        返回操作系统的发行版本
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">platform()</a>
+                    <span>
+                        返回操作系统平台. <br>
+                        可能的值'aix','darwin','freebsd','linux','openbsd','sunos','win32'
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">arch()</a>
+                    <span>
+                        返回操作系统 CPU 架构 <br>
+                        可能的值'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x32', 'x64', 和 'x86'
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">type()</a>
+                    <span>
+                        返回操作系统类型. <br>
+                        <table>
+                            <tr>
+                                <th>系统</th>
+                                <th>返回值</th>
+                            </tr>
+                            <tr>
+                                <td>linux</td>
+                                <td>'Linux'</td>
+                            </tr>
+                            <tr>
+                                <td>macOS</td>
+                                <td>'Darwin'</td>
+                            </tr>
+                            <tr>
+                                <td>Windows</td>
+                                <td>'Windows_NT'</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 性能</h4>
+            <ul>
+                <li>
+                    os.<a href="">uptime()</a>
+                    <span>
+                        返回操作系统运行的时间，以秒为单位。
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">loadavg()</a>
+                    <span>
+                        返回一个包含 1、5、15 分钟平均负载的数组。 <br>
+                        平均负载是系统活动的测量,由操作系统计算得出,表达为一个分数. 一般来说,平均负载应该理想地比系统的逻辑CPU的数目要少. 平均负载是UNIX相关的概念,在Windows平台上没有对应的概念. 在Windows上,其返回值总是[0, 0, 0].
+                    </span> 
+                </li>
+                <li>
+                    os.<a href="">totalmen()</a>
+                    <span>
+                        返回系统内存总量，单位为字节。
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">freemem()</a>
+                    <span>
+                        返回操作系统空闲内存量，单位是字节。
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">cpus()</a>
+                    <span>
+                        返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）。
+                        <a href="http://nodejs.cn/api/os.html#os_os_cpus">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">networkInterfaces()</a>
+                    <span>
+                        获得网络接口列表。
+                        <a href="http://nodejs.cn/api/os.html#os_os_networkinterfaces">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数据</h4>
+            <ul>
+                <li>
+                    os.<a href="">tmpdir()</a>
+                    <span>
+                        返回操作系统的默认临时文件夹。 <br>
+                        C:\Users\iRuxu\AppData\Local\Temp
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">homedir()</a>
+                    <span>
+                        返回当前用户的home目录
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">userInfo</a>([opt])
+                    <span>
+                        os.userInfo()方法当前有效用户的信息 <hr>
+                        1.在 POSIX平台上, 这通常是password 文件的子集. 返回的对象包括 username, uid, gid, shell, 和 homedir. <br>
+                        2.在Windows系统上, uid 和 gid 域是 -1, and shell是 null.
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">endianness()</a>
+                    <span>
+                        返回 CPU 的字节序，可能的是 "BE" 或 "LE"。
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">constants</a>
+                    <span>
+                        返回一个包含错误码,处理信号等通用的操作系统特定常量的对象
+                        <a href="http://nodejs.cn/api/os.html#os_os_constants_1">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">EOL</a>
+                    <span>
+                        一个定义了操作系统的一行结束的标识的常量 <br>
+                        <table>
+                            <tr>
+                                <th>系统</th>
+                                <th>标志</th>
+                            </tr>
+                            <tr>
+                                <td>POSIX</td>
+                                <td>\n</td>
+                            </tr>
+                            <tr>
+                                <td>Windows</td>
+                                <td>\r\n</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
