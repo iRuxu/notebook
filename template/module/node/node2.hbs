@@ -681,6 +681,26 @@
         <div class="u-list">
             <h4>[<span>-</span>] 字符串解码器</h4>
             <ul>
+                <li>
+                    <a href="">string_decoder</a>
+                    <span>
+                        string_decoder 模块提供了一个 API，用于把 Buffer 对象解码成字符串，但会保留编码过的多字节 UTF-8 与 UTF-16 字符。 <hr>
+                        const {StringDecoder} = require('string_decoder') <br>
+                        const decoder = new StringDecoder('utf8')
+                    </span>
+                </li>
+                <li>
+                    string_decoder.<a href="">write</a>(buffer)
+                    <span>
+                        返回一个解码后的字符串，并确保返回的字符串不包含 Buffer 末尾残缺的多字节字符，残缺的多字节字符会被保存在一个内部的 buffer 中用于下次调用
+                    </span>
+                </li>
+                <li>
+                    string_decoder.<a href="">end</a>([buffer])
+                    <span>
+                        以字符串的形式返回内部 buffer 中剩余的字节。 残缺的 UTF-8 与 UTF-16 字符的字节会被替换成符合字符编码的字符。
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

@@ -56,8 +56,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 性能</h4>
-            <ul>
+            <h4>[<span>+</span>] 性能</h4>
+            <ul style="display:none;">
                 <li>
                     os.<a href="">uptime()</a>
                     <span>
@@ -98,8 +98,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 数据</h4>
-            <ul>
+            <h4>[<span>+</span>] 数据</h4>
+            <ul style="display:none;">
                 <li>
                     os.<a href="">tmpdir()</a>
                     <span>
@@ -160,8 +160,105 @@
     <div class="u-block">
         <h3>path<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 路径</h4>
+            <h4>[<span>-</span>] 路径信息</h4>
             <ul>
+                <li>
+                    path.<a href="">dirname</a>(path)
+                    <span>
+                        返回路径中代表文件夹的部分，同 Unix 的dirname 命令类似。 <br>
+                        不要以\\结尾，总是返回上一级目录
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">basename</a>(path,[ext])
+                    <span>
+                        返回路径中的最后一部分。同 Unix 命令 bashname 类似。 <br>
+                        ext:可选的文件扩展名，使用了时，返回的数据不带扩展名
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">extname</a>(path)
+                    <span>
+                        返回路径中文件的后缀名，即路径中最后一个'.'之后的部分。 <br>
+                        如果一个路径中并不包含'.'或该路径只包含一个'.' 且这个'.'为路径的第一个字符，则此命令返回空字符串。
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">parse</a>(path)
+                    <span>
+                        返回路径字符串的对象 <br>
+                        root:根目录,dir:目录,base:文件名,name:文件名称,ext:扩展名
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">format</a>(obj)
+                    <span>
+                        从对象中返回路径字符串，和 path.parse 相反。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 路径操作</h4>
+            <ul>
+                <li>
+                    path.<a href="">relative</a>(from,to)
+                    <span>
+                        返回从 from 到 to 的相对路径（基于当前工作目录）
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">resolve</a>([...paths])
+                    <span>
+                        会返回当前工作目录的绝对路径
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">isAbsolute</a>(path)
+                    <span>
+                        判断参数 path 是否是绝对路径
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">join</a>([...paths])
+                    <span>
+                        用于连接路径。 <br>
+                        该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"。 <br>
+                        当出现..自动跳至上一级目录
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">normalize</a>(path)
+                    <span>
+                        规范化路径
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 平台特性</h4>
+            <ul style="display:none;">
+                <li>
+                    path.<a href="">sep</a>
+                    <span>
+                        平台的文件路径分隔符，'\\' 或 '/'
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">delimiter</a>
+                    <span>
+                        平台特定的路径分隔符 <br>
+                        windows为;  posix为:
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">posix</a>
+                    <span>
+                        提供了 path 方法针对 POSIX 的实现
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">win32</a>
+                    <span>
+                        提供上述 path 的方法，不过总是以 win32 兼容的方式交互
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
