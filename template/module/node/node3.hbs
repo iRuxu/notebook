@@ -265,7 +265,149 @@
     <div class="u-block">
         <h3>child_process<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 子进程</h4>
+            <h4>[<span>-</span>] 创建</h4>
+            <ul>
+                <li>
+                    ipc.<a href="">spawn</a><em>(cmd,[args],[opt])</em>
+                    <span>
+                        通过当前命令启动一个新的进程 <hr>
+                        cmd - str,要运行的命令行 <br>
+                        args - arr,字符串参数列表 <br>
+                        opt - obj,设置 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_spawn_command_args_options">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ipc.<a href="">fork</a><em>(modulePath,[arg],[opt])</em>
+                    <span>
+                        child_process.fork() 方法是 child_process.spawn() 的一个特殊情况，专门用于衍生新的 Node.js 进程。 跟 child_process.spawn() 一样返回一个 ChildProcess 对象。 返回的 ChildProcess 会有一个额外的内置的通信通道，它允许消息在父进程和子进程之间来回传递。
+                        <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_fork_modulepath_args_options">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ipc.<a href="">exec</a><em>(cmd,[opt],[fn])</em>
+                    <span>
+                        在shell中运行一个命令，并缓存其输出 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_exec_command_options_callback">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ipc.<a href="">execFile</a><em>(file,[arg],[opt],[fn])</em>
+                    <span>
+                        指定的可执行的 file 被直接衍生为一个新进程 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_execfile_file_args_options_callback">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 事件</h4>
+            <ul style="display:none;">
+                <li>
+                    [evt]<a href="">close</a>
+                    <span>
+                        当子进程的 stdio 流被关闭时会触发 'close' 事件。 这与 'exit' 事件不同，因为多个进程可能共享同一 stdio 流。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">disconnect</a>
+                    <span>
+                        在父进程中调用 subprocess.disconnect() 或在子进程中调用 process.disconnect() 后会触发 'disconnect' 事件。 断开后就不能再发送或接收信息，且 subprocess.connected 属性会被设为 false。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">error</a>
+                    <span>
+                        每当出现以下情况时触发 'error' 事件： <br>
+                        1.进程无法被衍生；<br>
+                        2.进程无法被杀死；<br>
+                        3.向子进程发送信息失败。<br>
+                        注意，在错误发生后，'exit' 事件可能会也可能不会触发。 当同时监听了 'exit' 和 'error' 事件，谨防处理函数被多次调用。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">exit</a>
+                    <span>
+                        子进程结束后会触发 'exit' 事件。 如果进程退出了，则 code 是进程的最终退出码，否则为 null。 如果进程是收到的信号而终止的，则 signal 是信号的字符串名称，否则为 null。 这两个总有一个是非空的。 <br>注意，当 'exit' 事件被触发时，子进程的 stdio 流可能依然是打开的。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">message</a>
+                    <span>
+                        当一个子进程使用 process.send() 发送消息时会触发 'message' 事件。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 子进程</h4>
+            <ul style="display:none;">
+                <li>
+                    subp.<a href="">channel</a>
+                    <span>
+                        当前子进程的 IPC 通道的引用。如果当前没有 IPC 通道，则该属性为 undefined。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">connected</a>
+                    <span>
+                        表明是否仍可以从一个子进程发送和接收消息。 当 subprocess.connected 为 false 时，则不能再发送或接收的消息。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">disconnect()</a>
+                    <span>
+                        关闭父进程与子进程之间的 IPC 通道，一旦没有其他的连接使其保持活跃，则允许子进程正常退出。 调用该方法后，父进程和子进程上各自的 subprocess.connected 和 subprocess.connected 属性都会被设为 false，且进程之间不能再传递消息。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">kill</a>([signal])
+                    <span>
+                        向子进程发送一个信号。 如果没有给定参数，则进程会发送 'SIGTERM' 信号。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">killed</a>
+                    <span>
+                        表明该子进程是否已成功接收到 subprocess.kill() 的信号。 该属性不代表子进程是否已被终止。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">pid</a>
+                    <span>
+                        返回子进程的进程标识（PID）
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">send</a>(msg,[handle],[opt],[fn])
+                    <span>
+                        发送消息到子进程
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stderr</a>
+                    <span>
+                        一个代表子进程的 stderr 的可读流。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stdin</a>
+                    <span>
+                        一个代表子进程的 stdin 的可写流。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stdio</a>
+                    <span>
+                        一个到子进程的管道的稀疏数组
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stdout</a>
+                    <span>
+                        一个代表子进程的 stdout 的可读流
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>cluster<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 集群</h4>
             <ul>
             </ul>
         </div>

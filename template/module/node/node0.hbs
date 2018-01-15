@@ -459,8 +459,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 属性</h4>
-            <ul style="display:none">
+            <h4>[<span>-</span>] 基本属性</h4>
+            <ul>
                 <li>
                     process.<a href="">stdout</a>
                     <span>
@@ -480,6 +480,54 @@
                     </span>
                 </li>
                 <li>
+                    process.<a href="">exitCode</a>
+                    <span>
+                        进程退出时的代码，如果进程优通过 process.exit() 退出，不需要指定退出码。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 常用方法</h4>
+            <ul>
+                <li>
+                    process.<a href="">chdir</a>(dir)
+                    <span>
+                        改变当前工作进程的目录，如果操作失败抛出异常。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">cwd()</a>
+                    <span>
+                        返回当前进程的工作目录
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">nextTick</a>(callback,[args])
+                    <span>
+                        一旦当前事件循环结束，调用回到函数
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">abort()</a>
+                    <span>
+                        这将导致 node 触发 abort 事件。会让 node 退出并生成一个核心文件。 
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">exit</a>([code])
+                    <span>
+                        使用指定的 code 结束进程。如果忽略，将会使用 code 0。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">kill</a>(pid,[signal])
+                    <span>
+                        发送信号给进程. pid 是进程id，并且 signal 是发送的信号的字符串描述。信号名是字符串，比如 'SIGINT' 或 'SIGHUP'。如果忽略，信号会是 'SIGTERM'。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 进程环境</h4>
+            <ul style="display:none">
+                <li>
                     process.<a href="">argv</a>
                     <span>
                         argv 属性返回一个数组，由命令行执行脚本时的各个参数组成。 <br> 
@@ -491,19 +539,6 @@
                     <span>
                         v6.4+ <br>
                         保存Node.js启动时传入的argv[0]参数值的一份只读副本
-                    </span>
-                </li>
-                <li>
-                    process.<a href="">channel</a>
-                    <span>
-                        如果Node.js进程是由IPC channel方式创建的，process.channel属性保存IPC channel的引用。 如果IPC channel不存在，此属性值为`undefined。
-                    </span>
-                </li>
-                <li>
-                    process.<a href="">connected</a>
-                    <span>
-                        如果Node.js进程是由IPC channel方式创建的， 只要IPC channel保持连接，process.connected属性就会返回true。 process.disconnect()被调用后，此属性会返回false。 <br>
-                        process.connected如果为false，则不能通过IPC channel使用process.send()发送信息。
                     </span>
                 </li>
                 <li>
@@ -522,12 +557,6 @@
                     process.<a href="">env</a>
                     <span>
                         返回一个对象，成员为当前 shell 的环境变量
-                    </span>
-                </li>
-                <li>
-                    process.<a href="">exitCode</a>
-                    <span>
-                        进程退出时的代码，如果进程优通过 process.exit() 退出，不需要指定退出码。
                     </span>
                 </li>
                 <li>
@@ -579,9 +608,119 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 方法</h4>
-            <ul>
-                
+            <h4>[<span>+</span>] 关联控制</h4>
+            <ul style="display:none">
+                <li>
+                    process.<a href="">umask</a>([mask])
+                    <span>
+                        设置或读取进程文件的掩码。子进程从父进程继承掩码。如果mask 参数有效，返回旧的掩码。否则，返回当前掩码。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">channel</a>
+                    <span>
+                        如果Node.js进程是由IPC channel方式创建的，process.channel属性保存IPC channel的引用。 如果IPC channel不存在，此属性值为`undefined。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">connected</a>
+                    <span>
+                        如果Node.js进程是由IPC channel方式创建的， 只要IPC channel保持连接，process.connected属性就会返回true。 process.disconnect()被调用后，此属性会返回false。 <br>
+                        process.connected如果为false，则不能通过IPC channel使用process.send()发送信息。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">disconnect()</a>
+                    <span>
+                        关闭到父进程的IPC频道，以允许子进程一旦没有其他链接来保持活跃就优雅地关闭。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">send</a>(msg,{},fn)
+                    <span>
+                        给父进程发送消息
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 性能相关</h4>
+            <ul style="display:none">
+                <li>
+                    process.<a href="">memoryUsage()</a>
+                    <span>
+                        返回一个对象，描述了 Node 进程所用的内存状况，单位为字节。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">cpuUsage</a>([previousValue])
+                    <span>
+                        v6.1+ <br>
+                        返回包含当前进程的用户CPU时间和系统CPU时间的对象
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">uptime()</a>
+                    <span>
+                        返回 Node 已经运行的秒数
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">hrtime()</a>
+                    <span>
+                        返回当前进程的高分辨时间，形式为 [seconds, nanoseconds]数组。它是相对于过去的任意事件。该值与日期无关，因此不受时钟漂移的影响。主要用途是可以通过精确的时间间隔，来衡量程序的性能。你可以将之前的结果传递给当前的 process.hrtime() ，会返回两者间的时间差，用来基准和测量时间间隔。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] POSIX权限</h4>
+            <ul style="display:none">
+                <li>
+                    process.<a href="">getgid()</a>
+                    <span>
+                        获取进程的群组标识。获取到得时群组的数字 id，而不是名字。 <br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">setgid</a>(id)
+                    <span>
+                        设置进程的群组标识.可以接收数字 ID 或者群组名。如果指定了群组名，会阻塞等待解析为数字 ID 。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">getuid()</a>
+                    <span>
+                        获取进程的用户标识。这是数字的用户 id，不是用户名。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">setuid</a>(id)
+                    <span>
+                        设置进程的用户标识。接收数字 ID或字符串名字。果指定了群组名，会阻塞等待解析为数字 ID 。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">getgroups()</a>
+                    <span>
+                        返回进程的群组 iD 数组。POSIX 系统没有保证一定有，但是 node.js 保证有。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">setgroups</a>(groups)
+                    <span>
+                        设置进程的群组 ID。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">initgroups</a>(user,extra_group)
+                    <span>
+                        读取 /etc/group ，并初始化群组访问列表，使用成员所在的所有群组。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
