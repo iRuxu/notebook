@@ -1,49 +1,330 @@
-<!-- 功能 -->
+<!-- 网络 -->
 <div class="u-col">
     <div class="u-block">
-        <h3>error<span>-</span></h3>
+        <h3>HTTP<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 异常</h4>
+            <h4>[<span>-</span>] 创建http server</h4>
+            <ul>
+            	<li>
+            		http.<a href="">createServer</a><em>([fn(request,response)])</em>
+            		<span>
+            			返回一个新建的 http.Server 实例
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] http.Server类</h4>
+            <ul>
+            	<li>
+            		server.<a href="">listen</a>(80)
+            		<span>
+            			指定HTTP服务器监听的端口
+            		</span>
+            	</li>
+            </ul>
+            <h4>[<span>-</span>] http</h4>
+            <ul>
+                <li>
+                    http.<a href="">METHODS</a>
+                    <span>
+                        返回解析器支持的 HTTP 方法的列表
+                    </span>
+                </li>
+                <li>
+                    http.<a href="">STATUS_CODES</a>
+                    <span>
+                        返回标准的 HTTP 响应状态码的集合，以及各自的简短描述。 例如，http.STATUS_CODES[404] === 'Not Found'。
+                    </span>
+                </li>
+                <li>
+                    http.<a href="">globalAgent</a>
+                    <span>
+                        Agent 的全局实例，作为所有 HTTP 客户端请求的默认 Agent。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>https<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] https</h4>
             <ul>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>zlib<span>-</span></h3>
+        <h3>url<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 压缩</h4>
+            <h4>[<span>-</span>] 网址</h4>
+            <ul>
+                <li>
+                    url.<a href="">parse</a>(urlstr)
+                    <span>
+                        解析一个 URL 字符串并返回一个 URL 对象
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">resolve</a>(from,to)
+                    <span>
+                        会以一种 Web 浏览器解析超链接的方式把一个目标 URL 解析成相对于一个基础 URL
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">format</a>(obj)
+                    <span>
+                        返回一个从 urlObject 格式化后的 URL 字符串
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] URL</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">var {URL}</a> = require('url')
+                    <span>
+                        引入的url模块是个对象
+                    </span>
+                </li>
+                <li>
+                    <a href="">new URL</a>(input,[base])
+                    <span>
+                        通过将input解析到base上创建一个新的URL对象。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">protocol</a>
+                    <span>
+                        获取及设置URL的协议(protocol)部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">username</a>
+                    <span>
+                        获取及设置URL的用户名(username)部分
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">password</a>
+                    <span>
+                        获取及设置URL的密码(password)部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">hostname</a>
+                    <span>
+                        获取及设置URL的主机名(hostname)部分
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">port</a>
+                    <span>
+                        获取及设置URL的端口(port)部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">host</a>
+                    <span>
+                        获取及设置URL的主机(host)部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">origin</a>
+                    <span>
+                        获取只读序列化的URL origin部分。
+                        <a href="http://nodejs.cn/api/url.html#url_url_strings_and_url_objects">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">pathname</a>
+                    <span>
+                        获取及设置URL的路径(path)部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">search</a>
+                    <span>
+                        获取及设置URL的序列化查询(query)部分部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">searchParams</a>
+                    <span>
+                        获取表示URL查询参数的URLSearchParams对象。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">hash</a>
+                    <span>
+                        获取及设置URL的分段(hash)部分。
+                    </span>
+                </li>
+                <li>
+                    url.<a href="">href</a>
+                    <span>
+                        获取及设置序列化的URL <br>
+                        url.toString() / url.toJSON() 值相同
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] URLSearchParams</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">var {URLSearchParams}</a> = require('url')
+                    <span>
+                        引入的url模块是个对象
+                    </span>
+                </li>
+                <li>
+                    <a href="">new URLSearchParams</a>(str/obj)
+                    <span>
+                        通过将input解析到base上创建一个新的URL对象。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">get</a>(name)
+                    <span>
+                        返回键是name的第一个键值对的值。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">getAll</a>(name)
+                    <span>
+                        返回键是name的所有键值对的值，如果没有满足条件的键值对，则返回一个空的数组。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">has</a>(name)
+                    <span>
+                        如果存在至少一对键是name的键值对则返回 true。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">set</a>(name,val)
+                    <span>
+                        将URLSearchParams对象中与name相对应的值设置为value。如果已经存在键为name的键值对，将第一对的值设为value并且删除其他对。如果不存在，则将此键值对附加在查询字符串后。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">append</a>(name,val)
+                    <span>
+                        在查询字符串中附加一个新的键值对。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">delete</a>(name)
+                    <span>
+                        删除所有键为name的键值对
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">entries()</a>
+                    <span>
+                        在查询中的每个键值对上返回一个ES6迭代器
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">keys()</a>
+                    <span>
+                        在每一个键值对上返回一个键的ES6迭代器
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">values()</a>
+                    <span>
+                        在每一个键值对上返回一个值的ES6迭代器。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">forEach</a>(fn,[arg])
+                    <span>
+                        在查询字符串中迭代每个键值对，并调用给定的函数。
+                    </span>
+                </li>
+                <li>
+                    params.<a href="">sort()</a>
+                    <span>
+                        按现有名称就地排列所有的名称-值对。使用[稳定排序算法][]完成排序，因此保留具有相同名称的名称-值对之间的相对顺序。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>querystring<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 查询字符串</h4>
+            <ul>
+                <!-- <li>
+                    <a href="">const qrstr = require('querystring')</a>
+                    <span>
+                        querystring 模块提供了一些实用函数，用于解析与格式化 URL 查询字符串。
+                    </span>
+                </li> -->
+                <li>
+                    querystring.<a href="">stringify</a><em>(str,[sep],[eq],[opt])</em>
+                    <span>
+                        通过遍历给定的 obj 对象的自身属性，生成 URL 查询字符串。 <hr>
+                        如果 obj 对象中的属性的类型为str,num,bool,arr则属性的值会被序列化。 其他类型的属性的值会被强制转换为空字符串。
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">parse</a><em>(str,[sep],[eq],[opt])</em>
+                    <span>
+                        把一个 URL 查询字符串 str 解析成一个键值对的集合 <hr>
+                        str = 要解析的 URL 查询字符串  <br>
+                        sep = 用于界定查询字符串中的键值对的子字符串。默认为 '&amp;'。 <br>
+                        eq = 用于界定查询字符串中的键与值的子字符串。默认为 '='。 <br>
+                        opt(obj) = <br>
+                        <ol>
+                            <li>decodeURIComponent - 解码查询字符串的字符时使用的函数。默认为 querystring.unescape()</li>
+                            <li>maxKeys - 指定要解析的键的最大数量。默认为 1000。指定为 0 则不限制。 </li>
+                        </ol>
+                        <hr>
+                        返回一个对象
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">escape</a>(str)
+                    <span>
+                        该方法是提供给 querystring.stringify() 使用的，通常不直接使用。 它之所以对外开放，是为了在需要时可以通过给 querystring.escape 赋值一个函数来重写编码的实现。
+                    </span>
+                </li>
+                <li>
+                    querystring.<a href="">unescape</a>(str)
+                    <span>
+                        对给定的 str 进行解码。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>net<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 网络</h4>
             <ul>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>crypto<span>-</span></h3>
+        <h3>dgram<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 加密</h4>
+            <h4>[<span>-</span>] 数据报</h4>
             <ul>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>assert<span>-</span></h3>
+        <h3>dns<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 断言</h4>
+            <h4>[<span>-</span>] 域名服务器</h4>
             <ul>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>v8<span>-</span></h3>
+        <h3>tls<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] V8引擎</h4>
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>vm<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 虚拟机</h4>
+            <h4>[<span>-</span>] 安全传输层</h4>
             <ul>
             </ul>
         </div>
