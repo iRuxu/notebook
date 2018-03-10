@@ -1,0 +1,193 @@
+<div class="u-col">
+    <div class="u-block">
+        <h3>用户/用户组<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 账号</h4>
+            <ul>
+                <li>
+                    <a href="">useradd</a> $user
+                    <span>
+                        添加用户
+                    </span>
+                </li>
+                <li>
+                    <a href="">passwd</a> $user
+                    <span>
+                        给$user设置密码
+                    </span>
+                </li>
+                <li>
+                    <a href="">userdel</a> $user
+                    <span>
+                        删除用户
+                    </span>
+                </li>
+                <li>
+                    <a href="">usermod</a> [-x to] $user
+                    <span>
+                        修改用户信息 <a href="http://www.runoob.com/linux/linux-comm-usermod.html">参考资料</a><br>
+                        usermod [-LU][-c <备注>][-d <登入目录>][-e <有效期限>][-f <缓冲天数>][-g <群组>][-G <群组>][-l <帐号名称>][-s shell][-u uid][用户帐号] <br>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 用户组</h4>
+            <ul>
+                <li>
+                    <a href="">groupadd</a> $group
+                    <span>
+                        新增用户组
+                    </span>
+                </li>
+                <li>
+                    <a href="">groupdel</a> $group
+                    <span>
+                        删除用户组
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 管理员</h4>
+            <ul>
+                <li>
+                    <a href="">sudo</a> cmd
+                    <span>
+                        以特权级别运行命令
+                    </span>
+                </li>
+                <li>
+                    <a href="">su</a> user
+                    <span>
+                        切换到某用户 <br>
+                        su - user，同时环境变量也会跟着改变成目标用户的环境变量 <br>
+                        su - ，如果没有指定则默认为root
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 查看</h4>
+            <ul>
+                <li>
+                    <a href="">id</a>
+                    <span>
+                        查看身份信息
+                    </span>
+                </li>
+                <li>
+                    <a href="">who</a>
+                    <span>
+                        查看在线用户
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>系统管理 <span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 基本信息</h4>
+            <ul>
+                <li>
+                    <a href="">date</a>
+                    <span>
+                        显示当前时间
+                    </span>
+                </li>
+                <li>
+                    <a href="">cal</a>
+                    <span>
+                        显示当前月份的日历
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 别名</h4>
+            <ul>
+                <li>
+                    <a href="">alias</a> custom='..'
+                    <span>
+                        自定义别名命令 <br>
+                        alias customname='cmd' <br>
+                        alias name='string'
+                    </span>
+                </li>
+                <li>
+                    <a href="">unalias</a> custom
+                    <span>
+                        删除别名
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 交互</h4>
+            <ul>
+                <li>
+                    <a href="">exit</a>
+                    <span>
+                        退出终端
+                    </span>
+                </li>
+                <li>
+                    <a href="">clear</a>
+                    <span>
+                        清空屏幕
+                    </span>
+                </li>
+                <li>
+                    <a href="">history</a>
+                    <span>
+                        显示历史列表内容
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 检测</h4>
+            <ul>
+                <li>
+                    <a href="">type</a> cmd
+                    <span>
+                        1.是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。 这一类程序可以是用诸如 C 和 C++语言写成的程序编译的二进制文件, 也可以是由诸如shell，perl，python，ruby等等脚本语言写成的程序 。<br>
+                        2.是一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令 (builtins)。例如，cd 命令，就是一个 shell 内部命令。<br>
+                        3.是一个 shell 函数。这些是小规模的 shell脚本，它们混合到环境变量中。 在后续的章节里，我们将讨论配置环境变量以及书写 shell函数。但是现在， 仅仅意识到它们的存在就可以了。<br>
+                        4.是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。
+                    </span>
+                </li>
+                <li>
+                    <a href="">file</a> file
+                    <span>
+                        辨识文件类型
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 帮助</h4>
+            <ul>
+                <li>
+                    <a href="">whatis</a> cmd
+                    <span>
+                        显示非常简洁的命令说明
+                    </span>
+                </li>
+                <li>
+                    <a href="">which</a> cmd
+                    <span>
+                        确定所给定的执行程序的准确位置,只对可执行程序有效 <br>
+                        当不只安装了可执行程序的一个版本时有用
+                    </span>
+                </li>
+                <li>
+                    <a href="">help</a> cmd
+                    <span>
+                        得到 shell 内建命令的帮助文档 <br>
+                        --help 显示可执行程序用法信息(不一定存在)
+                    </span>
+                </li>
+                <li>
+                    <a href="">man</a> program
+                    <span>
+                        显示程序手册页
+                    </span>
+                </li>
+                <li>
+                    <a href="">apropos</a> use
+                    <span>
+                        显示适当的命令
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

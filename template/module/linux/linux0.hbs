@@ -1,13 +1,16 @@
 <div class="u-col">
-  <div class="u-block">
-	  	<h3>文件夹/文件<span>-</span></h3>
+  	<div class="u-block">
+	  	<h3>文件管理<span>-</span></h3>
 	  	<div class="u-list">
 	  		<h4>[<span>-</span>] 显示/切换</h4>
 	  		<ul>
 	  			<li>
-					<a href="">cd</a> path
-					<span>切换至文件夹 cd /web/www/ <br>
-					切换至上级目录 cd .. 
+					<a href="">cd</a> [path]
+					<span>
+						切换目录 <br>
+						cd : 切换到家目录 <br>
+						cd - : 切换到先前的工作目录 <br>
+						cd ~user_name : 切换到某个用户的家目录
 					</span>
 				</li>
 				<li>
@@ -18,7 +21,7 @@
 	  		<h4>[<span>-</span>] 创建</h4>
 	  		<ul>
 	  			<li>
-					<a href="">mkdir</a> dirname
+					<a href="">mkdir</a> dir
 					<span>创建文件夹 mkdir testdir</span>
 				</li>
 				<li>
@@ -29,18 +32,44 @@
 	  		<h4>[<span>-</span>] 查看</h4>
 	  		<ul>
 	  			<li>
-					<a href="">ls</a>
+					<a href="">ls</a> [dir]
 					<span>
-						列出当前目录下文件 <br>
+						列出(当前)目录下文件 <br>
 						ls -al 列出当前目录下文件（包含隐藏文件）<br>
-						-a ：全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来(常用)<br>
-						-d ：仅列出目录本身，而不是列出目录内的文件数据(常用)<br>
-						-l ：长数据串列出，包含文件的属性与权限等等数据；(常用)
+						-a ：全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来<br>
+						-l ：长数据串列出，包含文件的属性与权限等等数据； <br>
+						-t ：按文件修改时间的先后来排序 <br>
+						-F ：如果是目录则添加“/”字符以区别文件与文件夹<br>
+						-h ：显示文件大小以可读格式 <br>
+						-dl : 当前目录的详细信息，而不是目录中的内容 <br>
+						-r ：反向显示结果 <br>
+						-i ：展示文件索引节点的信息
 					</span>
 				</li>
 				<li>
-					<a href="">cat</a> file
-					<span>查看文件内容 cat file.txt</span>
+					<a href="">tree</a> [dir]
+					<span>
+						以树状图列出目录的内容
+					</span>
+				</li>
+				<li>
+					<a href="">less/more</a> file
+					<span>
+						查看文件内容
+					</span>
+				</li>
+				<li>
+					<a href="">cat/tac</a> [-n] file
+					<span>
+						打印文件内容到标准输出;cat正序;tac倒序 <br>
+						-n显示行号
+					</span>
+				</li>
+				<li>
+					<a href="">nl</a> file
+					<span>
+						添加行号并打印
+					</span>
 				</li>
 	  		</ul>
 	  		<h4>[<span>-</span>] 编辑</h4>
@@ -51,37 +80,118 @@
 				</li>
 				<li>
 					<a href="">echo</a> "txt" >> file
-					<span>对文件输出内容 echo "text" >> file.txt</span>
+					<span>
+						对文件输出内容 echo "text" >> file.txt
+					</span>
 				</li>
 	  		</ul>
 			<h4>[<span>-</span>] 移动/重命名</h4>
 			<ul>
 				<li>
-					<a href="">mv</a> $from $to
+					<a href="">mv</a> from to
 					<span>
 						mv 文件名 文件名 : 将源文件名改为目标文件名 <br>
 						mv 文件名 目录名 : 将文件移动到目标目录 <br>
 						mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名 <br>
-						mv 目录名 文件名 : 出错
+						mv 目录名 文件名 : 出错<br>
+						<br>
+						<table>
+						<caption>表5-6: mv 选项</caption>
+						<tbody><tr>
+						<th>选项</th>
+						<th>意义</th>
+						</tr>
+						<tr>
+						<td>-i --interactive</td>
+						<td>在重写一个已经存在的文件之前，提示用户确认信息。
+						<b>如果不指定这个选项，mv 命令会默认重写文件内容。</b></td>
+						</tr>
+						<tr>
+						<td>-u --update</td>
+						<td>当把文件从一个目录移动另一个目录时，只是移动不存在的文件，
+						或者文件内容新于目标目录相对应文件的内容。</td>
+						</tr>
+						<tr>
+						<td>-v --verbose</td>
+						<td>当操作 mv 命令时，显示翔实的操作信息。</td>
+						</tr>
+						</tbody></table>
 					</span>
 				</li>
 			</ul>
 			<h4>[<span>-</span>] 复制/粘贴</h4>
 			<ul>
 				<li>
-					<a href="">cp</a> dir/file
+					<a href="">cp</a> from to
 					<span>
-						复制文件或目录
+						复制文件或目录 
+						<table>
+						<caption>cp 选项</caption>
+						<tbody><tr>
+						<th>选项</th>
+						<th>意义</th>
+						</tr>
+						<tr>
+						<td>-a, --archive</td>
+						<td>复制文件和目录，以及它们的属性，包括所有权和权限。
+						通常，复本具有用户所操作文件的默认属性。</td>
+						</tr>
+						<tr>
+						<td>-i, --interactive</td>
+						<td>在重写已存在文件之前，提示用户确认。如果这个选项不指定，
+						cp 命令会默认重写文件。</td>
+						</tr>
+						<tr>
+						<td>-r, --recursive</td>
+						<td>递归地复制目录及目录中的内容。当复制目录时，
+						需要这个选项（或者-a 选项）。</td>
+						</tr>
+						<tr>
+						<td>-u, --update </td>
+						<td>当把文件从一个目录复制到另一个目录时，仅复制
+						目标目录中不存在的文件，或者是文件内容新于目标目录中已经存在的文件。</td>
+						</tr>
+						<tr>
+						<td>-v, --verbose</td>
+						<td>显示翔实的命令操作信息</td>
+						</tr>
+						</tbody></table>
 					</span>
 				</li>
 			</ul>
 			<h4>[<span>-</span>] 删除</h4>
 			<ul>
 				<li>
-					<a href="">rm</a> dir/file
+					<a href="">rm</a> item..
 					<span>
-						删除文件夹 rm -r dir1 <br>
-						删除文件 rm file1 file2..
+						删除一个或多个文件/文件夹 <br>
+						当你使用带有通配符的rm命令时（除了仔细检查输入的内容外）， 先用 ls 命令来测试通配符。这会让你看到将要被删除的文件是什么。然后按下上箭头按键，重新调用 刚刚执行的命令，用 rm 替换 ls。
+						<table>
+						<caption>rm 选项</caption>
+						<tbody><tr>
+						<th>选项</th>
+						<th>意义</th>
+						</tr>
+						<tr>
+						<td>-i, --interactive </td>
+						<td>在删除已存在的文件前，提示用户确认信息。
+						<b>如果不指定这个选项，rm 会默默地删除文件</b>
+						</td>
+						</tr>
+						<tr>
+						<td>-r, --recursive</td>
+						<td>递归地删除文件，这意味着，如果要删除一个目录，而此目录
+						又包含子目录，那么子目录也会被删除。要删除一个目录，必须指定这个选项。</td>
+						</tr>
+						<tr>
+						<td>-f, --force</td>
+						<td>忽视不存在的文件，不显示提示信息。这选项覆盖了“--interactive”选项。</td>
+						</tr>
+						<tr>
+						<td>-v, --verbose</td>
+						<td>在执行 rm 命令时，显示翔实的操作信息。</td>
+						</tr>
+						</tbody></table>
 					</span>
 				</li>
 				<li>
@@ -91,12 +201,175 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>] 删除</h4>
+			<h4>[<span>-</span>] 链接</h4>
 			<ul>
 				<li>
-					<a href="">chmod</a> 777 $file
+					<a href="">ln file link</a>
 					<span>
-						更改文件权限
+						创建硬链接
+					</span>
+				</li>
+				<li>
+					<a href="">ln -s item link</a>
+					<span>
+						创建软链接 <br>
+						item可以是文件或文件夹
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 权限</h4>
+			<ul>
+				<li>
+					<a href="">chmod</a> 777 item
+					<span>
+						更改文件权限 <br>
+						注：只有文件的所有者或者超级用户才 能更改文件或目录的模式。 
+					</span>
+				</li>
+				<li>
+					<a href="">chmod</a> u+x item
+					<span>
+						更改文件权限 <br>
+						u所有者,g用户组,o其它人,a全部 <br>
+						+添加,-删除,=仅 <br>
+						如多个设定直接用“,”分隔
+					</span>
+				</li>
+				<li>
+                    <a href="">chown</a> [owner:group] item
+                    <span>
+                        更改文件的所有者和用户组。 <br>
+                        使用这个命令需要超级用户权限 <br>
+                    </span>
+                </li>
+			</ul>
+			<h4>[<span>-</span>] 其它</h4>
+			<ul>
+				<li>
+					<a href="">通配符</a>
+					<span>
+						<table>
+						<caption>通配符</caption>
+						<tbody>
+						<tr>
+						<th>通配符</th>
+						<th>意义</th>
+						</tr>
+						<tr>
+						<td>*</td>
+						<td>匹配任意多个字符（包括零个或一个）</td>
+						</tr>
+						<tr>
+						<td>?</td>
+						<td>匹配任意一个字符（不包括零个）</td>
+						</tr>
+						<tr>
+						<td>[characters]</td>
+						<td>匹配任意一个属于字符集中的字符</td>
+						</tr>
+						<tr>
+						<td>[!characters]</td>
+						<td>匹配任意一个不是字符集中的字符</td>
+						</tr>
+						<tr>
+						<td>[[:class:]]</td>
+						<td>匹配任意一个属于指定字符类中的字符</td>
+						</tr>
+						</tbody></table>
+						<br>
+						<table>
+						<caption>普遍使用的字符类</caption>
+						<tbody>
+						<tr>
+						<th>字符类</th>
+						<th>意义</th>
+						</tr>
+						<tr>
+						<td>[:alnum:]</td>
+						<td>匹配任意一个字母或数字</td>
+						</tr>
+						<tr>
+						<td>[:alpha:]</td>
+						<td>匹配任意一个字母</td>
+						</tr>
+						<tr>
+						<td>[:digit:]</td>
+						<td>匹配任意一个数字</td>
+						</tr>
+						<tr>
+						<td>[:lower:]</td>
+						<td>匹配任意一个小写字母</td>
+						</tr>
+						<tr>
+						<td>[:upper:]</td>
+						<td>匹配任意一个大写字母</td>
+						</tr>
+						</tbody></table>
+					</span>
+				</li>
+				<li>
+					<a href="">文件类型</a>
+					<span>
+						<table>
+						<caption>文件类型</caption>
+						<tbody><tr>
+						<th>属性</th>
+						<th>文件类型</th>
+						</tr>
+						<tr>
+						<td>-</td>
+						<td>一个普通文件</td>
+						</tr>
+						<tr>
+						<td>d </td>
+						<td>一个目录</td>
+						</tr>
+						<tr>
+						<td>l</td>
+						<td> 一个符号链接。注意对于符号链接文件，剩余的文件属性总是"rwxrwxrwx"，而且都是
+						虚拟值。真正的文件属性是指符号链接所指向的文件的属性。</td>
+						</tr>
+						<tr>
+						<td>c</td>
+						<td> 一个字符设备文件。这种文件类型是指按照字节流来处理数据的设备。
+						比如说终端机或者调制解调器</td>
+						</tr>
+						<tr>
+						<td>b</td>
+						<td> 一个块设备文件。这种文件类型是指按照数据块来处理数据的设备，例如一个硬盘或者 CD-ROM 盘。 </td>
+						</tr>
+						</tbody>
+						</table>
+					</span>
+				</li>
+				<li>
+					<a href="">文件模式</a>
+					<span>
+						文件所有者、文件组所有者和其他人的读、写和执行权限。
+						<table>
+						<caption>权限属性</caption>
+						<tbody><tr>
+						<th>属性</th>
+						<th>文件</th>
+						<th>目录</th>
+						</tr>
+						<tr>
+						<td>r - 2**2*1/0</td>
+						<td>允许打开并读取文件内容。</td>
+						<td>允许列出目录中的内容，前提是目录必须设置了可执行属性（x）。</td>
+						</tr>
+						<tr>
+						<td>w - 2**1*1/0</td>
+						<td>允许写入文件内容或截断文件。但是不允许对文件进行重命名或删除，重命名或删除是由目录的属性决定的。</td>
+						<td>允许在目录下新建、删除或重命名文件，前提是目录必须设置了可执行属性（x）。</td>
+						</tr>
+						<tr>
+						<td>x - 2**0*1/0</td>
+						<td>允许将文件作为程序来执行，使用脚本语言编写的程序必须设置为可读才能被执行。</td>
+						<td>允许进入目录，例如：cd directory 。</td>
+						</tr>
+						</tbody>
+						</table>
 					</span>
 				</li>
 			</ul>

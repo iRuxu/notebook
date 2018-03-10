@@ -1,67 +1,112 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>用户<span>-</span></h3>
+        <h3>I/O<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 账号</h4>
-            <ul>
+            <h4>[<span>+</span>] 标准输出/错误</h4>
+            <ul style="display:none;">
                 <li>
-                    <a href="">useradd</a> $user
+                    <a href="">&gt;</a>
                     <span>
-                        添加用户
+                        重定向标准输出
                     </span>
                 </li>
                 <li>
-                    <a href="">passwd</a> $user
+                    <a href="">&gt;&gt;</a>
                     <span>
-                        给$user设置密码
+                        追加，而不是重写
                     </span>
                 </li>
                 <li>
-                    <a href="">userdel</a> $user
+                    <a href="">2&gt;</a>
                     <span>
-                        删除用户
+                        标准错误输出 <br>
+                        0标准输入；1标准输出；2标准错误
                     </span>
                 </li>
                 <li>
-                    <a href="">usermod</a> $user
+                    <a href="">&amp;&gt;</a>
                     <span>
-                        修改用户
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 权限</h4>
-            <ul>
-                <li>
-                    <a href="">chown</a> -R $user $dir
-                    <span>
-                        将目录权限给指定用户
+                        重定向标准输出和错误<br>
+                        ls -l /bin/usr &> ls-output.txt <br>
+                        旧版合并 ls -l /bin/usr > ls-output.txt 2>&1
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 用户组</h4>
+            <h4>[<span>+</span>] 标准输入</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">cat</a> file
+                    <span>
+                        读取一个或多个文件，然后复制它们到标准输出
+                    </span>
+                </li>
+                <li>
+                    <a href="">cat</a> > file
+                    <span>
+                        将标准输入重定向到文件 <br>
+                        最后输入 Ctrl-d
+                    </span>
+                </li>
+                <li>
+                    <a href="">cat</a> < file
+                    <span>
+                        将文件内容打印到标准输入
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 过滤</h4>
             <ul>
                 <li>
-                    <a href="">groupadd</a> $group
+                    <a href="">|</a>
                     <span>
-                        新增用户组
+                        使用管道操作符”|”（竖杠），一个命令的标准输出可以通过管道送至另一个命令的标准输入
                     </span>
                 </li>
                 <li>
-                    <a href="">groupdel</a> $group
+                    <a href="">sort</a>
                     <span>
-                        删除用户组
+                        有序排列
                     </span>
                 </li>
                 <li>
-                    <a href="">groupmod</a> $group
+                    <a href="">uniq</a>
                     <span>
-                        修改用户组
+                        报道或忽略重复行
                     </span>
                 </li>
                 <li>
-                    <a href="">newgrp</a> $group
+                    <a href="">wc</a> [file]
                     <span>
-                        切换用户组
+                        打印行数、字数和字节数
+                    </span>
+                </li>
+                <li>
+                    <a href="">grep</a> pattern [file..]
+                    <span>
+                        打印匹配行 <br>
+                        -i:忽略大小写 <br>
+                        -v:只打印不匹配的行
+                    </span>
+                </li>
+                <li>
+                    <a href="">head</a> -n x [file]
+                    <span>
+                        打印文件的前十行
+                    </span>
+                </li>
+                <li>
+                    <a href="">tail</a> -n x [file]
+                    <span>
+                        打印文件的尾十行 <br>
+                        tail -f /var/log/messages <br>
+                        使用”-f”选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立即 出现在屏幕上。
+                    </span>
+                </li>
+                <li>
+                    <a href="">tee</a> file
+                    <span>
+                        从 Stdin 读取数据，并同时输出到 Stdout 和文件 <br>
+                        ls /usr/bin | tee ls.txt | grep zip
                     </span>
                 </li>
             </ul>
