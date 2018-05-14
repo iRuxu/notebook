@@ -67,12 +67,27 @@
             </ul>
             <h4>[<span>+</span>] 元素尺寸</h4>
             <ul style="display:none">
-                <li><a href="">height</a>([val|fn])<span>height() 无参数,获取第一个元素的高度<br/>                  height(y) 设置所有元素的高度,无单位                  height(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
-                <li><a href="">width</a>([val|fn])<span>width() 无参数,获取第一个元素的宽度<br/>                  width(x) 设置所有元素的宽度,无单位                  width(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
-                <li><a href="">innerHeight</a>([y])<span>获取/设置内高，含padding，不含边框和margin </span></li>
-                <li><a href="">innerWidth</a>([x])<span>获取/设置内宽，含padding，不含边框和margin</span></li>
-                <li><a href="">outerHeight</a>([y])<span>获取/设置外高,含padding,border,margin</span></li>
-                <li><a href="">outerWidth</a>([x])<span>获取/设置外宽,含padding,border,margin</span></li>
+                <li><a href="">height</a>([val|fn])<span>
+                    height() 无参数,获取第一个元素的高度<br/>
+                    height(y) 设置所有元素的高度,无单位<br/>
+                    height(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
+                <li><a href="">width</a>([val|fn])<span>
+                    width() 无参数,获取第一个元素的宽度<br/>
+                    width(x) 设置所有元素的宽度,无单位<br/>                  
+                    width(fn[index,old-value]) 回调参数:索引,原值.返回一个数值</span></li>
+                <li><a href="">innerHeight</a>([y])<span>
+                    获取/设置内高，含padding，不含边框 <br>
+                    这个方法不适用于window and document对象，可以使用.height() 代替。
+                    </span></li>
+                <li><a href="">innerWidth</a>([x])<span>
+                    获取/设置内宽，含padding，不含边框</span></li>
+                <li><a href="">outerHeight</a>([y])<span>
+                    获取/设置外高,含padding,border <br>
+                    这个方法不适用于window 和 document对象，可以使用.height()代替。 <br>
+                    如果includeMargin参数是true，那么margin (top 和 bottom)也会被包含。
+                    </span></li>
+                <li><a href="">outerWidth</a>([x])<span>
+                    获取/设置外宽,含padding,border</span></li>
             </ul>
         </div>
     </div>

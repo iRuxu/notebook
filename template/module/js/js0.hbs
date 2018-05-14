@@ -13,6 +13,8 @@
                         window.x3 = 3;<br />
                         <a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
                         1.变量会提升，在没有声明前调用，会输出undefined <br>
+                        <hr>
+                        假设声明a、b、c,且c=a+b，当ab发生变化时，c不会改变，应设为c=fn(return a+b)
                     </span>
                 </li>
                 <li>
@@ -96,7 +98,9 @@
                         void : void运算符的作用是执行一个表达式，然后不返回任何值，或者说返回undefined。 <hr>
                         优先级：算术操作符 → 比较操作符 → 逻辑操作符 → "="赋值符号<br>圆括号强制优先级<br>
                         赋值运算符（=）和三元条件运算符（?:）才用先计算右结合。 <hr>
-                        <a href="http://javascript.ruanyifeng.com/grammar/operator.html">参考资料</a>
+                        , : 逗号运算符,, 运算符会导致按从左到右的顺序执行表达式，并返回最后表达式执行的结果
+                        <a href="http://javascript.ruanyifeng.com/grammar/operator.html">参考资料</a> | 
+                        <a href="https://msdn.microsoft.com/library/9b37css7(v=vs.94).aspx">逗号运算符</a>
                     </span>
                 </li>
             </ul>
