@@ -3,109 +3,122 @@
 	<div class="u-block">
 		<h3>数组<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Array</h4>
-			<ul>
-				<li><a href="">new Array()</a><span>
-					<table>
-						<tr>
-							<th>创建方法</th>
-							<th>演示</th>
-						</tr>
-						<tr>
-							<td>构造函数</td>
-							<td>
-								var arr = new Array(); <br>
-								arr[0]=value; <br>
-								var arr = new Array(element0, element1, ..., elementn);<br>
-								var arr = new Array(size);  [size=数组项目的个数,只写1位,且必须是数字]
-							</td>
-						</tr>
-						<tr>
-							<td>字面量</td>
-							<td>var arr = [66,80,90,77,59]</td>
-						</tr>
-					</table>
-					注意：<br>
-					1. ECMAScript中的数组每个元素可以保存任何类型<br>
-					2. ECMAScript 中数组的大小也是可以调整的。<br>
-					3. var arr = new Array(10)  不等于 var arr = [10]
-					</span></li>
-				<li><a href="">Array of</a>(val..)<span>
+			<h4>[<span>+</span>]构建</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">[val,...,]</a>
+					<span>
+						数组直接量的语法允许有可选的结尾的逗号 <br>
+						即[1,2,]长度为2
+					</span>
+				</li>
+				<li>
+					<a href="">new Array</a>([len])
+					<span>
+						var arr = new Array(val1,val2,...) <br>
+						var arr = new Array(len)	//长度为len，但并数组内无任何值
+					</span>
+				</li>
+				<li><a href="">Array.of</a>(val..)<span>
 					Array.of() 和 Array 构造函数之间的区别在于处理整数参数： <br>
 					Array.of(7) 创建一个具有单个元素 7 的数组，而 Array(7) 创建一个包含 7 个 undefined 元素的数组。且不需要new运算符。<br>
 					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of">参考资料</a>
 				</span></li>
-				<li>arr.<a href="">length</a><span>
-					length属性不过滤空位。<a href="http://javascript.ruanyifeng.com/grammar/array.html">参考资料</a><br>
-					将数组清空的一个有效方法，就是将length属性设为0。 <br>
-					使用delete命令删除一个数组成员，会形成空位，并且不会影响length属性。
-					<table>
-						<tr>
-							<th>对象</th>
-							<th>含义</th>
-						</tr>
-						<tr>
-							<td>str.length</td>
-							<td>字符串长度</td>
-						</tr>
-						<tr>
-							<td>arr.length</td>
-							<td>数组长度</td>
-						</tr>
-						<tr>
-							<td>function.length</td>
-							<td>参数长度/个数</td>
-						</tr>
-						<tr>
-							<td>number</td>
-							<td>-</td>
-						</tr>
-						<tr>
-							<td>object</td>
-							<td>-</td>
-						</tr>
-					</table>
-				</span></li>
-				<li>arr<a href="">[index]</a><span>
-<pre><code data-language="javascript">
-	var  box =[];
-	box['name']=iRuxu;
-	alert(box);  //空
-	alert(box['name']); //iRuxu
-	alert(box[0]); //iRuxu 
-</code></pre>
-如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印
-				</span></li>
+			</ul>
+			<h4>[<span>+</span>]属性</h4>
+			<ul style="display:none;">
 				<li>
-					<a href="">...[arr]</a>
+					arr.<a href="">constructor</a>
 					<span>
-						扩展运算符，好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列 <br>
-						该运算符可以将一个数组，变为参数序列
+						返回值：Array
+					</span>
+				</li>
+				<li>arr.<a href="">length</a>
+					<span>
+						返回值：数组的长度（0 到 232-1 的整数）。<br>
+						你可以设置 length 属性的值来截断任何数组。当通过改变length属性值来扩展数组时，实际元素的数目将会增加。
+					</span>
+				</li>
+				<li>
+					arr<a href="">[index]</a>
+					<span>
+						返回值：指定索引处数组的值 <br>
+						如果是字符串下标，不会体现在数组上，需要指定下标键打印，如果是索引下标，则可以直接打印
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]检测</h4>
+			<ul>
+				<li>
+					<a href="">Array.isArray</a>(arr)
+					<span>
+						返回值：布尔值，是否为数组（ES5）<br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray">参考资料</a>
 					</span>
 				</li>
 			</ul>
 			<h4>[<span>-</span>]转换</h4>
 			<ul>
-				<li><a href="">Array.from</a>(o)<span>
-					把类数组实例化为一个数组。<br>
-					类同：Array.prototype.slice.call(o) <br>
-					参数：包括字符串，set，map，arguments，DOM元素集等 <br>
+				<li>
+					<a href="">...[argArr]</a>
+					<span>
+						返回值：参数序列 <br>
+						扩展运算符，好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列，主要用于函数调用 <br>
+						如果扩展运算符后面是一个空数组，则不产生任何效果。 <hr>
+						ES5写法：fn.apply(null,argArr) <br>
+						求最大值：Math.max(...argArr) <br>
+						<a href="http://es6.ruanyifeng.com/#docs/array#扩展运算符">参考资料</a>
+					</span>
+				</li>
+				<li><a href="">Array.from</a>(o,[cb],[cbthis])<span>
+					从一个类似数组或可迭代对象中创建一个新的数组实例。<br>
+					参数：包括arguments，set，map，DOM元素集，字符串等 | 回调函数(当前值val)并返回一个新的替换的值 | 回调函数的this指向<br>
 					返回：新数组 <br>
 					原对象：不变。<br>
-					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from">参考资料</a>
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from">参考资料1</a> | <a href="http://es6.ruanyifeng.com/#docs/array#Array-from">参考资料2</a>
+					<hr>
+					Array.from(arrayLike,callback(val),callback_this) <br>
+					callback -> return replace_val <hr>
+					扩展运算符背后调用的是遍历器接口（Symbol.iterator），如果一个对象没有部署这个接口，就无法转换。Array.from方法还支持类似数组的对象。所谓类似数组的对象，本质特征只有一点，即必须有length属性。因此，任何有length属性的对象，都可以通过Array.from方法转为数组，而此时扩展运算符就无法转换。如：Array.from({ length: 3 }); <br><br>
+					Array.from()的另一个应用是，将字符串转为数组，然后返回字符串的长度。因为它能正确处理各种 Unicode 字符，可以避免 JavaScript 将大于\uFFFF的 Unicode 字符，算作两个字符的 bug。
 				</span></li>
-				<li>arr.<a href="">toString</a>()<span>
-					把数组转换为字符串 <br>
-					参数：无 <br>
-					返回：新字符串，数组中的元素之间用逗号分隔。<br>
-					原对象：不变。
+				<li>
+					arr.<a href="">join</a>(symbol)
+					<span>
+						使用指定符号把数组元素拼接为字符串<br>
+						参数：符号<br>
+						返回：新字符串<br>
+						原对象：不变。 <hr>
+						如果元素是undefined 或者null，则会转化成空字符串 <br>
+						如果缺省符号，数组元素用逗号分隔
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]查找</h4>
+			<ul>
+				<li>arr.<a href="">indexOf</a>(val,[i])<span>
+					参数：正向查找指定值,i为起始索引 <br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1<hr>
+					默认起始索引为0，如为-2则从倒数第二个元素开始查找。<br>
+					该方法执行严格相等判断
 				</span></li>
-				<li>arr.<a href="">join</a>(symbol)<span>
-					使用指定符号把数组元素拼接为字符串<br>
-					参数：符号<br>
-					返回：新字符串<br>
-					原对象：不变。
-					</span></li>
+				<li>arr.<a href="">lastIndexOf</a>(val,[i])<span>
+					参数：逆向查找指定值,i为起始索引 <br>
+					返回值：第一个出现的索引位置；如查找不到则返回-1 <hr>
+					默认起始索引为arr.length - 1，
+					该方法执行严格相等判断
+				 </span></li>
+				 <li>arr.<a href="">findIndex</a>(fn(item,[i],[arr]),[obj])<span>
+				 	返回符合测试条件的第一个数组元素索引，如果没有符合条件的则返回 -1。
+				 	回调函数返回true/false <br>
+				 	整个执行函数返回索引或-1。
+				 </span></li>
+				 <li>arr.<a href="">includes</a>(val,[i])<span>
+				 	返回值：true/false <br>
+				 	参数：从i索引处开始查找val,默认为 0。<br>
+				 	如果i为负值，则按升序从array.length + fromIndex 的索引开始搜索。<br>
+				 	指定了i的时候升序查找到末端不会再从头查找。
+				 </span></li>
 			</ul>
 			<h4>[<span>-</span>]操作</h4>
 			<ul>
@@ -122,29 +135,7 @@
 					n和m可为负值，-1 指最后一个元素，-2 指倒数第二个元素。
 				</span></li>
 			</ul>
-			<h4>[<span>-</span>]查找</h4>
-			<ul>
-				<li>arr.<a href="">indexOf</a>(val,[i])<span>
-					参数：正向查找指定值,i为起始索引 <br>
-					返回值：第一个出现的索引位置；如查找不到则返回-1
-				</span></li>
-				<li>arr.<a href="">lastIndexOf</a>(val,[i])<span>
-					参数：逆向查找指定值,i为起始索引 <br>
-					返回值：第一个出现的索引位置；如查找不到则返回-1
-				 </span></li>
-				 <li>arr.<a href="">findIndex</a>(fn(item,[i],[arr]),[obj])<span>
-				 	返回符合测试条件的第一个数组元素索引，如果没有符合条件的则返回 -1。
-				 	回调函数返回true/false <br>
-				 	整个执行函数返回索引或-1。
-				 </span></li>
-				 <li>arr.<a href="">includes</a>(val,[i])<span>
-				 	返回值：true/false <br>
-				 	参数：从i索引处开始查找val,默认为 0。<br>
-				 	如果i为负值，则按升序从array.length + fromIndex 的索引开始搜索。<br>
-				 	指定了i的时候升序查找到末端不会再从头查找。
-				 </span></li>
-			</ul>
-						<h4>[<span>-</span>]排序</h4>
+			<h4>[<span>-</span>]排序</h4>
 			<ul>
 				<li>arr.<a href="">sort</a>([fn(a,b)])<span>
 					对数组进行升序排序。<br>

@@ -1,7 +1,7 @@
 <!-- 基本语法、标准库 -->
 <div class="u-col">
     <div class="u-block">
-        <h3>基本语法<span>-</span></h3>
+        <h3>语法<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>]变量</h4>
             <ul>
@@ -107,7 +107,7 @@
         </div>
     </div>
     <div class="u-block">
-        <h3>数据类型<span>-</span></h3>
+        <h3>数据<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>]类型检测</h4>
             <ul>
@@ -153,7 +153,6 @@
                         undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。</li>
                         </ol>
                     </span></li>
-                <li><a href="">Array.isArray</a>(arr)<span>检测是否为数组（EC5）</span></li>
                 <li>obj <a href="">instanceof</a> cst
                     <span>instanceof运算符返回一个布尔值，表示某个对象是否为指定的构造函数的实例。
                         <table>
@@ -332,6 +331,21 @@ var type = function (o){
                     <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449957099176f55ba07b764c3daa522217d0e42643000">包装对象</a> <br>
                     o.toString() | o.valueOf()
                 </span></li>
+            </ul>
+            <h4>[<span>-</span>]方法</h4>
+            <ul>
+                <li>val.<a href="">toString</a>()<span>
+					<table>
+                        <tr>
+                            <th>目标</th>
+                            <th>返回值</th>
+                        </tr>
+                        <tr>
+                            <td>array</td>
+                            <td>参数直接用,隔开的字符串</td>
+                        </tr>
+                    </table>
+				</span></li>
             </ul>
         </div>
     </div>
