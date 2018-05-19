@@ -3,6 +3,32 @@
 	<div class="u-block">
 		<h3>函数<span>-</span></h3>
 		<div class="u-list">
+			<h4>[<span>-</span>]构建</h4>
+			<ul>
+				<li>
+					x <a href="">=></a> x*x
+					<span>
+						1.当只有一行直接返回变量的处理时，x=>x*x，返回x的平方 <br>
+						2.当只有一行且无需返回值时，x=>void dosomething <br>
+						3.当有多个参数或多条语句时，需添加括号和花括号，(x,y)=>{dosomething / return xx} <hr>
+
+						1.不可以当做构造函数 <br>
+						2.不可以使用arguments、super、new.target，均指向外层函数的对应变量 <br>
+						3.不可以使用yield命令，因此箭头函数不能用作 Generator 函数 <br>
+						4.函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，且固定不可辨，即使使用call也无法修改，更多的可在构造函数或闭包内使用，则可替代普通函数需要用that指代this。 <hr>
+
+						this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。所以call的绑定也是无效，但上层的普通函数的call绑定有效。
+
+					</span>
+				</li>
+				<li>
+					IIFE<a href=""></a>
+					<span>
+						匿名函数写法：
+						匿名函数自执行
+					</span>
+				</li>
+			</ul>
 			<h4>[<span>-</span>]Function</h4>
 			<ul>
 				<li>
@@ -66,30 +92,6 @@
 				<li><a href="">(function(n){})(n)</a><span>
 					IIFE = Immediately-Invoked Function Expression,立即调用的函数表达式 <br>
 					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
-				</span></li>
-				<li><a href="">x => x * x</a><span>
-<pre><code data-language="javascript">
-	//单个参数
-	var result = x => x * x
-	function (x) {
-	    return x * x;
-	}
-	//语句块
-	x => {
-	    if (x > 0) {
-	        return x * x;
-	    }
-	    else {
-	        return - x * x;
-	    }
-	}
-	//多个参数
-	(x, y) => x * x + y * y
-</code></pre>
-				箭头函数相当于匿名函数，省略了return。<br>
-				箭头函数本身返回的是一个函数，将一个箭头函数赋值给一个变量后，运行其才能执行该箭头函数，箭头函数左侧的为函数参数。<br>
-				箭头函数内部的this是词法作用域，由上下文确定，修订了以前用that保存this的情况。
-				<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000">参考资料</a>
 				</span></li>
 			</ul>
 			<h4>[<span>-</span>]内部</h4>
