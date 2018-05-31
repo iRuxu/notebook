@@ -1,80 +1,95 @@
 <!-- NPM、其他 -->
 <div class="u-col">
     <div class="u-block">
-        <h3>plugin<span>-</span></h3>
+        <h3>NPM<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] c++插件</h4>
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>repl<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 交互式解释器</h4>
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>NPM<span>+</span></h3>
-        <div class="u-list" style="display:none;">
-            <h4>[<span>-</span>] NPM</h4>
+            <h4>[<span>-</span>] 包管理</h4>
             <ul>
                 <li>
-                    npm <a href="">install --save-dev</a> $pak
+                    npm <a href="">init</a> [--yes]
                     <span>
-                        本地安装项目，并添加到package中
+                        初始化
                     </span>
                 </li>
                 <li>
-                    npm <a href="">install --g</a> $pak
+                    <a href="">package.json</a>
                     <span>
-                        全局安装项目 <hr>
+                        name - 包名。<br>
+                        version - 包的版本号。<hr>
+
+                        description - 包的描述。<br>
+                        keywords - 关键词。 <br>
+                        homepage - 包的官网 url 。<br>
+                        author - 包的作者姓名。<br>
+                        contributors - 包的其他贡献者姓名。<br>
+                        license - 共享协议。<hr>
+
+                        repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。<br>
+                        main - 默认入口文件。 <br>
+                        scripts - 可执行的脚本，通过npm run $cmd 例：{"build":"babel src -d lib"}<hr>
+
+                        dependencies - 依赖包 <br>
+                        devDependencies - 依赖包，仅用于开发和测试 
+
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">install</a> [$package]
+                    <span>
+                        本地安装指定的模块 <br>
+                        如没有指定包名，则安装package.json中devDependencies中的所有依赖包
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">install --save-dev</a><em> $package</em>
+                    <span>
+                        本地安装指定的模块，并添加到package.json的devDependencies中
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">install --save</a><em> $package</em>
+                    <span>
+                        本地安装指定的模块，并添加到package.json的dependencies中
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">install --g</a><em> $package</em>
+                    <span>
+                        全局安装指定模块 <br>
                         当目标环境没有时，不会自动依赖安装
                     </span>
                 </li>
                 <li>
-                    npm <a href="">list</a>[-g]
+                    npm <a href="">uninstall</a>
                     <span>
-                        查看所有(全局)安装的模块
+                        移除包，同安装包各项参数
                     </span>
                 </li>
                 <li>
-                    npm <a href="">list $pak</a>
+                    npm <a href="">update</a> [$package]
                     <span>
-                        查看某个模块的版本号
+                        更新包
                     </span>
                 </li>
                 <li>
-                    npm <a href="">uninstall</a> $pak
+                    npm <a href="">outdated</a>
                     <span>
-                        卸载模块
+                        查看哪些包已经过期
                     </span>
                 </li>
-                <li>
-                    npm <a href="">update</a> $pak
-                    <span>
-                        更新模块
-                    </span>
-                </li>
-                <li>
-                    npm <a href="">search</a> $pak
-                    <span>
-                        搜索模块
-                    </span>
-                </li>
-                <li>
-                    npm <a href="">init</a>
-                    <span>
-                        创建一个npm模块
-                    </span>
-                </li>
+            </ul>
+            <h4>[<span>+</span>] 发布包</h4>
+            <ul style="display:none">
                 <li>
                     npm <a href="">adduser</a>
                     <span>
                         注册npm资源库
-                        npm login 登录
+                    </span>
+                </li>
+                <li>
+                    npm <a href="">login</a>
+                    <span>
+                        登录npm资源库
                     </span>
                 </li>
                 <li>
@@ -90,42 +105,6 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] package.json</h4>
-            <ul>
-                <li>
-                    <a href="">name</a>
-                    <span>
-                        name - 包名。<br>
-                        version - 包的版本号。<br>
-                        description - 包的描述。<br>
-                        homepage - 包的官网 url 。<br>
-                        author - 包的作者姓名。<br>
-                        contributors - 包的其他贡献者姓名。<br>
-                        repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
-                    </span>
-                </li>
-                <li>
-                    <a href="">dependencies</a>
-                    <span>
-                        依赖包 {"pro":"ver"}<br>
-                        dependencies 存放项目或组件代码中依赖到的 <br>
-                        devDependencies 存放测试代码依赖的包或构建工具的包 <br>
-                    </span>
-                </li>
-                <li>
-                    <a href="">main</a>
-                    <span>
-                        main 字段指定了程序的主入口文件，require('moduleName') 就会加载这个文件
-                    </span>
-                </li>
-                <li>
-                    <a href="">scripts</a>
-                    <span>
-                        可执行的脚本，通过npm run $cmd <br>
-                        {"build":"babel src -d lib"}
-                    </span>
-                </li>
-            </ul>
         </div>
     </div>
     <div class="u-block">
@@ -133,28 +112,8 @@
         <div class="u-list">
             <h4>[<span>-</span>] Doc</h4>
             <ul>
-            	<li><a href="https://nodejs.org/dist/latest-v8.x/docs/api/timers.html">官方文档 8.9.3</a><span></span></li>
+            	<li><a href="https://nodejs.org/dist/latest-v8.x/docs/api/timers.html">官方文档</a><span></span></li>
             	<li><a href="http://nodejs.cn/api/">中文文档</a><span></span></li>
-            </ul>
-        </div>
-        <div class="u-list">
-            <h4>[<span>-</span>] Help</h4>
-            <ul>
-                <li><a href="https://nodejs.org/en/download/package-manager/">sudo yum -y install nodejs</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>Library<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] </h4>
-            <ul>
-                <li>
-                    <a href=""></a>
-                    <span>
-                    
-                    </span>
-                </li>
             </ul>
         </div>
     </div>
