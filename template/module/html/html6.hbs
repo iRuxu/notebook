@@ -1,5 +1,199 @@
 <div class="u-col">
     <div class="u-block">
+		<h3>Ajax<span>+</span></h3>
+		<div class="u-list" style="display:none;">
+			<h4>[<span>-</span>]创建</h4>
+			<ul>
+				<li>
+					<a href="">new XMLHttpRequest()</a>
+					<span>
+						IE5-6不支持，用ActiveX对象替代，new ActiveXObject("Microsoft.XMLHTTP")
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">open</a><em>(method,url,async)</em>
+					<span>
+						规定请求的类型、URL 以及是否异步处理请求。 <br>
+						method：请求的类型，GET 或 POST <br>
+						url：文件在服务器上的位置<br>
+						async：true（异步）或 false（同步）
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">setRequestHeader</a><em>(header,val)</em>
+					<span>
+						向请求添加HTTP头 <br>
+						xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded") <br>
+						该方法必须在open()之后、send()之前调用。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">send</a>(str)
+					<span>
+						将请求发送到服务器。 <br>
+						string：仅用于post请求 
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]事件</h4>
+			<ul>
+				<li>
+					xhr.<a href="">onreadystatechange</a>
+					<span>
+						存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。 <br>
+						当 readyState 等于 4 且状态为 200 时，表示响应已就绪 <br>
+						XMLHttpRequest第一版，只能对onreadystatechange这一个事件指定回调函数。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onloadstart</a>
+					<span>
+						请求发出
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onprogress</a>
+					<span>
+						正在发送和加载数据
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onabort</a>
+					<span>
+						请求被中止，比如用户调用了abort()方法
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onerror</a>
+					<span>
+						请求失败
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onload</a>
+					<span>
+						请求成功完成
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">ontimeout</a>
+					<span>
+						用户指定的时限到期，请求还未完成
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onloadend</a>
+					<span>
+						请求完成，不管成果或失败
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]属性</h4>
+			<ul>
+				<li>
+					xhr.<a href="">timeout</a>
+					<span>
+						等于一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">withCredentials</a>
+					<span>
+						withCredentials属性是一个布尔值，表示跨域请求时，用户信息（比如Cookie和认证的HTTP头信息）是否会包含在请求之中，默认为false。 <br>
+						如果你需要通过跨域AJAX发送Cookie，需要打开withCredentials。 <br>
+						为了让这个属性生效，服务器必须显式返回Access-Control-Allow-Credentials这个头信息
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]方法</h4>
+			<ul>
+				<li>
+					xhr.<a href="">abort()</a>
+					<span>
+						终止已经发出的HTTP请求 <br>
+						ajax.abort();<br>
+    					ajax = null;
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">getAllResponseHeaders()</a>
+					<span>
+						getAllResponseHeaders方法返回服务器发来的所有HTTP头信息。格式为字符串，每个头信息之间使用CRLF分隔，如果没有受到服务器回应，该属性返回null。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">getResponseHeader</a>(key)
+					<span>
+						返回HTTP头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，则该属性为null。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">overrideMimeType()</a>
+					<span>
+						该方法用来指定服务器返回数据的MIME类型。该方法必须在send()之前调用。
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]状态</h4>
+			<ul>
+				<li>
+					xhr.<a href="">readyState</a>
+					<span>
+						0: 请求未初始化 <br>
+						1: 服务器连接已建立 <br>
+						2: 请求已接收 <br>
+						3: 请求处理中 <br>
+						4: 请求已完成，且响应已就绪
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">status</a>
+					<span>
+						200, OK，访问正常 <br>
+						301, Moved Permanently，永久移动<br>
+						302, Move temporarily，暂时移动<br>
+						304, Not Modified，未修改<br>
+						307, Temporary Redirect，暂时重定向<br>
+						401, Unauthorized，未授权<br>
+						403, Forbidden，禁止访问<br>
+						404, Not Found，未发现指定网址<br>
+						500, Internal Server Error，服务器发生错误
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]响应</h4>
+			<ul>
+				<li>
+					xhr.<a href="">response</a>
+					<span>
+						只读，返回接收到的数据体
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">responseText</a>
+					<span>
+						获得字符串形式的响应数据
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">responseXML</a>
+					<span>
+						获得 XML 形式的响应数据
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">repsonseType</a>
+					<span>
+						“”：字符串（默认值）  <br>
+						“arraybuffer”：ArrayBuffer对象<br>
+						“blob”：Blob对象,blob类型适合读取二进制数据，比如图片文件<br>
+						“document”：Document对象,document类型适合返回XML文档的情况<br>
+						“json”：JSON对象<br>
+						“text”：字符串
+					</span>
+				</li>
+			</ul>
+		</div>
         <h3>BOM<span>-</span></h3>
         <div class="u-list">
 			<h4>[<span>-</span>] 渲染</h4>
@@ -75,6 +269,72 @@
                     <a href="https://github.com/js-cookie/js-cookie">js-cookie</a>
                 </li>
             </ul>
+			<h4>[<span>+</span>]控制台</h4>
+			<ul style="display: none;">
+				<li>
+					console.<a href="">log</a>()
+					<span>
+						console.log() <br>
+						console.debug() <br>
+						console.info() - 蓝色图标 <br>
+						console.warn() - 黄色三角 <br>
+						console.error() - 红色叉叉 <br>
+						console.table() - 表格显示 <br>
+						console.clear() - 清空
+					</span>
+				</li>
+				<li>
+					console.<a href="">count</a>(var)
+					<span>
+						用于计数，输出它被调用了多少次
+					</span>
+				</li>
+				<li>
+					console.<a href="">dir</a>(dom)
+					<span>
+						该方法对于输出 DOM 对象非常有用，因为会显示 DOM 对象的所有属性。 <br>
+						console.dirxml(dom) : 以目录树的形式，显示 DOM 节点
+					</span>
+				</li>
+				<li>
+					console.<a href="">assert</a>(false,'msg')
+					<span>
+						<a href="http://javascript.ruanyifeng.com/stdlib/console.html">参考资料</a>
+					</span>
+				</li>
+				<li>
+					console.<a href="">time/timeEnd</a>(name)
+					<span>
+						time方法表示计时开始，timeEnd方法表示计时结束。它们的参数是计时器的名称。 <br>
+						放在一个需要计时的代码起始与末尾。
+					</span>
+				</li>
+				<li>
+					console.<a href="">profile/profileEnd</a>(name)
+					<span>
+						新建一个性能测试器。类同time，在profile面板中，可以看到这个性能调试器的运行结果
+					</span>
+				</li>
+				<li>
+					console.<a href="">group/groupend</a>(name)
+					<span>
+						分组展示，可用鼠标折叠展开。 <br>
+						console.groupCollapsed() 默认第一次是折叠的。
+					</span>
+				</li>
+				<li>
+					console.<a href="">trace()</a>
+					<span>
+						显示当前执行的代码在堆栈中的调用路径
+					</span>
+				</li>
+				<li>
+					<a href="">debugger</a>
+					<span>
+						debugger语句主要用于除错，作用是设置断点
+					</span>
+				</li>
+			</ul>
 		</div>
     </div>
     <div class="u-block">
