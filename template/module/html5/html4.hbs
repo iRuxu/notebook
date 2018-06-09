@@ -1,908 +1,361 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>IntersectionObserver<span>-</span></h3>
+        <h3>Ajax<span>+</span></h3>
+		<div class="u-list" style="display:none;">
+			<h4>[<span>-</span>]创建</h4>
+			<ul>
+				<li>
+					<a href="">new XMLHttpRequest()</a>
+					<span>
+						IE5-6不支持，用ActiveX对象替代，new ActiveXObject("Microsoft.XMLHTTP")
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">open</a><em>(method,url,async)</em>
+					<span>
+						规定请求的类型、URL 以及是否异步处理请求。 <br>
+						method：请求的类型，GET 或 POST <br>
+						url：文件在服务器上的位置<br>
+						async：true（异步）或 false（同步）
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">setRequestHeader</a><em>(header,val)</em>
+					<span>
+						向请求添加HTTP头 <br>
+						xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded") <br>
+						该方法必须在open()之后、send()之前调用。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">send</a>(str)
+					<span>
+						将请求发送到服务器。 <br>
+						string：仅用于post请求 
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]事件</h4>
+			<ul>
+				<li>
+					xhr.<a href="">onreadystatechange</a>
+					<span>
+						存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。 <br>
+						当 readyState 等于 4 且状态为 200 时，表示响应已就绪 <br>
+						XMLHttpRequest第一版，只能对onreadystatechange这一个事件指定回调函数。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onloadstart</a>
+					<span>
+						请求发出
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onprogress</a>
+					<span>
+						正在发送和加载数据
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onabort</a>
+					<span>
+						请求被中止，比如用户调用了abort()方法
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onerror</a>
+					<span>
+						请求失败
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onload</a>
+					<span>
+						请求成功完成
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">ontimeout</a>
+					<span>
+						用户指定的时限到期，请求还未完成
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">onloadend</a>
+					<span>
+						请求完成，不管成果或失败
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]属性</h4>
+			<ul>
+				<li>
+					xhr.<a href="">timeout</a>
+					<span>
+						等于一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">withCredentials</a>
+					<span>
+						withCredentials属性是一个布尔值，表示跨域请求时，用户信息（比如Cookie和认证的HTTP头信息）是否会包含在请求之中，默认为false。 <br>
+						如果你需要通过跨域AJAX发送Cookie，需要打开withCredentials。 <br>
+						为了让这个属性生效，服务器必须显式返回Access-Control-Allow-Credentials这个头信息
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]方法</h4>
+			<ul>
+				<li>
+					xhr.<a href="">abort()</a>
+					<span>
+						终止已经发出的HTTP请求 <br>
+						ajax.abort();<br>
+    					ajax = null;
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">getAllResponseHeaders()</a>
+					<span>
+						getAllResponseHeaders方法返回服务器发来的所有HTTP头信息。格式为字符串，每个头信息之间使用CRLF分隔，如果没有受到服务器回应，该属性返回null。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">getResponseHeader</a>(key)
+					<span>
+						返回HTTP头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，则该属性为null。
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">overrideMimeType()</a>
+					<span>
+						该方法用来指定服务器返回数据的MIME类型。该方法必须在send()之前调用。
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]状态</h4>
+			<ul>
+				<li>
+					xhr.<a href="">readyState</a>
+					<span>
+						0: 请求未初始化 <br>
+						1: 服务器连接已建立 <br>
+						2: 请求已接收 <br>
+						3: 请求处理中 <br>
+						4: 请求已完成，且响应已就绪
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">status</a>
+					<span>
+						200, OK，访问正常 <br>
+						301, Moved Permanently，永久移动<br>
+						302, Move temporarily，暂时移动<br>
+						304, Not Modified，未修改<br>
+						307, Temporary Redirect，暂时重定向<br>
+						401, Unauthorized，未授权<br>
+						403, Forbidden，禁止访问<br>
+						404, Not Found，未发现指定网址<br>
+						500, Internal Server Error，服务器发生错误
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]响应</h4>
+			<ul>
+				<li>
+					xhr.<a href="">response</a>
+					<span>
+						只读，返回接收到的数据体
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">responseText</a>
+					<span>
+						获得字符串形式的响应数据
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">responseXML</a>
+					<span>
+						获得 XML 形式的响应数据
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">repsonseType</a>
+					<span>
+						“”：字符串（默认值）  <br>
+						“arraybuffer”：ArrayBuffer对象<br>
+						“blob”：Blob对象,blob类型适合读取二进制数据，比如图片文件<br>
+						“document”：Document对象,document类型适合返回XML文档的情况<br>
+						“json”：JSON对象<br>
+						“text”：字符串
+					</span>
+				</li>
+			</ul>
+		</div>
+    </div>
+    <div class="u-block">
+        <h3>Web Socket<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 构造函数</h4>
+            <h4>[<span>-</span>] 实例属性</h4>
             <ul>
                 <li>
-                    <a href="">new IntersectionObserver</a><em>(callback(entries),[opt])</em>
+                    <a href="">new WebSocket</a>(url)
                     <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver">IntersectionObserver</a> | <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserverEntry">IntersectionObserverEntry</a> <br>
-                        <a href="https://www.cnblogs.com/ziyunfei/p/5558712.html">参考资料</a> 
+                        url格式为ws://path:80
                     </span>
                 </li>
                 <li>
-                    opt.<a href="">root</a>
+                    ws.<a href="">readyState</a>
                     <span>
-                        值：null | selectorID <br>
-                        一个可以滚动的元素，我们叫它根元素，它有很多后代元素，想要做的就是判断它的某个后代元素是否滚动进了自己的可视区域范围。这个 root 参数就是用来指定根元素的，默认值是 null，代表viewport。
+                        返回实例对象的当前状态 <br>
+                        CONNECTING：值为0，表示正在连接。 <br>
+                        OPEN：值为1，表示连接成功，可以通信了。<br>
+                        CLOSING：值为2，表示连接正在关闭。<br>
+                        CLOSED：值为3，表示连接已经关闭，或者打开连接失败。<br>
                     </span>
                 </li>
                 <li>
-                    opt.<a href="">threshold</a>
+                    ws.<a href="">bufferedAmount</a>
                     <span>
-                        值：[0~1] <br>
-                        当目标元素和根元素相交时，用相交的面积除以目标元素的面积会得到一个 0 到 1（0% 到 100%）的数值。当目标元素和根元素相交的面积占目标元素面积的百分比到达或跨过某些指定的临界值时就会触发回调函数。不但包含进入，也包括离开。
+                        表示还有多少字节的二进制数据没有发送出去。它可以用来判断发送是否结束。
                     </span>
                 </li>
                 <li>
-                    opt.<a href="">rootMargin</a>
+                    ws.<a href="">send</a>(data)
                     <span>
-                        值："0px 0px 0px 0px" <br>
-                        根边界盒的矩形偏移量，也可理解为提前量。单位可用px与百分比。 <br>
-                        设置为0时，也必须带上px单位。可设为负值。
+                        实例对象的send()方法用于向服务器发送数据
                     </span>
                 </li>
-                <li>
-                    <a href="https://github.com/w3c/IntersectionObserver/tree/master/polyfill">polyfill</a>
-                </li>
+                <li><a href="https://github.com/socketio/socket.io">socket.io</a></li>
             </ul>
-            <h4>[<span>+</span>] 实例属性(仅读)</h4>
-            <ul style="display:none;">
-                <li>
-                    observer.<a href="">root</a>
-                    <span>
-                        值：null | 被设置的dom元素
-                    </span>
-                </li>
-                <li>
-                    observer.<a href="">thresholds</a>
-                    <span>
-                        值：[0,0.5,1]
-                    </span>
-                </li>
-                <li>
-                    observer.<a href="">rootMargin</a>
-                    <span>
-                        值："100px 0px"
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 实例方法</h4>
+            <h4>[<span>-</span>] 相关事件</h4>
             <ul>
                 <li>
-                    observer.<a href="">observe</a>(ele)
+                    ws.<a href="">onopen</a>(fn)
                     <span>
-                        观察某个目标元素，一个观察者实例可以观察任意多个目标元素。
+                        指定连接成功后的回调函数 <br>
+                        如果要指定多个回调函数，可以使用addEventListener方法。
                     </span>
                 </li>
                 <li>
-                    observer.<a href="">unobserve</a>(ele)
+                    ws.<a href="">onclose</a>(fn)
                     <span>
-                        停止监听特定目标元素。
+                        指定连接关闭后的回调函数
                     </span>
                 </li>
                 <li>
-                    observer.<a href="">disconnect()</a>
+                    ws.<a href="">onmessage</a>(fn)
                     <span>
-                        终止对所有目标的观察。
+                        指定收到服务器数据后的回调函数
                     </span>
                 </li>
                 <li>
-                    observer.<a href="">takeRecords()</a>
+                    ws.<a href="">onerror</a>(fn)
                     <span>
-                        返回包含若干个 IntersectionObserverEntry 对象的数组
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] IntersectionObserverEntry</h4>
-            <ul>
-                <li>
-                    entry.<a href="">target</a>
-                    <span>
-                        相交发生时的目标元素，因为一个根元素可以观察多个目标元素，所以这个 target 不一定是哪个元素。
-                    </span>
-                </li>
-                <li>
-                    entry.<a href="">isIntersecting</a>
-                    <span>
-                        true/false
-                    </span>
-                </li>
-                <li>
-                    entry.<a href="">intersectionRatio</a>
-                    <span>
-                        0 到 1 的数值，表示相交区域占目标元素区域的百分比，也就是 intersectionRect 的面积除以 boundingClientRect 的面积得到的值
-                    </span>
-                </li>
-                <li>
-                    entry.<a href="">time</a>
-                    <span>
-                        相交发生时距离页面打开时的毫秒数（有小数） <br>
-                        也就是相交发生时 performance.now() 的返回值，比如 60000.560000000005，表示是在页面打开后大概 1 分钟发生的相交。在回调函数里用 performance.now() 减去这个值，就能算出回调函数被 requestIdleCallback 延迟了多少毫秒
-                    </span>
-                </li>
-                <li>
-                    entry.<a href="">rootBounds</a>
-                    <span>
-                        一个对象值，表示发生相交时根元素可见区域的矩形信息
-                    </span>
-                </li>
-                <li>
-                    entry.<a href="">boundingClientRect</a>
-                    <span>
-                        发生相交时目标元素的矩形信息，等价于 target.getBoundingClientRect()。
-                    </span>
-                </li>
-                <li>
-                    entry.<a href="">intersectionRect</a>
-                    <span>
-                        根元素和目标元素相交区域的矩形信息。
+                        用于指定报错时的回调函数
                     </span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>Canvas<span>+</span></h3>
-        <div class="u-list" style="display:none;">
-            <h4>[<span>-</span>] 核心</h4>
+        <h3>网络<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Web Workers</h4>
             <ul>
                 <li>
-                    ele.<a href="">getContext</a>('2d')
+                    <a href="">new Worker</a>(file.js)
                     <span>
-                        获得渲染上下文和它的绘画功能
+                        当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。 <br>
+                        web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。
                     </span>
                 </li>
                 <li>
-                    ctx.<a href="">save()</a>
+                    wk.<a href="">terminate()</a>
                     <span>
-                        保存当前环境的状态 <br>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Transformations">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">restore()</a>
-                    <span>
-                        返回之前保存过的路径状态和属性
+                        终止 web worker，并释放浏览器/计算机资源
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 绘制-矩形</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">fillRect</a><em>(x,y,w,h)</em>
-                    <span>
-                        绘制一个填充的矩形 <br>
-                        x,y起始坐标，w,y宽度和高度
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">strokeRect</a><em>(x,y,w,h)</em>
-                    <span>
-                        绘制一个矩形的边框（镂空的矩形）
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">clearRect</a><em>(x,y,w,h)</em>
-                    <span>
-                        清除指定矩形区域，让清除部分完全透明
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 绘制-路径</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">beginPath()</a>
-                    <span>
-                        新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。 <hr>
-                        图形的基本元素是路径。路径是通过不同颜色和宽度的线段或曲线相连形成的不同形状的点的集合。一个路径，甚至一个子路径，都是闭合的。使用路径绘制图形需要一些额外的步骤。 <br>
-                        1.创建路径起始点。<br>
-                        2.你使用画图命令去画出路径。<br>
-                        3.把路径封闭。<br>
-                        4.通过描边或填充路径区域来渲染图形。<br>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">closePath()</a>
-                    <span>
-                        闭合路径之后图形绘制命令又重新指向到上下文中
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">moveTo</a>(x,y)
-                    <span>
-                        将笔触移动到指定的坐标x以及y上
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">lineTo</a>(x,y)
-                    <span>
-                        绘制一条从当前位置到指定x以及y位置的直线
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">arc</a><em>(x,y,radius,startAngle,endAngle,aniclockwise)</em>
-                    <span>
-                        x:圆心x坐标 <br>
-                        y:圆心y坐标 <br>
-                        radius:半径 <br>
-                        startAngle: 起始弧度(x基准) <br>
-                        endAngle: 结束弧度 <br>
-                        anticlockwise:true(逆时针)/false(顺时针) <hr>
-                        弧度，不是度数。 radians(弧度)=(Math.PI/180)*degrees(角度) <br>
-                        360度圆：2*Math.PI <br>
-                        180度半圆：Math.PI
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">arcTo</a><em>(x1,y1,x2,y2,radius)</em>
-                    <span>
-                        创建两切线之间的弧/曲线 <a href="http://www.runoob.com/tags/canvas-arcto.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">quadraticCurveTo</a><em>(cp1x,cp1y,x,y)</em>
-                    <span>
-                        绘制二次贝塞尔曲线 <br>
-                        cp1x,cp1y为一个控制点，x,y为结束点
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">bezierCurveTo</a><em>(cp1x,cp1y,cp2x,cp2y,x,y)</em>
-                    <span>
-                        绘制三次贝塞尔曲线 <br>
-                        cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">stroke()</a>
-                    <span>
-                        通过线条来绘制图形轮廓
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">fill()</a>
-                    <span>
-                        通过填充路径的内容区域生成实心的图形 <br>
-                        使用fill方法会自动闭合
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 绘制-Path2D</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">new Path2D</a>([path/svg])
-                    <span>
-                        新建一个Path2D对象 <br>
-                        可能将某一个路径作为变量——创建一个它的副本，或者将一个包含SVG path数据的字符串作为变量<br>
-                        var path = new Path2D();     // 空的Path对象<br>
-                        var path = new Path2D(path); // 克隆Path对象<br>
-                        var path = new Path2D(d);    // 从SVG建立Path对象
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">stroke</a>(path2d)
-                    <span>
-                        通过线条来绘制图形轮廓
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">fill</a>(path2d)
-                    <span>
-                        通过填充路径的内容区域生成实心的图形 <br>
-                        使用fill方法会自动闭合
-                    </span>
-                </li>
-                <li>
-                    path2d.<a href="">rect</a>(x,y,w,h)
-                    <span>
-                        不同于SVG，HTML中的元素canvas只支持一种原生的图形绘制：矩形。所有其他的图形的绘制都至少需要生成一条路径。不过，我们拥有众多路径生成的方法让复杂图形的绘制成为了可能。 <br>
-                        此方法绘制的是空的矩形，需使用stroke或fill方法进行描边或填充。 <br>
-                        当该方法执行的时候，moveTo()方法自动设置坐标参数（0,0）。也就是说，当前笔触自动重置回默认坐标。 
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 绘制-文本</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">fillText</a><em>(text,x,y,[maxw])</em>
-                    <span>
-                        在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">strokeText</a><em>(text,x,y,[maxw])</em>
-                    <span>
-                        在指定的(x,y)位置绘制文本边框，绘制的最大宽度是可选的
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">measure</a>('text')
-                    <span>
-                        将返回一个 TextMetrics对象的宽度、所在像素，这些体现文本特性的属性 <br>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/TextMetrics">参考资料</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-模式</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">fillStyle</a>
-                    <span>
-                        设置图形的填充样式
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">strokeStyle</a>
-                    <span>
-                        设置图形轮廓的样式
-                    </span>
-                </li>
-                
-                <li>
-                    ctx.<a href="">fill</a>(mode)
-                    <span>
-                        nonzero : 全部填充，默认 <br>
-                        evenodd : 奇偶交替
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-颜色</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">fillStyle</a>
-                    <span>
-                        ctx.fillStyle = '#ff3399' <br>
-                        <b>样式设置必须在绘制之前</b>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">globalAlpha</a>
-                    <span>
-                        透明度 0-1
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-图案</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">creatPattern</a><em>(img,type)</em>
-                    <span>
-                        img:Image对象引用或另一个canvas <br>
-                        type: repeat / repeat-x / repeat-y / no-repeat <br>
-
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-渐变</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">creatLinearGradient</a><em>(x1,y1,x2,y2)</em>
-                    <span>
-                        创建一个canvasGradient对象，并且赋给图形的 fillStyle 或 strokeStyle 属性 <hr>
-                        线性渐变 <br>
-                        渐变的起点 (x1,y1) 与终点 (x2,y2) <br>
-                        var lineargradient = ctx.createLinearGradient(0,0,150,150);
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">creatRadialGradient</a><em>(x1,y1,r1,x2,y2,r2)</em>
-                    <span>
-                        径向渐变 <br>
-                        前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆。 <br>
-                        var radialgradient = ctx.createRadialGradient(75,75,0,75,75,100);
-                    </span>
-                </li>
-                <li>
-                    gradient.<a href="">addColorStop</a><em>(position,color)</em>
-                    <span>
-                        position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。例如，0.5 表示颜色会出现在正中间。 <br>
-                        color 参数必须是一个有效的 CSS 颜色值（如 #FFF， rgba(0,0,0,1)，等等）。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-阴影</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">shadowOffsetX</a>
-                    <span>
-                        设置或返回阴影与形状的水平距离
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">shadowOffsetY</a>
-                    <span>
-                        设置或返回阴影与形状的垂直距离
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">shadowBlur</a>
-                    <span>
-                        设置或返回用于阴影的模糊级别
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">shadowColor</a>
-                    <span>
-                        设置或返回用于阴影的颜色
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-线条</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">lineWidth</a>
-                    <span>
-                        设置线条宽度 <br>
-                        位置 x.5 来获取精确1px效果<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">lineCap</a>
-                    <span>
-                        设置线条末端样式 <br>
-                        butt:平直 <br>
-                        round:圆角 <br>
-                        square:向线条的每个末端添加正方形线帽,端点处加上了等宽且高度为一半线宽的方块。
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">lineJoin</a>
-                    <span>
-                        设定线条与线条间接合处的样式 <br>
-                        miter:创建尖角 <br>
-                        round:创建圆角 <br>
-                        bevel:创建斜角  <br>
-                        <a href="http://www.runoob.com/tags/canvas-linejoin.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">miterLimit</a>
-                    <span>
-                        斜接长度：限制当两条线相交时交接处最大长度； <br>
-                        <a href="http://www.runoob.com/tags/canvas-miterlimit.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">setLineDash</a>([len,space])
-                    <span>
-                        设置当前虚线样式 <br>
-                        参数接受一个数组，来指定线段与间隙的交替
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">lineDashOffset</a>
-                    <span>
-                        设置虚线样式的起始偏移量
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">getLineDash()</a>
-                    <span>
-                        返回一个包含当前虚线样式的数组
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 样式-文本</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">font</a>
-                    <span>
-                        字体属性 '10px Arial'
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">textAlign</a>
-                    <span>
-                        文本对齐方式 <br>
-                        start(默认), end, left, right , center
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">textBaseline</a>
-                    <span>
-                        基线对齐方式 <br>
-                        top, hanging, middle, alphabetic(默认), ideographic, bottom
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 图像</h4>
+            <h4>[<span>-</span>] CORS</h4>
             <ul>
-                <li>
-                    ctx.<a href="">drawImage</a><em>(img,x,y)</em>
-                    <span>
-                        渲染图片在canvas里 <br>
-                        image如果是svg图像必须在svg根指定元素的宽高 <br>
-                        x,y为目标在canvas里的起始坐标
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">drawImage</a><em>(img,x,y,w,h)</em>
-                    <span>
-                        指定大小，缩放
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">drawImage</a><em>(img,sx,sy,sw,sh,dx,dy,dw,dh)</em>
-                    <span>
-                        图片切片。 <br>
-                        前一组表示切片源位置和大小，后一组表示目标显示的位置和大小
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 变换</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">translate</a>(x,y)
-                    <span>
-                        移动
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">rotate</a>(angle)
-                    <span>
-                       以原点为中心旋转  <br>
-                       这个方法只接受一个参数：旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值。
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">scale</a>(x,y)
-                    <span>
-                        缩放 <br>
-                        水平/垂直缩放,0~1,1~+
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">transform</a><em>(m11,m12,m21,m22,dx,dy)</em>
-                    <span>
-                        替换绘图的当前转换矩阵 <br>
-                        m11：水平方向的缩放<br>
-                        m12：水平方向的偏移<br>
-                        m21：竖直方向的偏移<br>
-                        m22：竖直方向的缩放<br>
-                        dx：水平方向的移动<br>
-                        dy：竖直方向的移动<br>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">setTransform</a><em>(m11,m12,m21,m22,dx,dy)</em>
-                    <span>
-                        这个方法会将当前的变形矩阵重置为单位矩阵，然后用相同的参数调用 transform 方法。如果任意一个参数是无限大，那么变形矩阵也必须被标记为无限大，否则会抛出异常。从根本上来说，该方法是取消了当前变形,然后设置为指定的变形,一步完成。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 合并与剪裁</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">globalCompositeOperation</a>
-                    <span>
-                        设置或返回如何将一个源（新的）图像绘制到目标（已有的）的图像上 <br>
-                        <a href="http://www.runoob.com/tags/canvas-globalcompositeoperation.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">clip()</a>
-                    <span>
-                        剪切
-<pre><code data-language="javascript">
-    function drawStar(ctx,r){
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(r,0);
-      for (var i=0;i<9;i++){
-        ctx.rotate(Math.PI/5);
-        if(i%2 == 0) {
-          ctx.lineTo((r/0.525731)*0.200811,0);
-        } else {
-          ctx.lineTo(r,0);
-        }
-      }
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-    }
-</code></pre>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] ImageData对象</h4>
-            <ul style="display:none;">
-                <li>
-                    ctx.<a href="">creatImageData</a>(w,h/img)
-                    <span>
-                        ImageData对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性: <br>
-                        width：图片宽度，单位是像素 <br>
-                        height：图片高度，单位是像素 <br>
-                        data：Uint8ClampedArray类型的一维数组，包含着RGBA格式的整型数据，范围在0至255之间（包括255）。
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">getImageData</a>(x,y,w,h)
-                    <span>
-                        获得一个包含画布场景像素数据的ImageData对像
-                    </span>
-                </li>
-                <li>
-                    ctx.<a href="">putImageData</a>(data,x,y)
-                    <span>
-                        对场景进行像素数据写入
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 其它更多</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">canvas</a>
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial">MDN参考资料</a> <br>
-                        可直接在canvas标签中的内容来提示不支持canvas时的显示内容。 <br>
-                        Canvas 的默认大小为300像素×150像素 <br>
-                        IE9+
-                    </span>
-                </li>
-                <li><a href="https://www.awesomes.cn/repo/chartjs/chart-js">Chart.js</a></li>
-                <li><a href="https://www.awesomes.cn/repo/ecomfe/echarts">echarts</a></li>
+                <li><a href="http://javascript.ruanyifeng.com/bom/cors.html">CORS</a></li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>WebGL<span>+</span></h3>
-        <div class="u-list" style="display:none;">
-            <h4>[<span>+</span>] 其它更多</h4>
-            <ul style="display:none;">
-                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API">WebGL</a></li>
-                <li>
-                    <a href="">three.js</a>
-                    <span>
-                        <a href="https://www.awesomes.cn/repo/mrdoob/three-js">three.js</a> | 
-                        <a href="http://www.hewebgl.com/">中文教程</a>
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>SVG<span>+</span></h3>
-        <div class="u-list" style="display:none;">
-            <h4>[<span>-</span>] 基础</h4>
+        <h3>Web API<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] SSE (服务器->页面)</h4>
             <ul>
-                <li><a href="">viewBox</a><span>
-                    viewBox="x, y, width, height" <br>
-                    可视区域 <br>
-                    当设定了固定尺寸，且尺寸大于可视区时，相当于放大了图片指定区域的效果
-                </span></li>
-            </ul>
-            <h4>[<span>+</span>] 图形</h4>
-            <ul style="display:none;">
                 <li>
-                    <a href="">rect</a>
+                    <a href="">new EventSource</a>('url')
                     <span>
-                        x=起始水平,y=起始垂直,width=宽度,height=高度,rx=圆角水平半径,ry=圆角垂直半径
+                        EventSource 对象用于接收服务器发送事件通知，url规定发送更新的页面
                     </span>
                 </li>
                 <li>
-                    <a href="">circle</a>
+                    sse.<a href="">onmessage</a>(fn)
                     <span>
-                        cx=圆心水平,cy=圆心垂直,r=半径
+                        e.data 接受的数据 <br>
+                        <a href="http://www.runoob.com/html/html5-serversentevents.html">参考资料</a>
                     </span>
                 </li>
-                <li>
-                    <a href="">ellipse</a>
-                    <span>
-                        cx=圆心水平,cy=圆心垂直,rx=椭圆水平半径,ry=椭圆垂直半径
-                    </span>
-                </li>
-                <li>
-                    <a href="">line</a>
-                    <span>
-                        x1=起始水平坐标,y1起始垂直坐标,x2=结束水平坐标,y2=结束垂直坐标
-                    </span>
-                </li>
-                <li>
-                    <a href="">polygon</a>
-                    <span>
-                        points="x1,y1 x2,y2 ...,xN,yN" <br>
-                        定义多边形每个角的x和y坐标,每一组数x,y xn,yn每一组点之间用空格分开
-                    </span>
-                </li>
-                <li>
-                    <a href="">polyline</a>
-                    <span>
-                        points="x1,y1 x2,y2 ...,xN,yN" <br>
-                        定义折线每个点的x和y坐标,每一组数x,y xn,yn每一组点之间用空格分开
-                    </span>
-                </li>
-                <li>
-                    <a href="">path</a>
-                    <span>
-                        d="M150 0 L75 200 L225 200 Z" 定义路径
-                        <br />所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
-                        <br />M = moveto （移动到）
-                        <br />L = lineto （连线）
-                        <br />H = horizontal lineto （水平连线）
-                        <br />V = vertical lineto （垂直连线）
-                        <br />C = curveto （曲线）
-                        <br />S = smooth curveto （平滑曲线）
-                        <br />Q = quadratic Bézier curve （二次贝塞尔曲线）
-                        <br />=》M x0 y0 q x1 y1 x2 y2 小写代表相对,即后面的值表示正数+水平向下/负数-水平向上
-                        <br />T = smooth quadratic Bézier curveto （平滑贝塞尔曲线）
-                        <br />A = elliptical Arc （椭圆弧形）
-                        <br />Z = closepath （闭合路径）
-                    </span>
-                </li>
-                <li><a href="">path</a><span>路径 d=". . ."</span></li>
             </ul>
-            <h4>[<span>+</span>] 文本</h4>
-            <ul style="display:none;">
-                <li><a href="">text</a><span>
-                    文字，基于基线对齐
-                </span></li>
-                <li><a href="">textPath</a><span>
-                    路径文字 textPath xlink:href="#id"
-                    <br />超出路径的部分不会被渲染
-                    <br />位移控制：
-                    <br />水平：x(起始位置点),text-anchor:start/end/middle(文字的哪个点对齐文本x起始点),startOffset:%(文本以哪个开始作为与路径对齐的点),dx(切线起点)
-                    <br />垂直：y(无),dy(法线位置,dx/dy会对后续字符一起影响)
-                </span></li>
-                <li><a href="">tspan</a><span>
-                    text中多行文本,可拥有单独样式
-                </span></li>
-                <li><a href="">a</a> xlink:href<span>
-                    a标签可以添加到任意图形上<br />
-                    链接文本,应包围在text外面,xlink:title提示
-                </span></li>
-            </ul>
-            <h4>[<span>+</span>] 样式</h4>
-            <ul style="display:none;">
-                <li><a href="">fill</a>(#fff)<span>填充颜色</span></li>
-                <li><a href="">fill-opacity</a>(0-1)<span>填充透明度</span></li>
-                <li><a href="">stroke</a>(#f39)<span>轮廓颜色</span></li>
-                <li><a href="">stroke-opacity</a>(0-1)<span>轮廓线透明度</span></li>
-                <li><a href="">stroke-width</a>(8)<span>轮廓宽度(可不要单位)</span></li>
-                <li><a href="">stroke-linecap</a>(round)<span>轮廓笔触样式
-                    <br />butt:结尾柄
-                    <br />round:圆
-                    <br />square:方
-                    </span></li>
-                <li><a href="">stroke-dasharray</a><span>虚线样式
-                    <br />自定义虚线的结构
-                    <br />stroke-dasharray="5,5" 
-                    <br />stroke-dasharray="20,10,5,5,5,10"
-                    <br />SVG描边动画,设置stroke-dasharray: 1000;stroke-dashoffset: 1000;设置keyframe{ to{stroke-dashoffset: 0;}}
-                    </span></li>
-                <li><a href="">transform</a><span>变换是基于自身坐标系！矩阵等同线性代数矩阵</span></li>
-            </ul>
-            <h4>[<span>+</span>] 渐变</h4>
-            <ul style="display:none;">
-                <li><a href="">linearGradient</a><span>线性渐变
-                    <br />id="id 属性可为渐变定义一个唯一的名称。引用必须"
-                    <br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'.使用视图框或对象，以确定相对位置矢量点。 （默认为'objectBoundingBox）"
-                    <br />gradientTransform="适用于渐变的转变"
-                    <br />x1="渐变向量x启动点（默认0％）"
-                    <br />y1="渐变向量y启动点（默认0％）" 
-                    <br />x2="渐变向量x的终点。 （默认100％）"
-                    <br />y2="渐变向量y的终点。 （默认0％）" 
-                    <br />spreadMethod="'pad' or 'reflect' or 'repeat'"
-                    <br />xlink:href="reference to another gradient whose attribute values are used as defaults and stops included. Recursive"
-                </span></li>
-                <li><a href="">radialGradient</a><span>径向渐变
-                    <br />gradientUnits="'userSpaceOnUse' or 'objectBoundingBox'. 使用视图框或对象以确定相对位置的矢量点。 （默认为'objectBoundingBox）"
-                    <br />gradientTransform="适用于渐变的变换" 
-                    <br />cx="渐变的中心点（数字或％ - 50％是默认）"
-                    <br />cy="渐变的中心点。 （默认50％）"
-                    <br />r="渐变的半径。 （默认50％）" 
-                    <br />fx="渐变的焦点。 （默认0％）"
-                    <br />fy="渐变的焦点。 （默认0％）"
-                    <br />spreadMethod="'pad' or 'reflect' or 'repeat'"
-                    <br />xlink:href="引用到另一个渐变，其属性值作为默认值。递归"
-                </span></li>
-            </ul>
-            <h4>[<span>+</span>] 滤镜</h4>
-            <ul style="display:none">
-                <li><a href="">filter</a><span>
-                    所有互联网的SVG滤镜定义在defs元素中。defs元素定义短并含有特殊元素（如滤镜）定义。
-                    filter标签用来定义SVG滤镜。filter标签使用必需的id属性来定义向图形应用哪个滤镜
-                </span></li>
-                <li><a href="">feBlend</a><span>与图像相结合的滤镜</span></li>
-                <li><a href="">feOffset</a><span>过滤阴影</span></li>
-                <li><a href="">feGaussianBlur</a><span>高斯模糊</span></li>
-                <li><a href="">feColorMatrix</a><span>用于彩色滤光片转换</span></li>
-                <li><a href="">feComponentTransfer</a><span></span></li>
-                <li><a href="">feComposite</a><span></span></li>
-                <li><a href="">feConvolveMatrix</a><span></span></li>
-                <li><a href="">feDiffuseLighting</a><span></span></li>
-                <li><a href="">feDisplacementMap</a><span></span></li>
-                <li><a href="">feFlood</a><span></span></li>
-                <li><a href="">feImage</a><span></span></li>
-                <li><a href="">feMerge</a><span></span></li>
-                <li><a href="">feMorphology</a><span></span></li>
-                <li><a href="">feSpecularLighting</a><span>feTile</span></li>
-                <li><a href="">feTurbulence</a><span></span></li>
-                <li><a href="">feDistantLight</a><span>用于照明过滤</span></li>
-                <li><a href="">fePointLight</a><span>用于照明过滤</span></li>
-                <li><a href="">feSpotLight</a><span>用于照明过滤</span></li>
-            </ul>
-            <h4>[<span>+</span>] 动画</h4>
-            <ul style="display:none">
-                <li><a href="">set</a><span>
-                    可以在特定时间之后修改某个属性值 <br>
-                    <a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/">参考资料</a>
-                </span></li>
-                <li><a href="">animate</a><span>随时间动态改变属性
-                    <br />attributeName="目标属性名称"
-                    <br />from="起始值"
-                    <br />to="结束值"
-                    <br />dur="持续时间"
-                    <br />repeatCount="动画时间将发生"</span></li>
-                <li><a href="">animateColor</a><span>定义随着时间的推移颜色转换
-                    <br />by="相对偏移值"
-                    <br />from="起始值"
-                    <br />to="结束值"</span></li>
-                <li><a href="">animateMotion</a><span>使元素沿着动作路径移动
-                    <br />calcMode="动画的插补模式。可以是'discrete', 'linear', 'paced', 'spline'"
-                    <br />path="运动路径"
-                    <br />keyPoints="沿运动路径的对象目前时间应移动多远"
-                    <br />rotate="应用旋转变换"
-                    <br />xlink:href="一个URI引用<path>元素，它定义运动路径"</span></li>
-                <li><a href="">animateTransform</a><span>
-                    动画上一个目标元素变换属性，从而使动画控制平移，缩放，旋转或倾斜
-                    <br />by="相对偏移值"
-                    <br />from="起始值"
-                    <br />to="结束值"
-                    <br />type="类型的转换其值是随时间变化。可以是 'translate', 'scale', 'rotate', 'skewX', 'skewY'"</span></li>
-            </ul>
-            <h4>[<span>+</span>] 其它</h4>
-            <ul style="display:none">
-                <li><a href="">preserveAspectRatio</a><span>
-                    preserveAspectRatio="xMidYMid meet" <a href="http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/">参考资料</a>
-                    <br />第1个值表示，viewBox如何与SVG viewport对齐，自由组合；
-                    <br />xMin  viewport和viewBox左边对齐
-                    <br />xMid  viewport和viewBox x轴中心对齐
-                    <br />xMax  viewport和viewBox右边对齐
-                    <br />YMin  viewport和viewBox上边缘对齐。注意Y是大写。
-                    <br />YMid  viewport和viewBox y轴中心点对齐。注意Y是大写。
-                    <br />YMax  viewport和viewBox下边缘对齐。注意Y是大写。
-                    <br />第2个值表示，如何维持高宽比（如果有）。
-                    <br />meet  保持纵横比缩放viewBox适应viewport
-                    <br />slice 保持纵横比同时比例小的方向放大填满viewport
-                    <br />none  扭曲纵横比以充分适应viewport
-                </span></li>
-                <li><a href="">g</a><span>编组</span></li>
-                <li><a href="">defs</a><span>引用的元素容器</span></li>
-                <li><a href="">pattern</a><span>定义一个可用于平铺的图案,fill:url(#id)</span></li>
-                <li><a href="">use</a><span>
-                    svg画布铺满整个浏览器,需要设置html+body~font-size:0;line-height:0;<br />
-                    use xlink:href="#id"</span></li>
-                <li><a href="">clipPath</a><span>clipPath定义一个用于剪裁的形状,clip-path="url(#id)"通过引用对某个图像进行剪裁
-                    <br /><b>单词！！【定义】clipPath 《=》 【引用】clip-path="url(#id)"</b>
-                    <br /><b>被剪裁形状内的区间为显示区间！！</b>
-                    <br />css制作遮罩动画中,遮罩图形的尺寸不可操作,只有transform属性
-                    </span></li>
-                <li><a href="">mask</a><span>蒙版
-                    <br />maskUnits="'userSpaceOnUse' or 'objectBoundingBox'.设定裁剪面是否是相对完整的视窗或对象（默认：'objectBoundingBox'）"
-                    <br />maskContentUnits="第二个掩码相对对象的图形位置使用百分比'userSpaceOnUse'或'objectBoundingBox'（默认：'userSpaceOnUse'）"
-                    <br />x="裁剪面掩码（默认值：-10％）" 
-                    <br />y="裁剪面掩码（默认值：-10％）" 
-                    <br />width="裁剪面掩码（默认是：120％）"
-                    <br />height="裁剪面掩码（默认是：120％）"</span></li>
-                <li><a href="">image</a><span>
-                    定义图像    
-                    <br />x="图像的左上角的x轴坐标"
-                    <br />y="图像的左上角的y轴坐标"
-                    <br />width="图像的宽度". 必须.
-                    <br />height="图像的高度". 必须.
-                    <br />xlink:href="图像的路径". 必须.
-                </span></li>
-            </ul>
-            <h4>[<span>+</span>] 资料</h4>
-            <ul style="display:none;">
-                <li><a href="http://www.runoob.com/svg/svg-reference.html">参考手册</a></li>
-                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element">SVG Element</a></li>
-                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute">SVG Property</a></li>
-                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model#SVG_接口">SVG API</a></li>
-                <li><a href="https://www.awesomes.cn/repo/adobe-webplatform/snap-svg">snap.svg</a></li>
-                <li><a href="https://www.awesomes.cn/repo/d3/d3">D3</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>MathML<span>+</span></h3>
-        <div class="u-list" style="display:none;">
-            <h4>[<span>-</span>] MathML</h4>
+            <h4>[<span>-</span>] Notifications (页面->桌面)</h4>
             <ul>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/MathML">MathML</a></li>
-                <li><a href="https://github.com/Khan/KaTeX">KaTeX</a></li>
+                <li>
+                    Notification.<a href="">permission</a>
+                    <span>
+                        用于读取用户给予的权限，它是一个只读属性，它有三种状态 <br>
+                        default：用户还没有做出任何许可，因此不会弹出通知。 <br>
+                        granted：用户明确同意接收通知。 <br>
+                        denied：用户明确拒绝接收通知。
+                    </span>
+                </li>
+                <li>
+                    Notification.<a href="">requestPermission()</a>
+                    <span>
+                        Notification.requestPermission方法用于让用户做出选择，到底是否接收通知。它的参数是一个回调函数，该函数可以接收用户授权状态作为参数。
+                    </span>
+                </li>
+                <li>
+                    <a href="">new Notification</a><em>(title,[option])</em>
+                    <span>
+                        Notification构造函数的title属性是必须的，用来指定通知的标题，格式为字符串。options属性是可选的，格式为一个对象，用来设定各种设置。 <hr>
+                        body：通知内容，格式为字符串，用来进一步说明通知的目的。<br>
+                        dir：文字方向，可能的值为 auto、ltr（从左到右）和rtl（从右到左），一般是继承浏览器的设置。 <br>
+                        lang：使用的语种，比如 en-US、zh-CN。<br>
+                        tag：通知的 ID，格式为字符串。一组相同tag的通知，不会同时显示，只会在用户关闭前一个通知后，在原位置显示。<br>
+                        icon：图标的 URL，用来显示在通知上。
+                    </span>
+                </li>
+                <li>
+                    nt.<a href="">onshow</a>
+                    <span>
+                        通知显示给用户时触发该事件
+                    </span>
+                </li>
+                <li>
+                    nt.<a href="">onclick</a>
+                    <span>
+                        用户点击通知时触发
+                    </span>
+                </li>
+                <li>
+                    nt.<a href="">onclose</a>
+                    <span>
+                        用户关闭通知时触发
+                    </span>
+                </li>
+                <li>
+                    nt.<a href="">error</a>
+                    <span>
+                        通知出错时触发（大多数发生在通知无法正确显示时）
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

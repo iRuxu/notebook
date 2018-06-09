@@ -1,868 +1,735 @@
-<!-- 文件 -->
+<!-- 系统、进程 -->
 <div class="u-col">
     <div class="u-block">
-        <h3>fs<span>-</span></h3>
+        <h3>path<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>+</span>] 基本参数</h4>
+            <h4>[<span>-</span>] 路径信息</h4>
+            <ul>
+                <li>
+                    path.<a href="">dirname</a>(path)
+                    <span>
+                        返回路径中代表文件夹的部分，同 Unix 的dirname 命令类似。 <br>
+                        不要以\\结尾，总是返回上一级目录
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">basename</a>(path,[ext])
+                    <span>
+                        返回路径中的最后一部分。同 Unix 命令 bashname 类似。 <br>
+                        ext:可选的文件扩展名，使用了时，返回的数据不带扩展名
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">extname</a>(path)
+                    <span>
+                        返回路径中文件的后缀名，即路径中最后一个'.'之后的部分。 <br>
+                        如果一个路径中并不包含'.'或该路径只包含一个'.' 且这个'.'为路径的第一个字符，则此命令返回空字符串。
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">parse</a>(path)
+                    <span>
+                        返回路径字符串的对象 <br>
+                        root:根目录,dir:目录,base:文件名,name:文件名称,ext:扩展名
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">format</a>(obj)
+                    <span>
+                        从对象中返回路径字符串，和 path.parse 相反。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 路径操作</h4>
+            <ul>
+                <li>
+                    path.<a href="">relative</a>(from,to)
+                    <span>
+                        返回从 from 到 to 的相对路径（基于当前工作目录）
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">resolve</a>([...paths])
+                    <span>
+                        会返回当前工作目录的绝对路径
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">isAbsolute</a>(path)
+                    <span>
+                        判断参数 path 是否是绝对路径
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">join</a>([...paths])
+                    <span>
+                        用于连接路径。 <br>
+                        该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"。 <br>
+                        当出现..自动跳至上一级目录
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">normalize</a>(path)
+                    <span>
+                        规范化路径
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 平台特性</h4>
+            <ul style="display:none;">
+                <li>
+                    path.<a href="">sep</a>
+                    <span>
+                        平台的文件路径分隔符，'\\' 或 '/'
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">delimiter</a>
+                    <span>
+                        平台特定的路径分隔符 <br>
+                        windows为;  posix为:
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">posix</a>
+                    <span>
+                        提供了 path 方法针对 POSIX 的实现
+                    </span>
+                </li>
+                <li>
+                    path.<a href="">win32</a>
+                    <span>
+                        提供上述 path 的方法，不过总是以 win32 兼容的方式交互
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>process<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>] 事件</h4>
             <ul style="display:none">
                 <li>
-                    <a href="">flags</a>
+                    [evt]<a href="">exit</a>(exitCode)
                     <span>
-                        文件打开行为
+                        显式调用process.exit()方法，使得Node.js进程即将结束； <br>
+                        Node.js事件循环数组中不再有额外的工作，使得Node.js进程即将结束 <hr>
+                        'exit'事件监听器的回调函数，只有一个入参，这个参数的值可以是process.exitCode的属性值，或者是调用process.exit()方法时传入的exitCode值。 <hr>
+                        'exit'事件监听器的回调函数，只允许包含同步操作。所有监听器的回调函数被调用后，任何在事件循环数组中排队的工作都会被强制丢弃，然后Nodje.js进程会立即结束。 例如回调中的timeout操作永远不会被执行(因为不是同步操作)。 <hr>
+                        <a href="http://www.runoob.com/nodejs/nodejs-global-object.html">退出状态码参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">beforeExit</a>(exitCode)
+                    <span>
+                        当Node.js的事件循环数组已经为空，并且没有额外的工作被添加进来，事件'beforeExit'会被触发。 <br>
+                        process.exitCode 作为唯一的参数值传递给'beforeExit'事件监听器的回调函数。  <hr>
+                        正常情况下，如果没有额外的工作被添加到事件循环数组，Node.js进程会结束。但是如果'beforeExit'事件绑定的监听器的回调函数中，含有一个可以进行异步调用的操作，那么Node.js进程会继续运行。 <br>
+                        如果进程由于显式的原因而将要终止，例如直接调用process.exit()或抛出未捕获的异常，'beforeExit'事件不会被触发。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">uncaughtException</a>(err)
+                    <span>
+                        如果Javascript未捕获的异常，沿着代码调用路径反向传递回event loop，会触发'uncaughtException'事件。 Node.js默认情况下会将这些异常堆栈打印到stderr 然后进程退出。 为'uncaughtException'事件增加监听器会覆盖上述默认行为。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">Signal Events</a>
+                    <span>
+                        当进程接收到信号时就触发。信号列表详见标准的 POSIX 信号名，如 SIGINT、SIGUSR1 等。 <br>
+                        <a href="http://man7.org/linux/man-pages/man7/signal.7.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">disconnect</a>
+                    <span>
+                        如果Node.js进程是由IPC channel的方式创建的，当IPC channel关闭时，会触发'disconnect'事件。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">message</a>(msg,sendHanle)
+                    <span>
+                        如果Node.js进程是由IPC channel的方式创建的，当子进程收到父进程的的消息时(消息通过childprocess.send()发送）， 会触发'message'事件。 <hr>
+                        'message'事件监听器的回调函数中被传递的参数如下： <br>
+                        message - 解析的JSON对象，或primitive值。 <br>
+                        sendHandle - 一个net.Socket 或 net.Server对象，或undefined。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">rejectionHandled</a>
+                    <span>
+                        如果有Promise被rejected，并且此Promise在Nodje.js事件循环的下次轮询及之后期间，被绑定了一个错误处理器[例如使用promise.catch()][])， 会触发'rejectionHandled'事件。 <hr>
+                        <a href="http://nodejs.cn/api/process.html#process_event_rejectionhandled">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">unhandledRejection</a>
+                    <span>
+                        <a href="http://nodejs.cn/api/process.html#process_event_unhandledrejection">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 基本属性</h4>
+            <ul>
+                <li>
+                    process.<a href="">stdout</a>
+                    <span>
+                        标准输出流
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">stderr</a>
+                    <span>
+                        标准错误流
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">stdin</a>
+                    <span>
+                        标准输入流
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">exitCode</a>
+                    <span>
+                        进程退出时的代码，如果进程优通过 process.exit() 退出，不需要指定退出码。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 常用方法</h4>
+            <ul>
+                <li>
+                    process.<a href="">cwd()</a>
+                    <span>
+                        返回当前进程的工作目录
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">chdir</a>(dir)
+                    <span>
+                        改变当前工作进程的目录，如果操作失败抛出异常。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">nextTick</a>(callback,[args])
+                    <span>
+                        一旦当前事件循环结束，调用回到函数
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">abort()</a>
+                    <span>
+                        这将导致 node 触发 abort 事件。会让 node 退出并生成一个核心文件。 
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">exit</a>([code])
+                    <span>
+                        使用指定的 code 结束进程。如果忽略，将会使用 code 0。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">kill</a>(pid,[signal])
+                    <span>
+                        发送信号给进程. pid 是进程id，并且 signal 是发送的信号的字符串描述。信号名是字符串，比如 'SIGINT' 或 'SIGHUP'。如果忽略，信号会是 'SIGTERM'。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 进程环境</h4>
+            <ul>
+                <li>
+                    process.<a href="">argv</a>
+                    <span>
+                        argv 属性返回一个数组，由命令行执行脚本时的各个参数组成。 <br> 
+                        它的第一个成员总是node，第二个成员是脚本文件名，其余成员是脚本文件的参数。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">argv0</a>
+                    <span>
+                        v6.4+ <br>
+                        保存Node.js启动时传入的argv[0]参数值的一份只读副本
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">execPath</a>
+                    <span>
+                        返回执行当前脚本的 Node 二进制文件的绝对路径
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">execArgv</a>
+                    <span>
+                        返回一个数组，成员是命令行下执行脚本时，在Node可执行文件与脚本文件之间的命令行参数。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">env</a>
+                    <span>
+                        返回一个对象，成员为当前 shell 的环境变量
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">version</a>
+                    <span>
+                        Node 的版本
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">versions</a>
+                    <span>
+                        一个属性，包含了 node 的版本和依赖.
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">config</a>
+                    <span>
+                        一个包含用来编译当前 node 执行文件的 javascript 配置选项的对象。它与运行 ./configure 脚本生成的 "config.gypi" 文件相同。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">pid</a>
+                    <span>
+                        当前进程的进程号
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">title</a>
+                    <span>
+                        进程名
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">arch</a>
+                    <span>
+                        当前 CPU 的架构：'arm'、'ia32' 或者 'x64'。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">platform</a>
+                    <span>
+                        运行程序所在的平台系统 'darwin', 'freebsd', 'linux', 'sunos' 或 'win32'
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">mainModule</a>
+                    <span>
+                        require.main 的备选方法。不同点，如果主模块在运行时改变，require.main可能会继续返回老的模块。可以认为，这两者引用了同一个模块。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 关联控制</h4>
+            <ul style="display:none">
+                <li>
+                    process.<a href="">umask</a>([mask])
+                    <span>
+                        设置或读取进程文件的掩码。子进程从父进程继承掩码。如果mask 参数有效，返回旧的掩码。否则，返回当前掩码。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">channel</a>
+                    <span>
+                        如果Node.js进程是由IPC channel方式创建的，process.channel属性保存IPC channel的引用。 如果IPC channel不存在，此属性值为`undefined。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">connected</a>
+                    <span>
+                        如果Node.js进程是由IPC channel方式创建的， 只要IPC channel保持连接，process.connected属性就会返回true。 process.disconnect()被调用后，此属性会返回false。 <br>
+                        process.connected如果为false，则不能通过IPC channel使用process.send()发送信息。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">disconnect()</a>
+                    <span>
+                        关闭到父进程的IPC频道，以允许子进程一旦没有其他链接来保持活跃就优雅地关闭。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">send</a>(msg,{},fn)
+                    <span>
+                        给父进程发送消息
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 性能相关</h4>
+            <ul style="display:none">
+                <li>
+                    process.<a href="">memoryUsage()</a>
+                    <span>
+                        返回一个对象，描述了 Node 进程所用的内存状况，单位为字节。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">cpuUsage</a>([previousValue])
+                    <span>
+                        v6.1+ <br>
+                        返回包含当前进程的用户CPU时间和系统CPU时间的对象
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">uptime()</a>
+                    <span>
+                        返回 Node 已经运行的秒数
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">hrtime()</a>
+                    <span>
+                        返回当前进程的高分辨时间，形式为 [seconds, nanoseconds]数组。它是相对于过去的任意事件。该值与日期无关，因此不受时钟漂移的影响。主要用途是可以通过精确的时间间隔，来衡量程序的性能。你可以将之前的结果传递给当前的 process.hrtime() ，会返回两者间的时间差，用来基准和测量时间间隔。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] POSIX权限</h4>
+            <ul style="display:none">
+                <li>
+                    process.<a href="">getgid()</a>
+                    <span>
+                        获取进程的群组标识。获取到得时群组的数字 id，而不是名字。 <br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">setgid</a>(id)
+                    <span>
+                        设置进程的群组标识.可以接收数字 ID 或者群组名。如果指定了群组名，会阻塞等待解析为数字 ID 。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">getuid()</a>
+                    <span>
+                        获取进程的用户标识。这是数字的用户 id，不是用户名。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">setuid</a>(id)
+                    <span>
+                        设置进程的用户标识。接收数字 ID或字符串名字。果指定了群组名，会阻塞等待解析为数字 ID 。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">getgroups()</a>
+                    <span>
+                        返回进程的群组 iD 数组。POSIX 系统没有保证一定有，但是 node.js 保证有。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">setgroups</a>(groups)
+                    <span>
+                        设置进程的群组 ID。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+                <li>
+                    process.<a href="">initgroups</a>(user,extra_group)
+                    <span>
+                        读取 /etc/group ，并初始化群组访问列表，使用成员所在的所有群组。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>
+                        注意：这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>child_process<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 创建</h4>
+            <ul>
+                <li>
+                    ipc.<a href="">spawn</a><em>(cmd,[args],[opt])</em>
+                    <span>
+                        通过当前命令启动一个新的进程 <hr>
+                        cmd - str,要运行的命令行 <br>
+                        args - arr,字符串参数列表 <br>
+                        opt - obj,设置 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_spawn_command_args_options">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ipc.<a href="">fork</a><em>(modulePath,[arg],[opt])</em>
+                    <span>
+                        child_process.fork() 方法是 child_process.spawn() 的一个特殊情况，专门用于衍生新的 Node.js 进程。 跟 child_process.spawn() 一样返回一个 ChildProcess 对象。 返回的 ChildProcess 会有一个额外的内置的通信通道，它允许消息在父进程和子进程之间来回传递。
+                        <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_fork_modulepath_args_options">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ipc.<a href="">exec</a><em>(cmd,[opt],[fn])</em>
+                    <span>
+                        在shell中运行一个命令，并缓存其输出 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_exec_command_options_callback">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ipc.<a href="">execFile</a><em>(file,[arg],[opt],[fn])</em>
+                    <span>
+                        指定的可执行的 file 被直接衍生为一个新进程 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_execfile_file_args_options_callback">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 事件</h4>
+            <ul style="display:none;">
+                <li>
+                    [evt]<a href="">close</a>
+                    <span>
+                        当子进程的 stdio 流被关闭时会触发 'close' 事件。 这与 'exit' 事件不同，因为多个进程可能共享同一 stdio 流。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">disconnect</a>
+                    <span>
+                        在父进程中调用 subprocess.disconnect() 或在子进程中调用 process.disconnect() 后会触发 'disconnect' 事件。 断开后就不能再发送或接收信息，且 subprocess.connected 属性会被设为 false。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">error</a>
+                    <span>
+                        每当出现以下情况时触发 'error' 事件： <br>
+                        1.进程无法被衍生；<br>
+                        2.进程无法被杀死；<br>
+                        3.向子进程发送信息失败。<br>
+                        注意，在错误发生后，'exit' 事件可能会也可能不会触发。 当同时监听了 'exit' 和 'error' 事件，谨防处理函数被多次调用。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">exit</a>
+                    <span>
+                        子进程结束后会触发 'exit' 事件。 如果进程退出了，则 code 是进程的最终退出码，否则为 null。 如果进程是收到的信号而终止的，则 signal 是信号的字符串名称，否则为 null。 这两个总有一个是非空的。 <br>注意，当 'exit' 事件被触发时，子进程的 stdio 流可能依然是打开的。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">message</a>
+                    <span>
+                        当一个子进程使用 process.send() 发送消息时会触发 'message' 事件。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 子进程</h4>
+            <ul style="display:none;">
+                <li>
+                    subp.<a href="">channel</a>
+                    <span>
+                        当前子进程的 IPC 通道的引用。如果当前没有 IPC 通道，则该属性为 undefined。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">connected</a>
+                    <span>
+                        表明是否仍可以从一个子进程发送和接收消息。 当 subprocess.connected 为 false 时，则不能再发送或接收的消息。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">disconnect()</a>
+                    <span>
+                        关闭父进程与子进程之间的 IPC 通道，一旦没有其他的连接使其保持活跃，则允许子进程正常退出。 调用该方法后，父进程和子进程上各自的 subprocess.connected 和 subprocess.connected 属性都会被设为 false，且进程之间不能再传递消息。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">kill</a>([signal])
+                    <span>
+                        向子进程发送一个信号。 如果没有给定参数，则进程会发送 'SIGTERM' 信号。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">killed</a>
+                    <span>
+                        表明该子进程是否已成功接收到 subprocess.kill() 的信号。 该属性不代表子进程是否已被终止。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">pid</a>
+                    <span>
+                        返回子进程的进程标识（PID）
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">send</a>(msg,[handle],[opt],[fn])
+                    <span>
+                        发送消息到子进程
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stderr</a>
+                    <span>
+                        一个代表子进程的 stderr 的可读流。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stdin</a>
+                    <span>
+                        一个代表子进程的 stdin 的可写流。
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stdio</a>
+                    <span>
+                        一个到子进程的管道的稀疏数组
+                    </span>
+                </li>
+                <li>
+                    subp.<a href="">stdout</a>
+                    <span>
+                        一个代表子进程的 stdout 的可读流
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>os<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 特征</h4>
+            <ul>
+                <li>
+                    os.<a href="">hostname()</a>
+                    <span>
+                        返回操作系统的主机名
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">release()</a>
+                    <span>
+                        返回操作系统的发行版本
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">platform()</a>
+                    <span>
+                        返回操作系统平台. <br>
+                        可能的值'aix','darwin','freebsd','linux','openbsd','sunos','win32'
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">arch()</a>
+                    <span>
+                        返回操作系统 CPU 架构 <br>
+                        可能的值'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x32', 'x64', 和 'x86'
+                    </span>
+                </li>
+                <li>
+                    os.<a href="">type()</a>
+                    <span>
+                        返回操作系统类型. <br>
                         <table>
-                            <tr><th>Flag</th><th>描述</th></tr>
-                            <tr><td>r</td><td>以读取模式打开文件。如果文件不存在抛出异常。</td></tr>
-                            <tr><td>r+</td><td> 以读写模式打开文件。如果文件不存在抛出异常。</td></tr>
-                            <tr><td>rs</td><td>以同步的方式读取文件。</td></tr>
-                            <tr><td>rs+</td><td>以同步的方式读取和写入文件。</td></tr>
-                            <tr><td>w</td><td>以写入模式打开文件，如果文件不存在则创建。</td></tr>
-                            <tr><td>wx</td><td>类似 'w'，但是如果文件路径存在，则文件写入失败。</td></tr>
-                            <tr><td>w+</td><td>以读写模式打开文件，如果文件不存在则创建。</td></tr>
-                            <tr><td>wx+</td><td>类似 'w+'， 但是如果文件路径存在，则文件读写失败。</td></tr>
-                            <tr><td>a</td><td>以追加模式打开文件，如果文件不存在则创建。</td></tr>
-                            <tr><td>ax</td><td>类似 'a'， 但是如果文件路径存在，则文件追加失败。</td></tr>
-                            <tr><td>a+</td><td>以读取追加模式打开文件，如果文件不存在则创建。</td></tr>
-                            <tr><td>ax+</td><td>类似 'a+'， 但是如果文件路径存在，则文件读取追加失败。</td></tr>
+                            <tr>
+                                <th>系统</th>
+                                <th>返回值</th>
+                            </tr>
+                            <tr>
+                                <td>linux</td>
+                                <td>'Linux'</td>
+                            </tr>
+                            <tr>
+                                <td>macOS</td>
+                                <td>'Darwin'</td>
+                            </tr>
+                            <tr>
+                                <td>Windows</td>
+                                <td>'Windows_NT'</td>
+                            </tr>
                         </table>
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 文件系统常量</h4>
-            <ul style="display:none">
+            <h4>[<span>+</span>] 性能</h4>
+            <ul style="display:none;">
                 <li>
-                    fs.<a href="">constants</a>
+                    os.<a href="">uptime()</a>
                     <span>
-                        返回一个包含常用文件系统操作的常量的对象。
+                        返回操作系统运行的时间，以秒为单位。
                     </span>
                 </li>
                 <li>
-                    <a href="">文件访问常量</a>
+                    os.<a href="">loadavg()</a>
                     <span>
-                        以下常量用于 fs.access()
-                        <table>
-                          <tr>
-                            <th>常量</th>
-                            <th>描述</th>
-                          </tr>
-                          <tr>
-                            <td>F_OK</td>
-                            <td>该标志表明文件对于调用进程是可见的。</td>
-                          </tr>
-                          <tr>
-                            <td>R_OK</td>
-                            <td>该标志表明文件可被调用进程读取。</td>
-                          </tr>
-                          <tr>
-                            <td>W_OK</td>
-                            <td>该标志表明文件可被调用进程写入。</td>
-                          </tr>
-                          <tr>
-                            <td>X_OK</td>
-                            <td>该标志表明文件可被调用进程执行。</td>
-                          </tr>
-                        </table>
+                        返回一个包含 1、5、15 分钟平均负载的数组。 <br>
+                        平均负载是系统活动的测量,由操作系统计算得出,表达为一个分数. 一般来说,平均负载应该理想地比系统的逻辑CPU的数目要少. 平均负载是UNIX相关的概念,在Windows平台上没有对应的概念. 在Windows上,其返回值总是[0, 0, 0].
+                    </span> 
+                </li>
+                <li>
+                    os.<a href="">totalmen()</a>
+                    <span>
+                        返回系统内存总量，单位为字节。
                     </span>
                 </li>
                 <li>
-                    <a href="">文件打开常量</a>
+                    os.<a href="">freemem()</a>
                     <span>
-                        以下常量用于 fs.open()
-                        <table>
-                          <tbody><tr>
-                            <th>常量</th>
-                            <th>描述</th>
-                          </tr>
-                          <tr>
-                            <td><code>O_RDONLY</code></td>
-                            <td>该标志表明打开一个文件用于只读访问。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_WRONLY</code></td>
-                            <td>该标志表明打开一个文件用于只写访问。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_RDWR</code></td>
-                            <td>该标志表明打开一个文件用于读写访问。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_CREAT</code></td>
-                            <td>该标志表明如果文件不存在则创建一个文件。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_EXCL</code></td>
-                            <td>该标志表明如果设置了 <code>O_CREAT</code> 标志且文件已经存在，则打开一个文件应该失败。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_NOCTTY</code></td>
-                            <td>该标志表明如果路径是一个终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_TRUNC</code></td>
-                            <td>该标志表明如果文件存在且为一个常规文件、且文件被成功打开为写入访问，则它的长度应该被截断至零。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_APPEND</code></td>
-                            <td>该标志表明数据会被追加到文件的末尾。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_DIRECTORY</code></td>
-                            <td>该标志表明如果路径不是一个目录，则打开应该失败。</td>
-                          </tr>
-                          <tr>
-                          <td><code>O_NOATIME</code></td>
-                            <td>该标志表明文件系统的读取访问权不再引起相关文件 <code>atime</code> 信息的更新。该标志只在 Linux 操作系统有效。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_NOFOLLOW</code></td>
-                            <td>该标志表明如果路径是一个符号链接，则打开应该失败。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_SYNC</code></td>
-                            <td>该标志表明文件打开用于同步 I/O。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_DSYNC</code></td>
-                            <td>该标志标明文件为同步I/O打开，写入操作会等待数据完整性</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_SYMLINK</code></td>
-                            <td>该标志表明打开符号链接自身，而不是它指向的资源。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_DIRECT</code></td>
-                            <td>当设置它时，会尝试最小化文件 I/O 的缓存效果。</td>
-                          </tr>
-                          <tr>
-                            <td><code>O_NONBLOCK</code></td>
-                            <td>该标志表明当可能时以非阻塞模式打开文件。</td>
-                          </tr>
-                        </tbody></table>
+                        返回操作系统空闲内存量，单位是字节。
                     </span>
                 </li>
                 <li>
-                    <a href="">文件类型常量</a>
+                    os.<a href="">cpus()</a>
                     <span>
-                        以下常量用于 fs.Stats 对象中用于决定一个文件的类型的 mode 属性
-                        <table>
-                          <tbody><tr>
-                            <th>常量</th>
-                            <th>描述</th>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFMT</code></td>
-                            <td>用于提取文件类型码的位掩码。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFREG</code></td>
-                            <td>表示一个常规文件的文件类型常量。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFDIR</code></td>
-                            <td>表示一个目录的文件类型常量。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFCHR</code></td>
-                            <td>表示一个面向字符的设备文件的文件类型常量。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFBLK</code></td>
-                            <td>表示一个面向块的设备文件的文件类型常量。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFIFO</code></td>
-                            <td>表示一个 FIFO/pipe 的文件类型常量。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFLNK</code></td>
-                            <td>表示一个符号链接的文件类型常量。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IFSOCK</code></td>
-                            <td>表示一个 socket 的文件类型常量。</td>
-                          </tr>
-                        </tbody></table>
+                        返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）。
+                        <a href="http://nodejs.cn/api/os.html#os_os_cpus">参考资料</a>
                     </span>
                 </li>
                 <li>
-                    <a href="">文件模式常量</a>
+                    os.<a href="">networkInterfaces()</a>
                     <span>
-                        以下常量用于 fs.Stats 对象中用于决定一个文件访问权限的 mode 属性
-                        <table>
-                          <tbody><tr>
-                            <th>常量</th>
-                            <th>描述</th>
-                          </tr>
-                          <tr>
-                            <td><code>S_IRWXU</code></td>
-                            <td>该文件模式表明可被所有者读取、写入、执行。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IRUSR</code></td>
-                            <td>该文件模式表明可被所有者读取。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IWUSR</code></td>
-                            <td>该文件模式表明可被所有者写入。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IXUSR</code></td>
-                            <td>该文件模式表明可被所有者执行。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IRWXG</code></td>
-                            <td>该文件模式表明可被群组读取、写入、执行。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IRGRP</code></td>
-                            <td>该文件模式表明可被群组读取。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IWGRP</code></td>
-                            <td>该文件模式表明可被群组写入。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IXGRP</code></td>
-                            <td>该文件模式表明可被群组执行。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IRWXO</code></td>
-                            <td>该文件模式表明可被其他人读取、写入、执行。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IROTH</code></td>
-                            <td>该文件模式表明可被其他人读取。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IWOTH</code></td>
-                            <td>该文件模式表明可被其他人写入。</td>
-                          </tr>
-                          <tr>
-                            <td><code>S_IXOTH</code></td>
-                            <td>该文件模式表明可被其他人执行。</td>
-                          </tr>
-                        </tbody></table>
+                        获得网络接口列表。
+                        <a href="http://nodejs.cn/api/os.html#os_os_networkinterfaces">参考资料</a>
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 获取文件信息</h4>
-            <ul style="display:none">
+            <h4>[<span>+</span>] 数据</h4>
+            <ul style="display:none;">
                 <li>
-                    fs.<a href="">stat</a><em>(path,fn(err,stats))</em>
+                    os.<a href="">tmpdir()</a>
                     <span>
-                        异步获取文件信息 <hr>
-                        不建议在调用 fs.open() 、fs.readFile() 或 fs.writeFile() 之前使用 fs.stat() 检查一个文件是否存在。 作为替代，用户代码应该直接打开/读取/写入文件，当文件无效时再处理错误。<br>
-                        如果要检查一个文件是否存在且不操作它，推荐使用 fs.access()。 <hr>
-                        如果发生错误，则 err.code 会是常见系统错误之一。
+                        返回操作系统的默认临时文件夹。 <br>
+                        C:\Users\iRuxu\AppData\Local\Temp
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">statSync</a><em>(path)</em>
+                    os.<a href="">homedir()</a>
                     <span>
-                        同步获取文件信息
+                        返回当前用户的home目录
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">fstat</a><em>(fd,fn(err,stats))</em>
+                    os.<a href="">userInfo</a>([opt])
                     <span>
-                        异步获取文件信息（文件是通过文件描述符 fd 指定的） <hr>
-                        fstat系统调用接受的是 一个“文件描述符”，而另外两个则直接接受“文件全路径”。文件描述符是需要我们用open系统调用后才能得到的，而文件全路经直接写就可以了。
+                        os.userInfo()方法当前有效用户的信息 <hr>
+                        1.在 POSIX平台上, 这通常是password 文件的子集. 返回的对象包括 username, uid, gid, shell, 和 homedir. <br>
+                        2.在Windows系统上, uid 和 gid 域是 -1, and shell是 null.
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">fstatSync</a><em>(fd)</em>
+                    os.<a href="">endianness()</a>
                     <span>
-                        同步获取文件信息
+                        返回 CPU 的字节序，可能的是 "BE" 或 "LE"。
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">lstat</a><em>(path,fn(err,stats))</em>
+                    os.<a href="">constants</a>
                     <span>
-                        异步获取文件信息 <hr>
-                        当文件是一个符号链接时，lstat返回的是该符号链接本身的信息；而stat返回的是该链接指向的文件的信息。
-                        <a href="http://www.cnitblog.com/guopingleee/archive/2008/11/13/51411.aspx">参考资料</a>
+                        返回一个包含错误码,处理信号等通用的操作系统特定常量的对象
+                        <a href="http://nodejs.cn/api/os.html#os_os_constants_1">参考资料</a>
                     </span>
                 </li>
                 <li>
-                    fs.<a href="">lstatSync</a><em>(path)</em>
+                    os.<a href="">EOL</a>
                     <span>
-                        异步获取文件信息
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isFile()</a>
-                    <span>
-                        如果是文件返回 true，否则返回 false。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isDirectory()</a>
-                    <span>
-                        如果是目录返回 true，否则返回 false。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isBlockDevice()</a>
-                    <span>
-                        如果是块设备返回 true，否则返回 false。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isCharacterDevice()</a>
-                    <span>
-                        如果是字符设备返回 true，否则返回 false。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isSymbolicLink()</a>
-                    <span>
-                        如果是软链接返回 true，否则返回 false。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isFIFO()</a>
-                    <span>
-                        如果是FIFO，返回true，否则返回 false。FIFO是UNIX中的一种特殊类型的命令管道。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href="">isSocket()</a>
-                    <span>
-                        如果是 Socket 返回 true，否则返回 false。
-                    </span>
-                </li>
-                <li>
-                    stats.<a href=""></a>value
-                    <span>
+                        一个定义了操作系统的一行结束的标识的常量 <br>
                         <table>
                             <tr>
-                                <th>属性</th>
-                                <th>描述</th>
+                                <th>系统</th>
+                                <th>标志</th>
                             </tr>
                             <tr>
-                                <td>atime</td>
-                                <td>文件数据最近被访问的时间</td>
+                                <td>POSIX</td>
+                                <td>\n</td>
                             </tr>
                             <tr>
-                                <td>mtime</td>
-                                <td>文件数据最近被修改的时间</td>
-                            </tr>
-                            <tr>
-                                <td>ctime</td>
-                                <td>文件状态最近更改的时间</td>
-                            </tr>
-                            <tr>
-                                <td>birthtime</td>
-                                <td>文件创建的时间</td>
+                                <td>Windows</td>
+                                <td>\r\n</td>
                             </tr>
                         </table>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 检查文件状态</h4>
-            <ul style="display:none">
-                <li>
-                    fs.<a href="">access</a><em>(path,[mode],fn)</em>
-                    <span>
-                        判断用户是否有权限操作给定的目录或者是文件<hr>
-                        fs.constants.F_OK - path 文件对调用进程可见。 这在确定文件是否存在时很有用，但不涉及 rwx 权限。 如果没指定 mode，则默认为该值。 <br>
-                        fs.constants.R_OK - path 文件可被调用进程读取。 <br>
-                        fs.constants.W_OK - path 文件可被调用进程写入。<br>
-                        fs.constants.X_OK - path 文件可被调用进程执行。 对 Windows 系统没作用（相当于 fs.constants.F_OK）
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">accessSync</a><em>(path,[mode])</em>
-                    <span>
-                        判断用户是否有权限操作给定的目录或者是文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">existsSync</a><em>(path)</em>
-                    <span>
-                        检测文件是否存在。 <br>
-                        返回值：布尔（true存在.false不存在)
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 文件权限</h4>
-            <ul style="display:none">
-                <li>
-                    fs.<a href="">chmod</a><em>(path,mode,fn(err))</em>
-                    <span>
-                        修改文件/文件夹权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">chmodSync</a><em>(path,mode)</em>
-                    <span>
-                        修改文件/文件夹权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fchomod</a><em>(fd,mode,fn(err))</em>
-                    <span>
-                        修改文件/文件夹权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fchomodSync</a><em>(fd,mode,fn(err))</em>
-                    <span>
-                        修改文件/文件夹权限
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">lchmod</a><em>(path,mode,fn(err))</em>
-                    <span>
-                        修改文件/文件夹权限(不解析符号链接) <hr>
-                        只在 macOS 有效
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">chown</a><em>(path,uid,gid,fn(err))</em>
-                    <span>
-                        更改文件/文件夹所有权
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">chownSync</a><em>(path,uid,gid)</em>
-                    <span>
-                        更改文件/文件夹所有权
-                    </span>
-                </li>
-                
-                <li>
-                    fs.<a href="">fchown</a><em>(fd,uid,gid,fn(err))</em>
-                    <span>
-                        更改文件/文件夹所有权
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fchownSync</a><em>(fd,uid,gid)</em>
-                    <span>
-                        更改文件/文件夹所有权
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">lchown</a><em>(path,uid,gid,fn(err))</em>
-                    <span>
-                        更改文件/文件夹所有权(不解析符号链接)
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 文件监视</h4>
-            <ul>
-                <li>
-                    fs.<a href="">watch</a><em>(file,[opt],listener(evtype,which))</em>
-                    <span>
-                        监听file的变化，返回的对象是一个fs.FSWatcher <hr>
-                        file - 可以是一个文件或一个目录 <br>
-                        opt - 如果是一个字符串则指定encoding，否则以对象传入。
-                        <ol>
-                            <li>persistent - boolean,指明如果文件正在被监视，进程是否应该继续运行。默认 = true</li>
-                            <li>recursive - boolean,指明是否全部子目录应该被监视，或只是当前目录。 适用于当一个目录被指定时，且只在支持的平台（详见 Caveats）。默认 = false</li>
-                            <li>
-                                encoding - 指定用于传给监听器的文件名的字符编码。默认 = 'utf8'
-                            </li>
-                        </ol>
-                        evtype - rename、change、error <br>
-                        which - 触发事件的文件的名称 <hr>
-                        注意，在大多数平台，当一个文件出现或消失在一个目录里时，'rename' 会被触发 <a href="http://nodejs.cn/api/fs.html#fs_fs_watch_filename_options_listener">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    FSWatcher.<a href="">close()</a>
-                    <span>
-                        停止监听 fs.FSWatcher 的变化
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">watchFile</a><em>(file,[opt],listener(current,previous))</em>
-                    <span>
-                        监视file的变化,回调 listener 会在每次访问文件时被调用 <hr>
-                        <ol>
-                            <li>persistent - boolean,指明如果文件正在被监视，进程是否应该继续运行。默认 = true</li>
-                            <li>interval - 表示目标应该每隔多少毫秒被轮询。默认 = 5007</li>
-                        </ol>
-                        listener的两个参数表示当前的状态对象和以前的状态对象，是一个fs.Stat实例。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">unwatchFile</a><em>(file,listener)</em>
-                    <span>
-                        停止监视file的变化 <br>
-                        如果指定了 listener，则只移除特定的监听器。 否则，所有的监听器都会被移除，且已经有效地停止监视 filename。 <br>
-                        调用 fs.unwatchFile() 且带上一个未被监视的文件名，将会是一个空操作，而不是一个错误
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 打开文件</h4>
-            <ul>
-                <li>
-                    fs.<a href="">open</a><em>(path,flag,[mode],fn(err,fd))</em>
-                    <span>
-                        异步打开文件 <hr>
-                        path - 文件的路径。 <br>
-                        flags - 文件打开的行为。 <br>
-                        mode - 设置文件模式(权限)，文件创建默认权限为 0666(可读，可写)。<br>
-                        callback - 回调函数，带有两个参数如：callback(err, fd)。fd为文件描述符。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">openSync</a><em>(path,flags,[mode])</em>
-                    <span>
-                        同步打开文件。 <br>
-                        返回一个表示文件描述符的整数。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fdatasync</a><em>(fd,fn(err))</em>
-                    <span>
-                        刷新数据到磁盘
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fdatasyncSync</a><em>(fd)</em>
-                    <span>
-                        刷新数据到磁盘
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fsync</a><em>(fd,fn(err))</em>
-                    <span>
-                        同步缓存数据到磁盘
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">fsyncSync</a><em>(fd,fn(err))</em>
-                    <span>
-                        同步缓存数据到磁盘
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 读取文件</h4>
-            <ul>
-                <li>
-                    fs.<a href="">readFile</a><em>(path,[opt],fn(err,data))</em>
-                    <span>
-                        异步读取一个文件的全部内容 <hr>
-                        如果未指定字符编码，则返回的data为原始buffer。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">readFileSync</a><em>(path,[opt])</em>
-                    <span>
-                        同步读取一个文件的全部内容 <br>
-                        返回path的内容
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">read</a><em>(fd,buffer,offset,length,postion,fn)</em>
-                    <span>
-                        异步读取文件 <br>
-                        该方法使用了文件描述符来读取文件。 <hr>
-                        fd - 通过 fs.open() 方法返回的文件描述符。 <br>
-                        buffer - 数据写入的缓冲区。<br>
-                        offset - 缓冲区写入的写入偏移量。<br>
-                        length - 要从文件中读取的字节数。<br>
-                        position - 文件读取的起始位置，如果 position 的值为null，则会从当前文件指针的位置读取。<br>
-                        callback - 回调函数，有三个参数err, bytesRead, buffer，err 为错误信息，bytesRead 表示读取的字节数，buffer 为缓冲区对象。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">readSync</a><em>(fd,buffer,offset,length,postion,fn)</em>
-                    <span>
-                        同步读取文件。 <br>
-                        返回 bytesRead 的数量。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">close</a><em>(fd,fn)</em>
-                    <span>
-                        异步关闭文件。 <br>
-                        使用了文件描述符来读取文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">closeSync</a><em>(fd)</em>
-                    <span>
-                        同步关闭文件
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 截取文件</h4>
-            <ul style="display:none;">
-                <li>
-                    fs.<a href="">truncate</a><em>(path,len,fn(err))</em>
-                    <span>
-                        异步截取文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">truncateSync</a><em>(path,len)</em>
-                    <span>
-                        同步截取文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">ftruncate</a><em>(fd,len,fn)</em>
-                    <span>
-                        异步截取文件 <br>
-                        使用文件描述符来读取文件。 <hr>
-                        fd - 通过 fs.open() 方法返回的文件描述符。<br>
-                        len - 文件内容截取的长度。<br>
-                        callback - 回调函数，没有参数。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">ftruncateSync</a><em>(fd,len)</em>
-                    <span>
-                        同步截取文件
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 写入文件</h4>
-            <ul>
-                <li>
-                    fs.<a href="">writeFile</a><em>(file,data,[opt],fn(err))</em>
-                    <span>
-                        异步写入文件。  <hr>
-                        file - 文件名或文件描述符。 <br>
-                        data - 要写入文件的数据，可以是 String(字符串) 或 Buffer(流) 对象。<br>
-                        options - 该参数是一个对象，包含 {encoding, mode, flag}。默认编码为 utf8, 模式为 0666 ， flag 为 'w' <br>
-                        callback - 回调函数，回调函数只包含错误信息参数(err)，在写入失败时返回。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">writeFileSync</a><em>(file,data,[opt])</em>
-                    <span>
-                        同步写入文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">appendFile</a><em>(file,data,[opt],fn(err))</em>
-                    <span>
-                        异步地追加数据到一个文件，如果文件不存在则创建文件。 <br>
-                        data 可以是一个字符串或 buffer。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">appendFileSync</a><em>(file,data,[opt])</em>
-                    <span>
-                        同步地追加数据到一个文件，如果文件不存在则创建文件。 
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">write</a><em>(fd,buffer,[offset],[length],[position],fn(err,bytes,buffer))</em>
-                    <span>
-                        异步写入文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">writeSync</a><em>(fd,buffer,[offset],[length],[position])</em>
-                    <span>
-                        同步写入文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">write</a><em>(fd,string,[position],[encoding],fn(err,written,string))</em>
-                    <span>
-                        异步写入字符串
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">writeSync</a><em>(fd,string,[position],[encoding])</em>
-                    <span>
-                        同步写入字符串
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 修改时间戳</h4>
-            <ul style="display:none;">
-                <li>
-                    fs.<a href="">utimes</a><em>(path,atime,mtime,fn(err))</em>
-                    <span>
-                        修改文件时间戳 <hr>
-                        atime 参数和 mtime 参数遵循以下规则： <br>
-                        值可以是 Unix 时间戳数值、Date 对象、或数值字符串如 '123456789.0'。<br>
-                        如果值不能被转换为数值，或值是 NaN 、 Infinity 或 -Infinity，则会抛出错误。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">utimesSync</a><em>(path,atime,mtime)</em>
-                    <span>
-                        修改文件时间戳
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">futimes</a><em>(fd,atime,mtime,fn(err))</em>
-                    <span>
-                        修改文件时间戳
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">futimesSync</a><em>(fd,atime,mtime)</em>
-                    <span>
-                        修改文件时间戳
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 重命名/移动</h4>
-            <ul>
-                <li>
-                    fs.<a href="">rename</a><em>(old,new,fn(err))</em>
-                    <span>
-                        异步重命名文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">renameSync</a><em>(old,new)</em>
-                    <span>
-                        同步重命名文件
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 复制文件</h4>
-            <ul>
-                <li>
-                    fs.<a href="">copyFile</a><em>(from,to,[flags],fn(err))</em>
-                    <span>
-                        异步复制文件(v8.5.0+) <hr>
-                        默认情况下，如果 dest 已经存在会被覆盖 <br>
-                        flags 是一个可选的整数，用于指定行为的拷贝操作。唯一支持的 flag 是 fs.constants.COPYFILE_EXCL ，如果 dest 已经存在，则会导致拷贝操作失败。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">copyFileSync</a><em>(from,to,[flags])</em>
-                    <span>
-                        同步复制文件(v8.5.0+)
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 删除文件</h4>
-            <ul>
-                <li>
-                    fs.<a href="">unlink</a>(path,fn)
-                    <span>
-                        异步删除文件
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">unlinkSync</a>(path)
-                    <span>
-                        同步删除文件
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 目录操作</h4>
-            <ul>
-                <li>
-                    fs.<a href="">mkdir</a><em>(path,[mode],fn)</em>
-                    <span>
-                        异步创建目录，如果目录已存在，将抛出异常 <hr>
-                        path - 文件路径。 <br>
-                        mode - 设置目录权限，默认为 0777。<br>
-                        callback - 回调函数，没有参数。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">mkdirSync</a><em>(path,[mode])</em>
-                    <span>
-                        同步创建目录，如果目录已存在，将抛出异常
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">mkdtemp</a><em>(prefix,[opt],fn(err,folder))</em>
-                    <span>
-                        异步创建一个唯一的临时目录 <hr>
-                        prefix - 临时文件夹名，会生成六位随机字符在其后 <br>
-                        option - 可以是一个字符串并指定一个字符编码，或是一个对象且由一个 encoding 属性指定使用的字符编码。 <br>
-                        folder - 生成的临时目录的路径 <hr>
-                        如果目的是要在 /tmp 里创建一个临时目录，则 prefix 必须 以一个指定平台的路径分隔符（require('path').sep）结尾
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">mkdtempSync</a><em>(prefix,[opt])</em>
-                    <span>
-                        同步创建一个唯一的临时目录
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">readdir</a><em>(path,fn(err,files))</em>
-                    <span>
-                        异步读取目录 <hr>
-                        path - 文件路径。 <br>
-                        callback - 回调函数，回调函数带有两个参数err, files，err 为错误信息，files 为 目录下的文件数组列表。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">readdirSync</a><em>(path)</em>
-                    <span>
-                        同步读取目录
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">rmdir</a><em>(path,fn)</em>
-                    <span>
-                        异步删除目录
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">rmdirSync</a><em>(path)</em>
-                    <span>
-                        同步删除目录
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 链接操作</h4>
-            <ul style="display:none;">
-                <li>
-                    fs.<a href="">link</a><em>(old,new,fn(err))</em>
-                    <span>
-                        创建硬链接(只能在本券中)
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">linkSync</a><em>(old,new)</em>
-                    <span>
-                        创建硬链接(只能在本券中)
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">symlink</a><em>(target,path,[type],fn(err))</em>
-                    <span>
-                        创建符号链接 <br>
-                        异步创建一个名为path且指向target的符号链接 <hr>
-                        type 参数可以设为 'dir'、'file' 或 'junction'（默认为 'file'），且仅在 Windows 上有效（在其他平台上忽略）。 注意，Windows 结点要求目标路径是绝对的。 当使用 'junction' 时，target 参数会被自动标准化为绝对路径。
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">symlinkSync</a><em>(target,path,[type])</em>
-                    <span>
-                        创建符号链接
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">readlink</a><em>(path,[opt],fn(err,link))</em>
-                    <span>
-                        读取软连接信息
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">readlinkSync</a><em>(path,[opt])</em>
-                    <span>
-                        读取软连接信息
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">realpath</a><em>(path,[opt],fn(err,path))</em>
-                    <span>
-                        获取真实路径
-                    </span>
-                </li>
-                <li>
-                    fs.<a href="">realpathSync</a><em>(path,[opt])</em>
-                    <span>
-                        获取真实路径
                     </span>
                 </li>
             </ul>

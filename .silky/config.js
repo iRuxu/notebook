@@ -33,7 +33,7 @@ module.exports = {
         //将要复制的文件目录，直接复制到目标
         copy: [],
         //完全忽略处理的文件
-        ignore: [/^module$/,/^css$/,/^font$/,/^image$/,/^js$/,/^temp$/],
+        ignore: [/^.git$/,/^module$/,/^css$/,/^font$/,/^image$/,/^js$/,/^temp$/],
         //重命名
         rename: [],
         //是否压缩

@@ -1,655 +1,363 @@
-<!-- 系统、进程 -->
+<!-- 流 -->
 <div class="u-col">
     <div class="u-block">
-        <h3>os<span>-</span></h3>
+        <h3>stream<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 特征</h4>
+            <h4>[<span>-</span>] fs.Stream</h4>
             <ul>
-                <li>
-                    os.<a href="">hostname()</a>
+                <li> 
+                    fs.<a href="">createReadStream</a>(path,[opt])
                     <span>
-                        返回操作系统的主机名
+                        返回一个新建的 ReadStream 对象 <hr>
+                        path : string / buffer / url <br>
+                        option : string(encoding) / object <br>
+                        <ol>
+                            <li>flags - 'r'</li>
+                            <li>encoding - null</li>
+                            <li>fd - null</li>
+                            <li>mode - 0o666</li>
+                            <li>autoClose - true</li>
+                            <li>start - [</li>
+                            <li>end - ]</li>
+                        </ol>
+                        options 可以包括 start 和 end 值，使其可以从文件读取一定范围的字节而不是整个文件。 <br>
+                        如果指定了 fd，则 ReadStream 会忽略 path 参数并且会使用指定的文件描述符。 这意味着不会触发 'open' 事件。 <hr>
+                        <a href="http://www.runoob.com/nodejs/nodejs-stream.html">参考资料：从流读取数据、写入流、管道流、链式流</a>
+                    </span>
+                </li>
+                 <li>
+                    fs.<a href="">createWriteStream</a>(path,[opt])
+                    <span>
+                        返回一个新建的 WriteStream 对象 <hr>
+                        path : string / buffer / url <br>
+                        option : string(encoding) / object <br>
+                        <ol>
+                            <li>flags - 'w'</li>
+                            <li>encoding - 'utf8'</li>
+                            <li>fd - null</li>
+                            <li>mode - 0o666</li>
+                            <li>autoClose - true</li>
+                            <li>start - [</li>
+                            <li>end - ]</li>
+                        </ol>
+                        如果是修改一个文件而不是覆盖它，则需要flags 模式为 r+ 而不是默认的 w 模式。
                     </span>
                 </li>
                 <li>
-                    os.<a href="">release()</a>
+                    stream.<a href="">bytesRead</a>
                     <span>
-                        返回操作系统的发行版本
+                        已读取的字节数
                     </span>
                 </li>
                 <li>
-                    os.<a href="">platform()</a>
+                    stream.<a href="">bytesWritten</a>
                     <span>
-                        返回操作系统平台. <br>
-                        可能的值'aix','darwin','freebsd','linux','openbsd','sunos','win32'
+                        已写入的字节数。 不包括仍在排队等待写入的数据。
                     </span>
                 </li>
                 <li>
-                    os.<a href="">arch()</a>
+                    stream.<a href="">path</a>
                     <span>
-                        返回操作系统 CPU 架构 <br>
-                        可能的值'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x32', 'x64', 和 'x86'
+                        流正在读取的文件的路径，指定在 fs.createReadStream() 的第一个参数。 如果 path 传入的是一个字符串，则 readStream.path 是一个字符串。 如果 path 传入的是一个 Buffer，则 readStream.path 是一个 Buffer。
                     </span>
                 </li>
                 <li>
-                    os.<a href="">type()</a>
+                    [evt]<a href="">open</a>
                     <span>
-                        返回操作系统类型. <br>
-                        <table>
-                            <tr>
-                                <th>系统</th>
-                                <th>返回值</th>
-                            </tr>
-                            <tr>
-                                <td>linux</td>
-                                <td>'Linux'</td>
-                            </tr>
-                            <tr>
-                                <td>macOS</td>
-                                <td>'Darwin'</td>
-                            </tr>
-                            <tr>
-                                <td>Windows</td>
-                                <td>'Windows_NT'</td>
-                            </tr>
-                        </table>
+                        当 ReadStream/WriteStream 的文件被打开时触发
                     </span>
                 </li>
-            </ul>
-            <h4>[<span>+</span>] 性能</h4>
-            <ul style="display:none;">
-                <li>
-                    os.<a href="">uptime()</a>
-                    <span>
-                        返回操作系统运行的时间，以秒为单位。
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">loadavg()</a>
-                    <span>
-                        返回一个包含 1、5、15 分钟平均负载的数组。 <br>
-                        平均负载是系统活动的测量,由操作系统计算得出,表达为一个分数. 一般来说,平均负载应该理想地比系统的逻辑CPU的数目要少. 平均负载是UNIX相关的概念,在Windows平台上没有对应的概念. 在Windows上,其返回值总是[0, 0, 0].
-                    </span> 
-                </li>
-                <li>
-                    os.<a href="">totalmen()</a>
-                    <span>
-                        返回系统内存总量，单位为字节。
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">freemem()</a>
-                    <span>
-                        返回操作系统空闲内存量，单位是字节。
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">cpus()</a>
-                    <span>
-                        返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）。
-                        <a href="http://nodejs.cn/api/os.html#os_os_cpus">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">networkInterfaces()</a>
-                    <span>
-                        获得网络接口列表。
-                        <a href="http://nodejs.cn/api/os.html#os_os_networkinterfaces">参考资料</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 数据</h4>
-            <ul style="display:none;">
-                <li>
-                    os.<a href="">tmpdir()</a>
-                    <span>
-                        返回操作系统的默认临时文件夹。 <br>
-                        C:\Users\iRuxu\AppData\Local\Temp
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">homedir()</a>
-                    <span>
-                        返回当前用户的home目录
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">userInfo</a>([opt])
-                    <span>
-                        os.userInfo()方法当前有效用户的信息 <hr>
-                        1.在 POSIX平台上, 这通常是password 文件的子集. 返回的对象包括 username, uid, gid, shell, 和 homedir. <br>
-                        2.在Windows系统上, uid 和 gid 域是 -1, and shell是 null.
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">endianness()</a>
-                    <span>
-                        返回 CPU 的字节序，可能的是 "BE" 或 "LE"。
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">constants</a>
-                    <span>
-                        返回一个包含错误码,处理信号等通用的操作系统特定常量的对象
-                        <a href="http://nodejs.cn/api/os.html#os_os_constants_1">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    os.<a href="">EOL</a>
-                    <span>
-                        一个定义了操作系统的一行结束的标识的常量 <br>
-                        <table>
-                            <tr>
-                                <th>系统</th>
-                                <th>标志</th>
-                            </tr>
-                            <tr>
-                                <td>POSIX</td>
-                                <td>\n</td>
-                            </tr>
-                            <tr>
-                                <td>Windows</td>
-                                <td>\r\n</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>path<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 路径信息</h4>
-            <ul>
-                <li>
-                    path.<a href="">dirname</a>(path)
-                    <span>
-                        返回路径中代表文件夹的部分，同 Unix 的dirname 命令类似。 <br>
-                        不要以\\结尾，总是返回上一级目录
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">basename</a>(path,[ext])
-                    <span>
-                        返回路径中的最后一部分。同 Unix 命令 bashname 类似。 <br>
-                        ext:可选的文件扩展名，使用了时，返回的数据不带扩展名
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">extname</a>(path)
-                    <span>
-                        返回路径中文件的后缀名，即路径中最后一个'.'之后的部分。 <br>
-                        如果一个路径中并不包含'.'或该路径只包含一个'.' 且这个'.'为路径的第一个字符，则此命令返回空字符串。
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">parse</a>(path)
-                    <span>
-                        返回路径字符串的对象 <br>
-                        root:根目录,dir:目录,base:文件名,name:文件名称,ext:扩展名
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">format</a>(obj)
-                    <span>
-                        从对象中返回路径字符串，和 path.parse 相反。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 路径操作</h4>
-            <ul>
-                <li>
-                    path.<a href="">relative</a>(from,to)
-                    <span>
-                        返回从 from 到 to 的相对路径（基于当前工作目录）
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">resolve</a>([...paths])
-                    <span>
-                        会返回当前工作目录的绝对路径
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">isAbsolute</a>(path)
-                    <span>
-                        判断参数 path 是否是绝对路径
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">join</a>([...paths])
-                    <span>
-                        用于连接路径。 <br>
-                        该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"。 <br>
-                        当出现..自动跳至上一级目录
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">normalize</a>(path)
-                    <span>
-                        规范化路径
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 平台特性</h4>
-            <ul style="display:none;">
-                <li>
-                    path.<a href="">sep</a>
-                    <span>
-                        平台的文件路径分隔符，'\\' 或 '/'
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">delimiter</a>
-                    <span>
-                        平台特定的路径分隔符 <br>
-                        windows为;  posix为:
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">posix</a>
-                    <span>
-                        提供了 path 方法针对 POSIX 的实现
-                    </span>
-                </li>
-                <li>
-                    path.<a href="">win32</a>
-                    <span>
-                        提供上述 path 的方法，不过总是以 win32 兼容的方式交互
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>child_process<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 创建</h4>
-            <ul>
-                <li>
-                    ipc.<a href="">spawn</a><em>(cmd,[args],[opt])</em>
-                    <span>
-                        通过当前命令启动一个新的进程 <hr>
-                        cmd - str,要运行的命令行 <br>
-                        args - arr,字符串参数列表 <br>
-                        opt - obj,设置 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_spawn_command_args_options">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ipc.<a href="">fork</a><em>(modulePath,[arg],[opt])</em>
-                    <span>
-                        child_process.fork() 方法是 child_process.spawn() 的一个特殊情况，专门用于衍生新的 Node.js 进程。 跟 child_process.spawn() 一样返回一个 ChildProcess 对象。 返回的 ChildProcess 会有一个额外的内置的通信通道，它允许消息在父进程和子进程之间来回传递。
-                        <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_fork_modulepath_args_options">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ipc.<a href="">exec</a><em>(cmd,[opt],[fn])</em>
-                    <span>
-                        在shell中运行一个命令，并缓存其输出 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_exec_command_options_callback">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    ipc.<a href="">execFile</a><em>(file,[arg],[opt],[fn])</em>
-                    <span>
-                        指定的可执行的 file 被直接衍生为一个新进程 <a href="http://nodejs.cn/api/child_process.html#child_process_child_process_execfile_file_args_options_callback">参考资料</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 事件</h4>
-            <ul style="display:none;">
                 <li>
                     [evt]<a href="">close</a>
                     <span>
-                        当子进程的 stdio 流被关闭时会触发 'close' 事件。 这与 'exit' 事件不同，因为多个进程可能共享同一 stdio 流。
-                    </span>
-                </li>
-                <li>
-                    [evt]<a href="">disconnect</a>
-                    <span>
-                        在父进程中调用 subprocess.disconnect() 或在子进程中调用 process.disconnect() 后会触发 'disconnect' 事件。 断开后就不能再发送或接收信息，且 subprocess.connected 属性会被设为 false。
+                        当 ReadStream/WriteStream 底层的文件描述符被关闭时触发。 <br>
+                        'close' 事件触发后，该流将不会再触发任何事件。 <br>
+                        不是所有可写流都会触发 'close' 事件。
                     </span>
                 </li>
                 <li>
                     [evt]<a href="">error</a>
                     <span>
-                        每当出现以下情况时触发 'error' 事件： <br>
-                        1.进程无法被衍生；<br>
-                        2.进程无法被杀死；<br>
-                        3.向子进程发送信息失败。<br>
-                        注意，在错误发生后，'exit' 事件可能会也可能不会触发。 当同时监听了 'exit' 和 'error' 事件，谨防处理函数被多次调用。
-                    </span>
-                </li>
-                <li>
-                    [evt]<a href="">exit</a>
-                    <span>
-                        子进程结束后会触发 'exit' 事件。 如果进程退出了，则 code 是进程的最终退出码，否则为 null。 如果进程是收到的信号而终止的，则 signal 是信号的字符串名称，否则为 null。 这两个总有一个是非空的。 <br>注意，当 'exit' 事件被触发时，子进程的 stdio 流可能依然是打开的。
-                    </span>
-                </li>
-                <li>
-                    [evt]<a href="">message</a>
-                    <span>
-                        当一个子进程使用 process.send() 发送消息时会触发 'message' 事件。
+                        'error' 事件在写入数据出错或者使用管道出错时触发。事件发生时，回调函数仅会接收到一个 Error 参数。 <br>
+                        注意: 'error' 事件发生时，流并不会关闭。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 子进程</h4>
-            <ul style="display:none;">
+            <h4>[<span>-</span>] 可读流</h4>
+            <ul>
                 <li>
-                    subp.<a href="">channel</a>
+                    stream.<a href="">setEncoding</a>(encoding)
                     <span>
-                        当前子进程的 IPC 通道的引用。如果当前没有 IPC 通道，则该属性为 undefined。
+                        为从可读流读入的数据设置字符编码
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">connected</a>
+                    stream.<a href="">pipe</a>(dest,[opt])
                     <span>
-                        表明是否仍可以从一个子进程发送和接收消息。 当 subprocess.connected 为 false 时，则不能再发送或接收的消息。
+                        将可读流写入到可写流
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">disconnect()</a>
+                    stream.<a href="">unpipe</a>([dest])
                     <span>
-                        关闭父进程与子进程之间的 IPC 通道，一旦没有其他的连接使其保持活跃，则允许子进程正常退出。 调用该方法后，父进程和子进程上各自的 subprocess.connected 和 subprocess.connected 属性都会被设为 false，且进程之间不能再传递消息。
+                        将之前通过stream.pipe()方法绑定的流分离 <br>
+                        如果 destination 没有传入, 则所有绑定的流都会被分离. <br>
+                        如果传入 destination, 但它没有被pipe()绑定过，则该方法不作为.
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">kill</a>([signal])
+                    stream.<a href="">read</a>([size])
                     <span>
-                        向子进程发送一个信号。 如果没有给定参数，则进程会发送 'SIGTERM' 信号。
+                        从内部缓冲区中抽出并返回一些数据。 如果没有可读的数据，返回null。 <br>
+                        默认数据将作为“Buffer”对象返回 ，除非已经使用readable.setEncoding()方法设置编码或流运行在对象模式。
+                    </span>
+                </li>
+                
+                <li>
+                    stream.<a href="">pause()</a>
+                    <span>
+                        使 flowing 模式的流停止触发 'data' 事件， 进而切出 flowing 模式。任何可用的数据都将保存在内部缓存中。
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">killed</a>
+                    stream.<a href="">isPaused()</a>
                     <span>
-                        表明该子进程是否已成功接收到 subprocess.kill() 的信号。 该属性不代表子进程是否已被终止。
+                        返回可读流的当前操作状态
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">pid</a>
+                    stream.<a href="">resume()</a>
                     <span>
-                        返回子进程的进程标识（PID）
+                        重新触发 'data' 事件, 将暂停模式切换到流动模式。
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">send</a>(msg,[handle],[opt],[fn])
+                    stream.<a href="">unshift</a>(chunk)
                     <span>
-                        发送消息到子进程
+                        会把一块数据压回到Buffer内部
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">stderr</a>
+                    stream.<a href="">destroy</a>([error])
                     <span>
-                        一个代表子进程的 stderr 的可读流。
+                        销毁流，并且触发error事件。然后，可读流将释放所有的内部资源。
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">stdin</a>
+                    [evt]<a href="">data</a>
                     <span>
-                        一个代表子进程的 stdin 的可写流。
+                        'data' 事件会在流将数据传递给消费者时触发。 <br>
+                        当流转换到 flowing 模式时会触发该事件。调用 readable.pipe()， readable.resume() 方法，或为 'data' 事件添加回调可以将流转换到 flowing 模式。 'data' 事件也会在调用 readable.read() 方法并有数据返回时触发。
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">stdio</a>
+                    [evt]<a href="">end</a>
                     <span>
-                        一个到子进程的管道的稀疏数组
+                        'end' 事件将在流中再没有数据可供消费时触发。 <br>
+                        注意： 'end' 事件只有在数据被完全消费后 才会触发 。 可以在数据被完全消费后，通过将流转换到 flowing 模式， 或反复调用 stream.read() 方法来实现这一点。
                     </span>
                 </li>
                 <li>
-                    subp.<a href="">stdout</a>
+                    [evt]<a href="">readable</a>
                     <span>
-                        一个代表子进程的 stdout 的可读流
+                        'readable' 事件将在流中有数据可供读取时触发。 <br>
+                        在某些情况下，为 'readable' 事件添加回调将会导致一些数据被读取到内部缓存中。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 可写流</h4>
+            <ul>
+                <li>
+                    stream.<a href="">setDefaultEncoding</a>(encoding)
+                    <span>
+                        设置编码 <br>
+                        返回： this
+                    </span>
+                </li>
+                <li>
+                    stream.<a href="">write</a><em>(chunk,[encoding],[fn])</em>
+                    <span>
+                        向流中写入数据，并在数据处理完成后调用 callback 。 <br>
+                        如果有错误发生， callback 不一定 以这个错误作为第一个参数并被调用。要确保可靠地检测到写入错误，应该监听 'error' 事件 <hr>
+                        在确认了 chunk 后，如果内部缓冲区的大小小于创建流时设定的 highWaterMark 阈值，函数将返回 true 。 如果返回值为 false ，应该停止向流中写入数据，直到 'drain' 事件被触发。 <br>
+                        返回：布尔值，如果流需要等待 'drain' 事件触发才能继续写入数据，这里将返回 false ； 否则返回 true。
+                    </span>
+                </li>
+                <li>
+                    stream.<a href="">end</a><em>([chunk],[encoding],[fn])</em>
+                    <span>
+                        调用 writable.end() 方法表明接下来没有数据要被写入 Writable <hr>
+                        chunk - 需要写入的数据。对于非对象模式下的流， chunk 必须是字符串、或 Buffer、或 Uint8Array。对于对象模式下的流， chunk 可以是任意的 JavaScript 值，除了 null。 <br>
+                        encoding - 如果 chunk 是字符串，这里指定字符编码。 <br>
+                        callback - 流结束时的回调函数，它将作为 'finish' 事件的回调函数
+                    </span>
+                </li>
+                <li>
+                    stream.<a href="">cork()</a>
+                    <span>
+                        强制所有写入数据都存放到内存中的缓冲区里。 直到调用 stream.uncork() 或 stream.end() 方法时，缓冲区里的数据才会被输出。 <hr>
+                        在向流中写入大量小块数据（small chunks of data）时，内部缓冲区（internal buffer）可能失效，从而导致性能下降。writable.cork() 方法主要就是用来避免这种情况。 对于这种情况， 实现了 writable._writev() 方法的流可以对写入的数据进行缓冲，从而提高写入效率。
+                    </span>
+                </li>
+                <li>
+                    stream.<a href="">uncork()</a>
+                    <span>
+                        输出在 stream.cork() 方法被调用之后缓冲在内存中的所有数据。 <br>
+                        如果一个流多次调用了 writable.cork() 方法，那么也必须调用同样次数的 writable.uncork() 方法以输出缓冲区数据。
+                    </span>
+                </li>
+                <li>
+                    stream.<a href="">destroy</a>([error])
+                    <span>
+                        摧毁这个流，并发出传过来的错误。当这个函数被调用后，这个写入流就结束了。  <br>
+                        返回： this
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">finish</a>
+                    <span>
+                        在调用了 stream.end() 方法，且缓冲区数据都已经传给底层系统（underlying system）之后， 'finish' 事件将被触发。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">pipe</a>
+                    <span>
+                        在可读流（readable stream）上调用 stream.pipe() 方法，并在目标流向 (destinations) 中添加当前可写流 ( writable ) 时，将会在可写流上触发 'pipe' 事件。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">unpipe</a>
+                    <span>
+                        在 Readable 上调用 stream.unpipe() 方法，从目标流向中移除当前 Writable 时，将会触发 'unpipe' 事件。
+                    </span>
+                </li>
+                <li>
+                    [evt]<a href="">drain</a>
+                    <span>
+                        如果调用 stream.write(chunk) 方法返回 false，流将在适当的时机触发 'drain' 事件，这时才可以继续向流中写入数据。
                     </span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>cluster<span>-</span></h3>
+        <h3>readline<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>+</span>] Worker</h4>
-            <ul style="display:none;">
+            <h4>[<span>+</span>] 逐行读取</h4>
+            <ul style="display:none">
                 <li>
-                    [evt]<a href="">disconnect</a>
+                    readline.<a href="">clearLine</a>(stream,dir)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">error</a>
+                    readline.<a href="">clearScreenDown</a>(stream)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">exit</a>
+                    readline.<a href="">cursorTo</a>(stream,x,y)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">listening</a>
+                    readline.<a href="">moveCursor</a>(stream,dx,dy)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">message</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    [evt]<a href="">online</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">disconnect()</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">exitedAfterDisconnect</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">id</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">isConnected()</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">isDead()</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">kill</a>([signal='SIGTERM'])
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">process</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    worker.<a href="">send</a>(msg,[handle],[fn])
+                    readline.<a href="">emitKeypressEvents</a>(stream,[interface])
                     <span>
                         
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 集群</h4>
-            <ul style="display:none;">
+            <h4>[<span>+</span>] Interface</h4>
+            <ul style="display:none">
                 <li>
-                    [evt]<a href="">disconnect</a>
+                    readline.<a href="">createInterface</a>(opt)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">exit</a>
+                    [evt]<a href="">close</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">fork</a>
+                    [evt]<a href="">line</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">listening</a>
+                    [evt]<a href="">pause</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">message</a>
+                    [evt]<a href="">resume</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">online</a>
+                    [evt]<a href="">SIGCONT</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    [evt]<a href="">setup</a>
+                    [evt]<a href="">SIGINT</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">disconnect</a>([fn])
+                    [evt]<a href="">SIGTSTP</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">fork</a>([env])
+                    rl.<a href="">close()</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">isMaster</a>
+                    rl.<a href="">prompt</a>([preserveCursor])
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">isWorker</a>
+                    rl.<a href="">question</a>(query,fn)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">schedulingPolicy</a>
+                    rl.<a href="">resume()</a>
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">settings</a>
+                    rl.<a href="">setPrompt</a>(prompt)
                     <span>
                         
                     </span>
                 </li>
                 <li>
-                    cluster.<a href="">setupMaster</a>([settings])
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    cluster.<a href="">worker</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    cluster.<a href="">workers</a>
-                    <span>
-                        
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>tty<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>+</span>] 终端</h4>
-            <ul style="display:none;">
-                <li>
-                    tty.<a href="">ReadStream</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    readStream.<a href="">isRaw</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    readStream.<a href="">isTTY</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    readStream.<a href="">setRawMode</a>(mode)
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    tty.<a href="">WriteStream</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    writeStream.<a href="">columns</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    writeStream.<a href="">rows</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    writeStream.<a href="">isTTY</a>
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    tty.<a href="">isatty</a>(fd)
+                    rl.<a href="">write</a>(data,[key])
                     <span>
                         
                     </span>

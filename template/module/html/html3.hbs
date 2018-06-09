@@ -1,552 +1,327 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM事件<span>-</span></h3>
+        <h3>DOM更新<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 监听触发</h4>
+            <h4>[<span>-</span>] 文本</h4>
             <ul>
-                <li class="i-dot-orange">
-                    dom.<a href="">addEventListener</a><em>(type,fn(e)[,false])</em>
+                <li>
+                    doc.<a href="">creatTextNode</a>('str')
                     <span>
-                        添加事件监听 <br>
-                        内部的this对象总是指向触发事件的那个节点。 <br>
-                        IE8=-：attachEvent() <br>
-                        <pre><code data-language="javascript">
-                            if (document.addEventListener) {
-                                document.addEventListener("click", myFunction);
-                            } else if (document.attachEvent) {
-                                document.attachEvent("onclick", myFunction);
-                            }
-                            function myFunction() {
-                                alert("Hello World!");
-                            }
-                        </code></pre>
-                        <hr>
-                        type：事件名称，大小写敏感。<br>
-                        listener：监听函数。事件发生时，会调用该监听函数。<br>
-                        useCapture：布尔值，表示监听函数是否在捕获阶段（capture）触发（参见后文《事件的传播》部分），默认为false（监听函数只在冒泡阶段被触发）。老式浏览器规定该参数必写，较新版本的浏览器允许该参数可选。为了保持兼容，建议总是写上该参数。 
+                        创建文本节点 <br>
+                        这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作HTML代码渲染。因此，可以用来展示用户的输入，避免XSS攻击。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">normalize()</a>
+                    <span>
+                        合并相邻的文本节点并删除空的文本节点
+                    </span>
+                </li>
+                <li>
+                    txt.<a href="">splitText</a>(n)
+                    <span>
+                        splitText方法将Text节点一分为二，变成两个毗邻的Text节点。它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。 <br>
+                        分割后，该方法返回分割位置后方的字符串，而原Text节点变成只包含分割位置前方的字符串。
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    dom.<a href="">removeEventListener</a><em>(type,fn(e)[,false])</em>
+                    ele.<a href="">textContent</a>
                     <span>
-                        移除事件监听 <br>
-                        IE8=-：detachEvent() <br>
-                        两个参数均为必须，指定要移除的事件及要移除的函数。
+                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
+                        textContent属性自动忽略当前节点内部的HTML标签，返回所有文本内容。 <br>
+                        同理对textContent的字符串设置中如有标签，当做字符串处理，不会解析为Html标签 <br>
+                        IE8及以下不支持
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">dispatchEvent</a>(event)
+                    ele.<a href="">innerHTML</a>
                     <span>
-                        触发事件,参数是一个Event对象的实例 <br>
-                        dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。 <hr>
+                        设置或返回元素的内容 <br>
+                        如果插入的文本包含 HTML 标签，会被解析成为节点对象插入 DOM。注意，如果文本之中含有script标签，虽然可以生成script节点，但是插入的代码不会执行。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">outerHTML</a>
+                    <span>
+                        返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。 <br>
+                        被替换后，原变量将保存原信息在内存中
+                    </span>
+                </li>
+                <li>
+                    window.<a href="">getSelection()</a>
+                    <span>
+                        返回一个Selection对象，表示用户现在选中的文本。 <br>
+                        使用Selction对象的toString方法可以得到选中的文本。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 添加</h4>
+            <ul>
+                <li>
+                    doc.<a href="">creatElement</a>('tag')
+                    <span>
+                        创建元素节点
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">cloneNode</a>([true/false])
+                    <span>
+                        克隆该节点，包括属性和值。 <br> 
+                        传入true表示递归复制该节点的所有子孙节点。
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    doc.<a href="">importNode</a>(node,deep)
+                    <span>
+                        把一个节点从另一个文档复制到该文档以便应用。 <br>
+                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
+                        IE8及以下不支持。 <br>
+                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatDocumentFragment()</a>
+                    <span>
+                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
+                        var temp=document.createDocumentFragment();
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">creatComment</a>('str')
+                    <span>
+                        创建注释节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 修改</h4>
+            <ul>
+                <li>
+                    dom.<a href="">appendChild</a>(node)
+                    <span>
+                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
+                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
+                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
+                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">insertBefore</a>(node,exist)
+                    <span>
+                        向目标节点前添加新的节点。 <br>
+                        如果被添加的节点是原文档中的节点，则原节点会被移除。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">replaceChild</a>(new,old)
+                    <span>
+                        将某个子节点替换为另一个。 <br>
+                        它返回被替换走的那个节点
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 删除</h4>
+            <ul>
+                <li>
+                    dom.<a href="">removeChild</a>(node)
+                    <span>
+                        删除指定的子节点。 <br>
+                        删除成功则返回被删除的节点，删除失败返回null。
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">remove()</a>
+                    <span>
+                        将当前元素节点从DOM树删除
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它</h4>
+            <ul>
+                <li>
+                    doc.<a href="">write</a>('exp')
+                    <span>
+                        向文档写入内容 <br>
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">writeln</a>('exp')
+                    <span>
+                        向文档写入内容，并在末尾添加一个换行符
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">open</a>([MIME],[replace])
+                    <span>
+                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
+                        MIMEtype，默认值是 "text/html"。 <br>
+                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。 <br>
+                        它实际上等于清除当前文档，重新写入内容。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">close</a>()
+                    <span>
+                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] MutationObserver</h4>
+            <ul>
+                <li>
+                    <a href="">new MutationObserver</a><em>(fn(arr,obs))</em>
+                    <span>
+                        使用时，首先使用MutationObserver构造函数，新建一个观察器实例，同时指定这个实例的回调函数。 <br>
+                        回调函数，会在每次 DOM 变动后调用。该回调函数接受两个参数，第一个是变动数组，第二个是观察器实例
+                    </span>
+                </li>
+                <li>
+                    obs.<a href="">observe</a><em>(dom,option)</em>
+                    <span>
+                        observe方法用来开始监听，它接受两个参数 <br>
+                        第一个参数是所要观察的 DOM 节点 <br>
+                        第二个参数是一个配置对象，用来指定所要观察的特定变动
 <pre><code data-language="javascript">
-    para.addEventListener('click', hello, false);
-    var event = new Event('click');
-    para.dispatchEvent(event);
+    var article = document.querySelector('article');
+
+    var  options = {
+      'childList': true,
+      'attributes':true
+    } ;
+
+    observer.observe(article, options);
 </code></pre>
+                    观察器所能观察的 DOM 变动类型（即上面代码的options对象），有以下几种 <br>
+                    childList：子节点的变动。<br>
+                    attributes：属性的变动。<br>
+                    characterData：节点内容或节点文本的变动。<br>
+                    subtree：所有后代节点的变动。<br>
+                    attributeOldValue：类型为布尔值，表示观察attributes变动时，是否需要记录变动前的属性值。<br>
+                    characterDataOldValue：类型为布尔值，表示观察characterData变动时，是否需要记录变动前的值。<br>
+                    attributeFilter：类型为数组，表示需要观察的特定属性（比如['class','src']）
                     </span>
                 </li>
                 <li>
-                    <em>bind</em><a href=""></a>
+                    obs.<a href="">disconnect()</a>
                     <span>
-                        HTML中:<pre><code data-language="html"><element onclick="fn()"></code></pre>
-                        JavaScript 中:<pre><code data-language="javascript">object.onclick=function(){..};</code></pre>
-                        JS中监听：<pre><code data-language="javascript">object.addEventListener('click',fn)</code></pre>
+                        停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器
+                    </span>
+                </li>
+                <li>
+                    obs.<a href="">takeRecords()</a>
+                    <span>
+                        清除变动记录，即不再处理未处理的变动。该方法返回变动记录的数组。
+                    </span>
+                </li>
+                <li>
+                    <em>MutationRecord</em><a href=""></a>
+                    <span>
+                        DOM 每次发生变化，就会生成一条变动记录。这个变动记录对应一个MutationRecord对象，该对象包含了与变动相关的所有信息。Mutation Observer 处理的是一个个MutationRecord对象所组成的数组。
                         <hr>
-                        当监听函数部署在Element节点的on-属性上面，this不会指向触发事件的元素节点，除非函数内容也写在标签中写明。 <a href="http://javascript.ruanyifeng.com/dom/event.html">参考资料</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 自定义事件</h4>
-            <ul>
-                <li>
-                    <a href="">new CustomEvent</a>(type,option)
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CustomEvent">参考资料</a> <br>
-                        CustomEvent构造函数的第一个参数是事件名称，第二个参数是一个对象，可传递数据 <br>
-                        <a href="http://javascript.ruanyifeng.com/dom/event.html#toc21">IE模拟支持</a>
-<pre><code data-language="javascript">
-(function () {
-  function CustomEvent ( event, params ) {
-    params = params || { bubbles: false, cancelable: false, detail: undefined };
-    var evt = document.createEvent( 'CustomEvent' );
-    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
-    return evt;
-   }
-
-  CustomEvent.prototype = window.Event.prototype;
-
-  window.CustomEvent = CustomEvent;
-})();
-</code></pre>
-                    </span>
-                </li>
-                <li>
-                    document.<a href="">createEvent</a>($etype)
-                    <span>
-                        var event = document.createEvent('Event') <br>
-                        createEvent方法接受一个字符串作为参数，可能的值参见下表“数据类型”一栏。使用了某一种“事件类型”，就必须使用对应的事件初始化方法。
-                        <table>
-                            <tr>
-                                <th>事件类型</th>
-                                <th>事件初始化方法</th>
-                            </tr>
-                            <tr>
-                                <td>UIEvents</td>
-                                <td>event.initUIEvent</td>
-                            </tr>
-                            <tr>
-                                <td>MouseEvents</td>
-                                <td>event.initMouseEvent</td>
-                            </tr>
-                            <tr>
-                                <td>MutationEvents</td>
-                                <td>event.initMutationEvent</td>
-                            </tr>
-                            <tr>
-                                <td>HTMLEvents</td>
-                                <td>event.initEvent</td>
-                            </tr>
-                            <tr>
-                                <td>Event</td>
-                                <td>event.initEvent</td>
-                            </tr>
-                            <tr>
-                                <td>CustomEvent</td>
-                                <td>event.initCustomEvent</td>
-                            </tr>
-                            <tr>
-                                <td>KeyboardEvent</td>
-                                <td>event.initKeyEvent</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    event.<a href="">initEvent</a><em>(type,true,true,data)</em>
-                    <span>
-                        事件对象的initEvent方法，用来初始化事件对象，还能向事件对象添加属性。该方法的参数必须是一个使用Document.createEvent()生成的Event实例，而且必须在dispatchEvent方法之前调用。
-<pre><code data-language="javascript">
-    var event = document.createEvent('Event');
-    event.initEvent('my-custom-event', true, true, {foo:'bar'});
-    someElement.dispatchEvent(event);
-</code></pre>
-                    4个参数： <br>
-                    type：事件名称，格式为字符串。<br>
-                    bubbles：事件是否应该冒泡，格式为布尔值。可以使用event.bubbles属性读取它的值。<br>
-                    cancelable：事件是否能被取消，格式为布尔值。可以使用event.cancelable属性读取它的值。<br>
-                    option：为事件对象指定额外的属性。
-                    </span>
-                </li>
-                <li>
-                    <a href="">UIEvent</a>
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/UIEvent">参考资料</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 事件对象</h4>
-            <ul>
-                <li>
-                    <a href="">new Event</a>(type[,option])
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event">参考资料</a> <br>事件发生以后，会生成一个事件对象，作为参数传给监听函数。浏览器原生提供一个Event对象，所有的事件都是这个对象的实例，或者说继承了Event.prototype对象。Event对象本身就是一个构造函数，可以用来生成新的实例。 <hr>
-                        bubbles：布尔值，可选，默认为false，表示事件对象是否冒泡。<br>
-                        cancelable：布尔值，可选，默认为false，表示事件是否可以被取消。 <br>
-<pre><code data-language="javascript">
-var ev = new Event(
-  'look',
-  {
-    'bubbles': true,
-    'cancelable': false
-  }
-);
-document.dispatchEvent(ev);
-</code></pre>
-                        IE8及以下版本，事件对象不作为参数传递，而是通过window对象的event属性读取，并且事件对象的target属性叫做srcElement属性。所以，以前获取事件信息，往往要写成下面这样。
-<pre><code data-language="javascript">
-function myEventHandler(event) {
-  var actualEvent = event || window.event;
-  var actualTarget = actualEvent.target || actualEvent.srcElement;
-  // ...
-}
-</code></pre>
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">type</a>
-                    <span>
-                        返回当前 Event 对象表示的事件的名称
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">target</a>
-                    <span>
-                        返回触发此事件的元素（事件的目标节点）
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">currentTarget</a>
-                    <span>
-                        返回其事件监听器触发该事件的元素,不一定是点击的元素,是最终监听的元素
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">bubbles</a>
-                    <span>
-                       返回布尔值，指示事件是否是起泡事件类型 
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">cancelable</a>
-                    <span>
-                        返回布尔值，指示事件是否可拥可取消的默认动作
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">defaultPrevented</a>
-                    <span>
-                        返回一个布尔值，表示该事件是否调用过preventDefault方法
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">timeStamp</a>
-                    <span>
-                        返回事件生成的日期和时间 <br>
-                        该属性返回的是一个高精度时间戳，也就是说，毫秒之后还带三位小数，精确到微秒。并且，这个值不再从Unix纪元开始计算，而是从PerformanceTiming.navigationStart开始计算，即表示距离用户导航至该网页的时间。如果想将这个值转为Unix纪元时间戳，就要计算event.timeStamp + performance.timing.navigationStart。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">isTrusted</a>
-                    <span>
-                        返回一个布尔值，表示该事件是否为真实用户触发。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">eventPhase</a>
-                    <span>
-                        返回事件传播的当前阶段 <br>
-                        0：事件没有发生 <br>
-                        1：从window对象传导到目标节点，称为“捕获阶段”（capture phase）。<br>
-                        2：在目标节点上触发，称为“目标阶段”（target phase）。<br>
-                        3：从目标节点传导回window对象，称为“冒泡阶段”（bubbling phase）。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">preventDefault()</a>
-                    <span>
-                        通知浏览器不要执行与事件关联的默认动作
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">stopPropagation()</a>
-                    <span>
-                        阻止冒泡. <br>
-                        iPhone默认阻止冒泡，故慎用事件委托，给指定元素添加手型样式可开启冒泡，让其认可该为一个可点击区域。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">stopImmediatePropagation()</a>
-                    <span>
-                        stopPropagation方法只会阻止当前监听函数的传播，不会阻止节点上的其他click事件的监听函数。如果想要不再触发那些监听函数，可以使用stopImmediatePropagation方法。
+                        type：观察的变动类型（attribute、characterData或者childList）。 <br>
+                        target：发生变动的DOM节点。<br>
+                        addedNodes：新增的DOM节点。<br>
+                        removedNodes：删除的DOM节点。<br>
+                        previousSibling：前一个同级节点，如果没有则返回null。<br>
+                        nextSibling：下一个同级节点，如果没有则返回null。<br>
+                        attributeName：发生变动的属性。如果设置了attributeFilter，则只返回预先指定的属性。<br>
+                        oldValue：变动前的值。这个属性只对attribute和characterData变动有效，如果发生childList变动，则返回null。
                     </span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>鼠标键盘事件<span>-</span></h3>
+        <h3>DOM操作<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 鼠标事件类型</h4>
+            <h4>[<span>-</span>] 属性</h4>
             <ul>
                 <li>
-                    <a href="">click</a>
+                    ele.<a href="">getAttribute</a>('attr')
                     <span>
-                        点击事件 <br>
-                        鼠标左键/中间：onmousedown -> onmouseup -> onclick <br>
-                        鼠标右键：onmousedonw -> onmouseup -> oncontextmenu
+                        返回指定元素的属性值 <br>
+                        等同 getAttributeNode('attr').value 
                     </span>
                 </li>
                 <li>
-                    <a href="">dbclick</a>
+                    ele.<a href="">removeAttribute</a>('attr')
                     <span>
-                        双击事件
+                        从元素中删除指定的属性
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">setAttribute</a><em>('attr','val')</em>
+                    <span>
+                        设置元素指定的属性值 <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">hasAttribute</a>('attr')
+                    <span>
+                        检测元素是否具有某个属性，返回true/false <br>
+                        IE8及以下不支持
+                    </span>
+                </li>
+                <li class="i-dot-orange">
+                    ele.<a href="">hasAttributes()</a>
+                    <span>
+                        检测元素是否具有任何某个属性，返回true/false <br>
+                        IE8及以下不支持
                     </span>
                 </li>
                 <li>
-                    <a href="">mousedown</a>
+                    dom.<a href="">creatAttribute</a>('attr')
                     <span>
-                        鼠标按下
+                        创建一个属性节点，并返回该attr对象。
                     </span>
                 </li>
                 <li>
-                    <a href="">mouseup</a>
+                    ele.<a href="">removeAttributeNode</a>('attr')
                     <span>
-                        鼠标按键被松开
+                        删除指定元素节点并返回移除后的节点
                     </span>
                 </li>
                 <li>
-                    <a href="">contextmenu</a>
+                    ele.<a href="">setAttributeNode</a>('attr')
                     <span>
-                        在用户点击鼠标右键打开上下文菜单时触发
-                    </span>
-                </li>
-                <li>
-                    <a href="">mouseover</a>
-                    <span>
-                        鼠标移到某元素之上，支持冒泡
-                    </span>
-                </li>
-                <li>
-                    <a href="">mouseout</a>
-                    <span>
-                        鼠标从某元素移开，支持冒泡
-                    </span>
-                </li>
-                <li>
-                    <a href="">mouseenter</a>
-                    <span>
-                        鼠标移到某元素之上，不支持冒泡，不可取消
-                    </span>
-                </li>
-                <li>
-                    <a href="">mouseleave</a>
-                    <span>
-                        鼠标从某元素移开，不支持冒泡，不可取消
-                    </span>
-                </li>
-                <li>
-                    <a href="">mousemove</a>
-                    <span>
-                        鼠标被移动
+                        设置或改变指定属性节点 <br>
+                        需通过nodeValue来最终改变对应值
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 鼠标事件对象</h4>
+            <h4>[<span>-</span>] 交互</h4>
             <ul>
                 <li>
-                    <a href="">new MouseEvent</a><em>(typeArg, mouseEventInit)</em>
+                    ele.<a href="">focus()</a>
                     <span>
-                        鼠标事件，第一个参数是事件名称，第二个参数是一个事件初始化对象。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent">参考资料</a>
+                        设置元素获取焦点
                     </span>
                 </li>
                 <li>
-                    e.<a href="">button</a>
+                    ele.<a href="">blur()</a>
                     <span>
-                        返回当事件被触发时，哪个鼠标按钮被点击 <br>
-                        -1没有按下 <br>
-                        0左键，1中键，2右键 <br>
-                        IE8及-：1左键，4中键，2右键
+                        设置元素移除焦点
                     </span>
                 </li>
                 <li>
-                    e.<a href="">buttons</a>
+                    dom.<a href="">hasFocus()</a>
                     <span>
-                        buttons属性返回一个3个比特位的值，表示同时按下了哪些键。它用来处理同时按下多个鼠标键的情况。 <hr>
-                        1：二进制为001，表示按下左键。<br>
-                        2：二进制为010，表示按下右键。<br>
-                        4：二进制为100，表示按下中键或滚轮键。
+                        检查元素是否获取焦点，返回布尔值
                     </span>
                 </li>
                 <li>
-                    e.<a href="">clientX/clientY</a>
+                    ele.<a href="">contentEditable</a>
                     <span>
-                        返回当事件被触发时，鼠标指针在浏览器中的水平/垂直坐标
+                        设置或返回元素的内容是否可编辑 <br>
+                        返回inherit/true/false <br>
+                        如果父级元素是可编辑，则子元素内容也是可编辑的
                     </span>
                 </li>
                 <li>
-                    e.<a href="">screenX/screenY</a>
+                    ele.<a href="">isContentEditable</a>
                     <span>
-                        返回当事件被触发时，鼠标指针在屏幕中的水平/垂直坐标
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">movementX/movementY</a>
-                    <span>
-                        返回一个水平位移，单位为像素，表示当前位置与上一个mousemove事件之间的水平/垂直距离
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">relatedTarget</a>
-                    <span>
-                        返回事件的次要相关节点。对于那些没有次要相关节点的事件，该属性返回null。
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>事件名称</th>
-                              <th>target属性</th>
-                              <th>relatedTarget属性</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>focusin</td>
-                              <td>接受焦点的节点</td>
-                              <td>丧失焦点的节点</td>
-                            </tr>
-                            <tr>
-                              <td>focusout</td>
-                              <td>丧失焦点的节点</td>
-                              <td>接受焦点的节点</td>
-                            </tr>
-                            <tr>
-                              <td>mouseenter</td>
-                              <td>将要进入的节点</td>
-                              <td>将要离开的节点</td>
-                            </tr>
-                            <tr>
-                              <td>mouseleave</td>
-                              <td>将要离开的节点</td>
-                              <td>将要进入的节点</td>
-                            </tr>
-                            <tr>
-                              <td>mouseout</td>
-                              <td>将要离开的节点</td>
-                              <td>将要进入的节点</td>
-                            </tr>
-                            <tr>
-                              <td>mouseover</td>
-                              <td>将要进入的节点</td>
-                              <td>将要离开的节点</td>
-                            </tr>
-                            <tr>
-                              <td>dragenter</td>
-                              <td>将要进入的节点</td>
-                              <td>将要离开的节点</td>
-                            </tr>
-                            <tr>
-                              <td>dragexit</td>
-                              <td>将要离开的节点</td>
-                              <td>将要进入的节点</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">detail</a>
-                    <span>
-                        属性返回一个数值，表示事件的某种信息。具体含义与事件类型有关，对于鼠标事件，表示鼠标按键在某个位置按下的次数，比如对于dblclick事件，detail属性的值总是2。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 滚轮事件</h4>
-            <ul>
-                <li>
-                    <a href="">wheel</a>
-                    <span>
-                        该事件在鼠标滚轮在元素上下滚动时触发。
-                    </span>
-                </li>
-                <li>
-                    <a href="">new WheelEvent</a><em>("syntheticWheel",option)</em>
-                    <span>
-                        浏览器提供一个WheelEvent构造函数，可以用来生成滚轮事件的实例。它接受两个参数，第一个是事件名称，第二个是配置对象。 <br>
-                        该事件除了继承了MouseEvent、UIEvent、Event的属性，还有几个自己的属性。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">deltaX</a>
-                    <span>
-                        返回一个数值，表示滚轮的水平滚动量。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">deltaY</a>
-                    <span>
-                        返回一个数值，表示滚轮的垂直滚动量。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">deltaZ</a>
-                    <span>
-                        返回一个数值，表示滚轮的Z轴滚动量。
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">deltaMode</a>
-                    <span>
-                        返回一个数值，表示滚动的单位，适用于上面三个属性。0表示像素，1表示行，2表示页。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 键盘事件类型</h4>
-            <ul>
-                <li>
-                    <a href="">keydown</a>
-                    <span>
-                        某个键盘按键被按下
-                    </span>
-                </li>
-                <li>
-                    <a href="">keypress</a>
-                    <span>
-                        某个键盘按键被按下并松开 <br>
-                        onkeydown -> onkeypress -> onkeyup <br>
-                        在所有浏览器中 onkeypress 事件不是适用于所有按键，如： ALT, CTRL, SHIFT, ESC <hr>
-                        如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下 <br>
-                        (keydown -> keypress)*n ->keyup
-                    </span>
-                </li>
-                <li>
-                    <a href="">keyup</a>
-                    <span>
-                        某个键盘按键被松开
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 键盘事件对象</h4>
-            <ul>
-                <li>
-                    <a href="">new KeyboardEvent</a><em>(typeArg, KeyboardEventInit)</em>
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">key</a>
-                    <span>
-                        在按下按键时返回按键的标识符 <br>
-                        如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下Ctrl+a，则返回a。如果无法识别键名，则返回字符串Unidentified。 <br>
-                        Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">keyCode</a>
-                    <span>
-                        返回按键事件触发的键的值的字符代码 <a href="http://www.runoob.com/jsref/event-key-keycode.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    e.<a href="">altKey/ctrlKey/shiftKey/metaKey</a>
-                    <span>
-                        <table>
-                            <tr>
-                                <th>属性</th>
-                                <th>返回值</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>altKey</td>
-                                <td>true/false/1/0</td>
-                                <td>返回当事件被触发时，"ALT" 是否被按下</td>
-                            </tr>
-                            <tr>
-                                <td>ctrlKey</td>
-                                <td>true/false/1/0</td>
-                                <td>返回当事件被触发时，"CTRL" 键是否被按下</td>
-                            </tr>
-                            <tr>
-                                <td>shiftKey</td>
-                                <td>true/false/1/0</td>
-                                <td>返回当事件被触发时，"SHIFT" 键是否被按下</td>
-                            </tr>
-                            <tr>
-                                <td>metaKey</td>
-                                <td>true/false/1/0</td>
-                                <td>Meta 键（Mac键盘是一个四瓣的小花，Windows键盘是Windows键）</td>
-                            </tr>
-                        </table>
+                        返回元素的内容是否可编辑 <br>
+                        返回true/false
                     </span>
                 </li>
             </ul>

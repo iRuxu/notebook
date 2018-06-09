@@ -1,64 +1,339 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>Web Socket<span>-</span></h3>
+        <h3>Cookie<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 实例属性</h4>
             <ul>
                 <li>
-                    <a href="">new WebSocket</a>(url)
+                    navigator.<a href="">cookieEnabled</a>
                     <span>
-                        url格式为ws://path:80
+                        返回一个布尔值，表示浏览器是否打开 Cookie 功能。
                     </span>
                 </li>
                 <li>
-                    ws.<a href="">readyState</a>
+                    document.<a href="">cookie</a>
                     <span>
-                        返回实例对象的当前状态 <br>
-                        CONNECTING：值为0，表示正在连接。 <br>
-                        OPEN：值为1，表示连接成功，可以通信了。<br>
-                        CLOSING：值为2，表示连接正在关闭。<br>
-                        CLOSED：值为3，表示连接已经关闭，或者打开连接失败。<br>
+                        Cookie 的值必须写成key=value的形式。 <br>
+                        注意，等号两边不能有空格。 <br>
+                        另外，写入 Cookie 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 Cookie 的值），这可以用encodeURIComponent方法达到。 <br>
+                        document.cookie一次只能写入一个 Cookie，而且写入并不是覆盖，而是添加，读取的时候一次性读取全部。  <br>
+                        删除一个 Cookie 的唯一方法是设置其expires为一个过去的日期。
+                        <hr>
+                        expires : 指定cookie过期时间，格式采用Date.toUTCString()的格式 <br>
+                        domain : 指定cookie所在的域名 <br>
+                        path : 用来指定路径，必须是绝对路径（比如/、/mydir），如果未指定，默认为请求该 Cookie 的网页路径。 <br>
+                        secure : 指定Cookie只能在加密协议HTTPS下发送到服务器 <br>
+                        max-age : 指定Cookie有效期，比如60 * 60 * 24 * 365（即一年31536e3秒） <br>
+                        HttpOnly : 设置该Cookie不能被JavaScript读取 <br>
                     </span>
                 </li>
                 <li>
-                    ws.<a href="">bufferedAmount</a>
+                    document.<a href="">domain</a>
                     <span>
-                        表示还有多少字节的二进制数据没有发送出去。它可以用来判断发送是否结束。
+                        Cookie 是服务器写入浏览器的一小段信息，只有同源的网页才能共享。但是，两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie。同样适应于iframe通信获取DOM。
                     </span>
                 </li>
                 <li>
-                    ws.<a href="">send</a>(data)
-                    <span>
-                        实例对象的send()方法用于向服务器发送数据
-                    </span>
+                    <a href="https://github.com/js-cookie/js-cookie">js-cookie</a>
                 </li>
-                <li><a href="https://github.com/socketio/socket.io">socket.io</a></li>
             </ul>
-            <h4>[<span>-</span>] 相关事件</h4>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>Storage<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 数据对象</h4>
             <ul>
                 <li>
-                    ws.<a href="">onopen</a>(fn)
+                    <a href="">localStorage</a>
                     <span>
-                        指定连接成功后的回调函数 <br>
-                        如果要指定多个回调函数，可以使用addEventListener方法。
+                        保存的数据长期存在，下一次访问该网站的时候，网页可以直接读取以前保存的数据。
                     </span>
                 </li>
                 <li>
-                    ws.<a href="">onclose</a>(fn)
+                    <a href="">sessionStorage</a>
                     <span>
-                        指定连接关闭后的回调函数
+                        保存的数据用于浏览器的一次会话，当会话结束（通常是该窗口关闭），数据被清空
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数据操作</h4>
+            <ul>
+                <li>
+                    storage.<a href="">setItem</a>('key','val')
+                    <span>
+                        存储数据
                     </span>
                 </li>
                 <li>
-                    ws.<a href="">onmessage</a>(fn)
+                    storage.<a href="">getItem</a>('key')
                     <span>
-                        指定收到服务器数据后的回调函数
+                        读取数据
                     </span>
                 </li>
                 <li>
-                    ws.<a href="">onerror</a>(fn)
+                    storage.<a href="">removeItem</a>('key')
                     <span>
-                        用于指定报错时的回调函数
+                        删除数据
+                    </span>
+                </li>
+                <li>
+                    storage.<a href="">clear()</a>
+                    <span>
+                        清空数据
+                    </span>
+                </li>
+                <li>
+                    storage.<a href="">key</a>(n)
+                    <span>
+                        获取索引的键名
+                    </span>
+                </li>
+                <li>
+                    storage.<a href="">length</a>
+                    <span>
+                        数据长度
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 事件对象</h4>
+            <ul>
+            	<li>
+                    <em>[event]</em><a href="">storage</a>
+                    <span>
+                        该事件在 Web Storage(HTML 5 Web 存储)更新时触发 <br>
+                        值得特别注意的是，该事件不在导致数据变化的当前页面触发。如果浏览器同时打开一个域名下面的多个页面，当其中的一个页面改变sessionStorage或localStorage的数据时，其他所有页面的storage事件会被触发，而原始页面并不触发storage事件。可以通过这种机制，实现多个窗口之间的通信。所有浏览器之中，只有IE浏览器除外，它会在所有页面触发storage事件。
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">key</a>
+                    <span>
+                        发生变化的键名
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">oldValue</a>
+                    <span>
+                        更新前的值。如果该键为新增加，则这个属性为null。
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">newValue</a>
+                    <span>
+                        更新后的值。如果该键被删除，则这个属性为null。
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">url</a>
+                    <span>
+                        原始触发storage事件的那个网页的网址。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>IndexedDB<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 数据库事件</h4>
+            <ul>
+                <li>
+                    <a href="">indexedDB</a>
+                    <span>
+                        1.键值对存储。 <br>
+                        2.异步 <br>
+                        3.支持事务 <br>
+                        4.同域限制 <br>
+                        5.存储空间大 <br>
+                        6.支持二进制存储 <br>
+                        <a href="http://javascript.ruanyifeng.com/bom/indexeddb.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">indexedDB.open</a>('name',[ver])
+                    <span>
+                        打开数据库（ver>=1）。返回一个对象IDBOpenDBRequest  <br>
+                        var openRequest = indexedDB.open("test",1);
+                    </span>
+                </li>
+                <li>
+                    open.<a href="">onupgradeneeded</a>
+                    <span>
+                        第一次打开该数据库，或者数据库版本发生变化
+                    </span>
+                </li>
+                <li>
+                    open.<a href="">onsuccess</a>
+                    <span>
+                        打开成功
+                    </span>
+                </li>
+                <li>
+                    open.<a href="">error</a>
+                    <span>
+                        打开失败
+                    </span>
+                </li>
+                <li>
+                    open.<a href="">blocked</a>
+                    <span>
+                        上一次的数据库连接还未关闭
+                    </span>
+                </li>
+                <li>
+                    e.<a href="">target.result</a>
+                    <span>
+                        打开的IndexedDB数据库 <br>
+                        当成功时，等价于 open.result
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 数据库实例</h4>
+            <ul>
+                <li>
+                    db.<a href="">objectStoreNames.contains</a>('store')
+                    <span>
+                        检查数据库是否包含某个“对象仓库”
+                    </span>
+                </li>
+                <li>
+                    db.<a href="">createObjectStore</a><em>('store',[option])</em>
+                    <span>
+                        创建存放数据的“对象仓库”（object store） <br>
+                        如果该对象仓库已经存在，就会抛出一个错误。 <br>
+                        keyPath : 指定属性作为键名 <br>
+                        autoIncrement : 使用自动递增的整数作为键名 1++
+                    </span>
+                </li>
+                <li>
+                    db.<a href="">transaction</a><em>(['store'],'readwrite')</em>
+                    <span>
+                        创建一个数据库事务。向数据库添加数据之前，必须先创建数据库事务。 <br>
+                        第一个参数是一个数组，里面是所涉及的对象仓库，通常是只有一个； <br>
+                        第二个参数是一个表示操作类型的字符串。目前，操作类型只有两种：readonly（只读）和readwrite（读写）。添加数据使用readwrite，读取数据使用readonly。 <br>
+                        transaction方法返回一个事务对象，该对象的objectStore方法用于获取指定的对象仓库。
+<pre><code data-language="javascript">
+    var t = db.transaction(["firstOS"],"readwrite");
+    var store = t.objectStore("firstOS");
+</code></pre>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 事务对象</h4>
+            <ul>
+                <li>
+                    tsc.<a href="">objectStore</a>('store')
+                    <span>
+                        获取指定的对象仓库
+                    </span>
+                </li>
+                <li>
+                    tsc.<a href="">onabort</a>
+                    <span>
+                        事务中断
+                    </span>
+                </li>
+                <li>
+                    tsc.<a href="">complete</a>
+                    <span>
+                        事务完成
+                    </span>
+                </li>
+                <li>
+                    tsc.<a href="">error</a>
+                    <span>
+                        事务出错
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 对象仓库</h4>
+            <ul>
+                <li>
+                    store.<a href="">add</a>(value,key)
+                    <span>
+                        add方法的第一个参数是所要添加的数据，第二个参数是这条数据对应的键名（key），上面代码将对象o的键名设为1。如果在创建数据仓库时，对键名做了设置，这里也可以不指定键名。 <hr>
+                        add方法是异步的，有自己的success和error事件，可以对这两个事件指定回调函数。 <br>
+<pre><code data-language="javascript">
+    var request = store.add(o,1);
+
+    request.onerror = function(e) {
+         console.log("Error",e.target.error.name);
+        // error handler
+    }
+
+    request.onsuccess = function(e) {
+        console.log("数据添加成功！");
+    }
+</code></pre>
+                    </span>
+                </li>
+                <li>
+                    store.<a href="">get</a>(key)
+                    <span>
+                        读取数据使用get方法，它的参数是数据的键名。 <br>
+                        get方法也是异步的，会触发自己的success和error事件，可以对它们指定回调函数。
+                    </span>
+                </li>
+                <li>
+                    store.<a href="">put</a>(value,key)
+                    <span>
+                        更新记录
+                    </span>
+                </li>
+                <li>
+                    store.<a href="">delete</a>(key)
+                    <span>
+                        删除记录 <br>
+                        delete也是一个异步操作，可以为它指定回调函数
+                    </span>
+                </li>
+                <li>
+                    store.<a href="">openCursor()</a>
+                    <span>
+                        遍历数据 <br>
+                        openCursor方法也是异步的，有自己的success和error事件，可以对它们指定回调函数。
+                    </span>
+                </li>
+                <li>
+                    store.<a href="">createIndex</a><em>(index,key,option)</em>
+                    <span>
+                        创建索引 <br>
+                        createIndex方法接受三个参数，第一个是索引名称，第二个是建立索引的属性名，第三个是参数对象，用来设置索引特性。
+                    </span>
+                </li>
+                <li>
+                    store.<a href="">index</a>(index)
+                    <span>
+                        从对象仓库返回指定的索引
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>Web SQL<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Web SQL</h4>
+            <ul>
+                <li>
+                    <a href="">openDatabase</a>
+                    <span>
+                        使用现有的数据库或者新建的数据库创建一个数据库对象 <br>
+                        参数：数据库名称、版本号、描述文本、数据库大小、创建回调 <br>
+                        var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); <br>
+                        创建回调会在创建数据库后被调用
+                    </span>
+                </li>
+                <li>
+                    db.<a href="">transaction</a>(fn)
+                    <span>
+                        控制一个事务，以及基于这种情况执行提交或者回滚 <br>
+                        <a href="http://www.runoob.com/html/html5-web-sql.html">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">executeSql</a>(sql)
+                    <span>
+                        执行实际的 SQL 查询
                     </span>
                 </li>
             </ul>
@@ -104,206 +379,6 @@
                 </li>
                 <li>
                     <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME类型</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>Performance API<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] performance.timing对象</h4>
-            <ul>
-                <li>
-                    <a href="">performance.timing</a>
-                    <span>
-                        <a href="http://javascript.ruanyifeng.com/bom/performance.html">参考资料</a>
-<pre><code data-language="javascript">
-    var t = performance.timing;
-    var pageloadtime = t.loadEventStart - t.navigationStart; //页面加载的耗时
-    var dns = t.domainLookupEnd - t.domainLookupStart; //域名解析的耗时
-    var tcp = t.connectEnd - t.connectStart; //TCP连接的耗时
-    var ttfb = t.responseStart - t.navigationStart; //读取页面第一个字节之前的耗时
-</code></pre>
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">navigationStart</a>
-                    <span>
-                        前浏览器窗口的前一个网页关闭，发生unload事件时的Unix毫秒时间戳。如果没有前一个网页，则等于fetchStart属性。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">unloadEventStart</a>
-                    <span>
-                        如果前一个网页与当前网页属于同一个域名，则返回前一个网页的unload事件发生时的Unix毫秒时间戳。如果没有前一个网页，或者之前的网页跳转不是在同一个域名内，则返回值为0。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">unloadEventEnd</a>
-                    <span>
-                        如果前一个网页与当前网页属于同一个域名，则返回前一个网页unload事件的回调函数结束时的Unix毫秒时间戳。如果没有前一个网页，或者之前的网页跳转不是在同一个域名内，则返回值为0。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">redirectStart</a>
-                    <span>
-                        返回第一个HTTP跳转开始时的Unix毫秒时间戳。如果没有跳转，或者不是同一个域名内部的跳转，则返回值为0。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">redirectEnd</a>
-                    <span>
-                        回最后一个HTTP跳转结束时（即跳转回应的最后一个字节接受完成时）的Unix毫秒时间戳。如果没有跳转，或者不是同一个域名内部的跳转，则返回值为0。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">fetchStart</a>
-                    <span>
-                        返回浏览器准备使用HTTP请求读取文档时的Unix毫秒时间戳。该事件在网页查询本地缓存之前发生。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domainLookupStart</a>
-                    <span>
-                        回域名查询开始时的Unix毫秒时间戳。如果使用持久连接，或者信息是从本地缓存获取的，则返回值等同于fetchStart属性的值。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domainLookupEnd</a>
-                    <span>
-                        返回域名查询结束时的Unix毫秒时间戳。如果使用持久连接，或者信息是从本地缓存获取的，则返回值等同于fetchStart属性的值。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">connectStart</a>
-                    <span>
-                        返回HTTP请求开始向服务器发送时的Unix毫秒时间戳。如果使用持久连接（persistent connection），则返回值等同于fetchStart属性的值。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">connectEnd</a>
-                    <span>
-                        回浏览器与服务器之间的连接建立时的Unix毫秒时间戳。如果建立的是持久连接，则返回值等同于fetchStart属性的值。连接建立指的是所有握手和认证过程全部结束。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">secureConnectionStart</a>
-                    <span>
-                        返回浏览器与服务器开始安全链接的握手时的Unix毫秒时间戳。如果当前网页不要求安全连接，则返回0。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">requestStart</a>
-                    <span>
-                        返回浏览器向服务器发出HTTP请求时（或开始读取本地缓存时）的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">responseStart</a>
-                    <span>
-                        返回浏览器从服务器收到（或从本地缓存读取）第一个字节时的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">responseEnd</a>
-                    <span>
-                        回浏览器从服务器收到（或从本地缓存读取）最后一个字节时（如果在此之前HTTP连接已经关闭，则返回关闭时）的Unix毫秒时间戳
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domLoading</a>
-                    <span>
-                        返回当前网页DOM结构开始解析时（即Document.readyState属性变为“loading”、相应的readystatechange事件触发时）的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domInteractive</a>
-                    <span>
-                        返回当前网页DOM结构结束解析、开始加载内嵌资源时（即Document.readyState属性变为“interactive”、相应的readystatechange事件触发时）的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domContentLoadedEventStart</a>
-                    <span>
-                        返回当前网页DOMContentLoaded事件发生时（即DOM结构解析完毕、所有脚本开始运行时）的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domContentLoadedEventEnd</a>
-                    <span>
-                        返回当前网页所有需要执行的脚本执行完成时的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">domComplete</a>
-                    <span>
-                        返回当前网页DOM结构生成时（即Document.readyState属性变为“complete”，以及相应的readystatechange事件发生时）的Unix毫秒时间戳。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">loadEventStart</a>
-                    <span>
-                        返回当前网页load事件的回调函数开始时的Unix毫秒时间戳。如果该事件还没有发生，返回0。
-                    </span>
-                </li>
-                <li>
-                    t.<a href="">loadEventEnd</a>
-                    <span>
-                        返回当前网页load事件的回调函数运行结束时的Unix毫秒时间戳。如果该事件还没有发生，返回0。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 相关方法</h4>
-            <ul>
-                <li>
-                    performance.<a href="">now()</a>
-                    <span>
-                        返回当前网页自从performance.timing.navigationStart到当前时间之间的微秒数（毫秒的千分之一）。也就是说，它的精度可以达到100万分之一秒。 <br>
-                        可以通过两次调用performance.now方法，可以得到间隔的准确时间，用来衡量某种操作的耗时
-                    </span>
-                </li>
-                <li>
-                    performance.<a href="">mark</a>(name)
-                    <span>
-                        为相应的视点做标记
-                    </span>
-                </li>
-                <li>
-                    performance.<a href="">clearMarks</a>([name])
-                    <span>
-                        用于清除标记，如果不加参数，就表示清除所有标记
-                    </span>
-                </li>
-                <li>
-                    performance.<a href="">getEntries()</a>[n]
-                    <span>
-                        浏览器获取网页时，会对网页中每一个对象（脚本文件、样式表、图片文件等等）发出一个HTTP请求。performance.getEntries方法以数组形式，返回这些请求的时间统计信息，有多少个请求，返回数组就会有多少个成员。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 用户行为</h4>
-            <ul>
-                <li>
-                    performance.<a href="">navigation</a>
-                    <span>
-                        除了时间信息，performance还可以提供一些用户行为信息，主要都存放在performance.navigation对象上面。
-                    </span>
-                </li>
-                <li>
-                    pn.<a href="">type</a>
-                    <span>
-                        该属性返回一个整数值，表示网页的加载来源，可能有以下4种情况：
-                        0：网页通过点击链接、地址栏输入、表单提交、脚本操作等方式加载，相当于常数performance.navigation.TYPE_NAVIGATENEXT。 <br>
-                        1：网页通过“重新加载”按钮或者location.reload()方法加载，相当于常数performance.navigation.TYPE_RELOAD。<br>
-                        2：网页通过“前进”或“后退”按钮加载，相当于常数performance.navigation.TYPE_BACK_FORWARD。<br>
-                        255：任何其他来源的加载，相当于常数performance.navigation.TYPE_UNDEFINED。
-                    </span>
-                </li>
-                <li>
-                    pn.<a href="">redirectCount</a>
-                    <span>
-                        该属性表示当前网页经过了多少次重定向跳转。
-                    </span>
                 </li>
             </ul>
         </div>

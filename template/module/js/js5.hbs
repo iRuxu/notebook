@@ -1,342 +1,596 @@
-<!-- 函数 -->
+<!-- 对象 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>函数<span>-</span></h3>
+		<h3>对象<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]构建</h4>
-			<ul>
+			<h4>[<span>+</span>]构建</h4>
+			<ul style="display:none;">
 				<li>
-					x <a href="">=></a> x*x
+					<a href="">{key:val,...}</a>
 					<span>
-						1.当只有一行直接返回变量的处理时，x=>x*x，返回x的平方 <br>
-						2.当只有一行且无需返回值时，x=>void dosomething <br>
-						3.当有多个参数或多条语句时，需添加括号和花括号，(x,y)=>{dosomething / return xx} <hr>
-
-						1.不可以当做构造函数 <br>
-						2.不可以使用arguments、super、new.target，均指向外层函数的对应变量 <br>
-						3.不可以使用yield命令，因此箭头函数不能用作 Generator 函数 <br>
-						4.函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，且固定不可辨，即使使用call也无法修改，更多的可在构造函数或闭包内使用，则可替代普通函数需要用that指代this。 <hr>
-
-						this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。所以call的绑定也是无效，但上层的普通函数的call绑定有效。
-
+						字面量创建方法 <br>
+						对象的属性之间用逗号分隔，最后一个属性后面可以加逗号，也可以不加。 <br>
+						对象的所有键名都是字符串，可以不加引号。但如果不符合表示名的条件，则需要加引号。<a href="http://javascript.ruanyifeng.com/grammar/object.html">参考资料</a> <hr>
+						如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。 <br>
+						但如果取消某一个变量对于原对象的引用，不会影响到另一个变量。 <br>
+						这种引用只局限于对象，对于原始类型的数据则是传值引用，也就是说，都是值的拷贝。 <br>
+						故在设置一个新的对象继承旧对象时，不能直接通过new.prototype = old.prototype进行设置，否则对new原型的任何修改，将直接会影响旧的原型对象。
+						<hr>
+						如果行首是大括号，一律解释为语句（即代码块）。如果要解释为表达式（即对象），必须在大括号前加上圆括号。 <hr>
+						如果读取一个不存在的键，会返回undefined，而不是报错。
 					</span>
 				</li>
 				<li>
-					IIFE<a href=""></a>
+					<a href="">new Constructor()</a>
 					<span>
-						匿名函数写法：
-						匿名函数自执行
+						用构造函数创建 <br>
+						<pre><code data-language="javascript">
+							function Obj(opts){
+								this.key = value
+							}
+							var o = new Obj(opts)
+						</code></pre>
+						注意，如果不写new，这就是一个普通函数，它返回undefined。但是，如果写了new，它就变成了一个构造函数，它绑定的this指向新创建的对象，并默认返回this，也就是说，不需要在最后写return this;。<br>
+						如果忘记写new运算符，在strict模式下，this.name = name将报错，因为this绑定为undefined，在非strict模式下，this.name = name不报错，因为this绑定为window，于是无意间创建了全局变量name，并且返回undefined，这个结果更糟糕。
+					</span>
+				</li>
+				<li>
+					<a href="">new Object()</a>
+					<span>
+						var obj = new Object(); <br>
+						obj.key = value;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.creat(Object.prototype)</a>
+					<span>
+						var obj = Object.creat(Object.prototype) <br>
+						从Object原型创建
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]Function</h4>
-			<ul>
+			<h4>[<span>+</span>]属性</h4>
+			<ul style="display:none;">
 				<li>
-					<a href="">function</a> <em>name(arg)</em>
+					obj.<a href=""></a>key
 					<span>
-						<b>参数</b> <br>
-						函数不能省略靠前的参数，如果一定要省略靠前的参数，只有显式传入undefined。 <br>
-						函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。即在函数内部，传入的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。这意味着，在函数体内修改参数值，不会影响到函数外部。 <br>
-						函数参数如果是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的原始值的地址，因此在函数内部修改参数，将会影响到原始值。 <br>
-						注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-						如果有同名的参数，则取最后出现的那个值。
-						<hr>
-						<b>作用域</b> <br>
-						函数作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。<br>
-						函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。  <br>
-						同样的，函数体内部声明的函数，作用域绑定函数体内部。<br>
-                        <a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
-                        ES6中块级作用域中声明的函数，在块级作用域之外不可引用
-						<hr>
-						<b>属性</b> <br>
-						fn.name : 返回紧跟在function关键字之后的那个函数名(匿名函数为空字符串) <br>
-						fn.length : 返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数)。 <br>
-						fn.toString() : 返回函数的源码，注释也可以返回。
-						<hr>
-						<b>闭包</b> <br>
-						定义在一个函数内部的函数。闭包最大的特点，就是它可以“记住”诞生的环境。 <br>
-						闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。 <br>
-						返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。 <br>
-						如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变 <hr>
-						避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。 <br>
-						对于函数，只有函数声明会被提升到顶部，而不包括函数表达式。
+						当属性含空格、关键字或为变量时，只能用中括号表示 <br>
+						不能对一个未声明的对象直接指定属性
 					</span>
 				</li>
 				<li>
-					<a href="">new</a> fn
+					obj.<a href="">hasOwnProperty</a>(key)
 					<span>
-						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
-						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
-						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
-						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
-						方法应挂载在prototype上，避免内存占用
+						检测对象是否拥有某一属性（非原型继承） <br>
+						返回值：布尔
 					</span>
 				</li>
-				<li><a href="">function</a>(arg)<span>
-					<b>1.function命令 - 函数的声明</b><br>
-					function fn(arg){...} <br>
-					<hr>
-					<b>2.函数表达式</b> <br>
-					var fn = function(arg){...} <br>
-					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
-					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
-					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。 <br>
-					采用函数表达式声明函数时，function命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。 <br>
-					<hr>
-					<b>3.Function构造函数</b> <br>
-					var fn = new Function(arg..,函数体) <br>
-					你可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
-					<hr>
-					如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。 <br>
-					如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-					根据ECMAScript的规范，不得在非函数的代码块中声明函数。
-				</span></li>
-				<li><a href="">(function(n){})(n)</a><span>
-					IIFE = Immediately-Invoked Function Expression,立即调用的函数表达式 <br>
-					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
-				</span></li>
+				<li>
+					<a href="">Object.getOwnPropertyNames</a><em>(obj)</em>
+					<span>
+						返回直接定义在某个对象上面的全部属性的名称。 <br>
+						返回一个数组，成员是对象本身的所有属性的键名，不包含继承的属性键名。
+					</span>
+				</li>
+				<li>
+					<a href="">Object.keys</a>(obj)
+					<span>
+						查看一个对象的所有属性，返回一个key的数组，返回可枚举的属性 <br>
+						Object.getOwnPropertyNames(obj)方法还返回不可枚举的属性名 <br>
+						由于JavaScript没有提供计算对象属性个数的方法，所以可以用这两个方法代替 <br>
+						Object.keys(o).length <br>
+						Object.getOwnPropertyNames(o).length
+					</span>
+				</li>
+				<li>
+					<a href="">Object.values</a>(obj)
+					<span>
+						返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+					</span>
+				</li>
+				<li>
+					<a href="">Object.entries</a>(obj)
+					<span>
+						返回一个给定对象自身可枚举属性的键值对的二维数组 <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">参考资料</a>
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getOwnPropertySymbols</a>(obj)
+					<span>
+						返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。
+					</span>
+				</li>
 			</ul>
-			<h4>[<span>-</span>]内部</h4>
+			<h4>[<span>-</span>]属性描述</h4>
 			<ul>
-				<li><a href="">arguments</a><span>
-					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。 <br>
-					严格模式下为只读对象，不允许修改。
+				<li>
+					Desciptor<a href=""></a>
+					<span>
+						属性描述对象。 <br>
+						数据对象与DOM对象的双向绑定：<a href="http://javascript.ruanyifeng.com/stdlib/attributes.html">参考资料</a>
+					</span>
+				</li>
+				<li>
+					desciptor.<a href="">value</a>
+					<span>
+						存放该属性的属性值，默认为undefined
+					</span>
+				</li>
+				<li>
+					desciptor.<a href="">writable</a>
+					<span>
+						存放一个布尔值，表示属性值是否可改变	
+					</span>
+				</li>
+				<li>
+					desciptor.<a href="">enumerable</a>
+					<span>
+						存放一个布尔值，表示该属性是否可枚举
+					</span>
+				</li>
+				<li>
+					desciptor.<a href="">configurable</a>
+					<span>
+						存放一个布尔值，表示“可配置性”。如果设为false，将阻止某些操作改写该属性，比如，无法删除该属性，也不得改变该属性的属性描述对象（value属性除外）。也就是说，configurable属性控制了属性描述对象的可写性。
+					</span>
+				</li>
+				<li>
+					desciptor.<a href="">get</a>
+					<span>
+						存放一个函数，表示该属性的取值函数（getter），默认为undefined
+					</span>
+				</li>
+				<li>
+					desciptor.<a href="">set</a>
+					<span>
+						存放一个函数，表示该属性的存值函数（setter），默认为undefined
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getOwnPropertyDescriptor</a>(o,prop)
+					<span>
+						返回指定对象上一个自有属性对应的属性描述符。
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">参考资料</a>
+					</span>
+				</li>
+				<li>
+					<a href="">Ojbect.defineProperty</a><em>(o,prop,desciptor)</em>
+					<span>
+						在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。 <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">参考资料</a>
+					</span>
+				</li>
+				<li>
+					obj.<a href="">propertyIsEnumerable</a>(key)
+					<span>
+						判断某个属性是否可枚举
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]状态控制</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">Object.preventExtensions</a>(obj)
+					<span>
+						防止对象扩展
+					</span>
+				</li>
+				<li>
+					<a href="">Object.isExtensible</a>(obj)
+					<span>
+						判断对象是否可扩展
+					</span>
+				</li>
+				<li>
+					<a href="">Object.seal</a>(obj)
+					<span>
+						禁止对象配置
+					</span>
+				</li>
+				<li>
+					<a href="">Object.isSealed</a>(obj)
+					<span>
+						判断一个对象是否可配置
+					</span>
+				</li>
+				<li>
+					<a href="">Object.freeze</a>(obj)
+					<span>
+						冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。也就是说，这个对象永远是不可变的。
+					</span>
+				</li>
+				<li>
+					<a href="">Object.isFrozen</a>(obj)
+					<span>
+						判断一个对象是否被冻结
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]操作</h4>
+			<ul>
+				<li>
+					<a href="">Object.assign</a>(to,from...)
+					<span>
+						浅拷贝。将所有可枚举属性的值从一个或多个源对象复制到目标对象，将返回目标对象。<br>
+						只会拷贝源对象自身的并且可枚举的属性到目标对象 <br> 
+						Object.assign 不会跳过那些值为 null 或 undefined 的源对象 <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">参考资料</a>
+						<hr>
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]其它</h4>
+			<ul>
+				<li>
+					obj.<a href="">valueOf</a>()
+					<span>
+						可通过自定义valueOf的返回值来替换原型的返回值，以达到自动转换计算时预期的结果。
+					</span>
+				</li>
+				<li>
+					obj.<a href="">toString</a>()
+					<span>
+						可通过自定义toString方法替换原型的返回值。  <br>
+						Object.prototype.toString.call(value) 可判断其构造函数：
+						<table>
+							<tr>
+								<th>value</th>
+								<th>返回值</th>
+							</tr>
+							<tr>
+								<td>数值</td>
+								<td>[object Number]</td>
+							</tr>
+							<tr>
+								<td>字符串</td>
+								<td>[object String]</td>
+							</tr>
+							<tr>
+								<td>布尔值</td>
+								<td>[object Boolean]</td>
+							</tr>
+							<tr>
+								<td>undefined</td>
+								<td>[object Undefined]</td>
+							</tr>
+							<tr>
+								<td>null</td>
+								<td>[object Null]</td>
+							</tr>
+							<tr>
+								<td>数组</td>
+								<td>[object Array]</td>
+							</tr>
+							<tr>
+								<td>arguments对象</td>
+								<td>[object Arguments]</td>
+							</tr>
+							<tr>
+								<td>函数</td>
+								<td>[object Function]</td>
+							</tr>
+							<tr>
+								<td>Error对象</td>
+								<td>[object Error]</td>
+							</tr>
+							<tr>
+								<td>Date对象</td>
+								<td>[object Date]</td>
+							</tr>
+							<tr>
+								<td>RegExp对象</td>
+								<td>[object RegExp]</td>
+							</tr>
+							<tr>
+								<td>其他对象</td>
+								<td>[object Object]</td>
+							</tr>
+						</table>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+        <h3>对象扩展<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>]Symbol</h4>
+            <ul>
+                <li>
+                    <a href="">Symbol</a>([des])
+                    <span>
+                        它是一种类似于字符串的数据类型，但独一无二。 <hr>
+                        1.Symbol函数前不能使用new命令，否则会报错 <br>
+                        2.Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。 <br>
+                        3.Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。 <br>
+                        4.Symbol 值不能与其他类型的值进行运算 <br>
+                        5.Symbol 值可以通过toString或String方法显式转为字符串 <br>
+                        6.Symbol 值也可以转为布尔值，但是不能转为数值 <br>
+                        7.不能使用.运算符，必须使用[] <br>
+                        8.Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。
+                    </span>
+                </li>
+                <li>
+                    <a href="">Symbol.for</a>(str)
+                    <span>
+                        接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。
+                    </span>
+                </li>
+                <li>
+                    <a href="">Symbol.keyfor</a>(sb)
+                    <span>
+                        返回一个已登记的 Symbol 类型值的key
+                    </span>
+                </li>
+            </ul>
+			<h4>[<span>+</span>]Proxy</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">new Proxy</a>(target,handler)
+					<span>
+						在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/proxy">参考资料</a> <hr>
+						通过改写return值，可实现链式操作
+					</span>
+				</li>
+				<li>
+					<a href="">get</a><em>(target, propKey, receiver)</em>
+					<span>
+						拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+					</span>
+				</li>
+				<li>
+					<a href="">set</a><em>(target, propKey, value, receiver)</em>
+					<span>
+						拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">has</a><em>(target, propKey)</em>
+					<span>
+						拦截propKey in proxy的操作，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">deleteProperty</a><em>(target, propKey)</em>
+					<span>
+						拦截delete proxy[propKey]的操作，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+					</span>
+				</li>
+				<li>
+					<a href="">getOwnPropertyDescriptor</a><em>(target, propKey)</em>
+					<span>
+						拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+					</span>
+				</li>
+				<li>
+					<a href="">defineProperty</a><em>(target, propKey, propDesc)</em>
+					<span>
+						拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">preventExtensions</a><em>(target)</em>
+					<span>
+						拦截Object.preventExtensions(proxy)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">getPrototypeOf</a><em>(target)</em>
+					<span>
+						拦截Object.getPrototypeOf(proxy)，返回一个对象。
+					</span>
+				</li>
+				<li>
+					<a href="">isExtensible</a><em>(target)</em>
+					<span>
+						拦截Object.isExtensible(proxy)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">setPrototypeOf</a><em>(target, proto)</em>
+					<span>
+						拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+					</span>
+				</li>
+				<li>
+					<a href="">apply</a><em>(target, object, args)</em>
+					<span>
+						拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+					</span>
+				</li>
+				<li>	
+					<a href="">construct</a><em>(target, args)</em>
+					<span>
+						拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+					</span>
+				</li>
+				<li>
+					<a href="">Proxy.revocable</a>(target, handler)
+					<span>
+						返回一个可取消的 Proxy 实例
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]Reflect</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">Reflect</a>
+					<span>
+						1.将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。 <br>
+						2.修改某些Object方法的返回结果，让其变得更合理。 <br>
+						3.让Object操作都变成函数行为。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/reflect">参考资料</a>
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">get</a><em>(target,name,[receiver])</em>
+					<span>
+						查找并返回target对象的name属性，如果没有该属性，则返回undefined。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">set</a><em>(target,name,value,[receiver])</em>
+					<span>
+						设置target对象的name属性等于value
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">has</a><em>(obj,name)</em>
+					<span>
+						对应name in obj里面的in运算符
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">deleteProperty</a><em>(obj,name)</em>
+					<span>
+						等同于delete obj[name]，用于删除对象的属性
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">construct</a><em>(target,args)</em>
+					<span>
+						等同于new target(...args)，这提供了一种不使用new，来调用构造函数的方法。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">getPrototypeOf</a><em>(obj)</em>
+					<span>
+						用于读取对象的__proto__属性，对应Object.getPrototypeOf(obj)。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">setPrototypeOf</a><em>(obj,newProto)</em>
+					<span>
+						用于设置对象的__proto__属性，返回第一个参数对象，对应Object.setPrototypeOf(obj, newProto)。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">apply</a><em>(fn,thisArg,args)</em>
+					<span>
+						等同于Function.prototype.apply.call(func, thisArg, args)，用于绑定this对象后执行给定函数。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">defineProperty</a><em>(target,propertyKey,attributes)</em>
+					<span>
+						基本等同于Object.defineProperty，用来为对象定义属性。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">getOwnPropertyDescriptor</a><em>(target,propertyKey)</em>
+					<span>
+						基本等同于Object.getOwnPropertyDescriptor，用于得到指定属性的描述对象
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">isExtensible</a><em>(target)</em>
+					<span>
+						对应Object.isExtensible，返回一个布尔值，表示当前对象是否可扩展。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">preventExtensions</a><em>(target)</em>
+					<span>
+						对应Object.preventExtensions方法，用于让一个对象变为不可扩展。它返回一个布尔值，表示是否操作成功。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						返回对象的所有属性，基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]Error</h4>
+			<ul style="display: none;">
+				<li><a href="">new Error</a>('msg')<span>
+					错误对象属性：
+					<table>
 						<tr>
-							<th>对象值</th>
+							<th>属性</th>
 							<th>描述</th>
 						</tr>
 						<tr>
-							<td>arguments[0]</td>
-							<td>第一个参数名字</td>
+							<td>err.message</td>
+							<td>错误提示信息</td>
 						</tr>
 						<tr>
-							<td>arguments.length</td>
-							<td>参数的个数</td>
+							<td>err.name</td>
+							<td>错误名称（非标准属性）</td>
 						</tr>
 						<tr>
-							<td>arguments.callee</td>
-							<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
+							<td>err.stack</td>
+							<td>错误的堆栈（非标准属性）</td>
 						</tr>
 					</table>
-					rest参数：<br>
+					<br>
+					原生错误类型：
+					<table>
+						<tr>
+							<th>名称</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>SyntaxError</td>
+							<td>解析代码时发生的语法错误</td>
+						</tr>
+						<tr>
+							<td>ReferenceError</td>
+							<td>引用一个不存在的变量时发生的错误；将一个值分配给无法分配的对象</td>
+						</tr>
+						<tr>
+							<td>RangeError</td>
+							<td>当一个值超出有效范围时发生的错误</td>
+						</tr>
+						<tr>
+							<td>TypeError</td>
+							<td>变量或参数不是预期类型时发生的错误</td>
+						</tr>
+						<tr>
+							<td>URIError</td>
+							<td>URI相关函数的参数不正确时抛出的错误</td>
+						</tr>
+						<tr>
+							<td>EvalError</td>
+							<td>eval函数没有被正确执行</td>
+						</tr>
+						<tr>
+							<td>自定义错误</td>
+							<td><a href="http://javascript.ruanyifeng.com/grammar/error.html">参考资料</a></td>
+						</tr>
+					</table>
+
+					<br><br>
+					如果在一个函数内部发生了错误，它自身没有捕获，错误就会被抛到外层调用函数，如果外层函数也没有捕获，该错误会一直沿着函数调用链向上抛出，直到被JavaScript引擎捕获，代码终止执行。所以，我们不必在每一个函数内部捕获错误，只需要在合适的地方来个统一捕获，一网打尽。<hr>
+					涉及到异步代码，无法在调用时捕获，原因就是在捕获的当时，回调函数并未执行。<br>
+					类似的，当我们处理一个事件时，在绑定事件的代码处，无法捕获事件处理函数的错误。
+				</span></li>
+				<li><a href="">throw</a> err<span>
+					throw语句的作用是中断程序执行，抛出一个意外或错误。它接受一个表达式作为参数，可以抛出各种值。 <br>
+					throw可以接受各种值作为参数。JavaScript引擎一旦遇到throw语句，就会停止执行后面的语句，并将throw语句的参数值，返回给用户。
+				</span></li>
+				<li><a href="">try{..}cath(e){..}finally{..}</a><span>
 					<pre><code data-language="javascript">
-						function foo(a, b, ...rest) {
-						    console.log('a = ' + a);
-						    console.log('b = ' + b);
-						    console.log(rest);
-						    //rest: [array]
+						try {
+						    //可能出错的语句
+						    throw new Error('出错了!');
+						} catch (e) {
+						    //捕获e错误对象,try中抛出的错误对象
+						} finally {
+						    //总会执行
+						    //执行finally代码块以后，程序就中断在错误抛出的地方。
 						}
 					</code></pre>
 				</span></li>
-				<li>
-					<a href="">...rest</a>
-					<span>
-						rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 <br>
-						rest 参数之后不能再有其他参数（即只能是最后一个参数）
-					</span>
-				</li>
-				<li><a href="">return</a> value<span>
-					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
-				</span></li>
-				<li><a href="">this</a><span>
-					<table>
-						<tr>
-							<th>当前环境</th>
-							<th>this指向</th>
-						</tr>
-						<tr>
-							<td>函数</td>
-							<td>非严格模式：window <br>
-							strict模式：undefined
-							</td>
-						</tr>
-						<tr>
-							<td>对象</td>
-							<td>object<br>
-							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
-							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
-							</td>
-						</tr>
-					</table>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料1</a> | <a href="http://javascript.ruanyifeng.com/oop/this.html">参考资料2</a>
-				</span></li>
 			</ul>
-			<h4>[<span>-</span>]方法</h4>
-			<ul>
-				<li>fn<a href="">.apply</a>(obj,[arg])<span>
-					fn.apply(作用域，[传递参数]/arguments) <br>
-					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
-				</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>
-					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
-					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
-					对普通函数调用，我们通常把this绑定为null。 <br>
-					如果参数为空、null和undefined，则默认传入全局对象。
-					</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>
-					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
-					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
-				</span></li>
-			</ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>内置函数<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>] 定时器</h4>
-            <ul>
-            	<li>
-            		<a href="">setTimeout</a>(fn,time,[arg])
-            		<span>
-            			在指定的毫秒数后调用函数或计算表达式 <br>
-            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
-            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当time=0时的应用，同样需等待队列完成</a>
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">setInterval</a>(fn,time)
-            		<span>
-            			按照指定的周期（以毫秒计）来调用函数或计算表达式
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearTimeout</a>(timeout)
-            		<span>
-            			取消由 setTimeout() 方法设置的 timeout
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearInterval</a>(timeout)
-            		<span>
-            			取消由 setInterval() 设置的 timeout
-            		</span>
-            	</li>
-				<li>val.<a href="">toString</a>()<span>
-					<table>
-                        <tr>
-                            <th>目标</th>
-                            <th>返回值</th>
-                        </tr>
-                        <tr>
-                            <td>array</td>
-                            <td>参数直接用,隔开的字符串</td>
-                        </tr>
-                    </table>
-				</span></li>
-				<li>
-					<a href="">vauleOf</a>
-					<span>
-						
-					</span>
-				</li>
-            </ul>
-            <h4>[<span>+</span>] Generator</h4>
-            <ul style="display: none;">
-            	<li>
-            		<a href="">function*</a> name(arg)
-            		<span>
-            			定义一个generator函数.调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是遍历器对象.
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">yield</a> value
-            		<span>
-            			暂停性地return
-            		</span>
-            	</li>
-            	<li>
-            		gnt.<a href="">next()</a>
-            		<span>
-            			必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行
-            		</span>
-            	</li>
-            </ul>
-            <h4>[<span>+</span>] Async</h4>
-            <ul style="display: none;">
-            	<li>
-            		<a href="">async function</a> name(arg)
-            		<span>
-            			async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">await</a> promise
-            		<span>
-            			await表示紧跟在后面的表达式需要等待结果
-            		</span>
-            	</li>
-            	<li>
-            		asc.<a href="">then</a>(fn)
-            		<span>
-            			async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。
-            		</span>
-            	</li>
-            </ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>模块<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>] Module</h4>
-			<ul>
-				<li>
-            		<a href="">export</a><em>{v1,v2..}</em>
-            		<span>
-            			export {var..} <br>
-            			export fn
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">import</a><em>{v1,v2...} from 'path/file'</em>
-            		<span>
-            			import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js后缀可以省略。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">export</a><em>{$inner as $outer}</em>
-            		<span>
-            			export输出的变量就是本来的名字，但是可以使用as关键字重命名。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">import</a><em>{$old as $new} from 'path/file'</em>
-            		<span>
-            			如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">import * as $obj</a><em> from 'path/file'</em>
-            		<span>
-            			除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">export</a><em>{v1,v2...} from 'path/file'</em>
-            		<span>
-            			如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。
-            		</span>
-            	</li>
-			</ul>
-			<h4>[<span>-</span>] Default</h4>
-			<ul>
-				<li>
-            		<a href="">export default $name</a>
-            		<span>
-            			此时import命令，可以用任意名称指向输出的方法，这时就不需要知道原模块输出的函数名。
-            			
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">import $custom form 'path/file'</a>
-            		<span>
-            			需要注意的是，这时import命令后面，不使用大括号。 
-            		</span>
-            	</li>
-			</ul>
-            <ul>
-            	
-            	
-            </ul>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>

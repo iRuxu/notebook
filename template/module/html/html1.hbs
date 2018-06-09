@@ -1,430 +1,308 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>DOM遍历<span>-</span></h3>
+        <h3>DOM属性<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 集合归类</h4>
+            <h4>[<span>-</span>] DOM</h4>
+            <ul>
+                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model">DOM API</a></li>
+            </ul>
+            <h4>[<span>-</span>] Node</h4>
             <ul>
                 <li>
-                    <em>HTMLCollection</em><a href=""></a>
+                    node.<a href="">nodeName</a>
                     <span>
-                        （1）HTMLCollection实例对象的成员只能是Element节点，NodeList实例对象的成员可以包含其他节点。 <br>
-                        （2）HTMLCollection实例对象都是动态集合，节点的变化会实时反映在集合中。NodeList实例对象可以是静态集合(如query方法)。<br>
-                        （3）HTMLCollection实例对象可以用id属性或name属性引用节点元素，NodeList只能使用数字索引引用。 <br>
-                        var elem = document.forms.namedItem('myForm'); <br>
-                        var elem = document.forms['myForm']; <br>
+                        返回元素的标记名（大写）。 <br>
+                        如果节点是一个元素节点，则返回标签名；如为属性节点，则返回属性名。
                     </span>
                 </li>
                 <li>
-                    window.<a href="">document</a>
+                    node.<a href="">nodeType</a>
                     <span>
-                        对于正常的网页，直接使用document或window.document。 <br>
-                        对于iframe载入的网页，使用iframe节点的contentDocument属性。<br>
-                        对Ajax操作返回的文档，使用XMLHttpRequest对象的responseXML属性。 <br>
-                        对于包含某个节点的文档，使用该节点的ownerDocument属性。
-                    </span>
-                </li> 
-                <li>
-                    doc.<a href="">documentElement</a>
-                    <span>
-                        返回文档的根节点（html元素）
+                        返回元素的节点类型（数值）。 <br>
+                        <a href="http://www.runoob.com/jsref/prop-node-nodetype.html">参考资料</a>
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">body/head</a>
+                    node.<a href="">nodeValue</a>
                     <span>
-                        返回文档的body/head元素
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">images</a>
-                    <span>
-                        返回文档中所有image对象引用
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">embeds</a>
-                    <span>
-                        返回网页中所有嵌入对象，即embed标签
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">links</a>
-                    <span>
-                        返回文档中所有的a.href + area标签。 <br>
-                        document.links.$id > document.links.$name 可按id和name访问,同名时id高于name,同id时,取顺序在前的<br>
-                        document.links[i] 可按索引访问
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">anchors</a>
-                    <span>
-                        返回文档中所有的锚点的集合。即带有name属性的a标签。 <br>
-                        document.anchors.length
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">forms</a>
-                    <span>
-                        返回文档中所有表单的集合。 <br>
-                        document.forms[0]  <br>
-                        document.forms.name1
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">scripts</a>
-                    <span>
-                        返回页面中所有脚本的集合
+                        返回元素的节点值 <br>
+                        需先取到文本节点，再取文本节点的值。<br>
+                        由于只有Text节点、Comment节点、XML文档的CDATA节点有文本值，因此只有这三类节点的nodeValue可以返回结果，其他类型的节点一律返回null。同样的，也只有这三类节点可以设置nodeValue属性的值。对于那些返回null的节点，设置nodeValue属性是无效的。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 层级查找</h4>
+            <h4>[<span>-</span>] NodeList</h4>
             <ul>
                 <li>
-                    ele.<a href="">parentNode</a>
+                    nodelist.<a href="">item</a>(i)
                     <span>
-                        返回元素的父节点
+                        等同于nodelist[i]
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">parentElement</a>
+                    nodelist.<a href="">length</a>
                     <span>
-                        返回元素的父element节点 <br>
-                        如果当前节点没有父节点，或者父节点类型不是Element节点，则返回null。
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">childNodes</a>
-                    <span>
-                        返回元素的子节点数组
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">firstChild</a>
-                    <span>
-                        返回元素的第一个子节点。 <br>
-                        如果不存在则返回null
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">lastChild</a>
-                    <span>
-                        返回元素的最后一个子元素。
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">hasChildNodes()</a>
-                    <span>
-                        检查元素是否具有任何子元素，返回布尔值
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">contains</a>(node)
-                    <span>
-                        返回一个布尔值，表示参数节点是否为当前节点的后代节点。 <br>
-                        注意，如果将当前节点传入contains方法，会返回true。虽然从意义上说，一个节点不应该包含自身。
+                        节点列表长度
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 序列查找</h4>
+            <h4>[<span>-</span>] Document</h4>
             <ul>
                 <li>
-                    ele.<a href="">nextSibling</a>
+                    doc.<a href="">readyState</a>
                     <span>
-                        返回该元素之后紧跟的一个节点（处在同一树层级中） <br>
-                        如没有则返回null
+                        返回当前文档的状态 <br>
+                        <ol>
+                            <li>uninitalized - 还未开始载入</li>
+                            <li>loading - 载入中</li>
+                            <li>interactive - 已加载，文档与用户可以开始交互</li>
+                            <li>complete - 载入完成</li>
+                        </ol>
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">previousSibling</a>
+                    doc.<a href="">referrer</a>
                     <span>
-                        返回该元素之前紧跟的一个节点（处在同一树层级中） <br>
-                        如没有则返回null
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 条件筛选</h4>
-            <ul>
-                <li>
-                    dom.<a href="">getElementById</a><em>('id')</em>
-                    <span>
-                        返回拥有指定ID的第一个对象的引用。<br>
-                        如果没有指定ID的元素返回null。
+                        返回载入当前文档的来源文档的URL。 <br>
+                        如果当前文档不是通过超级链接访问的，则为null。
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">getElementsByTagName</a><em>('tag')</em>
+                    doc.<a href="">activeElement</a>
                     <span>
-                        返回带有指定标签名的对象的集合。 <br>
-                        *返回文档的所有元素。 <br>
-                        *返回的元素集合中的0为html
+                        返回当前获取焦点元素
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">designMode</a>
+                    <span>
+                        值为'on'/'off'，IE6-10为大写。
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/designMode">参考资料</a>
+                         <br>控制当前文档是否可编辑，通常用在制作所见即所得编辑器。<br>
+                         打开iframe元素包含的文档的designMode属性，就能将其变为一个所见即所得的编辑器。 <br>
+                         iframe.contentDocument.designMode = 'on'
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">lastModified</a>
+                    <span>
+                        返回文档最后被修改的日期和时间 <br>
+                        10/19/2017 15:24:30
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">cookie</a>
+                    <span>
+                        设置或返回与当前文档有关的所有cookie <br>
+                        key=value;...
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">domain</a>
+                    <span>
+                        返回当前文档的域名 <br>
+                        如果无法获取域名，该属性返回null。
+                    </span>
+                </li>
+                <li>
+                    doc.<a href="">URL/documentURI</a>
+                    <span>
+                        返回文档的URL，必须为大写。 <br>
+                        document.documentURI属性和document.URL属性都返回一个字符串，表示当前文档的网址。不同之处是documentURI属性可用于所有文档（包括 XML 文档），URL属性只能用于 HTML 文档。
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    dom.<a href="">getElementsByClassName</a><em>('cls')</em>
+                    doc.<a href="">inputEncoding</a>
                     <span>
-                        返回文档中所有指定类名的元素集合。 <br>
-                        IE8及以下不支持。
+                        返回文档的字符编码 <br>
+                        IE8及以下，Oprea不支持
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">getElementsByName</a><em>('name')</em>
+                    doc.<a href="">characterSet</a>
                     <span>
-                        返回带有指定名称的对象的集合。
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">querySelector</a><em>('cssExp')</em>
-                    <span>
-                        返回dom范围中匹配指定css选择器的第一个元素。 <br>
-                        传入的是css选择器，且仅返回第一个元素。 <br>
-                        IE8支持，IE6-7不支持。
+                        返回渲染当前文档的字符集，比如UTF-8、ISO-8859-1。
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    dom.<a href="">querySelectorAll</a><em>('cssExp')</em>
+                    doc.<a href="">baseURI</a>
                     <span>
-                        返回dom范围中匹配指定css选择器的全部元素。 <br>
-                        HTML5新引入，IE8不支持。 <br>
-                        此方式生成的集合，无法用.访问到id和name。是nodelist，非HTMLcollection。 <br>
-                        静态集合，非动态。
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">elementFromPoint</a>(x,y)
-                    <span>
-                        返回位于页面指定视窗位置最上层的Element子节点。 <br>
-                        如果位于该位置的HTML元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值或超过视口大小），则返回null。
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>DOM更新<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 文本</h4>
-            <ul>
-                <li>
-                    doc.<a href="">creatTextNode</a>('str')
-                    <span>
-                        创建文本节点 <br>
-                        这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作HTML代码渲染。因此，可以用来展示用户的输入，避免XSS攻击。
-                    </span>
-                </li>
-                <li>
-                    dom.<a href="">normalize()</a>
-                    <span>
-                        合并相邻的文本节点并删除空的文本节点
-                    </span>
-                </li>
-                <li>
-                    txt.<a href="">splitText</a>(n)
-                    <span>
-                        splitText方法将Text节点一分为二，变成两个毗邻的Text节点。它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。 <br>
-                        分割后，该方法返回分割位置后方的字符串，而原Text节点变成只包含分割位置前方的字符串。
+                        返回文档绝对基础URI <br>
+                        如果无法取到这个值，则返回null。 <br>
+                        该属性为只读。<br>
+                        IE不支持
                     </span>
                 </li>
                 <li class="i-dot-orange">
-                    ele.<a href="">textContent</a>
+                    doc.<a href="">doctype</a>
                     <span>
-                        设置或返回节点的文本内容（返回所有子节点的文本） <br>
-                        textContent属性自动忽略当前节点内部的HTML标签，返回所有文本内容。 <br>
-                        同理对textContent的字符串设置中如有标签，当做字符串处理，不会解析为Html标签 <br>
-                        IE8及以下不支持
+                        返回文档类型声明。<br>
+                        IE8及以下返回null。支持XML。
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">innerHTML</a>
+                    doc.<a href="">defaultView</a>
                     <span>
-                        设置或返回元素的内容 <br>
-                        如果插入的文本包含 HTML 标签，会被解析成为节点对象插入 DOM。注意，如果文本之中含有script标签，虽然可以生成script节点，但是插入的代码不会执行。
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">outerHTML</a>
-                    <span>
-                        返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。 <br>
-                        被替换后，原变量将保存原信息在内存中
-                    </span>
-                </li>
-                <li>
-                    window.<a href="">getSelection()</a>
-                    <span>
-                        返回一个Selection对象，表示用户现在选中的文本。 <br>
-                        使用Selction对象的toString方法可以得到选中的文本。
+                        在浏览器中返回document对象所在的window对象，否则返回null。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 添加</h4>
+            <h4>[<span>-</span>] Element</h4>
             <ul>
                 <li>
-                    doc.<a href="">creatElement</a>('tag')
+                    <a href="">new Image()</a>
                     <span>
-                        创建元素节点
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>src</td>
+                                <td>图像src属性值，可读写</td>
+                            </tr>
+                            <tr>
+                                <td>alt</td>
+                                <td>图像alt描述内容</td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>宽度</td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>高度</td>
+                            </tr>
+                            <tr>
+                                <td>naturalWidth</td>
+                                <td>图像的原始宽度，只读</td>
+                            </tr>
+                            <tr>
+                                <td>naturalHeight</td>
+                                <td>图像的原始高度，只读</td>
+                            </tr>
+                            <tr>
+                                <td>complete</td>
+                                <td>返回一个布尔值，表示图表是否已经加载完成</td>
+                            </tr>
+                            <tr>
+                                <td>onload</td>
+                                <td>指定一个图像加载完成后的回调函数</td>
+                            </tr>
+                            <tr>
+                                <td>crossOrigin</td>
+                                <td>图像跨域的CORS设置</td>
+                            </tr>
+                            <tr>
+                                <td>isMap</td>
+                                <td>图像是否为服务器端的image-map，可读写</td>
+                            </tr>
+                            <tr>
+                                <td>useMap</td>
+                                <td>设置图像的usemap属性</td>
+                            </tr>
+                        </table>
                     </span>
                 </li>
                 <li>
-                    ele.<a href="">cloneNode</a>([true/false])
+                    ele.<a href="">attributes</a>
                     <span>
-                        克隆该节点，包括属性和值。 <br> 
-                        传入true表示递归复制该节点的所有子孙节点。
-                    </span>
-                </li>
-                <li class="i-dot-orange">
-                    doc.<a href="">importNode</a>(node,deep)
-                    <span>
-                        把一个节点从另一个文档复制到该文档以便应用。 <br>
-                        第2个参数为必须，true代表还要复制该节点的所有子孙节点。 <br>
-                        IE8及以下不支持。 <br>
-                        <a href="http://www.runoob.com/jsref/met-document-importnode.html">参考资料</a>
+                        返回一个元素的属性类数组对象。 <hr>
+                        document.body.attributes[0] <br>
+                        document.body.attributes.bgcolor <br>
+                        document.body.attributes['ONLOAD']
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">creatDocumentFragment()</a>
+                    ele.<a href="">dataset</a>
                     <span>
-                        创建一个虚拟的节点对象，节点对象包含所有属性和方法。 <br>
-                        var temp=document.createDocumentFragment();
+                        HTML元素节点的标准属性（即在标准中定义的属性），会自动成为元素节点对象的属性。 <br>
+                        href/src/action/method/htmlfor(label for)/... <br>
+                        data-* 自定义属性，使用dataset.xxx设置
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">creatComment</a>('str')
+                    ele.<a href="">id</a>
                     <span>
-                        创建注释节点
+                        设置或返回元素的id
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">tagName</a>
+                    <span>
+                        返回指定元素的大写标签名，与nodeName属性的值相等
+                    </span>
+                </li>
+                <li>
+                    dom.<a href="">title</a>
+                    <span>
+                        设置或返回当前文档/元素的标题
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">accessKey</a>
+                    <span>
+                        设置或返回accessKey一个元素。 <br>
+                        document.getElementById('w3c').accessKey="w" <br>
+                        可使用Alt + accessKey 设置的键位快捷访问该元素。
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">tabIndex</a>
+                    <span>
+                        设置或返回元素的标签顺序 <br>
+                        即通过tab键切换时的顺序 <br>
+                        <a href="http://www.powerxing.com/html-attribute-tabindex/">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">dir</a>
+                    <span>
+                        设置或返回一个元素中的文本方向。 <br>
+                        dir = ltr / rtl
+                    </span>
+                </li>
+                <li>
+                    ele.<a href="">ownerDocument</a>
+                    <span>
+                        返回当前节点所在的顶层文档对象，即document对象。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 修改</h4>
+            <h4>[<span>-</span>] Text</h4>
             <ul>
                 <li>
-                    dom.<a href="">appendChild</a>(node)
+                    txt.<a href="">data</a>
                     <span>
-                        向目标节点末尾添加新的子节点。 <b>(如为原存在于原文档中的节点则原位置会被移除)</b><br>
-                        你可以使用 appendChild() 方法移除元素到另外一个元素。 <br>
-                        如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。 <br>
-                        如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。 <br>
+                        data属性等同于nodeValue属性，用来设置或读取Text节点的内容
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">insertBefore</a>(node,exist)
+                    txt.<a href="">length</a>
                     <span>
-                        向目标节点前添加新的节点。 <br>
-                        如果被添加的节点是原文档中的节点，则原节点会被移除。
-                    </span>
-                </li>
-                <li>
-                    ele.<a href="">replaceChild</a>(new,old)
-                    <span>
-                        将某个子节点替换为另一个。 <br>
-                        它返回被替换走的那个节点
+                        返回当前Text节点的文本长度。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 删除</h4>
+            <h4>[<span>-</span>] Attribute</h4>
             <ul>
                 <li>
-                    dom.<a href="">removeChild</a>(node)
+                    attr.<a href="">name</a>
                     <span>
-                        删除指定的子节点。 <br>
-                        删除成功则返回被删除的节点，删除失败返回null。
+                        返回属性名称
                     </span>
                 </li>
                 <li>
-                    dom.<a href="">remove()</a>
+                    attr.<a href="">value</a>
                     <span>
-                        将当前元素节点从DOM树删除
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 其它</h4>
-            <ul>
-                <li>
-                    doc.<a href="">write</a>('exp')
-                    <span>
-                        向文档写入内容 <br>
+                        设置或返回属性值
                     </span>
                 </li>
                 <li>
-                    doc.<a href="">writeln</a>('exp')
+                    attr.<a href="">specified</a>
                     <span>
-                        向文档写入内容，并在末尾添加一个换行符
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">open</a>([MIME],[replace])
-                    <span>
-                        打开一个输出流来收集docment.write()方法输出的内容。 <br>
-                        MIMEtype，默认值是 "text/html"。 <br>
-                        replace，当此参数设置后，可引起新文档从父文档继承历史条目。 <br>
-                        它实际上等于清除当前文档，重新写入内容。
-                    </span>
-                </li>
-                <li>
-                    doc.<a href="">close</a>()
-                    <span>
-                        关闭用 document.open() 方法打开的输出流，并显示选定的数据。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] MutationObserver</h4>
-            <ul>
-                <li>
-                    <a href="">new MutationObserver</a><em>(fn(arr,obs))</em>
-                    <span>
-                        使用时，首先使用MutationObserver构造函数，新建一个观察器实例，同时指定这个实例的回调函数。 <br>
-                        回调函数，会在每次 DOM 变动后调用。该回调函数接受两个参数，第一个是变动数组，第二个是观察器实例
-                    </span>
-                </li>
-                <li>
-                    obs.<a href="">observe</a><em>(dom,option)</em>
-                    <span>
-                        observe方法用来开始监听，它接受两个参数 <br>
-                        第一个参数是所要观察的 DOM 节点 <br>
-                        第二个参数是一个配置对象，用来指定所要观察的特定变动
-<pre><code data-language="javascript">
-    var article = document.querySelector('article');
-
-    var  options = {
-      'childList': true,
-      'attributes':true
-    } ;
-
-    observer.observe(article, options);
-</code></pre>
-                    观察器所能观察的 DOM 变动类型（即上面代码的options对象），有以下几种 <br>
-                    childList：子节点的变动。<br>
-                    attributes：属性的变动。<br>
-                    characterData：节点内容或节点文本的变动。<br>
-                    subtree：所有后代节点的变动。<br>
-                    attributeOldValue：类型为布尔值，表示观察attributes变动时，是否需要记录变动前的属性值。<br>
-                    characterDataOldValue：类型为布尔值，表示观察characterData变动时，是否需要记录变动前的值。<br>
-                    attributeFilter：类型为数组，表示需要观察的特定属性（比如['class','src']）
-                    </span>
-                </li>
-                <li>
-                    obs.<a href="">disconnect()</a>
-                    <span>
-                        停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器
-                    </span>
-                </li>
-                <li>
-                    obs.<a href="">takeRecords()</a>
-                    <span>
-                        清除变动记录，即不再处理未处理的变动。该方法返回变动记录的数组。
-                    </span>
-                </li>
-                <li>
-                    <em>MutationRecord</em><a href=""></a>
-                    <span>
-                        DOM 每次发生变化，就会生成一条变动记录。这个变动记录对应一个MutationRecord对象，该对象包含了与变动相关的所有信息。Mutation Observer 处理的是一个个MutationRecord对象所组成的数组。
-                        <hr>
-                        type：观察的变动类型（attribute、characterData或者childList）。 <br>
-                        target：发生变动的DOM节点。<br>
-                        addedNodes：新增的DOM节点。<br>
-                        removedNodes：删除的DOM节点。<br>
-                        previousSibling：前一个同级节点，如果没有则返回null。<br>
-                        nextSibling：下一个同级节点，如果没有则返回null。<br>
-                        attributeName：发生变动的属性。如果设置了attributeFilter，则只返回预先指定的属性。<br>
-                        oldValue：变动前的值。这个属性只对attribute和characterData变动有效，如果发生childList变动，则返回null。
+                        检查属性节点是否存在值，返回布尔值 <br>
+                        注意先需获取到的是属性节点
                     </span>
                 </li>
             </ul>
