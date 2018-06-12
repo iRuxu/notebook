@@ -6,3 +6,4 @@ css/test.less
 js/test.js
 html/test.hbs
 .git
+yarn.lock
