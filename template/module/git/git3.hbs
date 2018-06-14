@@ -93,18 +93,18 @@
             <h4>[<span>-</span>] 移除</h4>
             <ul>
                 <li>git <a href="">tag</a> -d $tag<span>删除本地tag</span></li>
-                <li>git <a href="">push</a> <em>$origin :refs/tags/$tag</em>
-                    <span>删除远端tag <br>
-                        $ git push origin :refs/tags/$tag <br>
-                        $ git push origin --delete $tag <br>
-                        $ git push origin:$tags
-                    </span>
-                </li>
             </ul>
             <h4>[<span>-</span>] 推送</h4>
             <ul>
                 <li>git <a href="">push</a> $origin $ver<span>推送tag</span></li>
                 <li>git <a href="">push</a> $origin --tags<span>推送全部tag</span></li>
+                <li>git <a href="">push</a> <em>$origin :$tag</em>
+                    <span>删除远端tag <br>
+                        $ git push origin :refs/tags/$tag <br>
+                        $ git push origin :$tags
+                        $ git push origin --delete $tag <br>
+                    </span>
+                </li>
             </ul>
         </div>
   </div>
