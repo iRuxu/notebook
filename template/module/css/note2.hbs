@@ -2,38 +2,8 @@
     <div class="u-block">
         <h3>样式<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 颜色</h4>
+            <h4>[<span>-</span>] 滤镜与透明</h4>
             <ul>
-                <li>
-                    <a href="">color</a>
-                    <span>1.颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
-                    <hr>2.transparent
-                    <br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
-                    <br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
-                    <br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
-                    <br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
-                    <br />IE6透明边框的处理
-                    <br /><pre><code data-language="css">
-                    _border-color: #000000; 
-                    _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
-                    </code></pre>
-                    <hr>3.rgba(255,255,255,0.8) 
-                    <br />带Alpha通道的颜色模式,可以半透明（IE8-不支持）
-                    <br>让IE8-通过IE滤镜来实现rgba效果
-                    <br><pre><code data-language="css">
-                    background: rgba(0,0,0,.92);
-                    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startcolorstr=#CC000000, endcolorstr=#CC000000);
-                    </code></pre>
-                    <br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startcolorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
-                    <br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
-                    <hr />4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
-                    </span>
-                </li>
-                <li><a href="">currentcolor</a><span>
-                    让Border/backgroud等沿袭color的颜色<br>
-                    <a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">参考资料</a>
-                    </span>
-                </li>
                 <li><a href="">opacity</a>
                     <span>透明度：使用浮点数指定对象的不透明度。值被约束在[0.0-1.0]范围内，如果超过了这个范围，其计算结果将截取到与之最相近的值。
                     <br>注意如果父级应用了此透明度方法,则子元素也会跟随一起透明,不受影响可以将子元素写在外面,再通过负值的margin或其他定位方法定位.
@@ -45,6 +15,24 @@
                     filter:alpha(opacity=@alpha);
                     }
                     </code></pre>
+                    </span>
+                </li>
+                <li>
+                    (new)<a href="">filter</a>
+                    <span>ele {filter: none | <filter-function >* } 
+                    <br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
+                    <br />grayscale() 灰度，黑白
+                    <br />sepia() 褐色,黄褐色旧照片
+                    <br />saturate() 饱和度
+                    <br />hue-rotate() 色相旋转
+                    <br />invert() 反色
+                    <br />opacity() 透明度
+                    <br />brightness() 亮度
+                    <br />contrast() 对比度
+                    <br />blur(3px) 模糊
+                    <br />drop-shadow(5px 5px 5px #ccc) 阴影
+                    <br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
+                    <a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
                     </span>
                 </li>
                 <li>
@@ -76,6 +64,11 @@
                     <br />缩写时,如果前面设置了独立属性,在缩写中未被定义的会被覆盖会空或默认值,如果在后面补充了的,后面的属性会自动合并到缩写中,如果该属性不被支持,则造成整个缩写属性无法识别！因根据情况全部分开写。
                     </span></li>
                     <li><a href="">background-color</a><span>背景颜色,可用rgba来设置半透明背景,而不是用opacity,制作一些遮罩效果</span>
+                    <li><a href="">currentcolor</a><span>
+                        让Border/backgroud等沿袭color的颜色<br>
+                        <a href="http://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/">参考资料</a>
+                        </span>
+                    </li>
                     <li><a href="">background-position</a><span>背景图的位置,可以为负值和百分比,也可以用left(x=0),right(x=100%),top(y=100%),bottom(y=100%).先写水平,后写垂直.背景图的50%居中以图形中心为基点，不需要再移动自身一半尺寸
                     <br>雪碧图：<a href="http://www.99css.com/archives/1524">CSS GAGA</a>
                     <br>BASE64编码：<a href="http://www.fishlee.net/Tools/GetImageBase64Code">GO TO!</a></span>
@@ -120,7 +113,7 @@
                 </li>
                 <li><a href="">background-image</a><span>图像url(''),无none,渐变</span></li>
             </ul>
-            <h4>[<span>-</span>] 效果</h4>
+            <h4>[<span>-</span>] 阴影与倒影</h4>
             <ul>
                 <li>
                     <a href="">box-shadow</a>
@@ -141,22 +134,58 @@
                     <br />mask(蒙版): url() / gradient
                     </span>
                 </li>
+            </ul>
+            <h4>[<span>-</span>] 遮罩</h4>
+            <ul>
                 <li>
-                    (new)<a href="">filter</a>
-                    <span>ele {filter: none | <filter-function >* } 
-                    <br />函数不传值,默认为100%=1完全渲染,多个函数之间用空格隔开
-                    <br />grayscale() 灰度，黑白
-                    <br />sepia() 褐色,黄褐色旧照片
-                    <br />saturate() 饱和度
-                    <br />hue-rotate() 色相旋转
-                    <br />invert() 反色
-                    <br />opacity() 透明度
-                    <br />brightness() 亮度
-                    <br />contrast() 对比度
-                    <br />blur(3px) 模糊
-                    <br />drop-shadow(5px 5px 5px #ccc) 阴影
-                    <br /><a href="http://www.w3cplus.com/css3/ten-effects-with-css3-filter">参考资料</a>
-                    <a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/">示例</a>
+                    <a href="">mask-image</a>
+                    <span>
+                        遮罩使用的图片资源，支持多图片 <br>
+                        默认值：none / url(),.. <br>
+                        移动端可移除效果，同时设置border-radius配合实现粗略效果
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-mode</a>
+                    <span>
+                        默认值：match-source <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-repeat</a>
+                    <span>
+                        默认值：repeat
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-position</a>
+                    <span>
+                        默认值：left top
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-clip</a>
+                    <span>
+                        默认值：border-box 
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-origin</a>
+                    <span>
+                        默认值：border-box
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-size</a>
+                    <span>
+                        默认值：auto
+                    </span>
+                </li>
+                <li>
+                    <a href="">mask-composite</a>
+                    <span>
+                        默认值：source-over（累加） <br>
+                        add累加/substract相减/intersect相交/exclude排除
                     </span>
                 </li>
             </ul>

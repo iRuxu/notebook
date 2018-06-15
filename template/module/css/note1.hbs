@@ -13,6 +13,31 @@
 					<br>rem : 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数。设置字体html{font-size:62.5% = 10px},则1.2rem=12px（手机端HTML5元素不主动继承body字体大小时，使用*）
 					<br />vm : 视窗可用宽度,0～100.(除去滚动条)
 					</span></li>
+				<li>
+                    <a href="">color</a>
+                    <span>1.颜色:red(颜色名称),#ff3399(16进制),rgb(255,0,255)
+                    <hr>2.transparent
+                    <br />IE6及更早浏览器(CSS1)只有background-color接受transparent取值。
+                    <br />IE7及IE8(CSS2)除了background-color，还有border-color也开始接受transparent取值。
+                    <br />在CSS3中，transparent被延伸到任何一个有color值的属性上。
+                    <br />*IE8及以下，color属性值为transparent时，文本显示为黑色。
+                    <br />IE6透明边框的处理
+                    <br /><pre><code data-language="css">
+                    _border-color: #000000; 
+                    _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
+                    </code></pre>
+                    <hr>3.rgba(255,255,255,0.8) 
+                    <br />带Alpha通道的颜色模式,可以半透明（IE8-不支持）
+                    <br>让IE8-通过IE滤镜来实现rgba效果
+                    <br><pre><code data-language="css">
+                    background: rgba(0,0,0,.92);
+                    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startcolorstr=#CC000000, endcolorstr=#CC000000);
+                    </code></pre>
+                    <br>扩展知识：DXImageTransform.Microsoft.gradient 滤镜里的 startcolorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。
+                    <br>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。
+                    <hr />4.hsl，h色环角度,s饱和度,l亮度 <a href="http://www.paletton.com/">Paletton.com</a>
+                    </span>
+                </li>
 				<li><a href="">line-height</a>(px/180%/1.8)
 					<span>
 					行高,可为百分比或乘积因子,具有继承性<br>
