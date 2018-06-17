@@ -383,13 +383,10 @@ class PrimaryStudent extends Student {
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>]运算符与操作符</h4>
+            <h4>[<span>+</span>]表达式与运算符</h4>
             <ul style="display:none;">
                 <li>
-                    <a href=""></a><em>运算符</em>
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">参考资料</a>
-                    </span>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">运算符</a>
                 </li>
                 <li>
 					<a href="">delete </a>obj.key
@@ -412,36 +409,8 @@ class PrimaryStudent extends Student {
                 <li>
                     <a href="">void</a>
                     <span>
-                        表明一个运算没有返回值
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>]表达式与其它</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">this</a>
-                    <span>
-                        this关键字被用于指代当前的对象，通常，this指代的是方法中正在被调用的对象
-                    </span>
-                </li>
-                <li>
-                    <a href="">new</a>
-                    <span>
-                        你可以使用new operator 创建一个自定义类型或者是预置类型的对象实例
-                    </span>
-                </li>
-                <li>
-                    <a href="">'use strict'</a>
-                    <span>
-                        严格模式下，函数中的this指向Undefined，非window对象。 <a href="http://es6.ruanyifeng.com/#docs/module#严格模式">参考资料</a> <br>
-                        ES6下默认开启严格模式
-                    </span>
-                </li>
-                <li>
-                    <a href="">with</a>(obj)
-                    <span>
-                        操作同一个对象的多个属性时，提供一些书写的方便. <a href="http://javascript.ruanyifeng.com/grammar/object.html">参考资料</a> <br>
-                        注意，with区块内部的变量，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。这是因为with区块没有改变作用域，它的内部依然是当前作用域。
+                        void运算符对给定的表达式进行求值，然后返回 undefined <br>
+                        在使用立即执行的函数表达式时，可以利用 void 运算符让 JavaScript 引擎把一个function关键字识别成函数表达式而不是函数声明（语句）
                     </span>
                 </li>
             </ul>
@@ -482,6 +451,12 @@ class PrimaryStudent extends Student {
                     <a href="">throw</a>
                     <span>
                         抛出一个异常
+                    </span>
+                </li>
+                <li>
+                    <a href="">debugger</a>
+                    <span>
+                        调用任何可用的调试功能，例如设置断点。
                     </span>
                 </li>
             </ul>
@@ -591,7 +566,7 @@ class PrimaryStudent extends Student {
 		<div class="u-list">
 			<h4>[<span>+</span>]文档</h4>
 			<ul style="display: none;">
-				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web">MDN Web技术文档</a></li>
+				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference">JS参考文档</a></li>
 				<li><a href="http://kangax.github.io/compat-table/es6/">ES6支持程度</a></li>
 				<li><a href="http://yanhaijing.com/es5/">ECMAScript5规范</a></li>
 			</ul>

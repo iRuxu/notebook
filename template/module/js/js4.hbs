@@ -3,243 +3,213 @@
 	<div class="u-block">
 		<h3>函数<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]构建</h4>
-			<ul>
+			<h4>[<span>+</span>]构建与调用</h4>
+			<ul style="display:none;">
 				<li>
-					x <a href="">=></a> x*x
+					<a href="">function name</a><em>(arg){}</em>
 					<span>
-						1.当只有一行直接返回变量的处理时，x=>x*x，返回x的平方 <br>
-						2.当只有一行且无需返回值时，x=>void dosomething <br>
-						3.当有多个参数或多条语句时，需添加括号和花括号，(x,y)=>{dosomething / return xx} <hr>
-
-						1.不可以当做构造函数 <br>
+						函数声明 <br>
+						1.使用函数声明时，会提升优先级（一等公民），不包括函数表达式。 <br>
+						2.如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。<br>
+						3.函数参数是拷贝值传递：对于基本类型，不会修改原值；对于引用类型，拷贝的是指针，如修改原数据属性会改变原数据，如替换整个目标则不修改原数据，此外始终不改变原指针的指向。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
+						4.函数可以被递归，函数可以调用其本身。 <br>
+						5.ES6中块级作用域中声明的函数，在块级作用域之外不可引用
+					</span>
+				</li>
+				<li>
+					var handle = <a href="">function [name]</a><em>(arg){}</em>
+					<span>
+						函数表达式<br>
+						1.函数表达式是一个匿名函数 <br>
+						2.当定义name时，此时可以用name在函数内部指代函数本身，但在函数体外部无效 <br>
+						3.函数表达式，不会被提升。<br>
+						4.如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc5">参考资料</a> <br>
+					</span>
+				</li>
+				<li>
+					(x) <a href="">=></a> x*x
+					<span>
+						箭头函数 <br>
+						1.不可以当做构造函数，即不能使用new操作符 <br>
 						2.不可以使用arguments、super、new.target，均指向外层函数的对应变量 <br>
 						3.不可以使用yield命令，因此箭头函数不能用作 Generator 函数 <br>
-						4.函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，且固定不可辨，即使使用call也无法修改，更多的可在构造函数或闭包内使用，则可替代普通函数需要用that指代this。 <hr>
-
-						this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。所以call的绑定也是无效，但上层的普通函数的call绑定有效。
-
+						4.没有自己的this，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，且固定不可变，即使使用call也无法修改，更多的可在构造函数或闭包内使用，则可替代普通函数需要用that指代this。 <br>
+						this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。所以call的绑定也是无效，但上层的普通函数的call绑定有效。 <br>
+						5.没有prototype属性，也不能使用yield关键字
+						<hr>
+						例：<br>
+						1.当只有一行直接返回变量的处理时，x=>x*x，返回x的平方 <br>
+						2.当只有一行且无需返回值时，x=>void dosomething <br>
+						3.当有多个参数或多条语句时，需添加括号和花括号，(x,y)=>{dosomething / return xx}
 					</span>
 				</li>
 				<li>
-					IIFE<a href=""></a>
+					var handle = <a href="">new Function</a><em>('arg..','fnbody')</em>
 					<span>
-						匿名函数写法：
-						匿名函数自执行
+						Function构造函数构建<br>
+						1.此形式构建的是匿名函数 <br>
+						2.参数为字符串<br>
+						3.只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
+					</span>
+				</li>
+				<li>
+					<a href="">IIFE</a>
+					<span>
+						( function(){}() ); <br>
+						( function(){} )(); <br>
+						[ function(){}() ]; <br>
+						<br>
+						~ function() {}(); <br>
+						! function() {}(); <br>
+						+ function() {}(); <br>
+						- function() {}(); <br>
+						<br>
+						delete function() {}(); <br>
+						typeof function() {}(); <br>
+						void function() {}(); <br>
+						new function() {}(); <br>
+						new function() {}; <br>
+						<br>
+						var f = function() {}(); <br>
+						<br>
+						1, function() {}(); <br>
+						1 ^ function() {}(); <br>
+						1 > function() {}(); 
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]Function</h4>
-			<ul>
+			<h4>[<span>+</span>]参数</h4>
+			<ul style="display:none;">
 				<li>
-					<a href="">function</a> <em>name(arg)</em>
+					<a href="">(arg=x)</a>
 					<span>
-						<b>参数</b> <br>
-						函数不能省略靠前的参数，如果一定要省略靠前的参数，只有显式传入undefined。 <br>
-						函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。即在函数内部，传入的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。这意味着，在函数体内修改参数值，不会影响到函数外部。 <br>
-						函数参数如果是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的原始值的地址，因此在函数内部修改参数，将会影响到原始值。 <br>
-						注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-						如果有同名的参数，则取最后出现的那个值。
-						<hr>
-						<b>作用域</b> <br>
-						函数作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。<br>
-						函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。  <br>
-						同样的，函数体内部声明的函数，作用域绑定函数体内部。<br>
-                        <a href="https://github.com/mqyqingfeng/Blog/issues/3">参考资料</a> <br>
-                        ES6中块级作用域中声明的函数，在块级作用域之外不可引用
-						<hr>
-						<b>属性</b> <br>
-						fn.name : 返回紧跟在function关键字之后的那个函数名(匿名函数为空字符串) <br>
-						fn.length : 返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数)。 <br>
-						fn.toString() : 返回函数的源码，注释也可以返回。
-						<hr>
-						<b>闭包</b> <br>
-						定义在一个函数内部的函数。闭包最大的特点，就是它可以“记住”诞生的环境。 <br>
-						闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。 <br>
-						返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。 <br>
-						如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变 <hr>
-						避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。 <br>
-						对于函数，只有函数声明会被提升到顶部，而不包括函数表达式。
+						一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域 <a href="http://es6.ruanyifeng.com/#docs/function#作用域">参考资料</a>
 					</span>
 				</li>
 				<li>
-					<a href="">new</a> fn
-					<span>
-						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
-						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
-						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
-						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
-						方法应挂载在prototype上，避免内存占用
-					</span>
-				</li>
-				<li><a href="">function</a>(arg)<span>
-					<b>1.function命令 - 函数的声明</b><br>
-					function fn(arg){...} <br>
-					<hr>
-					<b>2.函数表达式</b> <br>
-					var fn = function(arg){...} <br>
-					在第二种方式下，function (x) { ... }是一个匿名函数，它没有函数名。<br>
-					但是，这个匿名函数赋值给了变量fn，所以，通过变量fn就可以调用该函数。<br>
-					上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。 <br>
-					采用函数表达式声明函数时，function命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。 <br>
-					<hr>
-					<b>3.Function构造函数</b> <br>
-					var fn = new Function(arg..,函数体) <br>
-					你可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
-					<hr>
-					如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。 <br>
-					如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-					根据ECMAScript的规范，不得在非函数的代码块中声明函数。
-				</span></li>
-				<li><a href="">(function(n){})(n)</a><span>
-					IIFE = Immediately-Invoked Function Expression,立即调用的函数表达式 <br>
-					匿名函数自执行,可以初始化各项值,但如果需要的变量并不是一开始初始化有的,则不可以,否则无法读取。<br>
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]内部</h4>
-			<ul>
-				<li><a href="">arguments</a><span>
-					函数的参数对象，类数组对象，但不是数组，实际上arguments最常用于判断传入参数的个数。 <br>
-					严格模式下为只读对象，不允许修改。
-						<tr>
-							<th>对象值</th>
-							<th>描述</th>
-						</tr>
-						<tr>
-							<td>arguments[0]</td>
-							<td>第一个参数名字</td>
-						</tr>
-						<tr>
-							<td>arguments.length</td>
-							<td>参数的个数</td>
-						</tr>
-						<tr>
-							<td>arguments.callee</td>
-							<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
-						</tr>
-					</table>
-					rest参数：<br>
-					<pre><code data-language="javascript">
-						function foo(a, b, ...rest) {
-						    console.log('a = ' + a);
-						    console.log('b = ' + b);
-						    console.log(rest);
-						    //rest: [array]
-						}
-					</code></pre>
-				</span></li>
-				<li>
-					<a href="">...rest</a>
+					<a href="">...args</a>
 					<span>
 						rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 <br>
 						rest 参数之后不能再有其他参数（即只能是最后一个参数）
 					</span>
 				</li>
-				<li><a href="">return</a> value<span>
-					如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined.
-				</span></li>
-				<li><a href="">this</a><span>
-					<table>
-						<tr>
-							<th>当前环境</th>
-							<th>this指向</th>
-						</tr>
-						<tr>
-							<td>函数</td>
-							<td>非严格模式：window <br>
-							strict模式：undefined
-							</td>
-						</tr>
-						<tr>
-							<td>对象</td>
-							<td>object<br>
-							直接定义对象的函数，并单独存储函数后，调用函数时不可行，除非以obj.fn()进行调用。<br>
-							对象属性函数里的函数（闭包）调用对象时可指定var that = this来获取正确this
-							</td>
-						</tr>
-					</table>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">参考资料1</a> | <a href="http://javascript.ruanyifeng.com/oop/this.html">参考资料2</a>
-				</span></li>
+				<li>
+					<a href="">arguments</a>
+					<span>
+						函数的实参，一个类数组对象。 <br>
+						1.在JavaScript中，函数参数的默认值是undefined <br>
+						2.严格模式下为只读对象，不允许修改。 <br>
+						3.箭头函数不存在(浏览器)
+						<table>
+							<tr>
+								<th>对象值</th>
+								<th>描述</th>
+							</tr>
+							<tr>
+								<td>arguments[0]</td>
+								<td>第一个参数名字</td>
+							</tr>
+							<tr>
+								<td>arguments.length</td>
+								<td>参数的个数</td>
+							</tr>
+							<tr>
+								<td>arguments.callee</td>
+								<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
+							</tr>
+						</table>
+					</span>
+				</li>
+				<li>
+					fn.<a href="">length</a>
+					<span>
+						返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数) <br>
+						指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，length属性将失真。
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]内部</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">理论</a>
+					<span>
+						作用域：静态/词法作用域，取决于函数声明时所在的作用域，与其运行时所在的作用域无关。 <hr>
+						执行上下文栈：变量对象、作用域链、this <br>
+						1.变量对象：函数的所有形参、函数声明、变量声明（如果变量名称与声明的形参或函数相同，则变量声明不会干扰已经存在的这类属性）<a href="https://github.com/mqyqingfeng/Blog/issues/5">参考资料</a><br>
+						<b>变量对象为进入执行上下文阶段，在执行阶段，可能被重新赋值。</b><br>
+						2.作用域链：[VO=>AO压入栈顶,全局作用域链] <hr>
+						闭包：<a href="https://github.com/mqyqingfeng/Blog/issues/9">参考资料</a>
+					</span>
+				</li>
+				<li>
+					<a href="">this</a>
+					<span>
+						<a href="https://github.com/mqyqingfeng/Blog/issues/7">从ES规范解读this</a> <hr> 
+						普通函数：严格模式(undefined)、严格模式(全局对象) <br>
+						构造函数：对象的实例 <br>
+						对象方法：对象本身 <br>
+						call/apply/bind：绑定的对象 <br>
+						箭头函数：函数所在的块的this
+					</span>
+				</li>
+				<li>
+					<a href="">return</a> [val]
+					<span>
+						如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined. <br>
+						<a href="http://es6.ruanyifeng.com/#docs/function#尾调用优化">尾调用优化</a>
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>]方法</h4>
 			<ul>
-				<li>fn<a href="">.apply</a>(obj,[arg])<span>
-					fn.apply(作用域，[传递参数]/arguments) <br>
-					要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+				<li>
+					fn<a href="">.call</a>(obj,arg)
+					<span>
+						fn.call(作用域，[传递参数]) <br>	
+						apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
+						apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
+						对普通函数调用，我们通常把this绑定为null。 <br>
+						在非严格模式下，如果参数为空、null和undefined，则默认传入全局对象。
+					</span>
+				</li>
+				<li>
+					fn<a href="">.apply</a>(obj,[argArr])
+					<span>
+						fn.apply(作用域，[传递参数Arr]) 
+					</span>
+				</li>
+				<li>
+					fn<a href="">.bind</a>(obj)
+					<span>
+						返回由指定的this值和初始化参数改造的原函数拷贝
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">参考资料</a>
 				</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>
-					fn.call(作用域，[传递参数]),apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
-					apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
-					对普通函数调用，我们通常把this绑定为null。 <br>
-					如果参数为空、null和undefined，则默认传入全局对象。
-					</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>
-					bind(作用目标) 创建一个作用于某目标的函数实例 <br>
-					bind()方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。
-				</span></li>
+				<li>
+					fn.<a href="">toString()</a>
+					<span>
+						返回一个表示当前函数源代码的字符串，注释也可以返回
+					</span>
+				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="u-block">
 		<h3>内置函数<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>] 定时器</h4>
-            <ul>
+			<h4>[<span>-</span>]全局函数</h4>
+			<ul>
 				<li>
                     <a href="">eval</a>(str)
                     <span>
-                        将字符串当作语句执行。<br>
-                        eval没有自己的作用域，都在当前作用域内执行。<br>
-                        JavaScript规定，如果使用严格模式，eval内部声明的变量，不会影响到外部作用域。不过，即使在严格模式下，eval依然可以读写当前作用域的变量。<br>
-                        eval的使用分成两种情况，一种是直接调用eval(expression)，这叫做“直接使用”，这种情况下eval的作用域就是当前作用域。除此之外的调用方法，都叫“间接调用”，此时eval的作用域总是全局作用域
-                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc25">参考资料</a>
+                        将传入的字符串当做 JavaScript 代码进行执行。<br>
+						1.eval没有自己的作用域，都在当前作用域内执行。<br>
+                        2.JavaScript规定，如果使用严格模式，eval内部声明的变量，不会影响到外部作用域。 <br>
+						3.在严格模式下，eval依然可以读写当前作用域的变量。<br>
+                        4.eval“间接调用”时作用域总是全局作用域
+                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc24">参考资料</a>
                     </span>
                 </li>
-            	<li>
-            		<a href="">setTimeout</a>(fn,time,[arg])
-            		<span>
-            			在指定的毫秒数后调用函数或计算表达式 <br>
-            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
-            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当time=0时的应用，同样需等待队列完成</a>
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">setInterval</a>(fn,time)
-            		<span>
-            			按照指定的周期（以毫秒计）来调用函数或计算表达式
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearTimeout</a>(timeout)
-            		<span>
-            			取消由 setTimeout() 方法设置的 timeout
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearInterval</a>(timeout)
-            		<span>
-            			取消由 setInterval() 设置的 timeout
-            		</span>
-            	</li>
-				<li>val.<a href="">toString</a>()<span>
-					<table>
-                        <tr>
-                            <th>目标</th>
-                            <th>返回值</th>
-                        </tr>
-                        <tr>
-                            <td>array</td>
-                            <td>参数直接用,隔开的字符串</td>
-                        </tr>
-                    </table>
-				</span></li>
-				<li>
-					<a href="">vauleOf</a>
-					<span>
-						
-					</span>
-				</li>
-            </ul>
+			</ul>
             <h4>[<span>+</span>] Generator</h4>
             <ul style="display: none;">
             	<li>

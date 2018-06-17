@@ -31,7 +31,15 @@
 							var o = new Obj(opts)
 						</code></pre>
 						注意，如果不写new，这就是一个普通函数，它返回undefined。但是，如果写了new，它就变成了一个构造函数，它绑定的this指向新创建的对象，并默认返回this，也就是说，不需要在最后写return this;。<br>
-						如果忘记写new运算符，在strict模式下，this.name = name将报错，因为this绑定为undefined，在非strict模式下，this.name = name不报错，因为this绑定为window，于是无意间创建了全局变量name，并且返回undefined，这个结果更糟糕。
+						如果忘记写new运算符，在strict模式下，this.name = name将报错，因为this绑定为undefined，在非strict模式下，this.name = name不报错，因为this绑定为window，于是无意间创建了全局变量name，并且返回undefined，这个结果更糟糕。 <br>
+						<li>
+					<a href="">new</a> fn
+					<span>
+						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new命令原理</a> <br>
+						new命令总是返回一个对象，要么是实例对象，要么是return语句指定的对象。 <br>
+						函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined <hr>
+						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">示例代码</a> <br>
+						方法应挂载在prototype上，避免内存占用
 					</span>
 				</li>
 				<li>
