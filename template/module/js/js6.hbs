@@ -1,128 +1,306 @@
 <!-- 标准对象 -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>类<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]类</h4>
-			<ul>
-				<li><a href="">class </a>Name<span>
-<pre><code data-language="javascript">
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  toString() {
-    return '(' + this.x + ', ' + this.y + ')';
-  }
-}
-var test = new Point(1,2)
-</code></pre>
-					1.constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。 <br>
-					2.类的内部所有定义的方法，都是不可枚举的（non-enumerable）。 <br>
-					3.类和模块的内部，默认就是严格模式，所以不需要使用use strict指定运行模式。 <br>
-					4.var MyClass = class Me{...} 表达式的方式 <a href="http://es6.ruanyifeng.com/#docs/class#Class-表达式">参考资料</a> <br>
-					5.类不存在变量提升 <br>
-					6.
-                </span></li>
+        <h3>元编程<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>]Symbol</h4>
+            <ul style="display:none;">
                 <li>
-                	<a href="">static</a> fn
-                	<span>
-                		类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。 <br>
-                		注意，如果静态方法包含this关键字，这个this指的是类，而不是实例。 <hr>
-                		ES6 明确规定，Class 内部只有静态方法，没有静态属性。 <br>
-                		目前需要通过在类外面使用Class.prop来定义
-                	</span>
+                    <a href="">Symbol</a>([des])
+                    <span>
+                        它是一种类似于字符串的数据类型，但独一无二。 <hr>
+                        1.Symbol函数前不能使用new命令，否则会报错 <br>
+                        2.Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。 <br>
+                        3.Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。 <br>
+                        4.Symbol 值不能与其他类型的值进行运算 <br>
+                        5.Symbol 值可以通过toString或String方法显式转为字符串 <br>
+                        6.Symbol 值也可以转为布尔值，但是不能转为数值 <br>
+                        7.不能使用.运算符，必须使用[] <br>
+                        8.Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。
+                    </span>
                 </li>
-			</ul>
-			<h4>[<span>-</span>]类继承</h4>
-			<ul>
-				<li><a href="">class $child extends $parent</a><span>
-<pre><code data-language="javascript">
-class PrimaryStudent extends Student {
-    constructor(name, grade) {
-        super(name); // 记得用super调用父类的构造方法!
-        this.grade = grade;
-    }
-
-    myGrade() {
-        alert('I am at grade ' + this.grade);
-    }
-}
-</code></pre>
-					PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
-                </span></li>
-                <li><a href="">super</a>(parent_key)<span>
-                	super这个关键字，既可以当作函数使用，也可以当作对象使用。在这两种情况下，它的用法完全不同。<br>
-                	1.super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。 <br>
-                	2.super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。
-                </span></li>
-			</ul>
-			<h4>[<span>-</span>]原型链</h4>
-			<ul>
-				<li>
-					cst.<a href="">prototype|super</a>
-					<span>
-                		返回值：构造函数创建的实例的原型（prototype是函数才会有的属性） <br>
-                    	为减少内存消耗，将公共方法写在构造函数的原型上，<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">参考资料</a> <br>
-						在改变原型对象时，一般要同时设置constructor属性 <br>
-                	</span>
-				</li>
-				<li>
-					pro.<a href="">constructor</a>
-					<span>
-                    	原型对象的这个属性指向构造函数 <br>
-                    	<img src="image/js/prototype.png" alt="">
-                	</span>
-				</li>
-				<li>
-					obj.<a href="">constructor</a>
-					<span>
-						返回值：Object / 构造函数 <br>
-						实例本身没有constructor，通过在原型上查找获取
-					</span>
-				</li>
-				<li>
-					obj.<a href="">__proto__</a>
-					<span>
-						返回值：Object / 构造函数原型对象（仅浏览器环境） <br>
-						在编写JavaScript代码时，不要直接用obj.__proto__去改变一个对象的原型，并且，低版本的IE也无法使用__proto__。 
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>]原型方法</h4>
+                <li>
+                    <a href="">Symbol.for</a>(desc)
+                    <span>
+                        接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。
+                    </span>
+                </li>
+                <li>
+                    <a href="">Symbol.keyfor</a>(symbol)
+                    <span>
+                        返回一个已登记的 Symbol 类型值的key
+                    </span>
+                </li>
+            </ul>
+			<h4>[<span>+</span>]Proxy</h4>
 			<ul style="display:none;">
 				<li>
-					pro.<a href="">isPrototypeOf</a>(obj)
+					<a href="">new Proxy</a>(target,handler)
 					<span>
-						判断当前对象是否为另一个对象的原型 <br>
-						Object.prototype处于原型链的最顶端，所以对各种实例都返回true，只有继承null的对象除外。
+						在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/proxy">参考资料</a> <hr>
+						通过改写return值，可实现链式操作
 					</span>
 				</li>
 				<li>
-					<a href="">Object.getPrototypeOf</a>(obj)
+					<a href="">get</a><em>(target, propKey, receiver)</em>
 					<span>
-						获取对象的原型对象
+						拦截对象属性的读取，比如proxy.foo和proxy['foo']。
 					</span>
 				</li>
 				<li>
-					<a href="">Object.setPrototypeOf</a>(obj,proto)
+					<a href="">set</a><em>(target, propKey, value, receiver)</em>
 					<span>
-						为现有对象设置原型，返回新对象。
+						拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">has</a><em>(target, propKey)</em>
+					<span>
+						拦截propKey in proxy的操作，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">deleteProperty</a><em>(target, propKey)</em>
+					<span>
+						拦截delete proxy[propKey]的操作，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+					</span>
+				</li>
+				<li>
+					<a href="">getOwnPropertyDescriptor</a><em>(target, propKey)</em>
+					<span>
+						拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+					</span>
+				</li>
+				<li>
+					<a href="">defineProperty</a><em>(target, propKey, propDesc)</em>
+					<span>
+						拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">preventExtensions</a><em>(target)</em>
+					<span>
+						拦截Object.preventExtensions(proxy)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">getPrototypeOf</a><em>(target)</em>
+					<span>
+						拦截Object.getPrototypeOf(proxy)，返回一个对象。
+					</span>
+				</li>
+				<li>
+					<a href="">isExtensible</a><em>(target)</em>
+					<span>
+						拦截Object.isExtensible(proxy)，返回一个布尔值。
+					</span>
+				</li>
+				<li>
+					<a href="">setPrototypeOf</a><em>(target, proto)</em>
+					<span>
+						拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+					</span>
+				</li>
+				<li>
+					<a href="">apply</a><em>(target, object, args)</em>
+					<span>
+						拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+					</span>
+				</li>
+				<li>	
+					<a href="">construct</a><em>(target, args)</em>
+					<span>
+						拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+					</span>
+				</li>
+				<li>
+					<a href="">Proxy.revocable</a>(target, handler)
+					<span>
+						返回一个可取消的 Proxy 实例
 					</span>
 				</li>
 			</ul>
-            <h4>[<span>-</span>]原型继承</h4>
-            <ul>
+			<h4>[<span>+</span>]Reflect</h4>
+			<ul style="display:none;">
 				<li>
-					<a href="">Object.create</a>(proto)
+					<a href="">Reflect</a>
 					<span>
-						于一个原型创建新对象 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create">参考资料</a><br>
-						不能直接将b的原型赋值给a，否则当b的原型修改时，a的原型也会被更改 <hr>
-						Child.prototype = Object.create(Parent.prototype) <br>	Child.prototype.constructor = Child
+						1.将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。 <br>
+						2.修改某些Object方法的返回结果，让其变得更合理。 <br>
+						3.让Object操作都变成函数行为。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/reflect">参考资料</a>
 					</span>
 				</li>
+				<li>
+					Reflect.<a href="">get</a><em>(target,name,[receiver])</em>
+					<span>
+						查找并返回target对象的name属性，如果没有该属性，则返回undefined。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">set</a><em>(target,name,value,[receiver])</em>
+					<span>
+						设置target对象的name属性等于value
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">has</a><em>(obj,name)</em>
+					<span>
+						对应name in obj里面的in运算符
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">deleteProperty</a><em>(obj,name)</em>
+					<span>
+						等同于delete obj[name]，用于删除对象的属性
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">construct</a><em>(target,args)</em>
+					<span>
+						等同于new target(...args)，这提供了一种不使用new，来调用构造函数的方法。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">getPrototypeOf</a><em>(obj)</em>
+					<span>
+						用于读取对象的__proto__属性，对应Object.getPrototypeOf(obj)。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">setPrototypeOf</a><em>(obj,newProto)</em>
+					<span>
+						用于设置对象的__proto__属性，返回第一个参数对象，对应Object.setPrototypeOf(obj, newProto)。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">apply</a><em>(fn,thisArg,args)</em>
+					<span>
+						等同于Function.prototype.apply.call(func, thisArg, args)，用于绑定this对象后执行给定函数。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">defineProperty</a><em>(target,propertyKey,attributes)</em>
+					<span>
+						基本等同于Object.defineProperty，用来为对象定义属性。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">getOwnPropertyDescriptor</a><em>(target,propertyKey)</em>
+					<span>
+						基本等同于Object.getOwnPropertyDescriptor，用于得到指定属性的描述对象
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">isExtensible</a><em>(target)</em>
+					<span>
+						对应Object.isExtensible，返回一个布尔值，表示当前对象是否可扩展。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">preventExtensions</a><em>(target)</em>
+					<span>
+						对应Object.preventExtensions方法，用于让一个对象变为不可扩展。它返回一个布尔值，表示是否操作成功。
+					</span>
+				</li>
+				<li>
+					Reflect.<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						返回对象的所有属性，基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。
+					</span>
+				</li>
+			</ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>其它<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>]全局函数</h4>
+			<ul>
+				<li>
+                    <a href="">eval</a>(str)
+                    <span>
+                        将传入的字符串当做 JavaScript 代码进行执行。<br>
+						1.eval没有自己的作用域，都在当前作用域内执行。<br>
+                        2.JavaScript规定，如果使用严格模式，eval内部声明的变量，不会影响到外部作用域。 <br>
+						3.在严格模式下，eval依然可以读写当前作用域的变量。<br>
+                        4.eval“间接调用”时作用域总是全局作用域
+                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc24">参考资料</a>
+                    </span>
+                </li>
+			</ul>
+            <h4>[<span>+</span>]其它内置对象</h4>
+            <ul style="display: none;">
+                <li><a href="">Error</a><span>
+                    new Error('msg') <br>
+                    错误对象属性：
+                    <table>
+                        <tr>
+                            <th>属性</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>err.message</td>
+                            <td>错误提示信息</td>
+                        </tr>
+                        <tr>
+                            <td>err.name</td>
+                            <td>错误名称（非标准属性）</td>
+                        </tr>
+                        <tr>
+                            <td>err.stack</td>
+                            <td>错误的堆栈（非标准属性）</td>
+                        </tr>
+                    </table>
+                    <br>
+                    原生错误类型：
+                    <table>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>SyntaxError</td>
+                            <td>解析代码时发生的语法错误</td>
+                        </tr>
+                        <tr>
+                            <td>ReferenceError</td>
+                            <td>引用一个不存在的变量时发生的错误；将一个值分配给无法分配的对象</td>
+                        </tr>
+                        <tr>
+                            <td>RangeError</td>
+                            <td>当一个值超出有效范围时发生的错误</td>
+                        </tr>
+                        <tr>
+                            <td>TypeError</td>
+                            <td>变量或参数不是预期类型时发生的错误</td>
+                        </tr>
+                        <tr>
+                            <td>URIError</td>
+                            <td>URI相关函数的参数不正确时抛出的错误</td>
+                        </tr>
+                        <tr>
+                            <td>EvalError</td>
+                            <td>eval函数没有被正确执行</td>
+                        </tr>
+                        <tr>
+                            <td>自定义错误</td>
+                            <td><a href="http://javascript.ruanyifeng.com/grammar/error.html">参考资料</a></td>
+                        </tr>
+                    </table>
+
+                    <br><br>
+                    如果在一个函数内部发生了错误，它自身没有捕获，错误就会被抛到外层调用函数，如果外层函数也没有捕获，该错误会一直沿着函数调用链向上抛出，直到被JavaScript引擎捕获，代码终止执行。所以，我们不必在每一个函数内部捕获错误，只需要在合适的地方来个统一捕获，一网打尽。<hr>
+                    涉及到异步代码，无法在调用时捕获，原因就是在捕获的当时，回调函数并未执行。<br>
+                    类似的，当我们处理一个事件时，在绑定事件的代码处，无法捕获事件处理函数的错误。
+                </span></li>
             </ul>
         </div>
     </div>
@@ -387,24 +565,6 @@ class PrimaryStudent extends Student {
             <ul style="display:none;">
                 <li>
                     <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">运算符</a>
-                </li>
-                <li>
-					<a href="">delete </a>obj.key
-					<span>
-						删除属性delete obj.key，删除成功后返回true <br>
-						注意，删除一个不存在的属性，delete不报错，而且返回true。 <br>
-						只有一种情况，delete命令会返回false，那就是该属性存在，且不得删除。<br>
-						delete命令只能删除对象本身的属性，无法删除继承的属性 <br>
-						delete命令不能删除var命令声明的变量，只能用来删除属性。
-					</span>
-				</li>
-				<li>
-                    key <a href="">in</a> obj
-                    <span>
-                        in遍历访问对象的属性/属性值
-                        它遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性 <br>
-                        它不仅遍历对象自身的属性，还遍历继承的属性。
-                    </span>
                 </li>
                 <li>
                     <a href="">void</a>

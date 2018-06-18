@@ -144,12 +144,14 @@
 				<li>
 					<a href="">this</a>
 					<span>
-						<a href="https://github.com/mqyqingfeng/Blog/issues/7">从ES规范解读this</a> <hr> 
+						this关键字总是指向函数所在的当前对象
+						<hr> 
 						普通函数：严格模式(undefined)、严格模式(全局对象) <br>
 						构造函数：对象的实例 <br>
 						对象方法：对象本身 <br>
 						call/apply/bind：绑定的对象 <br>
-						箭头函数：函数所在的块的this
+						箭头函数：函数所在的块的this <br>
+						<a href="https://github.com/mqyqingfeng/Blog/issues/7">从ES规范解读this</a> 
 					</span>
 				</li>
 				<li>
@@ -194,22 +196,8 @@
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>内置函数<span>-</span></h3>
+		<h3>异步编程<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]全局函数</h4>
-			<ul>
-				<li>
-                    <a href="">eval</a>(str)
-                    <span>
-                        将传入的字符串当做 JavaScript 代码进行执行。<br>
-						1.eval没有自己的作用域，都在当前作用域内执行。<br>
-                        2.JavaScript规定，如果使用严格模式，eval内部声明的变量，不会影响到外部作用域。 <br>
-						3.在严格模式下，eval依然可以读写当前作用域的变量。<br>
-                        4.eval“间接调用”时作用域总是全局作用域
-                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc24">参考资料</a>
-                    </span>
-                </li>
-			</ul>
             <h4>[<span>+</span>] Generator</h4>
             <ul style="display: none;">
             	<li>
