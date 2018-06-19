@@ -357,38 +357,98 @@
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>类<span>-</span></h3>
+		<h3>面向对象<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]类</h4>
+			<h4>[<span>-</span>]类与继承</h4>
 			<ul>
-				<li><a href="">class </a>Name<span>
-					1.constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。 <br>
-					2.类的内部所有定义的方法，都是不可枚举的（non-enumerable）。 <br>
-					3.类和模块的内部，默认就是严格模式，所以不需要使用use strict指定运行模式。 <br>
-					4.var MyClass = class Me{...} 表达式的方式 <a href="http://es6.ruanyifeng.com/#docs/class#Class-表达式">参考资料</a> <br>
-					5.类不存在变量提升 <br>
-					6.
-                </span></li>
+				<li>
+					<a href="">class</a> name
+					<span>
+						1.类的内部所有定义的方法，都是不可枚举的。 <br>
+						2.类和模块的内部，默认就是严格模式，所以不需要使用use strict指定运行模式。<br>
+						3.类不存在变量提升 <br>
+						4.类不能继承常规（非可构造）对象，如要继承常规对象，则改用Object.setPrototypeOf()
+					</span>
+				</li>
+				<li>
+					<a href="">class $child extends $parent</a>
+					<span>
+						1.如果子类中存在构造函数，则需要在使用“this”之前首先调用 super()。<br>
+						2.在子类的构造函数中，只有调用super之后，才可以使用this关键字
+                	</span>
+				</li>
+				<li>
+					class.<a href="">constructor</a>([opt]){}
+					<span>
+						1.constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法<br>	
+						2.一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
+					</span>
+				</li>
+				<li>
+					class.<a href="">super</a>(key)|.fn
+					<span>
+						1.super作为函数调用时，代表父类的构造函数。 <br>
+						2.super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。
+
+						<table>
+							<tr>
+								<td>环境</td>
+								<td>this</td>
+								<td>super</td>
+							</tr>
+							<tr>
+								<td>构造函数</td>
+								<td>实例对象</td>
+								<td>父类构造函数</td>
+							</tr>
+							<tr>
+								<td>普通方法</td>
+								<td>实例对象</td>
+								<td>父类原型对象</td>
+							</tr>
+							<tr>
+								<td>静态方法</td>
+								<td>类</td>
+								<td>父类</td>
+							</tr>
+						</table>
+					</span>
+				</li>
+				<li>
+					class.<a href="">fn</a>(){}
+					<span>
+						原型方法
+					</span>
+				</li>
                 <li>
-                	<a href="">static</a> fn
+                	class.<a href="">static fn</a>(){}
                 	<span>
-                		类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。 <br>
-                		注意，如果静态方法包含this关键字，这个this指的是类，而不是实例。 <hr>
-                		ES6 明确规定，Class 内部只有静态方法，没有静态属性。 <br>
-                		目前需要通过在类外面使用Class.prop来定义
+                		1.静态方法不会被实例继承，而是直接通过类来调用 <br>
+						2.静态方法会被子类继承 <br>
+                		3.如果静态方法包含this关键字，这个this指的是类，而不是实例。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes">参考资料</a>
                 	</span>
                 </li>
+				<li>
+					class.<a href="">get|set prop</a>(){}
+					<span>
+						getter/setter
+					</span>
+				</li>
 			</ul>
-			<h4>[<span>-</span>]类继承</h4>
-			<ul>
-				<li><a href="">class $child extends $parent</a><span>
-					PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
-                </span></li>
-                <li><a href="">super</a>(parent_key)<span>
-                	super这个关键字，既可以当作函数使用，也可以当作对象使用。在这两种情况下，它的用法完全不同。<br>
-                	1.super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。 <br>
-                	2.super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。
-                </span></li>
+			<h4>[<span>+</span>]类修饰器</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">@decorator</a>(cls)
+					<span>
+						修饰器是一个对类进行处理的函数
+					</span>
+				</li>
+				<li>
+					<a href="">@decorator</a>(cls,prop,desc)
+					<span>
+						修饰器不仅可以修饰类，还可以修饰类的属性
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>+</span>]原型链</h4>
 			<ul style="display:none;">
