@@ -3053,130 +3053,51 @@
 	<div class="u-block">
 		<h3>&#x5B57;&#x7B26;&#x4E32;<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]String</h4>
-			<ul>
-				<li><a href="">new String()</a><span>
-					&#x591A;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x6CD5;&#xFF1A;
-					<pre><code data-language="javascript">
-						//ES5:
-						&apos;string1 \n&apos; + &apos;string2&apos;
-						//ES6:
-						`string1 
-						string2` 
-					</code></pre>
-				</span></li>
-				<li><a href="">`__ ${varname} __`</a><span>
-					&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;
-					<pre><code data-language="javascript">
-						var v_1 = &apos;string&apos; ;
-						var v_2 = 2;
-						var msg = `test,${v_1},${v_2}` 
-					</code></pre>
-				</span></li>
-				<li>str.<a href="">length</a><span>
-					&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#x3002;<br>
-					&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x67D0;&#x4E2A;&#x7D22;&#x5F15;&#x8D4B;&#x503C;&#xFF0C;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6548;&#x679C;&#x3002;
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]&#x8F6C;&#x6362;</h4>
-			<ul>
-				<li>str.<a href="">split</a>(/reg/,[len])<span>
-					&#x53C2;&#x6570;1&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; <br>
-					&#x53C2;&#x6570;2&#xFF1A;&#x6700;&#x5927;&#x7684;&#x6570;&#x7EC4;&#x957F;&#x5EA6; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x6570;&#x7EC4; <br>
-					&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
-					&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x6309;&#x6307;&#x5B9A;&#x7B26;&#x53F7;&#x6216;&#x6B63;&#x5219;&#x5206;&#x5272;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;</span></li>
-				<li>str.<a href="">trim</a>()<span>
-					&#x79FB;&#x9664;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E24;&#x7AEF;&#x5220;&#x9664;&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x3002;<br>
-					&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x5305;&#x62EC;&#x6240;&#x6709;&#x7684;&#x7A7A;&#x767D;&#x5B57;&#x7B26; (space, tab, no-break space &#x7B49;) &#x4EE5;&#x53CA;&#x6240;&#x6709;&#x884C;&#x7EC8;&#x6B62;&#x7B26;&#x5B57;&#x7B26;&#xFF08;&#x5982; LF&#xFF0C;CR&#xFF09;&#x3002;
-				</span></li>
-				<li>str.<a href="">toUpperCase</a>()<span>
-					&#x8F6C;&#x4E3A;&#x5927;&#x5199;
-				</span></li>
-				<li>str.<a href="">toLowerCase</a>()<span>
-					&#x8F6C;&#x4E3A;&#x5C0F;&#x5199; 
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]&#x64CD;&#x4F5C;</h4>
-			<ul>
-				<li>str.<a href="">concat</a>(str,..)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x4E32;&#x8054;&#x4E00;&#x4E2A;&#x6216;&#x66F4;&#x591A;&#x5B57;&#x7B26;&#x4E32; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32; <br>
-					&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8;&#x3002;
-				</span></li>
-				<li>str.<a href="">slice</a>[n,m)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x672B;&#x5C3E;&#x4F4D;&#x7F6E;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;<br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x88AB;&#x622A;&#x53D6;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#x3002;<br>
-					&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8;&#x3002;<br>
-					&#x5F53;&#x53EA;&#x6709;1&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x5219;&#x4E3A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x5230;&#x672B;&#x5C3E;&#x5168;&#x90E8;&#xFF0C;&#x4E14;&#x5305;&#x542B;&#x672B;&#x5C3E;&#x5143;&#x7D20;&#xFF08;&#x5373;m=arr.length&#xFF09;&#x3002;<br>
-					n&#x548C;m&#x53EF;&#x4E3A;&#x8D1F;&#x503C;&#xFF0C;-1 &#x6307;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;-2 &#x6307;&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x4E2A;&#x5143;&#x7D20;&#x3002;
-				</span></li>
-				<!-- <li>str.<a href="">substring</a>[n,m)<span>
-					显示指定索引起范围内的字符串，返回新字符串
-					<br>slice / substring / substr 负数
-					<br>单个负数：
-					<br>alert(box.slice(-3)); //Lee，6+(-3)=3 位开始 length-n
-					<br>alert(box.substring(-3)); //Mr.Lee 负数返回全部 返回全部
-					<br>alert(box.substr(-3)); //Lee，6+(-3)=3 位开始 length-n
-					<br>第二位负数：
-					<br>alert(box.slice(3, -1)); //Le 6+(-1)=5, (3,5) a,length-n
-					<br>alert(box.substring(3, -1)); //Mr. 第二参为负，直接转 0，并且方法会把较小的数字提前，(0,3) a,0
-					<br>alert(box.substr(3, -1)); //'' 第二参数为负，直接转 0 ，(3,0) a,0
-					</span></li> -->
-				<li>str.<a href="">replace</a><em>(/reg/g,val|fn([reg]))</em><span>
-					&#x53C2;&#x6570;1&#xFF1A;&#x9700;&#x8981;&#x66FF;&#x6362;&#x7684;&#x5B57;&#x7B26;&#x6216;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x6CA1;&#x6709;&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x65F6;&#x53EA;&#x66FF;&#x6362;&#x4E00;&#x6B21; <br>
-					&#x53C2;&#x6570;2&#xFF1A;&#x66FF;&#x6362;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x751F;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;return&#x8FD4;&#x56DE; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32;<br>
-					&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <hr>
-					<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;">&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</a>
-				</span></li>
-				<li>str.<a href="">repeat</a>(n)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x91CD;&#x590D;&#x6B21;&#x6570;(&#x5305;&#x542B;&#x539F;) <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32; <br>
-					&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
-					&#x4F1A;&#x5411;&#x4E0B;&#x53D6;&#x6574;&#xFF0C;&#x5F53;&#x4E3A;0&#x65F6;&#x53D8;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;
-				</span></li>
+			<h4>[<span>+</span>]&#x6784;&#x5EFA;</h4>
+			<ul style="display:none;">
 				<li>
-					str.<a href="">padStart/padEnd</a>(len,[rep])
+					<a href="">&apos;str&apos;</a>
 					<span>
-						&#x53C2;&#x6570;&#xFF1A;&#x6700;&#x5C0F;&#x957F;&#x5EA6;&#xFF0C;&#x7528;&#x4E8E;&#x8865;&#x5168;&#x7684;&#x66FF;&#x4EE3; <br>
+						&#x5B57;&#x9762;&#x91CF;&#x65B9;&#x6CD5; <br>
+						`\u{xxxxx}` unicode&#x7F16;&#x7801;
+					</span>
+				</li>
+				<li>
+					<a href="">new String()</a>
+					<span>
+						&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5305;&#x88C5;&#x5BF9;&#x8C61;
+					</span>
+				</li>
+				<li>
+					<a href="">`__ ${varname} __`</a>
+					<span>
+					&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x652F;&#x6301;&#x591A;&#x884C;
+					</span>
+				</li>
+				<li>
+					str.<a href="">length</a>
+					<span>
+						&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#x3002;<br>
+						&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x67D0;&#x4E2A;&#x7D22;&#x5F15;&#x8D4B;&#x503C;&#xFF0C;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6548;&#x679C;&#x3002;
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]&#x67E5;&#x627E;</h4>
+			<h4>[<span>-</span>]&#x68C0;&#x6D4B;</h4>
 			<ul>
-				<li>str.<a href="">indexOf</a>(val,[i])<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x6B63;&#x5411;&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x503C;,i&#x4E3A;&#x8D77;&#x59CB;&#x7D22;&#x5F15;<br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x51FA;&#x73B0;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#xFF1B;&#x5982;&#x67E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1
-				</span></li>
-				<li>str.<a href="">lastIndexOf</a>(val,[i])<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x9006;&#x5411;&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x503C;,i&#x4E3A;&#x8D77;&#x59CB;&#x7D22;&#x5F15; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x51FA;&#x73B0;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#xFF1B;&#x5982;&#x67E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1 
-				</span></li>
-				<li>str.<a href="">search</a>(/reg/)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;/&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;<br>
-					&#x8FD4;&#x56DE;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x5B50;&#x4E32;&#x7684;&#x7D22;&#x5F15;/-1<br>
-					&#x59CB;&#x7EC8;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x627E;&#xFF0C;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5373;&#x8FD4;&#x56DE;&#xFF0C;&#x6B63;&#x5219;&#x65E0;&#x9700;&#x5168;&#x5C40;&#x8BBE;&#x7F6E;
-				</span></li>
-				<li>str.<a href="">match</a>(/reg/g)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;/&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;<br>
-					&#x8FD4;&#x56DE;&#xFF1A;&#x5B50;&#x4E32;&#x6570;&#x7EC4;/null
-					<br>
-					&#x5982;&#x679C;&#x4F20;&#x5165;&#x975E;&#x6B63;&#x5219;&#xFF0C;&#x4F1A;&#x9690;&#x5F0F;&#x5730;&#x8F6C;&#x6362;&#x4E3A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1B;<br>
-					&#x5982;&#x679C;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#xFF1B;<br>
-					&#x6570;&#x7EC4;&#xFF1A; <br>
-					1.&#x8FDB;&#x884C;&#x5339;&#x914D;&#x5B8C;&#x6574;&#x7684;&#x5B57;&#x7B26;&#x4E32; <br>
-					2.&#x5706;&#x62EC;&#x53F7;&#x6355;&#x83B7;&#x7684;&#x7ED3;&#x679C; <br>
-					3.index: 0&#xFF0C;&#x5339;&#x914D;&#x7ED3;&#x679C;&#x5728;&#x539F;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x7D22;&#x5F15; <br>
-					4.input: &quot;&#x539F;&#x5B57;&#x7B26;&#x4E32;&quot; <br>
-					&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x5230;&#xFF0C;&#x8FD4;&#x56DE;null 
-				</span></li>
-				<li>str.<a href="">charAt</a>(i)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x67E5;&#x627E;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7D22;&#x5F15;&#x4E0A;&#x7684;&#x5B57;&#x7B26;</span></li>
-				<li>str.<a href="">charCodeAt</a>(i)<span>
-					&#x53C2;&#x6570;&#xFF1A;&#x67E5;&#x627E;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7D22;&#x5F15;&#x4E0A;&#x7684;&#x5B57;&#x7B26;&#x7684; Unicode &#x7F16;&#x7801;</span></li>
+				<li>
+					str.<a href="">indexOf</a>(val,[i])
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x6B63;&#x5411;&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x503C;,i&#x4E3A;&#x8D77;&#x59CB;&#x7D22;&#x5F15;<br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x51FA;&#x73B0;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#xFF1B;&#x5982;&#x67E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1
+					</span>
+				</li>
+				<li>
+					str.<a href="">lastIndexOf</a>(val,[i])
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x9006;&#x5411;&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x503C;,i&#x4E3A;&#x8D77;&#x59CB;&#x7D22;&#x5F15; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x51FA;&#x73B0;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#xFF1B;&#x5982;&#x67E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1 
+					</span>
+				</li>
 				<li>
 					str.<a href="">includes</a>(str,[i])
 					<span>
@@ -3199,140 +3120,297 @@
 					</span>
 				</li>
 			</ul>
+			<h4>[<span>-</span>]&#x8F6C;&#x6362;</h4>
+			<ul>
+				<li>
+					str.<a href="">toUpperCase</a>()
+					<span>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
+						&#x8F6C;&#x4E3A;&#x5927;&#x5199;
+					</span>
+				</li>
+				<li>
+					str.<a href="">toLowerCase</a>()
+					<span>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
+						&#x8F6C;&#x4E3A;&#x5C0F;&#x5199; 
+					</span>
+				</li>
+				<li>
+					<a href="">String.raw</a>(str)
+					<span>
+						&#x4F1A;&#x5BF9;&#x659C;&#x6760;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]&#x5339;&#x914D;</h4>
+			<ul>
+				<li>
+					str.<a href="">split</a>(/reg/,[len])
+					<span>
+						&#x53C2;&#x6570;1&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; <br>
+						&#x53C2;&#x6570;2&#xFF1A;&#x6700;&#x5927;&#x7684;&#x6570;&#x7EC4;&#x957F;&#x5EA6; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x6570;&#x7EC4; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
+						&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x6309;&#x6307;&#x5B9A;&#x7B26;&#x53F7;&#x6216;&#x6B63;&#x5219;&#x5206;&#x5272;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;
+					</span>
+				</li>
+				<li>
+					str.<a href="">search</a>(/reg/)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;/&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;<br>
+						&#x8FD4;&#x56DE;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x5B50;&#x4E32;&#x7684;&#x7D22;&#x5F15;/-1<br>
+						&#x59CB;&#x7EC8;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x627E;&#xFF0C;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5373;&#x8FD4;&#x56DE;&#xFF0C;&#x6B63;&#x5219;&#x65E0;&#x9700;&#x5168;&#x5C40;&#x8BBE;&#x7F6E;
+					</span>
+				</li>
+				<li>
+					str.<a href="">match</a>(/reg/g)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;/&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;<br>
+						&#x8FD4;&#x56DE;&#xFF1A;&#x5B50;&#x4E32;&#x6570;&#x7EC4;/null
+						<br>
+						&#x5982;&#x679C;&#x4F20;&#x5165;&#x975E;&#x6B63;&#x5219;&#xFF0C;&#x4F1A;&#x9690;&#x5F0F;&#x5730;&#x8F6C;&#x6362;&#x4E3A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1B;<br>
+						&#x5982;&#x679C;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#xFF1B;<br>
+						&#x6570;&#x7EC4;&#xFF1A; <br>
+						1.&#x8FDB;&#x884C;&#x5339;&#x914D;&#x5B8C;&#x6574;&#x7684;&#x5B57;&#x7B26;&#x4E32; <br>
+						2.&#x5706;&#x62EC;&#x53F7;&#x6355;&#x83B7;&#x7684;&#x7ED3;&#x679C; <br>
+						3.index: 0&#xFF0C;&#x5339;&#x914D;&#x7ED3;&#x679C;&#x5728;&#x539F;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x7D22;&#x5F15; <br>
+						4.input: &quot;&#x539F;&#x5B57;&#x7B26;&#x4E32;&quot; <br>
+						&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x5230;&#xFF0C;&#x8FD4;&#x56DE;null 
+					</span>
+				</li>
+				<li>
+					str.<a href="">replace</a><em>(/reg/g,val|fn)</em>
+					<span>
+						&#x53C2;&#x6570;1&#xFF1A;&#x9700;&#x8981;&#x66FF;&#x6362;&#x7684;&#x5B57;&#x7B26;&#x6216;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x6CA1;&#x6709;&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x65F6;&#x53EA;&#x66FF;&#x6362;&#x4E00;&#x6B21; <br>
+						&#x53C2;&#x6570;2&#xFF1A;&#x66FF;&#x6362;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x751F;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;return&#x8FD4;&#x56DE; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32;<br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <hr>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;">&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</a>
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]&#x64CD;&#x4F5C;</h4>
+			<ul>
+				<li>
+					str.<a href="">concat</a>(str,..)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x4E32;&#x8054;&#x4E00;&#x4E2A;&#x6216;&#x66F4;&#x591A;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8;&#x3002;
+					</span>
+				</li>
+				<li>
+					str.<a href="">slice</a>[n,m)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x672B;&#x5C3E;&#x4F4D;&#x7F6E;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;<br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x88AB;&#x622A;&#x53D6;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#x3002;<br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8;&#x3002;<br>
+						&#x5F53;&#x53EA;&#x6709;1&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x5219;&#x4E3A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x5230;&#x672B;&#x5C3E;&#x5168;&#x90E8;&#xFF0C;&#x4E14;&#x5305;&#x542B;&#x672B;&#x5C3E;&#x5143;&#x7D20;&#xFF08;&#x5373;m=arr.length&#xFF09;&#x3002;<br>
+						n&#x548C;m&#x53EF;&#x4E3A;&#x8D1F;&#x503C;&#xFF0C;-1 &#x6307;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;-2 &#x6307;&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x4E2A;&#x5143;&#x7D20;&#x3002;
+					</span>
+				</li>
+				<li>
+					str.<a href="">substring</a>[n,m)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x672B;&#x5C3E;&#x4F4D;&#x7F6E;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;&#xFF0C;&#x4E0D;&#x63A5;&#x53D7;&#x8D1F;&#x6570;<br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x88AB;&#x622A;&#x53D6;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#x3002;<br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8;&#x3002;<br>
+						<a href="https://www.cnblogs.com/imelemon/p/6035810.html"></a>
+					</span>
+				</li>
+				<li>
+					str.<a href="">substr</a>(n,[len])
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x5F00;&#x59CB;&#x63D0;&#x53D6;&#x5B57;&#x7B26;&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x5982;&#x4E3A;&#x8D1F;&#x6570;&#xFF0C;&#x5219;&#x7528;len+n&#xFF09;&#xFF0C;&#x63D0;&#x53D6;&#x7684;&#x5B57;&#x7B26;&#x6570; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substr">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					str.<a href="">trim</a>()
+					<span>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
+						&#x79FB;&#x9664;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E24;&#x7AEF;&#x5220;&#x9664;&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x3002;<br>
+						&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x5305;&#x62EC;&#x6240;&#x6709;&#x7684;&#x7A7A;&#x767D;&#x5B57;&#x7B26; (space, tab, no-break space &#x7B49;) &#x4EE5;&#x53CA;&#x6240;&#x6709;&#x884C;&#x7EC8;&#x6B62;&#x7B26;&#x5B57;&#x7B26;&#xFF08;&#x5982; LF&#xFF0C;CR&#xFF09;&#x3002;
+					</span>
+				</li>
+				<li>
+					str.<a href="">repeat</a>(n)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x91CD;&#x590D;&#x6B21;&#x6570;(&#x5305;&#x542B;&#x539F;) <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8; <br>
+						&#x4F1A;&#x5411;&#x4E0B;&#x53D6;&#x6574;&#xFF0C;&#x5F53;&#x4E3A;0&#x65F6;&#x53D8;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;
+					</span>
+				</li>
+				<li>
+					str.<a href="">charAt</a>(i)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x67E5;&#x627E;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7D22;&#x5F15;&#x4E0A;&#x7684;&#x5B57;&#x7B26;
+					</span>
+				</li>
+			</ul>
 		</div>
 	</div>
 	<div class="u-block">
 		<h3>&#x6587;&#x672C;&#x683C;&#x5F0F;&#x5316;<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]URI</h4>
-			<ul>
-				<li><em>encode/decode</em><a href=""></a><span>
-					<a href="http://www.cnblogs.com/shuiyi/p/5277233.html">&#x53C2;&#x8003;&#x8D44;&#x6599;1</a>&#x3001;
-					<a href="http://www.cnblogs.com/season-huang/p/3439277.html">&#x53C2;&#x8003;&#x8D44;&#x6599;2</a>
-				</span></li>
-				<li><a href="">encodeURI</a>(uri)<span>&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x4E3A; URI&#x3002;</span></li>
-				<li><a href="">encodeURIComponent</a>(uri)<span>&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x4E3A; URI &#x7EC4;&#x4EF6;&#x3002;</span></li>
-				<li><a href="">decodeURI</a>(uri)<span>&#x89E3;&#x7801;&#x67D0;&#x4E2A;&#x7F16;&#x7801;&#x7684; URI&#x3002;</span></li>
-				<li><a href="">decodeURIComponent</a>(uri)<span>&#x89E3;&#x7801;&#x4E00;&#x4E2A;&#x7F16;&#x7801;&#x7684; URI &#x7EC4;&#x4EF6;&#x3002;</span></li>
-			</ul>
-			<h4>[<span>-</span>]&#x7F16;&#x7801;&#x89E3;&#x7801;</h4>
-			<ul>
-				<li><a href="">String.fromCharCode</a>(Unicode)<span>
-					&#x5C06;Unicode&#x7F16;&#x7801;&#x8F6C;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;,&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x7CFB;&#x5217;Unicode&#x7801;&#x70B9;&#xFF0C;&#x8FD4;&#x56DE;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002; <br>
-					&#x53C2;&#x6570;&#xFF1A;Unicode&#x7F16;&#x7801;&#x6570;&#x5B57; <br>
-					&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x5B57;&#x7B26;&#x4E32; <br>
-					&#x539F;&#x5BF9;&#x8C61;&#xFF1A;&#x4E0D;&#x53D8;
-				</span></li>
-				<li>str.<a href="">normalize</a><em>([NFC])</em><span>
-					&#x6309;&#x6307;&#x5B9A;Unicode&#x6B63;&#x89C4;&#x5F62;&#x5F0F;&#x5C06;&#x5F53;&#x524D;&#x5B57;&#x7B26;&#x4E32;&#x6B63;&#x89C4;&#x5316;&#x3002;<br>
-					&#x53C2;&#x6570;&#xFF1A;&#x56DB;&#x79CD; Unicode &#x6B63;&#x89C4;&#x5F62;&#x5F0F; &quot;NFC&quot;, &quot;NFD&quot;, &quot;NFKC&quot;, &#x4EE5;&#x53CA; &quot;NFKD&quot; &#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;, &#x9ED8;&#x8BA4;&#x503C;&#x4E3A; &quot;NFC&quot;.<br>
-					NFC - Normalization Form Canonical Composition.<br>
-					NFD - Normalization Form Canonical Decomposition.<br>
-					NFKC - Normalization Form Compatibility Composition.<br>
-					NFKD - Normalization Form Compatibility Decomposition.<br>
-				</span></li>
-				<li><a href="">escape</a>(str)<span>
-					&#x8BE5;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x5BF9; ASCII &#x5B57;&#x6BCD;&#x548C;&#x6570;&#x5B57;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x5BF9;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B; ASCII &#x6807;&#x70B9;&#x7B26;&#x53F7;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF1A; * @ - _ + . / &#x3002;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x7684;&#x5B57;&#x7B26;&#x90FD;&#x4F1A;&#x88AB;&#x8F6C;&#x4E49;&#x5E8F;&#x5217;&#x66FF;&#x6362;&#x3002;</span></li>
-				<li><a href="">unescape</a>(str)<span>
-					&#x5BF9;&#x7531; escape() &#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8FDB;&#x884C;&#x89E3;&#x7801;&#x3002;<br>
-				</span></li>
-				<li>
-					<a href="">btoa</a>(str)
-					<span>
-						&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x4E8C;&#x8FDB;&#x5236;&#x503C;&#x8F6C;&#x4E3A;Base64&#x7F16;&#x7801; <br>
-						<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/btoa">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-					</span>
-				</li>
-				<li>
-					<a href="">atob</a>(base64)
-					<span>
-						&#x5C06;Base64&#x7F16;&#x7801;&#x8F6C;&#x4E3A;&#x539F;&#x6765;&#x7684;&#x7F16;&#x7801;
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>]RegExp</h4>
-			<ul style="display:none">
-				<li><a href="">new RegExp</a>(&apos;exp&apos;)<span>
-					&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x76F4;&#x63A5;&#x901A;&#x8FC7;/&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;/&#x5199;&#x51FA;&#x6765;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x901A;&#x8FC7;new RegExp(&apos;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&apos;)&#x521B;&#x5EFA;&#x4E00;&#x4E2A;RegExp&#x5BF9;&#x8C61;&#x3002;<br>
-					var re1 = /ABC\-001/; <br>
-					var re2 = new RegExp(&apos;ABC\\-001&apos;);<br>
-					&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8F6C;&#x4E49;&#x95EE;&#x9898;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E24;&#x4E2A;\\&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;\&#x3002; <hr>
-					&#x4FEE;&#x9970;&#x7B26;&#xFF1A;<br>
-					i&#xFF1A;&#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;&#x3002; <br>
-					g&#xFF1A;&#x5168;&#x5C40;&#x5339;&#x914D;&#x3002; <br>
-					m&#xFF1A;&#x591A;&#x884C;&#x6A21;&#x5F0F;&#x3002;<br>
-					<a href="http://javascript.ruanyifeng.com/stdlib/regexp.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-				</span></li>
-				<li>RegExp.<a href="">test</a>(str)<span>
-					&#x8FD4;&#x56DE;&#xFF1A;true/false
-				</span></li>
-				<li>RegExp.<a href="">exec</a>(str)<span>
-					&#x8FD4;&#x56DE;&#xFF1A;&#x5339;&#x914D;&#x503C;/null <br>
-					&#x5168;&#x5C40;&#x5339;&#x914D;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x6267;&#x884C;exec()&#x65B9;&#x6CD5;&#x6765;&#x641C;&#x7D22;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x6307;&#x5B9A;g&#x6807;&#x5FD7;&#x540E;&#xFF0C;&#x6BCF;&#x6B21;&#x8FD0;&#x884C;exec()&#xFF0C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x672C;&#x8EAB;&#x4F1A;&#x66F4;&#x65B0;lastIndex&#x5C5E;&#x6027;&#xFF0C;&#x8868;&#x793A;&#x4E0A;&#x6B21;&#x5339;&#x914D;&#x5230;&#x7684;&#x6700;&#x540E;&#x7D22;&#x5F15;&#x3002;
-				</span></li>
-			</ul>
 			<h4>[<span>-</span>]JSON</h4>
 			<ul>
-				<li><em>json</em><a href=""></a><span>
-					&#x6982;&#x5FF5;&#xFF1A;
-					<br>&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x8868;&#x793A;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;JSON&#x662F;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x540E;&#x7F00;&#x4E3A;.json
-					<hr>
-					&#x8BED;&#x6CD5;&#xFF1A;
-					<br>&#x7B80;&#x5355;&#x503C;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6570;&#x503C;&#x3001;&#x5E03;&#x5C14;&#x503C;&#x3001;null&#xFF0C;&#x4E0D;&#x652F;&#x6301;undefined
-					<br>&#x5BF9;&#x8C61;&#xFF1A;&#x4E00;&#x7EC4;&#x65E0;&#x5E8F;&#x7684;&#x952E;&#x503C;&#x5BF9;
-					<br>&#x6570;&#x7EC4;&#xFF1A;&#x4E00;&#x7EC4;&#x6709;&#x5E8F;&#x7684;&#x503C;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x6765;&#x8BBF;&#x95EE;
-					<hr>
-					JSON&#x4E0E;JS&#x7684;&#x533A;&#x522B;&#xFF1A;
-					<br>JSON&#x5B57;&#x7B26;&#x4E32;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x53CC;&#x5F15;&#x53F7;&#xFF08;&#x5355;&#x5F15;&#x53F7;&#x4F1A;&#x5BFC;&#x81F4;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF09;&#xFF0C;&#x4E14;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x52A0;&#x53CC;&#x5F15;&#x53F7;
-					<br>&#x5728;JS&#x4E2D;&#x76F4;&#x63A5;&#x5F15;&#x5165;&#x4E00;&#x6BB5;JSON&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x7528;&#x5355;&#x5F15;&#x53F7;&#x5C06;&#x5176;&#x62EC;&#x8D77;&#x6765;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5176;&#x5B9E;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;
-					<br>&#x5982;&#xFF1A;&apos;{&quot;name&quot; : &quot;Lee&quot;,&quot;age&quot; : 100}&apos; JSON&#x6570;&#x7EC4;&#x4E0E;&#x5BF9;&#x8C61;&#x6BD4;&#x666E;&#x901A;JS&#x5C11;&#x4E86;&#x5206;&#x53F7;&#x4E0E;&#x8D4B;&#x503C;&#xFF0C;&#x5176;&#x672C;&#x8EAB;&#x8868;&#x793A;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;
-					<hr>
-					&#x517C;&#x5BB9;&#x6027;&#xFF1A;
-					<br>IE7&#x53CA;IE7-&#x9700;&#x8981;&#x5F15;&#x7528;&#x5E93;&#x6587;&#x4EF6; <a href="https://github.com/douglascrockford/JSON-js/">json-js</a>
-					<textarea><!--[if lte IE 7]> json2.js <![endif]--></textarea>
-					<hr>
-					&#x6267;&#x884C;&#x4F18;&#x5148;&#x7EA7;&#xFF1A;
-					<br>toJSON() --&gt; &#x8FC7;&#x6EE4;&#x53C2;&#x6570; --&gt; &#x6807;&#x51C6;&#x5E8F;&#x5217;&#x5316; --&gt; &#x7F29;&#x8FDB; 
-					<br>&#x5982;&#x5728;toJSON&#x4E2D;&#x5DF2;&#x88AB;&#x8FC7;&#x6EE4;&#x7684;&#x952E;&#x503C;&#x5219;&#x5C31;&#x7B97;&#x8FC7;&#x6EE4;&#x53C2;&#x6570;&#x4E2D;&#x4ECD;&#x6709;&#x8BBE;&#x7F6E;&#x4E5F;&#x5DF2;&#x65E0;&#x6548;
-				</span></li>
-				<li><a href="">JSON.stringify</a><em>(obj,[arr(key)|fn(key,val)|null],[space|num])</em><span>
-					js&#x5BF9;&#x8C61; -&gt; json&#x5B57;&#x7B26;&#x4E32; <hr>
-					&#x53C2;&#x6570;1&#xFF1A;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x3002;<br>
-					&#x5982;&#x6709;&#x952E;&#x503C;&#x4E3A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x6392;&#x9664;&#x8BE5;&#x6210;&#x5458;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8F6C;&#x6362;&#x524D;&#x5C06;&#x51FD;&#x6570;&#x7528;.toString()&#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6765;&#x907F;&#x514D;&#x4EE5;&#x4E0A;&#x95EE;&#x9898;&#x7684;&#x53D1;&#x751F;&#x3002;<br>
-					&#x5982;&#x6709;&#x952E;&#x503C;&#x4E3A;&#x65E5;&#x671F;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4F1A;&#x8F6C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
-					<hr>
-					&#x53C2;&#x6570;2&#xFF1A;&#x7528;&#x4E8E;&#x8F6C;&#x6362;&#x7ED3;&#x679C;&#x7684;&#x51FD;&#x6570;&#x6216;&#x6570;&#x7EC4; <br>
-					&#x5F53;&#x4E3A;&#x6570;&#x7EC4;&#x65F6;&#xFF0C;&#x663E;&#x793A;&#x6307;&#x5B9A;&#x7684;key&#xFF0C;[&apos;key1&apos;,&apos;key2&apos;] <br>
-					&#x5F53;&#x4E3A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x6839;&#x636E;&#x51FD;&#x6570;&#x89C4;&#x5219;&#x5904;&#x7406;&#xFF0C;function(key,value){...return value}&#xFF0C;<b>&#x51FD;&#x6570;&#x9700;&#x8FD4;&#x56DE;&#x65B0;&#x7684;value</b>&#x3002;<b>&#x5982;&#x679C;&#x6B64;&#x51FD;&#x6570;&#x8FD4;&#x56DE; undefined&#xFF0C;&#x5219;&#x6392;&#x9664;&#x6210;&#x5458;&#x3002;</b>
-					<hr>
-					&#x53C2;&#x6570;3&#xFF1A;&#x7F29;&#x8FDB;&#x7A7A;&#x683C;&#xFF0C;&#x5F53;&#x4E0D;&#x4F20;&#x5165;fn&#x53EA;&#x8BBE;&#x7F6E;&#x7F29;&#x8FDB;&#x65F6;&#xFF0C;&#x7B2C;2&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x5165;null&#x3002;&#x5982;&#x679C;space &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x503C;&#x6587;&#x672C;&#x5728;&#x6BCF;&#x4E2A;&#x7EA7;&#x522B;&#x7F29;&#x8FDB;&#x6307;&#x5B9A;&#x6570;&#x76EE;&#x7684;&#x7A7A;&#x683C;&#x3002;
-				</span></li>
-				<li><a href="">JSON.parse</a>(json,[fn(key,val)])<span>
-					json&#x5B57;&#x7B26;&#x4E32; -&gt; js&#x5BF9;&#x8C61; <br>
-					&#x8F6C;&#x6362;&#x51FD;&#x6570;&#x9700;&#x8FD4;&#x56DE;value&#x503C;&#x3002;
-				</span></li>
-				<li>obj.<a href="">toJSON</a><em>:fn(){return json}</em><span>
-				   JS&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;toJSON()&#x65B9;&#x6CD5;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x5BF9;&#x8C61;
-<pre><code data-language="javascript">
-	var xiaoming = {
-	    name: &apos;&#x5C0F;&#x660E;&apos;,
-	    age: 14,
-	    gender: true,
-	    height: 1.65,
-	    grade: null,
-	    &apos;middle-school&apos;: &apos;\&quot;W3C\&quot; Middle School&apos;,
-	    skills: [&apos;JavaScript&apos;, &apos;Java&apos;, &apos;Python&apos;, &apos;Lisp&apos;],
-	    toJSON: function () {
-	        return { // &#x53EA;&#x8F93;&#x51FA;name&#x548C;age&#xFF0C;&#x5E76;&#x4E14;&#x6539;&#x53D8;&#x4E86;key&#xFF1A;
-	            &apos;Name&apos;: this.name,
-	            &apos;Age&apos;: this.age
-	        };
-	    }
-	};
-
-	JSON.stringify(xiaoming); // &apos;{&quot;Name&quot;:&quot;&#x5C0F;&#x660E;&quot;,&quot;Age&quot;:14}&apos;
-</code></pre>
-				</span></li>
+				<li>
+					<em>json</em><a href=""></a>
+					<span>
+						&#x6982;&#x5FF5;&#xFF1A;<br>
+						&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x8868;&#x793A;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;JSON&#x662F;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x540E;&#x7F00;&#x4E3A;.json
+						<hr>
+						&#x8BED;&#x6CD5;&#xFF1A;<br>
+						&#x7B80;&#x5355;&#x503C;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6570;&#x503C;&#x3001;&#x5E03;&#x5C14;&#x503C;&#x3001;null&#xFF0C;&#x4E0D;&#x652F;&#x6301;undefined<br>
+						&#x5BF9;&#x8C61;&#xFF1A;&#x4E00;&#x7EC4;&#x65E0;&#x5E8F;&#x7684;&#x952E;&#x503C;&#x5BF9;<br>
+						&#x6570;&#x7EC4;&#xFF1A;&#x4E00;&#x7EC4;&#x6709;&#x5E8F;&#x7684;&#x503C;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x6765;&#x8BBF;&#x95EE;
+						<hr>
+						JSON&#x4E0E;JS&#x7684;&#x533A;&#x522B;&#xFF1A;<br>
+						1.&#x5BF9;&#x8C61;&#xFF1A;JSON&#x5B57;&#x7B26;&#x4E32;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x53CC;&#x5F15;&#x53F7;&#xFF08;&#x5355;&#x5F15;&#x53F7;&#x4F1A;&#x5BFC;&#x81F4;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF09;&#xFF0C;&#x4E14;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x52A0;&#x53CC;&#x5F15;&#x53F7;&#xFF1B;<br>
+						2.&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;&#xFF1A;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x540E;&#x4E0D;&#x80FD;&#x6709;&#x9017;&#x53F7; <br>
+						3.&#x6570;&#x503C;&#xFF1A;&#x7981;&#x6B62;&#x51FA;&#x73B0;&#x524D;&#x5BFC;&#x96F6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5C0F;&#x6570;&#x70B9;&#xFF0C;&#x5219;&#x540E;&#x9762;&#x81F3;&#x5C11;&#x8DDF;&#x7740;&#x4E00;&#x4F4D;&#x6570;&#x5B57; <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					<a href="">JSON.stringify</a><em>(obj,[fn,space])</em>
+					<span>
+						js&#x5BF9;&#x8C61; -&gt; json&#x5B57;&#x7B26;&#x4E32; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">&#x53C2;&#x8003;&#x8D44;&#x6599;</a><hr>
+						&#x53C2;&#x6570;1&#xFF1A;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x3002;<br>
+						&#x5982;&#x6709;&#x952E;&#x503C;&#x4E3A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x6392;&#x9664;&#x8BE5;&#x6210;&#x5458;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8F6C;&#x6362;&#x524D;&#x5C06;&#x51FD;&#x6570;&#x7528;.toString()&#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6765;&#x907F;&#x514D;&#x4EE5;&#x4E0A;&#x95EE;&#x9898;&#x7684;&#x53D1;&#x751F;&#x3002;<br>
+						&#x5982;&#x6709;&#x952E;&#x503C;&#x4E3A;&#x65E5;&#x671F;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4F1A;&#x8F6C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+						<hr>
+						&#x53C2;&#x6570;2&#xFF1A;&#x7528;&#x4E8E;&#x8F6C;&#x6362;&#x7ED3;&#x679C;&#x7684;&#x51FD;&#x6570;&#x6216;&#x6570;&#x7EC4; <br>
+						&#x5982;&#x679C;&#x8BE5;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x5728;&#x5E8F;&#x5217;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x503C;&#x7684;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x7ECF;&#x8FC7;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x8F6C;&#x6362;&#x548C;&#x5904;&#x7406;&#xFF1B;&#x5982;&#x679C;&#x8BE5;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5219;&#x53EA;&#x6709;&#x5305;&#x542B;&#x5728;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x624D;&#x4F1A;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#x5230;&#x6700;&#x7EC8;&#x7684; JSON &#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#xFF1B;&#x5982;&#x679C;&#x8BE5;&#x53C2;&#x6570;&#x4E3A;null&#x6216;&#x8005;&#x672A;&#x63D0;&#x4F9B;&#xFF0C;&#x5219;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#xFF1B;
+						<hr>
+						&#x53C2;&#x6570;3&#xFF1A;&#x7F29;&#x8FDB;&#x7A7A;&#x683C; <br>
+						&#x6307;&#x5B9A;&#x7F29;&#x8FDB;&#x7528;&#x7684;&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7528;&#x4E8E;&#x7F8E;&#x5316;&#x8F93;&#x51FA;&#xFF08;pretty-print&#xFF09;&#xFF1B;&#x5982;&#x679C;&#x53C2;&#x6570;&#x662F;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x5B83;&#x4EE3;&#x8868;&#x6709;&#x591A;&#x5C11;&#x7684;&#x7A7A;&#x683C;&#xFF1B;&#x4E0A;&#x9650;&#x4E3A;10&#x3002;&#x8BE5;&#x503C;&#x82E5;&#x5C0F;&#x4E8E;1&#xFF0C;&#x5219;&#x610F;&#x5473;&#x7740;&#x6CA1;&#x6709;&#x7A7A;&#x683C;&#xFF1B;&#x5982;&#x679C;&#x8BE5;&#x53C2;&#x6570;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;(&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;&#x5341;&#x4E2A;&#x5B57;&#x6BCD;)&#xFF0C;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x88AB;&#x4F5C;&#x4E3A;&#x7A7A;&#x683C;&#xFF1B;&#x5982;&#x679C;&#x8BE5;&#x53C2;&#x6570;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#xFF08;&#x6216;&#x8005;&#x4E3A;null&#xFF09;&#x5C06;&#x6CA1;&#x6709;&#x7A7A;&#x683C;&#x3002;
+					</span>
+				</li>
+				<li>
+					<a href="">JSON.parse</a><em>(json,[fn(key,val)])</em>
+					<span>
+						json&#x5B57;&#x7B26;&#x4E32; -&gt; js&#x5BF9;&#x8C61; <br>
+						&#x8F6C;&#x6362;&#x51FD;&#x6570;&#x9700;&#x8FD4;&#x56DE;value&#x503C;&#x3002; <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					obj.<a href="">toJSON</a>()
+					<span>
+				   		JS&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;toJSON()&#x65B9;&#x6CD5;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x5BF9;&#x8C61; <br>
+						&#x6CE8;&#x610F;&#x8BBE;&#x7F6E;return&#x503C;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]URI</h4>
+			<ul>
+				<li>
+					<a href="">encodeURI</a>(uri)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x5B8C;&#x6574;URI&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x8FD4;&#x56DE;&#xFF1A;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x63D0;&#x4F9B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x4E3A;&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x7B26; <br>
+						&#x4E0D;&#x4F1A;&#x7F16;&#x7801;&#xFF1A;&amp;,+,=
+					</span>
+				</li>
+				<li>
+					<a href="">encodeURIComponent</a>(uri)
+					<span>
+						&#x9664;&#x4E86;&#x5B57;&#x6BCD;&#x3001;&#x6570;&#x5B57;&#x3001;(&#x3001;)&#x3001;.&#x3001;!&#x3001;~&#x3001;*&#x3001;&apos;&#x3001;-&#x548C;_&#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x5B57;&#x7B26;&#x5747;&#x4F1A;&#x88AB;&#x8F6C;&#x79FB;
+					</span>
+				</li>
+				<li>
+					<a href="">decodeURI</a>(uri)
+					<span>&#x89E3;&#x7801;&#x67D0;&#x4E2A;&#x7F16;&#x7801;&#x7684; URI&#x3002;</span>
+				</li>
+				<li>
+					<a href="">decodeURIComponent</a>(uri)
+					<span>&#x89E3;&#x7801;&#x4E00;&#x4E2A;&#x7F16;&#x7801;&#x7684; URI &#x7EC4;&#x4EF6;&#x3002;</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]Unicode</h4>
+			<ul>
+				<li>
+					str.<a href="">charCodeAt</a>(i)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x67E5;&#x627E;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;unicode&#x7801;&#x70B9;(&#x5341;&#x8FDB;&#x5236;)
+					</span>
+				</li>
+				<li>
+					str.<a href="">codePointAt</a>(i)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;&#x67E5;&#x627E;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;unicode&#x7801;&#x70B9;&#xFF08;&#x5341;&#x8FDB;&#x5236;&#xFF0C;&#x9700;&#x81EA;&#x884C;&#x8F6C;16&#x8FDB;&#x5236;&#xFF09;<br>
+						&#x652F;&#x6301;&#x5927;&#x4E8E;2&#x4E2A;&#x5B57;&#x8282;&#x7684;Uniode&#x7F16;&#x7801;
+					</span>
+				</li>
+				<li>
+					<a href="">String.fromCharCode</a>(uni..)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;unicode&#x7801;&#x70B9; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;
+					</span>
+				</li>
+				<li>
+					<a href="">String.fromCodePoint</a>(uni..)
+					<span>
+						&#x53C2;&#x6570;&#xFF1A;unicode&#x7801;&#x70B9; <br>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x5B57;&#x7B26;&#x4E32; <br>
+						&#x652F;&#x6301;&#x5927;&#x4E8E;2&#x4E2A;&#x5B57;&#x8282;&#x7684;Uniode&#x7F16;&#x7801;
+					</span>
+				</li>
+				<li>
+					str.<a href="">normalize</a><em>([NFC])</em>
+					<span>
+						&#x6309;&#x6307;&#x5B9A;Unicode&#x6B63;&#x89C4;&#x5F62;&#x5F0F;&#x5C06;&#x5F53;&#x524D;&#x5B57;&#x7B26;&#x4E32;&#x6B63;&#x89C4;&#x5316;&#x3002;<br>
+						&#x53C2;&#x6570;&#xFF1A;&#x56DB;&#x79CD; Unicode &#x6B63;&#x89C4;&#x5F62;&#x5F0F; &quot;NFC&quot;, &quot;NFD&quot;, &quot;NFKC&quot;, &#x4EE5;&#x53CA; &quot;NFKD&quot; &#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;, &#x9ED8;&#x8BA4;&#x503C;&#x4E3A; &quot;NFC&quot;.<br>
+						<a href="http://es6.ruanyifeng.com/#docs/string#normalize">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</h4>
+			<ul>
+				<li>
+					<a href="">/exp/flags</a>
+					<span>
+						&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;/exp/flags <br>
+						RegExp&#x5BF9;&#x8C61;&#xFF1A;new RegExp(&apos;exp&apos;,flags)<br>
+						RegExp&#x5BF9;&#x8C61;&#xFF1A;new RegExp(/exp/flags)<br>
+						&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8F6C;&#x4E49;&#x95EE;&#x9898;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E24;&#x4E2A;\\&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;\&#x3002;<hr>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">&#x53C2;&#x8003;&#x8D44;&#x6599;1</a> | <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp">&#x53C2;&#x8003;&#x8D44;&#x6599;2</a>
+						<hr>
+						&#x4FEE;&#x9970;&#x7B26;&#xFF1A;<br>
+						i&#xFF1A;&#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;&#x3002; <br>
+						g&#xFF1A;&#x5168;&#x5C40;&#x5339;&#x914D;&#x3002; <br>
+						m&#xFF1A;&#x591A;&#x884C;&#x6A21;&#x5F0F;&#x3002;<br>
+						y&#xFF1A;&#x6267;&#x884C;&#x201C;&#x7C98;&#x6027;&#x201D;&#x641C;&#x7D22;,&#x5339;&#x914D;&#x4ECE;&#x76EE;&#x6807;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x3002; <br>
+						u&#xFF1A;&#x6B63;&#x786E;&#x5904;&#x7406;&#x5927;&#x4E8E;\uFFFF&#x7684; Unicode &#x5B57;&#x7B26;&#xFF08;&#x70B9;.&#x5B57;&#x7B26;&#x5728;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#xFF0C;&#x542B;&#x4E49;&#x662F;&#x9664;&#x4E86;&#x6362;&#x884C;&#x7B26;&#x4EE5;&#x5916;&#x7684;&#x4EFB;&#x610F;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x3002;&#x5BF9;&#x4E8E;&#x7801;&#x70B9;&#x5927;&#x4E8E;0xFFFF&#x7684; Unicode &#x5B57;&#x7B26;&#xFF0C;&#x70B9;&#x5B57;&#x7B26;&#x4E0D;&#x80FD;&#x8BC6;&#x522B;&#xFF0C;&#x5FC5;&#x987B;&#x52A0;&#x4E0A;u&#x4FEE;&#x9970;&#x7B26;&#x3002;&#xFF09;<br>
+						s&#xFF1A;&#x884C;&#x7EC8;&#x6B62;&#x7B26;
+					</span>
+				</li>
+				<li>
+					reg.<a href="">exec</a>(str)
+					<span>
+						&#x8FD4;&#x56DE;&#xFF1A;&#x6570;&#x7EC4;/null <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					reg.<a href="">test</a>(str)
+					<span>
+						&#x8FD4;&#x56DE;&#xFF1A;true/false
+					</span>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -3825,6 +3903,19 @@
 	}
 </code></pre>
 				</span></li>
+				<li>
+					<a href="">Object.values</a>(obj)
+					<span>
+						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6210;&#x5458;&#x662F;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#xFF08;&#x4E0D;&#x542B;&#x7EE7;&#x627F;&#x7684;&#xFF09;&#x6240;&#x6709;&#x53EF;&#x904D;&#x5386;&#xFF08;enumerable&#xFF09;&#x5C5E;&#x6027;&#x7684;&#x952E;&#x503C;&#x3002;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.entries</a>(obj)
+					<span>
+						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4; <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>]Iterator</h4>
 			<ul>
@@ -3863,243 +3954,201 @@
 	<div class="u-block">
 		<h3>&#x51FD;&#x6570;<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]&#x6784;&#x5EFA;</h4>
-			<ul>
+			<h4>[<span>+</span>]&#x6784;&#x5EFA;&#x4E0E;&#x8C03;&#x7528;</h4>
+			<ul style="display:none;">
 				<li>
-					x <a href="">=&gt;</a> x*x
+					<a href="">function name</a><em>(arg){}</em>
 					<span>
-						1.&#x5F53;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x53D8;&#x91CF;&#x7684;&#x5904;&#x7406;&#x65F6;&#xFF0C;x=&gt;x*x&#xFF0C;&#x8FD4;&#x56DE;x&#x7684;&#x5E73;&#x65B9; <br>
-						2.&#x5F53;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x4E14;&#x65E0;&#x9700;&#x8FD4;&#x56DE;&#x503C;&#x65F6;&#xFF0C;x=&gt;void dosomething <br>
-						3.&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x6216;&#x591A;&#x6761;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x9700;&#x6DFB;&#x52A0;&#x62EC;&#x53F7;&#x548C;&#x82B1;&#x62EC;&#x53F7;&#xFF0C;(x,y)=&gt;{dosomething / return xx} <hr>
-
-						1.&#x4E0D;&#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x6784;&#x9020;&#x51FD;&#x6570; <br>
+						&#x51FD;&#x6570;&#x58F0;&#x660E; <br>
+						1.&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x65F6;&#xFF0C;&#x4F1A;&#x63D0;&#x5347;&#x4F18;&#x5148;&#x7EA7;&#xFF08;&#x4E00;&#x7B49;&#x516C;&#x6C11;&#xFF09;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x3002; <br>
+						2.&#x5982;&#x679C;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x591A;&#x6B21;&#x58F0;&#x660E;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x58F0;&#x660E;&#x5C31;&#x4F1A;&#x8986;&#x76D6;&#x524D;&#x9762;&#x7684;&#x58F0;&#x660E;&#x3002;<br>
+						3.&#x51FD;&#x6570;&#x53C2;&#x6570;&#x662F;&#x62F7;&#x8D1D;&#x503C;&#x4F20;&#x9012;&#xFF1A;&#x5BF9;&#x4E8E;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;&#x539F;&#x503C;&#xFF1B;&#x5BF9;&#x4E8E;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x62F7;&#x8D1D;&#x7684;&#x662F;&#x6307;&#x9488;&#xFF0C;&#x5982;&#x4FEE;&#x6539;&#x539F;&#x6570;&#x636E;&#x5C5E;&#x6027;&#x4F1A;&#x6539;&#x53D8;&#x539F;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x66FF;&#x6362;&#x6574;&#x4E2A;&#x76EE;&#x6807;&#x5219;&#x4E0D;&#x4FEE;&#x6539;&#x539F;&#x6570;&#x636E;&#xFF0C;&#x6B64;&#x5916;&#x59CB;&#x7EC8;&#x4E0D;&#x6539;&#x53D8;&#x539F;&#x6307;&#x9488;&#x7684;&#x6307;&#x5411;&#x3002;<a href="http://javascript.ruanyifeng.com/grammar/function.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
+						4.&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x88AB;&#x9012;&#x5F52;&#xFF0C;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5176;&#x672C;&#x8EAB;&#x3002; <br>
+						5.ES6&#x4E2D;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E4B;&#x5916;&#x4E0D;&#x53EF;&#x5F15;&#x7528;
+					</span>
+				</li>
+				<li>
+					var handle = <a href="">function [name]</a><em>(arg){}</em>
+					<span>
+						&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;<br>
+						1.&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570; <br>
+						2.&#x5F53;&#x5B9A;&#x4E49;name&#x65F6;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x7528;name&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x6307;&#x4EE3;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;&#x4F46;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x5916;&#x90E8;&#x65E0;&#x6548; <br>
+						3.&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x63D0;&#x5347;&#x3002;<br>
+						4.&#x5982;&#x679C;&#x540C;&#x65F6;&#x91C7;&#x7528;function&#x547D;&#x4EE4;&#x548C;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x58F0;&#x660E;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6700;&#x540E;&#x603B;&#x662F;&#x91C7;&#x7528;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x7684;&#x5B9A;&#x4E49;&#x3002; <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc5">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
+					</span>
+				</li>
+				<li>
+					(x) <a href="">=&gt;</a> x*x
+					<span>
+						&#x7BAD;&#x5934;&#x51FD;&#x6570; <br>
+						1.&#x4E0D;&#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;new&#x64CD;&#x4F5C;&#x7B26; <br>
 						2.&#x4E0D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;arguments&#x3001;super&#x3001;new.target&#xFF0C;&#x5747;&#x6307;&#x5411;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x5E94;&#x53D8;&#x91CF; <br>
 						3.&#x4E0D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;yield&#x547D;&#x4EE4;&#xFF0C;&#x56E0;&#x6B64;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x7528;&#x4F5C; Generator &#x51FD;&#x6570; <br>
-						4.&#x51FD;&#x6570;&#x4F53;&#x5185;&#x7684;this&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x65F6;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x56FA;&#x5B9A;&#x4E0D;&#x53EF;&#x8FA8;&#xFF0C;&#x5373;&#x4F7F;&#x4F7F;&#x7528;call&#x4E5F;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF0C;&#x66F4;&#x591A;&#x7684;&#x53EF;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6216;&#x95ED;&#x5305;&#x5185;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x53EF;&#x66FF;&#x4EE3;&#x666E;&#x901A;&#x51FD;&#x6570;&#x9700;&#x8981;&#x7528;that&#x6307;&#x4EE3;this&#x3002; <hr>
-
-						this&#x6307;&#x5411;&#x7684;&#x56FA;&#x5B9A;&#x5316;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x56E0;&#x4E3A;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x6709;&#x7ED1;&#x5B9A;this&#x7684;&#x673A;&#x5236;&#xFF0C;&#x5B9E;&#x9645;&#x539F;&#x56E0;&#x662F;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;this&#xFF0C;&#x5BFC;&#x81F4;&#x5185;&#x90E8;&#x7684;this&#x5C31;&#x662F;&#x5916;&#x5C42;&#x4EE3;&#x7801;&#x5757;&#x7684;this&#x3002;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x6CA1;&#x6709;this&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x4E0D;&#x80FD;&#x7528;&#x4F5C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x6240;&#x4EE5;call&#x7684;&#x7ED1;&#x5B9A;&#x4E5F;&#x662F;&#x65E0;&#x6548;&#xFF0C;&#x4F46;&#x4E0A;&#x5C42;&#x7684;&#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;call&#x7ED1;&#x5B9A;&#x6709;&#x6548;&#x3002;
-
+						4.&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;this&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x7684;this&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x65F6;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x56FA;&#x5B9A;&#x4E0D;&#x53EF;&#x53D8;&#xFF0C;&#x5373;&#x4F7F;&#x4F7F;&#x7528;call&#x4E5F;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF0C;&#x66F4;&#x591A;&#x7684;&#x53EF;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6216;&#x95ED;&#x5305;&#x5185;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x53EF;&#x66FF;&#x4EE3;&#x666E;&#x901A;&#x51FD;&#x6570;&#x9700;&#x8981;&#x7528;that&#x6307;&#x4EE3;this&#x3002; <br>
+						this&#x6307;&#x5411;&#x7684;&#x56FA;&#x5B9A;&#x5316;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x56E0;&#x4E3A;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x6709;&#x7ED1;&#x5B9A;this&#x7684;&#x673A;&#x5236;&#xFF0C;&#x5B9E;&#x9645;&#x539F;&#x56E0;&#x662F;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;this&#xFF0C;&#x5BFC;&#x81F4;&#x5185;&#x90E8;&#x7684;this&#x5C31;&#x662F;&#x5916;&#x5C42;&#x4EE3;&#x7801;&#x5757;&#x7684;this&#x3002;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x6CA1;&#x6709;this&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x4E0D;&#x80FD;&#x7528;&#x4F5C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x6240;&#x4EE5;call&#x7684;&#x7ED1;&#x5B9A;&#x4E5F;&#x662F;&#x65E0;&#x6548;&#xFF0C;&#x4F46;&#x4E0A;&#x5C42;&#x7684;&#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;call&#x7ED1;&#x5B9A;&#x6709;&#x6548;&#x3002; <br>
+						5.&#x6CA1;&#x6709;prototype&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;yield&#x5173;&#x952E;&#x5B57;
+						<hr>
+						&#x4F8B;&#xFF1A;<br>
+						1.&#x5F53;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x53D8;&#x91CF;&#x7684;&#x5904;&#x7406;&#x65F6;&#xFF0C;x=&gt;x*x&#xFF0C;&#x8FD4;&#x56DE;x&#x7684;&#x5E73;&#x65B9; <br>
+						2.&#x5F53;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x4E14;&#x65E0;&#x9700;&#x8FD4;&#x56DE;&#x503C;&#x65F6;&#xFF0C;x=&gt;void dosomething <br>
+						3.&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x6216;&#x591A;&#x6761;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x9700;&#x6DFB;&#x52A0;&#x62EC;&#x53F7;&#x548C;&#x82B1;&#x62EC;&#x53F7;&#xFF0C;(x,y)=&gt;{dosomething / return xx}
 					</span>
 				</li>
 				<li>
-					IIFE<a href=""></a>
+					var handle = <a href="">new Function</a><em>(&apos;arg..&apos;,&apos;fnbody&apos;)</em>
 					<span>
-						&#x533F;&#x540D;&#x51FD;&#x6570;&#x5199;&#x6CD5;&#xFF1A;
-						&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;
+						Function&#x6784;&#x9020;&#x51FD;&#x6570;&#x6784;&#x5EFA;<br>
+						1.&#x6B64;&#x5F62;&#x5F0F;&#x6784;&#x5EFA;&#x7684;&#x662F;&#x533F;&#x540D;&#x51FD;&#x6570; <br>
+						2.&#x53C2;&#x6570;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;<br>
+						3.&#x53EA;&#x6709;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x5F53;&#x505A;&#x51FD;&#x6570;&#x4F53;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x4F53;&#x3002;
+					</span>
+				</li>
+				<li>
+					<a href="">IIFE</a>
+					<span>
+						( function(){}() ); <br>
+						( function(){} )(); <br>
+						[ function(){}() ]; <br>
+						<br>
+						~ function() {}(); <br>
+						! function() {}(); <br>
+						+ function() {}(); <br>
+						- function() {}(); <br>
+						<br>
+						delete function() {}(); <br>
+						typeof function() {}(); <br>
+						void function() {}(); <br>
+						new function() {}(); <br>
+						new function() {}; <br>
+						<br>
+						var f = function() {}(); <br>
+						<br>
+						1, function() {}(); <br>
+						1 ^ function() {}(); <br>
+						1 &gt; function() {}(); 
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]Function</h4>
-			<ul>
+			<h4>[<span>+</span>]&#x53C2;&#x6570;</h4>
+			<ul style="display:none;">
 				<li>
-					<a href="">function</a> <em>name(arg)</em>
+					<a href="">(arg=x)</a>
 					<span>
-						<b>&#x53C2;&#x6570;</b> <br>
-						&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x7701;&#x7565;&#x9760;&#x524D;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x7701;&#x7565;&#x9760;&#x524D;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x6709;&#x663E;&#x5F0F;&#x4F20;&#x5165;undefined&#x3002; <br>
-						&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5982;&#x679C;&#x662F;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF08;&#x6570;&#x503C;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x5E03;&#x5C14;&#x503C;&#xFF09;&#xFF0C;&#x4F20;&#x9012;&#x65B9;&#x5F0F;&#x662F;&#x4F20;&#x503C;&#x4F20;&#x9012;&#xFF08;passes by value&#xFF09;&#x3002;&#x5373;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x503C;&#x662F;&#x539F;&#x59CB;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x65E0;&#x8BBA;&#x600E;&#x4E48;&#x4FEE;&#x6539;&#xFF0C;&#x90FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x539F;&#x59CB;&#x503C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x4FEE;&#x6539;&#x53C2;&#x6570;&#x503C;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x51FD;&#x6570;&#x5916;&#x90E8;&#x3002; <br>
-						&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5982;&#x679C;&#x662F;&#x590D;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF08;&#x6570;&#x7EC4;&#x3001;&#x5BF9;&#x8C61;&#x3001;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x4F20;&#x9012;&#x65B9;&#x5F0F;&#x662F;&#x4F20;&#x5740;&#x4F20;&#x9012;&#xFF08;pass by reference&#xFF09;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4F20;&#x5165;&#x51FD;&#x6570;&#x7684;&#x539F;&#x59CB;&#x503C;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4FEE;&#x6539;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x539F;&#x59CB;&#x503C;&#x3002; <br>
-						&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x4E0D;&#x662F;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x662F;&#x66FF;&#x6362;&#x6389;&#x6574;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x65F6;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x539F;&#x59CB;&#x503C;&#x3002;<a href="http://javascript.ruanyifeng.com/grammar/function.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-						&#x5982;&#x679C;&#x6709;&#x540C;&#x540D;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x53D6;&#x6700;&#x540E;&#x51FA;&#x73B0;&#x7684;&#x90A3;&#x4E2A;&#x503C;&#x3002;
-						<hr>
-						<b>&#x4F5C;&#x7528;&#x57DF;</b> <br>
-						&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x4E0E;&#x53D8;&#x91CF;&#x4E00;&#x6837;&#xFF0C;&#x5C31;&#x662F;&#x5176;&#x58F0;&#x660E;&#x65F6;&#x6240;&#x5728;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E0E;&#x5176;&#x8FD0;&#x884C;&#x65F6;&#x6240;&#x5728;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x65E0;&#x5173;&#x3002;<br>
-						&#x51FD;&#x6570;&#x6267;&#x884C;&#x65F6;&#x6240;&#x5728;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x662F;&#x5B9A;&#x4E49;&#x65F6;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8C03;&#x7528;&#x65F6;&#x6240;&#x5728;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;  <br>
-						&#x540C;&#x6837;&#x7684;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x90E8;&#x58F0;&#x660E;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x90E8;&#x3002;<br>
-                        <a href="https://github.com/mqyqingfeng/Blog/issues/3">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-                        ES6&#x4E2D;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E4B;&#x5916;&#x4E0D;&#x53EF;&#x5F15;&#x7528;
-						<hr>
-						<b>&#x5C5E;&#x6027;</b> <br>
-						fn.name : &#x8FD4;&#x56DE;&#x7D27;&#x8DDF;&#x5728;function&#x5173;&#x952E;&#x5B57;&#x4E4B;&#x540E;&#x7684;&#x90A3;&#x4E2A;&#x51FD;&#x6570;&#x540D;(&#x533F;&#x540D;&#x51FD;&#x6570;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;) <br>
-						fn.length : &#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x9884;&#x671F;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E4B;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;(&#x5B9A;&#x4E49;&#x4E4B;&#x65F6;&#x7684;&#x4E2A;&#x6570;)&#x3002; <br>
-						fn.toString() : &#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x6CE8;&#x91CA;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x3002;
-						<hr>
-						<b>&#x95ED;&#x5305;</b> <br>
-						&#x5B9A;&#x4E49;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x51FD;&#x6570;&#x3002;&#x95ED;&#x5305;&#x6700;&#x5927;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x5B83;&#x53EF;&#x4EE5;&#x201C;&#x8BB0;&#x4F4F;&#x201D;&#x8BDE;&#x751F;&#x7684;&#x73AF;&#x5883;&#x3002; <br>
-						&#x95ED;&#x5305;&#x7684;&#x6700;&#x5927;&#x7528;&#x5904;&#x6709;&#x4E24;&#x4E2A;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x5C31;&#x662F;&#x8BA9;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x59CB;&#x7EC8;&#x4FDD;&#x6301;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x5373;&#x95ED;&#x5305;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x5B83;&#x8BDE;&#x751F;&#x73AF;&#x5883;&#x4E00;&#x76F4;&#x5B58;&#x5728;&#x3002; <br>
-						&#x8FD4;&#x56DE;&#x95ED;&#x5305;&#x65F6;&#x7262;&#x8BB0;&#x7684;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#xFF1A;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x4E0D;&#x8981;&#x5F15;&#x7528;&#x4EFB;&#x4F55;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#xFF0C;&#x6216;&#x8005;&#x540E;&#x7EED;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x53D8;&#x91CF;&#x3002; <br>
-						&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x5F15;&#x7528;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x662F;&#x518D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x7ED1;&#x5B9A;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x5F53;&#x524D;&#x7684;&#x503C;&#xFF0C;&#x65E0;&#x8BBA;&#x8BE5;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x540E;&#x7EED;&#x5982;&#x4F55;&#x66F4;&#x6539;&#xFF0C;&#x5DF2;&#x7ED1;&#x5B9A;&#x5230;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x503C;&#x4E0D;&#x53D8; <hr>
-						&#x907F;&#x514D;&#x5728;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x786E;&#x5B9E;&#x9700;&#x8981;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x5199;&#x6210;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x3002; <br>
-						&#x5BF9;&#x4E8E;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x6709;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4F1A;&#x88AB;&#x63D0;&#x5347;&#x5230;&#x9876;&#x90E8;&#xFF0C;&#x800C;&#x4E0D;&#x5305;&#x62EC;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x3002;
+						&#x4E00;&#x65E6;&#x8BBE;&#x7F6E;&#x4E86;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x58F0;&#x660E;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x53C2;&#x6570;&#x4F1A;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x4F5C;&#x7528;&#x57DF; <a href="http://es6.ruanyifeng.com/#docs/function#&#x4F5C;&#x7528;&#x57DF;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
 					</span>
 				</li>
 				<li>
-					<a href="">new</a> fn
-					<span>
-						<a href="http://javascript.ruanyifeng.com/oop/basic.html">new&#x547D;&#x4EE4;&#x539F;&#x7406;</a> <br>
-						new&#x547D;&#x4EE4;&#x603B;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x8981;&#x4E48;&#x662F;return&#x8BED;&#x53E5;&#x6307;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#x3002; <br>
-						&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;new.target&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x662F;new&#x547D;&#x4EE4;&#x8C03;&#x7528;&#xFF0C;new.target&#x6307;&#x5411;&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x4E3A;undefined <hr>
-						<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</a> <br>
-						&#x65B9;&#x6CD5;&#x5E94;&#x6302;&#x8F7D;&#x5728;prototype&#x4E0A;&#xFF0C;&#x907F;&#x514D;&#x5185;&#x5B58;&#x5360;&#x7528;
-					</span>
-				</li>
-				<li><a href="">function</a>(arg)<span>
-					<b>1.function&#x547D;&#x4EE4; - &#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;</b><br>
-					function fn(arg){...} <br>
-					<hr>
-					<b>2.&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</b> <br>
-					var fn = function(arg){...} <br>
-					&#x5728;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;function (x) { ... }&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x6CA1;&#x6709;&#x51FD;&#x6570;&#x540D;&#x3002;<br>
-					&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#x7ED9;&#x4E86;&#x53D8;&#x91CF;fn&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;&#x53D8;&#x91CF;fn&#x5C31;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x3002;<br>
-					&#x4E0A;&#x8FF0;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x5B8C;&#x5168;&#x7B49;&#x4EF7;&#xFF0C;&#x6CE8;&#x610F;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x6309;&#x7167;&#x5B8C;&#x6574;&#x8BED;&#x6CD5;&#x9700;&#x8981;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x672B;&#x5C3E;&#x52A0;&#x4E00;&#x4E2A;;&#xFF0C;&#x8868;&#x793A;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x7ED3;&#x675F;&#x3002; <br>
-					&#x91C7;&#x7528;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x65F6;&#xFF0C;function&#x547D;&#x4EE4;&#x540E;&#x9762;&#x4E0D;&#x5E26;&#x6709;&#x51FD;&#x6570;&#x540D;&#x3002;&#x5982;&#x679C;&#x52A0;&#x4E0A;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x540D;&#x53EA;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x90E8;&#x6709;&#x6548;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x5916;&#x90E8;&#x65E0;&#x6548;&#x3002; <br>
-					<hr>
-					<b>3.Function&#x6784;&#x9020;&#x51FD;&#x6570;</b> <br>
-					var fn = new Function(arg..,&#x51FD;&#x6570;&#x4F53;) <br>
-					&#x4F60;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x53C2;&#x6570;&#x7ED9;Function&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x6709;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x5F53;&#x505A;&#x51FD;&#x6570;&#x4F53;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x4F53;&#x3002;
-					<hr>
-					&#x5982;&#x679C;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x591A;&#x6B21;&#x58F0;&#x660E;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x58F0;&#x660E;&#x5C31;&#x4F1A;&#x8986;&#x76D6;&#x524D;&#x9762;&#x7684;&#x58F0;&#x660E;&#x3002; <br>
-					&#x5982;&#x679C;&#x540C;&#x65F6;&#x91C7;&#x7528;function&#x547D;&#x4EE4;&#x548C;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x58F0;&#x660E;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6700;&#x540E;&#x603B;&#x662F;&#x91C7;&#x7528;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x7684;&#x5B9A;&#x4E49;&#x3002; <a href="http://javascript.ruanyifeng.com/grammar/function.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-					&#x6839;&#x636E;ECMAScript&#x7684;&#x89C4;&#x8303;&#xFF0C;&#x4E0D;&#x5F97;&#x5728;&#x975E;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x3002;
-				</span></li>
-				<li><a href="">(function(n){})(n)</a><span>
-					IIFE = Immediately-Invoked Function Expression,&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F; <br>
-					&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;,&#x53EF;&#x4EE5;&#x521D;&#x59CB;&#x5316;&#x5404;&#x9879;&#x503C;,&#x4F46;&#x5982;&#x679C;&#x9700;&#x8981;&#x7684;&#x53D8;&#x91CF;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x5F00;&#x59CB;&#x521D;&#x59CB;&#x5316;&#x6709;&#x7684;,&#x5219;&#x4E0D;&#x53EF;&#x4EE5;,&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x8BFB;&#x53D6;&#x3002;<br>
-				</span></li>
-			</ul>
-			<h4>[<span>-</span>]&#x5185;&#x90E8;</h4>
-			<ul>
-				<li><a href="">arguments</a><span>
-					&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x7C7B;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x4E0D;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;arguments&#x6700;&#x5E38;&#x7528;&#x4E8E;&#x5224;&#x65AD;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x7684;&#x4E2A;&#x6570;&#x3002; <br>
-					&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4E3A;&#x53EA;&#x8BFB;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x3002;
-						<tr>
-							<th>&#x5BF9;&#x8C61;&#x503C;</th>
-							<th>&#x63CF;&#x8FF0;</th>
-						</tr>
-						<tr>
-							<td>arguments[0]</td>
-							<td>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x540D;&#x5B57;</td>
-						</tr>
-						<tr>
-							<td>arguments.length</td>
-							<td>&#x53C2;&#x6570;&#x7684;&#x4E2A;&#x6570;</td>
-						</tr>
-						<tr>
-							<td>arguments.callee</td>
-							<td>&#x4E3B;&#x4F53;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;&#x62E5;&#x6709;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570; (&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x7981;&#x7528;)</td>
-						</tr>
-					
-					rest&#x53C2;&#x6570;&#xFF1A;<br>
-					<pre><code data-language="javascript">
-						function foo(a, b, ...rest) {
-						    console.log(&apos;a = &apos; + a);
-						    console.log(&apos;b = &apos; + b);
-						    console.log(rest);
-						    //rest: [array]
-						}
-					</code></pre>
-				</span></li>
-				<li>
-					<a href="">...rest</a>
+					<a href="">...args</a>
 					<span>
 						rest &#x53C2;&#x6570;&#x642D;&#x914D;&#x7684;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x5C06;&#x591A;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x653E;&#x5165;&#x6570;&#x7EC4;&#x4E2D;&#x3002; <br>
 						rest &#x53C2;&#x6570;&#x4E4B;&#x540E;&#x4E0D;&#x80FD;&#x518D;&#x6709;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#xFF08;&#x5373;&#x53EA;&#x80FD;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF09;
 					</span>
 				</li>
-				<li><a href="">return</a> value<span>
-					&#x5982;&#x679C;&#x6CA1;&#x6709;return&#x8BED;&#x53E5;&#xFF0C;&#x51FD;&#x6570;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x4E5F;&#x4F1A;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x53EA;&#x662F;&#x7ED3;&#x679C;&#x4E3A;undefined.
-				</span></li>
-				<li><a href="">this</a><span>
-					<table>
-						<tr>
-							<th>&#x5F53;&#x524D;&#x73AF;&#x5883;</th>
-							<th>this&#x6307;&#x5411;</th>
-						</tr>
-						<tr>
-							<td>&#x51FD;&#x6570;</td>
-							<td>&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF1A;window <br>
-							strict&#x6A21;&#x5F0F;&#xFF1A;undefined
-							</td>
-						</tr>
-						<tr>
-							<td>&#x5BF9;&#x8C61;</td>
-							<td>object<br>
-							&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5355;&#x72EC;&#x5B58;&#x50A8;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x53EF;&#x884C;&#xFF0C;&#x9664;&#x975E;&#x4EE5;obj.fn()&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;<br>
-							&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x51FD;&#x6570;&#x91CC;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x95ED;&#x5305;&#xFF09;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x65F6;&#x53EF;&#x6307;&#x5B9A;var that = this&#x6765;&#x83B7;&#x53D6;&#x6B63;&#x786E;this
-							</td>
-						</tr>
-					</table>
-					<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345005399057070809cfaa347dfb7207900cfd116fb000" target="_blank">&#x53C2;&#x8003;&#x8D44;&#x6599;1</a> | <a href="http://javascript.ruanyifeng.com/oop/this.html">&#x53C2;&#x8003;&#x8D44;&#x6599;2</a>
-				</span></li>
+				<li>
+					<a href="">arguments</a>
+					<span>
+						&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x53C2;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x3002; <br>
+						1.&#x5728;JavaScript&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x662F;undefined <br>
+						2.&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4E3A;&#x53EA;&#x8BFB;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x3002; <br>
+						3.&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0D;&#x5B58;&#x5728;(&#x6D4F;&#x89C8;&#x5668;)
+						<table>
+							<tr>
+								<th>&#x5BF9;&#x8C61;&#x503C;</th>
+								<th>&#x63CF;&#x8FF0;</th>
+							</tr>
+							<tr>
+								<td>arguments[0]</td>
+								<td>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x540D;&#x5B57;</td>
+							</tr>
+							<tr>
+								<td>arguments.length</td>
+								<td>&#x53C2;&#x6570;&#x7684;&#x4E2A;&#x6570;</td>
+							</tr>
+							<tr>
+								<td>arguments.callee</td>
+								<td>&#x4E3B;&#x4F53;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;&#x62E5;&#x6709;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570; (&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x7981;&#x7528;)</td>
+							</tr>
+						</table>
+					</span>
+				</li>
+				<li>
+					fn.<a href="">length</a>
+					<span>
+						&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x9884;&#x671F;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E4B;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;(&#x5B9A;&#x4E49;&#x4E4B;&#x65F6;&#x7684;&#x4E2A;&#x6570;) <br>
+						&#x6307;&#x5B9A;&#x4E86;&#x9ED8;&#x8BA4;&#x503C;&#x4EE5;&#x540E;&#xFF0C;&#x51FD;&#x6570;&#x7684;length&#x5C5E;&#x6027;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6307;&#x5B9A;&#x4E86;&#x9ED8;&#x8BA4;&#x503C;&#x540E;&#xFF0C;length&#x5C5E;&#x6027;&#x5C06;&#x5931;&#x771F;&#x3002;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]&#x5185;&#x90E8;</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">&#x7406;&#x8BBA;</a>
+					<span>
+						&#x4F5C;&#x7528;&#x57DF;&#xFF1A;&#x9759;&#x6001;/&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x65F6;&#x6240;&#x5728;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E0E;&#x5176;&#x8FD0;&#x884C;&#x65F6;&#x6240;&#x5728;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x65E0;&#x5173;&#x3002; <hr>
+						&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x6808;&#xFF1A;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x3001;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x3001;this <br>
+						1.&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x6240;&#x6709;&#x5F62;&#x53C2;&#x3001;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x3001;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#xFF08;&#x5982;&#x679C;&#x53D8;&#x91CF;&#x540D;&#x79F0;&#x4E0E;&#x58F0;&#x660E;&#x7684;&#x5F62;&#x53C2;&#x6216;&#x51FD;&#x6570;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x4E0D;&#x4F1A;&#x5E72;&#x6270;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x8FD9;&#x7C7B;&#x5C5E;&#x6027;&#xFF09;<a href="https://github.com/mqyqingfeng/Blog/issues/5">&#x53C2;&#x8003;&#x8D44;&#x6599;</a><br>
+						<b>&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x4E3A;&#x8FDB;&#x5165;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x9636;&#x6BB5;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x9636;&#x6BB5;&#xFF0C;&#x53EF;&#x80FD;&#x88AB;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x3002;</b><br>
+						2.&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#xFF1A;[VO=&gt;AO&#x538B;&#x5165;&#x6808;&#x9876;,&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x94FE;] <hr>
+						&#x95ED;&#x5305;&#xFF1A;<a href="https://github.com/mqyqingfeng/Blog/issues/9">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					<a href="">this</a>
+					<span>
+						this&#x5173;&#x952E;&#x5B57;&#x603B;&#x662F;&#x6307;&#x5411;&#x51FD;&#x6570;&#x6240;&#x5728;&#x7684;&#x5F53;&#x524D;&#x5BF9;&#x8C61;
+						<hr> 
+						&#x666E;&#x901A;&#x51FD;&#x6570;&#xFF1A;&#x4E25;&#x683C;&#x6A21;&#x5F0F;(undefined)&#x3001;&#x4E25;&#x683C;&#x6A21;&#x5F0F;(&#x5168;&#x5C40;&#x5BF9;&#x8C61;) <br>
+						&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;&#x5BF9;&#x8C61;&#x7684;&#x5B9E;&#x4F8B; <br>
+						&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#xFF1A;&#x5BF9;&#x8C61;&#x672C;&#x8EAB; <br>
+						call/apply/bind&#xFF1A;&#x7ED1;&#x5B9A;&#x7684;&#x5BF9;&#x8C61; <br>
+						&#x7BAD;&#x5934;&#x51FD;&#x6570;&#xFF1A;&#x51FD;&#x6570;&#x6240;&#x5728;&#x7684;&#x5757;&#x7684;this <br>
+						<a href="https://github.com/mqyqingfeng/Blog/issues/7">&#x4ECE;ES&#x89C4;&#x8303;&#x89E3;&#x8BFB;this</a> 
+					</span>
+				</li>
+				<li>
+					<a href="">return</a> [val]
+					<span>
+						&#x5982;&#x679C;&#x6CA1;&#x6709;return&#x8BED;&#x53E5;&#xFF0C;&#x51FD;&#x6570;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x4E5F;&#x4F1A;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x53EA;&#x662F;&#x7ED3;&#x679C;&#x4E3A;undefined. <br>
+						<a href="http://es6.ruanyifeng.com/#docs/function#&#x5C3E;&#x8C03;&#x7528;&#x4F18;&#x5316;">&#x5C3E;&#x8C03;&#x7528;&#x4F18;&#x5316;</a>
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>]&#x65B9;&#x6CD5;</h4>
 			<ul>
-				<li>fn<a href="">.apply</a>(obj,[arg])<span>
-					fn.apply(&#x4F5C;&#x7528;&#x57DF;&#xFF0C;[&#x4F20;&#x9012;&#x53C2;&#x6570;]/arguments) <br>
-					&#x8981;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x7684;this&#x6307;&#x5411;&#x54EA;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x7684;apply&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x7684;this&#x53D8;&#x91CF;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;Array&#xFF0C;&#x8868;&#x793A;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x7684;&#x53C2;&#x6570;&#x3002;
+				<li>
+					fn<a href="">.call</a>(obj,arg)
+					<span>
+						fn.call(&#x4F5C;&#x7528;&#x57DF;&#xFF0C;[&#x4F20;&#x9012;&#x53C2;&#x6570;]) <br>	
+						apply&#x4E0E;call&#x5747;&#x8BA9;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x4E8E;&#x7279;&#x5B9A;&#x4F5C;&#x7528;&#x57DF;,call&#x5FC5;&#x987B;&#x660E;&#x786E;&#x4F20;&#x5165;&#x6BCF;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;<br>
+						apply()&#x628A;&#x53C2;&#x6570;&#x6253;&#x5305;&#x6210;Array&#x518D;&#x4F20;&#x5165;&#xFF1B;call()&#x628A;&#x53C2;&#x6570;&#x6309;&#x987A;&#x5E8F;&#x4F20;&#x5165; <br>
+						&#x5BF9;&#x666E;&#x901A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x628A;this&#x7ED1;&#x5B9A;&#x4E3A;null&#x3002; <br>
+						&#x5728;&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x3001;null&#x548C;undefined&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4F20;&#x5165;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;
+					</span>
+				</li>
+				<li>
+					fn<a href="">.apply</a>(obj,[argArr])
+					<span>
+						fn.apply(&#x4F5C;&#x7528;&#x57DF;&#xFF0C;[&#x4F20;&#x9012;&#x53C2;&#x6570;Arr]) 
+					</span>
+				</li>
+				<li>
+					fn<a href="">.bind</a>(obj)
+					<span>
+						&#x8FD4;&#x56DE;&#x7531;&#x6307;&#x5B9A;&#x7684;this&#x503C;&#x548C;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;&#x6539;&#x9020;&#x7684;&#x539F;&#x51FD;&#x6570;&#x62F7;&#x8D1D;
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
 				</span></li>
-				<li>fn<a href="">.call</a>(obj,arg)<span>
-					fn.call(&#x4F5C;&#x7528;&#x57DF;&#xFF0C;[&#x4F20;&#x9012;&#x53C2;&#x6570;]),apply&#x4E0E;call&#x5747;&#x8BA9;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x4E8E;&#x7279;&#x5B9A;&#x4F5C;&#x7528;&#x57DF;,call&#x5FC5;&#x987B;&#x660E;&#x786E;&#x4F20;&#x5165;&#x6BCF;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;<br>
-					apply()&#x628A;&#x53C2;&#x6570;&#x6253;&#x5305;&#x6210;Array&#x518D;&#x4F20;&#x5165;&#xFF1B;call()&#x628A;&#x53C2;&#x6570;&#x6309;&#x987A;&#x5E8F;&#x4F20;&#x5165; <br>
-					&#x5BF9;&#x666E;&#x901A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x628A;this&#x7ED1;&#x5B9A;&#x4E3A;null&#x3002; <br>
-					&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x3001;null&#x548C;undefined&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4F20;&#x5165;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;
-					</span></li>
-				<li>fn<a href="">.bind</a>(obj)<span>
-					bind(&#x4F5C;&#x7528;&#x76EE;&#x6807;) &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x4E8E;&#x67D0;&#x76EE;&#x6807;&#x7684;&#x51FD;&#x6570;&#x5B9E;&#x4F8B; <br>
-					bind()&#x65B9;&#x6CD5;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x51FD;&#x6570;&#x3002;&#x5F53;&#x8FD9;&#x4E2A;&#x65B0;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;bind()&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C06;&#x4F5C;&#x4E3A;&#x5B83;&#x8FD0;&#x884C;&#x65F6;&#x7684; this, &#x4E4B;&#x540E;&#x7684;&#x4E00;&#x5E8F;&#x5217;&#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x5728;&#x4F20;&#x9012;&#x7684;&#x5B9E;&#x53C2;&#x524D;&#x4F20;&#x5165;&#x4F5C;&#x4E3A;&#x5B83;&#x7684;&#x53C2;&#x6570;&#x3002;
-				</span></li>
+				<li>
+					fn.<a href="">toString()</a>
+					<span>
+						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x6E90;&#x4EE3;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6CE8;&#x91CA;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;
+					</span>
+				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>&#x5185;&#x7F6E;&#x51FD;&#x6570;<span>-</span></h3>
+		<h3>&#x5F02;&#x6B65;&#x7F16;&#x7A0B;<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>] &#x5B9A;&#x65F6;&#x5668;</h4>
-            <ul>
-				<li>
-                    <a href="">eval</a>(str)
-                    <span>
-                        &#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x5F53;&#x4F5C;&#x8BED;&#x53E5;&#x6267;&#x884C;&#x3002;<br>
-                        eval&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x90FD;&#x5728;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x6267;&#x884C;&#x3002;<br>
-                        JavaScript&#x89C4;&#x5B9A;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;eval&#x5185;&#x90E8;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5916;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x5373;&#x4F7F;&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;eval&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8BFB;&#x5199;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x53D8;&#x91CF;&#x3002;<br>
-                        eval&#x7684;&#x4F7F;&#x7528;&#x5206;&#x6210;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;eval(expression)&#xFF0C;&#x8FD9;&#x53EB;&#x505A;&#x201C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;eval&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x7684;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x53EB;&#x201C;&#x95F4;&#x63A5;&#x8C03;&#x7528;&#x201D;&#xFF0C;&#x6B64;&#x65F6;eval&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x603B;&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;
-                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc25">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-                    </span>
-                </li>
-            	<li>
-            		<a href="">setTimeout</a>(fn,time,[arg])
-            		<span>
-            			&#x5728;&#x6307;&#x5B9A;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x540E;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6216;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F; <br>
-            			setTimeout&#x8FD8;&#x5141;&#x8BB8;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x4EEC;&#x5C06;&#x88AB;&#x4F20;&#x5165;&#x63A8;&#x8FDF;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF09;&#xFF0C;IE 9.0&#x53CA;&#x4EE5;&#x4E0B;&#x7248;&#x672C;&#xFF0C;&#x53EA;&#x5141;&#x8BB8;setTimeout&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x66F4;&#x591A;&#x7684;&#x53C2;&#x6570;&#x3002; <br>
-            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">&#x5F53;time=0&#x65F6;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x540C;&#x6837;&#x9700;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x5B8C;&#x6210;</a>
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">setInterval</a>(fn,time)
-            		<span>
-            			&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x5468;&#x671F;&#xFF08;&#x4EE5;&#x6BEB;&#x79D2;&#x8BA1;&#xFF09;&#x6765;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6216;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearTimeout</a>(timeout)
-            		<span>
-            			&#x53D6;&#x6D88;&#x7531; setTimeout() &#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x7684; timeout
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearInterval</a>(timeout)
-            		<span>
-            			&#x53D6;&#x6D88;&#x7531; setInterval() &#x8BBE;&#x7F6E;&#x7684; timeout
-            		</span>
-            	</li>
-				<li>val.<a href="">toString</a>()<span>
-					<table>
-                        <tr>
-                            <th>&#x76EE;&#x6807;</th>
-                            <th>&#x8FD4;&#x56DE;&#x503C;</th>
-                        </tr>
-                        <tr>
-                            <td>array</td>
-                            <td>&#x53C2;&#x6570;&#x76F4;&#x63A5;&#x7528;,&#x9694;&#x5F00;&#x7684;&#x5B57;&#x7B26;&#x4E32;</td>
-                        </tr>
-                    </table>
-				</span></li>
-				<li>
-					<a href="">vauleOf</a>
-					<span>
-						
-					</span>
-				</li>
-            </ul>
             <h4>[<span>+</span>] Generator</h4>
             <ul style="display: none;">
             	<li>
@@ -4201,10 +4250,10 @@
 			<h4>[<span>+</span>]&#x6784;&#x5EFA;</h4>
 			<ul style="display:none;">
 				<li>
-					<a href="">{key:val,...}</a>
+					<a href="">{key:val,[$key]:val...}</a>
 					<span>
 						&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x65B9;&#x6CD5; <br>
-						&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E4B;&#x95F4;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x52A0;&#x9017;&#x53F7;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x52A0;&#x3002; <br>
+						&#x5BF9;&#x8C61;&#x6709;&#x65F6;&#x4E5F;&#x88AB;&#x53EB;&#x4F5C;&#x5173;&#x8054;&#x6570;&#x7EC4;&#x3002;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E4B;&#x95F4;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x52A0;&#x9017;&#x53F7;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x52A0;&#x3002; <br>
 						&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x952E;&#x540D;&#x90FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x52A0;&#x5F15;&#x53F7;&#x3002;&#x4F46;&#x5982;&#x679C;&#x4E0D;&#x7B26;&#x5408;&#x8868;&#x793A;&#x540D;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x52A0;&#x5F15;&#x53F7;&#x3002;<a href="http://javascript.ruanyifeng.com/grammar/object.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <hr>
 						&#x5982;&#x679C;&#x4E0D;&#x540C;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;&#x3002;&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x53D8;&#x91CF;&#x3002; <br>
 						&#x4F46;&#x5982;&#x679C;&#x53D6;&#x6D88;&#x67D0;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5BF9;&#x4E8E;&#x539F;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x3002; <br>
@@ -4212,11 +4261,12 @@
 						&#x6545;&#x5728;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x7EE7;&#x627F;&#x65E7;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x901A;&#x8FC7;new.prototype = old.prototype&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5426;&#x5219;&#x5BF9;new&#x539F;&#x578B;&#x7684;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#xFF0C;&#x5C06;&#x76F4;&#x63A5;&#x4F1A;&#x5F71;&#x54CD;&#x65E7;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;
 						<hr>
 						&#x5982;&#x679C;&#x884C;&#x9996;&#x662F;&#x5927;&#x62EC;&#x53F7;&#xFF0C;&#x4E00;&#x5F8B;&#x89E3;&#x91CA;&#x4E3A;&#x8BED;&#x53E5;&#xFF08;&#x5373;&#x4EE3;&#x7801;&#x5757;&#xFF09;&#x3002;&#x5982;&#x679C;&#x8981;&#x89E3;&#x91CA;&#x4E3A;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;&#x5373;&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x5927;&#x62EC;&#x53F7;&#x524D;&#x52A0;&#x4E0A;&#x5706;&#x62EC;&#x53F7;&#x3002; <hr>
-						&#x5982;&#x679C;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x952E;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;undefined&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x62A5;&#x9519;&#x3002;
+						&#x5982;&#x679C;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x952E;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;undefined&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x62A5;&#x9519;&#x3002; <br>
+						&#x4F46;&#x4E0D;&#x80FD;&#x5BF9;&#x4E00;&#x4E2A;&#x672A;&#x58F0;&#x660E;&#x7684;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x62A5;&#x9519; 
 					</span>
 				</li>
 				<li>
-					<a href="">new Constructor()</a>
+					<a href="">new </a>Fn()
 					<span>
 						&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA; <br>
 						<pre><code data-language="javascript">
@@ -4225,135 +4275,155 @@
 							}
 							var o = new Obj(opts)
 						</code></pre>
-						&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5199;new&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;undefined&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x5199;&#x4E86;new&#xFF0C;&#x5B83;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x7ED1;&#x5B9A;&#x7684;this&#x6307;&#x5411;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;this&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x6700;&#x540E;&#x5199;return this;&#x3002;<br>
-						&#x5982;&#x679C;&#x5FD8;&#x8BB0;&#x5199;new&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x5728;strict&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;this.name = name&#x5C06;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;this&#x7ED1;&#x5B9A;&#x4E3A;undefined&#xFF0C;&#x5728;&#x975E;strict&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;this.name = name&#x4E0D;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;this&#x7ED1;&#x5B9A;&#x4E3A;window&#xFF0C;&#x4E8E;&#x662F;&#x65E0;&#x610F;&#x95F4;&#x521B;&#x5EFA;&#x4E86;&#x5168;&#x5C40;&#x53D8;&#x91CF;name&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;undefined&#xFF0C;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x66F4;&#x7CDF;&#x7CD5;&#x3002;
+						new&#x547D;&#x4EE4;&#x603B;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x8981;&#x4E48;&#x662F;return&#x8BED;&#x53E5;&#x6307;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#x3002; <br>
+						new &#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#xFF0C;this&#x6307;&#x5411;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;this&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x6700;&#x540E;&#x5199;return this<br>
+						&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;new.target&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x662F;new&#x547D;&#x4EE4;&#x8C03;&#x7528;&#xFF0C;new.target&#x6307;&#x5411;&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x4E3A;undefined
 					</span>
 				</li>
 				<li>
 					<a href="">new Object()</a>
 					<span>
 						var obj = new Object(); <br>
-						obj.key = value;
-					</span>
-				</li>
-				<li>
-					<a href="">Object.creat(Object.prototype)</a>
-					<span>
-						var obj = Object.creat(Object.prototype) <br>
+						var obj = Object.creat(Object.prototype) <hr>
+						obj.key = value; <br>
 						&#x4ECE;Object&#x539F;&#x578B;&#x521B;&#x5EFA;
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>+</span>]&#x5C5E;&#x6027;</h4>
+			<h4>[<span>+</span>]&#x5C5E;&#x6027;&#x8868;&#x793A;</h4>
 			<ul style="display:none;">
 				<li>
-					obj.<a href=""></a>key
+					obj.<a href="">key</a>
 					<span>
-						&#x5F53;&#x5C5E;&#x6027;&#x542B;&#x7A7A;&#x683C;&#x3001;&#x5173;&#x952E;&#x5B57;&#x6216;&#x4E3A;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x4E2D;&#x62EC;&#x53F7;&#x8868;&#x793A; <br>
-						&#x4E0D;&#x80FD;&#x5BF9;&#x4E00;&#x4E2A;&#x672A;&#x58F0;&#x660E;&#x7684;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x5C5E;&#x6027;
+						&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x89E3;&#x91CA;&#x6210;&#x4E00;&#x4E2A;&#x9644;&#x52A0;&#x5230;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4F7F;&#x7528;.&#x8868;&#x793A;&#x6CD5;&#x65F6;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x5408;&#x6CD5;&#x7684;&#x6807;&#x8BC6;&#x7B26; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_Accessors">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
 					</span>
 				</li>
+				<li>
+					obj<a href="">[&apos;key&apos;]</a>
+					<span>
+						&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x65B9;&#x62EC;&#x53F7;&#x8BBF;&#x95EE;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#xFF0C;&#x5BF9;&#x8C61;&#x6709;&#x65F6;&#x4E5F;&#x88AB;&#x53EB;&#x4F5C;&#x5173;&#x8054;&#x6570;&#x7EC4;, &#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x5B83;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#x3002;<br> 
+						&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x6709;&#x6548;&#x7684; JavaScript &#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x88AB;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#xFF0C;&#x5305;&#x62EC;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;<br>
+						&#x5F53;&#x5C5E;&#x6027;&#x542B;&#x7A7A;&#x683C;&#x3001;&#x5173;&#x952E;&#x5B57;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x4E2D;&#x62EC;&#x53F7;&#x8868;&#x793A;
+					</span>
+				</li>
+				<li>
+					obj<a href="">[$key]</a>
+					<span>
+						&#x5F53;&#x5C5E;&#x6027;&#x4E3A;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x4E2D;&#x62EC;&#x53F7;&#x8868;&#x793A;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;</h4>
+			<ul>
+				<li>
+					{<a href="">key:val</a>}
+					<span>
+						&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x503C;&#x53EF;&#x4EE5;&#x4E3A;&#x4EFB;&#x610F;&#x7C7B;&#x578B; <br>
+						&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x7528;obj.key = val &#x6765;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;
+					</span>
+				</li>
+				<li>
+					{<a href="">get|set key([x]){}</a>}
+					<span>
+						&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x5668;&#x5B9A;&#x4E49;getter/setter&#x65B9;&#x6CD5; <br>
+						getter&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x662F;&#x65E0;&#x53C2;&#x6570;&#x7684;&#xFF0C;setter&#x65B9;&#x6CD5;&#x53EA;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570; <br>
+						&#x5BF9;&#x4E8E;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x9700;&#x4F7F;&#x7528;Object.defineProperties
+					</span>
+				</li>
+				<li>
+					<a href="">Object.defineProperty</a><em>(obj,key,desc)</em>
+					<span>
+						&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x73B0;&#x6709;&#x5C5E;&#x6027;&#xFF0C; &#x5E76;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					<a href="">Object.defineProperties</a><em>(obj,{key:{desc}})</em>
+					<span>
+						&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x5B9A;&#x4E49;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#x6216;&#x4FEE;&#x6539;&#x73B0;&#x6709;&#x5C5E;&#x6027;&#xFF0C; &#x5E76;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					<a href="">delete </a>obj.key
+					<span>
+						delete &#x64CD;&#x4F5C;&#x7B26;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x800C;&#x6765;&#x7684;&#x5C5E;&#x6027; <br>
+						&#x5220;&#x9664;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;true&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#xFF0C;delete&#x4E0D;&#x62A5;&#x9519;&#xFF0C;&#x800C;&#x4E14;&#x8FD4;&#x56DE;true&#x3002; <br>
+						&#x53EA;&#x6709;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;delete&#x547D;&#x4EE4;&#x4F1A;&#x8FD4;&#x56DE;false&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x8BE5;&#x5C5E;&#x6027;&#x5B58;&#x5728;&#xFF0C;&#x4E14;&#x4E0D;&#x5F97;&#x5220;&#x9664;&#x3002;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">Object.getOwnPropertyDescriptor</a><em>(obj,key)</em>
+					<span>
+						&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x4E0A;&#x4E00;&#x4E2A;&#x81EA;&#x6709;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
+						&#x6CE8;&#x610F;&#xFF0C;Object.getOwnPropertyDescriptor&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x7EE7;&#x627F;&#x7684;&#x5C5E;&#x6027;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getOwnPropertyDescriptors</a><em>(obj)</em>
+					<span>
+						&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x7B26; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
+				<li>
+					<a href="">configurable</a>
+					<span>
+						false|true <br>
+						&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;(&#x5C5E;&#x6027;&#x662F;&#x5426;&#x53EF;&#x88AB;&#x5220;&#x9664;)&#x3002;<br>
+						&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x548C;&#x5B58;&#x53D6;&#x63CF;&#x8FF0;&#x7B26;&#x5747;&#x5177;&#x6709;&#x6B64;&#x952E;&#x503C;
+					</span>
+				</li>
+				<li>
+					<a href="">enumerable</a>
+					<span>
+						false|true  <br>
+						&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x5426;&#x53EF;&#x679A;&#x4E3E; <br>
+						&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x548C;&#x5B58;&#x53D6;&#x63CF;&#x8FF0;&#x7B26;&#x5747;&#x5177;&#x6709;&#x6B64;&#x952E;&#x503C;
+					</span>
+				</li>
+				<li>
+					<a href="">value</a>
+					<span>
+						undefined|val <br>
+						&#x8BE5;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x7684;&#x503C;<br>
+						&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x5177;&#x6709;&#x6B64;&#x952E;&#x503C;
+					</span>
+				</li>
+				<li>
+					<a href="">writable</a>
+					<span>
+						false|true	<br>
+						&#x8868;&#x793A;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x5426;&#x53EF;&#x6539;&#x53D8; <br>
+						&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x5177;&#x6709;&#x6B64;&#x952E;&#x503C;
+					</span>
+				</li>
+				<li>
+					<a href="">get</a>
+					<span>
+						undefined|fn <br>
+						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x53D6;&#x503C;&#x51FD;&#x6570;&#xFF08;getter&#xFF09;<br>
+						&#x5B58;&#x53D6;&#x63CF;&#x8FF0;&#x7B26;&#x5177;&#x6709;&#x6B64;&#x952E;&#x503C;
+					</span>
+				</li>
+				<li>
+					<a href="">set</a>
+					<span>
+						undefined|fn <br>
+						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x5B58;&#x503C;&#x51FD;&#x6570;&#xFF08;setter&#xFF09;<br>
+						&#x5B58;&#x53D6;&#x63CF;&#x8FF0;&#x7B26;&#x5177;&#x6709;&#x6B64;&#x952E;&#x503C;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]&#x5C5E;&#x6027;&#x5224;&#x65AD;</h4>
+			<ul>
 				<li>
 					obj.<a href="">hasOwnProperty</a>(key)
 					<span>
 						&#x68C0;&#x6D4B;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x62E5;&#x6709;&#x67D0;&#x4E00;&#x5C5E;&#x6027;&#xFF08;&#x975E;&#x539F;&#x578B;&#x7EE7;&#x627F;&#xFF09; <br>
 						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x5E03;&#x5C14;
-					</span>
-				</li>
-				<li>
-					<a href="">Object.getOwnPropertyNames</a><em>(obj)</em>
-					<span>
-						&#x8FD4;&#x56DE;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x5728;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#x7684;&#x5168;&#x90E8;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x3002; <br>
-						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6210;&#x5458;&#x662F;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x952E;&#x540D;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x7EE7;&#x627F;&#x7684;&#x5C5E;&#x6027;&#x952E;&#x540D;&#x3002;
-					</span>
-				</li>
-				<li>
-					<a href="">Object.keys</a>(obj)
-					<span>
-						&#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;key&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x8FD4;&#x56DE;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027; <br>
-						Object.getOwnPropertyNames(obj)&#x65B9;&#x6CD5;&#x8FD8;&#x8FD4;&#x56DE;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;&#x540D; <br>
-						&#x7531;&#x4E8E;JavaScript&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x8BA1;&#x7B97;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x4E2A;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x4EE3;&#x66FF; <br>
-						Object.keys(o).length <br>
-						Object.getOwnPropertyNames(o).length
-					</span>
-				</li>
-				<li>
-					<a href="">Object.values</a>(obj)
-					<span>
-						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6210;&#x5458;&#x662F;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#xFF08;&#x4E0D;&#x542B;&#x7EE7;&#x627F;&#x7684;&#xFF09;&#x6240;&#x6709;&#x53EF;&#x904D;&#x5386;&#xFF08;enumerable&#xFF09;&#x5C5E;&#x6027;&#x7684;&#x952E;&#x503C;&#x3002;
-					</span>
-				</li>
-				<li>
-					<a href="">Object.entries</a>(obj)
-					<span>
-						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4; <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-					</span>
-				</li>
-				<li>
-					<a href="">Object.getOwnPropertySymbols</a>(obj)
-					<span>
-						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6210;&#x5458;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x7528;&#x4F5C;&#x5C5E;&#x6027;&#x540D;&#x7684; Symbol &#x503C;&#x3002;
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]&#x5C5E;&#x6027;&#x63CF;&#x8FF0;</h4>
-			<ul>
-				<li>
-					Desciptor<a href=""></a>
-					<span>
-						&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;&#x3002; <br>
-						&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x4E0E;DOM&#x5BF9;&#x8C61;&#x7684;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF1A;<a href="http://javascript.ruanyifeng.com/stdlib/attributes.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-					</span>
-				</li>
-				<li>
-					desciptor.<a href="">value</a>
-					<span>
-						&#x5B58;&#x653E;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;undefined
-					</span>
-				</li>
-				<li>
-					desciptor.<a href="">writable</a>
-					<span>
-						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x5426;&#x53EF;&#x6539;&#x53D8;	
-					</span>
-				</li>
-				<li>
-					desciptor.<a href="">enumerable</a>
-					<span>
-						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x5426;&#x53EF;&#x679A;&#x4E3E;
-					</span>
-				</li>
-				<li>
-					desciptor.<a href="">configurable</a>
-					<span>
-						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x201C;&#x53EF;&#x914D;&#x7F6E;&#x6027;&#x201D;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x4E3A;false&#xFF0C;&#x5C06;&#x963B;&#x6B62;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x6539;&#x5199;&#x8BE5;&#x5C5E;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x8BE5;&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x4E0D;&#x5F97;&#x6539;&#x53D8;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;&#xFF08;value&#x5C5E;&#x6027;&#x9664;&#x5916;&#xFF09;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;configurable&#x5C5E;&#x6027;&#x63A7;&#x5236;&#x4E86;&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x5199;&#x6027;&#x3002;
-					</span>
-				</li>
-				<li>
-					desciptor.<a href="">get</a>
-					<span>
-						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x53D6;&#x503C;&#x51FD;&#x6570;&#xFF08;getter&#xFF09;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;undefined
-					</span>
-				</li>
-				<li>
-					desciptor.<a href="">set</a>
-					<span>
-						&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x5B58;&#x503C;&#x51FD;&#x6570;&#xFF08;setter&#xFF09;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;undefined
-					</span>
-				</li>
-				<li>
-					<a href="">Object.getOwnPropertyDescriptor</a>(o,prop)
-					<span>
-						&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x4E0A;&#x4E00;&#x4E2A;&#x81EA;&#x6709;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-					</span>
-				</li>
-				<li>
-					<a href="">Ojbect.defineProperty</a><em>(o,prop,desciptor)</em>
-					<span>
-						&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x73B0;&#x6709;&#x5C5E;&#x6027;&#xFF0C; &#x5E76;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002; <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
 					</span>
 				</li>
 				<li>
@@ -4363,8 +4433,45 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>+</span>]&#x72B6;&#x6001;&#x63A7;&#x5236;</h4>
-			<ul style="display:none;">
+			<h4>[<span>-</span>]&#x5C5E;&#x6027;&#x679A;&#x4E3E;</h4>
+			<ul>
+				<li>
+					<a href="">for $key in</a> obj
+					<span>
+						&#x4F9D;&#x6B21;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A; [&#x5BF9;&#x8C61;&#x53CA;&#x5176;&#x539F;&#x578B;&#x94FE;] &#x4E2D;&#x6240;&#x6709; [&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;]
+					</span>
+				</li>
+				<li>
+					<a href="">Object.keys</a>(obj)
+					<span>
+						&#x8FD4;&#x56DE; [&#x5BF9;&#x8C61;] &#x81EA;&#x8EAB;&#xFF08;&#x4E0D;&#x5305;&#x62EC;&#x539F;&#x578B;&#x4E2D;&#xFF09;&#x7684;&#x6240;&#x6709; [&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;] &#x7684;&#x6570;&#x7EC4;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getOwnPropertyNames</a><em>(obj)</em>
+					<span>
+						&#x8FD4;&#x56DE; [&#x5BF9;&#x8C61;] &#x81EA;&#x8EAB;&#xFF08;&#x4E0D;&#x5305;&#x62EC;&#x7EE7;&#x627F;&#x7684;&#xFF09;&#x7684;&#x6240;&#x6709; [&#x5C5E;&#x6027;] &#x7684;&#x6570;&#x7EC4;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getOwnPropertySymbols</a>(obj)
+					<span>
+						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6210;&#x5458;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x7528;&#x4F5C;&#x5C5E;&#x6027;&#x540D;&#x7684; Symbol &#x503C;&#x3002;
+					</span>
+				</li>
+				<li>
+					<a href="">Reflect.ownKeys</a>(obj)
+					<span>
+						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5305;&#x542B;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x6240;&#x6709;&#x952E;&#x540D;&#xFF0C;&#x4E0D;&#x7BA1;&#x952E;&#x540D;&#x662F; Symbol &#x6216;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x4E0D;&#x7BA1;&#x662F;&#x5426;&#x53EF;&#x679A;&#x4E3E;&#x3002; <hr>
+						<a href="http://es6.ruanyifeng.com/#docs/object#&#x5C5E;&#x6027;&#x7684;&#x904D;&#x5386;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
+						&#x9996;&#x5148;&#x904D;&#x5386;&#x6240;&#x6709;&#x6570;&#x503C;&#x952E;&#xFF0C;&#x6309;&#x7167;&#x6570;&#x503C;&#x5347;&#x5E8F;&#x6392;&#x5217;&#x3002;<br>
+						&#x5176;&#x6B21;&#x904D;&#x5386;&#x6240;&#x6709;&#x5B57;&#x7B26;&#x4E32;&#x952E;&#xFF0C;&#x6309;&#x7167;&#x52A0;&#x5165;&#x65F6;&#x95F4;&#x5347;&#x5E8F;&#x6392;&#x5217;&#x3002;<br>
+						&#x6700;&#x540E;&#x904D;&#x5386;&#x6240;&#x6709; Symbol &#x952E;&#xFF0C;&#x6309;&#x7167;&#x52A0;&#x5165;&#x65F6;&#x95F4;&#x5347;&#x5E8F;&#x6392;&#x5217;&#x3002;<br>
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]&#x72B6;&#x6001;&#x63A7;&#x5236;</h4>
+			<ul>
 				<li>
 					<a href="">Object.preventExtensions</a>(obj)
 					<span>
@@ -4380,7 +4487,7 @@
 				<li>
 					<a href="">Object.seal</a>(obj)
 					<span>
-						&#x7981;&#x6B62;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;
+						&#x7981;&#x6B62;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#xFF0C;&#x65E2;&#x65E0;&#x6CD5;&#x6DFB;&#x52A0;&#x65B0;&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x65E7;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x5F71;&#x54CD;&#x4FEE;&#x6539;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;
 					</span>
 				</li>
 				<li>
@@ -4392,7 +4499,8 @@
 				<li>
 					<a href="">Object.freeze</a>(obj)
 					<span>
-						&#x51BB;&#x7ED3;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x51BB;&#x7ED3;&#x6307;&#x7684;&#x662F;&#x4E0D;&#x80FD;&#x5411;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5176;&#x5DF2;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF0C;&#x4E0D;&#x80FD;&#x5220;&#x9664;&#x5DF2;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x4EE5;&#x53CA;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x8BE5;&#x5BF9;&#x8C61;&#x5DF2;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x53EF;&#x679A;&#x4E3E;&#x6027;&#x3001;&#x53EF;&#x914D;&#x7F6E;&#x6027;&#x3001;&#x53EF;&#x5199;&#x6027;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6C38;&#x8FDC;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x3002;
+						&#x51BB;&#x7ED3;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x65E0;&#x6CD5;&#x6DFB;&#x52A0;&#x65B0;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x65E7;&#x5C5E;&#x6027;&#x3001;&#x4E5F;&#x65E0;&#x6CD5;&#x6539;&#x53D8;&#x5C5E;&#x6027;&#x7684;&#x503C; <br>	
+						&#x51BB;&#x7ED3;&#x6307;&#x7684;&#x662F;&#x4E0D;&#x80FD;&#x5411;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5176;&#x5DF2;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF0C;&#x4E0D;&#x80FD;&#x5220;&#x9664;&#x5DF2;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x4EE5;&#x53CA;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x8BE5;&#x5BF9;&#x8C61;&#x5DF2;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x53EF;&#x679A;&#x4E3E;&#x6027;&#x3001;&#x53EF;&#x914D;&#x7F6E;&#x6027;&#x3001;&#x53EF;&#x5199;&#x6027;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6C38;&#x8FDC;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x3002;
 					</span>
 				</li>
 				<li>
@@ -4402,25 +4510,23 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]&#x64CD;&#x4F5C;</h4>
-			<ul>
+			<h4>[<span>+</span>]&#x5176;&#x5B83;</h4>
+			<ul style="display:none;">
 				<li>
 					<a href="">Object.assign</a>(to,from...)
 					<span>
-						&#x6D45;&#x62F7;&#x8D1D;&#x3002;&#x5C06;&#x6240;&#x6709;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x4ECE;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x590D;&#x5236;&#x5230;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x3002;<br>
-						&#x53EA;&#x4F1A;&#x62F7;&#x8D1D;&#x6E90;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x5E76;&#x4E14;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;&#x5230;&#x76EE;&#x6807;&#x5BF9;&#x8C61; <br> 
+						&#x5C06;&#x6240;&#x6709;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x4ECE;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x590D;&#x5236;&#x5230;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x3002;<br>
+						1.&#x6D45;&#x62F7;&#x8D1D;&#xFF0C;&#x5982;&#x679C;&#x6E90;&#x5BF9;&#x8C61;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x62F7;&#x8D1D;&#x5F97;&#x5230;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528; <br>
+						2.&#x53EA;&#x4F1A;&#x62F7;&#x8D1D;&#x6E90;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x5E76;&#x4E14;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;&#x5230;&#x76EE;&#x6807;&#x5BF9;&#x8C61; <br> 
 						Object.assign &#x4E0D;&#x4F1A;&#x8DF3;&#x8FC7;&#x90A3;&#x4E9B;&#x503C;&#x4E3A; null &#x6216; undefined &#x7684;&#x6E90;&#x5BF9;&#x8C61; <br>
 						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
 						<hr>
 					</span>
 				</li>
-			</ul>
-			<h4>[<span>+</span>]&#x5176;&#x5B83;</h4>
-			<ul>
 				<li>
-					obj.<a href="">valueOf</a>()
+					<a href="">Object.is</a>(x,y)
 					<span>
-						&#x53EF;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;valueOf&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6765;&#x66FF;&#x6362;&#x539F;&#x578B;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4EE5;&#x8FBE;&#x5230;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x8BA1;&#x7B97;&#x65F6;&#x9884;&#x671F;&#x7684;&#x7ED3;&#x679C;&#x3002;
+						&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x503C;&#x662F;&#x5426;&#x5168;&#x7B49;&#xFF08;&#x5FC5;&#x987B;&#x5F15;&#x7528;&#x5730;&#x5740;&#x4E5F;&#x4E00;&#x81F4;&#xFF09;
 					</span>
 				</li>
 				<li>
@@ -4484,14 +4590,176 @@
 						</table>
 					</span>
 				</li>
+				<li>
+					obj.<a href="">valueOf</a>()
+					<span>
+						&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x59CB;&#x503C; <br>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+					</span>
+				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="u-block">
-        <h3>&#x5BF9;&#x8C61;&#x6269;&#x5C55;<span>-</span></h3>
+		<h3>&#x9762;&#x5411;&#x5BF9;&#x8C61;<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>]&#x7C7B;&#x4E0E;&#x7EE7;&#x627F;</h4>
+			<ul>
+				<li>
+					<a href="">class</a> name
+					<span>
+						1.&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x6240;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x662F;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x3002; <br>
+						2.&#x7C7B;&#x548C;&#x6A21;&#x5757;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x9ED8;&#x8BA4;&#x5C31;&#x662F;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;use strict&#x6307;&#x5B9A;&#x8FD0;&#x884C;&#x6A21;&#x5F0F;&#x3002;<br>
+						3.&#x7C7B;&#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x63D0;&#x5347; <br>
+						4.&#x7C7B;&#x4E0D;&#x80FD;&#x7EE7;&#x627F;&#x5E38;&#x89C4;&#xFF08;&#x975E;&#x53EF;&#x6784;&#x9020;&#xFF09;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x8981;&#x7EE7;&#x627F;&#x5E38;&#x89C4;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x6539;&#x7528;Object.setPrototypeOf()
+					</span>
+				</li>
+				<li>
+					<a href="">class $child extends $parent</a>
+					<span>
+						1.&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x4E2D;&#x5B58;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5728;&#x4F7F;&#x7528;&#x201C;this&#x201D;&#x4E4B;&#x524D;&#x9996;&#x5148;&#x8C03;&#x7528; super()&#x3002;<br>
+						2.&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x8C03;&#x7528;super&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;this&#x5173;&#x952E;&#x5B57;
+                	</span>
+				</li>
+				<li>
+					class.<a href="">constructor</a>([opt]){}
+					<span>
+						1.constructor&#x65B9;&#x6CD5;&#x662F;&#x7C7B;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;new&#x547D;&#x4EE4;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;<br>	
+						2.&#x4E00;&#x4E2A;&#x7C7B;&#x5FC5;&#x987B;&#x6709;constructor&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5B9A;&#x4E49;&#xFF0C;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;constructor&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x9ED8;&#x8BA4;&#x6DFB;&#x52A0;&#x3002;
+					</span>
+				</li>
+				<li>
+					class.<a href="">super</a>(key)|.fn
+					<span>
+						1.super&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4EE3;&#x8868;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002; <br>
+						2.super&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5728;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF1B;&#x5728;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x3002;
+
+						<table>
+							<tr>
+								<td>&#x73AF;&#x5883;</td>
+								<td>this</td>
+								<td>super</td>
+							</tr>
+							<tr>
+								<td>&#x6784;&#x9020;&#x51FD;&#x6570;</td>
+								<td>&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;</td>
+								<td>&#x7236;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;</td>
+							</tr>
+							<tr>
+								<td>&#x666E;&#x901A;&#x65B9;&#x6CD5;</td>
+								<td>&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;</td>
+								<td>&#x7236;&#x7C7B;&#x539F;&#x578B;&#x5BF9;&#x8C61;</td>
+							</tr>
+							<tr>
+								<td>&#x9759;&#x6001;&#x65B9;&#x6CD5;</td>
+								<td>&#x7C7B;</td>
+								<td>&#x7236;&#x7C7B;</td>
+							</tr>
+						</table>
+					</span>
+				</li>
+				<li>
+					class.<a href="">fn</a>(){}
+					<span>
+						&#x539F;&#x578B;&#x65B9;&#x6CD5;
+					</span>
+				</li>
+                <li>
+                	class.<a href="">static fn</a>(){}
+                	<span>
+                		1.&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x88AB;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x7C7B;&#x6765;&#x8C03;&#x7528; <br>
+						2.&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x5B50;&#x7C7B;&#x7EE7;&#x627F; <br>
+                		3.&#x5982;&#x679C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5305;&#x542B;this&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x8FD9;&#x4E2A;this&#x6307;&#x7684;&#x662F;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x4F8B;&#x3002;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+                	</span>
+                </li>
+				<li>
+					class.<a href="">get|set prop</a>(){}
+					<span>
+						getter/setter
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]&#x7C7B;&#x4FEE;&#x9970;&#x5668;</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">@decorator</a>(cls)
+					<span>
+						&#x4FEE;&#x9970;&#x5668;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x7C7B;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x7684;&#x51FD;&#x6570;
+					</span>
+				</li>
+				<li>
+					<a href="">@decorator</a>(cls,prop,desc)
+					<span>
+						&#x4FEE;&#x9970;&#x5668;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x4FEE;&#x9970;&#x7C7B;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4FEE;&#x9970;&#x7C7B;&#x7684;&#x5C5E;&#x6027;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]&#x539F;&#x578B;&#x94FE;</h4>
+			<ul style="display:none;">
+				<li>
+					cst.<a href="">prototype</a>
+					<span>
+                		&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x539F;&#x578B;&#xFF08;prototype&#x662F;&#x51FD;&#x6570;&#x624D;&#x4F1A;&#x6709;&#x7684;&#x5C5E;&#x6027;&#xFF09; <br>
+                    	&#x4E3A;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x6D88;&#x8017;&#xFF0C;&#x5C06;&#x516C;&#x5171;&#x65B9;&#x6CD5;&#x5199;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x4E0A;&#xFF0C;<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
+						&#x5728;&#x6539;&#x53D8;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4E00;&#x822C;&#x8981;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;constructor&#x5C5E;&#x6027; <br>
+                	</span>
+				</li>
+				<li>
+					pro.<a href="">constructor</a>
+					<span>
+                    	&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570; <br>
+                    	<img src="image/js/prototype.png?" alt="" style="background-color:#fff;"> <br>
+                        <a href="https://github.com/mqyqingfeng/Blog/issues/2">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+                	</span>
+				</li>
+				<li>
+					obj.<a href="">__proto__</a>
+					<span>
+						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;Object / &#x6784;&#x9020;&#x51FD;&#x6570;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF08;&#x4EC5;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#xFF09; <br>
+						&#x5728;&#x7F16;&#x5199;JavaScript&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x4E0D;&#x8981;&#x76F4;&#x63A5;&#x7528;obj.__proto__&#x53BB;&#x6539;&#x53D8;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x5E76;&#x4E14;&#xFF0C;&#x4F4E;&#x7248;&#x672C;&#x7684;IE&#x4E5F;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;__proto__&#x3002; 
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]&#x539F;&#x578B;&#x65B9;&#x6CD5;</h4>
+			<ul style="display:none;">
+                <li>
+					<a href="">Object.create</a>(obj)
+					<span>
+						&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x65B0;&#x5BF9;&#x8C61;&#xFF0C;&#x6E90;&#x5BF9;&#x8C61;&#x4F1A;&#x6210;&#x4E3A;&#x65B0;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x5E76;&#x4E0D;&#x80FD;&#x5728;&#x81EA;&#x8EAB;&#x9ED8;&#x8BA4;&#x53EF;&#x89C1; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create">&#x53C2;&#x8003;&#x8D44;&#x6599;</a><br>
+						&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5C06;b&#x7684;&#x539F;&#x578B;&#x8D4B;&#x503C;&#x7ED9;a&#xFF0C;&#x5426;&#x5219;&#x5F53;b&#x7684;&#x539F;&#x578B;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;a&#x7684;&#x539F;&#x578B;&#x4E5F;&#x4F1A;&#x88AB;&#x66F4;&#x6539; <hr>
+						Child.prototype = Object.create(Parent.prototype) <br>	Child.prototype.constructor = Child
+					</span>
+				</li>
+				<li>
+					pro.<a href="">isPrototypeOf</a>(obj)
+					<span>
+						&#x5224;&#x65AD;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B; <br>
+						Object.prototype&#x5904;&#x4E8E;&#x539F;&#x578B;&#x94FE;&#x7684;&#x6700;&#x9876;&#x7AEF;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x5404;&#x79CD;&#x5B9E;&#x4F8B;&#x90FD;&#x8FD4;&#x56DE;true&#xFF0C;&#x53EA;&#x6709;&#x7EE7;&#x627F;null&#x7684;&#x5BF9;&#x8C61;&#x9664;&#x5916;&#x3002;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.getPrototypeOf</a>(obj)
+					<span>
+						&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;
+					</span>
+				</li>
+				<li>
+					<a href="">Object.setPrototypeOf</a><em>(obj,proto)</em>
+					<span>
+						&#x4E3A;&#x73B0;&#x6709;&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x539F;&#x578B;&#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x5BF9;&#x8C61;&#x3002;
+					</span>
+				</li>
+			</ul>
+        </div>
+    </div>
+</div>
+	<!-- 标准对象 -->
+<div class="u-col">
+	<div class="u-block">
+        <h3>&#x5143;&#x7F16;&#x7A0B;<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>]Symbol</h4>
-            <ul>
+            <h4>[<span>+</span>]Symbol</h4>
+            <ul style="display:none;">
                 <li>
                     <a href="">Symbol</a>([des])
                     <span>
@@ -4507,110 +4775,118 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">Symbol.for</a>(str)
+                    <a href="">Symbol.for</a>(desc)
                     <span>
                         &#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x641C;&#x7D22;&#x6709;&#x6CA1;&#x6709;&#x4EE5;&#x8BE5;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;&#x7684; Symbol &#x503C;&#x3002;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A; Symbol &#x503C;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x65B0;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EE5;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x540D;&#x79F0;&#x7684; Symbol &#x503C;&#x3002;
                     </span>
                 </li>
                 <li>
-                    <a href="">Symbol.keyfor</a>(sb)
+                    <a href="">Symbol.keyfor</a>(symbol)
                     <span>
                         &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5DF2;&#x767B;&#x8BB0;&#x7684; Symbol &#x7C7B;&#x578B;&#x503C;&#x7684;key
                     </span>
                 </li>
             </ul>
-			<h4>[<span>+</span>]Proxy</h4>
-			<ul style="display:none;">
+			<h4>[<span>-</span>]Proxy</h4>
+			<ul>
 				<li>
 					<a href="">new Proxy</a>(target,handler)
 					<span>
+                        var proxy = new Proxy(target,{handler}) <br>
 						&#x5728;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E4B;&#x524D;&#x67B6;&#x8BBE;&#x4E00;&#x5C42;&#x201C;&#x62E6;&#x622A;&#x201D;&#xFF0C;&#x5916;&#x754C;&#x5BF9;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x5148;&#x901A;&#x8FC7;&#x8FD9;&#x5C42;&#x62E6;&#x622A;&#xFF0C;&#x56E0;&#x6B64;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x5916;&#x754C;&#x7684;&#x8BBF;&#x95EE;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x548C;&#x6539;&#x5199;&#x3002; <br>
-						<a href="http://es6.ruanyifeng.com/#docs/proxy">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <hr>
-						&#x901A;&#x8FC7;&#x6539;&#x5199;return&#x503C;&#xFF0C;&#x53EF;&#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;
+						<a href="http://es6.ruanyifeng.com/#docs/proxy">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
+						&#x901A;&#x8FC7;&#x6539;&#x5199;return&#x503C;&#xFF0C;&#x53EF;&#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C; <hr>
+                        &#x5F53;&#x88AB;&#x4EE3;&#x7406;&#x7684;&#x5BF9;&#x8C61;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x65F6;&#xFF1A;<br>
+                        &#x5BF9;&#x8C61;&#xFF1A;target=&#x6E90;&#x5BF9;&#x8C61;,key=&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;;<br>
+                        &#x6570;&#x7EC4;&#xFF1A;target=&#x6E90;&#x6570;&#x7EC4;,key=&#x6E90;&#x6570;&#x7EC4;&#x7684;&#x7D22;&#x5F15;;<br>
+                        &#x51FD;&#x6570;&#xFF1A;target=&#x6267;&#x884C;&#x6E90;&#x51FD;&#x6570;,target[key]=&#x51FD;&#x6570;&#x6E90;; <br>
 					</span>
 				</li>
-				<li>
-					<a href="">get</a><em>(target, propKey, receiver)</em>
+                <li>
+					<a href="">Proxy.revocable</a>(target,handler)
 					<span>
-						&#x62E6;&#x622A;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x8BFB;&#x53D6;&#xFF0C;&#x6BD4;&#x5982;proxy.foo&#x548C;proxy[&apos;foo&apos;]&#x3002;
+						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x53D6;&#x6D88;&#x7684;Proxy&#x5B9E;&#x4F8B; <br>
+                        let {proxy, revoke} = Proxy.revocable(target, handler); <br>
+                        &#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x7684;this&#x5173;&#x952E;&#x5B57;&#x4F1A;&#x6307;&#x5411; Proxy &#x4EE3;&#x7406; <br>
+                        Proxy.revocable&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;proxy&#x5C5E;&#x6027;&#x662F;Proxy&#x5B9E;&#x4F8B;&#xFF0C;revoke&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x53D6;&#x6D88;Proxy&#x5B9E;&#x4F8B; <a href="http://es6.ruanyifeng.com/#docs/proxy#Proxy-revocable">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
 					</span>
 				</li>
 				<li>
-					<a href="">set</a><em>(target, propKey, value, receiver)</em>
+					handler.<a href="">get</a><em>(target,key,receiver)</em>
 					<span>
-						&#x62E6;&#x622A;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x6BD4;&#x5982;proxy.foo = v&#x6216;proxy[&apos;foo&apos;] = v&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;
+						&#x62E6;&#x622A;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x8BFB;&#x53D6;
 					</span>
 				</li>
 				<li>
-					<a href="">has</a><em>(target, propKey)</em>
+					handler.<a href="">set</a><em>(target,key,val,receiver)</em>
+					<span>
+						&#x62E6;&#x622A;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x8BBE;&#x7F6E;
+					</span>
+				</li>
+				<li>
+					handler.<a href="">has</a><em>(target,key)</em>
 					<span>
 						&#x62E6;&#x622A;propKey in proxy&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;
 					</span>
 				</li>
 				<li>
-					<a href="">deleteProperty</a><em>(target, propKey)</em>
+					handler.<a href="">deleteProperty</a><em>(target,key)</em>
 					<span>
 						&#x62E6;&#x622A;delete proxy[propKey]&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;
 					</span>
 				</li>
-				<li>
-					<a href="">ownKeys</a><em>(target)</em>
+                <li>	
+					handler.<a href="">construct</a><em>(target, args)</em>
 					<span>
-						&#x62E6;&#x622A;Object.getOwnPropertyNames(proxy)&#x3001;Object.getOwnPropertySymbols(proxy)&#x3001;Object.keys(proxy)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x81EA;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;&#x540D;&#xFF0C;&#x800C;Object.keys()&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4EC5;&#x5305;&#x62EC;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x53EF;&#x904D;&#x5386;&#x5C5E;&#x6027;&#x3002;
+						&#x62E6;&#x622A; Proxy &#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;new proxy(...args)&#x3002;
+					</span>
+				</li>
+                <li>
+					handler.<a href="">apply</a><em>(target,object,args)</em>
+					<span>
+						&#x62E6;&#x622A; Proxy &#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;proxy(...args)&#x3001;proxy.call(object, ...args)&#x3001;proxy.apply(...)&#x3002;
 					</span>
 				</li>
 				<li>
-					<a href="">getOwnPropertyDescriptor</a><em>(target, propKey)</em>
+					handler.<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						&#x62E6;&#x622A;Object.getOwnPropertyNames(proxy)&#x3001;Object.getOwnPropertySymbols(proxy)&#x3001;Object.keys(proxy)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x81EA;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x3002;
+					</span>
+				</li>
+                <li>
+					handler.<a href="">getOwnPropertyDescriptor</a><em>(target,key)</em>
 					<span>
 						&#x62E6;&#x622A;Object.getOwnPropertyDescriptor(proxy, propKey)&#xFF0C;&#x8FD4;&#x56DE;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;&#x3002;
 					</span>
 				</li>
 				<li>
-					<a href="">defineProperty</a><em>(target, propKey, propDesc)</em>
+					handler.<a href="">defineProperty</a><em>(target,key,desc)</em>
 					<span>
 						&#x62E6;&#x622A;Object.defineProperty(proxy, propKey, propDesc&#xFF09;&#x3001;Object.defineProperties(proxy, propDescs)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;
 					</span>
 				</li>
 				<li>
-					<a href="">preventExtensions</a><em>(target)</em>
+					handler.<a href="">preventExtensions</a><em>(target)</em>
 					<span>
 						&#x62E6;&#x622A;Object.preventExtensions(proxy)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;
 					</span>
 				</li>
-				<li>
-					<a href="">getPrototypeOf</a><em>(target)</em>
-					<span>
-						&#x62E6;&#x622A;Object.getPrototypeOf(proxy)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;
-					</span>
-				</li>
-				<li>
-					<a href="">isExtensible</a><em>(target)</em>
+                <li>
+					handler.<a href="">isExtensible</a><em>(target)</em>
 					<span>
 						&#x62E6;&#x622A;Object.isExtensible(proxy)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;
 					</span>
 				</li>
 				<li>
-					<a href="">setPrototypeOf</a><em>(target, proto)</em>
+					handler.<a href="">getPrototypeOf</a><em>(target)</em>
+					<span>
+						&#x62E6;&#x622A;Object.getPrototypeOf(proxy)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;
+					</span>
+				</li>
+				<li>
+					handler.<a href="">setPrototypeOf</a><em>(target,proto)</em>
 					<span>
 						&#x62E6;&#x622A;Object.setPrototypeOf(proxy, proto)&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x3002;&#x5982;&#x679C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x8FD8;&#x6709;&#x4E24;&#x79CD;&#x989D;&#x5916;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x62E6;&#x622A;&#x3002;
-					</span>
-				</li>
-				<li>
-					<a href="">apply</a><em>(target, object, args)</em>
-					<span>
-						&#x62E6;&#x622A; Proxy &#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;proxy(...args)&#x3001;proxy.call(object, ...args)&#x3001;proxy.apply(...)&#x3002;
-					</span>
-				</li>
-				<li>	
-					<a href="">construct</a><em>(target, args)</em>
-					<span>
-						&#x62E6;&#x622A; Proxy &#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;new proxy(...args)&#x3002;
-					</span>
-				</li>
-				<li>
-					<a href="">Proxy.revocable</a>(target, handler)
-					<span>
-						&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x53D6;&#x6D88;&#x7684; Proxy &#x5B9E;&#x4F8B;
 					</span>
 				</li>
 			</ul>
@@ -4626,25 +4902,25 @@
 					</span>
 				</li>
 				<li>
-					Reflect.<a href="">get</a><em>(target,name,[receiver])</em>
+					Reflect.<a href="">get</a><em>(target,key,[receiver])</em>
 					<span>
 						&#x67E5;&#x627E;&#x5E76;&#x8FD4;&#x56DE;target&#x5BF9;&#x8C61;&#x7684;name&#x5C5E;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BE5;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;undefined&#x3002;
 					</span>
 				</li>
 				<li>
-					Reflect.<a href="">set</a><em>(target,name,value,[receiver])</em>
+					Reflect.<a href="">set</a><em>(target,key,value,[receiver])</em>
 					<span>
 						&#x8BBE;&#x7F6E;target&#x5BF9;&#x8C61;&#x7684;name&#x5C5E;&#x6027;&#x7B49;&#x4E8E;value
 					</span>
 				</li>
 				<li>
-					Reflect.<a href="">has</a><em>(obj,name)</em>
+					Reflect.<a href="">has</a><em>(target,key)</em>
 					<span>
-						&#x5BF9;&#x5E94;name in obj&#x91CC;&#x9762;&#x7684;in&#x8FD0;&#x7B97;&#x7B26;
+						&#x5BF9;&#x5E94;key in obj&#x91CC;&#x9762;&#x7684;in&#x8FD0;&#x7B97;&#x7B26;
 					</span>
 				</li>
 				<li>
-					Reflect.<a href="">deleteProperty</a><em>(obj,name)</em>
+					Reflect.<a href="">deleteProperty</a><em>(target,key)</em>
 					<span>
 						&#x7B49;&#x540C;&#x4E8E;delete obj[name]&#xFF0C;&#x7528;&#x4E8E;&#x5220;&#x9664;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;
 					</span>
@@ -4655,34 +4931,34 @@
 						&#x7B49;&#x540C;&#x4E8E;new target(...args)&#xFF0C;&#x8FD9;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x4E0D;&#x4F7F;&#x7528;new&#xFF0C;&#x6765;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#x3002;
 					</span>
 				</li>
-				<li>
-					Reflect.<a href="">getPrototypeOf</a><em>(obj)</em>
-					<span>
-						&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x5BF9;&#x8C61;&#x7684;__proto__&#x5C5E;&#x6027;&#xFF0C;&#x5BF9;&#x5E94;Object.getPrototypeOf(obj)&#x3002;
-					</span>
-				</li>
-				<li>
-					Reflect.<a href="">setPrototypeOf</a><em>(obj,newProto)</em>
-					<span>
-						&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;__proto__&#x5C5E;&#x6027;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x5E94;Object.setPrototypeOf(obj, newProto)&#x3002;
-					</span>
-				</li>
-				<li>
+                <li>
 					Reflect.<a href="">apply</a><em>(fn,thisArg,args)</em>
 					<span>
 						&#x7B49;&#x540C;&#x4E8E;Function.prototype.apply.call(func, thisArg, args)&#xFF0C;&#x7528;&#x4E8E;&#x7ED1;&#x5B9A;this&#x5BF9;&#x8C61;&#x540E;&#x6267;&#x884C;&#x7ED9;&#x5B9A;&#x51FD;&#x6570;&#x3002;
 					</span>
 				</li>
+                <li>
+					Reflect.<a href="">ownKeys</a><em>(target)</em>
+					<span>
+						&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x57FA;&#x672C;&#x7B49;&#x540C;&#x4E8E;Object.getOwnPropertyNames&#x4E0E;Object.getOwnPropertySymbols&#x4E4B;&#x548C;&#x3002;
+					</span>
+				</li>
+                <li>
+					Reflect.<a href="">getOwnPropertyDescriptor</a><em>(target,key)</em>
+					<span>
+						&#x57FA;&#x672C;&#x7B49;&#x540C;&#x4E8E;Object.getOwnPropertyDescriptor&#xFF0C;&#x7528;&#x4E8E;&#x5F97;&#x5230;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;
+					</span>
+				</li>
 				<li>
-					Reflect.<a href="">defineProperty</a><em>(target,propertyKey,attributes)</em>
+					Reflect.<a href="">defineProperty</a><em>(target,key,desc)</em>
 					<span>
 						&#x57FA;&#x672C;&#x7B49;&#x540C;&#x4E8E;Object.defineProperty&#xFF0C;&#x7528;&#x6765;&#x4E3A;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#x3002;
 					</span>
 				</li>
-				<li>
-					Reflect.<a href="">getOwnPropertyDescriptor</a><em>(target,propertyKey)</em>
+                <li>
+					Reflect.<a href="">preventExtensions</a><em>(target)</em>
 					<span>
-						&#x57FA;&#x672C;&#x7B49;&#x540C;&#x4E8E;Object.getOwnPropertyDescriptor&#xFF0C;&#x7528;&#x4E8E;&#x5F97;&#x5230;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x5BF9;&#x8C61;
+						&#x5BF9;&#x5E94;Object.preventExtensions&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x8BA9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53D8;&#x4E3A;&#x4E0D;&#x53EF;&#x6269;&#x5C55;&#x3002;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x662F;&#x5426;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x3002;
 					</span>
 				</li>
 				<li>
@@ -4691,229 +4967,117 @@
 						&#x5BF9;&#x5E94;Object.isExtensible&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x6269;&#x5C55;&#x3002;
 					</span>
 				</li>
-				<li>
-					Reflect.<a href="">preventExtensions</a><em>(target)</em>
+                <li>
+					Reflect.<a href="">getPrototypeOf</a><em>(obj)</em>
 					<span>
-						&#x5BF9;&#x5E94;Object.preventExtensions&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x8BA9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53D8;&#x4E3A;&#x4E0D;&#x53EF;&#x6269;&#x5C55;&#x3002;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x662F;&#x5426;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x3002;
+						&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x5BF9;&#x8C61;&#x7684;__proto__&#x5C5E;&#x6027;&#xFF0C;&#x5BF9;&#x5E94;Object.getPrototypeOf(obj)&#x3002;
 					</span>
 				</li>
 				<li>
-					Reflect.<a href="">ownKeys</a><em>(target)</em>
+					Reflect.<a href="">setPrototypeOf</a><em>(obj,proto)</em>
 					<span>
-						&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x57FA;&#x672C;&#x7B49;&#x540C;&#x4E8E;Object.getOwnPropertyNames&#x4E0E;Object.getOwnPropertySymbols&#x4E4B;&#x548C;&#x3002;
+						&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;__proto__&#x5C5E;&#x6027;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x5E94;Object.setPrototypeOf(obj, newProto)&#x3002;
 					</span>
 				</li>
-			</ul>
-			<h4>[<span>+</span>]Error</h4>
-			<ul style="display: none;">
-				<li><a href="">new Error</a>(&apos;msg&apos;)<span>
-					&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#xFF1A;
-					<table>
-						<tr>
-							<th>&#x5C5E;&#x6027;</th>
-							<th>&#x63CF;&#x8FF0;</th>
-						</tr>
-						<tr>
-							<td>err.message</td>
-							<td>&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x4FE1;&#x606F;</td>
-						</tr>
-						<tr>
-							<td>err.name</td>
-							<td>&#x9519;&#x8BEF;&#x540D;&#x79F0;&#xFF08;&#x975E;&#x6807;&#x51C6;&#x5C5E;&#x6027;&#xFF09;</td>
-						</tr>
-						<tr>
-							<td>err.stack</td>
-							<td>&#x9519;&#x8BEF;&#x7684;&#x5806;&#x6808;&#xFF08;&#x975E;&#x6807;&#x51C6;&#x5C5E;&#x6027;&#xFF09;</td>
-						</tr>
-					</table>
-					<br>
-					&#x539F;&#x751F;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#xFF1A;
-					<table>
-						<tr>
-							<th>&#x540D;&#x79F0;</th>
-							<th>&#x63CF;&#x8FF0;</th>
-						</tr>
-						<tr>
-							<td>SyntaxError</td>
-							<td>&#x89E3;&#x6790;&#x4EE3;&#x7801;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;</td>
-						</tr>
-						<tr>
-							<td>ReferenceError</td>
-							<td>&#x5F15;&#x7528;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x53D8;&#x91CF;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;&#xFF1B;&#x5C06;&#x4E00;&#x4E2A;&#x503C;&#x5206;&#x914D;&#x7ED9;&#x65E0;&#x6CD5;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;</td>
-						</tr>
-						<tr>
-							<td>RangeError</td>
-							<td>&#x5F53;&#x4E00;&#x4E2A;&#x503C;&#x8D85;&#x51FA;&#x6709;&#x6548;&#x8303;&#x56F4;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;</td>
-						</tr>
-						<tr>
-							<td>TypeError</td>
-							<td>&#x53D8;&#x91CF;&#x6216;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x9884;&#x671F;&#x7C7B;&#x578B;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;</td>
-						</tr>
-						<tr>
-							<td>URIError</td>
-							<td>URI&#x76F8;&#x5173;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;</td>
-						</tr>
-						<tr>
-							<td>EvalError</td>
-							<td>eval&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x88AB;&#x6B63;&#x786E;&#x6267;&#x884C;</td>
-						</tr>
-						<tr>
-							<td>&#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;</td>
-							<td><a href="http://javascript.ruanyifeng.com/grammar/error.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></td>
-						</tr>
-					</table>
-
-					<br><br>
-					&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x5B83;&#x81EA;&#x8EAB;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#xFF0C;&#x9519;&#x8BEF;&#x5C31;&#x4F1A;&#x88AB;&#x629B;&#x5230;&#x5916;&#x5C42;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x4E5F;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4F1A;&#x4E00;&#x76F4;&#x6CBF;&#x7740;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x94FE;&#x5411;&#x4E0A;&#x629B;&#x51FA;&#xFF0C;&#x76F4;&#x5230;&#x88AB;JavaScript&#x5F15;&#x64CE;&#x6355;&#x83B7;&#xFF0C;&#x4EE3;&#x7801;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5FC5;&#x5728;&#x6BCF;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x5408;&#x9002;&#x7684;&#x5730;&#x65B9;&#x6765;&#x4E2A;&#x7EDF;&#x4E00;&#x6355;&#x83B7;&#xFF0C;&#x4E00;&#x7F51;&#x6253;&#x5C3D;&#x3002;<hr>
-					&#x6D89;&#x53CA;&#x5230;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x65E0;&#x6CD5;&#x5728;&#x8C03;&#x7528;&#x65F6;&#x6355;&#x83B7;&#xFF0C;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x5728;&#x6355;&#x83B7;&#x7684;&#x5F53;&#x65F6;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5E76;&#x672A;&#x6267;&#x884C;&#x3002;<br>
-					&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x5728;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#x5904;&#xFF0C;&#x65E0;&#x6CD5;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x7684;&#x9519;&#x8BEF;&#x3002;
-				</span></li>
-				<li><a href="">throw</a> err<span>
-					throw&#x8BED;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x4E2D;&#x65AD;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x610F;&#x5916;&#x6216;&#x9519;&#x8BEF;&#x3002;&#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x629B;&#x51FA;&#x5404;&#x79CD;&#x503C;&#x3002; <br>
-					throw&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x5404;&#x79CD;&#x503C;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x3002;JavaScript&#x5F15;&#x64CE;&#x4E00;&#x65E6;&#x9047;&#x5230;throw&#x8BED;&#x53E5;&#xFF0C;&#x5C31;&#x4F1A;&#x505C;&#x6B62;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x5E76;&#x5C06;throw&#x8BED;&#x53E5;&#x7684;&#x53C2;&#x6570;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#x3002;
-				</span></li>
-				<li><a href="">try{..}cath(e){..}finally{..}</a><span>
-					<pre><code data-language="javascript">
-						try {
-						    //&#x53EF;&#x80FD;&#x51FA;&#x9519;&#x7684;&#x8BED;&#x53E5;
-						    throw new Error(&apos;&#x51FA;&#x9519;&#x4E86;!&apos;);
-						} catch (e) {
-						    //&#x6355;&#x83B7;e&#x9519;&#x8BEF;&#x5BF9;&#x8C61;,try&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;
-						} finally {
-						    //&#x603B;&#x4F1A;&#x6267;&#x884C;
-						    //&#x6267;&#x884C;finally&#x4EE3;&#x7801;&#x5757;&#x4EE5;&#x540E;&#xFF0C;&#x7A0B;&#x5E8F;&#x5C31;&#x4E2D;&#x65AD;&#x5728;&#x9519;&#x8BEF;&#x629B;&#x51FA;&#x7684;&#x5730;&#x65B9;&#x3002;
-						}
-					</code></pre>
-				</span></li>
 			</ul>
         </div>
     </div>
-</div>
-	<!-- 标准对象 -->
-<div class="u-col">
-	<div class="u-block">
-		<h3>&#x7C7B;<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]&#x7C7B;</h4>
+    <div class="u-block">
+        <h3>&#x5176;&#x5B83;<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>]&#x5168;&#x5C40;&#x51FD;&#x6570;</h4>
 			<ul>
-				<li><a href="">class </a>Name<span>
-<pre><code data-language="javascript">
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  toString() {
-    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;
-  }
-}
-var test = new Point(1,2)
-</code></pre>
-					1.constructor&#x65B9;&#x6CD5;&#x662F;&#x7C7B;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;new&#x547D;&#x4EE4;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;&#x4E00;&#x4E2A;&#x7C7B;&#x5FC5;&#x987B;&#x6709;constructor&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5B9A;&#x4E49;&#xFF0C;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;constructor&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x9ED8;&#x8BA4;&#x6DFB;&#x52A0;&#x3002; <br>
-					2.&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x6240;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x662F;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#xFF08;non-enumerable&#xFF09;&#x3002; <br>
-					3.&#x7C7B;&#x548C;&#x6A21;&#x5757;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x9ED8;&#x8BA4;&#x5C31;&#x662F;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;use strict&#x6307;&#x5B9A;&#x8FD0;&#x884C;&#x6A21;&#x5F0F;&#x3002; <br>
-					4.var MyClass = class Me{...} &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x65B9;&#x5F0F; <a href="http://es6.ruanyifeng.com/#docs/class#Class-&#x8868;&#x8FBE;&#x5F0F;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-					5.&#x7C7B;&#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x63D0;&#x5347; <br>
-					6.
-                </span></li>
-                <li>
-                	<a href="">static</a> fn
-                	<span>
-                		&#x7C7B;&#x76F8;&#x5F53;&#x4E8E;&#x5B9E;&#x4F8B;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x6240;&#x6709;&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#x3002;&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x524D;&#xFF0C;&#x52A0;&#x4E0A;static&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5C31;&#x8868;&#x793A;&#x8BE5;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x88AB;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x7C7B;&#x6765;&#x8C03;&#x7528;&#xFF0C;&#x8FD9;&#x5C31;&#x79F0;&#x4E3A;&#x201C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x201D;&#x3002; <br>
-                		&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5305;&#x542B;this&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x8FD9;&#x4E2A;this&#x6307;&#x7684;&#x662F;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x4F8B;&#x3002; <hr>
-                		ES6 &#x660E;&#x786E;&#x89C4;&#x5B9A;&#xFF0C;Class &#x5185;&#x90E8;&#x53EA;&#x6709;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x3002; <br>
-                		&#x76EE;&#x524D;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x5728;&#x7C7B;&#x5916;&#x9762;&#x4F7F;&#x7528;Class.prop&#x6765;&#x5B9A;&#x4E49;
-                	</span>
+				<li>
+                    <a href="">eval</a>(str)
+                    <span>
+                        &#x5C06;&#x4F20;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5F53;&#x505A; JavaScript &#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x6267;&#x884C;&#x3002;<br>
+						1.eval&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x90FD;&#x5728;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x6267;&#x884C;&#x3002;<br>
+                        2.JavaScript&#x89C4;&#x5B9A;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;eval&#x5185;&#x90E8;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5916;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x3002; <br>
+						3.&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;eval&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8BFB;&#x5199;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x53D8;&#x91CF;&#x3002;<br>
+                        4.eval&#x201C;&#x95F4;&#x63A5;&#x8C03;&#x7528;&#x201D;&#x65F6;&#x4F5C;&#x7528;&#x57DF;&#x603B;&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;
+                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc24">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
+                    </span>
                 </li>
 			</ul>
-			<h4>[<span>-</span>]&#x7C7B;&#x7EE7;&#x627F;</h4>
-			<ul>
-				<li><a href="">class $child extends $parent</a><span>
-<pre><code data-language="javascript">
-class PrimaryStudent extends Student {
-    constructor(name, grade) {
-        super(name); // &#x8BB0;&#x5F97;&#x7528;super&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;!
-        this.grade = grade;
-    }
-
-    myGrade() {
-        alert(&apos;I am at grade &apos; + this.grade);
-    }
-}
-</code></pre>
-					PrimaryStudent&#x9700;&#x8981;name&#x548C;grade&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x901A;&#x8FC7;super(name)&#x6765;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x7236;&#x7C7B;&#x7684;name&#x5C5E;&#x6027;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x521D;&#x59CB;&#x5316;&#x3002;
-                </span></li>
-                <li><a href="">super</a>(parent_key)<span>
-                	super&#x8FD9;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5F53;&#x4F5C;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5F53;&#x4F5C;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x3002;&#x5728;&#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x7684;&#x7528;&#x6CD5;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x3002;<br>
-                	1.super&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4EE3;&#x8868;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;ES6 &#x8981;&#x6C42;&#xFF0C;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x6267;&#x884C;&#x4E00;&#x6B21;super&#x51FD;&#x6570;&#x3002; <br>
-                	2.super&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5728;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF1B;&#x5728;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x3002;
-                </span></li>
-			</ul>
-			<h4>[<span>-</span>]&#x539F;&#x578B;&#x94FE;</h4>
-			<ul>
-				<li>
-					cst.<a href="">prototype|super</a>
-					<span>
-                		&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x539F;&#x578B;&#xFF08;prototype&#x662F;&#x51FD;&#x6570;&#x624D;&#x4F1A;&#x6709;&#x7684;&#x5C5E;&#x6027;&#xFF09; <br>
-                    	&#x4E3A;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x6D88;&#x8017;&#xFF0C;&#x5C06;&#x516C;&#x5171;&#x65B9;&#x6CD5;&#x5199;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x4E0A;&#xFF0C;<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344997235247b53be560ab041a7b10360a567422a78000">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-						&#x5728;&#x6539;&#x53D8;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4E00;&#x822C;&#x8981;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;constructor&#x5C5E;&#x6027; <br>
-                	</span>
-				</li>
-				<li>
-					pro.<a href="">constructor</a>
-					<span>
-                    	&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570; <br>
-                    	<img src="image/js/prototype.png?" alt="">
-                	</span>
-				</li>
-				<li>
-					obj.<a href="">constructor</a>
-					<span>
-						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;Object / &#x6784;&#x9020;&#x51FD;&#x6570; <br>
-						&#x5B9E;&#x4F8B;&#x672C;&#x8EAB;&#x6CA1;&#x6709;constructor&#xFF0C;&#x901A;&#x8FC7;&#x5728;&#x539F;&#x578B;&#x4E0A;&#x67E5;&#x627E;&#x83B7;&#x53D6;
-					</span>
-				</li>
-				<li>
-					obj.<a href="">__proto__</a>
-					<span>
-						&#x8FD4;&#x56DE;&#x503C;&#xFF1A;Object / &#x6784;&#x9020;&#x51FD;&#x6570;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF08;&#x4EC5;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#xFF09; <br>
-						&#x5728;&#x7F16;&#x5199;JavaScript&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x4E0D;&#x8981;&#x76F4;&#x63A5;&#x7528;obj.__proto__&#x53BB;&#x6539;&#x53D8;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x5E76;&#x4E14;&#xFF0C;&#x4F4E;&#x7248;&#x672C;&#x7684;IE&#x4E5F;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;__proto__&#x3002; 
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>]&#x539F;&#x578B;&#x65B9;&#x6CD5;</h4>
-			<ul style="display:none;">
-				<li>
-					pro.<a href="">isPrototypeOf</a>(obj)
-					<span>
-						&#x5224;&#x65AD;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B; <br>
-						Object.prototype&#x5904;&#x4E8E;&#x539F;&#x578B;&#x94FE;&#x7684;&#x6700;&#x9876;&#x7AEF;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x5404;&#x79CD;&#x5B9E;&#x4F8B;&#x90FD;&#x8FD4;&#x56DE;true&#xFF0C;&#x53EA;&#x6709;&#x7EE7;&#x627F;null&#x7684;&#x5BF9;&#x8C61;&#x9664;&#x5916;&#x3002;
-					</span>
-				</li>
-				<li>
-					<a href="">Object.getPrototypeOf</a>(obj)
-					<span>
-						&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;
-					</span>
-				</li>
-				<li>
-					<a href="">Object.setPrototypeOf</a>(obj,proto)
-					<span>
-						&#x4E3A;&#x73B0;&#x6709;&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x539F;&#x578B;&#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x5BF9;&#x8C61;&#x3002;
-					</span>
-				</li>
-			</ul>
-            <h4>[<span>-</span>]&#x539F;&#x578B;&#x7EE7;&#x627F;</h4>
-            <ul>
-				<li>
-					<a href="">Object.create</a>(proto)
-					<span>
-						&#x4E8E;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x521B;&#x5EFA;&#x65B0;&#x5BF9;&#x8C61; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create">&#x53C2;&#x8003;&#x8D44;&#x6599;</a><br>
-						&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5C06;b&#x7684;&#x539F;&#x578B;&#x8D4B;&#x503C;&#x7ED9;a&#xFF0C;&#x5426;&#x5219;&#x5F53;b&#x7684;&#x539F;&#x578B;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;a&#x7684;&#x539F;&#x578B;&#x4E5F;&#x4F1A;&#x88AB;&#x66F4;&#x6539; <hr>
-						Child.prototype = Object.create(Parent.prototype) <br>	Child.prototype.constructor = Child
-					</span>
-				</li>
+            <h4>[<span>+</span>]&#x5176;&#x5B83;</h4>
+            <ul style="display: none;">
+                <li>
+                    <a href="">Error</a>
+                    <span>
+                        new Error(&apos;msg&apos;) <br>
+                        &#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#xFF1A;
+                        <table>
+                            <tr>
+                                <th>&#x5C5E;&#x6027;</th>
+                                <th>&#x63CF;&#x8FF0;</th>
+                            </tr>
+                            <tr>
+                                <td>err.message</td>
+                                <td>&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x4FE1;&#x606F;</td>
+                            </tr>
+                            <tr>
+                                <td>err.name</td>
+                                <td>&#x9519;&#x8BEF;&#x540D;&#x79F0;&#xFF08;&#x975E;&#x6807;&#x51C6;&#x5C5E;&#x6027;&#xFF09;</td>
+                            </tr>
+                            <tr>
+                                <td>err.stack</td>
+                                <td>&#x9519;&#x8BEF;&#x7684;&#x5806;&#x6808;&#xFF08;&#x975E;&#x6807;&#x51C6;&#x5C5E;&#x6027;&#xFF09;</td>
+                            </tr>
+                        </table>
+                        <br>
+                        &#x539F;&#x751F;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#xFF1A;
+                        <table>
+                            <tr>
+                                <th>&#x540D;&#x79F0;</th>
+                                <th>&#x63CF;&#x8FF0;</th>
+                            </tr>
+                            <tr>
+                                <td>SyntaxError</td>
+                                <td>&#x89E3;&#x6790;&#x4EE3;&#x7801;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;</td>
+                            </tr>
+                            <tr>
+                                <td>ReferenceError</td>
+                                <td>&#x5F15;&#x7528;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x53D8;&#x91CF;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;&#xFF1B;&#x5C06;&#x4E00;&#x4E2A;&#x503C;&#x5206;&#x914D;&#x7ED9;&#x65E0;&#x6CD5;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;</td>
+                            </tr>
+                            <tr>
+                                <td>RangeError</td>
+                                <td>&#x5F53;&#x4E00;&#x4E2A;&#x503C;&#x8D85;&#x51FA;&#x6709;&#x6548;&#x8303;&#x56F4;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;</td>
+                            </tr>
+                            <tr>
+                                <td>TypeError</td>
+                                <td>&#x53D8;&#x91CF;&#x6216;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x9884;&#x671F;&#x7C7B;&#x578B;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;</td>
+                            </tr>
+                            <tr>
+                                <td>URIError</td>
+                                <td>URI&#x76F8;&#x5173;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;</td>
+                            </tr>
+                            <tr>
+                                <td>EvalError</td>
+                                <td>eval&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x88AB;&#x6B63;&#x786E;&#x6267;&#x884C;</td>
+                            </tr>
+                            <tr>
+                                <td>&#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;</td>
+                                <td><a href="http://javascript.ruanyifeng.com/grammar/error.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></td>
+                            </tr>
+                        </table>
+                        <br><br>
+                        &#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x5B83;&#x81EA;&#x8EAB;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#xFF0C;&#x9519;&#x8BEF;&#x5C31;&#x4F1A;&#x88AB;&#x629B;&#x5230;&#x5916;&#x5C42;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x4E5F;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4F1A;&#x4E00;&#x76F4;&#x6CBF;&#x7740;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x94FE;&#x5411;&#x4E0A;&#x629B;&#x51FA;&#xFF0C;&#x76F4;&#x5230;&#x88AB;JavaScript&#x5F15;&#x64CE;&#x6355;&#x83B7;&#xFF0C;&#x4EE3;&#x7801;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5FC5;&#x5728;&#x6BCF;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x5408;&#x9002;&#x7684;&#x5730;&#x65B9;&#x6765;&#x4E2A;&#x7EDF;&#x4E00;&#x6355;&#x83B7;&#xFF0C;&#x4E00;&#x7F51;&#x6253;&#x5C3D;&#x3002;<hr>
+                        &#x6D89;&#x53CA;&#x5230;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x65E0;&#x6CD5;&#x5728;&#x8C03;&#x7528;&#x65F6;&#x6355;&#x83B7;&#xFF0C;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x5728;&#x6355;&#x83B7;&#x7684;&#x5F53;&#x65F6;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5E76;&#x672A;&#x6267;&#x884C;&#x3002;<br>
+                        &#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x5728;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#x5904;&#xFF0C;&#x65E0;&#x6CD5;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x7684;&#x9519;&#x8BEF;&#x3002;
+                    </span>
+                </li>
+                <li>
+                    <a href="">ArrayBuffer</a>
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly">WebAssembly</a>
+                    <span>
+                        
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
@@ -4965,7 +5129,8 @@ class PrimaryStudent extends Student {
                     <a href="">Null</a>
                     <span>
                         &#x7A7A;&#xFF1A;&#x539F;&#x59CB;&#x7C7B;&#x578B; <br>
-                        Null &#x7C7B;&#x578B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#xFF1A; null
+                        Null &#x7C7B;&#x578B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#xFF1A; null <br>
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management">&#x5185;&#x5B58;&#x4F18;&#x5316;</a>
                     </span>
                 </li>
                 <li>
@@ -5174,65 +5339,16 @@ class PrimaryStudent extends Student {
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>]&#x8FD0;&#x7B97;&#x7B26;&#x4E0E;&#x64CD;&#x4F5C;&#x7B26;</h4>
+            <h4>[<span>+</span>]&#x8868;&#x8FBE;&#x5F0F;&#x4E0E;&#x8FD0;&#x7B97;&#x7B26;</h4>
             <ul style="display:none;">
                 <li>
-                    <a href=""></a><em>&#x8FD0;&#x7B97;&#x7B26;</em>
-                    <span>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">&#x53C2;&#x8003;&#x8D44;&#x6599;</a>
-                    </span>
-                </li>
-                <li>
-					<a href="">delete </a>obj.key
-					<span>
-						&#x5220;&#x9664;&#x5C5E;&#x6027;delete obj.key&#xFF0C;&#x5220;&#x9664;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;true <br>
-						&#x6CE8;&#x610F;&#xFF0C;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#xFF0C;delete&#x4E0D;&#x62A5;&#x9519;&#xFF0C;&#x800C;&#x4E14;&#x8FD4;&#x56DE;true&#x3002; <br>
-						&#x53EA;&#x6709;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;delete&#x547D;&#x4EE4;&#x4F1A;&#x8FD4;&#x56DE;false&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x8BE5;&#x5C5E;&#x6027;&#x5B58;&#x5728;&#xFF0C;&#x4E14;&#x4E0D;&#x5F97;&#x5220;&#x9664;&#x3002;<br>
-						delete&#x547D;&#x4EE4;&#x53EA;&#x80FD;&#x5220;&#x9664;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x7EE7;&#x627F;&#x7684;&#x5C5E;&#x6027; <br>
-						delete&#x547D;&#x4EE4;&#x4E0D;&#x80FD;&#x5220;&#x9664;var&#x547D;&#x4EE4;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x6765;&#x5220;&#x9664;&#x5C5E;&#x6027;&#x3002;
-					</span>
-				</li>
-				<li>
-                    key <a href="">in</a> obj
-                    <span>
-                        in&#x904D;&#x5386;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;/&#x5C5E;&#x6027;&#x503C;
-                        &#x5B83;&#x904D;&#x5386;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x53EF;&#x904D;&#x5386;&#xFF08;enumerable&#xFF09;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4F1A;&#x8DF3;&#x8FC7;&#x4E0D;&#x53EF;&#x904D;&#x5386;&#x7684;&#x5C5E;&#x6027; <br>
-                        &#x5B83;&#x4E0D;&#x4EC5;&#x904D;&#x5386;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x8FD8;&#x904D;&#x5386;&#x7EE7;&#x627F;&#x7684;&#x5C5E;&#x6027;&#x3002;
-                    </span>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">&#x8FD0;&#x7B97;&#x7B26;</a>
                 </li>
                 <li>
                     <a href="">void</a>
                     <span>
-                        &#x8868;&#x660E;&#x4E00;&#x4E2A;&#x8FD0;&#x7B97;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>]&#x8868;&#x8FBE;&#x5F0F;&#x4E0E;&#x5176;&#x5B83;</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">this</a>
-                    <span>
-                        this&#x5173;&#x952E;&#x5B57;&#x88AB;&#x7528;&#x4E8E;&#x6307;&#x4EE3;&#x5F53;&#x524D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x5E38;&#xFF0C;this&#x6307;&#x4EE3;&#x7684;&#x662F;&#x65B9;&#x6CD5;&#x4E2D;&#x6B63;&#x5728;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;
-                    </span>
-                </li>
-                <li>
-                    <a href="">new</a>
-                    <span>
-                        &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;new operator &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x6216;&#x8005;&#x662F;&#x9884;&#x7F6E;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;
-                    </span>
-                </li>
-                <li>
-                    <a href="">&apos;use strict&apos;</a>
-                    <span>
-                        &#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x51FD;&#x6570;&#x4E2D;&#x7684;this&#x6307;&#x5411;Undefined&#xFF0C;&#x975E;window&#x5BF9;&#x8C61;&#x3002; <a href="http://es6.ruanyifeng.com/#docs/module#&#x4E25;&#x683C;&#x6A21;&#x5F0F;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-                        ES6&#x4E0B;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x4E25;&#x683C;&#x6A21;&#x5F0F;
-                    </span>
-                </li>
-                <li>
-                    <a href="">with</a>(obj)
-                    <span>
-                        &#x64CD;&#x4F5C;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x4E66;&#x5199;&#x7684;&#x65B9;&#x4FBF;. <a href="http://javascript.ruanyifeng.com/grammar/object.html">&#x53C2;&#x8003;&#x8D44;&#x6599;</a> <br>
-                        &#x6CE8;&#x610F;&#xFF0C;with&#x533A;&#x5757;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;with&#x533A;&#x5757;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5B83;&#x7684;&#x5185;&#x90E8;&#x4F9D;&#x7136;&#x662F;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x3002;
+                        void&#x8FD0;&#x7B97;&#x7B26;&#x5BF9;&#x7ED9;&#x5B9A;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x6C42;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE; undefined <br>
+                        &#x5728;&#x4F7F;&#x7528;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528; void &#x8FD0;&#x7B97;&#x7B26;&#x8BA9; JavaScript &#x5F15;&#x64CE;&#x628A;&#x4E00;&#x4E2A;function&#x5173;&#x952E;&#x5B57;&#x8BC6;&#x522B;&#x6210;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x800C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x58F0;&#x660E;&#xFF08;&#x8BED;&#x53E5;&#xFF09;
                     </span>
                 </li>
             </ul>
@@ -5273,6 +5389,12 @@ class PrimaryStudent extends Student {
                     <a href="">throw</a>
                     <span>
                         &#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;
+                    </span>
+                </li>
+                <li>
+                    <a href="">debugger</a>
+                    <span>
+                        &#x8C03;&#x7528;&#x4EFB;&#x4F55;&#x53EF;&#x7528;&#x7684;&#x8C03;&#x8BD5;&#x529F;&#x80FD;&#xFF0C;&#x4F8B;&#x5982;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x3002;
                     </span>
                 </li>
             </ul>
@@ -5382,7 +5504,7 @@ class PrimaryStudent extends Student {
 		<div class="u-list">
 			<h4>[<span>+</span>]&#x6587;&#x6863;</h4>
 			<ul style="display: none;">
-				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web">MDN Web&#x6280;&#x672F;&#x6587;&#x6863;</a></li>
+				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference">JS&#x53C2;&#x8003;&#x6587;&#x6863;</a></li>
 				<li><a href="http://kangax.github.io/compat-table/es6/">ES6&#x652F;&#x6301;&#x7A0B;&#x5EA6;</a></li>
 				<li><a href="http://yanhaijing.com/es5/">ECMAScript5&#x89C4;&#x8303;</a></li>
 			</ul>
@@ -13295,6 +13417,53 @@ function myEventHandler(event) {
 					</span>
 				</li>
 			</ul>
+            <h4>[<span>-</span>] &#x5B9A;&#x65F6;&#x5668;</h4>
+            <ul>
+            	<li>
+            		<a href="">setTimeout</a>(fn,time,[arg])
+            		<span>
+            			&#x5728;&#x6307;&#x5B9A;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x540E;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6216;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F; <br>
+            			setTimeout&#x8FD8;&#x5141;&#x8BB8;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x4EEC;&#x5C06;&#x88AB;&#x4F20;&#x5165;&#x63A8;&#x8FDF;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF09;&#xFF0C;IE 9.0&#x53CA;&#x4EE5;&#x4E0B;&#x7248;&#x672C;&#xFF0C;&#x53EA;&#x5141;&#x8BB8;setTimeout&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x66F4;&#x591A;&#x7684;&#x53C2;&#x6570;&#x3002; <br>
+            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">&#x5F53;time=0&#x65F6;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x540C;&#x6837;&#x9700;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x5B8C;&#x6210;</a>
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">setInterval</a>(fn,time)
+            		<span>
+            			&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x5468;&#x671F;&#xFF08;&#x4EE5;&#x6BEB;&#x79D2;&#x8BA1;&#xFF09;&#x6765;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6216;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearTimeout</a>(timeout)
+            		<span>
+            			&#x53D6;&#x6D88;&#x7531; setTimeout() &#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x7684; timeout
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearInterval</a>(timeout)
+            		<span>
+            			&#x53D6;&#x6D88;&#x7531; setInterval() &#x8BBE;&#x7F6E;&#x7684; timeout
+            		</span>
+            	</li>
+				<li>val.<a href="">toString</a>()<span>
+					<table>
+                        <tr>
+                            <th>&#x76EE;&#x6807;</th>
+                            <th>&#x8FD4;&#x56DE;&#x503C;</th>
+                        </tr>
+                        <tr>
+                            <td>array</td>
+                            <td>&#x53C2;&#x6570;&#x76F4;&#x63A5;&#x7528;,&#x9694;&#x5F00;&#x7684;&#x5B57;&#x7B26;&#x4E32;</td>
+                        </tr>
+                    </table>
+				</span></li>
+				<li>
+					<a href="">vauleOf</a>
+					<span>
+						
+					</span>
+				</li>
+            </ul>
         	<h4>[<span>-</span>] &#x7A97;&#x53E3;</h4>
         	<ul>
         		<li>
