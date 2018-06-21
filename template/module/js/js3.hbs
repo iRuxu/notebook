@@ -1,65 +1,88 @@
-<!-- ES6 -->
+<!-- Map、Set -->
 <div class="u-col">
 	<div class="u-block">
 		<h3>集合<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Set</h4>
-			<ul>
-				<li><a href="">new Set()</a><span>
-					Set是一组key的集合，但不存储value，且key不能重复。<br>
-					要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set。
-<pre><code data-language="javascript">
-	var s1 = new Set(); // 空Set
-	var s2 = new Set([1, 2, 3]); // 含1, 2, 3
-</code></pre>
-				</span></li>
-				<li>set.<a href="">add</a>(key)<span>
-					s.add(4)
-					//Set {1,2,3,4}
-				</span></li>
+			<h4>[<span>+</span>]构建</h4>
+			<ul style="display:none;">
 				<li>
-					set.<a href="">has</a>(val)
+					<a href="">new Set</a>([arr])
 					<span>
-						返回一个布尔值，表示该值是否为实例的成员。
+						Set是一组key的集合，但不存储value，且key不能重复。<br>
+						[...$set] 解构成一个数组
+					</span>
+				</li>
+				<li>
+					<a href="">new Map</a>([[val1,val2]])
+					<span>
+						初始化Map需要一个二维数组 <br>
+						map的键可以为任意数据类型，object只能为字符串 <br>
+						[...$map] 解构成一个二维数组
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]Map</h4>
-			<ul>
-				<li><a href="">new Map()</a><span>
-					初始化Map需要一个二维数组，或者直接初始化一个空Map。没有字面量方法。
-					<pre><code data-language="javascript">var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);</code></pre>
-				</span></li>
-				<li>map.<a href="">get</a>(key)<span>取key的值，返回值</span></li>
-				<li>map.<a href="">set</a>(key,val)<span>添加新的key-value</span></li>
-				<li>
-					map.<a href="">has</a>(key)
-					<span>
-						返回一个布尔值，表示该值是否为实例的成员。
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Set/Map</h4>
+			<h4>[<span>-</span>]属性</h4>
 			<ul>
 				<li>
 					set/map.<a href="">size</a>
 					<span>
-						返回实例的成员总数
+						返回值：数值<br> 
+						返回实例的长度
 					</span>
 				</li>
-				<li>set/map.<a href="">delete</a>(key)<span>
-					s.delete(3)
-				</span></li>
+			</ul>
+			<h4>[<span>-</span>]增删改查</h4>
+			<ul>
+				<li>
+					set.<a href="">add</a>(key)
+					<span>
+						返回值：set本身<br>
+						添加一个值
+					</span>
+				</li>
+				<li>
+					map.<a href="">set</a>(key,val)
+					<span>
+						返回值：map本身 <br>
+						添加新的key-value键值对
+					</span>
+				</li>
+				<li>
+					map.<a href="">get</a>(key)
+					<span>
+						返回值：value | undefined <br>	
+						取key的值
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">has</a>(key)
+					<span>
+						返回值：布尔<br>	
+						该值是否为实例的成员
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">delete</a>(key)
+					<span>
+						返回值：布尔 <br>
+						删除一个值
+					</span>
+				</li>
 				<li>
 					set/map.<a href="">clear()</a>
 					<span>
-						清除所有成员，没有返回值
+						返回值：无 <br>
+						清除所有成员
 					</span>
 				</li>
+			</ul>
+			<h4>[<span>-</span>]遍历</h4>
+			<ul>
 				<li>
 					set/map.<a href="">keys()</a>
 					<span>
-						返回键名的遍历器
+						返回键名的遍历器 <br>
+						set/map.keys()返回的是遍历器，而对象的Object.keys(obj)返回的是数组
 					</span>
 				</li>
 				<li>
@@ -74,106 +97,48 @@
 						返回所有成员的遍历器
 					</span>
 				</li>
+				<li>
+					set/map.<a href="">forEach</a>(fn(val,key,sm))
+					<span>
+						使用回调函数遍历每个成员 <br>
+						Set 结构的键名就是键值，因此第一个参数与第二个参数的值永远都是一样的(并非像数组是索引号)
+					</span>
+				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>可迭代类型<span>-</span></h3>
+		<h3>迭代器/生成器<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]转换</h4>
-			<ul>
-				<li>
-					<a href="">...</a>iterator
-					<span>
-						返回值：序列 <br>
-						扩展运算符内部调用的是数据结构的 Iterator 接口，因此只要具有 Iterator 接口的对象，都可以使用扩展运算符，比如 Map 结构。 <br>
-						如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。 <hr>
-						...map.keys(),...nodeList,与解构赋值结合等等。<br>
-						<a href="http://es6.ruanyifeng.com/#docs/array#扩展运算符">参考资料</a>
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Iterable</h4>
-			<ul>
-				
-				<li>ite.<a href="">forEach</a><em>(fn(val,[i],[o]))</em><span>
-				每个元素都执行一次回调函数，可应用与Iterable类型 (Array/Map/Set)<br>
-				Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身<br>
-				Map的回调函数参数依次为value、key和map本身 <br>
-				forEach方法无法中断执行，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用for循环。
-				<table>
-					<tr>
-						<th>类型</th>
-						<th>参数</th>
-					</tr>
-					<tr>
-						<td>array</td>
-						<td>value,index,array</td>
-					</tr>
-					<tr>
-						<td>set</td>
-						<td>value,value,set</td>
-					</tr>
-					<tr>
-						<td>map</td>
-						<td>value,key,map</td>
-					</tr>
-				</table>
-<pre><code data-language="javascript">
-	var a = ['A', 'B', 'C'];
-	a.forEach(function (element, index, array) {
-		// element: 指向当前元素的值
-		// index: 指向当前索引
-		// array: 指向Array对象本身
-	alert(element);
-	});
-</code></pre>
-				</span></li>
-				<li>key <a href="">of</a> ite<span>
-					遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for ... of循环来遍历。
-<pre><code data-language="javascript">
-	var a = ['A', 'B', 'C'];
-	var s = new Set(['A', 'B', 'C']);
-	var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
-	for (var x of a) { // 遍历Array
-	    console.log('arr:' + x);
-	}
-	for (var x of s) { // 遍历Set
-	    console.log('set:' + x);
-	}
-	for (var x of m) { // 遍历Map
-	    console.log('map:' + x[0] + '=' + x[1]);
-	}
-</code></pre>
-				</span></li>
-				<li>
-					<a href="">Object.values</a>(obj)
-					<span>
-						返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
-					</span>
-				</li>
-				<li>
-					<a href="">Object.entries</a>(obj)
-					<span>
-						返回一个给定对象自身可枚举属性的键值对的二维数组 <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">参考资料</a>
-					</span>
-				</li>
-			</ul>
 			<h4>[<span>-</span>]Iterator</h4>
 			<ul>
 				<li>
-					iterator<a href=""></a>
+					<a href="">[...iterable]</a>
 					<span>
-						原生具备 Iterator 接口的数据结构如下 : <br>
-						Array,Map,Set,String,TypedArray,函数的 arguments 对象,NodeList 对象
+						只要具有 Iterator 接口的对象，都可以使用扩展运算符<br>
+						[...str] <br>
+						[...arr|TypedArray] <br>
+						[...set|map] <br>
+						[...arguments] <br>
+						[...nodeList] 
 					</span>
 				</li>
 				<li>
-					obj.<a href="">[Symbol.iterator]</a>
+					for<a href="">(.. of iterable)</a>
 					<span>
-						<a href="http://es6.ruanyifeng.com/#docs/iterator#默认-Iterator-接口">参考资料</a> <br>
-						Symbol.iterator属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。执行这个函数，就会返回一个遍历器。
+						for(let key of iterable){} <br>
+						任何部署了Interator接口的数据都可以用for..of来遍历 <br>
+						String、Array、TypedArray、Map、Set、函数arguments对象、NodeList对象都内置Interator接口，因为它们的原型对象都有一个 Symbol.iterator 方法。 <hr>
+						数组使用for .. of 直接取值更快捷
+					</span>
+				</li>
+				<li>
+					ite = o.<a href="">[Symbol.iterator]()</a>
+					<span>
+						一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的” <br>
+						Symbol.iterator属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。<br>
+						执行这个函数，就会返回一个遍历器。 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/iterator">给对象自定义一个遍历器</a>
 					</span>
 				</li>
 				<li>
@@ -185,7 +150,34 @@
 				<li>
 					ite.<a href="">return()</a>
 					<span>
-						return方法的使用场合是，如果for...of循环提前退出（通常是因为出错，或者有break语句或continue语句），就会调用return方法。如果一个对象在完成遍历前，需要清理或释放资源，就可以部署return方法。
+						如果一个对象在完成遍历前，需要清理或释放资源，就可以部署return方法 <br>
+						return方法必须返回一个对象 return { done: true };
+					</span>
+				</li>
+				<li>
+					ite.<a href="">throw()</a>
+					<span>
+						
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>]Generator</h4>
+			<ul>
+
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>类型数组<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>+</span>]Buffer</h4>
+			<h4>[<span>+</span>]Stream</h4>
+			<h4>[<span>-</span>]TypedArray</h4>
+			<ul>
+				<li>
+					<a href="">TypedArray</a>
+					<span>
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Typed_arrays">参考资料1</a> | <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">参考资料2</a> | <a href="http://es6.ruanyifeng.com/#docs/arraybuffer">参考资料3</a>
 					</span>
 				</li>
 			</ul>
