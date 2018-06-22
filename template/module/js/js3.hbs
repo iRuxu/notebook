@@ -108,9 +108,9 @@
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>迭代器/生成器<span>-</span></h3>
+		<h3>迭代器<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Iterator</h4>
+			<h4>[<span>-</span>]Iterable</h4>
 			<ul>
 				<li>
 					<a href="">[...iterable]</a>
@@ -124,7 +124,7 @@
 					</span>
 				</li>
 				<li>
-					for<a href="">(.. of iterable)</a>
+					<a href="">for(.. of iterable)</a>
 					<span>
 						for(let key of iterable){} <br>
 						任何部署了Interator接口的数据都可以用for..of来遍历 <br>
@@ -132,6 +132,9 @@
 						数组使用for .. of 直接取值更快捷
 					</span>
 				</li>
+			</ul>
+			<h4>[<span>-</span>]Iterator</h4>
+			<ul>
 				<li>
 					ite = o.<a href="">[Symbol.iterator]()</a>
 					<span>
@@ -142,28 +145,23 @@
 					</span>
 				</li>
 				<li>
-					ite.<a href="">next()</a>
+					ite.<a href="">next([val])</a>
 					<span>
 						每次调用next方法，都会返回一个代表当前成员的信息对象，具有value和done两个属性。
 					</span>
 				</li>
 				<li>
-					ite.<a href="">return()</a>
+					ite.<a href="">return([val])</a>
 					<span>
 						如果一个对象在完成遍历前，需要清理或释放资源，就可以部署return方法 <br>
-						return方法必须返回一个对象 return { done: true };
 					</span>
 				</li>
 				<li>
-					ite.<a href="">throw()</a>
+					ite.<a href="">throw([val])</a>
 					<span>
-						
+						<a href="http://es6.ruanyifeng.com/#docs/generator#next、throw、return-的共同点">next、throw、return的共同点</a>
 					</span>
 				</li>
-			</ul>
-			<h4>[<span>-</span>]Generator</h4>
-			<ul>
-
 			</ul>
 		</div>
 	</div>

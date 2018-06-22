@@ -198,6 +198,50 @@
 	<div class="u-block">
 		<h3>异步编程<span>-</span></h3>
 		<div class="u-list">
+			<h4>[<span>-</span>]Generator</h4>
+			<ul>
+				<li>
+					<a href="">function*</a> {ite}
+					<span>
+						执行 Generator 函数会返回一个遍历器对象 <hr>
+						这个遍历器是 Generator 函数的实例，也继承了 Generator 函数的prototype对象上的方法 <br>
+						<a href="http://es6.ruanyifeng.com/#docs/generator#Generator-函数的this">Generator的this与new</a> <br>
+						var g = Generator.call(Generator.prototype) <br>
+						此时Generator函数中的this指向实例g <br>
+						var F() = {return Generator.call(Generator.prototype)} <br>
+						则可通过 var f = new F() 来生成实例 
+					</span>
+				</li>
+				<li>
+					<a href="">yield</a>
+					<span>
+						暂停标志，遍历器每执行一次next则执行当前yield。<hr>
+						yield表达式本身没有返回值，或者说总是返回undefined。<br> 
+						next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值，作为当下一个yield依赖上一个yield时使用。 <hr>
+						yield表达式后面执行一个函数，函数的返回值，相当于生成器运行了该步骤并返回给遍历器对象value的值。
+						Generator 函数也可以不用yield表达式，这时就变成了一个单纯的暂缓执行函数。
+					</span>
+				</li>
+				<li>
+					<a href="">return</a>
+					<span>
+						结束标志
+					</span>
+				</li>
+				<li>
+					o.<a href="">[Symbol.iterator]</a> = fn*
+					<span>
+						由于 Generator 函数就是遍历器生成函数，因此可以把 Generator 赋值给对象的Symbol.iterator属性，从而使得该对象具有 Iterator 接口。
+					</span>
+				</li>
+				<li>
+					<a href="">yield*</a>
+					<span>
+						在Generator函数内部，调用另一个 Generator 函数，需要使用yield* Generator() <br>
+						会一次执行完被代理对象的全部步骤
+					</span>
+				</li>
+			</ul>
             <h4>[<span>-</span>]Async Function</h4>
             <ul>
             	<li>
