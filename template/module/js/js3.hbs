@@ -108,68 +108,10 @@
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>迭代器<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]Iterable</h4>
-			<ul>
-				<li>
-					<a href="">[...iterable]</a>
-					<span>
-						只要具有 Iterator 接口的对象，都可以使用扩展运算符<br>
-						[...str] <br>
-						[...arr|TypedArray] <br>
-						[...set|map] <br>
-						[...arguments] <br>
-						[...nodeList] 
-					</span>
-				</li>
-				<li>
-					<a href="">for(.. of iterable)</a>
-					<span>
-						for(let key of iterable){} <br>
-						任何部署了Interator接口的数据都可以用for..of来遍历 <br>
-						String、Array、TypedArray、Map、Set、函数arguments对象、NodeList对象都内置Interator接口，因为它们的原型对象都有一个 Symbol.iterator 方法。 <hr>
-						数组使用for .. of 直接取值更快捷
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Iterator</h4>
-			<ul>
-				<li>
-					ite = o.<a href="">[Symbol.iterator]()</a>
-					<span>
-						一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的” <br>
-						Symbol.iterator属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。<br>
-						执行这个函数，就会返回一个遍历器。 <br>
-						<a href="http://es6.ruanyifeng.com/#docs/iterator">给对象自定义一个遍历器</a>
-					</span>
-				</li>
-				<li>
-					ite.<a href="">next([val])</a>
-					<span>
-						每次调用next方法，都会返回一个代表当前成员的信息对象，具有value和done两个属性。
-					</span>
-				</li>
-				<li>
-					ite.<a href="">return([val])</a>
-					<span>
-						如果一个对象在完成遍历前，需要清理或释放资源，就可以部署return方法 <br>
-					</span>
-				</li>
-				<li>
-					ite.<a href="">throw([val])</a>
-					<span>
-						<a href="http://es6.ruanyifeng.com/#docs/generator#next、throw、return-的共同点">next、throw、return的共同点</a>
-					</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="u-block">
 		<h3>类型数组<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>+</span>]Buffer</h4>
-			<h4>[<span>+</span>]Stream</h4>
+			<h4>[<span>-</span>]Buffer</h4>
+			<h4>[<span>-</span>]Stream</h4>
 			<h4>[<span>-</span>]TypedArray</h4>
 			<ul>
 				<li>

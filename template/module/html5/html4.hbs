@@ -1,7 +1,7 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>Ajax<span>+</span></h3>
-		<div class="u-list" style="display:none;">
+        <h3>Ajax<span>-</span></h3>
+		<div class="u-list">
 			<h4>[<span>-</span>]创建</h4>
 			<ul>
 				<li>
@@ -14,9 +14,26 @@
 					xhr.<a href="">open</a><em>(method,url,async)</em>
 					<span>
 						规定请求的类型、URL 以及是否异步处理请求。 <br>
-						method：请求的类型，GET 或 POST <br>
-						url：文件在服务器上的位置<br>
-						async：true（异步）或 false（同步）
+						method：(请求的类型)GET 或 POST <br>
+						以下情况使用POST请求：<br>
+						1.无法使用缓存文件（更新服务器上的文件或数据库）<br>
+						2.向服务器发送大量数据（POST 没有数据量限制）<br>
+						3.发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠 <hr>
+						url：文件在服务器上的位置<hr>
+						async：true（异步）或 false（同步） <br>
+						跨域请求时使用jsonp，此时只能为异步请求，无法同步 <br>
+						注意：当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">repsonseType</a>
+					<span>
+						“”：字符串（默认值）  <br>
+						“arraybuffer”：ArrayBuffer对象<br>
+						“blob”：Blob对象,blob类型适合读取二进制数据，比如图片文件<br>
+						“document”：Document对象,document类型适合返回XML文档的情况<br>
+						“json”：JSON对象<br>
+						“text”：字符串
 					</span>
 				</li>
 				<li>
@@ -35,8 +52,53 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]事件</h4>
-			<ul>
+			<h4>[<span>+</span>]属性</h4>
+			<ul style="display:none;">
+				<li>
+					xhr.<a href="">timeout</a>
+					<span>
+						等于一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">withCredentials</a>
+					<span>
+						withCredentials属性是一个布尔值，表示跨域请求时，用户信息（比如Cookie和认证的HTTP头信息）是否会包含在请求之中，默认为false。 <br>
+						如果你需要通过跨域AJAX发送Cookie，需要打开withCredentials。 <br>
+						为了让这个属性生效，服务器必须显式返回Access-Control-Allow-Credentials这个头信息
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]状态</h4>
+			<ul style="display:none;">
+				<li>
+					xhr.<a href="">readyState</a>
+					<span>
+						0: 请求未初始化 <br>
+						1: 服务器连接已建立 <br>
+						2: 请求已接收 <br>
+						3: 请求处理中 <br>
+						4: 请求已完成，且响应已就绪 <br>
+						当 readyState 等于 4 且状态为 200 时，表示响应已就绪
+					</span>
+				</li>
+				<li>
+					xhr.<a href="">status</a>
+					<span>
+						200, OK，访问正常 <br>
+						301, Moved Permanently，永久移动<br>
+						302, Move temporarily，暂时移动<br>
+						304, Not Modified，未修改<br>
+						307, Temporary Redirect，暂时重定向<br>
+						401, Unauthorized，未授权<br>
+						403, Forbidden，禁止访问<br>
+						404, Not Found，未发现指定网址<br>
+						500, Internal Server Error，服务器发生错误
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>]事件</h4>
+			<ul style="display:none;">
 				<li>
 					xhr.<a href="">onreadystatechange</a>
 					<span>
@@ -88,25 +150,8 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]属性</h4>
-			<ul>
-				<li>
-					xhr.<a href="">timeout</a>
-					<span>
-						等于一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">withCredentials</a>
-					<span>
-						withCredentials属性是一个布尔值，表示跨域请求时，用户信息（比如Cookie和认证的HTTP头信息）是否会包含在请求之中，默认为false。 <br>
-						如果你需要通过跨域AJAX发送Cookie，需要打开withCredentials。 <br>
-						为了让这个属性生效，服务器必须显式返回Access-Control-Allow-Credentials这个头信息
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]方法</h4>
-			<ul>
+			<h4>[<span>+</span>]方法</h4>
+			<ul style="display:none;">
 				<li>
 					xhr.<a href="">abort()</a>
 					<span>
@@ -134,33 +179,6 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>]状态</h4>
-			<ul>
-				<li>
-					xhr.<a href="">readyState</a>
-					<span>
-						0: 请求未初始化 <br>
-						1: 服务器连接已建立 <br>
-						2: 请求已接收 <br>
-						3: 请求处理中 <br>
-						4: 请求已完成，且响应已就绪
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">status</a>
-					<span>
-						200, OK，访问正常 <br>
-						301, Moved Permanently，永久移动<br>
-						302, Move temporarily，暂时移动<br>
-						304, Not Modified，未修改<br>
-						307, Temporary Redirect，暂时重定向<br>
-						401, Unauthorized，未授权<br>
-						403, Forbidden，禁止访问<br>
-						404, Not Found，未发现指定网址<br>
-						500, Internal Server Error，服务器发生错误
-					</span>
-				</li>
-			</ul>
 			<h4>[<span>-</span>]响应</h4>
 			<ul>
 				<li>
@@ -179,17 +197,6 @@
 					xhr.<a href="">responseXML</a>
 					<span>
 						获得 XML 形式的响应数据
-					</span>
-				</li>
-				<li>
-					xhr.<a href="">repsonseType</a>
-					<span>
-						“”：字符串（默认值）  <br>
-						“arraybuffer”：ArrayBuffer对象<br>
-						“blob”：Blob对象,blob类型适合读取二进制数据，比如图片文件<br>
-						“document”：Document对象,document类型适合返回XML文档的情况<br>
-						“json”：JSON对象<br>
-						“text”：字符串
 					</span>
 				</li>
 			</ul>
