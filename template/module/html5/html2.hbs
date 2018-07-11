@@ -1,5 +1,40 @@
 <div class="u-col">
     <div class="u-block">
+        <h3>WindowTimers<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 定时器</h4>
+            <ul>
+            	<li>
+            		<a href="">setTimeout</a>(fn,delay,[arg])
+            		<span>
+            			在指定的毫秒数后调用函数或计算表达式 <br>
+            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <hr>
+            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当delay=0时的应用，同样需等待队列完成</a> <hr>
+                        在严格模式下，setTimeout( )的回调函数里面的this仍然默认指向window对象， 并不是undefined
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">setInterval</a>(fn,delay)
+            		<span>
+            			按照指定的周期（以毫秒计）来调用函数或计算表达式
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearTimeout</a>(timer)
+            		<span>
+            			取消由 setTimeout() 方法设置的 timeout
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">clearInterval</a>(timer)
+            		<span>
+            			取消由 setInterval() 设置的 timeout
+            		</span>
+            	</li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
         <h3>Window<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] 渲染</h4>
@@ -40,53 +75,6 @@
 					</span>
 				</li>
 			</ul>
-            <h4>[<span>-</span>] 定时器</h4>
-            <ul>
-            	<li>
-            		<a href="">setTimeout</a>(fn,time,[arg])
-            		<span>
-            			在指定的毫秒数后调用函数或计算表达式 <br>
-            			setTimeout还允许添加更多的参数，它们将被传入推迟执行的函数（回调函数），IE 9.0及以下版本，只允许setTimeout有两个参数，不支持更多的参数。 <br>
-            			<a href="http://javascript.ruanyifeng.com/advanced/timer.html#toc4">当time=0时的应用，同样需等待队列完成</a>
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">setInterval</a>(fn,time)
-            		<span>
-            			按照指定的周期（以毫秒计）来调用函数或计算表达式
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearTimeout</a>(timeout)
-            		<span>
-            			取消由 setTimeout() 方法设置的 timeout
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">clearInterval</a>(timeout)
-            		<span>
-            			取消由 setInterval() 设置的 timeout
-            		</span>
-            	</li>
-				<li>val.<a href="">toString</a>()<span>
-					<table>
-                        <tr>
-                            <th>目标</th>
-                            <th>返回值</th>
-                        </tr>
-                        <tr>
-                            <td>array</td>
-                            <td>参数直接用,隔开的字符串</td>
-                        </tr>
-                    </table>
-				</span></li>
-				<li>
-					<a href="">vauleOf</a>
-					<span>
-						
-					</span>
-				</li>
-            </ul>
         	<h4>[<span>-</span>] 窗口</h4>
         	<ul>
         		<li>

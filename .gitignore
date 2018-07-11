@@ -8,3 +8,4 @@ html/test.hbs
 .git
 yarn.lock
 test.js
+test.html

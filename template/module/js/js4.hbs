@@ -131,26 +131,29 @@
 			<h4>[<span>+</span>]内部</h4>
 			<ul style="display:none;">
 				<li>
-					<a href="">理论</a>
+					<a href="">var</a>
 					<span>
-						作用域：静态/词法作用域，取决于函数声明时所在的作用域，与其运行时所在的作用域无关。 <hr>
+						var为静态作用域 <br>
+						即词法作用域，取决于函数声明时所在的作用域，与其运行时所在的作用域无关。 <hr>
 						执行上下文栈：变量对象、作用域链、this <br>
 						1.变量对象：函数的所有形参、函数声明、变量声明（如果变量名称与声明的形参或函数相同，则变量声明不会干扰已经存在的这类属性）<a href="https://github.com/mqyqingfeng/Blog/issues/5">参考资料</a><br>
 						<b>变量对象为进入执行上下文阶段，在执行阶段，可能被重新赋值。</b><br>
-						2.作用域链：[VO=>AO压入栈顶,全局作用域链] <hr>
-						闭包：<a href="https://github.com/mqyqingfeng/Blog/issues/9">参考资料</a>
+						2.作用域链：[VO=>AO压入栈顶,全局作用域链] <br>
+						3.闭包：<a href="https://github.com/mqyqingfeng/Blog/issues/9">参考资料</a> <hr>
 					</span>
 				</li>
 				<li>
 					<a href="">this</a>
 					<span>
-						this关键字总是指向函数所在的当前对象
+						this为动态作用域 <br>
+						1.普通函数：根据执行环境不同而不同，可以通过apply,call改变 <br>
+						2.箭头函数：声明时上下文中的this，不可通过apply,call改变
 						<hr> 
 						普通函数：严格模式(undefined)、严格模式(全局对象) <br>
 						构造函数：对象的实例 <br>
 						对象方法：对象本身 <br>
 						call/apply/bind：绑定的对象 <br>
-						箭头函数：函数所在的块的this <br>
+						箭头函数：函数所在的块的this <hr>
 						<a href="https://github.com/mqyqingfeng/Blog/issues/7">从ES规范解读this</a> 
 					</span>
 				</li>
@@ -216,7 +219,7 @@
 					</span>
 				</li>
 				<li>
-					pms.<a href="">catch</a><em>(fn(error))</em>
+					pms.<a href="">catch</a><em>(fn(err))</em>
 					<span>
 						Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。 <br>
 						Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。<br>
