@@ -1,13 +1,150 @@
 <div class="u-col">
-  	<div class="u-block">
-	  	<h3>MySQL<span>-</span></h3>
-	  	<div class="u-list">
-	  		<h4>[<span>-</span>] 库</h4>
-	  		<ul>
-	  		</ul>
-            <h4>[<span>-</span>] 表</h4>
-	  		<ul>
-	  		</ul>
-	  	</div>
-  	</div>
+	<div class="u-block">
+		<h3>MySQL
+			<span>-</span>
+		</h3>
+		<div class="u-list">
+			<h4>[<span>+</span>] 连接</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">sudo service mysql start</a>
+					<span>
+						打开mysql服务
+					</span>
+				</li>
+				<li>
+					<a href="">mysql -u root</a>
+					<span>
+						连接数据库 <br>
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>] 数据类型</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">int</a>
+					<span>
+						整数；4字节  <br>
+						<img src="image/sql/int.png" alt="">
+					</span>
+				</li>
+				<li>
+					<a href="">float</a>
+					<span>
+						单精度浮点数；4字节
+					</span>
+				</li>
+				<li>
+					<a href="">double</a>
+					<span>
+						双精度浮点数；8字节
+					</span>
+				</li>
+				<li>
+					<a href="">char</a>
+					<span>
+						定长字符串（0~255）
+					</span>
+				</li>
+				<li>
+					<a href="">varchar</a>
+					<span>
+						变长字符串（0~255）
+					</span>
+				</li>
+				<li>
+					<a href="">text</a>
+					<span>
+						长文本数据（0~65535）
+					</span>
+				</li>
+				<li>
+					<a href="">enum</a>
+					<span>
+						单选 enum('female','male')
+					</span>
+				</li>
+				<li>
+					<a href="">set</a>
+					<span>
+						多选 set('a','b','c')
+					</span>
+				</li>
+				<li>
+					<a href="">date</a>
+					<span>
+						日期YYYY-MM-DD；3字节
+					</span>
+				</li>
+				<li>
+					<a href="">time</a>
+					<span>
+						时间点或持续时间HH:MM:SS；3字节
+					</span>
+				</li>
+				<li>
+					<a href="">timestamp</a>
+					<span>
+						UTC
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 库操作</h4>
+			<ul>
+				<li>
+					<a href="">create database</a> dname;
+					<span>
+						创建数据库
+					</span>
+				</li>
+				<li>
+					<a href="">drop database</a> dname;
+					<span>
+						删除数据库
+					</span>
+				</li>
+				<li>
+					<a href="">use</a> dname
+					<span>
+						选择数据库
+					</span>
+				</li>
+				<li>
+					<a href="">show tables;</a>
+					<span>
+						查看当前数据库里有几张表
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 表操作</h4>
+			<ul>
+				<li>
+					<a href="">create table</a> tname (key type(length),..);
+					<span>
+						create table tname (key type(length),..); <br>
+						新建表，必须至少有一列
+					</span>
+				</li>
+				<li>
+					<a href="">drop table</a> tname
+					<span>
+						删除表
+					</span>
+				</li>
+				<li>
+					<a href="">select $col from</a> tname 
+					<span>
+						选择表
+					</span>
+				</li>
+				<li>
+					<a href="">insert into</a> tname [($col)] values ($val)
+					<span>
+						insert into tname [($col)] values ($val) <br>
+						插入表
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
