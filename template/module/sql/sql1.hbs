@@ -1,10 +1,8 @@
 <div class="u-col">
 	<div class="u-block">
-		<h3>MySQL
-			<span>-</span>
-		</h3>
+		<h3>MySQL-库<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>+</span>] 连接</h4>
+			<h4>[<span>+</span>] 启动退出</h4>
 			<ul style="display:none;">
 				<li>
 					<a href="">sudo service mysql start</a>
@@ -18,13 +16,89 @@
 						连接数据库 <br>
 					</span>
 				</li>
+				<li>
+					<a href="">quit</a>
+					<span>
+						\q 退出
+					</span>
+				</li>
 			</ul>
+			<h4>[<span>+</span>] 导入导出</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">load data infile</a> $file into table tname
+					<span>
+						导入文件数据到表 <br>
+						LOAD DATA INFILE '文件路径和文件名' INTO TABLE 表名字;
+					</span>
+				</li>
+				<li>
+					<a href="">select * into outfile</a> $file from tname
+					<span>
+						导出数据到文件 <br>
+						SELECT 列1，列2 INTO OUTFILE '文件路径和文件名' FROM 表名字;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>] 备份恢复</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">mysqldump</a> -u root dname>$file
+					<span>
+						mysqldump -u root 数据库名>备份文件名;   #备份整个数据库 <br>
+						mysqldump -u root 数据库名 表名字>备份文件名;  #备份整个表
+					</span>
+				</li>
+				<li>
+					<a href="">source</a> $file.sql
+					<span>
+						执行sql
+					</span>
+				</li>
+				<li>
+					mysql -u root tname <a href="">&lt;</a> $file.sql
+					<span>
+						导入sql
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 库操作</h4>
+			<ul>
+				<li>
+					<a href="">show databases</a>
+					<span>
+						查看全部数据库
+					</span>
+				</li>
+				<li>
+					<a href="">create database</a> dname
+					<span>
+						创建数据库
+					</span>
+				</li>
+				<li>
+					<a href="">drop database</a> dname
+					<span>
+						删除数据库
+					</span>
+				</li>
+				<li>
+					<a href="">use</a> dname
+					<span>
+						选择数据库
+					</span>
+				</li>
+			</ul>
+		</div>
+		<h3>MySQL-表<span>-</span></h3>
+		<div class="u-list">
 			<h4>[<span>+</span>] 数据类型</h4>
 			<ul style="display:none;">
 				<li>
-					<a href="">int</a>
+					<a href="">int</a> UNSIGNED
 					<span>
 						整数；4字节  <br>
+						UNSIGNED 无符号 0及正数 <br>
 						<img src="image/sql/int.png" alt="">
 					</span>
 				</li>
@@ -47,7 +121,7 @@
 					</span>
 				</li>
 				<li>
-					<a href="">varchar</a>
+					<a href="">varchar</a>(len)
 					<span>
 						变长字符串（0~255）
 					</span>
@@ -89,39 +163,18 @@
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>-</span>] 库操作</h4>
+			<h4>[<span>-</span>] 表操作</h4>
 			<ul>
 				<li>
-					<a href="">create database</a> dname;
-					<span>
-						创建数据库
-					</span>
-				</li>
-				<li>
-					<a href="">drop database</a> dname;
-					<span>
-						删除数据库
-					</span>
-				</li>
-				<li>
-					<a href="">use</a> dname
-					<span>
-						选择数据库
-					</span>
-				</li>
-				<li>
-					<a href="">show tables;</a>
+					<a href="">show tables</a>
 					<span>
 						查看当前数据库里有几张表
 					</span>
 				</li>
-			</ul>
-			<h4>[<span>-</span>] 表操作</h4>
-			<ul>
 				<li>
-					<a href="">create table</a> tname (key type(length),..);
+					<a href="">create table</a> tname (~)
 					<span>
-						create table tname (key type(length),..); <br>
+						create table tname ($key $type($len) $constraint,..); <br>
 						新建表，必须至少有一列
 					</span>
 				</li>
@@ -132,16 +185,117 @@
 					</span>
 				</li>
 				<li>
-					<a href="">select $col from</a> tname 
+					<a href="">alter table</a> tname ..
 					<span>
-						选择表
+						修改表
 					</span>
 				</li>
 				<li>
-					<a href="">insert into</a> tname [($col)] values ($val)
+					{alter} <a href="">rename</a> _tname
 					<span>
-						insert into tname [($col)] values ($val) <br>
-						插入表
+						重命名一张表 <br>
+						RENAME TABLE 原名 TO 新名字; <br>
+						ALTER TABLE 原名 RENAME 新名; <br>
+						ALTER TABLE 原名 RENAME TO 新名;
+					</span>
+				</li>
+				<li>
+					{alter} <a href="">add column</a> ~
+					<span>
+						添加列 <br>
+						alter table $tname add column $key $type($len) $constraint <br>
+						after $key/first 指定位置
+					</span>
+				</li>
+				<li>
+					{alter} <a href="">drop column</a> $key
+					<span>
+						删除列
+					</span>
+				</li>
+				<li>
+					{alter} <a href="">modify</a> ~
+					<span>
+						修改列(仅修改数据类型) <br>
+						alter table $tname modify $key $new_type <br>
+						after $key/first 指定位置
+					</span>
+				</li>
+				<li>
+					{alter} <a href="">change $key</a>  ~
+					<span>
+						修改列(修改名称与属性) <br>
+						alter table $tname change $old_key $new_key $type($len) $constraint <br>
+						after $key/first 指定位置
+					</span>
+				</li>
+				<li>
+					{alter} <a href="">add index</a> $index ($key);
+					<span>
+						ALTER TABLE 表名字 ADD INDEX 索引名 (列名); <br>
+						CREATE INDEX 索引名 ON 表名字 (列名);
+					</span>
+				</li>
+				<li>
+					<a href="">desc</a> tname
+					<span>
+						查看表字段属性
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] SQL约束</h4>
+			<ul>
+				<li>
+					<a href="">$key $type($len) $constraint</a>
+					<span>
+						列名称 列类型(长度) 约束
+					</span>
+				</li>
+				<li>
+					{key} <a href="">primary key</a>
+					<span>
+						单个主键 <br>
+						指定的一列的值必须不能有重复值
+					</span>
+				</li>
+				<li>
+					{key} <a href="">default</a> val
+					<span>
+						设置默认值
+					</span>
+				</li>
+				<li>
+					{key} <a href="">not null</a>
+					<span>
+						被非空约束的列，在插入值时必须非空
+					</span>
+				</li>
+				<li>
+					{key} <a href="">auto_increment</a>
+					<span>
+						自增，必须设为主键 <br>
+						alter table tname auto_increment=100
+						修改初始值
+					</span>
+				</li>
+				<li>
+					constraint _key <a href="">primary key</a> (key,..)
+					<span>
+						constraint _key primary key (key,..) <br>
+						指定一个或多个键设为主键	
+					</span>
+				</li>
+				<li>
+					constraint _key <a href="">foreign key</a> (key) references tname(col)
+					<span>
+						constraint _key foreign key (key) references tname(col) <br>
+						指定一个外键；每个外键必须 REFERENCES (参考) 另一个表的主键，被外键约束的列，取值必须在它参考的列中有对应值。
+					</span>
+				</li>
+				<li>
+					<a href="">unique</a> (key)
+					<span>
+						指定的一列的值必须不能有重复值
 					</span>
 				</li>
 			</ul>

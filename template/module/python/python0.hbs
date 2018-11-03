@@ -2,16 +2,8 @@
     <div class="u-block">
         <h3>基础<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 安装使用</h4>
-            <ul>
-                <li>
-                    <a href="">交互模式与文件运行区别</a>
-                    <span>1.直接输入python进入交互模式，相当于启动了Python解释器，但是等待你一行一行地输入源代码，每输入一行就执行一行。<br>
-                    2.直接运行oython xxx.py文件相当于启动了Python解释器，然后一次性把.py文件的源代码给执行了，你是没有机会输入源代码的。</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 语法规则</h4>
-            <ul>
+            <h4>[<span>+</span>] 语法</h4>
+            <ul style="display:none">
                 <li>
                     <a href="">保留字</a>
                     <span>
@@ -93,8 +85,138 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 运算</h4>
-            <ul>
+            <h4>[<span>+</span>] 数据类型</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">bool</a>
+                    <span>
+                        True / False <br>
+                        区分大小写 <br>
+                        在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。
+                    </span>
+                </li>
+                <li>
+                    <a href="">int</a>
+                    <span>
+                        整数，支持多进制
+                    </span>
+                </li>
+                <li>
+                    <a href="">float</a>
+                    <span>
+                        1.23e9，1.23e-5
+                    </span>
+                </li>
+                <li>
+                    <a href="">complex</a>
+                    <span>
+                        3+4j
+                    </span>
+                </li>
+                <li>
+                    <a href="">str</a>
+                    <span>
+                        字符串用单引号(')或双引号(")括起来 <br>
+                        使用反斜杠(\)转义特殊字符;用r''表示内部的字符串不转义<br>
+                        字符串不能被改变。<br>
+                        索引值以 0 为开始值，-1 为从末尾的开始位置。 <br>
+                        字符串截取：变量[头下标:尾下标]，不包含最后位置 <br>
+                        加号 (+) 是字符串的连接符 <br>
+                        星号 (*) 表示复制当前字符串 
+                    </span>
+                </li>
+                <li>
+                    <a href="">tuple</a>
+                    <span>
+                        (1,'a')(1,) <hr>
+                        元组（tuple）与列表类似，不同之处：<br>
+                        1.元组的元素不能修改 <br>
+                        2.元组写在小括号()里 <br>
+                        3.空元组 tup1 = () <br>
+                        4.一个元素，需要在元素后添加逗号 tup2 = (20,) 否则非元组，而是单元素<br>
+                        5.tuple的元素不可改变，但它可以包含可变的对象，比如list列表。
+                    </span>
+                </li>
+                <li>
+                    <a href="">list</a>
+                    <span>
+                        [1,'a'] <hr>
+                        列表是写在方括号[]之间、用逗号分隔开的元素列表。<br>
+                        List中的元素是可以改变的。<br>
+                        索引值以 0 为开始值，-1 为从末尾的开始位置。 <br>
+                        列表截取：变量[头下标:尾下标]，不包含最后位置 <br>
+                        加号 (+) 是字符串的连接符 <br>
+                        星号 (*) 表示复制当前字符串
+                    </span>
+                </li>
+                <li>
+                    <a href="">set</a>
+                    <span>
+                        {'a','b'}/set('aabc') <hr>
+                        集合（set）是一个无序不重复元素的序列。基本功能是进行成员关系测试和删除重复元素。<br>
+                        可以使用大括号({})或者 set()函数创建集合。<br>
+                        创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。<br>
+                        使用set()时最多传入1个参数。
+                        <hr>
+                        <table>
+                            <tr>
+                                <th>运算符</th>
+                                <th>结果</th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>差集（前者存在后者不存在）</td>
+                            </tr>
+                            <tr>
+                                <td>|</td>
+                                <td>并集</td>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>交集</td>
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>不同时存在的元素</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">dict</a>
+                    <span>
+                        {'k':'v'}/dict() <hr>
+                        列表是有序的对象结合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。字典是一种映射类型，字典用"{ }"标识，它是一个无序的键(key) : 值(value)对集合。键(key)必须使用不可变类型。在同一个字典中，键(key)必须是唯一的。<br>
+                        内置函数：clear()清空、keys()键组、values()值组。
+                        <pre><code data-language="python">
+                        tinydict = {'name': 'test','code':1, 'site': 'www.test.com'}
+                        print (tinydict.keys())   # 输出所有键
+                        #tinydict_keys(['name', 'site', 'code'])
+                        print (tinydict.values()) # 输出所有值
+                        #tinydict_values(['test', 'www.test.com', 1])
+                        </code></pre>
+                        构造函数 dict() 可以直接从键值对序列中构建字典如下：
+                        <pre><code data-language="python">
+                        >>> dict([('Runoob', 1), ('Google', 2), ('Taobao', 3)])
+                        {'Taobao': 3, 'Runoob': 1, 'Google': 2}
+
+                        >>> dict(Runoob=1, Google=2, Taobao=3)
+                        {'Taobao': 3, 'Runoob': 1, 'Google': 2}
+
+                        >>> {x: x**2 for x in (2, 4, 6)}
+                        {2: 4, 4: 16, 6: 36}
+                        </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">None</a>
+                    <span>
+                        空值
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 运算</h4>
+            <ul style="display:none">
                 <li>
                     <a href="">算数运算符</a>
                     <span>
@@ -406,19 +528,51 @@
                                 <td>赋值运算符</td>
                             </tr>
                             <tr>
-                                <td>is is not</td>
+                                <td>is , is not</td>
                                 <td>身份运算符</td>
                             </tr>
                             <tr>
-                                <td>in not in</td>
+                                <td>in , not in</td>
                                 <td>成员运算符</td>
                             </tr>
                             <tr>
-                                <td>not or and</td>
+                                <td>not , or and</td>
                                 <td>逻辑运算符</td>
                             </tr>
                         </table>
                     </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 流程</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">if..elif..else..</a>
+                    <span>条件语句
+                    </span>
+                </li>
+                <li>
+                    <a href="">while...</a>[else]
+                    <span>条件循环
+                    </span>
+                </li>
+                <li>
+                    <a href="">for...in...</a>[else]
+                    <span>迭代循环
+                    </span>
+                </li>
+                <li>
+                    <a href="">break</a>
+                    <span>中断循环，可写在默认循环结果句前
+                    </span>
+                </li>
+                <li>
+                    <a href="">continue</a>
+                    <span>跳过当前循环，可写在默认循环结果句前中断循环之后
+                    </span>
+                </li>
+                <li>
+                    <a href="">pass</a>
+                    <span>指示一个没有内容的语句块</span>
                 </li>
             </ul>
             <h4>[<span>-</span>] I/O</h4>
@@ -455,38 +609,6 @@
                     <span>
                         help(fn) 查看帮助
                     </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 控制流</h4>
-            <ul>
-                <li>
-                    <a href="">if..elif..else..</a>
-                    <span>条件语句
-                    </span>
-                </li>
-                <li>
-                    <a href="">while...</a>[else]
-                    <span>条件循环
-                    </span>
-                </li>
-                <li>
-                    <a href="">for...in...</a>[else]
-                    <span>迭代循环
-                    </span>
-                </li>
-                <li>
-                    <a href="">break</a>
-                    <span>中断循环，可写在默认循环结果句前
-                    </span>
-                </li>
-                <li>
-                    <a href="">continue</a>
-                    <span>跳过当前循环，可写在默认循环结果句前中断循环之后
-                    </span>
-                </li>
-                <li>
-                    <a href="">pass</a>
-                    <span>指示一个没有内容的语句块</span>
                 </li>
             </ul>
             <h4>[<span>-</span>] 函数</h4>

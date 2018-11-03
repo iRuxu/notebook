@@ -1,0 +1,151 @@
+<div class="u-col">
+	<div class="u-block">
+		<h3>MySQL-PHP<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 面向对象</h4>
+			<ul>
+                <li>
+                    <a href="">new mysqli</a><em>($host,$user,$pwd)</em>
+                    <span>
+                        连接数据库
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">connect_error</a>
+                    <span>
+                       if($conn->connect_error){die(..)}
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">query</a>($sql)
+                    <span>
+                        执行sql命令，返回结果
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">multi_query</a>($sql)
+                    <span>
+                        执行多条sql命令（字符串拼接）
+                    </span>
+                </li>
+                <li>
+                    <a href="">mysqli_fetch_array</a>($result)
+                    <span>
+                        从结果集中取得一行作为关联数组，或数字数组，或二者兼有
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">error</a>
+                    <span>
+                        query执行失败时的失败信息
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">close()</a>
+                    <span>
+                        关闭连接
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">prepare</a>($sql?)
+                    <span>
+                        预处理 <br>
+                        $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+                    </span>
+                </li>
+                <li>
+                    $stmt-><a href="">bind_param</a>($type,$val)
+                    <span>
+                        绑定 <br>
+                        $stmt->bind_param("sss", $firstname, $lastname, $email); <br>
+                        s字符串，i整型，d双精度浮点，b二进制大对象
+                    </span>
+                </li>
+                <li>
+                    $stmt-><a href="">execute()</a>
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    $stmt-><a href="">close()</a>
+                    <span>
+                        
+                    </span>
+                </li>
+			</ul>
+            <h4>[<span>+</span>] 面向过程</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">mysqli_connect</a><em>($host,$user,$pwd)</em>
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    <a href="">mysqli_connect_error()</a>
+                    <span>
+                        if (!$conn) {die(mysqli_connect_error());}
+                    </span>
+                </li>
+                <li>
+                    <a href="">mysqli_query</a>($conn,$sql)
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    <a href="">mysqli_multi_query</a>($conn,$sql)
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    <a href="">mysqli_error</a>($conn)
+                    <span>
+                        
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] PDO</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">new PDO</a>("mysql:host=$host;dbname=$db", $username, $password);
+                    <span>
+                        try{$conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);}
+                    </span>
+                </li>
+                <li>
+                    catch (<a href="">PDOException $e</a>)
+                    <span>
+                        $e->getMessage();
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">exec</a>($sql)
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">beginTransaction()</a>
+                    <span>
+                        开始事务
+                    </span>
+                </li>
+                <li>
+                    $conn-><a href="">commit()</a>
+                    <span>
+                        提交事务
+                    </span>
+                </li>
+                <li>
+                    $conn=<a href="">null</a>
+                    <span>
+                        
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

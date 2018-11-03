@@ -1,0 +1,137 @@
+<div class="u-col">
+	<div class="u-block">
+		<h3>MySQL-数据<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 增删改查</h4>
+			<ul>
+				<li>
+					<a href="">insert into</a> tname ..
+					<span>
+						插入一条/多条数据<br>
+						insert into tname [($key)] values ($val,..) 
+					</span>
+				</li>
+				<li>
+					<a href="">delete from</a> tname ..
+					<span>
+						删除一条数据 <br>
+						delete from tname where ..
+					</span>
+				</li>
+				<li>
+					<a href="">update</a> tname set $key=val
+					<span>
+						修改值 <br>
+						update tname set $key=val,.. where ..
+					</span>
+				</li>
+				<li>
+					<a href="">select</a> $key from tname
+					<span>
+						选择数据 <br>
+						select */$key/$key.. from tname where ..
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 条件</h4>
+			<ul>
+				<li>
+					where .. <a href="">and/or</a> ..
+					<span>
+						符合指定条件 
+					</span>
+				</li>
+				<li>
+					$key <a href="">is [not] null</a>
+					<span>
+						是否为空值
+					</span>
+				</li>
+				<li>
+					$key <a href="">between</a> .and.
+					<span>
+						包含两个边界值的范围
+					</span>
+				</li>
+				<li>
+					$key <a href="">in/not in</a> (val..)
+					<span>
+						某个值在/不在某个范围
+					</span>
+				</li>
+				<li>
+					$key <a href="">like</a> _%
+					<span>
+						_ 代表一个未指定字符，% 代表不定个未指定字符
+					</span>
+				</li>
+				<li>
+					$key <a href="">regexp</a> $regexp
+					<span>
+						根据正则表达式查询
+					</span>
+				</li>
+				<li>
+					.. <a href="">order by</a> $key/asc/desc
+					<span>
+						默认升序，可指定为desc降序，也可以指定根据某个key，例如id
+					</span>
+				</li>
+				<li>
+					.. <a href="">group by</a> $key
+					<span>
+						分组
+					</span>
+				</li>
+				<li>
+					.. <a href="">limit</a> n
+					<span>
+						设定返回的记录数
+					</span>
+				</li>
+                <li>
+                    .. <a href="">offset</a> n
+                    <span>
+                        设置偏移量，默认为0
+                    </span>
+                </li>
+            </ul>
+			<h4>[<span>-</span>] 连接</h4>
+			<ul>
+				<li>
+					$t1 <a href="">join</a> $t2 on ~
+					<span>
+						连接多个表查询 <br>
+						条件中设置合并的键相等 <br>
+						$t1 join $t2 on ~ == $t1,$t2 where ~
+					</span>
+				</li>
+				<li>
+					s1 <a href="">union</a> s2
+					<span>
+						合并去重2个选择表达式结果
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 视图</h4>
+			<ul>
+				<li>
+					<a href="">create view</a> vname
+					<span>
+						创建视图 <br>
+						create view vname(vkey,..) as select $key,.. from tname;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 函数</h4>
+			<ul>
+				<li>
+					select <a href="">fn($key)</a>,.. from tname
+					<span>
+						count计数；sum求和；avg平均值；max最大值；min最小值
+					</span>
+				</li>
+			</ul>
+        </div>
+    </div>
+</div>

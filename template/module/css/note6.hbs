@@ -44,6 +44,28 @@
 			  <li><a href="">page-break-after</a><span>检索或设置对象之后出现的页分割符。</span></li>
 			  <li><a href="">page-break-inside</a><span>检索或设置对象容器内部出现的页分割符。</span></li>
 			</ul>
+            <h4>[<span>+</span>] 其它</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">p/div</a>
+					<span>
+						充分利用p,h1-h6等标签进行语义化.<b>但不要在p中放置h1-h6,结构出错。</b>
+					</span>
+				</li>
+				<li>
+					<a href="">h1-h6</a>
+					<span>
+						在H内部直接放置浮动右元素，IE7会换行，改用position定位
+					</span>
+				</li>
+				<li>
+					<a href="">a</a>
+					<span>
+						1.IE10-对于a与同级元素，空的a调整层级或顺序仍然无法点击，需要将a包裹其他元素<br>
+						2.在平板中a标签中包含:hover触发改变display:none/block的元素，旧平板无法点击，将display切换改为透明度更改并可能需要修改ie78的filter值<br>
+					</span>
+				</li>
+			</ul>
 		</div>
   	</div>
   	<div class="u-block">
