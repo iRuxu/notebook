@@ -1,55 +1,37 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>数据<span>-</span></h3>
+        <h3>字符串<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 类型检测</h4>
-            <ul>
+            <h4>[<span>+</span>] 语法</h4>
+            <ul style="display:none;">
                 <li>
-                    <a href="">type</a>(var)
+                    <a href="">"""</a>
                     <span>
-                        查询变量所指的对象类型
+                        多行字符串
                     </span>
                 </li>
                 <li>
-                    <a href="">isinstance</a>(var,$type)
+                    <a href="">r</a> str
                     <span>
-                        判断变量所指的对象类型 <br>
-                        isinstance(a, int) <br>
-                        type()不会认为子类是一种父类类型。isinstance()会认为子类是一种父类类型。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 数字</h4>
-            <ul>
-                <li>
-            		<a href="">int</a>(n,[base])
-            		<span>
-                        将n转换为一个整数 <br>
-                        base进制数，默认十进制
-                    </span>
-            	</li>
-            	<li>
-            		<a href="">float</a>(n)
-            		<span>将n转换到一个浮点数</span>
-            	</li>
-            	<li>
-            		<a href="">complex</a>(real,[imag])
-            		<span>
-            			创建一个复数 <br>
-						complex(n) 将n转换到一个复数，实数部分为 n，虚数部分为 0。<br>
-						complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 yj。
-            		</span>
-            	</li>
-                <li>
-                    <a href="">hex</a>(n)
-                    <span>
-                        将一个整数转换为一个十六进制字符串
+                        原始字符串，即通过在字符串前加r或R。 <br> 
+                        如 r"this is a line with \n" 则\n会显示，并不是换行。 <hr>
+                        转义符 \ ，\n 换行符，<a href="http://www.runoob.com/python3/python3-string.html">更多</a>
                     </span>
                 </li>
                 <li>
-                    <a href="">oct</a>(n)
+                    <a href="">%</a> $type
                     <span>
-                        将一个整数转换为一个八进制字符串
+                        格式字符串 
+                        <a href="http://www.runoob.com/python3/python3-string.html">参考资料</a> <br>
+                    </span>
+                </li>
+                <li>
+                    '{}'<a href="">.format()</a>
+                    <span>
+                        1/字符串中使用{}来替代需要格式化的内容,索引号可缺省，亦可使用关键词指代。<br>
+                        2/{}中使用:.5f来指定浮点数位数。<br>
+                        3/{}中使用:+^12来指定符号填充至固定字符串长度。+符号,12长度。 <br>
+                        <a href="http://www.runoob.com/python/att-string-format.html">参考资料</a>
                     </span>
                 </li>
             </ul>
@@ -58,98 +40,329 @@
                 <li>
                     <a href="">chr</a>(n)
                     <span>
-                        返回当前整数对应的ascii字符
+                        把Unicode编码转换为对应的字符
                     </span>
                 </li>
                 <li>
                     <a href="">ord</a>(val)
                     <span>
-                        返回对应的 ASCII 数值，或者 Unicode 数值
+                        获取字符的Unicode编码数字 <hr>
+                        ord(s) -> Unicode编码数字 <br>
+                        hex(ord(s)) -> 十六进制 <br>
+                        '\u' + hex(ord(s)) Unicode表示法 <br>
+                        <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000">参考资料</a>
                     </span>
                 </li>
-            </ul>
-            <h4>[<span>-</span>] 类型转换</h4>
-            <ul>
-            	<li>
-            		<a href="">str</a>(val)
-            		<span>将对象转换为字符串</span>
-            	</li>
-            	<li>
-            		<a href="">repr</a>(val)
-            		<span>将对象转化为供解释器读取的形式</span>
-            	</li>
-            	<li>
-            		<a href="">eval</a>(str)
-            		<span>
-                        执行一个字符串表达式，并返回表达式的值<br>
-                        expression -- 表达式。 <br>
-                        globals -- 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。<br>
-                        locals -- 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。
-                    </span>
-            	</li>
                 <li>
-            		<a href="">bool</a>(val)
-            		<span>转换到布尔值</span>
-            	</li>
-            	<li>
-            		<a href="">tuple</a>(s)
-            		<span>将列表转换为元组</span>
-            	</li>
-            	<li>
-            		<a href="">list</a>(s)
-            		<span>将序列 s 转换为一个列表</span>
-            	</li>
-            	<li>
-            		<a href="">set</a>(s)
-            		<span>转换为可变集合</span>
-            	</li>
-            	<li>
-            		<a href="">frozenset</a>(s)
-            		<span>转换为不可变集合</span>
-            	</li>
-            	<li>
-            		<a href="">dict</a>(d)
-            		<span>创建一个字典。d 必须是一个序列 (key,value)元组。</span>
-            	</li>
-            </ul>
-            <h4>[<span>-</span>] 数据属性</h4>
-            <ul>
-            	<li>
-            		data<a href="">.clear()</a>
-            		<span>
-            			清空
-            		</span>
-            	</li>
-            	<li>
-            		data<a href="">.keys()</a>
-            		<span>
-            			键组
-            		</span>
-            	</li>
-            	<li>
-            		data<a href="">.values()</a>
-            		<span>
-            			值组
-            		</span>
-            	</li>
+                    str<a href="">.encode</a>(encoding='UTF-8')
+                    <span>
+                        以指定的编码格式编码字符串 <br>
+                        该方法返回编码后的字符串，它是一个 bytes 对象。
+                    </span>
+                </li>
                 <li>
-                    dict<a href="">.items()</a>
+                    $bytes<a href="">.decode</a>(encoding="UTF-8")
                     <span>
-                        键值对
+                        以指定的编码格式解码 bytes 对象。默认编码为 'utf-8'。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 对象操作</h4>
-			<ul>
-				<li>
-                    <a href="">del</a>var1,var2
+            <h4>[<span>-</span>] 检测</h4>
+            <ul>
+                <li>
+                    str<a href="">.isalnum()</a>
                     <span>
-                        通过使用del语句删除单个或多个对象
+                        检测字符串是否由字母和数字组成 <br>
+                        返回值：True | False
                     </span>
                 </li>
-			</ul>
-
-            
+                <li>
+                    str<a href="">.isalpha()</a>
+                    <span>
+                        检测字符串是否只由字母组成 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.isdigit()</a>
+                    <span>
+                        检测字符串是否只由数字组成 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.isnumeric()</a>
+                    <span>
+                        检测字符串是否只由数字组成。这种方法是只针对unicode对象 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.isdecimal()</a>
+                    <span>
+                        检查字符串是否只包含十进制字符。这种方法只存在于unicode对象
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.islower()</a>
+                    <span>
+                        检测字符串是否由小写字母组成 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.issupper()</a>
+                    <span>
+                        检测字符串中所有的字母是否都为大写
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.istitle()</a>
+                    <span>
+                        检测字符串中所有的单词拼写首字母是否为大写，且其他字母为小写
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.isspace()</a>
+                    <span>
+                        检测字符串是否只由空白字符组成 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 转换</h4>
+            <ul>
+                <li>
+                    str<a href="">.lower()</a>
+                    <span>
+                        转换字符串中所有大写字符为小写
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.upper()</a>
+                    <span>
+                        转换字符串中的小写字母为大写
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.title()</a>
+                    <span>
+                        单词都是以大写开始，其余字母均为小写
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.capitalize()</a>
+                    <span>
+                        将字符串的第一个字符转换为大写
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.swapcase()</a>
+                    <span>
+                        将字符串中大写转换为小写，小写转换为大写
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 查找</h4>
+            <ul>
+                <li>
+                    str<a href="">.count</a>(sub,[start,end])
+                    <span>
+                        统计字符串里某个字符出现的次数 <br>
+                        sub -- 搜索的子字符串 <br>
+                        start -- 字符串开始搜索的位置。默认为第一个字符,第一个字符索引值为0。 <br>
+                        end -- 字符串中结束搜索的位置。字符中第一个字符的索引为 0。默认为字符串的最后一个位置。
+                    </span>
+                </li>
+                <li>
+                    str <a href="">in</a> str
+                    <span>
+                        如果字符串中包含给定的字符返回 True
+                    </span>
+                </li>
+                <li>
+                    str <a href="">not in</a> str
+                    <span>
+                        如果字符串中不包含给定的字符返回 True
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.find</a>(sub,[start,end])
+                    <span>
+                        检测字符串中是否包含子字符串 <br>
+                        返回值：索引 | -1
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.rfind</a>(sub,[start,end])
+                    <span>
+                        类似于 find()函数，不过是从右边开始查找
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.startswith</a>(sub,[start,end])
+                    <span>
+                        判断字符串是否以指定字符开始 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.endswith</a>(sub,[start,end])
+                    <span>
+                        判断字符串是否以指定后缀结尾 <br>
+                        返回值：True | False
+                    </span>
+                </li>
+                <li>
+                    <a href="">max</a>(str)
+                    <span>
+                        返回字符串中最大的字母
+                    </span>
+                </li>
+                <li>
+                    <a href="">min</a>(str)
+                    <span>
+                        返回字符串中最小的字母
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 串联</h4>
+            <ul>
+                <li>
+                    str <a href="">+</a> str
+                    <span>
+                        字符串拼接
+                    </span>
+                </li>
+                <li>
+                    str <a href="">*</a> n
+                    <span>
+                        重复输出字符串
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.join</a>(seq)
+                    <span>
+                        将序列中的元素以指定的字符连接生成一个新的字符串
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 分割</h4>
+            <ul>
+                <li>
+                    str<a href="">.split</a>([sub,n])
+                    <span>
+                        指定分隔符对字符串进行切片 <br>
+                        sub默认为所有的空字符，包括空格、换行(\n)、制表符(\t)等 <br>
+                        如果n有指定值，则仅分割n次 <br>
+                        返回值：分割后的字符串列表
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.splitlines</a>([True/False])
+                    <span>
+                        按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表 <br>
+                        如为True则保留换行符
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 截取</h4>
+            <ul>
+                <li>
+                    str <a href="">[n]</a>
+                    <span>
+                        通过索引获取字符串中字符
+                    </span>
+                </li>
+                <li>
+                    str <a href="">[:]</a>
+                    <span>
+                        截取指定索引范围的字符串，左闭右开
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.strip</a>([sub])
+                    <span>
+                        移除字符串头尾指定的字符（默认为空格）或字符序列
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.lstrip</a>([sub])
+                    <span>
+                        截掉字符串左边的空格或指定字符(多个)，默认值为空格
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.rstrip</a>([sub])
+                    <span>
+                        删除字符串末尾的指定字符（默认为空格）
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 填充/替换</h4>
+            <ul>
+                <li>
+                    str.<a href="">replace</a>(old,new,[n])
+                    <span>
+                        把 将字符串中的 str1 替换成 str2,如果 max 指定，则替换不超过 max 次
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.expandtabs</a>([n])
+                    <span>
+                        把字符串中的 tab 符号('\t')转为空格，默认值为8
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.center</a>(len,[fills])
+                    <span>
+                        返回一个指定的宽度 width 居中的字符串，如果 width 小于字符串宽度直接返回字符串，否则使用 fillchar 去填充。 <br>
+                        fillchar 默认是空格，且只能是单个字符
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.ljust</a>(len,[fills])
+                    <span>
+                        返回一个原字符串左对齐,并使用空格填充至指定长度的新字符串。 <br>
+                        如果指定的长度小于原字符串的长度则返回原字符串。<br>
+                        fillchar 默认是空格
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.rjust</a>(len,[fills])
+                    <span>
+                        返回一个原字符串右对齐,并使用fillchar(默认空格）填充至长度 width 的新字符串
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.zfill</a>(len)
+                    <span>
+                        原字符串右对齐，前面填充0只指定len
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 映射</h4>
+            <ul>
+                <li>
+                    str<a href="">.maketrans</a>(intab,outtab)
+                    <span>
+                        创建字符映射的转换表 <br>
+                        两个字符串的长度必须相同，为一一对应的关系 <br>
+                        返回一个翻译表
+                    </span>
+                </li>
+                <li>
+                    str<a href="">.translate</a>(tab)
+                    <span>
+                        根据参数table给出的表(包含 256 个字符)转换字符串的字符 <hr>
+                        intab = 'abc' <br>
+                        outtab = '123' <br>
+                        str = 'haha' <br>
+                        t = str.maketrans(intab,outtab) <br>
+                        s = str.translate(t)
+                    </span>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
