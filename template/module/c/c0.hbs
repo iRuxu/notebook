@@ -1,0 +1,85 @@
+<div class="u-col">
+  <div class="u-block">
+      <h3>语法<span>-</span></h3>
+      <div class="u-list">
+            <h4>[<span>-</span>] 常量</h4>
+            <ul>
+                <li>
+                    <a href="">#define</a> VAR val
+                    <span>
+                        定义一个常量
+                    </span>
+                </li>
+                <li>
+                    <a href="">const</a> type VAR = val
+                    <span>
+                        定义一个常量
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 变量</h4>
+            <ul>
+                <li>
+                    type <a href="">var</a> = val
+                    <span>
+                        定义变量并初始化
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 存储类</h4>
+            <ul>
+                <li>
+                    <a href="">auto</a> va/fn
+                    <span>
+                        存储类定义 C 程序中变量/函数的范围（可见性）和生命周期 <br>
+                        说明符放置在它们所修饰的类型之前 <hr>
+                        auto 存储类是所有局部变量默认的存储类，auto 只能用在函数内，即 auto 只能修饰局部变量  
+                    </span>
+                </li>
+                <li>
+                    <a href="">register</a> va/fn
+                    <span>
+                        定义存储在寄存器中而不是 RAM 中的局部变量 <br>
+                        这意味着变量的最大尺寸等于寄存器的大小（通常是一个词），且不能对它应用一元的 '&' 运算符（因为它没有内存位置）
+                    </span>
+                </li>
+                <li>
+                    <a href="">static</a> va/fn
+                    <span>
+                        编译器在程序的生命周期内保持局部变量的存在，而不需要在每次它进入和离开作用域时进行创建和销毁 <br>
+                        因此，使用 static 修饰局部变量可以在函数调用之间保持局部变量的值。 <br>
+                        static 修饰符也可以应用于全局变量。当 static 修饰全局变量时，会使变量的作用域限制在声明它的文件内。
+                    </span>
+                </li>
+                <li>
+                    <a href="">extern</a> va/fn
+                    <span>
+                        提供一个全局变量的引用，全局变量对所有的程序文件都是可见的 <br>当您使用 'extern' 时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置 <br>
+                        extern 修饰符通常用于当有两个或多个文件共享相同的全局变量或函数的时候
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 杂项运算符</h4>
+            <ul>
+                <li>
+                    <a href="">sizeof</a>(var)
+                    <span>
+                        返回变量的大小
+                    </span>
+                </li>
+                <li>
+                    <a href="">*</a>var
+                    <span>
+                        指向一个变量
+                    </span>
+                </li>
+                <li>
+                    <a href="">&</a>var
+                    <span>
+                        返回变量的地址
+                    </span>
+                </li>
+            </ul>
+      </div>
+  </div>
+</div>
