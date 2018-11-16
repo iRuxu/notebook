@@ -1,9 +1,205 @@
 <div class="u-col">
     <div class="u-block">
+        <h3>数据类型<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>] 数据类型</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">bool</a>
+                    <span>
+                        True / False <br>
+                        区分大小写 <br>
+                        在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。
+                    </span>
+                </li>
+                <li>
+                    <a href="">int</a>
+                    <span>
+                        整数，支持多进制
+                    </span>
+                </li>
+                <li>
+                    <a href="">float</a>
+                    <span>
+                        1.23e9，1.23e-5
+                    </span>
+                </li>
+                <li>
+                    <a href="">complex</a>
+                    <span>
+                        3+4j
+                    </span>
+                </li>
+                <li>
+                    <a href="">str</a>
+                    <span>
+                        字符串用单引号(')或双引号(")括起来 <br>
+                        使用反斜杠(\)转义特殊字符;用r''表示内部的字符串不转义<br>
+                        字符串不能被改变。<br>
+                        索引值以 0 为开始值，-1 为从末尾的开始位置。 <br>
+                        字符串截取：变量[头下标:尾下标]，不包含最后位置 <br>
+                        加号 (+) 是字符串的连接符 <br>
+                        星号 (*) 表示复制当前字符串 
+                    </span>
+                </li>
+                <li>
+                    <a href="">tuple</a>
+                    <span>
+                        (1,'a')(1,) <hr>
+                        元组（tuple）与列表类似，不同之处：<br>
+                        1.元组的元素不能修改 <br>
+                        2.元组写在小括号()里 <br>
+                        3.空元组 tup1 = () <br>
+                        4.一个元素，需要在元素后添加逗号 tup2 = (20,) 否则非元组，而是单元素<br>
+                        5.tuple的元素不可改变，但它可以包含可变的对象，比如list列表。
+                    </span>
+                </li>
+                <li>
+                    <a href="">list</a>
+                    <span>
+                        [1,'a'] <hr>
+                        列表是写在方括号[]之间、用逗号分隔开的元素列表。<br>
+                        List中的元素是可以改变的。<br>
+                        索引值以 0 为开始值，-1 为从末尾的开始位置。 <br>
+                        列表截取：变量[头下标:尾下标]，不包含最后位置 <br>
+                        加号 (+) 是字符串的连接符 <br>
+                        星号 (*) 表示复制当前字符串
+                    </span>
+                </li>
+                <li>
+                    <a href="">set</a>
+                    <span>
+                        {'a','b'}/set('aabc') <hr>
+                        集合（set）是一个无序不重复元素的序列。基本功能是进行成员关系测试和删除重复元素。<br>
+                        可以使用大括号({})或者 set()函数创建集合。<br>
+                        创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。<br>
+                        使用set()时最多传入1个参数。
+                        <hr>
+                        <table>
+                            <tr>
+                                <th>运算符</th>
+                                <th>结果</th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>差集（前者存在后者不存在）</td>
+                            </tr>
+                            <tr>
+                                <td>|</td>
+                                <td>并集</td>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>交集</td>
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>不同时存在的元素</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">dict</a>
+                    <span>
+                        {'k':'v'}/dict() <hr>
+                        列表是有序的对象结合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。字典是一种映射类型，字典用"{ }"标识，它是一个无序的键(key) : 值(value)对集合。键(key)必须使用不可变类型。在同一个字典中，键(key)必须是唯一的。<br>
+                        内置函数：clear()清空、keys()键组、values()值组。
+                        <pre><code data-language="python">
+                        tinydict = {'name': 'test','code':1, 'site': 'www.test.com'}
+                        print (tinydict.keys())   # 输出所有键
+                        #tinydict_keys(['name', 'site', 'code'])
+                        print (tinydict.values()) # 输出所有值
+                        #tinydict_values(['test', 'www.test.com', 1])
+                        </code></pre>
+                        构造函数 dict() 可以直接从键值对序列中构建字典如下：
+                        <pre><code data-language="python">
+                        >>> dict([('Runoob', 1), ('Google', 2), ('Taobao', 3)])
+                        {'Taobao': 3, 'Runoob': 1, 'Google': 2}
+
+                        >>> dict(Runoob=1, Google=2, Taobao=3)
+                        {'Taobao': 3, 'Runoob': 1, 'Google': 2}
+
+                        >>> {x: x**2 for x in (2, 4, 6)}
+                        {2: 4, 4: 16, 6: 36}
+                        </code></pre>
+                    </span>
+                </li>
+                <li>
+                    <a href="">None</a>
+                    <span>
+                        空值
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 类型检测</h4>
+            <ul>
+                <li>
+                    <a href="">type</a>(var)
+                    <span>
+                        查询变量所指的对象类型
+                    </span>
+                </li>
+                <li>
+                    <a href="">isinstance</a>(var,$type)
+                    <span>
+                        判断变量所指的对象类型 <br>
+                        isinstance(a, int) <br>
+                        type()不会认为子类是一种父类类型。isinstance()会认为子类是一种父类类型。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 类型转换</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">str</a>(val)
+                    <span>将对象转换为字符串</span>
+                </li>
+                <li>
+                    <a href="">bool</a>(val)
+                    <span>转换到布尔值</span>
+                </li>
+                <li>
+                    <a href="">tuple</a>(lst)
+                    <span>将列表转换为元组</span>
+                </li>
+                <li>
+                    <a href="">list</a>(seq)
+                    <span>将序列转换为一个列表</span>
+                </li>
+                <li>
+                    <a href="">set</a>(seq)
+                    <span>转换为可变集合</span>
+                </li>
+                <li>
+                    <a href="">frozenset</a>(seq)
+                    <span>转换为不可变集合</span>
+                </li>
+                <li>
+                    <a href="">dict</a>(seq)
+                    <span>创建一个字典。d 必须是一个序列 (key,value)元组。</span>
+                </li>
+                <li>
+                    <a href="">repr</a>(val)
+                    <span>将对象转化为供解释器读取的形式</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
         <h3>通用<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 操作</h4>
+            <h4>[<span>-</span>] 全局函数</h4>
             <ul>
+                <li>
+                    <a href="">eval</a>(str)
+                    <span>
+                        执行一个字符串表达式，并返回表达式的值<br>
+                        expression -- 表达式。 <br>
+                        globals -- 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。<br>
+                        locals -- 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。
+                    </span>
+                </li>
                 <li>
                     <a href="">len</a>(val)
                     <span>
@@ -11,211 +207,464 @@
                     </span>
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>数字<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 类型转换</h4>
+            <h4>[<span>-</span>] 语句</h4>
             <ul>
                 <li>
-            		<a href="">int</a>(n,[base])
-            		<span>
-                        转换为一个整数 <br>
-                        base进制数，默认十进制 <br>
-                        除法 / 总是返回一个浮点数，使用//也不一定返回整数，需要使用int转换
-                    </span>
-            	</li>
-            	<li>
-            		<a href="">float</a>(n)
-            		<span>转换到一个浮点数</span>
-            	</li>
-            	<li>
-            		<a href="">complex</a>(real,[imag])
-            		<span>
-            			创建或转换为一个复数 <br>
-						complex(n) 将n转换到一个复数，实数部分为 n，虚数部分为 0。<br>
-						complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 yj。 <br>
-                        j的平方 = -1 , j的四次方 = 1
-            		</span>
-            	</li>
-                <li>
-                    <a href="">hex</a>(n)
-                    <span>
-                        转换为十六进制字符串
-                    </span>
-                </li>
-                <li>
-                    <a href="">oct</a>(n)
-                    <span>
-                        转换为一个八进制字符串
-                    </span>
+                    <a href="">pass</a>
+                    <span>指示一个没有内容的语句块</span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>数学<span>-</span></h3>
+        <h3>语法<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 取值函数</h4>
-            <ul>
-                <li>
-                    <a href="">abs</a>(x)
-                    <span>绝对值，返回数字的绝对值，如abs(-10) 返回 10</span>
-                </li>
-                <li>
-                    <a href="">round</a>(x,[n])
-                    <span>返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</span>
-                </li>
-                <li>
-                    math.<a href="">ceil</a>(x)
-                    <span>向上取整，返回数字的上入整数，如math.ceil(4.1) 返回 5</span>
-                </li>
-                <li>
-                    math.<a href="">floor</a>(x)
-                    <span>向下取整，返回数字的下舍整数，如math.floor(4.9)返回 4</span>
-                </li>
-                <li>
-                    math.<a href="">modf</a>(x)
-                    <span>返回x的小数部分与整数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</span>
-                </li>
-                <li>
-                    <a href="">max</a>(x,y,z)
-                    <span>返回给定参数的最大值，参数可以为序列。</span>
-                </li>
-                <li>
-                    <a href="">min</a>(x,y,z)
-                    <span>返回给定参数的最小值，参数可以为序列。</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 指数对数</h4>
-            <ul>
-                <li>
-                    math.<a href="">sqrt</a>(x)
-                    <span>返回数字x的平方根，数字可以为负数，返回类型为实数，如math.sqrt(4)返回 2+0j</span>
-                </li>
-                <li>
-                    <a href="">pow</a>(x,y,[z])
-                    <span>
-                        返回 xy（x的y次方） 的值。<br>
-                        如果z在存在，则再对结果进行取模，其结果等效于pow(x,y) %z
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">exp</a>(x)
-                    <span>返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</span>
-                </li>
-                <li>
-                    math.<a href="">log</a>(x)
-                    <span>如math.log(math.e)返回1.0。math.log(100,10)返回2.0</span>
-                </li>
-                <li>
-                    math.<a href="">log10</a>(x)
-                    <span>返回以10为基数的x的对数，如math.log10(100)返回 2.0</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 随机数函数</h4>
-            <ul>
-                <li>
-                    random.<a href="">randrange</a>([start,] stop [,step])
-                    <span>
-                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
-                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
-                        stop -- 指定范围内的结束值，不包含在范围内。<br>
-                        step -- 指定递增基数，缺省为1。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">random()</a>
-                    <span>
-                        随机生成下一个实数，它在[0,1)范围内。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">uniform</a>(x,y)
-                    <span>
-                       随机生成下一个实数，它在[x,y]范围内。 
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">seed</a>(x)
-                    <span>
-                        改变随机数生成器的种子seed。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 三角函数</h4>
+            <h4>[<span>+</span>] 变量与常量</h4>
             <ul style="display:none;">
                 <li>
-                    math.<a href="">acos</a>(x)
+                    <a href="">变量</a>
                     <span>
-                        返回x的反余弦弧度值。
+                        变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。<br>
+                        1.<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658624177ea4f8fcb06bc4d0e8aab2fd7aa65dd95000">变量的指向</a><br>
+                        2.Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。<br>
+                        3.同时为多个变量赋值：a = b = c = 1 <br>
+                        4.为多个对象指定多个变量：a, b, c = 1, 2, "test"
                     </span>
                 </li>
                 <li>
-                    math.<a href="">asin</a>(x)
+                    <a href="">常量</a>
                     <span>
-                        返回x的反正弦弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">atan</a>(x)
-                    <span>
-                        返回x的反正切弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">atan2</a>(y,x)
-                    <span>
-                        返回给定的 X 及 Y 坐标值的反正切值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">cos</a>(x)
-                    <span>
-                        返回x的弧度的余弦值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">sin</a>(x)
-                    <span>
-                        返回的x弧度的正弦值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">tan</a>(x)
-                    <span>
-                        返回x弧度的正切值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">hypot</a>(x, y)
-                    <span>
-                        返回欧几里德范数 sqrt(x*x + y*y)。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">degrees</a>(x)
-                    <span>
-                        将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">radians</a>(x)
-                    <span>
-                        将角度转换为弧度
+                        常量仍然可以修改，全部大写定义。
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 数学常数</h4>
-            <ul style="display:none;">
+            <h4>[<span>+</span>] 运算符</h4>
+            <ul style="display:none">
                 <li>
-                    math.<a href="">e</a>
-                    <span>自然常数e（约为2.71828）</span>
+                    <a href="">算数运算符</a>
+                    <span>
+                        <table>
+                            <caption>算数运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>+</td>
+                                <td>相加</td>
+                                <td>数据串联</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>相减，负数</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>相乘</td>
+                                <td>重复若干次的数据</td>
+                            </tr>
+                            <tr>
+                                <td>**</td>
+                                <td>乘方</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>/</td>
+                                <td>精确除法</td>
+                                <td>总是返回一个浮点数，例如6/3=2.0</td>
+                            </tr>
+                            <tr>
+                                <td>//</td>
+                                <td>地板除</td>
+                                <td>只取整数部分</td>
+                            </tr>
+                            <tr>
+                                <td>%</td>
+                                <td>取余数</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </span>
                 </li>
                 <li>
-                    math.<a href="">pi</a>
-                    <span>圆周率（约为3.14159）</span>
+                    <a href="">比较运算符</a>
+                    <span>
+                        <table>
+                            <caption>比较运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>==</td>
+                                <td>等于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>!=</td>
+                                <td>不等于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&gt;</td>
+                                <td>大于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;</td>
+                                <td>小于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&gt;=</td>
+                                <td>大于等于</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;=</td>
+                                <td>小于等于</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">赋值运算符</a>
+                    <span>
+                        <table>
+                            <caption>赋值运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>=</td>
+                                <td>简单的赋值运算符</td>
+                                <td>c = a + b 将 a + b 的运算结果赋值为 c</td>
+                            </tr>
+                            <tr>
+                                <td>+=</td>
+                                <td>加法赋值运算符</td>
+                                <td>c += a 等效于 c = c + a</td>
+                            </tr>
+                            <tr>
+                                <td>-=</td>
+                                <td>减法赋值运算符</td>
+                                <td>c -= a 等效于 c = c - a</td>
+                            </tr>
+                            <tr>
+                                <td>*=</td>
+                                <td>乘法赋值运算符</td>
+                                <td>c *= a 等效于 c = c * a</td>
+                            </tr>
+                            <tr>
+                                <td>/=</td>
+                                <td>除法赋值运算符</td>
+                                <td>c /= a 等效于 c = c / a</td>
+                            </tr>
+                            <tr>
+                                <td>%=</td>
+                                <td>取模赋值运算符</td>
+                                <td>c %= a 等效于 c = c % a</td>
+                            </tr>
+                            <tr>
+                                <td>**=</td>
+                                <td>幂赋值运算符</td>
+                                <td>c **= a 等效于 c = c ** a</td>
+                            </tr>
+                            <tr>
+                                <td>//=</td>
+                                <td>取整除赋值运算符</td>
+                                <td>c //= a 等效于 c = c // a</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">位运算符</a>
+                    <span>
+                        <table>
+                            <caption>位运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0</td>
+                                <td>(a & b) 输出结果 12 ，二进制解释： 0000 1100</td>
+                            </tr>
+                            <tr>
+                                <td>|</td>
+                                <td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。</td>
+                                <td>(a | b) 输出结果 61 ，二进制解释： 0011 1101</td>
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
+                                <td>(a ^ b) 输出结果 49 ，二进制解释： 0011 0001</td>
+                            </tr>
+                            <tr>
+                                <td>~</td>
+                                <td>按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1</td>
+                                <td>(~a ) 输出结果 -61 ，二进制解释： 1100 0011， 在一个有符号二进制数的补码形式。</td>
+                            </tr>
+                            <tr>
+                                <td><<</td>
+                                <td>左移动运算符：运算数的各二进位全部左移若干位，由"<<"右边的数指定移动的位数，高位丢弃，低位补0。</td>
+                                <td>a << 2 输出结果 240 ，二进制解释： 1111 0000</td>
+                            </tr>
+                            <tr>
+                                <td>>></td>
+                                <td>右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，">>"右边的数指定移动的位数</td>
+                                <td>a >> 2 输出结果 15 ，二进制解释： 0000 1111</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">逻辑运算符</a>
+                    <span>
+                        <table>
+                            <caption>逻辑运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>and</td>
+                                <td>x and y。布尔"与"。如果 x 为 False，返回 False，否则它返回 y 的计算值。</td>
+                                <td>(a and b) 返回 20。</td>
+                            </tr>
+                            <tr>
+                                <td>or</td>
+                                <td>x or y。布尔"或"。如果 x 是 True，它返回 True，否则它返回 y 的计算值。</td>
+                                <td>(a or b) 返回 10。</td>
+                            </tr>
+                            <tr>
+                                <td>not</td>
+                                <td>not x。布尔"非"。如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+                                <td>not(a and b) 返回 False</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">成员运算符</a>
+                    <span>
+                        <table>
+                            <caption>成员运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>in</td>
+                                <td>如果在指定的序列中找到值返回 True，否则返回 False。</td>
+                                <td>x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
+                            </tr>
+                            <tr>
+                                <td>not in</td>
+                                <td>如果在指定的序列中没有找到值返回 True，否则返回 False。</td>
+                                <td>x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">身份运算符</a>
+                    <span>
+                        <table>
+                            <caption>身份运算符</caption>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                                <th>更多</th>
+                            </tr>
+                            <tr>
+                                <td>is</td>
+                                <td>is是判断两个标识符是不是引用自一个对象</td>
+                                <td>x is y, 如果 id(x) 等于 id(y) , is 返回结果True</td>
+                            </tr>
+                            <tr>
+                                <td>is not</td>
+                                <td>is not是判断两个标识符是不是引用自不同对象</td>
+                                <td>x is not y, 如果 id(x) 不等于 id(y). is not 返回结果True</td>
+                            </tr>
+                        </table>
+                        is 与 == 区别：is 用于判断两个变量引用对象是否为同一个， == 用于判断引用变量的值是否相等。
+                    </span>
+                </li>
+                <li>
+                    <a href="">运算符优先级</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>运算符</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>**</td>
+                                <td>指数 (最高优先级)</td>
+                            </tr>
+                            <tr>
+                                <td>~ + -</td>
+                                <td>按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)</td>
+                            </tr>
+                            <tr>
+                                <td>* / % //</td>
+                                <td>乘，除，取模和取整除</td>
+                            </tr>
+                            <tr>
+                                <td>+ -</td>
+                                <td>加法减法</td>
+                            </tr>
+                            <tr>
+                                <td>>> <<</td>
+                                <td>右移，左移运算符</td>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>位 'AND'</td>
+                            </tr>
+                            <tr>
+                                <td>^ |</td>
+                                <td>位运算符</td>
+                            </tr>
+                            <tr>
+                                <td><= < > >=</td>
+                                <td>比较运算符</td>
+                            </tr>
+                            <tr>
+                                <td><> == !=</td>
+                                <td>等于运算符</td>
+                            </tr>
+                            <tr>
+                                <td>= %= /= //= -= += *= **=</td>
+                                <td>赋值运算符</td>
+                            </tr>
+                            <tr>
+                                <td>is , is not</td>
+                                <td>身份运算符</td>
+                            </tr>
+                            <tr>
+                                <td>in , not in</td>
+                                <td>成员运算符</td>
+                            </tr>
+                            <tr>
+                                <td>not , or and</td>
+                                <td>逻辑运算符</td>
+                            </tr>
+                        </table>
+                        算术>比较>赋值>逻辑
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 判断</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">if ..:</a>
+                    <span>
+                        条件语句
+                    </span>
+                </li>
+                <li>
+                    <a href="">if .. else ..</a>
+                    <span>
+                        无括号与花括号，用冒号与缩进代替
+                    </span>
+                </li>
+                <li>
+                    <a href="">if .. elif ..</a>
+                    <span>
+                        elif
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 循环</h4>
+            <ul style="display:none">
+                 <li>
+                    <a href="">while..:</a>
+                    <span>条件循环</span>
+                </li>
+                <li>
+                    <a href="">while .. else</a>
+                    <span>退出无限循环，循环被break终止时else不执行</span>
+                </li>
+                <li>
+                    <a href="">for...in...</a>[else]
+                    <span>遍历任何序列的项目</span>
+                </li>
+                <li>
+                    <a href="">for ... else</a>
+                    <span>
+                        不满足循环时，循环被break终止时else不执行
+                    </span>
+                </li>
+                <li>
+                    <a href="">break</a>
+                    <span>跳出循环</span>
+                </li>
+                <li>
+                    <a href="">continue</a>
+                    <span>跳过当前，继续下一轮循环</span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 函数</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">def</a> fn(var):
+                    <span>定义函数</span>
+                </li>
+                <li>
+                    <a href="">global</a>var
+                    <span>定义或声明变量为全局</span>
+                </li>
+                <li>
+                    <a href="">return</a>
+                    <span>中断函数或从函数中返回一个值。<br>
+                    如果 return 语句没有搭配任何一个值则代表着 返回 None。<br>每一个函数都在其末尾隐含了一句 return None，除非你写了你自己的 return 语句。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 模块</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">import</a>module
+                    <span>引入一个模块</span>
+                </li>
+                <li>
+                    <a href="">form module import $</a>
+                    <span>将外部模块变量本地化<br>
+                    form module import * <br>
+                    引入全部变量与函数，但不包括以下划线开头部分。
+                    </span>
+                </li>
+                <li>
+                    <a href="">__name__</a>
+                    <span>当模块为独立运行时，值为__main__</span>
+                </li>
+                <li>
+                    <a href="">dir</a>([module])
+                    <span>返回这一指定模块的名称列表，会包括函数内所定义的函数、类与变量。<br>
+                    参数为空时，返回当前模块的相关列表。</span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 其它</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">注释</a>
+                    <span>
+                        # 单行注释 <br>
+                        """ 多行注释 """
+                    </span>
                 </li>
             </ul>
         </div>

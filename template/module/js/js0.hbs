@@ -1,452 +1,538 @@
-<!-- 基本语法 -->
 <div class="u-col">
     <div class="u-block">
-        <h3>数字<span>-</span></h3>
+        <h3>数据类型<span>+</span></h3>
         <div class="u-list">
-            <h4>[<span>+</span>]值</h4>
-            <ul style="display: none;">
+            <h4>[<span>+</span>] 数据类型</h4>
+            <ul style="display:none">
                 <li>
-                    <a href="">常规数</a>
+                    <a href="">Boolean</a>
                     <span>
-                        在 JavaScript 里面，数字均为双精度浮点类型double-precision 64-bit binary format IEEE 754 （也就是说一个数字的范围只能在+-2的53次方）<hr>
-                        十进制数：01、1 <br>
-                        二进制数：0b01、0B10 （只能为0和1）<br>
-                        八进制数：0o777 （小于8）<br>
-                        十六进制数：0x10、0XAB （0~9A~F）<br>
-                        指数形式：1E2、1e2、0.1e2
+                        布尔:原始类型
                     </span>
                 </li>
                 <li>
-                    <a href="">特殊值</a>
+                    <a href="">Number</a>
                     <span>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">属性</th>
-                                    <th scope="col">描述</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Number.MAX_VALUE</td>
-                                <td>可表示的最大值 1.79e+308</td>
-                            </tr>
-                            <tr>
-                                <td>Number.MIN_VALUE</td>
-                                <td>可表示的最小值 5e-324</td>
-                            </tr>
-                            <tr>
-                                <td>Number.NEGATIVE_INFINITY</td>
-                                <td>特指“负无穷”;在溢出时返回</td>
-                            </tr>
-                            <tr>
-                                <td>Number.POSITIVE_INFINITY</td>
-                                <td>特指“正无穷”;在溢出时返回</td>
-                            </tr>
-                            <tr>
-                                <td>Number.EPSILON</td>
-                                <td>表示1和比最接近1且大于1的最小Number之间的差别</td>
-                            </tr>
-                            <tr>
-                                <td>Number.MIN_SAFE_INTEGER</td>
-                                <td>JavaScript最小安全整数.</td>
-                            </tr>
-                            <tr>
-                                <td>Number.MAX_SAFE_INTEGER</td>
-                                <td>JavaScript最大安全整数.</td>
-                            </tr>
-                            </tbody>
-                            </table>
-                            0/0=NaN，正数/0=正无穷，负数/0=负无穷 <br>
-                            正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN<br>
-                            无穷乘法操作得到无穷，无穷除法与求余操作得到NaN
+                        数值：原始类型 <br>
+                        根据 ECMAScript 标准，JavaScript 中只有一种数字类型：基于 IEEE 754 标准的双精度 64 位二进制格式的值（-(263 -1) 到 263 -1） <br>
+                        数字类型只有一个整数: 0
                     </span>
                 </li>
                 <li>
-                    <a href="">NaN</a>
+                    <a href="">String</a>
                     <span>
-                        特指非数值 <br>
-                        任何与 NaN 进行运算的结果均为 NaN <br>
-                        NaN 与自身不相等(NaN 不与任何值相等) 
+                        字符串：原始类型 <br>
+                        JavaScript 字符串是不可更改的
+                    </span>
+                </li>
+                <li>
+                    <a href="">Symbol</a>
+                    <span>
+                        符号：原始类型 <br>
+                        符号类型是唯一的并且是不可修改的,可以用来作为Object的key的值
+                    </span>
+                </li>
+                <li>
+                    <a href="">Undefined</a>
+                    <span>
+                        未定义：原始类型 <br>
+                        一个没有被赋值的变量会有个默认值 undefined
+                    </span>
+                </li>
+                <li>
+                    <a href="">Null</a>
+                    <span>
+                        空：原始类型 <br>
+                        Null 类型只有一个值： null <br>
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management">内存优化</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">Object</a>
+                    <span>
+                        对象：引用类型（包括数组、函数、标准对象等）
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>]检测</h4>
+            <h4>[<span>-</span>] 类型检测</h4>
             <ul>
                 <li>
-                    [Number.]<a href="">isNaN</a>(val)
+                    <a href="">typeof</a> val
                     <span>
-                        判断传递的值是否为 NaN <br>
-                        全局isNaN会自动转换参数为数值再做判断，Number.isNaN不会自动转换
-                    </span>
-                </li>
-                <li>
-                    [Number.]<a href="">isFinite</a>(val)
-                    <span>
-                        判断传递的值是否为有限数字 <br>
-                        全局的isFinite会自动转换参数为数值再作判断，Number.isFinite不会自动转换
-                    </span>
-                </li>
-                <li>
-                    <a href="">Number.isInteger</a>(val)
-                    <span>
-                        判断传递的值是否为整数 <br>
-                        IE不支持，需使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">polyfill</a>
-                    </span>
-                </li>
-                <li>
-                    <a href="">Number.isSafeInteger</a>(val)
-                    <span>
-                        判断传递的值是否为安全整数 <br>
-                        IE不支持，需使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">polyfill</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>]转换</h4>
-            <ul>
-                <li>
-                    (num).<a href="">toString</a>([rad])
-                    <span>
-                        指定进制，转为字符串，默认为10进制，范围[2~36]。
-                    </span>
-                </li>
-                <li>
-                    [Number.]<a href="">parseInt</a>(val,[rad])
-                    <span>
-                        根据给定的进制数把一个字符串解析成整数<br>
-                        自动判断进制，默认转换进制为10进制 <br>
+                        返回的是字符串。 <br>
+                        可通过Object.prototype.toString.call(o)测试
                         <table>
                             <tr>
-                                <th>value</th>
+                                <th>类型</th>
                                 <th>结果</th>
                             </tr>
                             <tr>
-                                <td>空字符串</td>
-                                <td>NaN</td>
+                                <td>true/false</td>
+                                <td>boolean</td>
                             </tr>
                             <tr>
-                                <td>第一个非空字符不是数值或负号</td>
-                                <td>NaN</td>
+                                <td>数值/NaN</td>
+                                <td>boolean</td>
                             </tr>
                             <tr>
-                                <td>第一个非空字符是数值，遇到非数值时停止解析</td>
-                                <td>number</td>
+                                <td>Symbol</td>
+                                <td>symbol</td>
+                            </tr>
+                            <tr>
+                                <td>字符串/JSON</td>
+                                <td>string</td>
+                            </tr>
+                            <tr>
+                                <td>fn</td>
+                                <td>function</td>
+                            </tr>
+                            <tr>
+                                <td>obj/数组/null</td>
+                                <td>object</td>
+                            </tr>
+                            <tr>
+                                <td>undefined/不存在的属性或方法</td>
+                                <td>undefined</td>
+                            </tr>
+                        </table>
+                        <br><hr>
+                        1.判断null请使用myVar === null <br>
+                        2.不存在的变量与未声明的变量typeof检测均为undefined，但两者其实不同，故建议总是初始化。 <br>
+                        3.Null 类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而 typeof 操作符检测 null 会返回 object。如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。这样，当检查 null 值就知道是否已经变量是否已经分配了对象引用了。<br>
+                        4.undefined 是派生自 null 的，因此 ECMA-262 规定对它们的相等性测试返回 true。alert(undefined == null);但typeof数据类型不等。
+                    </span>
+                </li>
+                <li>
+                    obj <a href="">instanceof</a> cst
+                    <span>instanceof运算符返回一个布尔值，表示某个对象是否为指定的构造函数的实例。
+                        <table>
+                            <tr>
+                                <th>测试目标</th>
+                                <th>测试结果</th>
+                            </tr>
+                            <tr>
+                                <td>数组</td>
+                                <td>arr instanceof Array</td>
+                            </tr>
+                            <tr>
+                                <td>函数/构造函数</td>
+                                <td>fn instanceof Function</td>
+                            </tr>
+                            <tr>
+                                <td>构造函数实例</td>
+                                <td>child instanceof parent</td>
+                            </tr>
+                            <tr>
+                                <td>泛对象</td>
+                                <td>obj instanceof Object</td>
+                            </tr>
+                            <tr>
+                                <td>日期</td>
+                                <td>value instanceof Date</td>
+                            </tr>
+                            <tr>
+                                <td>正则表达式</td>
+                                <td>value instanceof RegExp</td>
+                            </tr>
+                            <tr>
+                                <td>数学</td>
+                                <td>value instanceof Math</td>
                             </tr>
                         </table>
                     </span>
                 </li>
-                <li>
-                    [Number.]<a href="">parseFloat</a>(val)
-                    <span>
-                        把字符串参数解析成浮点数 <br>
-                        第一个小数点有效，第二个无效
-                    </span>
-                </li>
             </ul>
-            <h4>[<span>-</span>]表示</h4>
-            <ul>
+            <h4>[<span>+</span>] 类型转换</h4>
+            <ul style="display:none;">
                 <li>
-                    (num).<a href="">toFixed</a>([n])
+                    <a href="">Boolean</a>(val)
                     <span>
-                        指定小数点后位数，小数位数[0 ~ 20]<br>
-                        会四舍五入，返回的是一个字符串
-                    </span>
-                </li>
+                        省略该参数 <br>
+                        其值为 0、-0、null、false、NaN、undefined、或者空字符串（""）<br>
+                        参数是DOM对象document.all <br>
+                        以上均生成值为false的Boolean对象
+                    </span></li>
                 <li>
-                    (num).<a href="">toExponential</a>([n])
+                    <a href="">Number</a>(val)
                     <span>
-                        使用指数计数法，范围[0~20]，返回的是一个字符串。
-                    </span>
-                </li>
+                        <table>
+                            <tr>
+                                <th>value</th>
+                                <th>返回值</th>
+                            </tr>
+                            <tr>
+                                <td>number/包含单个数值的数组</td>
+                                <td>number</td>
+                            </tr>
+                            <tr>
+                                <td>boolean</td>
+                                <td>1 / 0</td>
+                            </tr>
+                            <tr>
+                                <td>null/空字符串/空数组</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>undefined/string/object</td>
+                                <td>NaN</td>
+                            </tr>
+                        </table>
+                    </span></li>
                 <li>
-                    (num).<a href="">toPrecision</a>([n])
+                    <a href="">String</a>(val)
                     <span>
-                        以指定的精度返回该数值对象的字符串表示 <br>
-                        把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。
-                    </span>
-                </li>
-                <li>
-                    (num).<a href="">toLocaleString</a><em>([local],[opt])</em>
-                    <span>
-                        返回这个数字在特定语言环境下的表示字符串 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">参考资料</a> <br>
-                        仅浏览器中有效 <br>
-                        $num.toLocaleString('zh-u-nu-hanidec')  //中文数字 <br>
-                        x.toLocaleString('cn-ZH',{ <br>
-                            style:'currency',<br>
-                            currency:'CNY',<br>
-                            currencyDisplay:'symbol'<br>
-                        }) <br>
-                        en-US、en-JP <br>
-                        USD、JPY...
+                        <table>
+                            <tr>
+                                <th>value</th>
+                                <th>返回值</th>
+                            </tr>
+                            <tr>
+                                <td>数值</td>
+                                <td>转为相应的字符串</td>
+                            </tr>
+                            <tr>
+                                <td>字符串</td>
+                                <td>转换后还是原来的值</td>
+                            </tr>
+                            <tr>
+                                <td>布尔值</td>
+                                <td>true转为"true"，false转为"false"</td>
+                            </tr>
+                            <tr>
+                                <td>undefined</td>
+                                <td>转为"undefined"</td>
+                            </tr>
+                            <tr>
+                                <td>null</td>
+                                <td>转为"null"</td>
+                            </tr>
+                            <tr>
+                                <td>数组</td>
+                                <td>返回该数组的字符串形式  "1,2,3"</td>
+                            </tr>
+                            <tr>
+                                <td>对象</td>
+                                <td>返回一个类型字符串 "[object Object]" <br>可通过toString方法来设置修改</td>
+                            </tr>
+                        </table>
                     </span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>数学与日期<span>-</span></h3>
+        <h3>通用<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>]Math</h4>
-			<ul>
+            <h4>[<span>-</span>] 全局函数</h4>
+            <ul>
                 <li>
-                    <a href="">Math.abs</a>(x)
-                    <span>返回 x 的绝对值</span>
-                </li>
-                <li>
-					<a href="">Math.sign</a>(x)
-					<span>
-						判断一个数到底是正数、负数、还是零。 <hr>
-						参数为正数，返回+1； <br>
-						参数为负数，返回-1；<br>
-						参数为 0，返回0；<br>
-						参数为-0，返回-0;<br>
-						其他值，返回NaN。
-					</span>
-				</li>
-				<li>
-                    <a href="">Math.random()</a>
+                    <a href="">eval</a>(str)
                     <span>
-                        返回 0 ~ 1 之间的随机数(大于等于 0.0且小于1.0的伪随机 double 值) <br>
-                        1.随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 ) <br>
-                        2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();} <br>
-                        <a href="http://javascript.ruanyifeng.com/stdlib/math.html">参考资料</a>
-				    </span>
-                </li>
-				<li>
-                    <a href="">Math.max/min</a>(x,y,z..n)
-                    <span>
-                        返回 x,y,z,...,n 中的最高/低值 <br>
-                        参数中最大的值。如果没有参数，则返回 -Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。
-				    </span>
-                </li>
-				<li>
-                    <a href="">Math.ceil/floor/round/trunc</a>(x)
-                    <span>
-                        对数进行上/下舍入/四舍五入/返回整数部分
+                        将传入的字符串当做 JavaScript 代码进行执行。<br>
+						1.eval没有自己的作用域，都在当前作用域内执行。<br>
+                        2.JavaScript规定，如果使用严格模式，eval内部声明的变量，不会影响到外部作用域。 <br>
+						3.在严格模式下，eval依然可以读写当前作用域的变量。<br>
+                        4.eval“间接调用”时作用域总是全局作用域
+                        <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc24">参考资料</a>
                     </span>
                 </li>
-                <li>
-                    <a href="">Math.根</a>
-                    <span>
-                        <table>
-                            <tr>
-                                <th>函数</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>Math.SQRT1_2</td>
-                                <td>返回 2 的平方根的倒数（约等于 0.707）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.SQRT2</td>
-                                <td>返回 2 的平方根（约等于 1.414）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.sqrt(x)</td>
-                                <td>返回一个数的平方根</td>
-                            </tr>
-                            <tr>
-                                <td>Math.cbrt</td>
-                                <td>返回一个数的立方根</td>
-                            </tr>
-                            <tr>
-                                <td>Math.hypot(x,y..)</td>
-                                <td>返回所有参数的平方和的平方根</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">Math.指数对数</a>
-                    <span>
-                        <table>
-                            <tr>
-                                <th>函数</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>Math.E</td>
-                                <td>返回算术常量 e，即自然对数的底数（约等于2.718）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.LN2</td>
-                                <td>返回 2 的自然对数（约等于0.693）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.LN10</td>
-                                <td>返回 10 的自然对数（约等于2.302）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.LOG2E</td>
-                                <td>返回以 2 为底的 e 的对数（约等于 1.414）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.LOG10E</td>
-                                <td>返回以 10 为底的 e 的对数（约等于0.434）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.pow(x,y)</td>
-                                <td>返回x的y次幂</td>
-                            </tr>
-                            <tr>
-                                <td>Math.exp(x)</td>
-                                <td>返回E(x)的指数</td>
-                            </tr>
-                            <tr>
-                                <td>Math.log(x)</td>
-                                <td>返回数的自然对数（底为e）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.log2(x)</td>
-                                <td>返回一个数字以2为底的对数</td>
-                            </tr>
-                            <tr>
-                                <td>Math.log10(x)</td>
-                                <td>返回以10为底的对数</td>
-                            </tr>
-                            <tr>
-                                <td>Math.expm1(x)</td>
-                                <td>返回e(x)-1</td>
-                            </tr>
-                            <tr>
-                                <td>Math.log1p(x)</td>
-                                <td>返回一个数字加1后的自然对数，即log(x+1)</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-				<li>
-                    <a href="">Math.三角函数</a>
-                    <span>
-                        <table>
-                            <tr>
-                                <th>函数</th>
-                                <th>描述</th>
-                            </tr>
-                            <tr>
-                                <td>Math.PI</td>
-                                <td>返回圆周率（约等于3.14159）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.sin(π)</td>
-                                <td>返回数的正弦</td>
-                            </tr>
-                            <tr>
-                                <td>Math.cos(π)</td>
-                                <td>返回数的余弦</td>
-                            </tr>
-                            <tr>
-                                <td>Math.tan(π)</td>
-                                <td>返回角的正切</td>
-                            </tr>
-                            <tr>
-                                <td>Math.asin(x)</td>
-                                <td>返回数的反正弦值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.acos(x)</td>
-                                <td>返回数的反余弦值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.atan(x)</td>
-                                <td>以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.atan2(y,x)</td>
-                                <td>返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）</td>
-                            </tr>
-                            <tr>
-                                <td>Math.sinh(x)</td>
-                                <td>返回数的双曲正弦值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.cosh(x)</td>
-                                <td>返回数的双曲余弦值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.tanh(x)</td>
-                                <td>返回数的双曲正切值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.asinh(x)</td>
-                                <td>返回数的反双曲正弦值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.acosh(x)</td>
-                                <td>返回数的反双曲余弦值</td>
-                            </tr>
-                            <tr>
-                                <td>Math.atanh(x)</td>
-                                <td>返回数的反双曲正切值</td>
-                            </tr>
-                        </table>
-				    </span>
-                </li>
-                <li>
-                    <a href="">Math.clz32/</a>(x)
-                    <span>
-                        返回一个数的 32 位无符号整数形式有多少个前导 0
-                    </span>
-                </li>
-                <li>
-                    <a href="">Math.imul</a>(x,y)
-                    <span>
-                        返回两个数以 32 位带符号整数形式相乘的结果 <br>
-                    </span>
-                </li>
-                <li>
-                    <a href="">Math.fround</a>(x)
-                    <span>
-                        方法返回一个数的32位单精度浮点数形式
-                    </span>
-                </li>
-			</ul>
-			<h4>[<span>-</span>]Date</h4>
-			<ul>
-				<li><a href="">new Date</a>([time..])<span>
-					返回：日期对象 <hr>
-					无参数时：创建计算机当前时间的日期对象 <br>
-					var date = new Date(); <br>
-					Sat Oct 07 2017 01:20:24 GMT+0800 (中国标准时间) <hr>
-					有参数时：创建指定时间的日期对象 <br>
-					var date = new Date(2015, 5, 19, 20, 15, 30, 123); <br>
-					var date = new Date(1435146562875); <br>
-					当前时间是浏览器从本机操作系统获取的时间，所以不一定准确，因为用户可以把当前时间设定为任何值。
-				</span></li>
-                <li>date.<a href="">getTime()</a>{timestamp}<span>时间戳，等同于date.valueOf()</span></li>
-				<li>date.<a href="">getFullYear()</a>{2017}<span>年份</span></li>
-				<li>date.<a href="">getMonth()</a>{0~11}<span>月份，范围0~11</span></li>
-				<li>date.<a href="">getDate()</a>{1~31}<span>日期</span></li>
-				<li>date.<a href="">getDay()</a>{1~7}<span>星期</span></li>
-				<li>date.<a href="">getHours()</a>{0~24}<span>时，24小时制</span></li>
-				<li>date.<a href="">getMinutes()</a>{0~60}<span>分</span></li>
-				<li>date.<a href="">getSeconds()</a>{0~60}<span>秒</span></li>
-				<li>date.<a href="">getMilliseconds()</a>{0~1000}<span>毫秒</span></li>
-				<li>
-                    data.<a href="">set...</a>
-                    <span>
-                        设置日期对象
-                    </span>
-                </li>
-				<li>date.<a href="">toString</a>()<span>
-					Sat Oct 07 2017 01:36:58 GMT+0800 (中国标准时间)
-				</span></li>
-				<li>date.<a href="">toLocaleString</a>()<span>
-					2017/10/7 上午1:33:06
-				</span></li>
-				<li>date.<a href="">toUTCString</a>()<span>
-					Fri, 06 Oct 2017 17:33:06 GMT
-				</span></li>
-                <li><a href="">Date.parse(ISO)</a>{timestamp}<span>
-					解析一个符合ISO 8601格式的字符串，并返回对应时间戳 <br>
-					var d = Date.parse('2015-06-24T19:49:22.875+08:00'); <br>
-					d; // 1435146562875
-				</span></li>
-                <li>
-                    <a href="">Date.now()</a>{timestamp}
-                    <span>当前时间戳，IE8不支持</span>
-                </li>
-			</ul>
+            </ul>
         </div>
     </div>
+    <div class="u-block">
+        <h3>语法<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>] 变量与常量</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">var</a>
+                    <span>
+                        x1 = 1;<br />
+                        var x2 = 2;<br />
+                        window.x3 = 3;<br />
+                        <a href="http://snandy.iteye.com/blog/720816">3种全局变量的异同</a> <hr>
+                        1.变量会提升，在没有声明前调用，会输出undefined <br>
+                        2.假设声明a、b、c,且c=a+b，且均为非引用类型，当ab发生变化时，c不会改变，应设为c=fn(return a+b)
+                    </span>
+                </li>
+                <li>
+                    <a href="">let</a>
+                    <span>
+                        let i = 1;<br>
+                        1.申明一个块级作用域的变量 <br>
+                        2.不能使用let重复定义一个变量 <br>
+                        3.只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响，暂时性死区。<br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">const</a>
+                    <span>
+                        const PI = 3.14 <br>
+                        1.const来定义常量，在声明时就必须赋值。<br>
+                        2.const与let都具有块级作用域。 <br>
+                        2.一旦声明，常量的指针就不能改变（仅指针，非值本身）
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 运算符</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">运算符</a>
+                </li>
+                <li>
+                    <a href="">void</a>
+                    <span>
+                        void运算符对给定的表达式进行求值，然后返回 undefined <br>
+                        在使用立即执行的函数表达式时，可以利用 void 运算符让 JavaScript 引擎把一个function关键字识别成函数表达式而不是函数声明（语句）
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 判断</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">if..else..</a>
+                    <span>
+                        if.. <br>
+                        if..else.. <br>
+                        if..else if..else..
+                    </span>
+                </li>
+                <li>
+                    <a href="">switch</a>
+                    <span>
+                        switch(expression){ <br>
+                            case ex:<br>
+                                ..<br>
+                            break;<br>
+                            default:<br>
+                                ..<br>
+                        }<br>
+                        1.switch中的case为全等判断<br>
+                        2.多个case使用同一个执行块应写为case 1: case2: ... <br>
+                        3.每个case代码块内部的break不能少，否则会接着执行下一个case
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 循环</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">for</a>
+                    <span>
+                        设置循环变量的部分和循环体内部有各自单独的作用域，变量彼此不影响（使用let时）。
+                    </span>
+                </li>
+                <li>
+                    <a href="">for..in</a>
+                    <span>
+                        循环一个对象所有可枚举的属性
+                    </span>
+                </li>
+                <li>
+                    <a href="">for..of</a>
+                    <span>
+                        在可迭代的对象上创建了一个循环 <br>
+                        包括Array, Map, Set, 参数对象（ arguments） 等等
+                    </span>
+                </li>
+                <li>
+                    <a href="">do..while</a>(exp)
+                    <span>
+                        一直重复直到指定的条件求值得到假
+                    </span>
+                </li>
+                <li>
+                    <a href="">while</a>(exp)..
+                    <span>
+                        一个 while 语句只要指定的条件求值为真（true）就会一直执行它的语句块
+                    </span>
+                </li>
+                <li>
+                    <a href="">label</a>:
+                    <span>
+                        使用 break 或者 continue 来指出程序是否该停止循环还是继续循环
+                    </span>
+                </li>
+                <li>
+                    <a href="">break</a> [label]
+                    <span>
+                        跳出(内部/指定)循环 
+                    </span>
+                </li>
+                <li>
+                    <a href="">continue</a> [label]
+                    <span>
+                        跳至(内部/指定)循环 <hr>
+                        不带参数的break和continue语句都只针对最内层的循环，如continue语句后面不使用标签，则进入下一轮的内层循环 <br>
+                        带参数的break和continue语句，满足条件时，会跳过当前循环，直接进入下一轮外层循环
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 模块</h4>
+			<ul style="display:none;">
+                <li>
+                    <a href="">import $path</a>
+                    <span>
+                        引入某个模块
+                    </span>
+                </li>
+                <li>
+                    <a href="">export default $mod</a>
+                    <span>
+                        输出某个模块
+                    </span>
+                </li>
+                <li>
+                    <a href="">import $mod from $path</a>
+                    <span>
+                        引入某个模块
+                    </span>
+                </li>
+				<li>
+            		<a href="">export {mods,..}</a>
+            		<span>
+            			导出多个模块 <br>
+                        也可以将其导出时更换为别的名称：<br>
+                        export {<br>
+                            $inner as $outer,<br>
+                            .. <br>
+                        }
+            		</span>
+            	</li>
+            	<li>
+            		<a href="">import {mods,..} from $path</a>
+            		<span>
+            			导入多个模块 <br>
+                        也可以在导入时将其重命名：<br>
+                        import {
+                            $old as $new,<br>
+                            .. <br>
+                        } <hr>
+                        也可以将其全部导入在一个对象下： <br>
+                        import * as $modc from $path <br>
+            		</span>
+            	</li>
+			</ul>
+            <h4>[<span>+</span>] 异常</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">Error</a>
+                    <span>
+                        new Error('msg') <br>
+                        错误对象属性：
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>err.message</td>
+                                <td>错误提示信息</td>
+                            </tr>
+                            <tr>
+                                <td>err.name</td>
+                                <td>错误名称（非标准属性）</td>
+                            </tr>
+                            <tr>
+                                <td>err.stack</td>
+                                <td>错误的堆栈（非标准属性）</td>
+                            </tr>
+                        </table>
+                        <br>
+                        原生错误类型：
+                        <table>
+                            <tr>
+                                <th>名称</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>SyntaxError</td>
+                                <td>解析代码时发生的语法错误</td>
+                            </tr>
+                            <tr>
+                                <td>ReferenceError</td>
+                                <td>引用一个不存在的变量时发生的错误；将一个值分配给无法分配的对象</td>
+                            </tr>
+                            <tr>
+                                <td>RangeError</td>
+                                <td>当一个值超出有效范围时发生的错误</td>
+                            </tr>
+                            <tr>
+                                <td>TypeError</td>
+                                <td>变量或参数不是预期类型时发生的错误</td>
+                            </tr>
+                            <tr>
+                                <td>URIError</td>
+                                <td>URI相关函数的参数不正确时抛出的错误</td>
+                            </tr>
+                            <tr>
+                                <td>EvalError</td>
+                                <td>eval函数没有被正确执行</td>
+                            </tr>
+                            <tr>
+                                <td>自定义错误</td>
+                                <td><a href="http://javascript.ruanyifeng.com/grammar/error.html">参考资料</a></td>
+                            </tr>
+                        </table>
+                        <br><br>
+                        如果在一个函数内部发生了错误，它自身没有捕获，错误就会被抛到外层调用函数，如果外层函数也没有捕获，该错误会一直沿着函数调用链向上抛出，直到被JavaScript引擎捕获，代码终止执行。所以，我们不必在每一个函数内部捕获错误，只需要在合适的地方来个统一捕获，一网打尽。<hr>
+                        涉及到异步代码，无法在调用时捕获，原因就是在捕获的当时，回调函数并未执行。<br>
+                        类似的，当我们处理一个事件时，在绑定事件的代码处，无法捕获事件处理函数的错误。
+                    </span>
+                </li>
+                <li>
+                    <a href="">try..catch</a>
+                    <span>
+                        try{..} <br>
+                        catch(e){..} <br>
+                        finally{..}
+                    </span>
+                </li>
+                <li>
+                    <a href="">throw</a>
+                    <span>
+                        抛出一个异常
+                    </span>
+                </li>
+                <li>
+                    <a href="">debugger</a>
+                    <span>
+                        调用任何可用的调试功能，例如设置断点。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>扩展<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 扩展</h4>
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly">WebAssembly</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+	<div class="u-block">
+		<h3>参考资料<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>+</span>] 文档</h4>
+			<ul style="display: none;">
+				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference">JS参考文档</a></li>
+				<li><a href="http://kangax.github.io/compat-table/es6/">ES6支持程度</a></li>
+				<li><a href="http://yanhaijing.com/es5/">ECMAScript5规范</a></li>
+			</ul>
+			<h4>[<span>+</span>] 教程</h4>
+			<ul style="display: none;">
+				<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide">JS指南</a></li>
+				<li><a href="http://javascript.ruanyifeng.com">ES5教程</a></li>
+				<li><a href="http://es6.ruanyifeng.com">ES6教程</a></li>
+			</ul>
+			<h4>[<span>+</span>] 动态</h4>
+			<ul style="display: none;">
+				<li><a href="https://www.awesomes.cn/">前端库大全</a></li>
+				<li><a href="https://juejin.im/welcome/frontend">掘金社区</a></li>
+			</ul>
+		</div>
+	</div>
 </div>

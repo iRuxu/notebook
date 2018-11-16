@@ -1,21 +1,324 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>Canvas<span>-</span></h3>
+        <h3>C标准库<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 核心</h4>
+            <h4>[<span>-</span>] stdio.h</h4>
             <ul>
                 <li>
                     <a href="">printf</a>(out,var)
                     <span>
-                        输出
-                        <a href="http://www.runoob.com/cprogramming/c-function-printf.html">参考资料</a>
+                        输出，返回输出的字符数，
+                        <a href="http://www.runoob.com/cprogramming/c-function-printf.html">参考资料</a> <br>
+                        <table>
+                            <caption>%type</caption>
+                            <tr>
+                                <th>type</th>
+                                <th>含义</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    d/i</td>
+                                <td>
+                                    以十进制形式输出带符号整数(正数不输出符号)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    o</td>
+                                <td>
+                                    以八进制形式输出无符号整数(不输出前缀0)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    x,X</td>
+                                <td>
+                                    以十六进制形式输出无符号整数(不输出前缀Ox)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    u</td>
+                                <td>
+                                    以十进制形式输出无符号整数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    f</td>
+                                <td>
+                                    以小数形式输出单、双精度实数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    e,E</td>
+                                <td>
+                                    以指数形式输出单、双精度实数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    g,G</td>
+                                <td>
+                                    以%f或%e中较短的输出宽度输出单、双精度实数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    c</td>
+                                <td>
+                                    输出单个字符</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    s</td>
+                                <td>
+                                    输出字符串</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    p</td>
+                                <td>
+                                    输出指针地址</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    lu </td>
+                                <td>
+                                    32位无符号整数</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    llu</td>
+                                <td>
+                                    64位无符号整数</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <caption>%[flags][width][.prec][hlL]type</caption>
+                            <tr>
+                                <th>flag</th>
+                                <th colspan="2">width|.prec</th>
+                                <th>hlL</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    - 左对齐 <br>
+                                    + 在前面放+或- <br>
+                                    (space) 正数留空 <br>
+                                    0 0填充
+                                </td>
+                                <td colspan="2">
+                                    number 最小字符数 <br>
+                                    .number 小数点后的位数 <br>
+                                    * 下一个参数是字符数 <br>
+                                    .* 下一个参数是小数点后的位数 <br>
+                                    *用来指定printf(%*d,2,1234)中2为字符符
+                                </td>
+                                <td>
+                                    类型修饰 <br>
+                                    hh 单个字节 <br>
+                                    h short <br>
+                                    l long <br>
+                                    ll long long <br>
+                                    L long double
+                                </td>
+                            </tr>
+                        </table>
                     </span>
                 </li>
                 <li>
                     <a href="">scanf</a>(in,&var)
                     <span>
-                        输入
+                        输入，返回输入的项目数，
                         <a href="http://www.runoob.com/cprogramming/c-function-scanf.html">参考资料</a>
+                        <table>
+                            <caption>%type</caption>
+                            <tr>
+                                <th>type</th>
+                                <th>含义</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    i</td>
+                                <td>
+                                    整数，自动识别十/八/十六进制</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    d</td>
+                                <td>
+                                    以十进制形式输出带符号整数(正数不输出符号)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    o</td>
+                                <td>
+                                    以八进制形式输出无符号整数(不输出前缀0)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    x,X</td>
+                                <td>
+                                    以十六进制形式输出无符号整数(不输出前缀Ox)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    u</td>
+                                <td>
+                                    以十进制形式输出无符号整数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    f</td>
+                                <td>
+                                    以小数形式输出单、双精度实数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    e,E</td>
+                                <td>
+                                    以指数形式输出单、双精度实数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    g,G</td>
+                                <td>
+                                    以%f或%e中较短的输出宽度输出单、双精度实数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    c</td>
+                                <td>
+                                    输出单个字符</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    s</td>
+                                <td>
+                                    输出字符串</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    p</td>
+                                <td>
+                                    输出指针地址</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    [...] </td>
+                                <td>
+                                    所允许的字符</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <caption>%[flag]type</caption>
+                            <tr>
+                                <th>flag</th>
+                                <th>含义</th>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>跳过</td>
+                            </tr>
+                            <tr>
+                                <td>数字</td>
+                                <td>最大字符数</td>
+                            </tr>
+                            <tr>
+                                <td>hh/h/l/ll/L</td>
+                                <td>char/short/long,double/long long/long double</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] stdlib.h</h4>
+            <ul>
+                <li>
+                    <a href="">malloc</a>(size)
+                    <span>
+                        int* ptr = NULL; <br>
+                        (int*)malloc(n*sizeof(int)) <br>
+                        默认返回void*，参数大小以字节为单位，需主动转换类型 <br>
+                        如果申请失败则返回0或NULL
+                    </span>
+                </li>
+                <li>
+                    <a href="">free</a>(ptr)
+                    <span>
+                        释放之前调用 calloc、malloc 或 realloc 所分配的内存空间
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] string.h</h4>
+            <ul>
+                <li>
+                    <a href="">strlen</a>(*str)
+                    <span>
+                        返回字符串的长度，不包括\0
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] FILE</h4>
+            <ul>
+                <li>
+                    <a href="">&lt; &gt;</a>
+                    <span>
+                        对于标准输入输出，可通过重定向符 <br>
+                        ./a.exe > b 输出至文件 <br>
+                        ./a.exe < b 从文件读入
+                    </span>
+                </li>
+                <li>
+                    <a href="">FILE *fp = NULL</a>
+                    <span>
+                        定义一个文件指针
+                    </span>
+                </li>
+                <li>
+                    fp=<a href="">fopen</a>(url,mode)
+                    <span>
+                        打开一个文件
+                        <table>
+                            <tr>
+                                <th>模式</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>r</td>
+                                <td>打开只读</td>
+                            </tr>
+                            <tr>
+                                <td>r+</td>
+                                <td>打开读写，从文件头开始</td>
+                            </tr>
+                            <tr>
+                                <td>w</td>
+                                <td>打开只写。如果不存在则新建，如果存在则清空</td>
+                            </tr>
+                            <tr>
+                                <td>w+</td>
+                                <td>打开读写。如果不存在则新建，如果存在则清空</td>
+                            </tr>
+                            <tr>
+                                <td>a</td>
+                                <td>打开追加。如果不存在则新建，如果存在则从文件尾开始</td>
+                            </tr>
+                            <tr>
+                                <td>..x</td>
+                                <td>只新建，如果文件已存在则不能打开</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">fscanf</a>(fp,val,ad)
+                    <span>
+                        读文件内容，存到本地变量
+                    </span>
+                </li>
+                <li>
+                    <a href="">fclose</a>(fp)
+                    <span>
+                        关闭
                     </span>
                 </li>
             </ul>

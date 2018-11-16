@@ -1,367 +1,456 @@
-<!-- 字符串 -->
 <div class="u-col">
-	<div class="u-block">
-		<h3>字符串<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>+</span>]构建</h4>
-			<ul style="display:none;">
-				<li>
-					<a href="">'str'</a>
-					<span>
-						字面量方法 <br>
-						`\u{xxxxx}` unicode编码
-					</span>
-				</li>
-				<li>
-					<a href="">new String()</a>
-					<span>
-						尽量避免使用包装对象
-					</span>
-				</li>
-				<li>
-					<a href="">`__ ${varname} __`</a>
-					<span>
-					模板字符串，支持多行
-					</span>
-				</li>
-				<li>
-					str.<a href="">length</a>
-					<span>
-						字符串的长度。<br>
-						需要特别注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果。
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]转换</h4>
+    <div class="u-block">
+        <h3>数值<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>]  值</h4>
+            <ul style="display: none;">
+                <li>
+                    <a href="">常规数</a>
+                    <span>
+                        在 JavaScript 里面，数字均为双精度浮点类型double-precision 64-bit binary format IEEE 754 （也就是说一个数字的范围只能在+-2的53次方）<hr>
+                        十进制数：01、1 <br>
+                        二进制数：0b01、0B10 （只能为0和1）<br>
+                        八进制数：0o777 （小于8）<br>
+                        十六进制数：0x10、0XAB （0~9A~F）<br>
+                        指数形式：1E2、1e2、0.1e2
+                    </span>
+                </li>
+                <li>
+                    <a href="">特殊值</a>
+                    <span>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">属性</th>
+                                    <th scope="col">描述</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Number.MAX_VALUE</td>
+                                <td>可表示的最大值 1.79e+308</td>
+                            </tr>
+                            <tr>
+                                <td>Number.MIN_VALUE</td>
+                                <td>可表示的最小值 5e-324</td>
+                            </tr>
+                            <tr>
+                                <td>Number.NEGATIVE_INFINITY</td>
+                                <td>特指“负无穷”;在溢出时返回</td>
+                            </tr>
+                            <tr>
+                                <td>Number.POSITIVE_INFINITY</td>
+                                <td>特指“正无穷”;在溢出时返回</td>
+                            </tr>
+                            <tr>
+                                <td>Number.EPSILON</td>
+                                <td>表示1和比最接近1且大于1的最小Number之间的差别</td>
+                            </tr>
+                            <tr>
+                                <td>Number.MIN_SAFE_INTEGER</td>
+                                <td>JavaScript最小安全整数.</td>
+                            </tr>
+                            <tr>
+                                <td>Number.MAX_SAFE_INTEGER</td>
+                                <td>JavaScript最大安全整数.</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            0/0=NaN，正数/0=正无穷，负数/0=负无穷 <br>
+                            正无穷+正无穷=正无穷，负无穷+负无穷=负无穷，正无穷+负无穷=NaN<br>
+                            无穷乘法操作得到无穷，无穷除法与求余操作得到NaN
+                    </span>
+                </li>
+                <li>
+                    <a href="">NaN</a>
+                    <span>
+                        特指非数值 <br>
+                        任何与 NaN 进行运算的结果均为 NaN <br>
+                        NaN 与自身不相等(NaN 不与任何值相等) 
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 检测</h4>
+            <ul>
+                <li>
+                    [Number.]<a href="">isNaN</a>(val)
+                    <span>
+                        判断传递的值是否为 NaN <br>
+                        全局isNaN会自动转换参数为数值再做判断，Number.isNaN不会自动转换
+                    </span>
+                </li>
+                <li>
+                    [Number.]<a href="">isFinite</a>(val)
+                    <span>
+                        判断传递的值是否为有限数字 <br>
+                        全局的isFinite会自动转换参数为数值再作判断，Number.isFinite不会自动转换
+                    </span>
+                </li>
+                <li>
+                    <a href="">Number.isInteger</a>(val)
+                    <span>
+                        判断传递的值是否为整数 <br>
+                        IE不支持，需使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">polyfill</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">Number.isSafeInteger</a>(val)
+                    <span>
+                        判断传递的值是否为安全整数 <br>
+                        IE不支持，需使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">polyfill</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 转换</h4>
+            <ul>
+                <li>
+                    (num).<a href="">toString</a>([rad])
+                    <span>
+                        指定进制，转为字符串，默认为10进制，范围[2~36]。
+                    </span>
+                </li>
+                <li>
+                    [Number.]<a href="">parseInt</a>(val,[rad])
+                    <span>
+                        根据给定的进制数把一个字符串解析成整数<br>
+                        自动判断进制，默认转换进制为10进制 <br>
+                        <table>
+                            <tr>
+                                <th>value</th>
+                                <th>结果</th>
+                            </tr>
+                            <tr>
+                                <td>空字符串</td>
+                                <td>NaN</td>
+                            </tr>
+                            <tr>
+                                <td>第一个非空字符不是数值或负号</td>
+                                <td>NaN</td>
+                            </tr>
+                            <tr>
+                                <td>第一个非空字符是数值，遇到非数值时停止解析</td>
+                                <td>number</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    [Number.]<a href="">parseFloat</a>(val)
+                    <span>
+                        把字符串参数解析成浮点数 <br>
+                        第一个小数点有效，第二个无效
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 表示</h4>
+            <ul>
+                <li>
+                    (num).<a href="">toFixed</a>([n])
+                    <span>
+                        指定小数点后位数，小数位数[0 ~ 20]<br>
+                        会四舍五入，返回的是一个字符串
+                    </span>
+                </li>
+                <li>
+                    (num).<a href="">toExponential</a>([n])
+                    <span>
+                        使用指数计数法，范围[0~20]，返回的是一个字符串。
+                    </span>
+                </li>
+                <li>
+                    (num).<a href="">toPrecision</a>([n])
+                    <span>
+                        以指定的精度返回该数值对象的字符串表示 <br>
+                        把数字格式化为指定的长度。N为显示位数，自动选择toFixed() toExponential(N)两者之一。
+                    </span>
+                </li>
+                <li>
+                    (num).<a href="">toLocaleString</a><em>([local],[opt])</em>
+                    <span>
+                        返回这个数字在特定语言环境下的表示字符串 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">参考资料</a> <br>
+                        仅浏览器中有效 <br>
+                        $num.toLocaleString('zh-u-nu-hanidec')  //中文数字 <br>
+                        x.toLocaleString('cn-ZH',{ <br>
+                            style:'currency',<br>
+                            currency:'CNY',<br>
+                            currencyDisplay:'symbol'<br>
+                        }) <br>
+                        en-US、en-JP <br>
+                        USD、JPY...
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>数学<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Math</h4>
 			<ul>
-				<li>
-					str.<a href="">toUpperCase</a>()
+                <li>
+                    <a href="">Math.abs</a>(x)
+                    <span>返回 x 的绝对值</span>
+                </li>
+                <li>
+					<a href="">Math.sign</a>(x)
 					<span>
-						返回值：新字符串 <br>
-						原对象：不变 <br>
-						转为大写
+						判断一个数到底是正数、负数、还是零。 <hr>
+						参数为正数，返回+1； <br>
+						参数为负数，返回-1；<br>
+						参数为 0，返回0；<br>
+						参数为-0，返回-0;<br>
+						其他值，返回NaN。
 					</span>
 				</li>
 				<li>
-					str.<a href="">toLowerCase</a>()
-					<span>
-						返回值：新字符串 <br>
-						原对象：不变 <br>
-						转为小写 
-					</span>
-				</li>
+                    <a href="">Math.random()</a>
+                    <span>
+                        返回 0 ~ 1 之间的随机数(大于等于 0.0且小于1.0的伪随机 double 值) <br>
+                        1.随机颜色16进制：Math.floor( Math.random() * 16777215 ).toString( 16 ) <br>
+                        2.2个值之间的随机值：function random(min,max){return min + (max-min)*Math.random();} <br>
+                        <a href="http://javascript.ruanyifeng.com/stdlib/math.html">参考资料</a>
+				    </span>
+                </li>
 				<li>
-					<a href="">String.raw</a>(str)
-					<span>
-						会对斜杠进行转义
-					</span>
-				</li>
+                    <a href="">Math.max/min</a>(x,y,z..n)
+                    <span>
+                        返回 x,y,z,...,n 中的最高/低值 <br>
+                        参数中最大的值。如果没有参数，则返回 -Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。
+				    </span>
+                </li>
+				<li>
+                    <a href="">Math.ceil/floor/round/trunc</a>(x)
+                    <span>
+                        对数进行上/下舍入/四舍五入/返回整数部分
+                    </span>
+                </li>
+                <li>
+                    <a href="">Math.根</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>函数</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>Math.SQRT1_2</td>
+                                <td>返回 2 的平方根的倒数（约等于 0.707）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.SQRT2</td>
+                                <td>返回 2 的平方根（约等于 1.414）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.sqrt(x)</td>
+                                <td>返回一个数的平方根</td>
+                            </tr>
+                            <tr>
+                                <td>Math.cbrt</td>
+                                <td>返回一个数的立方根</td>
+                            </tr>
+                            <tr>
+                                <td>Math.hypot(x,y..)</td>
+                                <td>返回所有参数的平方和的平方根</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    <a href="">Math.指数对数</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>函数</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>Math.E</td>
+                                <td>返回算术常量 e，即自然对数的底数（约等于2.718）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.LN2</td>
+                                <td>返回 2 的自然对数（约等于0.693）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.LN10</td>
+                                <td>返回 10 的自然对数（约等于2.302）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.LOG2E</td>
+                                <td>返回以 2 为底的 e 的对数（约等于 1.414）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.LOG10E</td>
+                                <td>返回以 10 为底的 e 的对数（约等于0.434）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.pow(x,y)</td>
+                                <td>返回x的y次幂</td>
+                            </tr>
+                            <tr>
+                                <td>Math.exp(x)</td>
+                                <td>返回E(x)的指数</td>
+                            </tr>
+                            <tr>
+                                <td>Math.log(x)</td>
+                                <td>返回数的自然对数（底为e）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.log2(x)</td>
+                                <td>返回一个数字以2为底的对数</td>
+                            </tr>
+                            <tr>
+                                <td>Math.log10(x)</td>
+                                <td>返回以10为底的对数</td>
+                            </tr>
+                            <tr>
+                                <td>Math.expm1(x)</td>
+                                <td>返回e(x)-1</td>
+                            </tr>
+                            <tr>
+                                <td>Math.log1p(x)</td>
+                                <td>返回一个数字加1后的自然对数，即log(x+1)</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+				<li>
+                    <a href="">Math.三角函数</a>
+                    <span>
+                        <table>
+                            <tr>
+                                <th>函数</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>Math.PI</td>
+                                <td>返回圆周率（约等于3.14159）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.sin(π)</td>
+                                <td>返回数的正弦</td>
+                            </tr>
+                            <tr>
+                                <td>Math.cos(π)</td>
+                                <td>返回数的余弦</td>
+                            </tr>
+                            <tr>
+                                <td>Math.tan(π)</td>
+                                <td>返回角的正切</td>
+                            </tr>
+                            <tr>
+                                <td>Math.asin(x)</td>
+                                <td>返回数的反正弦值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.acos(x)</td>
+                                <td>返回数的反余弦值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.atan(x)</td>
+                                <td>以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.atan2(y,x)</td>
+                                <td>返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）</td>
+                            </tr>
+                            <tr>
+                                <td>Math.sinh(x)</td>
+                                <td>返回数的双曲正弦值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.cosh(x)</td>
+                                <td>返回数的双曲余弦值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.tanh(x)</td>
+                                <td>返回数的双曲正切值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.asinh(x)</td>
+                                <td>返回数的反双曲正弦值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.acosh(x)</td>
+                                <td>返回数的反双曲余弦值</td>
+                            </tr>
+                            <tr>
+                                <td>Math.atanh(x)</td>
+                                <td>返回数的反双曲正切值</td>
+                            </tr>
+                        </table>
+				    </span>
+                </li>
+                <li>
+                    <a href="">Math.clz32/</a>(x)
+                    <span>
+                        返回一个数的 32 位无符号整数形式有多少个前导 0
+                    </span>
+                </li>
+                <li>
+                    <a href="">Math.imul</a>(x,y)
+                    <span>
+                        返回两个数以 32 位带符号整数形式相乘的结果 <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">Math.fround</a>(x)
+                    <span>
+                        方法返回一个数的32位单精度浮点数形式
+                    </span>
+                </li>
 			</ul>
-			<h4>[<span>-</span>]查找</h4>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>日期<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] Date</h4>
 			<ul>
+				<li><a href="">new Date</a>([time..])<span>
+					返回：日期对象 <hr>
+					无参数时：创建计算机当前时间的日期对象 <br>
+					var date = new Date(); <br>
+					Sat Oct 07 2017 01:20:24 GMT+0800 (中国标准时间) <hr>
+					有参数时：创建指定时间的日期对象 <br>
+					var date = new Date(2015, 5, 19, 20, 15, 30, 123); <br>
+					var date = new Date(1435146562875); <br>
+					当前时间是浏览器从本机操作系统获取的时间，所以不一定准确，因为用户可以把当前时间设定为任何值。
+				</span></li>
+                <li>date.<a href="">getTime()</a>{timestamp}<span>时间戳，等同于date.valueOf()</span></li>
+				<li>date.<a href="">getFullYear()</a>{2017}<span>年份</span></li>
+				<li>date.<a href="">getMonth()</a>{0~11}<span>月份，范围0~11</span></li>
+				<li>date.<a href="">getDate()</a>{1~31}<span>日期</span></li>
+				<li>date.<a href="">getDay()</a>{1~7}<span>星期</span></li>
+				<li>date.<a href="">getHours()</a>{0~24}<span>时，24小时制</span></li>
+				<li>date.<a href="">getMinutes()</a>{0~60}<span>分</span></li>
+				<li>date.<a href="">getSeconds()</a>{0~60}<span>秒</span></li>
+				<li>date.<a href="">getMilliseconds()</a>{0~1000}<span>毫秒</span></li>
 				<li>
-					str.<a href="">indexOf</a>(val,[i])
-					<span>
-						参数：正向查找指定值,i为起始索引<br>
-						返回值：第一个出现的索引位置；如查找不到则返回-1
-					</span>
-				</li>
-				<li>
-					str.<a href="">lastIndexOf</a>(val,[i])
-					<span>
-						参数：逆向查找指定值,i为起始索引 <br>
-						返回值：最后一个出现的索引位置；如查找不到则返回-1 
-					</span>
-				</li>
-				<li>
-					str.<a href="">includes</a>(str,[i])
-					<span>
-						返回布尔值，表示是否找到了参数字符串 <br>
-						第二个参数，表示开始搜索的位置
-					</span>
-				</li>
-				<li>
-					str.<a href="">startsWith</a>(str,[i])
-					<span>
-						返回布尔值，表示参数字符串是否在原字符串的头部。 <br>
-						第二个参数，表示开始搜索的位置
-					</span>
-				</li>
-				<li>
-					str.<a href="">endsWidth</a>(str,[i])
-					<span>
-						返回布尔值，表示参数字符串是否在原字符串的尾部。 <br>
-						第二个参数表示针对前n个字符
-					</span>
-				</li>
+                    data.<a href="">set...</a>
+                    <span>
+                        设置日期对象
+                    </span>
+                </li>
+				<li>date.<a href="">toString</a>()<span>
+					Sat Oct 07 2017 01:36:58 GMT+0800 (中国标准时间)
+				</span></li>
+				<li>date.<a href="">toLocaleString</a>()<span>
+					2017/10/7 上午1:33:06
+				</span></li>
+				<li>date.<a href="">toUTCString</a>()<span>
+					Fri, 06 Oct 2017 17:33:06 GMT
+				</span></li>
+                <li><a href="">Date.parse(ISO)</a>{timestamp}<span>
+					解析一个符合ISO 8601格式的字符串，并返回对应时间戳 <br>
+					var d = Date.parse('2015-06-24T19:49:22.875+08:00'); <br>
+					d; // 1435146562875
+				</span></li>
+                <li>
+                    <a href="">Date.now()</a>{timestamp}
+                    <span>当前时间戳，IE8不支持</span>
+                </li>
 			</ul>
-			<h4>[<span>-</span>]匹配</h4>
-			<ul>
-				<li>
-					str.<a href="">split</a>(/reg/,[len])
-					<span>
-						参数1：字符串或正则表达式 <br>
-						参数2：最大的数组长度 <br>
-						返回值：数组 <br>
-						原对象：不变 <br>
-						把字符串按指定符号或正则分割为字符串数组
-					</span>
-				</li>
-				<li>
-					str.<a href="">search</a>(/reg/)
-					<span>
-						参数：字符串/正则表达式<br>
-						返回：第一个子串的索引/-1<br>
-						始终从头开始找，找到一个即返回，正则无需全局设置
-					</span>
-				</li>
-				<li>
-					str.<a href="">match</a>(/reg/g)
-					<span>
-						参数：字符串/正则表达式<br>
-						返回：子串数组/null
-						<br>
-						如果传入非正则，会隐式地转换为正则表达式；<br>
-						如果没有参数，会返回空数组；<br>
-						数组： <br>
-						1.进行匹配完整的字符串 <br>
-						2.圆括号捕获的结果 <br>
-						3.index: 0，匹配结果在原字符串中的索引 <br>
-						4.input: "原字符串" <br>
-						如果没有匹配到，返回null 
-					</span>
-				</li>
-				<li>
-					str.<a href="">replace</a><em>(/reg/g,val|fn)</em>
-					<span>
-						参数1：需要替换的字符或正则表达式，没有全局标识时只替换一次 <br>
-						参数2：替换成的字符串或生成字符串的函数，用return返回 <br>
-						返回值：新的字符串<br>
-						原对象：不变 <hr>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#指定一个函数作为参数">回调函数参数详情</a>
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]操作</h4>
-			<ul>
-				<li>
-					str.<a href="">concat</a>(str,..)
-					<span>
-						参数：串联一个或更多字符串 <br>
-						返回值：新的字符串 <br>
-						原对象：不变。
-					</span>
-				</li>
-				<li>
-					str.<a href="">slice</a>[n,m)
-					<span>
-						参数：起始位置，末尾位置（不包含）<br>
-						返回值：被截取得到的新字符串。<br>
-						原对象：不变。<br>
-						当只有1个参数时，则为起始位置到末尾全部，且包含末尾元素（即m=arr.length）。<br>
-						n和m可为负值，-1 指最后一个元素，-2 指倒数第二个元素。
-					</span>
-				</li>
-				<li>
-					str.<a href="">substring</a>[n,m)
-					<span>
-						参数：起始位置，末尾位置（不包含），不接受负数<br>
-						返回值：被截取得到的新字符串。<br>
-						原对象：不变。<br>
-						<a href="https://www.cnblogs.com/imelemon/p/6035810.html"></a>
-					</span>
-				</li>
-				<li>
-					str.<a href="">substr</a>(n,[len])
-					<span>
-						参数：开始提取字符的位置（如为负数，则用len+n），提取的字符数 <br>
-						返回值：新字符串 <br>
-						原对象：不变 <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substr">参考资料</a>
-					</span>
-				</li>
-				<li>
-					str.<a href="">trim</a>()
-					<span>
-						返回值：新字符串 <br>
-						原对象：不变 <br>
-						移除字符串的两端删除空白字符。<br>
-						空白字符包括所有的空白字符 (space, tab, no-break space 等) 以及所有行终止符字符（如 LF，CR）。
-					</span>
-				</li>
-				<li>
-					str.<a href="">repeat</a>(n)
-					<span>
-						参数：重复次数(包含原) <br>
-						返回值：新的字符串 <br>
-						原对象：不变 <br>
-						会向下取整，当为0时变为空字符串
-					</span>
-				</li>
-				<li>
-					str.<a href="">charAt</a>(i)
-					<span>
-						参数：查找的索引位置 <br>
-						返回值：索引上的字符
-					</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="u-block">
-		<h3>文本格式化<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>-</span>]JSON</h4>
-			<ul>
-				<li>
-					<em>json</em><a href=""></a>
-					<span>
-						概念：<br />
-						它是一种表示结构化数据的形式，JSON是一个格式化的字符串，文件格式后缀为.json
-						<hr>
-						语法：<br />
-						简单值：字符串、数值、布尔值、null，不支持undefined<br />
-						对象：一组无序的键值对<br />
-						数组：一组有序的值的列表，可以通过索引来访问
-						<hr>
-						JSON与JS的区别：<br />
-						1.对象：JSON字符串必须使用双引号（单引号会导致语法错误），且对象的属性必须加双引号；<br />
-						2.对象和数组：最后一个属性后不能有逗号 <br>
-						3.数值：禁止出现前导零，如果有小数点，则后面至少跟着一位数字 <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON">参考资料</a>
-					</span>
-				</li>
-				<li>
-					<a href="">JSON.stringify</a><em>(obj,[fn,space])</em>
-					<span>
-						js对象 -> json字符串 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">参考资料</a><hr>
-						参数1：传入的对象。<br>
-						如有键值为函数时，会排除该成员。我们可以在转换前将函数用.toString()方法转换为字符串来避免以上问题的发生。<br>
-						如有键值为日期对象时，会转为字符串。
-						<hr>
-						参数2：用于转换结果的函数或数组 <br>
-						如果该参数是一个函数，则在序列化过程中，被序列化的值的每个属性都会经过该函数的转换和处理；如果该参数是一个数组，则只有包含在这个数组中的属性名才会被序列化到最终的 JSON 字符串中；如果该参数为null或者未提供，则对象所有的属性都会被序列化；</b>
-						<hr>
-						参数3：缩进空格 <br>
-						指定缩进用的空白字符串，用于美化输出（pretty-print）；如果参数是个数字，它代表有多少的空格；上限为10。该值若小于1，则意味着没有空格；如果该参数为字符串(字符串的前十个字母)，该字符串将被作为空格；如果该参数没有提供（或者为null）将没有空格。
-					</span>
-				</li>
-				<li>
-					<a href="">JSON.parse</a><em>(json,[fn(key,val)])</em>
-					<span>
-						json字符串 -> js对象 <br>
-						转换函数需返回value值。 <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">参考资料</a>
-					</span>
-				</li>
-				<li>
-					obj.<a href="">toJSON</a>()
-					<span>
-				   		JS对象中添加toJSON()方法，自定义过滤一些数据，返回新的对象 <br>
-						注意设置return值
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]URI</h4>
-			<ul>
-				<li>
-					<a href="">encodeURI</a>(uri)
-					<span>
-						参数：完整URI字符串 <br>
-						返回：新字符串，表示提供的字符串编码为统一资源标识符 <br>
-						不会编码：&,+,=
-					</span>
-				</li>
-				<li>
-					<a href="">encodeURIComponent</a>(uri)
-					<span>
-						除了字母、数字、(、)、.、!、~、*、'、-和_之外的所有字符均会被转移
-					</span>
-				</li>
-				<li>
-					<a href="">decodeURI</a>(uri)
-					<span>解码某个编码的 URI。</span>
-				</li>
-				<li>
-					<a href="">decodeURIComponent</a>(uri)
-					<span>解码一个编码的 URI 组件。</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Unicode</h4>
-			<ul>
-				<li>
-					str.<a href="">charCodeAt</a>(i)
-					<span>
-						参数：查找的索引位置 <br>
-						返回值：unicode码点(十进制)
-					</span>
-				</li>
-				<li>
-					str.<a href="">codePointAt</a>(i)
-					<span>
-						参数：查找的索引位置 <br>
-						返回值：unicode码点（十进制，需自行转16进制）<br>
-						支持大于2个字节的Uniode编码
-					</span>
-				</li>
-				<li>
-					<a href="">String.fromCharCode</a>(uni..)
-					<span>
-						参数：unicode码点 <br>
-						返回值：字符串
-					</span>
-				</li>
-				<li>
-					<a href="">String.fromCodePoint</a>(uni..)
-					<span>
-						参数：unicode码点 <br>
-						返回值：字符串 <br>
-						支持大于2个字节的Uniode编码
-					</span>
-				</li>
-				<li>
-					str.<a href="">normalize</a><em>([NFC])</em>
-					<span>
-						按指定Unicode正规形式将当前字符串正规化。<br>
-						参数：四种 Unicode 正规形式 "NFC", "NFD", "NFKC", 以及 "NFKD" 其中的一个, 默认值为 "NFC".<br>
-						<a href="http://es6.ruanyifeng.com/#docs/string#normalize">参考资料</a>
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]正则表达式</h4>
-			<ul>
-				<li>
-					<a href="">/exp/flags</a>
-					<span>
-						正则表达式：/exp/flags <br>
-						RegExp对象：new RegExp('exp',flags)<br>
-						RegExp对象：new RegExp(/exp/flags)<br>
-						注意，如果使用第二种写法，因为字符串的转义问题，字符串的两个\\实际上是一个\。<hr>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">参考资料1</a> | <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp">参考资料2</a>
-						<hr>
-						修饰符：<br>
-						i：忽略大小写。 <br>
-						g：全局匹配。 <br>
-						m：多行模式。<br>
-						y：执行“粘性”搜索,匹配从目标字符串的当前位置开始。 <br>
-						u：正确处理大于\uFFFF的 Unicode 字符（点.字符在正则表达式中，含义是除了换行符以外的任意单个字符。对于码点大于0xFFFF的 Unicode 字符，点字符不能识别，必须加上u修饰符。）<br>
-						s：行终止符
-					</span>
-				</li>
-				<li>
-					reg.<a href="">exec</a>(str)
-					<span>
-						返回：数组/null <br>
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">参考资料</a>
-					</span>
-				</li>
-				<li>
-					reg.<a href="">test</a>(str)
-					<span>
-						返回：true/false
-					</span>
-				</li>
-			</ul>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>

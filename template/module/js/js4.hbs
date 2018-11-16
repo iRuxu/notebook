@@ -1,417 +1,123 @@
-<!-- 函数 -->
+<!-- Map、Set -->
 <div class="u-col">
 	<div class="u-block">
-		<h3>函数<span>-</span></h3>
+		<h3>集合<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>+</span>]构建与调用</h4>
+			<h4>[<span>+</span>] 构建</h4>
 			<ul style="display:none;">
 				<li>
-					<a href="">function name</a><em>(arg){}</em>
+					<a href="">new Set</a>([arr])
 					<span>
-						函数声明 <br>
-						1.使用函数声明时，会提升优先级（一等公民），不包括函数表达式。 <br>
-						2.如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。<br>
-						3.函数参数是拷贝值传递：对于基本类型，不会修改原值；对于引用类型，拷贝的是指针，如修改原数据属性会改变原数据，如替换整个目标则不修改原数据，此外始终不改变原指针的指向。<a href="http://javascript.ruanyifeng.com/grammar/function.html">参考资料</a> <br>
-						4.函数可以被递归，函数可以调用其本身。 <br>
-						5.ES6中块级作用域中声明的函数，在块级作用域之外不可引用
+						Set是一组key的集合，但不存储value，且key不能重复。<br>
+						[...$set] 解构成一个数组
 					</span>
 				</li>
 				<li>
-					var handle = <a href="">function [name]</a><em>(arg){}</em>
+					<a href="">new Map</a>([[val1,val2]])
 					<span>
-						函数表达式<br>
-						1.函数表达式是一个匿名函数 <br>
-						2.当定义name时，此时可以用name在函数内部指代函数本身，但在函数体外部无效 <br>
-						3.函数表达式，不会被提升。<br>
-						4.如果同时采用function命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。 <a href="http://javascript.ruanyifeng.com/grammar/function.html#toc5">参考资料</a> <br>
-					</span>
-				</li>
-				<li>
-					(x) <a href="">=></a> x*x
-					<span>
-						箭头函数 <br>
-						1.不可以当做构造函数，即不能使用new操作符 <br>
-						2.不可以使用arguments、super、new.target，均指向外层函数的对应变量 <br>
-						3.不可以使用yield命令，因此箭头函数不能用作 Generator 函数 <br>
-						4.没有自己的this，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，且固定不可变，即使使用call也无法修改，更多的可在构造函数或闭包内使用，则可替代普通函数需要用that指代this。 <br>
-						this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。所以call的绑定也是无效，但上层的普通函数的call绑定有效。 <br>
-						5.没有prototype属性，也不能使用yield关键字
-						<hr>
-						例：<br>
-						1.当只有一行直接返回变量的处理时，x=>x*x，返回x的平方 <br>
-						2.当只有一行且无需返回值时，x=>void dosomething <br>
-						3.当有多个参数或多条语句时，需添加括号和花括号，(x,y)=>{dosomething / return xx}
-					</span>
-				</li>
-				<li>
-					var handle = <a href="">new Function</a><em>('arg..','fnbody')</em>
-					<span>
-						Function构造函数构建<br>
-						1.此形式构建的是匿名函数 <br>
-						2.参数为字符串<br>
-						3.只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
-					</span>
-				</li>
-				<li>
-					<a href="">IIFE</a>
-					<span>
-						( function(){}() ); <br>
-						( function(){} )(); <br>
-						[ function(){}() ]; <br>
-						<br>
-						~ function() {}(); <br>
-						! function() {}(); <br>
-						+ function() {}(); <br>
-						- function() {}(); <br>
-						<br>
-						delete function() {}(); <br>
-						typeof function() {}(); <br>
-						void function() {}(); <br>
-						new function() {}(); <br>
-						new function() {}; <br>
-						<br>
-						var f = function() {}(); <br>
-						<br>
-						1, function() {}(); <br>
-						1 ^ function() {}(); <br>
-						1 > function() {}(); 
+						初始化Map需要一个二维数组 <br>
+						map的键可以为任意数据类型，object只能为字符串 <br>
+						[...$map] 解构成一个二维数组
 					</span>
 				</li>
 			</ul>
-			<h4>[<span>+</span>]参数</h4>
-			<ul style="display:none;">
-				<li>
-					<a href="">(arg=x)</a>
-					<span>
-						一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域 <a href="http://es6.ruanyifeng.com/#docs/function#作用域">参考资料</a>
-					</span>
-				</li>
-				<li>
-					<a href="">...args</a>
-					<span>
-						rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 <br>
-						rest 参数之后不能再有其他参数（即只能是最后一个参数）
-					</span>
-				</li>
-				<li>
-					<a href="">arguments</a>
-					<span>
-						函数的实参，一个类数组对象。 <br>
-						1.在JavaScript中，函数参数的默认值是undefined <br>
-						2.严格模式下为只读对象，不允许修改。 <br>
-						3.箭头函数不存在(浏览器)
-						<table>
-							<tr>
-								<th>对象值</th>
-								<th>描述</th>
-							</tr>
-							<tr>
-								<td>arguments[0]</td>
-								<td>第一个参数名字</td>
-							</tr>
-							<tr>
-								<td>arguments.length</td>
-								<td>参数的个数</td>
-							</tr>
-							<tr>
-								<td>arguments.callee</td>
-								<td>主体函数本身，拥有这个参数对象的函数 (严格模式禁用)</td>
-							</tr>
-						</table>
-					</span>
-				</li>
-				<li>
-					fn.<a href="">length</a>
-					<span>
-						返回函数预期传入的参数个数，即函数定义之中的参数个数(定义之时的个数) <br>
-						指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，length属性将失真。
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>]内部</h4>
-			<ul style="display:none;">
-				<li>
-					<a href="">var</a>
-					<span>
-						var为静态作用域 <br>
-						即词法作用域，取决于函数声明时所在的作用域，与其运行时所在的作用域无关。 <hr>
-						执行上下文栈：变量对象、作用域链、this <br>
-						1.变量对象：函数的所有形参、函数声明、变量声明（如果变量名称与声明的形参或函数相同，则变量声明不会干扰已经存在的这类属性）<a href="https://github.com/mqyqingfeng/Blog/issues/5">参考资料</a><br>
-						<b>变量对象为进入执行上下文阶段，在执行阶段，可能被重新赋值。</b><br>
-						2.作用域链：[VO=>AO压入栈顶,全局作用域链] <br>
-						3.闭包：<a href="https://github.com/mqyqingfeng/Blog/issues/9">参考资料</a> <hr>
-					</span>
-				</li>
-				<li>
-					<a href="">this</a>
-					<span>
-						this为动态作用域 <br>
-						1.普通函数：根据执行环境不同而不同，可以通过apply,call改变 <br>
-						2.箭头函数：声明时上下文中的this，不可通过apply,call改变
-						<hr> 
-						普通函数：严格模式(undefined)、严格模式(全局对象) <br>
-						构造函数：对象的实例 <br>
-						对象方法：对象本身 <br>
-						call/apply/bind：绑定的对象 <br>
-						箭头函数：函数所在的块的this <hr>
-						<a href="https://github.com/mqyqingfeng/Blog/issues/7">从ES规范解读this</a> 
-					</span>
-				</li>
-				<li>
-					<a href="">return</a> [val]
-					<span>
-						如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined. <br>
-						<a href="http://es6.ruanyifeng.com/#docs/function#尾调用优化">尾调用优化</a>
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]方法</h4>
+			<h4>[<span>-</span>] 属性</h4>
 			<ul>
 				<li>
-					fn<a href="">.call</a>(obj,arg)
+					set/map.<a href="">size</a>
 					<span>
-						fn.call(作用域，[传递参数]) <br>	
-						apply与call均让函数作用于特定作用域,call必须明确传入每一个参数。<br>
-						apply()把参数打包成Array再传入；call()把参数按顺序传入 <br>
-						对普通函数调用，我们通常把this绑定为null。 <br>
-						在非严格模式下，如果参数为空、null和undefined，则默认传入全局对象。
+						返回值：数值<br> 
+						返回实例的长度
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 增删改查</h4>
+			<ul>
+				<li>
+					set.<a href="">add</a>(key)
+					<span>
+						返回值：set本身<br>
+						添加一个值
 					</span>
 				</li>
 				<li>
-					fn<a href="">.apply</a>(obj,[argArr])
+					map.<a href="">set</a>(key,val)
 					<span>
-						fn.apply(作用域，[传递参数Arr]) 
+						返回值：map本身 <br>
+						添加新的key-value键值对
 					</span>
 				</li>
 				<li>
-					fn<a href="">.bind</a>(obj)
+					map.<a href="">get</a>(key)
 					<span>
-						返回由指定的this值和初始化参数改造的原函数拷贝
-						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">参考资料</a>
-				</span></li>
+						返回值：value | undefined <br>	
+						取key的值
+					</span>
+				</li>
 				<li>
-					fn.<a href="">toString()</a>
+					set/map.<a href="">has</a>(key)
 					<span>
-						返回一个表示当前函数源代码的字符串，注释也可以返回
+						返回值：布尔<br>	
+						该值是否为实例的成员
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">delete</a>(key)
+					<span>
+						返回值：布尔 <br>
+						删除一个值
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">clear()</a>
+					<span>
+						返回值：无 <br>
+						清除所有成员
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>-</span>] 遍历</h4>
+			<ul>
+				<li>
+					set/map.<a href="">keys()</a>
+					<span>
+						返回键名的遍历器 <br>
+						set/map.keys()返回的是遍历器，而对象的Object.keys(obj)返回的是数组
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">values()</a>
+					<span>
+						返回键值的遍历器
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">entries()</a>
+					<span>
+						返回所有成员的遍历器
+					</span>
+				</li>
+				<li>
+					set/map.<a href="">forEach</a>(fn(val,key,sm))
+					<span>
+						使用回调函数遍历每个成员 <br>
+						Set 结构的键名就是键值，因此第一个参数与第二个参数的值永远都是一样的(并非像数组是索引号)
 					</span>
 				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="u-block">
-		<h3>异步编程<span>-</span></h3>
+		<h3>类型数组<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>-</span>]Promise</h4>
+			<h4>[<span>-</span>] Buffer</h4>
+			<h4>[<span>-</span>] Stream</h4>
+			<h4>[<span>-</span>] TypedArray</h4>
 			<ul>
 				<li>
-					<a href="">new Promise</a><em>(fn(resolve,reject))</em>
+					<a href="">TypedArray</a>
 					<span>
-						<a href="http://es6.ruanyifeng.com/#docs/promise">参考资料</a> <br>
-						Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。 <br>
-						resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。 <br>
-						Promise 新建后就会立即执行。
-					</span>
-				</li>
-				<li>
-					pms.<a href="">then</a><em>(fn(val)])</em>
-					<span>
-						Promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数。
-					</span>
-				</li>
-				<li>
-					pms.<a href="">catch</a><em>(fn(err))</em>
-					<span>
-						Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。 <br>
-						Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。<br>
-						跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。
-					</span>
-				</li>
-				<li>
-					pms.<a href="">finally</a>(fn)
-					<span>
-						不管 Promise 对象最后状态如何，都会执行的操作
-					</span>
-				</li>
-				<li>
-					<a href="">Promise.all</a>(arr)
-					<span>
-						const p = Promise.all([p1, p2, p3]); <br>
-						用于：多个promise实例全部完成时 <br>
-						Promise.all方法的参数可以不是数组，但必须具有 Iterator 接口，且返回的每个成员都是 Promise 实例。<br>
-						只有数组里的promise实例状态都变为fulfilled，p的状态才会变成fulfilled，只要有一个rejected，则p的状态也会变为rejected
-					</span>
-				</li>
-				<li>
-					<a href="">Promise.race</a>(arr)
-					<span>
-						用于：任意promise实例完成时
-					</span>
-				</li>
-				<li>
-					<a href="">Promise.resolve</a>(o)
-					<span>
-						将需要的对象转为promise对象 <br>
-						如果为普通对象，将直接改变状态至resolved，且传递参数至then <br>
-						如果没有任何参数时，立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时。
-					</span>
-				</li>
-				<li>
-					<a href="">Promise.reject</a>(o)
-					<span>
-						Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续then方法的第2个函数的参数
-					</span>
-				</li>
-				<li>
-					<a href="">Promise.try</a>(o)
-					<span>
-						<a href="http://es6.ruanyifeng.com/#docs/promise#Promise-try">参考资料</a>
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Iterable</h4>
-			<ul>
-				<li>
-					<a href="">[...iterable]</a>
-					<span>
-						只要具有 Iterator 接口的对象，都可以使用扩展运算符<br>
-						[...str] <br>
-						[...arr|TypedArray] <br>
-						[...set|map] <br>
-						[...arguments] <br>
-						[...nodeList] 
-					</span>
-				</li>
-				<li>
-					<a href="">for(.. of iterable)</a>
-					<span>
-						for(let key of iterable){} <br>
-						任何部署了Interator接口的数据都可以用for..of来遍历 <br>
-						String、Array、TypedArray、Map、Set、函数arguments对象、NodeList对象都内置Interator接口，因为它们的原型对象都有一个 Symbol.iterator 方法。 <hr>
-						数组使用for .. of 直接取值更快捷
-					</span>
-				</li>
-				<li>
-					<a href="">for await(.. of iterable)</a>
-					<span>
-						遍历异步的 Iterator 接口
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Iterator</h4>
-			<ul>
-				<li>
-					o.<a href="">[Symbol.iterator]</a>
-					<span>
-						一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的” <br>
-						Symbol.iterator属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。<br>
-						执行这个函数，就会返回一个遍历器。 <br>
-						<a href="http://es6.ruanyifeng.com/#docs/iterator">给对象自定义一个遍历器</a> <hr>
-						由于 Generator 函数就是遍历器生成函数，因此可以把 Generator 赋值给对象的Symbol.iterator属性，从而使得该对象具有 Iterator 接口。
-					</span>
-				</li>
-				<li>
-					ite.<a href="">next([val])</a>
-					<span>
-						每次调用next方法，都会返回一个代表当前成员的信息对象，具有value和done两个属性。
-					</span>
-				</li>
-				<li>
-					ite.<a href="">return([val])</a>
-					<span>
-						如果一个对象在完成遍历前，需要清理或释放资源，就可以部署return方法 <br>
-					</span>
-				</li>
-				<li>
-					ite.<a href="">throw([val])</a>
-					<span>
-						<a href="http://es6.ruanyifeng.com/#docs/generator#next、throw、return-的共同点">next、throw、return的共同点</a>
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Generator</h4>
-			<ul>
-				<li>
-					<a href="">function*</a> {ite}
-					<span>
-						执行 Generator 函数会返回一个遍历器对象 <hr>
-						这个遍历器是 Generator 函数的实例，也继承了 Generator 函数的prototype对象上的方法 <br>
-						<a href="http://es6.ruanyifeng.com/#docs/generator#Generator-函数的this">Generator的this与new</a> <br>
-						var g = Generator.call(Generator.prototype) <br>
-						此时Generator函数中的this指向实例g <br>
-						var F() = {return Generator.call(Generator.prototype)} <br>
-						则可通过 var f = new F() 来生成实例 
-					</span>
-				</li>
-				<li>
-					<a href="">yield[*]</a>
-					<span>
-						暂停标志，遍历器每执行一次next则执行当前yield。<hr>
-						yield表达式本身没有返回值，或者说总是返回undefined。<br> 
-						next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值，作为当下一个yield依赖上一个yield时使用。 <hr>
-						yield表达式后面执行一个函数，函数的返回值，相当于生成器运行了该步骤并返回给遍历器对象value的值。
-						Generator 函数也可以不用yield表达式，这时就变成了一个单纯的暂缓执行函数。<hr>
-						在Generator函数内部，调用另一个 Generator 函数，需要使用yield* Generator() <br>
-						会一次执行完被代理对象的全部步骤
-					</span>
-				</li>
-				<li>
-					<a href="">return</a>
-					<span>
-						结束标志
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Async Function</h4>
-            <ul>
-            	<li>
-            		<a href="">async function</a> {promise}
-            		<span>
-            			async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">await</a> promise
-            		<span>
-            			await表示紧跟在后面的表达式需要等待结果 <br>
-						async函数的await命令后面，可以是 Promise 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）
-            		</span>
-            	</li>
-            	<li>
-            		<a href="">return</a>
-            		<span>
-            			async函数内部return语句返回的值，会成为then方法回调函数的参数
-            		</span>
-            	</li>
-            </ul>
-			<h4>[<span>-</span>]Async Iterator</h4>
-			<ul>
-				<li>
-					o.<a href="">[Symbol.asyncIterator]</a>
-					<span>
-						asyncIterator是一个异步遍历器
-					</span>
-				</li>
-				<li>
-					aite.<a href="">next()</a> {promise}
-					<span>
-						调用next方法以后，返回一个 Promise 对象。<br>
-						因此，可以使用then方法指定，这个 Promise 对象的状态变为resolve以后的回调函数。<br>
-						回调函数的参数，则是一个具有value和done两个属性的对象，这个跟同步遍历器是一样的。
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>]Async Generator</h4>
-			<ul>
-				<li>
-					async <a href="">function*</a> {aite}
-					<span>
-						返回一个异步遍历器对象
-					</span>
-				</li>
-				<li>
-					<a href="">yield*</a>
-					<span>
-						yield*语句也可以跟一个异步遍历器
+						<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Typed_arrays">参考资料1</a> | <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">参考资料2</a> | <a href="http://es6.ruanyifeng.com/#docs/arraybuffer">参考资料3</a>
 					</span>
 				</li>
 			</ul>

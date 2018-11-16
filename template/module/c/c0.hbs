@@ -9,15 +9,20 @@
                     <span>
                         <table>
                             <tbody><tr><th>类型</th><th>存储大小</th><th>值范围</th></tr>
-                            <tr><td>char</td><td>1 字节</td><td>-128 到 127 或 0 到 255</td></tr>
+                            <tr><td>char</td><td>1 字节</td><td>-128 到 127</td></tr>
                             <tr><td>unsigned char</td><td>1 字节</td><td>0 到 255</td></tr>
-                            <tr><td>signed char</td><td>1 字节</td><td>-128 到 127</td></tr>
-                            <tr><td>int</td><td>2 或 4 字节</td><td>-32,768 到 32,767 或 -2,147,483,648 到 2,147,483,647</td></tr>
-                            <tr><td>unsigned int</td><td>2 或 4 字节</td><td>0 到 65,535 或 0 到 4,294,967,295</td></tr>
-                            <tr><td>short</td><td>2 字节</td><td>-32,768 到 32,767</td></tr>
-                            <tr><td>unsigned short</td><td>2 字节</td><td>0 到 65,535</td></tr>
-                            <tr><td>long</td><td>4 字节</td><td>-2,147,483,648 到 2,147,483,647</td></tr>
-                            <tr><td>unsigned long</td><td>4 字节</td><td>0 到 4,294,967,295</td></tr>
+                            <tr><td colspan="3"></td></tr>
+                            <tr><td>short int</td><td>2 字节</td><td>-32,768 到 32,767</td></tr>
+                            <tr><td>unsigned short int</td><td>2 字节</td><td>0 到 65,535</td></tr>
+                            <tr><td colspan="3"></td></tr>
+                            <tr><td><b>int</b></td><td>4 字节</td><td>-2,147,483,648 到 2,147,483,647</td></tr>
+                            <tr><td>unsigned int</td><td>4 字节</td><td>0 到 4,294,967,295</td></tr>
+                            <tr><td colspan="3"></td></tr>
+                            <tr><td>long int</td><td>4 | 8 字节</td><td></td></tr>
+                            <tr><td>unsigned long int</td><td>4 | 8 字节</td><td></td></tr>
+                            <tr><td colspan="3"></td></tr>
+                            <tr><td>long long int</td><td>8 字节</td><td></td></tr>
+                            <tr><td>unsigned long long int</td><td>8 字节</td><td></td></tr>
                             </tbody>
                         </table>
                     </span>
@@ -28,7 +33,7 @@
                         <table>
                             <tbody><tr><th>类型</th><th>存储大小</th><th>值范围</th><th>精度</th></tr>
                             <tr><td>float</td><td>4 字节</td><td>1.2E-38 到 3.4E+38</td><td>6 位小数</td></tr>
-                            <tr><td>double</td><td>8 字节</td><td>2.3E-308 到 1.7E+308</td><td>15 位小数</td></tr>
+                            <tr><td><b>double</b></td><td>8 字节</td><td>2.3E-308 到 1.7E+308</td><td>15 位小数</td></tr>
                             <tr><td>long double</td><td>16 字节</td><td>3.4E-4932 到 1.1E+4932</td><td>19 位小数</td></tr>
                             </tbody>
                         </table>
@@ -38,40 +43,20 @@
                     <a href="">枚举</a> enum
                     <span>
                         定义枚举类型：enum 枚举名{name=val,..} <br>
-                        枚举名与{}无空格 <br>
                         第一个枚举成员的默认值为整型的 0 <br>
                         没有指定值的枚举元素，其值为前一元素加 1
                     </span>
                 </li>
                 <li>
-                    <a href="">void</a>
-                    <span>
-                        类型说明符 void 表明没有可用的值
-                    </span>
-                </li>
-                <li>
-                    <a href="">数组</a> arr[]
-                    <span>
-                        一维数组：$type $arr[len] = {,..} <br>
-                        $arr[i] <br>
-                        二维数组：$type $arr[len][len] = { {..},{..}..} <br>
-                        $arr[i][j] <hr>
-                        1.数组变量是一个const变量（常量指针），不可被赋值，故不可交换赋值。故不能通过将数组变量赋值来复制给另一个变量，必须遍历 <br>
-                        2.函数参数表中的数组参数实际上是指针，无法通过sizeof获取长度，必须手动传入数组长度
-                    </span>
-                </li>
-                <li>
-                    <a href="">字符串</a> char str[]
-                    <span>
-                        char $str[] = "string" 一串字符串 <br>
-                        char $chr = 'c' 一个字符<hr>
-                        字符串实际上是使用 null 字符 '\0' 终止的一维字符数组 <br>
-                        由于在数组的末尾存储了空字符，所以字符数组(非字符串)的大小比字符串的字符数多一个
-                    </span>
-                </li>
-                <li>
                     <a href="">指针</a> *ptr
                     <span>
+                        <table>
+                            <tbody><tr><th>大小</th><th>位数</th><th>16进制地址</th></tr>
+                            <tr><td>4字节</td><td>32位</td><td>0x0062fe44</td></tr>
+                            <tr><td>8字节</td><td>64位</td><td></td></tr>
+                            </tbody>
+                        </table>
+                        <br>
                         <b>*</b>： <br>
                         1.声明语句中，用于指针变量声明： <br>
                         *ptr = NULL/0 <br>
@@ -86,18 +71,80 @@
                         取地址运算符，返回变量的地址 <br>
                         &变量名 或 &数组元素名 <br>
                         &运算符的操作数必须是一个变量，不能把地址运算符用于常量、表达式或存储类别为register型的变量上
+                    </span>
+                </li>
+                <li>
+                    <a href="">数组</a> arr[]
+                    <span>
+                        <table>
+                            <tr>
+                                <th>数组</th>
+                                <th>表示</th>
+                            </tr>
+                            <tr>
+                                <td>一维数组 $arr[i]</td>
+                                <td>$type $arr[len] = {,..}</td>
+                            </tr>
+                            <tr>
+                                <td>二维数组 $arr[i][j]</td>
+                                <td>$type $arr[len][len] = { {..},{..}..}</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table>
+                            <caption>const与指针</caption>
+                            <tr>
+                                <th>形式</th>
+                                <th>说明</th>
+                                <th>*号位置</th>
+                            </tr>
+                            <tr>
+                                <td>int const* ptr</td>
+                                <td>变量仅仅只作为指针，不能通过指针改变原地址的值(参数传值用)</td>
+                                <td>*在const之后</td>
+                            </tr>
+                            <tr>
+                                <td>int *const ptr</td>
+                                <td>一个地址不能改变的指针，无法修改指针的值(存的内存地址)</td>
+                                <td>*在const之前</td>
+                            </tr>
+                        </table>
+
+                        1.数组变量是一个*const指针，固定指向了某个数组（存的是第一个元素的地址），故不可被赋值，故也不能够数组变量交换赋值（需要复制数组时必须遍历）。 <br>
+                        2.故当一个指针变量被数组变量或字符串变量赋值时，无需添加&取地址符，对其的求值，也无需使用*间接访问运算符 <br>
+                        3.故*和[]即可对指针做运算，也可对数组变量做运算
+
                         <hr>
-                        <b>数组与指针</b>：
-                        整数与字符等的运算规则同上，而数组的变量名就是一个指针，存的是第一个元素的地址 <br>
-                        故当一个指针变量被数组变量或字符串变量赋值时，无需添加&取地址符，对其的求值，也无需使用*间接访问运算符<br>
-                        故*和[]即可对指针做运算，也可对数组变量做运算
+
+                        1.函数参数表中的数组参数实际上也只是指针，故无法通过sizeof获取长度，必须手动传入数组长度。<br>
+                        2.当传入函数参数禁止该指针对原数据进行修改时，则使用const*指针
+                    </span>
+                </li>
+                <li>
+                    <a href="">字符串</a> char str[]
+                    <span>
+                        char $str[] = "string" 一串字符串 <br>
+                        char $chr = 'c' 一个字符<hr>
+                        字符串实际上是使用 null 字符 '\0' 终止的一维字符数组 <br>
+                        由于在数组的末尾存储了空字符，所以字符数组(非字符串)的大小比字符串的字符数多一个
                     </span>
                 </li>
                 <li>
                     <a href="">结构体</a> struct
                     <span>
-                        struct 结构体标识符 {类型说明符 成员名;..} [变量名]; <br>
-                        struct Book {char title[10];..} book1;
+                        struct $obj {$type $var;..} [$_var]; <br>
+                        struct Book {char title[10];..} book1; <br>
+                        结构名并不是地址，必须通过&取 <hr>
+                        <b>.</b> 结构体成员访问运算符 <br>
+                        定义结构体： struct Books {...} <br>
+                        声明变量Book1，类型为结构体Books： struct Books Book1 <br>
+                        访问Book1成员：Book1.prop <hr>
+                        <b>-></b> 指针访问结构的成员 <br>
+                        定义结构体： struct Books {...} <br>
+                        声明变量Book1，类型为结构体Books： struct Books Book1 <br>
+                        定义指向结构的指针： struct Books *ptr <br> 
+                        赋值指针地址： ptr = &Book1    <br>
+                        访问指针指向地址结构体的成员：ptr->prop
                     </span>
                 </li>
                 <li>
@@ -115,9 +162,30 @@
                         共用体占用的内存应足够存储共用体中最大的成员
                     </span>
                 </li>
+                <li>
+                    <a href="">无类型</a> void
+                    <span>
+                        类型说明符 void 表明没有可用的值
+                    </span>
+                </li>
             </ul>
-            <h4>[<span>+</span>] 类型操作</h4>
+            <h4>[<span>+</span>] C++数据类型</h4>
             <ul style="display:none;">
+                <li>
+                    <a href="">布尔型</a> bool
+                    <span>
+                        布尔型
+                    </span>
+                </li>
+                <li>
+                    <a href="">宽字符型</a> wchar_t
+                    <span>
+                        宽字符型，2~4个字节
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 类型操作</h4>
+            <ul>
                 <li>
                     <a href="">($type)</a> exp
                     <span>
@@ -130,7 +198,373 @@
                 <li>
                     <a href="">sizeof</a>(exp)
                     <span>
-                        返回变量的大小
+                        返回变量或类型的大小 <br>
+                        静态运算符，不会对表示式做运算
+                    </span>
+                </li>
+                <li>
+                    <a href="">typedef</a> old new
+                    <span>
+                        为用户自定义的数据类型取一个新的名字，可直接用于类型定义 <hr>
+                        typedef 仅限于为类型定义符号名称，#define 不仅可以为类型定义别名，也能为数值定义别名，比如您可以定义 1 为 ONE。 <br>
+                        typedef 是由编译器执行解释的，#define 语句是由预编译器进行处理的。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>语法<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>+</span>] 变量与常量</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href=""></a>type var
+                    <span>
+                        int zero = 0 <br>
+                        定义变量并初始化 <br>
+                        当局部变量被定义时，系统不会对其初始化，须自行对其初始化。定义全局变量时，系统会自动对其初始化 <br>
+                        <table>
+                            <tr>
+                                <th>类型</th>
+                                <th>初始化默认值</th>
+                            </tr>
+                            <tr>
+                                <td>int</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>char</td>
+                                <td>'\0'</td>
+                            </tr>
+                            <tr>
+                                <td>float</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>double</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>pointer</td>
+                                <td>NULL</td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    type& <a href="">var</a> = ovar
+                    <span>
+                        c++:引用就是另一个变量的别名 <br>
+                        int*& 是一个整形指针类型的引用
+                    </span>
+                </li>
+                <li>
+                    <a href="">const</a> type var
+                    <span>
+                        const int zero = 0 <br>
+                        定义一个常量 <br>
+                        <a href="https://blog.csdn.net/qq_26685237/article/details/79587445">#define与const的区别</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 修饰符</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">volatile</a> var
+                    <span>
+                        修饰符 volatile 告诉编译器不需要优化volatile声明的变量，让程序可以直接从内存中读取变量。对于一般的变量编译器会对变量进行优化，将内存中的变量值放在寄存器中以加快读写效率。
+                    </span>
+                </li>
+                <li>
+                    <a href="">restrict</a> *ptr
+                    <span>
+                        由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式
+                    </span>
+                </li>
+                <li>
+                    [e/s] <a href="">thread_local</a> var
+                    <span>
+                        使用 thread_local 说明符声明的变量仅可在它在其上创建的线程上访问。 变量在创建线程时创建，并在销毁线程时销毁。 每个线程都有其自己的变量副本。 <br>
+                        thread_local 说明符可以与 static 或 extern 合并。<br>
+                        可以将 thread_local 仅应用于数据声明和定义，thread_local 不能用于函数声明或定义。<br>
+                        仅c++11+
+                    </span>
+                </li>
+                <li>
+                    <a href="">extern</a> va/fn
+                    <span>
+                        定义外部变量，不指定存储类别。 <br>
+                        存储在全局数据区，全局生存期，全局作用域
+                    </span>
+                </li>
+                <li>
+                    <a href="">static</a> va/fn
+                    <span>
+                        1.定义局部变量时 <br>
+                        存储在全局数据区，全局生存期，全局作用域 <br>
+                        2.定义在函数外面时 <br>
+                        存储在全局数据区，全局生存期，但为文件作用域，即作用域限制在声明它的文件内，外部无法使用extern引用。
+                    </span>
+                </li>
+                <li>
+                    <a href="">mutable</a> obj
+                    <span>
+                        仅c++
+                    </span>
+                </li>
+                <li>
+                    <a href="">auto</a> var/fn
+                    <span>
+                        只对内部变量有效 <br>
+                        存在在内存栈区，自动生存期，局部作用域。 <br>
+                        从 C++ 11 开始，auto 关键字不再是 C++ 存储类说明符
+                    </span>
+                </li>
+                <li>
+                    <a href="">register</a> var/fn
+                    <span>
+                        只对内部变量有效 <br>
+                        存储在寄存器，自动生存期、局部作用域。<br>
+                        从 C++ 11 开始，register 关键字被弃用
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] C++动态内存管理</h4>
+            <ul>    
+                <li>
+                    <a href="">new</a> type(初值)
+                    <span>
+                        申请一个变量的空间 <br>
+                        char* s = new char('a')
+                    </span>
+                </li>
+                <li>
+                    <a href="">new</a> type[常量表达式]
+                    <span>
+                        申请数组 <br>
+                        成功返回类型内存的地址，失败返回0（废弃NULL）<br>
+                        int* p = new int[10]
+                    </span>
+                </li>
+                <li>
+                    <a href="">delete</a> []指针名
+                    <span>
+                        删除一个变量/对象/数组空间 <br>
+                        delete s; <br>
+                        delete []p;
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 运算符</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">算术运算符</a>
+                    <span>
+                        + - * / % ++ -- <br>
+                        a++先赋值后运算，--a先运算后赋值 <br>
+                        无指数运算符
+                    </span>
+                </li>
+                <li>
+                    <a href="">位运算符</a>
+                    <span>
+                        & | ^ ~ << >> <br>
+                        左移1位*2，左移n位，*2的n次方 <br>
+                        右移1位/2，右移n位，/2的n次方
+                    </span>
+                </li>
+                <li>
+                    <a href="">关系运算符</a>
+                    <span>
+                        == != > < >= <=
+                    </span>
+                </li>
+                <li>
+                    <a href="">逻辑运算符</a>
+                    <span>
+                        && || !
+                    </span>
+                </li>
+                <li>
+                    <a href="">三元一次</a>
+                    <span>
+                        ?:
+                    </span>
+                </li>
+                <li>
+                    <a href="">赋值运算符</a>
+                    <span>
+                        = += -= *= /= %= <<= >>= &= ^= |=
+                    </span>
+                </li>
+                <li>
+                    <a href="">逗号运算符</a>
+                    <span>
+                        逗号表达式从左到右一次计算各表达式，将最右边的值赋给左侧
+                    </span>
+                </li>
+                <li>
+                    <a href="">优先级</a>
+                    <span>
+                        算术 -> 关系 -> 逻辑 -> 条件 -> 赋值 -> 逗号
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 判断</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">if</a>(exp){..}
+                    <span>
+                        if(exp){..}
+                    </span>
+                </li>
+                <li>
+                    <a href="">if..else..</a>
+                    <span>
+                        if(exp){..} <br>
+                        else{..}
+                    </span>
+                </li>
+                <li>
+                    <a href="">if..else if..</a>
+                    <span>
+                        if(exp){..} <br>
+                        else if(exp){..}
+                    </span>
+                </li>
+                <li>
+                    <a href="">switch</a>
+                    <span>
+                        switch(exp){ <br>
+                            case val :<br>
+                                break;<br>
+                            default:<br>
+                        }
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 循环</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">while</a>(exp){..}
+                    <span>
+                        while(exp){..}
+                    </span>
+                </li>
+                <li>
+                    <a href="">do..while..</a>
+                    <span>
+                        do{..}while(exp)
+                    </span>
+                </li>
+                <li>
+                    <a href="">for</a>
+                    <span>
+                        for(init;condition;increment){..} <br>
+                        1.init 会首先被执行，且只会执行一次。这一步允许您声明并初始化任何循环控制变量。您也可以不在这里写任何语句，只要有一个分号出现即可。 <br>
+                        2.接下来，会判断 condition。如果为真，则执行循环主体。如果为假，则不执行循环主体，且控制流会跳转到紧接着 for 循环的下一条语句 <br>
+                        3.在执行完 for 循环主体后，控制流会跳回上面的 increment 语句。该语句允许您更新循环控制变量。该语句可以留空，只要在条件后有一个分号出现即可 <br>
+                        4.条件再次被判断。如果为真，则执行循环，这个过程会不断重复（循环主体，然后增加步值，再然后重新判断条件）。在条件变为假时，for 循环终止
+                    </span>
+                </li>
+                <li>
+                    <a href="">break</a>
+                    <span>
+                        终止循环或 switch 语句，程序流将继续执行紧接着循环或 switch 的下一条语句
+                    </span>
+                </li>
+                <li>
+                    <a href="">continue</a>
+                    <span>
+                        告诉一个循环体立刻停止本次循环迭代，重新开始下次循环迭代。
+                    </span>
+                </li>
+                <li>
+                    <a href="">goto</a> label
+                    <span>
+                        将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 函数</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">$type fn</a>(arg){..}
+                    <span>
+                        1.默认总是传值传递，需要改变则需传入指针 <br>
+                        2.函数只有static和extern存储类，默认为extern类，外部使用声明均可使用，如设置static则仅在此文件有效。 <hr>
+                        3.函数指针：函数的名称存储的是函数的地址 <br>
+                        void (*ptr)() = f 函数指针 <br>
+                        (*ptr)() 通过函数指针调用函数 <br>
+                        void (*call[])() = {a,b}; 函数数组指针 <br>
+                        call[0]() 可调用数组的函数 <hr>
+                        C++: <br>
+                        1.支持函数重载(同名函数使用不同参数和返回值) <br>
+                        2.arg=default value 支持参数给定默认值（置后）<br>
+
+                    </span>
+                </li>
+                <li>
+                    inline <a href="">fn</a>
+                    <span>
+                        内联函数。当函数内容较小时，请求编译器优化，减少出栈入栈
+                    </span>
+                </li>
+                <li>
+                    <a href="">::var</a>
+                    <span>
+                        在C++函数内部可通过::var访问同名全局变量
+                    </span>
+                </li>
+                <li>
+                    <a href="">变量作用域</a>
+                    <span>
+                        块作用域： <br>
+                        1.块中定义的变量：块作用域 <br>
+                        2.函数内部定义的变量：函数内部定义位置起至函数结束 <br>
+                        3.函数形参：整个函数 <br>
+                        文件作用域：<br>
+                        1.从定义处到文件末尾，全局变量或全局静态变量 <br>
+                        2.如果跨文件引用，则需要用extern声明
+                    </span>
+                </li>
+                <li>
+                    <a href="">生存期</a>
+                    <span>
+                        内存区域：<br>
+                        1.代码区：存放程序的执行代码 <br>
+                        2.全局数据区：存放全局变量，静态变量（包括全局或局部），全局生存期 <br>
+                        3.栈区：存放局部变量，由顶向下，自动生存期 <br>
+                        4.堆区：存放动态变量，需申请和释放，动态生存期
+                    </span>
+                </li>
+                <li>
+                    <a href="">main</a>
+                    <span>
+                        main(int argc,char const *argv[]) <br>
+                        参数个数，参数列表（至少1个，为程序地址）
+                    </span>
+                </li>
+                <li>
+                    <a href="">[](arg){body}</a>
+                    <span>
+                        lambda表达式
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 面向对象</h4>
+            <ul style="display:none;">
+                
+            </ul>
+            <h4>[<span>+</span>] 模块</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">#include</a>
+                    <span>
+                        包含一个源代码文件 <br>
+                        #include &lt;stdio.h&gt; 从系统库中获取<br>
+                        #include "myheader.h" 从本地目录中获取
                     </span>
                 </li>
             </ul>
@@ -145,7 +579,11 @@
                     <a href="">#define</a>
                     <span>
                         #define PI 3.14 <br>
-                        定义一个常量
+                        定义一个常量 <hr>
+                        1.带参数的宏，参数与整体都应加括号 <br>
+                        2.宏定义不应加分号 <br>
+                        3.宏定义没有类型检查 <br>
+                        4.由宏定义函数会被反复展开，以空间换区效率
                     </span>
                 </li>
                 <li>
@@ -249,293 +687,6 @@
                     <a href="">__STDC__</a>
                     <span>
                         当编译器以 ANSI 标准编译时，则定义为 1
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>基本语法<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>+</span>] 变量与常量</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href=""></a>$type $var
-                    <span>
-                        int zero = 0 <br>
-                        定义变量并初始化 <br>
-                        当局部变量被定义时，系统不会对其初始化，须自行对其初始化。定义全局变量时，系统会自动对其初始化 <br>
-                        <table>
-                            <tr>
-                                <th>类型</th>
-                                <th>初始化默认值</th>
-                            </tr>
-                            <tr>
-                                <td>int</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>char</td>
-                                <td>'\0'</td>
-                            </tr>
-                            <tr>
-                                <td>float</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>double</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>pointer</td>
-                                <td>NULL</td>
-                            </tr>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">const</a> $type $var
-                    <span>
-                        const int zero = 0 <br>
-                        定义一个常量 <br>
-                        <a href="https://blog.csdn.net/qq_26685237/article/details/79587445">#define与const的区别</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 运算符</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">算术运算符</a>
-                    <span>
-                        + - * / % ++ -- <br>
-                        a++先赋值后运算，--a先运算后赋值 <br>
-                        无指数运算符
-                    </span>
-                </li>
-                <li>
-                    <a href="">位运算符</a>
-                    <span>
-                        & | ^ ~ << >>
-                    </span>
-                </li>
-                <li>
-                    <a href="">关系运算符</a>
-                    <span>
-                        == != > < >= <=
-                    </span>
-                </li>
-                <li>
-                    <a href="">逻辑运算符</a>
-                    <span>
-                        && || !
-                    </span>
-                </li>
-                <li>
-                    <a href="">三元一次</a>
-                    <span>
-                        ?:
-                    </span>
-                </li>
-                <li>
-                    <a href="">赋值运算符</a>
-                    <span>
-                        = += -= *= /= %= <<= >>= &= ^= |=
-                    </span>
-                </li>
-                <li>
-                    <a href="">逗号运算符</a>
-                    <span>
-                        逗号表达式从左到右一次计算各表达式，将最右边的值赋给左侧
-                    </span>
-                </li>
-                <li>
-                    <a href="">优先级</a>
-                    <span>
-                        算术 -> 关系 -> 逻辑 -> 条件 -> 赋值 -> 逗号
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 结构体/共用体</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">typedef</a> custom name
-                    <span>
-                        为用户自定义的数据类型取一个新的名字，可直接用于类型定义 <hr>
-                        typedef 仅限于为类型定义符号名称，#define 不仅可以为类型定义别名，也能为数值定义别名，比如您可以定义 1 为 ONE。 <br>
-                        typedef 是由编译器执行解释的，#define 语句是由预编译器进行处理的。
-                    </span>
-                </li>
-                <li>
-                    <a href="">.</a>
-                    <span>
-                        结构体成员访问运算符 <hr>
-                        定义结构体： struct Books {...} <br>
-                        声明变量Book1，类型为结构体Books： struct Books Book1 <br>
-                        访问Book1成员：Book1.prop
-                    </span>
-                </li>
-                <li>
-                    <a href="">-></a>
-                    <span>
-                        指针访问结构的成员 <hr>
-                        定义结构体： struct Books {...} <br>
-                        声明变量Book1，类型为结构体Books： struct Books Book1 <br>
-                        定义指向结构的指针： struct Books *ptr <br> 
-                        赋值指针地址： ptr = &Book1    <br>
-                        访问指针指向地址结构体的成员：ptr->prop
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 判断</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">if</a>(exp){..}
-                    <span>
-                        if(exp){..}
-                    </span>
-                </li>
-                <li>
-                    <a href="">if..else..</a>
-                    <span>
-                        if(exp){..} <br>
-                        else{..}
-                    </span>
-                </li>
-                <li>
-                    <a href="">if..else if..</a>
-                    <span>
-                        if(exp){..} <br>
-                        else if(exp){..}
-                    </span>
-                </li>
-                <li>
-                    <a href="">switch</a>
-                    <span>
-                        switch(exp){ <br>
-                            case val :<br>
-                                break;<br>
-                            default:<br>
-                        }
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 循环</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">while</a>(exp){..}
-                    <span>
-                        
-                    </span>
-                </li>
-                <li>
-                    <a href="">do..while..</a>
-                    <span>
-                        do{..}while(exp)
-                    </span>
-                </li>
-                <li>
-                    <a href="">for</a>
-                    <span>
-                        for(init;condition;increment){..} <br>
-                        1.init 会首先被执行，且只会执行一次。这一步允许您声明并初始化任何循环控制变量。您也可以不在这里写任何语句，只要有一个分号出现即可。 <br>
-                        2.接下来，会判断 condition。如果为真，则执行循环主体。如果为假，则不执行循环主体，且控制流会跳转到紧接着 for 循环的下一条语句 <br>
-                        3.在执行完 for 循环主体后，控制流会跳回上面的 increment 语句。该语句允许您更新循环控制变量。该语句可以留空，只要在条件后有一个分号出现即可 <br>
-                        4.条件再次被判断。如果为真，则执行循环，这个过程会不断重复（循环主体，然后增加步值，再然后重新判断条件）。在条件变为假时，for 循环终止
-                    </span>
-                </li>
-                <li>
-                    <a href="">break</a>
-                    <span>
-                        终止循环或 switch 语句，程序流将继续执行紧接着循环或 switch 的下一条语句
-                    </span>
-                </li>
-                <li>
-                    <a href="">continue</a>
-                    <span>
-                        告诉一个循环体立刻停止本次循环迭代，重新开始下次循环迭代。
-                    </span>
-                </li>
-                <li>
-                    <a href="">goto</a> label
-                    <span>
-                        将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 函数</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">$type fn</a>(arg){..}
-                    <span>
-                        默认总是传值传递，需要改变则需传入指针 <br>
-                        函数只有static和extern存储类，默认为extern类，外部使用声明均可使用，如设置static则仅在此文件有效。
-                    </span>
-                </li>
-                <li>
-                    <a href="">变量作用域</a>
-                    <span>
-                        块作用域： <br>
-                        1.块中定义的变量：块作用域 <br>
-                        2.函数内部定义的变量：函数内部定义位置起至函数结束 <br>
-                        3.函数形参：整个函数 <br>
-                        文件作用域：<br>
-                        1.从定义处到文件末尾，全局变量或全局静态变量 <br>
-                        2.如果跨文件引用，则需要用extern声明
-                    </span>
-                </li>
-                <li>
-                    <a href="">生存期</a>
-                    <span>
-                        内存区域：<br>
-                        1.代码区：存放程序的执行代码 <br>
-                        2.全局数据区：存放全局变量，静态变量（包括全局或局部），全局生存期 <br>
-                        3.栈区：存放局部变量，由顶向下，自动生存期 <br>
-                        4.堆区：存放动态变量，需申请和释放，动态生存期
-                    </span>
-                </li>
-                <li>
-                    <a href="">auto</a> var
-                    <span>
-                        只对内部变量有效 <br>
-                        存在在内存栈区，自动生存期，局部作用域。
-                    </span>
-                </li>
-                <li>
-                    <a href="">register</a> var
-                    <span>
-                        只对内部变量有效 <br>
-                        存储在寄存器，自动生存期、局部作用域。
-                    </span>
-                </li>
-                <li>
-                    <a href="">extern</a> va/fn
-                    <span>
-                        定义外部变量，不指定存储类别。 <br>
-                        存储在全局数据区，全局生存期，全局作用域
-                    </span>
-                </li>
-                <li>
-                    <a href="">static</a> va/fn
-                    <span>
-                        1.定义局部变量时 <br>
-                        存储在全局数据区，全局生存期，全局作用域 <br>
-                        2.定义在函数外面时 <br>
-                        存储在全局数据区，全局生存期，但为文件作用域，即作用域限制在声明它的文件内，外部无法使用extern引用。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 面向对象</h4>
-            <ul style="display:none;">
-                
-            </ul>
-            <h4>[<span>+</span>] 模块</h4>
-            <ul style="display:none;">
-                <li>
-                    <a href="">#include</a>
-                    <span>
-                        包含一个源代码文件 <br>
-                        #include &lt;stdio.h&gt; 从系统库中获取<br>
-                        #include "myheader.h" 从本地目录中获取
                     </span>
                 </li>
             </ul>
