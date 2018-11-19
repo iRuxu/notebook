@@ -183,6 +183,13 @@
                         宽字符型，2~4个字节
                     </span>
                 </li>
+                <li>
+                    <a href="">字符串</a> string
+                    <span>
+                        需引入#include string <br>
+                        并使用using std::string
+                    </span>
+                </li>
             </ul>
             <h4>[<span>-</span>] 类型操作</h4>
             <ul>
@@ -331,20 +338,21 @@
                 </li>
             </ul>
             <h4>[<span>+</span>] C++动态内存管理</h4>
-            <ul>    
+            <ul style="display:none;">    
                 <li>
                     <a href="">new</a> type(初值)
                     <span>
-                        申请一个变量的空间 <br>
-                        char* s = new char('a')
+                        动态申请一个变量的空间 <br>
+                        char* s = new char('a') <br>
+                        成功返回类型内存的地址，失败返回0（c++中废弃NULL）
                     </span>
                 </li>
                 <li>
                     <a href="">new</a> type[常量表达式]
                     <span>
-                        申请数组 <br>
-                        成功返回类型内存的地址，失败返回0（废弃NULL）<br>
-                        int* p = new int[10]
+                        动态申请一个数组的空间 <br>
+                        int* p = new int[10] <br>
+                        成功返回类型内存的地址，失败返回0
                     </span>
                 </li>
                 <li>
@@ -352,7 +360,8 @@
                     <span>
                         删除一个变量/对象/数组空间 <br>
                         delete s; <br>
-                        delete []p;
+                        delete []p; <br>
+                        delete只能用于删除指针，通常与new对应，同时应设置指针为0
                     </span>
                 </li>
             </ul>
@@ -499,10 +508,29 @@
                         (*ptr)() 通过函数指针调用函数 <br>
                         void (*call[])() = {a,b}; 函数数组指针 <br>
                         call[0]() 可调用数组的函数 <hr>
+                        变量作用域：<br>
+                        块作用域： <br>
+                        1.块中定义的变量：块作用域 <br>
+                        2.函数内部定义的变量：函数内部定义位置起至函数结束 <br>
+                        3.函数形参：整个函数 <br>
+                        文件作用域：<br>
+                        1.从定义处到文件末尾，全局变量或全局静态变量 <br>
+                        2.如果跨文件引用，则需要用extern声明
+                        <hr>
+                        变量生存期：<br>
+                        1.代码区：存放程序的执行代码 <br>
+                        2.全局数据区：存放全局变量，静态变量（包括全局或局部），全局生存期 <br>
+                        3.栈区：存放局部变量，由顶向下，自动生存期 <br>
+                        4.堆区：存放动态变量，需申请和释放，动态生存期
+                    </span>
+                </li>
+                <li>
+                    fn = <a href="">[]([arg]){...}</a>
+                    <span>
+                        lambda表达式 <br>
                         C++: <br>
                         1.支持函数重载(同名函数使用不同参数和返回值) <br>
                         2.arg=default value 支持参数给定默认值（置后）<br>
-
                     </span>
                 </li>
                 <li>
@@ -518,44 +546,98 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">变量作用域</a>
-                    <span>
-                        块作用域： <br>
-                        1.块中定义的变量：块作用域 <br>
-                        2.函数内部定义的变量：函数内部定义位置起至函数结束 <br>
-                        3.函数形参：整个函数 <br>
-                        文件作用域：<br>
-                        1.从定义处到文件末尾，全局变量或全局静态变量 <br>
-                        2.如果跨文件引用，则需要用extern声明
-                    </span>
-                </li>
-                <li>
-                    <a href="">生存期</a>
-                    <span>
-                        内存区域：<br>
-                        1.代码区：存放程序的执行代码 <br>
-                        2.全局数据区：存放全局变量，静态变量（包括全局或局部），全局生存期 <br>
-                        3.栈区：存放局部变量，由顶向下，自动生存期 <br>
-                        4.堆区：存放动态变量，需申请和释放，动态生存期
-                    </span>
-                </li>
-                <li>
                     <a href="">main</a>
                     <span>
                         main(int argc,char const *argv[]) <br>
                         参数个数，参数列表（至少1个，为程序地址）
                     </span>
                 </li>
+            </ul>
+            <h4>[<span>-</span>] 面向对象</h4>
+            <ul>
                 <li>
-                    <a href="">[](arg){body}</a>
+                    <a href="">class</a> Cls{..};
                     <span>
-                        lambda表达式
+                        声明定义一个类 <br>
+                        1.默认所有成员均为private，需主动设置public成员 <br>
+                        2.在class定义完末尾必须有分号结尾 <br>
+                        3.方法在类声明时中实现，自动成为内联函数，如在外部定义使用inline关键字 <br>
+                        inline type Cls::method(){..} <br>
+                        4.对象数组 Cls arr[] <br>
+
                     </span>
                 </li>
-            </ul>
-            <h4>[<span>+</span>] 面向对象</h4>
-            <ul style="display:none;">
-                
+                <li>
+                    Cls obj = <a href="">Cls(arg)</a>
+                    <span>
+                        栈区生成实例对象，返回该对象的变量 <hr>
+                        1.对象名声明后不可再更改，但对象指针可以指向新的对象 <br>
+                        2.拷贝对象成员 obj1 = obj2 <br>
+                        默认情况下，obj2的每个数据域都被拷贝到obj1中，但obj1和obj2仍为2个不同的对象 <br>
+                        3.匿名对象 Cls(arg).foo() <br>
+                        某些情况下无需给对象命名，作为临时使用 <br>
+                    </span>
+                </li>
+                <li>
+                    Cls *obj = <a href="">new Cls(arg)</a>
+                    <span>
+                        堆区生成实例对象，返回可访问该对象的指针 <hr>
+                        1.new之前通常对返回值做0判断，以防申请空间失败 <br>
+                        2.可通过delete obj显示地删除，同时设置obj = 0 <br>
+                    </span>
+                </li>
+                <li>
+                    Cls::<a href="">Cls()</a>
+                    <span>
+                        构造函数：<br>
+                        1.与类同名,无返回值与返回类型 <br>
+                        2.可不带参数，也可设置参数的默认值 type arg = default_value <br>
+                        3.可重载 <br>
+                        <hr>
+                        可使用初始化列表初始化数据域： <br>
+                        Cls::Cls(type val) :key1(val1),key2(val2) <br>
+                        1.若类的数据域是一个对象类型，该对象的无参构造函数会被自动调用，若没有无参构造函数，则编译器报错 <br>
+                        2.若类的数据域是一个对象类型，且没有无参构造函数，则该对象初始化必须放在初始化列表中。
+                    </span>
+                </li>
+                <li>
+                    Cls::~<a href="">Cls()</a>
+                    <span>
+                        析构函数：<br>
+                        1.在每次删除所创建的对象时执行,不会返回任何值,也不能带有任何参数,在跳出程序（比如关闭文件、释放内存等）前释放资源.
+                    </span>
+                </li>
+                <li>
+                    <a href="">this-></a>key
+                    <span>
+                        每一个对象都能通过 this 指针来访问自己的地址。<br>
+                        this 指针是所有成员函数的隐含参数，在成员函数内部，它可以用来指向调用对象。<br>
+                        友元函数没有 this 指针，因为友元不是类的成员。只有成员函数才有 this 指针。 <br>
+                        在成员中访问被屏蔽的实例其他成员时
+                    </span>
+                </li>
+                <li>
+                    <a href="">static</a>
+                    <span>
+                        静态成员数据： <br>
+                        类中声明 {static type var} <br>
+                        类外定义 type Cls::var = 0 <br>
+                        1.在类的所有对象中是共享的，只有1份。 <br>
+                        2.只能在外部进行定义（定义分配内存，初始化赋值） <hr>
+                        静态成员函数：<br>
+                        1.无需创建实例即可通过::使用 <br>
+                        2.只能访问静态成员数据、其他静态成员函数和类外部的其他函数 <br>
+                        3.没有 this 指针
+                    </span>
+                </li>
+                <li>
+                    <a href="">friend</a> fn/cls
+                    <span>
+                        友元函数/类有权访问私有和保护成员，但它不是成员函数 <br>
+                        1.友元在类中声明，在类外定义（定义时无cls关键字）<br>
+                        2.友元类的声明 friend class OtherClass（当前对象在友元中被实例化）
+                    </span>
+                </li>
             </ul>
             <h4>[<span>+</span>] 模块</h4>
             <ul style="display:none;">
