@@ -203,10 +203,24 @@
                     </span>
                 </li>
                 <li>
+                    <a href="">dynamic_cast</a>&lt;Cls*&gt; var
+                    <span>
+                        动态类型转换 <br>
+                        如果转换失败则返回0 <br>
+                        向上转型可隐式，向下转型必须显示声明
+                    </span>
+                </li>
+                <li>
                     <a href="">sizeof</a>(exp)
                     <span>
                         返回变量或类型的大小 <br>
                         静态运算符，不会对表示式做运算
+                    </span>
+                </li>
+                <li>
+                    <a href="">typeid</a>(val)
+                    <span>
+                        类型检查 #include typeinfo
                     </span>
                 </li>
                 <li>
@@ -572,10 +586,7 @@
                     <span>
                         栈区生成实例对象，返回该对象的变量 <hr>
                         1.对象名声明后不可再更改，但对象指针可以指向新的对象 <br>
-                        2.拷贝对象成员 obj1 = obj2 <br>
-                        默认情况下，obj2的每个数据域都被拷贝到obj1中，但obj1和obj2仍为2个不同的对象 <br>
-                        3.匿名对象 Cls(arg).foo() <br>
-                        某些情况下无需给对象命名，作为临时使用 <br>
+                        2.匿名对象 Cls(arg).foo() ，某些情况下无需给对象命名，作为临时使用 <br>
                     </span>
                 </li>
                 <li>
@@ -636,6 +647,36 @@
                         友元函数/类有权访问私有和保护成员，但它不是成员函数 <br>
                         1.友元在类中声明，在类外定义（定义时无cls关键字）<br>
                         2.友元类的声明 friend class OtherClass（当前对象在友元中被实例化）
+                    </span>
+                </li>
+                <li>
+                    Cls::<a href="">Cls</a>(const Cls&)
+                    <span>
+                        A.在定义好obj1与obj2之后，进行obj1 = obj2，此为拷贝对象成员 <br>
+                        默认情况下，obj2的每个数据域都被拷贝到obj1中，但obj1和obj2仍为2个不同的对象 <br>
+                        B.在声明obj1时，Cls obj1 = obj2，等同于 Cls obj1(obj2)，此为拷贝构造函数 <br>
+                        默认为浅拷贝，当有一个数据成员是指针，或者是有成员表示在构造函数中分配的其他资源时，应当定义拷贝构造函数以进行深拷贝
+                    </span>
+                </li>
+                <li>
+                    class <a href="">Subcls :</a> public Prtcls
+                    <span>
+                        继承 <br>
+                        1.派生类不继承析构函数、拷贝构造函数、友元函数、重载运算符 <br>
+                        2.公有继承、保护继承、私有继承 <br>
+                        3.当父类没有无参构造函数时，可在初始化列表显示声明 <br>
+                        Subclass::Subclass() : Cls(arg){} <hr>
+                        当有函数重定义时，可通过Cls::foo()调用父类方法
+                    </span>
+                </li>
+                <li>
+                    <a href="">virtual</a>
+                    <span>
+                        动态联编的条件： <br>
+                        1.基类中使用virtual关键字来声明函数 <br>
+                        2.调用时声明使用【基类指针/基类引用】<br>
+                        3.virtual type fn() = 0 纯虚函数 <br>
+                        派生类中可不再使用virtual关键字
                     </span>
                 </li>
             </ul>
