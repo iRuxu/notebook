@@ -1,99 +1,9 @@
 <div class="u-col">
 	<div class="u-block">
-		<h3>MySQL-库<span>-</span></h3>
+		<h3>MySQL-设计<span>-</span></h3>
 		<div class="u-list">
-			<h4>[<span>+</span>] 启动退出</h4>
-			<ul style="display:none;">
-				<li>
-					<a href="">sudo service mysql start</a>
-					<span>
-						打开mysql服务
-					</span>
-				</li>
-				<li>
-					<a href="">mysql -u root</a>
-					<span>
-						连接数据库 <br>
-					</span>
-				</li>
-				<li>
-					<a href="">quit</a>
-					<span>
-						\q 退出
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>] 导入导出</h4>
-			<ul style="display:none;">
-				<li>
-					<a href="">load data infile</a> $file into table tname
-					<span>
-						导入文件数据到表 <br>
-						LOAD DATA INFILE '文件路径和文件名' INTO TABLE 表名字;
-					</span>
-				</li>
-				<li>
-					<a href="">select * into outfile</a> $file from tname
-					<span>
-						导出数据到文件 <br>
-						SELECT 列1，列2 INTO OUTFILE '文件路径和文件名' FROM 表名字;
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>+</span>] 备份恢复</h4>
-			<ul style="display:none;">
-				<li>
-					<a href="">mysqldump</a> -u root dname>$file
-					<span>
-						mysqldump -u root 数据库名>备份文件名;   #备份整个数据库 <br>
-						mysqldump -u root 数据库名 表名字>备份文件名;  #备份整个表
-					</span>
-				</li>
-				<li>
-					<a href="">source</a> $file.sql
-					<span>
-						执行sql
-					</span>
-				</li>
-				<li>
-					mysql -u root tname <a href="">&lt;</a> $file.sql
-					<span>
-						导入sql
-					</span>
-				</li>
-			</ul>
-			<h4>[<span>-</span>] 库操作</h4>
+			<h4>[<span>-</span>] 数据类型</h4>
 			<ul>
-				<li>
-					<a href="">show databases</a>
-					<span>
-						查看全部数据库
-					</span>
-				</li>
-				<li>
-					<a href="">create database</a> dname
-					<span>
-						创建数据库
-					</span>
-				</li>
-				<li>
-					<a href="">drop database</a> dname
-					<span>
-						删除数据库
-					</span>
-				</li>
-				<li>
-					<a href="">use</a> dname
-					<span>
-						选择数据库
-					</span>
-				</li>
-			</ul>
-		</div>
-		<h3>MySQL-表<span>-</span></h3>
-		<div class="u-list">
-			<h4>[<span>+</span>] 数据类型</h4>
-			<ul style="display:none;">
 				<li>
 					<a href="">int</a> UNSIGNED
 					<span>
@@ -163,6 +73,108 @@
 					</span>
 				</li>
 			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>MySQL-管理<span>-</span></h3>
+		<div class="u-list" style="display:none;">
+			<h4>[<span>+</span>] 启动退出</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">sudo service mysql start</a>
+					<span>
+						打开mysql服务
+					</span>
+				</li>
+				<li>
+					<a href="">mysql -u root</a>
+					<span>
+						连接数据库 <br>
+					</span>
+				</li>
+				<li>
+					<a href="">quit</a>
+					<span>
+						\q 退出
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>] 导入导出</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">load data infile</a> $file into table tname
+					<span>
+						导入文件数据到表 <br>
+						LOAD DATA INFILE '文件路径和文件名' INTO TABLE 表名字;
+					</span>
+				</li>
+				<li>
+					<a href="">select * into outfile</a> $file from tname
+					<span>
+						导出数据到文件 <br>
+						SELECT 列1，列2 INTO OUTFILE '文件路径和文件名' FROM 表名字;
+					</span>
+				</li>
+			</ul>
+			<h4>[<span>+</span>] 备份恢复</h4>
+			<ul style="display:none;">
+				<li>
+					<a href="">mysqldump</a> -u root dname>$file
+					<span>
+						mysqldump -u root 数据库名>备份文件名;   #备份整个数据库 <br>
+						mysqldump -u root 数据库名 表名字>备份文件名;  #备份整个表
+					</span>
+				</li>
+				<li>
+					<a href="">source</a> $file.sql
+					<span>
+						执行sql
+					</span>
+				</li>
+				<li>
+					mysql -u root tname <a href="">&lt;</a> $file.sql
+					<span>
+						导入sql
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>MySQL-库<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 库操作</h4>
+			<ul>
+				<li>
+					<a href="">show databases</a>
+					<span>
+						查看全部数据库
+					</span>
+				</li>
+				<li>
+					<a href="">create database</a> dname
+					<span>
+						创建数据库
+					</span>
+				</li>
+				<li>
+					<a href="">drop database</a> dname
+					<span>
+						删除数据库
+					</span>
+				</li>
+				<li>
+					<a href="">use</a> dname
+					<span>
+						选择数据库
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="u-block">
+		<h3>MySQL-表<span>-</span></h3>
+		<div class="u-list">
 			<h4>[<span>-</span>] 表操作</h4>
 			<ul>
 				<li>
@@ -188,6 +200,15 @@
 					<a href="">alter table</a> tname ..
 					<span>
 						修改表
+					</span>
+				</li>
+				<li>
+					<a href="">truncate table</a> tname
+					<span>
+						复位表 <br>
+						truncate table tablename，直接删除表的所有数据，自增字段从初始值开始 <br> 
+						dbcc checkident(table,reseed,1)，不删除表中数据，重新设置自增字段的起始值 <br> 
+						alter table tablename auto_increment=1，不删除表中数据，重新设置自增字段的起始值 
 					</span>
 				</li>
 				<li>
@@ -290,6 +311,11 @@
 					<span>
 						constraint _key foreign key (key) references tname(col) <br>
 						指定一个外键；每个外键必须 REFERENCES (参考) 另一个表的主键，被外键约束的列，取值必须在它参考的列中有对应值。
+						<hr>
+						RESTRICT(限制)：如果你想删除的那个主表，它的下面有对应从表的记录，此主表将无法删除<br>
+						CASCADE ：如果主表中的纪录删除后，从表中的信息也会消失<br>
+						SET NULL：将外键设置为空。<br>
+						NO action : 什么也不做
 					</span>
 				</li>
 				<li>
@@ -300,5 +326,5 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+    </div>
 </div>

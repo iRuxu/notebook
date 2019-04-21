@@ -1,0 +1,115 @@
+<div class="u-col">
+	<div class="u-block">
+        <h3>MongoDB<span>-</span></h3>
+		<div class="u-list">
+			<h4>[<span>-</span>] 启动退出</h4>
+			<ul>
+                <li>
+                    <a href="">sudo service mongodb start</a>
+                    <span>
+                        启动服务
+                    </span>
+                </li>
+                <li>
+                    <a href="">mongo</a>
+                    <span>
+                        命令行界面
+                    </span>
+                </li>
+                <li>
+                    <a href="">exit</a>
+                    <span>
+                        退出
+                    </span>
+                </li>
+			</ul>
+            <h4>[<span>-</span>] 库</h4>
+            <ul>
+                <li>
+                    <a href="">use</a> $dname
+                    <span>
+                        创建/连接到指定数据库
+                    </span>
+                </li>
+                <li>
+                    <a href="">db.dropDatabase()</a>
+                    <span>
+                        删除当前数据库
+                    </span>
+                </li>
+                <li>
+                    <a href="">show dbs</a>
+                    <span>
+                        查看数据库 <br>
+                        数据库名可以是任何字符，但是不能有空格、点号和$字符
+                    </span>
+                </li>
+                <li>
+                    <a href="">db</a>
+                    <span>
+                        查看当前数据库对象或者集合 <br>
+                        查看当前连接的数据库
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 集合</h4>
+            <ul>
+                <li>
+                    <a href="">db.createCollection</a>(cname)
+                    <span>
+                        创建一个集合
+                    </span>
+                </li>
+                <li>
+                    db.$cname.<a href="">drop()</a>
+                    <span>
+                        删除一个集合
+                    </span>
+                </li>
+                <li>
+                    <a href="">show collections</a>
+                    <span>
+                        查看创建的集合
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 元数据</h4>
+            <ul>
+                <li>
+                    DBNAME.system.<a href="">namespaces</a>
+                    <span>
+                        列出所有名字空间
+                    </span>
+                </li>
+                <li>
+                    DBNAME.system.<a href="">indexs</a>
+                    <span>
+                        列出所有索引
+                    </span>
+                </li>
+                <li>
+                    DBNAME.system.<a href="">profile</a>
+                    <span>
+                        列出数据库概要信息
+                    </span>
+                </li>
+                <li>
+                    DBNAME.system.<a href="">users</a>
+                    <span>
+                        列出访问数据库的用户
+                    </span>
+                </li>
+                <li>
+                    DBNAME.system.<a href="">sources</a>
+                    <span>
+                        列出服务器信息
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 文档</h4>
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+</div>

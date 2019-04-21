@@ -351,34 +351,6 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] C++动态内存管理</h4>
-            <ul style="display:none;">    
-                <li>
-                    <a href="">new</a> type(初值)
-                    <span>
-                        动态申请一个变量的空间 <br>
-                        char* s = new char('a') <br>
-                        成功返回类型内存的地址，失败返回0（c++中废弃NULL）
-                    </span>
-                </li>
-                <li>
-                    <a href="">new</a> type[常量表达式]
-                    <span>
-                        动态申请一个数组的空间 <br>
-                        int* p = new int[10] <br>
-                        成功返回类型内存的地址，失败返回0
-                    </span>
-                </li>
-                <li>
-                    <a href="">delete</a> []指针名
-                    <span>
-                        删除一个变量/对象/数组空间 <br>
-                        delete s; <br>
-                        delete []p; <br>
-                        delete只能用于删除指针，通常与new对应，同时应设置指针为0
-                    </span>
-                </li>
-            </ul>
             <h4>[<span>+</span>] 运算符</h4>
             <ul style="display:none;">
                 <li>
@@ -567,6 +539,29 @@
                     </span>
                 </li>
             </ul>
+            <h4>[<span>-</span>] C++动态内存管理</h4>
+            <ul>    
+                <li>
+                    <a href="">new</a> type(初值)
+                    <span>
+                        为给定类型的变量在运行时分配堆内的内存<br>
+                        成功返回类型内存的地址，失败返回0（c++中废弃NULL）<br>   
+                        故如果自由存储区已被用完，可能无法成功分配内存，所以最好先进行判断
+                        <hr>
+                        char* s = new char('a') <br>
+                        int* p = new int[10] <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">delete</a> []指针名
+                    <span>
+                        删除之前由 new 运算符分配的内存<br>
+                        同时将指针设为0 <br>
+                        delete s; <br>
+                        delete [] p; <br>
+                    </span>
+                </li>
+            </ul>
             <h4>[<span>-</span>] 面向对象</h4>
             <ul>
                 <li>
@@ -688,6 +683,22 @@
                         包含一个源代码文件 <br>
                         #include &lt;stdio.h&gt; 从系统库中获取<br>
                         #include "myheader.h" 从本地目录中获取
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 其它</h4>
+            <ul>
+                <li>
+                    <a href="">namespace</a> nsp{..}
+                    <span>
+                        为了调用带有命名空间的函数或变量，需要在前面加上命名空间的名称 <br>
+                        nsp::foo()
+                    </span>
+                </li>
+                <li>
+                    <a href="">using namespace</a> nsp;
+                    <span>
+                        后续的代码将使用指定的命名空间中的名称
                     </span>
                 </li>
             </ul>
