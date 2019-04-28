@@ -7,11 +7,12 @@
                 <li>
                     <a href="">变量</a>
                     <span>
-                        变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。<br>
-                        1.<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658624177ea4f8fcb06bc4d0e8aab2fd7aa65dd95000">变量的指向</a><br>
-                        2.Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。<br>
-                        3.同时为多个变量赋值：a = b = c = 1 <br>
-                        4.为多个对象指定多个变量：a, b, c = 1, 2, "test"
+                        1.变量没有类型，类型属于对象，变量只是一个对象的引用（指针）<br>
+                        2.不可变类型：数值、字符串、元组；其余为可变类型 <br>
+                        3.Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。<br>
+                        4.同时为多个变量赋值：a = b = c = 1 <br>
+                        5.为多个对象指定多个变量：a, b, c = 1, 2, "test" <br>
+                        6.if/for/while等不会引入新的作用域，无块作用域
                     </span>
                 </li>
                 <li>
@@ -374,7 +375,7 @@
                 <li>
                     <a href="">if .. elif ..</a>
                     <span>
-                        elif
+                        在Python中没有switch – case语句
                     </span>
                 </li>
                 <li>
@@ -410,41 +411,166 @@
             <h4>[<span>+</span>] 函数</h4>
             <ul style="display:none">
                 <li>
-                    <a href="">def</a> fn(var):
-                    <span>定义函数</span>
+                    <a href="">def</a> fn(arg,*tup|**dic):
+                    <span>
+                        默认参数：<br>
+                        1.定义时通过arg=val赋值默认参数值<br>
+                        2.默认参数必须指向不变对象 <hr>
+                        参数关键词：<br>
+                        1.使用关键词参数时，允许与声明时的顺序不一致 fn(arg2=val2,arg1=val1)<br>
+                        2.如果单独出现星号 * 后的参数必须用关键字传入。 <hr>
+                        参数传递结果： <br>
+                        1.参数传入不可变类型时，传递的只是变量的值，没有影响变量本身，在函数内部修改变量，只是修改另一个复制的对象，不会影响原变量本身。 <br>
+                        2.参数传入可变类型时，为引用传递，会将变量的引用传递过去，在函数内部修改后，外部的变量也会受到影响。 <hr>
+                        参数解构： <br>
+                        1.加了*星号的参数会以元组的形式导入，存放所有未命名的变量参数<br>
+                        如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。 <br>
+                        2.加了**两个星号的参数会以字典的形式导入 <a href="http://www.runoob.com/python3/python3-function.html">参考资料</a> <br>
+                        3.传入一个*seq/**dict时，相当于解构seq/dict传入，注意此解构的内部变量是对kw的一份拷贝，不会影响到传入的原kw。
+                    </span>
                 </li>
                 <li>
-                    <a href="">global</a>var
-                    <span>定义或声明变量为全局</span>
+                    <a href="">lambda</a> arg : expression
+                    <span>
+                        1.将lambda表达式赋值给一个变量，成为一个匿名函数 <br>
+                        2.无需return，默认表达式的值就是return的值 <br>
+                        3.lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数
+                    </span>
+                </li>
+                <li>
+                    <a href="">global</a> var
+                    <span>
+                        全局作用域声明 <br>
+                        在内部作用域中需要修改外部作用域变量时
+                    </span>
+                </li>
+                <li>
+                    <a href="">nonlocal</a> var
+                    <span>
+                        外层作用域变量声明 <br>
+                        在内部作用域中需要修改外层作用域（非全局）变量时
+                    </span>
                 </li>
                 <li>
                     <a href="">return</a>
-                    <span>中断函数或从函数中返回一个值。<br>
-                    如果 return 语句没有搭配任何一个值则代表着 返回 None。<br>每一个函数都在其末尾隐含了一句 return None，除非你写了你自己的 return 语句。
+                    <span>
+                        1.退出函数并返回一个表达式/值，默认返回None <br>
+                        2.所谓可以返回多个值，但实际上是以一个元组返回，同时赋值给多个变量 <br>
+                        在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple <br>
+                    </span>
+                </li>
+                <li>
+                    newfn = <a href="">functools.partial</a>(oldfn,key=val)
+                    <span>
+                        偏函数 <br>
+                        import functools <br>
+                        newfn = functools.partial(oldfn,key=val) <br>
+                        <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 生成器与迭代器</h4>
+            <ul style="display:none">
+                <li>
+                    l = <a href="">[v_exp for v in ite if v ..]</a>
+                    <span>
+                        列表生成式： <br>
+                        [x * x for x in range(1, 11)] <br>
+                        [x for x in range(1, 11) if x % 2 == 0] <br>
+                        返回：一个列表list
+                    </span>
+                </li>
+                <li>
+                    g = <a href="">(v_exp for v in ite if v ..)</a>
+                    <span>
+                        将列表生成式的中括号改为括号则为生成器，也是一个可迭代类型 <br>
+                        返回：一个generator
+                    </span>
+                </li>
+                <li>
+                    <a href="">yeild</a> val
+                    <span>
+                        如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator，返回的也是一个generator对象。 <br>
+                        generator和函数的执行流程不一样。<br>
+                        函数是顺序执行，遇到return语句或者最后一行函数语句就返回。<br>
+                        而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+                    </span>
+                </li>
+                <li>
+                    <a href="">next</a>(Iterator)
+                    <span>
+                        每调用一次，获得迭代器的下一个返回值 <br>
+                        直到计算到最后一个元素，没有更多的元素时，抛出StopIteration的错误 <br>
+                        基本上永远不会调用next()，而是通过for循环来迭代它，并且不需要关心StopIteration的错误<br> 
+                        for n in g
                     </span>
                 </li>
             </ul>
             <h4>[<span>+</span>] 模块</h4>
             <ul style="display:none">
                 <li>
-                    <a href="">import</a>module
-                    <span>引入一个模块</span>
+                    <a href="">import</a> module,..
+                    <span>
+                        引入一个模块(内置/自定义) <br>
+                        对应的方法需要使用 module.name来使用 <br>
+                        一个文件就是一个模块
+                    </span>
                 </li>
                 <li>
-                    <a href="">form module import $</a>
-                    <span>将外部模块变量本地化<br>
-                    form module import * <br>
-                    引入全部变量与函数，但不包括以下划线开头部分。
+                    <a href="">form module import</a> name,..
+                    <span>
+                        从模块中导入一个指定的部分到当前命名空间<br>
+                        form module import * <br>
+                        引入全部变量与函数，但不包括以下划线开头部分 <br>
+                        此时将可以直接使用模块内部的名称
                     </span>
                 </li>
                 <li>
                     <a href="">__name__</a>
-                    <span>当模块为独立运行时，值为__main__</span>
+                    <span>
+                        当模块为独立运行时，值为__main__
+                    </span>
                 </li>
                 <li>
                     <a href="">dir</a>([module])
-                    <span>返回这一指定模块的名称列表，会包括函数内所定义的函数、类与变量。<br>
-                    参数为空时，返回当前模块的相关列表。</span>
+                    <span>
+                        返回这一指定模块内定义的所有名称，会包括函数内所定义的函数、类与变量。以字符串列表形式返回。 <br>
+                        参数为空时，返回当前模块的相关列表。
+                    </span>
+                </li>
+                <li>
+                    <a href="">sys.path.append</a>(mypath)
+                    <span>
+                        添加自己的搜索目录 <br>
+                        import sys <br>
+                        sys.path.append('/mypath')
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 包</h4>
+            <ul style="display:none">
+                <li>
+                    <a href="">import</a> pkg.module
+                    <span>
+                        引入某个包中的某个模块 <hr>
+                        一个目录就是一个包，必须放置__init__.py文件 <br>
+                        __init__.py本身就是一个模块，而它的模块名就是文件夹名 
+                    </span>
+                </li>
+                <li>
+                    <a href="">form pkg import</a> module,..
+                    <span>
+                        引入某个包中的某些模块 <br>
+                        <a href="https://www.jianshu.com/p/5cc20b88bcf4">参考资料</a> <br>
+                        python -m pkg.module
+                    </span>
+                </li>
+                <li>
+                    <a href="">__all__</a>
+                    <span>
+                        __all__ = ["modname1", "modname2"] <br>
+                        如果包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入
+                    </span>
                 </li>
             </ul>
             <h4>[<span>+</span>] 其它</h4>
@@ -535,6 +661,22 @@
                     </span>
                 </li>
                 <li>
+                    <a href="">Iterable</a>
+                    <span>
+                        from collections import Iterable <br>
+                        isinstance(val,Iterable) 是否为可迭代类型
+                    </span>
+                </li>
+                <li>
+                    <a href="">Iterator</a>
+                    <span>
+                        from collections import Iterator <br>
+                        isinstance((x for x in range(10)), Iterator) <br>
+                        可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator <br>
+                        生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator
+                    </span>
+                </li>
+                <li>
                     <a href="">None</a>
                     <span>
                         空值
@@ -550,11 +692,11 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">isinstance</a>(var,$type)
+                    <a href="">isinstance</a>(var,type)
                     <span>
                         判断变量所指的对象类型 <br>
                         isinstance(a, int) <br>
-                        type()不会认为子类是一种父类类型。isinstance()会认为子类是一种父类类型。
+                        type()不会认为子类是一种父类类型。isinstance()会认为子类是一种父类类型。 
                     </span>
                 </li>
             </ul>
@@ -569,13 +711,13 @@
                     <span>转换到布尔值</span>
                 </li>
                 <li>
-                    <a href="">list</a>(box)
+                    <a href="">list</a>(ite)
                     <span>
                         将序列/字典的key/可迭代对象转换为一个列表
                     </span>
                 </li>
                 <li>
-                    <a href="">tuple</a>(box)
+                    <a href="">tuple</a>(ite)
                     <span>将序列/字典的key/可迭代对象转换为一个元组</span>
                 </li>
                 <li>
@@ -588,45 +730,53 @@
                     </span>
                 </li>
                 <li>
-                    <a href="">set</a>(box)
+                    <a href="">set</a>(ite)
                     <span>
                         将序列/字典的key/可迭代对象转换为一个可变集合
                     </span>
                 </li>
                 <li>
-                    <a href="">frozenset</a>(box)
+                    <a href="">frozenset</a>(ite)
                     <span>转换为不可变集合</span>
+                </li>
+                <li>
+                    <a href="">enumerate</a>(ite,[start])
+                    <span>
+                        将一个可迭代对象输出一个枚举对象，默认start=0 <br> 
+                        例如list这样就可以在for循环中同时迭代索引和元素本身 <br>
+                        for i, value in enumerate(['A', 'B', 'C'])
+                    </span>
+                </li>
+                <li>
+                    <a href="">iter</a>(ite)
+                    <span>
+                        把list、dict、str等Iterable变成Iterator
+                    </span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-block">
-        <h3>通用<span>-</span></h3>
+        <h3>可迭代类型<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>-</span>] 序列集合操作</h4>
+            <h4>[<span>-</span>] 序列与集合操作</h4>
             <ul>
                 <li>
                     <a href="">len</a>(val)
                     <span>
-                        返回对象（字符、列表、元组、集合等）长度或项目个数
+                        返回对象（字符、列表、元组、字典、集合等）长度或项目个数
                     </span>
                 </li>
                 <li>
                     val <a href="">in</a> box
                     <span>
-                        如果序列/集合中包含给定的值/key返回 True
+                        如果对象（字符、列表、元组、字典、集合等）中包含给定的值/key返回 True
                     </span>
                 </li>
                 <li>
                     val <a href="">not in</a> box
                     <span>
-                        如果序列/集合中不包含给定的值/key返回 True
-                    </span>
-                </li>
-                <li>
-                    <a href="">for val in box</a>
-                    <span>
-                        遍历序列/集合的值/key
+                        如果对象（字符、列表、元组、字典、集合等）中不包含给定的值/key返回 True
                     </span>
                 </li>
             </ul>
@@ -648,29 +798,73 @@
                     seq<a href="">[n]</a>
                     <span>
                         序列（字符串/列表/元组）指定索引值的值。 <br>
-                        以 0 为开始值，-1 为从末尾的开始位置。 
+                        以 0 为开始值，-1 为从末尾的开始位置。 <br>
+                        下标从0开始，第x个数的索引为x-1，索引为n时该元素为第n+1个
                     </span>
                 </li>
                 <li>
-                    seq<a href="">[n:m]</a>
+                    seq<a href="">[n:m:[step]]</a>
                     <span>
                         截取序列（字符串/列表/元组）指定索引范围内的值。 <br> 
-                        seq[头下标:<尾下标>]，不包含最后位置
-                    </span>
-                </li>
-                <li>
-                    <a href="">max</a>(seq)
-                    <span>
-                        返回序列中元素最大值
-                    </span>
-                </li>
-                <li>
-                    <a href="">min</a>(seq)
-                    <span>
-                        返回序列中元素最小值
+                        seq[头下标:<尾下标>]，不包含最后位置 <br>
+                        seq[n:m]为从第n+1个数到第m+1个数，但不包括m+1位置上的数，总共有m-n个数 <br>
+                        seq[n::2]从n开始，每步进2（包含此指针位置上的数）进行提取 <br>
+                        <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431756919644a792ee4ead724ef7afab3f7f771b04f5000">参考资料</a>
                     </span>
                 </li>
             </ul>
+            <h4>[<span>-</span>] 可迭代类型</h4>
+            <ul>
+                <li>
+                    <a href="">for val in</a> ite
+                    <span>
+                        遍历可迭代对象的一个或多个值
+                    </span>
+                </li>
+                <li>
+                    <a href="">zip</a>(*ite)
+                    <span>
+                        聚合多个迭代器对象中的元素 <br>
+                        返回：Iterator <br>
+                        相同索引位置的元素构成一个元组
+                    </span>
+                </li>
+                <li>
+                    <a href="">map</a>(fn,ite)
+                    <span>
+                        遍历ite执行fn <br>
+                        返回：Iterator
+                    </span>
+                </li>
+                <li>
+                    <a href="">filter</a>(fn,ite)
+                    <span>
+                        过滤ite中执行fn返回True的元素 <br>
+                        返回：Iterator
+                    </span>
+                </li>
+                <li>
+                    <a href="">reduce</a>(fn,ite)
+                    <span>
+                        递归ite执行fn,fn应具备2个参数 <br>
+                        返回：函数中的return值 <br>
+                        注意引入：from functools import reduce <br>
+                    </span>
+                </li>
+                <li>
+                    <a href="">sorted</a>(ite,key=fn,[reverse=False])
+                    <span>
+                        对iterable中的项进行排序 <br>
+                        返回：一个新的列表 <br>
+                        key指定排序前执行的函数，reverse是否反向
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>全局函数<span>-</span></h3>
+        <div class="u-list">
             <h4>[<span>-</span>] 全局函数</h4>
             <ul>
                 <li>
@@ -690,229 +884,5 @@
             </ul>
         </div>
     </div>
-    <div class="u-block">
-        <h3>数值<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 进制转换</h4>
-            <ul>
-                <li>
-            		<a href="">int</a>(n,[base])
-            		<span>
-                        转换为一个整数 <br>
-                        base进制数，默认十进制 <br>
-                        除法 / 总是返回一个浮点数，使用//也不一定返回整数，需要使用int转换
-                    </span>
-            	</li>
-            	<li>
-            		<a href="">float</a>(n)
-            		<span>转换到一个浮点数</span>
-            	</li>
-            	<li>
-            		<a href="">complex</a>(real,[imag])
-            		<span>
-            			创建或转换为一个复数 <br>
-						complex(n) 将n转换到一个复数，实数部分为 n，虚数部分为 0。<br>
-						complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 yj。 <br>
-                        j的平方 = -1 , j的四次方 = 1
-            		</span>
-            	</li>
-                <li>
-                    <a href="">hex</a>(n)
-                    <span>
-                        转换为十六进制字符串
-                    </span>
-                </li>
-                <li>
-                    <a href="">oct</a>(n)
-                    <span>
-                        转换为一个八进制字符串
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 随机</h4>
-            <ul>
-                <li>
-                    <a href="">range</a>([start],stop,[step])
-                    <span>
-                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
-                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
-                        stop -- 指定范围内的结束值，不包含在范围内。<br>
-                        step -- 指定递增基数，缺省为1。<hr>
-                        range()函数返回的是一个【可迭代对象（类型是对象）】，而不是列表类型， 所以打印的时候不会打印列表。 <br>
-                        list() 函数是对象迭代器，可以把range()返回的可迭代对象转为一个列表，返回的变量类型为列表。 
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">randrange</a>([start],stop,[step])
-                    <span>
-                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
-                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
-                        stop -- 指定范围内的结束值，不包含在范围内。<br>
-                        step -- 指定递增基数，缺省为1。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">random()</a>
-                    <span>
-                        随机生成下一个实数，它在[0,1)范围内。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">uniform</a>(x,y)
-                    <span>
-                       随机生成下一个实数，它在[x,y]范围内。 
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">choice</a>(seq)
-                    <span>
-                        从序列的元素中随机挑选一个元素<br>
-                        比如random.choice(range(10))，从0到9中随机挑选一个整数。
-                    </span>
-                </li>
-                <li>
-                    random.<a href="">seed</a>(x)
-                    <span>
-                        改变随机数生成器的种子seed。
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-block">
-        <h3>数学<span>-</span></h3>
-        <div class="u-list">
-            <h4>[<span>-</span>] 取值函数</h4>
-            <ul>
-                <li>
-                    <a href="">abs</a>(x)
-                    <span>绝对值，返回数字的绝对值，如abs(-10) 返回 10</span>
-                </li>
-                <li>
-                    <a href="">round</a>(x,[n])
-                    <span>返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</span>
-                </li>
-                <li>
-                    math.<a href="">ceil</a>(x)
-                    <span>向上取整，返回数字的上入整数，如math.ceil(4.1) 返回 5</span>
-                </li>
-                <li>
-                    math.<a href="">floor</a>(x)
-                    <span>向下取整，返回数字的下舍整数，如math.floor(4.9)返回 4</span>
-                </li>
-                <li>
-                    math.<a href="">modf</a>(x)
-                    <span>返回x的小数部分与整数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</span>
-                </li>
-                <li>
-                    <a href="">max</a>(x,y,z)
-                    <span>返回给定参数的最大值，参数可以为序列。</span>
-                </li>
-                <li>
-                    <a href="">min</a>(x,y,z)
-                    <span>返回给定参数的最小值，参数可以为序列。</span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 指数对数</h4>
-            <ul>
-                <li>
-                    math.<a href="">sqrt</a>(x)
-                    <span>返回数字x的平方根，数字可以为负数，返回类型为实数，如math.sqrt(4)返回 2+0j</span>
-                </li>
-                <li>
-                    <a href="">pow</a>(x,y,[z])
-                    <span>
-                        返回 xy（x的y次方） 的值。<br>
-                        如果z在存在，则再对结果进行取模，其结果等效于pow(x,y) %z
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">exp</a>(x)
-                    <span>返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</span>
-                </li>
-                <li>
-                    math.<a href="">log</a>(x)
-                    <span>如math.log(math.e)返回1.0。math.log(100,10)返回2.0</span>
-                </li>
-                <li>
-                    math.<a href="">log10</a>(x)
-                    <span>返回以10为基数的x的对数，如math.log10(100)返回 2.0</span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 三角函数</h4>
-            <ul style="display:none;">
-                <li>
-                    math.<a href="">acos</a>(x)
-                    <span>
-                        返回x的反余弦弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">asin</a>(x)
-                    <span>
-                        返回x的反正弦弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">atan</a>(x)
-                    <span>
-                        返回x的反正切弧度值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">atan2</a>(y,x)
-                    <span>
-                        返回给定的 X 及 Y 坐标值的反正切值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">cos</a>(x)
-                    <span>
-                        返回x的弧度的余弦值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">sin</a>(x)
-                    <span>
-                        返回的x弧度的正弦值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">tan</a>(x)
-                    <span>
-                        返回x弧度的正切值。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">hypot</a>(x, y)
-                    <span>
-                        返回欧几里德范数 sqrt(x*x + y*y)。
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">degrees</a>(x)
-                    <span>
-                        将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0
-                    </span>
-                </li>
-                <li>
-                    math.<a href="">radians</a>(x)
-                    <span>
-                        将角度转换为弧度
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 数学常数</h4>
-            <ul style="display:none;">
-                <li>
-                    math.<a href="">e</a>
-                    <span>自然常数e（约为2.71828）</span>
-                </li>
-                <li>
-                    math.<a href="">pi</a>
-                    <span>圆周率（约为3.14159）</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+    
 </div>

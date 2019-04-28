@@ -1,452 +1,252 @@
 <div class="u-col">
     <div class="u-block">
-        <h3>字符串<span>-</span></h3>
+        <h3>数值<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>+</span>] 语法</h4>
+            <h4>[<span>-</span>] 进制转换</h4>
+            <ul>
+                <li>
+            		<a href="">int</a>(n,[base])
+            		<span>
+                        转换为一个整数 <br>
+                        base进制数，默认十进制 <br>
+                        除法 / 总是返回一个浮点数，使用//也不一定返回整数，需要使用int转换
+                    </span>
+            	</li>
+            	<li>
+            		<a href="">float</a>(n)
+            		<span>转换到一个浮点数</span>
+            	</li>
+            	<li>
+            		<a href="">complex</a>(real,[imag])
+            		<span>
+            			创建或转换为一个复数 <br>
+						complex(n) 将n转换到一个复数，实数部分为 n，虚数部分为 0。<br>
+						complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 yj。 <br>
+                        j的平方 = -1 , j的四次方 = 1
+            		</span>
+            	</li>
+                <li>
+                    <a href="">hex</a>(n)
+                    <span>
+                        将一个整数转变为一个前缀为“0x”的十六进制字符串
+                    </span>
+                </li>
+                <li>
+                    <a href="">oct</a>(n)
+                    <span>
+                        将一个整数转变为一个前缀为“0o”的八进制字符串
+                    </span>
+                </li>
+                <li>
+                    <a href="">bin</a>(n)
+                    <span>
+                        将一个整数转变为一个前缀为“0b”的二进制字符串
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 随机</h4>
+            <ul>
+                <li>
+                    <a href="">range</a>([start],stop,[step])
+                    <span>
+                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
+                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
+                        stop -- 指定范围内的结束值，不包含在范围内。<br>
+                        step -- 指定递增基数，缺省为1。<hr>
+                        range()函数返回的是一个【可迭代对象（类型是对象）】，而不是列表类型， 所以打印的时候不会打印列表。 <br>
+                        list() 函数是对象迭代器，可以把range()返回的可迭代对象转为一个列表，返回的变量类型为列表。 
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">randrange</a>([start],stop,[step])
+                    <span>
+                        从指定范围内，按指定基数递增的集合中获取一个随机数 <br>
+                        start -- 指定范围内的开始值，包含在范围内，缺省为0。<br>
+                        stop -- 指定范围内的结束值，不包含在范围内。<br>
+                        step -- 指定递增基数，缺省为1。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">random()</a>
+                    <span>
+                        随机生成下一个实数，它在[0,1)范围内。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">uniform</a>(x,y)
+                    <span>
+                       随机生成下一个实数，它在[x,y]范围内。 
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">choice</a>(seq)
+                    <span>
+                        从序列的元素中随机挑选一个元素<br>
+                        比如random.choice(range(10))，从0到9中随机挑选一个整数。
+                    </span>
+                </li>
+                <li>
+                    random.<a href="">seed</a>(x)
+                    <span>
+                        改变随机数生成器的种子seed。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>数学<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 常用函数</h4>
+            <ul>
+                <li>
+                    <a href="">sum</a>(ite,[start])
+                    <span>
+                        从 start 开始自左向右对 iterable 中的项求和并返回总计值。 start 默认为 0。 iterable 的项通常为数字，开始值则不允许为字符串。
+                    </span>
+                </li>
+                <li>
+                    <a href="">max</a>(ite)
+                    <span>
+                        返回可迭代对象中最大的元素
+                    </span>
+                </li>
+                <li>
+                    <a href="">min</a>(ite)
+                    <span>
+                        返回可迭代对象中最小的元素
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 取值函数</h4>
+            <ul>
+                <li>
+                    <a href="">abs</a>(x)
+                    <span>绝对值，返回数字的绝对值，如abs(-10) 返回 10</span>
+                </li>
+                <li>
+                    <a href="">round</a>(x,[n])
+                    <span>返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</span>
+                </li>
+                <li>
+                    math.<a href="">ceil</a>(x)
+                    <span>向上取整，返回数字的上入整数，如math.ceil(4.1) 返回 5</span>
+                </li>
+                <li>
+                    math.<a href="">floor</a>(x)
+                    <span>向下取整，返回数字的下舍整数，如math.floor(4.9)返回 4</span>
+                </li>
+                <li>
+                    math.<a href="">modf</a>(x)
+                    <span>返回x的小数部分与整数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</span>
+                </li>
+                <li>
+                    <a href="">max</a>(x,y,z)
+                    <span>返回给定参数的最大值，参数可以为序列。</span>
+                </li>
+                <li>
+                    <a href="">min</a>(x,y,z)
+                    <span>返回给定参数的最小值，参数可以为序列。</span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 指数对数</h4>
+            <ul>
+                <li>
+                    math.<a href="">sqrt</a>(x)
+                    <span>返回数字x的平方根，数字可以为负数，返回类型为实数，如math.sqrt(4)返回 2+0j</span>
+                </li>
+                <li>
+                    <a href="">pow</a>(x,y,[z])
+                    <span>
+                        返回 xy（x的y次方） 的值。<br>
+                        如果z在存在，则再对结果进行取模，其结果等效于pow(x,y) %z
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">exp</a>(x)
+                    <span>返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</span>
+                </li>
+                <li>
+                    math.<a href="">log</a>(x)
+                    <span>如math.log(math.e)返回1.0。math.log(100,10)返回2.0</span>
+                </li>
+                <li>
+                    math.<a href="">log10</a>(x)
+                    <span>返回以10为基数的x的对数，如math.log10(100)返回 2.0</span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 三角函数</h4>
             <ul style="display:none;">
                 <li>
-                    <a href="">"""</a>
+                    math.<a href="">acos</a>(x)
                     <span>
-                        多行字符串/注释
+                        返回x的反余弦弧度值。
                     </span>
                 </li>
                 <li>
-                    <a href="">r</a>"str"
+                    math.<a href="">asin</a>(x)
                     <span>
-                        原始字符串，即通过在字符串前加r或R。 <br>
-                        如 r"this is a line with \n" 则\n会显示，并不是换行。
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>转义字符</th>
-                                    <th>描述</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>\(在行尾时)</td>
-                                    <td>续行符</td>
-                                </tr>
-                                <tr>
-                                    <td>\\</td>
-                                    <td>反斜杠符号</td>
-                                </tr>
-                                <tr>
-                                    <td>\'</td>
-                                    <td>单引号</td>
-                                </tr>
-                                <tr>
-                                    <td>\"</td>
-                                    <td>双引号</td>
-                                </tr>
-                                <tr>
-                                    <td>\a</td>
-                                    <td>响铃</td>
-                                </tr>
-                                <tr>
-                                    <td>\b</td>
-                                    <td>退格(Backspace)</td>
-                                </tr>
-                                <tr>
-                                    <td>\e</td>
-                                    <td>转义</td>
-                                </tr>
-                                <tr>
-                                    <td>\000</td>
-                                    <td>空</td>
-                                </tr>
-                                <tr>
-                                    <td>\n</td>
-                                    <td>换行</td>
-                                </tr>
-                                <tr>
-                                    <td>\v</td>
-                                    <td>纵向制表符</td>
-                                </tr>
-                                <tr>
-                                    <td>\t</td>
-                                    <td>横向制表符</td>
-                                </tr>
-                                <tr>
-                                    <td>\r</td>
-                                    <td>回车</td>
-                                </tr>
-                                <tr>
-                                    <td>\f</td>
-                                    <td>换页</td>
-                                </tr>
-                                <tr>
-                                    <td>\oyy</td>
-                                    <td>八进制数，yy代表的字符，例如：\o12代表换行</td>
-                                </tr>
-                                <tr>
-                                    <td>\xyy</td>
-                                    <td>十六进制数，yy代表的字符，例如：\x0a代表换行</td>
-                                </tr>
-                                <tr>
-                                    <td>\other</td>
-                                    <td>其它的字符以普通格式输出</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        返回x的反正弦弧度值。
                     </span>
                 </li>
                 <li>
-                    <a href="">%</a>type
+                    math.<a href="">atan</a>(x)
                     <span>
-                        格式字符串
-                        <a href="http://www.runoob.com/python3/python3-string.html">参考资料</a> <br>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>符 号</th>
-                                    <th>描述</th>
-                                </tr>
-                                <tr>
-                                    <td> %c</td>
-                                    <td>格式化字符及其ASCII码</td>
-                                </tr>
-                                <tr>
-                                    <td> %s</td>
-                                    <td>格式化字符串</td>
-                                </tr>
-                                <tr>
-                                    <td> %d</td>
-                                    <td>格式化整数</td>
-                                </tr>
-                                <tr>
-                                    <td> %u</td>
-                                    <td>格式化无符号整型</td>
-                                </tr>
-                                <tr>
-                                    <td> %o</td>
-                                    <td>格式化无符号八进制数</td>
-                                </tr>
-                                <tr>
-                                    <td> %x</td>
-                                    <td>格式化无符号十六进制数</td>
-                                </tr>
-                                <tr>
-                                    <td> %X</td>
-                                    <td>格式化无符号十六进制数（大写）</td>
-                                </tr>
-                                <tr>
-                                    <td> %f</td>
-                                    <td>格式化浮点数字，可指定小数点后的精度</td>
-                                </tr>
-                                <tr>
-                                    <td> %e</td>
-                                    <td>用科学计数法格式化浮点数</td>
-                                </tr>
-                                <tr>
-                                    <td> %E</td>
-                                    <td>作用同%e，用科学计数法格式化浮点数</td>
-                                </tr>
-                                <tr>
-                                    <td> %g</td>
-                                    <td>%f和%e的简写</td>
-                                </tr>
-                                <tr>
-                                    <td> %G</td>
-                                    <td>%f 和 %E 的简写</td>
-                                </tr>
-                                <tr>
-                                    <td> %p</td>
-                                    <td>用十六进制数格式化变量的地址</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        返回x的反正切弧度值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">atan2</a>(y,x)
+                    <span>
+                        返回给定的 X 及 Y 坐标值的反正切值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">cos</a>(x)
+                    <span>
+                        返回x的弧度的余弦值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">sin</a>(x)
+                    <span>
+                        返回的x弧度的正弦值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">tan</a>(x)
+                    <span>
+                        返回x弧度的正切值。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">hypot</a>(x, y)
+                    <span>
+                        返回欧几里德范数 sqrt(x*x + y*y)。
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">degrees</a>(x)
+                    <span>
+                        将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0
+                    </span>
+                </li>
+                <li>
+                    math.<a href="">radians</a>(x)
+                    <span>
+                        将角度转换为弧度
                     </span>
                 </li>
             </ul>
-            <h4>[<span>-</span>] 编码</h4>
-            <ul>
+            <h4>[<span>+</span>] 数学常数</h4>
+            <ul style="display:none;">
                 <li>
-                    <a href="">chr</a>(n)
-                    <span>
-                        把Unicode编码转换为对应的字符
-                    </span>
+                    math.<a href="">e</a>
+                    <span>自然常数e（约为2.71828）</span>
                 </li>
                 <li>
-                    <a href="">ord</a>(val)
-                    <span>
-                        获取字符的Unicode编码数字
-                        <hr>
-                        ord(s) -> Unicode编码数字 <br>
-                        hex(ord(s)) -> 十六进制 <br>
-                        '\u' + hex(ord(s)) Unicode表示法 <br>
-                        <a
-                            href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.encode</a>(encoding='UTF-8')
-                    <span>
-                        以指定的编码格式编码字符串 <br>
-                        该方法返回编码后的字符串，它是一个 bytes 对象。
-                    </span>
-                </li>
-                <li>
-                    $bytes<a href="">.decode</a>(encoding="UTF-8")
-                    <span>
-                        以指定的编码格式解码 bytes 对象。默认编码为 'utf-8'。
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 检测</h4>
-            <ul>
-                <li>
-                    str<a href="">.isalnum()</a>
-                    <span>
-                        检测字符串是否由字母和数字组成 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.isalpha()</a>
-                    <span>
-                        检测字符串是否只由字母组成 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.isdigit()</a>
-                    <span>
-                        检测字符串是否只由数字组成 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.isnumeric()</a>
-                    <span>
-                        检测字符串是否只由数字组成。这种方法是只针对unicode对象 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.isdecimal()</a>
-                    <span>
-                        检查字符串是否只包含十进制字符。这种方法只存在于unicode对象 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.islower()</a>
-                    <span>
-                        检测字符串是否由小写字母组成 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.issupper()</a>
-                    <span>
-                        检测字符串中所有的字母是否都为大写 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.istitle()</a>
-                    <span>
-                        检测字符串中所有的单词拼写首字母是否为大写，且其他字母为小写 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.isspace()</a>
-                    <span>
-                        检测字符串是否只由空白字符组成 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 转换</h4>
-            <ul>
-                <li>
-                    str<a href="">.lower()</a>
-                    <span>
-                        转换字符串中所有大写字符为小写 <br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.upper()</a>
-                    <span>
-                        转换字符串中的小写字母为大写<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.title()</a>
-                    <span>
-                        单词都是以大写开始，其余字母均为小写<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.capitalize()</a>
-                    <span>
-                        将字符串的第一个字符转换为大写<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.swapcase()</a>
-                    <span>
-                        将字符串中大写转换为小写，小写转换为大写<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 查找</h4>
-            <ul>
-                <li>
-                    str<a href="">.count</a>(sub,[start,end])
-                    <span>
-                        统计字符串里某个字符出现的次数 <br>
-                        sub -- 搜索的子字符串 <br>
-                        start -- 字符串开始搜索的位置。默认为第一个字符,第一个字符索引值为0。 <br>
-                        end -- 字符串中结束搜索的位置。字符中第一个字符的索引为 0。默认为字符串的最后一个位置。
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.find</a>(sub,[start,end])
-                    <span>
-                        检测字符串中是否包含子字符串 <br>
-                        返回值：索引 | -1
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.rfind</a>(sub,[start,end])
-                    <span>
-                        类似于 find()函数，不过是从右边开始查找 <br>
-                        返回值：索引 | -1
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.startswith</a>(sub,[start,end])
-                    <span>
-                        判断字符串是否以指定字符开始 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.endswith</a>(sub,[start,end])
-                    <span>
-                        判断字符串是否以指定后缀结尾 <br>
-                        返回值：True | False
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 连接分割</h4>
-            <ul>
-                <li>
-                    syb<a href="">.join</a>(seq)
-                    <span>
-                        将seq中的元素以指定的syb连接生成一个新的字符串 <br>
-                        '-'.join('aaa') <br>
-                        返回值：新的字符串
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.split</a>([syb,n])
-                    <span>
-                        指定分隔符对字符串进行切片 <br>
-                        默认syb为所有的空字符，包括空格、换行(\n)、制表符(\t)等 <br>
-                        n默认为-1，即分割所有；如果n有指定值，则仅分割n次 <br>
-                        返回值：分割后的字符串列表
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.splitlines</a>([True/False])
-                    <span>
-                        按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表 <br>
-                        如为True则保留换行符，默认为 False。<br>
-                        返回值：分割后的字符串列表
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 填充/替换</h4>
-            <ul>
-                <li>
-                    str.<a href="">replace</a>(old,new,[n])
-                    <span>
-                        把 将字符串中的 str1 替换成 str2,如果 n 指定，则替换不超过 n 次 <br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.strip</a>([sub])
-                    <span>
-                        移除字符串头尾指定的字符（默认为空格）或字符序列 <br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.lstrip</a>([sub])
-                    <span>
-                        截掉字符串左边的空格或指定字符(多个)，默认值为空格<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.rstrip</a>([sub])
-                    <span>
-                        删除字符串末尾的指定字符（默认为空格）<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.center</a>(len,[fills])
-                    <span>
-                        居中方式填充一个字符串至指定长度<br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.ljust</a>(len,[fills])
-                    <span>
-                        左固定方式在右边填充一个字符串至指定长度<br>
-                        fills只能为一个字符；默认为空格；如果默认字符大于len则直接返回原字符串 <br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.rjust</a>(len,[fills])
-                    <span>
-                        右固定方式在左边填充一个字符串至指定长度<br>
-                        fills只能为一个字符；默认为空格；如果默认字符大于len则直接返回原字符串 <br>
-                        返回值：新的字符串（原字符串不变）
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.expandtabs</a>([n])
-                    <span>
-                        把字符串中的 tab 符号('\t')转为空格，默认值为8
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>-</span>] 映射</h4>
-            <ul>
-                <li>
-                    str<a href="">.maketrans</a>(intab,outtab)
-                    <span>
-                        创建字符映射的转换表 <br>
-                        两个字符串的长度必须相同，为一一对应的关系 <br>
-                        返回一个翻译表 <br>
-                        <a href="http://www.runoob.com/python3/python3-string-maketrans.html">参考资料</a>
-                    </span>
-                </li>
-                <li>
-                    str<a href="">.translate</a>(tab)
-                    <span>
-                        根据参数table给出的表(包含 256 个字符)转换字符串的字符
-                        <hr>
-                        intab = 'abc' <br>
-                        outtab = '123' <br>
-                        str = 'haha' <br>
-                        t = str.maketrans(intab,outtab) <br>
-                        s = str.translate(t)
-                    </span>
+                    math.<a href="">pi</a>
+                    <span>圆周率（约为3.14159）</span>
                 </li>
             </ul>
         </div>
