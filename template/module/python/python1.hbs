@@ -251,4 +251,320 @@
             </ul>
         </div>
     </div>
+    <div class="u-block">
+        <h3>日期时间<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 创建</h4>
+            <ul>
+                <li>
+                    <a href="">日期格式化符号</a>
+                    <span>
+                        timestamp是一个浮点数，它没有时区的概念，而datetime是有时区的 <hr>
+                        <table>
+                            <tr>
+                                <th>格式化符号</th>
+                                <th>表示</th>
+                                <th>值示例</th>
+                            </tr>
+                            <tr>
+                                <td>%Y</td>
+                                <td>四位数的年份表示（000-9999）</td>
+                                <td>2019</td>
+                            </tr>
+                            <tr>
+                                <td>%y</td>
+                                <td>两位数的年份表示（00-99）</td>
+                                <td>19</td>
+                            </tr>
+                            <tr>
+                                <td>%m</td>
+                                <td>月份（01-12）</td>
+                                <td>05</td>
+                            </tr>
+                            <tr>
+                                <td>%d</td>
+                                <td>月内中的一天（0-31）</td>
+                                <td>06</td>
+                            </tr>
+                            <tr>
+                                <td>%H</td>
+                                <td>24小时制小时数（0-23）</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>%I</td>
+                                <td>12小时制小时数（01-12）</td>
+                                <td>02</td>
+                            </tr>
+                            <tr>
+                                <td>%M</td>
+                                <td>分钟数（00=59）</td>
+                                <td>38</td>
+                            </tr>
+                            <tr>
+                                <td>%S</td>
+                                <td>秒（00-59）</td>
+                                <td>48</td>
+                            </tr>
+                            <tr>
+                                <td>%a</td>
+                                <td>本地简化星期名称</td>
+                                <td>Mon</td>
+                            </tr>
+                            <tr>
+                                <td>%A</td>
+                                <td>本地完整星期名称</td>
+                                <td>Monday</td>
+                            </tr>
+                            <tr>
+                                <td>%b</td>
+                                <td>本地简化的月份名称</td>
+                                <td>May</td>
+                            </tr>
+                            <tr>
+                                <td>%B</td>
+                                <td>本地完整的月份名称</td>
+                                <td>July</td>
+                            </tr>
+                            <tr>
+                                <td>%c</td>
+                                <td>本地相应的日期表示和时间表示</td>
+                                <td>Mon May  6 14:40:28 2019</td>
+                            </tr>
+                            <tr>
+                                <td>%j</td>
+                                <td>年内的一天（001-366）</td>
+                                <td>126</td>
+                            </tr>
+                            <tr>
+                                <td>%p</td>
+                                <td>本地A.M.或P.M.的等价符</td>
+                                <td>PM</td>
+                            </tr>
+                            <tr>
+                                <td>%U</td>
+                                <td>一年中的星期数（00-53）星期天为星期的开始</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td>%w</td>
+                                <td>星期（0-6），星期天为星期的开始</td>
+                                <td>星期天为0，星期一为1</td>
+                            </tr>
+                            <tr>
+                                <td>%W</td>
+                                <td>一年中的星期数（00-53）星期一为星期的开始</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>%x</td>
+                                <td>本地相应的日期表示</td>
+                                <td>05/06/19</td>
+                            </tr>
+                            <tr>
+                                <td>%X</td>
+                                <td>本地相应的时间表示</td>
+                                <td>00:00:00</td>
+                            </tr>
+                            <tr>
+                                <td>%Z</td>
+                                <td>当前时区的名称</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </span>
+                </li>
+                <li>
+                    datetime<a href="">.now()</a>
+                    <span>
+                        from datetime import datetime <br>
+                        返回当前时间datetime实例 <br>
+                        2015-05-18 16:28:07.198690
+                    </span>
+                </li>
+                <li>
+                    time<a href="">.time()</a>
+                    <span>
+                        import time 引入time模块 <br>
+                        返回当前时间戳
+                    </span>
+                </li>
+                <li>
+                    time<a href="">.localtime</a>([n])
+                    <span>
+                        返回当前时间元组 <br>
+                        time.struct_time(tm_year=2015, tm_mon=1, tm_mday=12, tm_hour=23, tm_min=10, tm_sec=30, tm_wday=0, tm_yday=12, tm_isdst=0)
+                    </span>
+                </li>
+                <li>
+                    datetime<a href="">(y,m,d,h,m,s,ms)</a>
+                    <span>
+                        返回一个指定时间datetime实例
+                    </span>
+                </li>
+                <li>
+                    datetime<a href="">.strptime</a>(str,%f)
+                    <span>
+                        返回一个指定时间datetime实例 <br>
+                        cday = datetime.strptime('2015-6-1 18:19:59', '%Y-%m-%d %H:%M:%S')
+                    </span>
+                </li>
+                <li>
+                    datetime<a href="">.fromtimestamp</a>(n)
+                    <span>
+                        把timestamp转换为datetime实例 <br>
+                        转换的是本地时区
+                    </span>
+                </li>
+                <li>
+                    datetime<a href="">.utcfromtimestamp</a>(n)
+                    <span>
+                        把timestamp转换为datetime实例 <br>
+                        转为的是UTC+0:00时区
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 转换/计算</h4>
+            <ul>
+                <li>
+                    dt<a href="">.date()</a>
+                    <span>
+                        返回以2019-05-07格式的字符串
+                    </span>
+                </li>
+                <li>
+                    dt<a href="">.strftime</a>(%f)
+                    <span>
+                        把datetime对象格式转换为指定版式字符串
+                    </span>
+                </li>
+                <li>
+                    dt<a href="">.timetuple()</a>
+                    <span>
+                        把datetime对象格式转换为时间元组
+                    </span>
+                </li>
+                <li>
+                    time.<a href="">mktime</a>(timetuple)
+                    <span>
+                        把时间元组转换为timestamp
+                    </span>
+                </li>
+                <li>
+                    dt <a href="">+- timedelta</a>(days=n,hours=n)
+                    <span>
+                        from datetime import timedelta <br>
+                        提前/延迟..
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 时区</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">from datetime import timezone</a>
+                    <span>
+                        本地时间是指系统设定时区的时间，例如北京时间是UTC+8:00时区的时间，而UTC时间指UTC+0:00时区的时间。一个datetime类型有一个时区属性tzinfo，但是默认为None。 <br>
+                        from datetime import timezone <br>
+                        tz_utc_8 = timezone(timedelta(hours=8)) # 创建时区UTC+8:00 <br>
+                        dt = dt.replace(tzinfo=tz_utc_8) # 强制设置为UTC+8:00  <br>
+                        print(dt.tzinfo)     
+                    </span>
+                </li>
+                <li>
+                    dt = <a href="">datetime.utcnow().replace(tzinfo=timezone.utc)</a>
+                    <span>
+                        拿到UTC时间，并强制设置时区为UTC+0:00 <br>
+                        datetime.utcnow().replace(tzinfo=timezone.utc)
+                    </span>
+                </li>
+                <li>
+                    dt = <a href="">dt.astimezone(timezone(timedelta(hours=8)))</a>
+                    <span>
+                        将转换时区为北京时间 <br>
+                        dt.astimezone(timezone(timedelta(hours=8)))
+                    </span>
+                </li>
+                <li>
+                    <a href=""></a>
+                    <span>
+                        
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>+</span>] 常用方法</h4>
+            <ul style="display:none;">
+                <li>
+                    <a href="">today</a>
+                    <span>
+                        今天：datetime.date.today() <br>
+                        2019-05-07
+                    </span>
+                </li>
+                <li>
+                    <a href="">tomorrow</a>
+                    <span>
+                        明天：datetime.date.today() + datetime.timedelta(days=1)
+                    </span>
+                </li>
+                <li>
+                    <a href="">begin-end</a>
+                    <span>
+                        datetime.datetime.combine(datetime.date.today(), datetime.time.min) <br>
+                        2019-05-07 00:00:00 <br>
+                        datetime.datetime.combine(datetime.date.today(), datetime.time.max) <br>
+                        2019-05-07 23:59:59.999999
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 日历</h4>
+            <ul>
+                <li>
+                    calendar<a href="">.HTMLCalendar</a>(calendar.MONDAY)
+                    <span>
+                        calendar.HTMLCalendar对象
+                    </span>
+                </li>
+                <li>
+                    calendar<a href="">.TextCalendar</a>(calendar.MONDAY)
+                    <span>
+                        calendar.TextCalendar对象
+                    </span>
+                </li>
+                <li>
+                    cal<a href="">.formatmonth</a>(year,month)
+                    <span>
+                        返回格式化字符串
+                    </span>
+                </li>
+                <li>
+                    calendar<a href="">.isleap</a>(year)
+                    <span>
+                        是闰年返回 True，否则为 false
+                    </span>
+                </li>
+                <li>
+                    calendar<a href="">.monthrange</a>(year,month)
+                    <span>
+                        返回两个整数。(2,31) <br>
+                        该月第一天是星期几(0-6)，第二个是该月有几天。
+                    </span>
+                </li>
+                <li>
+                    calendar<a href="">.calendar</a>(year,w=2,l=1,c=6)
+                    <span>
+                        import calendar <br>
+                        返回一个多行字符串格式的year年年历，3个月一行。 <br>
+                        每个月间隔距离c，每日宽度间隔为w字符，l是每星期行数。
+                    </span>
+                </li>
+                <li>
+                    calendar<a href="">.month</a>(year,month,w=2,l=1)
+                    <span>
+                        返回一个多行字符串格式的year年month月日历，两行标题，一周一行。 <br>
+                        每日宽度间隔为w字符，l是每星期的行数。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

@@ -408,106 +408,8 @@
                     <span>跳过当前，继续下一轮循环</span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 函数</h4>
-            <ul style="display:none">
-                <li>
-                    <a href="">def</a> fn(arg,*tup|**dic):
-                    <span>
-                        默认参数：<br>
-                        1.定义时通过arg=val赋值默认参数值<br>
-                        2.默认参数必须指向不变对象 <hr>
-                        参数关键词：<br>
-                        1.使用关键词参数时，允许与声明时的顺序不一致 fn(arg2=val2,arg1=val1)<br>
-                        2.如果单独出现星号 * 后的参数必须用关键字传入。 <hr>
-                        参数传递结果： <br>
-                        1.参数传入不可变类型时，传递的只是变量的值，没有影响变量本身，在函数内部修改变量，只是修改另一个复制的对象，不会影响原变量本身。 <br>
-                        2.参数传入可变类型时，为引用传递，会将变量的引用传递过去，在函数内部修改后，外部的变量也会受到影响。 <hr>
-                        参数解构： <br>
-                        1.加了*星号的参数会以元组的形式导入，存放所有未命名的变量参数<br>
-                        如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。 <br>
-                        2.加了**两个星号的参数会以字典的形式导入 <a href="http://www.runoob.com/python3/python3-function.html">参考资料</a> <br>
-                        3.传入一个*seq/**dict时，相当于解构seq/dict传入，注意此解构的内部变量是对kw的一份拷贝，不会影响到传入的原kw。
-                    </span>
-                </li>
-                <li>
-                    <a href="">lambda</a> arg : expression
-                    <span>
-                        1.将lambda表达式赋值给一个变量，成为一个匿名函数 <br>
-                        2.无需return，默认表达式的值就是return的值 <br>
-                        3.lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数
-                    </span>
-                </li>
-                <li>
-                    <a href="">global</a> var
-                    <span>
-                        全局作用域声明 <br>
-                        在内部作用域中需要修改外部作用域变量时
-                    </span>
-                </li>
-                <li>
-                    <a href="">nonlocal</a> var
-                    <span>
-                        外层作用域变量声明 <br>
-                        在内部作用域中需要修改外层作用域（非全局）变量时
-                    </span>
-                </li>
-                <li>
-                    <a href="">return</a>
-                    <span>
-                        1.退出函数并返回一个表达式/值，默认返回None <br>
-                        2.所谓可以返回多个值，但实际上是以一个元组返回，同时赋值给多个变量 <br>
-                        在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple <br>
-                    </span>
-                </li>
-                <li>
-                    newfn = <a href="">functools.partial</a>(oldfn,key=val)
-                    <span>
-                        偏函数 <br>
-                        import functools <br>
-                        newfn = functools.partial(oldfn,key=val) <br>
-                        <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000">参考资料</a>
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 生成器与迭代器</h4>
-            <ul style="display:none">
-                <li>
-                    l = <a href="">[v_exp for v in ite if v ..]</a>
-                    <span>
-                        列表生成式： <br>
-                        [x * x for x in range(1, 11)] <br>
-                        [x for x in range(1, 11) if x % 2 == 0] <br>
-                        返回：一个列表list
-                    </span>
-                </li>
-                <li>
-                    g = <a href="">(v_exp for v in ite if v ..)</a>
-                    <span>
-                        将列表生成式的中括号改为括号则为生成器，也是一个可迭代类型 <br>
-                        返回：一个generator
-                    </span>
-                </li>
-                <li>
-                    <a href="">yeild</a> val
-                    <span>
-                        如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator，返回的也是一个generator对象。 <br>
-                        generator和函数的执行流程不一样。<br>
-                        函数是顺序执行，遇到return语句或者最后一行函数语句就返回。<br>
-                        而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
-                    </span>
-                </li>
-                <li>
-                    <a href="">next</a>(Iterator)
-                    <span>
-                        每调用一次，获得迭代器的下一个返回值 <br>
-                        直到计算到最后一个元素，没有更多的元素时，抛出StopIteration的错误 <br>
-                        基本上永远不会调用next()，而是通过for循环来迭代它，并且不需要关心StopIteration的错误<br> 
-                        for n in g
-                    </span>
-                </li>
-            </ul>
-            <h4>[<span>+</span>] 模块</h4>
-            <ul style="display:none">
+            <h4>[<span>-</span>] 模块</h4>
+            <ul>
                 <li>
                     <a href="">import</a> module,..
                     <span>
@@ -547,8 +449,8 @@
                     </span>
                 </li>
             </ul>
-            <h4>[<span>+</span>] 包</h4>
-            <ul style="display:none">
+            <h4>[<span>-</span>] 包</h4>
+            <ul>
                 <li>
                     <a href="">import</a> pkg.module
                     <span>
@@ -562,7 +464,7 @@
                     <span>
                         引入某个包中的某些模块 <br>
                         <a href="https://www.jianshu.com/p/5cc20b88bcf4">参考资料</a> <br>
-                        python -m pkg.module
+                        独立运行时：python -m pkg.module
                     </span>
                 </li>
                 <li>
@@ -573,6 +475,58 @@
                     </span>
                 </li>
             </ul>
+            <h4>[<span>-</span>] 异常</h4>
+            <ul>
+                <li>
+                    <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">Exception hierarchy</a>
+                </li>
+                <li>
+                    <a href="">try</a>:
+                    <span>
+                        捕获try语句中的错误
+                    </span>
+                </li>
+                <li>
+                    <a href="">except</a> Exception as e:
+                    <span>
+                        捕获错误，可多个except并列捕获不同类型的错误
+                    </span>
+                </li>
+                <li>
+                    <a href="">else</a>:
+                    <span>
+                        如果没有错误执行的语句块
+                    </span>
+                </li>
+                <li>
+                    <a href="">finally</a>:
+                    <span>
+                        无论如何都会执行的语句块
+                    </span>
+                </li>
+                <li>
+                    <a href="">raise</a> [errcls()]
+                    <span>
+                        自定义错误类，可使用raise抛出 <br>
+                        raise语句如果不带参数，就会把当前错误原样抛出 <br>
+                        所有的错误类型都继承自BaseException，在使用except时需要注意的是，它不但捕获该类型的错误，还把其子类也“一网打尽”。
+                    </span>
+                </li>
+                <li>
+                    <a href="">logging.exception(e)</a>
+                    <span>
+                        import logging <br> 
+                        正常打印错误信息继续执行       
+                    </span>
+                </li>
+                <li>
+                    <a href="">assert</a> True,str
+                    <span>
+                        assert 表达式True，否则抛出AssertionError，显示str提示语 <br>
+                        启动Python解释器时可以用-O参数来关闭assert，即当作pass
+                    </span>
+                </li>
+            </ul>
             <h4>[<span>+</span>] 其它</h4>
             <ul style="display:none">
                 <li>
@@ -580,6 +534,326 @@
                     <span>
                         # 单行注释 <br>
                         """ 多行注释 """
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>函数<span>+</span></h3>
+        <div class="u-list" style="display:none;">
+            <h4>[<span>-</span>] 定义与参数</h4>
+            <ul>
+                <li>
+                    <a href="">def</a> fn(arg,*tup|**dic):
+                    <span>
+                        默认参数：<br>
+                        1.定义时通过arg=val赋值默认参数值<br>
+                        2.默认参数必须指向不变对象 <hr>
+                        参数关键词：<br>
+                        1.使用关键词参数时，允许与声明时的顺序不一致 fn(arg2=val2,arg1=val1)<br>
+                        2.如果单独出现星号 * 后的参数必须用关键字传入。 <hr>
+                        参数传递结果： <br>
+                        1.参数传入不可变类型时，传递的只是变量的值，没有影响变量本身，在函数内部修改变量，只是修改另一个复制的对象，不会影响原变量本身。 <br>
+                        2.参数传入可变类型时，为引用传递，会将变量的引用传递过去，在函数内部修改后，外部的变量也会受到影响。 <hr>
+                        参数解构： <br>
+                        1.加了*星号的参数会以元组的形式导入，存放所有未命名的变量参数<br>
+                        如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。 <br>
+                        2.加了**两个星号的参数会以字典的形式导入 <a href="http://www.runoob.com/python3/python3-function.html">参考资料</a> <br>
+                        3.传入一个*seq/**dict时，相当于解构seq/dict传入，注意此解构的内部变量是对kw的一份拷贝，不会影响到传入的原kw。
+                    </span>
+                </li>
+                <li>
+                    <a href="">lambda</a> arg : expression
+                    <span>
+                        1.将lambda表达式赋值给一个变量，成为一个匿名函数 <br>
+                        2.无需return，默认表达式的值就是return的值 <br>
+                        3.lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数
+                    </span>
+                </li>
+                <li>
+                    <a href="">return</a>
+                    <span>
+                        1.退出函数并返回一个表达式/值，默认返回None <br>
+                        2.所谓可以返回多个值，但实际上是以一个元组返回，同时赋值给多个变量 <br>
+                        在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple <br>
+                    </span>
+                </li>
+                <li>
+                    newfn = <a href="">functools.partial</a>(oldfn,key=val)
+                    <span>
+                        偏函数 <br>
+                        import functools <br>
+                        newfn = functools.partial(oldfn,key=val) <br>
+                        <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000">参考资料</a>
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 作用域</h4>
+            <ul>
+                <li>
+                    <a href="">global</a> var
+                    <span>
+                        全局作用域声明 <br>
+                        在内部作用域中需要修改外部作用域变量时
+                    </span>
+                </li>
+                <li>
+                    <a href="">nonlocal</a> var
+                    <span>
+                        外层作用域变量声明 <br>
+                        在内部作用域中需要修改外层作用域（非全局）变量时
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 装饰器</h4>
+            <ul>
+                <li>
+                    <a href="">@decfn</a>
+                    <span>
+                        函数装饰器 <br>
+                        from functools import wraps<br>
+                        def decname(fn):<br>
+                            @wraps(fn)<br>
+                            def wrap(*args,**kwargs):<br>
+                                return fn(*args,**kwargs)<br>
+                            return wrap
+                    </span>
+                </li>
+                <li>
+                    <a href="">@clsfn</a>
+                    <span>
+                        类装饰器 <br>
+                        使用类装饰器主要依靠类的__call__方法，当使用 @ 形式将装饰器附加到函数上时，就会调用此方法。 <br>
+                        一个函数还可以同时定义多个装饰器，它的执行顺序是从里到外，最先调用最里层的装饰器，最后调用最外层的装饰器
+                    </span>
+                </li>
+                <li>
+                    <a href="">__name__</a>
+                    <span>
+                        返回函数的名字。在类装饰器中无法正常获取
+                    </span>
+                </li>
+                <li>
+                    <a href="">@unique</a>
+                    <span>
+                        @unique装饰器可以帮助我们检查保证没有重复值
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 生成器与迭代器</h4>
+            <ul>
+                <li>
+                    l = <a href="">[v_exp for v in ite if v ..]</a>
+                    <span>
+                        列表生成式： <br>
+                        [x * x for x in range(1, 11)] <br>
+                        [x for x in range(1, 11) if x % 2 == 0] <br>
+                        返回：一个列表list
+                    </span>
+                </li>
+                <li>
+                    g = <a href="">(v_exp for v in ite if v ..)</a>
+                    <span>
+                        将列表生成式的中括号改为括号则为生成器，也是一个可迭代类型 <br>
+                        返回：一个generator
+                    </span>
+                </li>
+                <li>
+                    <a href="">yeild</a> val
+                    <span>
+                        如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator，返回的也是一个generator对象。 <br>
+                        generator和函数的执行流程不一样。<br>
+                        函数是顺序执行，遇到return语句或者最后一行函数语句就返回。<br>
+                        而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+                    </span>
+                </li>
+                <li>
+                    <a href="">next</a>(Iterator)
+                    <span>
+                        每调用一次，获得迭代器的下一个返回值 <br>
+                        直到计算到最后一个元素，没有更多的元素时，抛出StopIteration的错误 <br>
+                        基本上永远不会调用next()，而是通过for循环来迭代它，并且不需要关心StopIteration的错误<br> 
+                        for n in g
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>面向对象<span>+</span></h3>
+        <div class="u-list" style="display:none">
+            <h4>[<span>-</span>] 类</h4>
+            <ul>
+                <li>
+                    <a href="">class</a> Name(object)
+                    <span>
+                        1.默认继承object <br>
+                        2.所有方法的第一个参数总是self，指向实例本身;self.__class__指向类本身 <br>
+                        3.实例属性找不到时会查找类属性，但实例属性取值时优先类属性
+                    </span>
+                </li>
+                <li>
+                    <a href="">__init__</a>(self,arg)
+                    <span>
+                        实例初始化方法
+                    </span>
+                </li>
+                <li>
+                    <a href="">__.</a>prop|fn
+                    <span>
+                        1.__开头的属性为私有属性/方法，默认外部无法访问，但可以通过_ClassName__prop访问(不保证)。<br>
+                        2.但__xx__不是私有，只是特殊。<br>
+                        3.如果对私有变量进行修改，实际上是额外新增了一个属性。<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318650247930b1b21d7d3c64fe38c4b5a80d4469ad7000">参考资料</a> <br>
+                        4.对对象新增的属性对其他对象不生效
+                    </span>
+                </li>
+                <li>
+                    <a href="">__slots__</a>
+                    <span>
+                        限制该类实例能添加的属性<br>
+                        __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称 <br>
+                        对继承的子类是不起作用，除非在子类中也定义__slots__，这样，子类实例允许定义的属性就是自身的__slots__加上父类的__slots__
+                    </span>
+                </li>
+                <li>
+                    <a href="">__len__</a>(self)
+                    <span>
+                        自定义len函数返回，则设置__len__()方法
+                    </span>
+                </li>
+                <li>
+                    <a href="">__str__</a>(self)
+                    <span>
+                        打印实例时显示为字符串 <br>
+                        __repr__() 变量时返回的字符串，用于调试 <br>
+                        可设置 __repr__ = __str__
+                    </span>
+                </li>
+                <li>
+                    <a href="">__iter__</a>(self)
+                    <span>
+                        实例本身就是迭代对象，故返回自己 <br>
+                        return self
+                    </span>
+                </li>
+                <li>
+                    <a href="">__next__</a>(self)
+                    <span>
+                        如果一个类想被用于for ... in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。
+                    </span>
+                </li>
+                <li>
+                    <a href="">__getitem__</a>(self,n)
+                    <span>
+                        要表现得像list那样按照下标取出元素，需要实现__getitem__()方法 <br>
+                        <a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017590712115904">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">__getattr__</a>(self,attr)
+                    <span>
+                        没有找到属性的情况下调用该方法
+                    </span>
+                </li>
+                <li>
+                    <a href="">__call__</a>(self)
+                    <span>
+                        对实例进行调用，obj()等同于调用__call__方法
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 装饰器</h4>
+            <ul>
+                <li>
+                    <a href="">@property</a>
+                    <span>
+                        把一个方法变成属性获取 <br>
+                        则obj.prop则调用内部的obj.prop() <br>
+                        如不设置setter则说明为只读属性
+                    </span>
+                </li>
+                <li>
+                    <a href="">@prop.setter</a>
+                    <span>
+                        把一个方法变成属性修改 <br>
+                        则obj.prop则调用内部的obj.prop() <br>
+                        方法名和prop必须一致
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 继承</h4>
+            <ul>
+                <li>
+                    <a href="">super</a>().__init__(arg)
+                    <span>
+                        返回一个代理对象，它会将方法调用委托给 type 指定的父类或兄弟类 <br>
+                        1.子类继承父类，如果不重写__init__，实例子类时，默认调用父类__init__ <br>
+                        2.如果子类重写了__init__ 时，实例化子类时默认不会调用父类已经定义的 __init__ <br>
+                        3.要继承父类的构造方法，则需要在子类__init__中调用super方法 <br>
+                        super(子类,obj) 调用创建obj实例的子类的父类
+                    </span>
+                </li>
+                <li>
+                    <a href="">issubclass</a>(child,parent)
+                    <span>
+                        1.如果 class 是 classinfo 的子类（直接、间接或 虚拟 的），则返回 true。<br>
+                        2.classinfo 可以是类对象的元组，此时 classinfo 中的每个元素都会被检查。满足其中一个则返回true。
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] 对象</h4>
+            <ul>
+                <li>
+                    <a href="">dir</a>(obj)
+                    <span>
+                        获得一个对象的所有属性和方法 <br>
+                        返回一个包含字符串的list
+                    </span>
+                </li>
+                <li>
+                    <a href="">hasattr</a>(obj,prop)
+                    <span>
+                        是否存在某个属性/方法 <br>
+                        返回：True/False
+                    </span>
+                </li>
+                <li>
+                    <a href="">getattr</a>(obj,prop,[default])
+                    <span>
+                        获取某个属性/方法 <br>
+                        返回：属性值 <br>
+                        如果属性不存在会报错，可以设置default参数，如不存在则返回默认值
+                    </span>
+                </li>
+                <li>
+                    <a href="">setattr</a>(obj,prop,val)
+                    <span>
+                        设置某个属性/方法 <br>
+                        返回：None
+                    </span>
+                </li>
+                <li>
+                    <a href="">delattr</a>(obj,prop)
+                    <span>
+                        删除某个属性/方法 <br>
+                        返回：None
+                    </span>
+                </li>
+                <li>
+                    <a href="">MethodType</a>(fn,obj)
+                    <span>
+                        给类动态绑定一个新的方法，直接以属性赋值操作即可，但定义新增方法时，必须显示传入self作为第一个参数。 <br>
+                        给实例绑定一个新的方法时，如果不涉及使用实例本身其他数据，则可以使用赋值引用方法，否则： <br>
+                        from types import MethodType <br>
+                        obj.fn = MethodType(fn,obj) <br>
+                        def fn(self,arg):..
+                    </span>
+                </li>
+                <li>
+                    <a href="">super</a>(Parentcls,obj).fn
+                    <span>
+                        子类对象调用父类已被覆盖的方法
                     </span>
                 </li>
             </ul>
@@ -686,17 +960,26 @@
             <h4>[<span>-</span>] 类型检测</h4>
             <ul>
                 <li>
-                    <a href="">type</a>(var)
+                    <a href="">isinstance</a>(var,type..)
                     <span>
-                        查询变量所指的对象类型
+                        判断变量所指的对象类型（包含继承） <br>
+                        isinstance(a, int) <br>
+                        isinstance(a, (list, tuple)) <br>
                     </span>
                 </li>
                 <li>
-                    <a href="">isinstance</a>(var,type)
+                    <a href="">type</a>(var)
                     <span>
-                        判断变量所指的对象类型 <br>
-                        isinstance(a, int) <br>
-                        type()不会认为子类是一种父类类型。isinstance()会认为子类是一种父类类型。 
+                        查询变量所指的对象类型 <br>
+                        检测一个类或内置类时，返回的是'type'，检测一个实例时，
+                    </span>
+                </li>
+                <li>
+                    <a href="">types.</a>fn
+                    <span>
+                        判断是否为函数 <br>
+                        import types <br>
+                        type(fn) == types.FunctionType | BuiltinFunctionType | types.LambdaType | GeneratorType
                     </span>
                 </li>
             </ul>
@@ -751,6 +1034,30 @@
                     <a href="">iter</a>(ite)
                     <span>
                         把list、dict、str等Iterable变成Iterator
+                    </span>
+                </li>
+                <li>
+                    <a href="">reversed</a>(seq)
+                    <span>
+                        返回一个反向的 iterator。 seq 必须是一个具有 __reversed__() 方法的对象或者是支持该序列协议（具有从``0`` 开始的整数类型参数的 __len__() 方法和 __getitem__() 方法）。
+                    </span>
+                </li>
+                <li>
+                    <a href="">object()</a>
+                    <span>
+                        返回一个没有特征的新对象。object 是所有类的基类。它具有所有 Python 类实例的通用方法。这个函数不接受任何实参。
+                    </span>
+                </li>
+                <li>
+                    <a href="">Enum</a>(name,(..))
+                    <span>
+                        from enum import Enum,unique <br>
+                        @unique <br>
+                        class Weekday(Enum): <br>
+                            Sun = 0 <hr>
+                        Weekday.Sun.name|value 获取枚举类指定的名称和值 <br>
+                        Weekday(1)  <br>
+                        既可以用成员名称引用枚举常量，又可以直接根据value的值获得枚举常量。
                     </span>
                 </li>
             </ul>
@@ -884,5 +1191,4 @@
             </ul>
         </div>
     </div>
-    
 </div>
