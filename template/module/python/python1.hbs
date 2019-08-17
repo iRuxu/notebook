@@ -92,6 +92,18 @@
                     </span>
                 </li>
             </ul>
+            <h4>[<span>-</span>] 计数器</h4>
+            <ul>
+                <li>
+                    <a href="">Counter()</a>
+                    <span>
+                        from collections import Counter <br>
+                        c = Counter() <br>
+                        for val in ite: <br>
+                            c[val] = c[val] + 1
+                    </span>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="u-block">
@@ -521,19 +533,23 @@
                 <li>
                     calendar<a href="">.HTMLCalendar</a>(calendar.MONDAY)
                     <span>
-                        calendar.HTMLCalendar对象
+                        import calendar <br>
+                        calendar.HTMLCalendar对象 <br>
+                        calendar.HTMLCalendar(calendar.MONDAY)    
                     </span>
                 </li>
                 <li>
                     calendar<a href="">.TextCalendar</a>(calendar.MONDAY)
                     <span>
-                        calendar.TextCalendar对象
+                        calendar.TextCalendar对象 <br>
+                        calendar.TextCalendar(calendar.MONDAY)
                     </span>
                 </li>
                 <li>
                     cal<a href="">.formatmonth</a>(year,month)
                     <span>
-                        返回格式化字符串
+                        返回格式化字符串 <br>
+                        cal.formatmonth(year,month)
                     </span>
                 </li>
                 <li>
@@ -552,7 +568,7 @@
                 <li>
                     calendar<a href="">.calendar</a>(year,w=2,l=1,c=6)
                     <span>
-                        import calendar <br>
+                        calendar.calendar(year,w=2,l=1,c=6) <br>
                         返回一个多行字符串格式的year年年历，3个月一行。 <br>
                         每个月间隔距离c，每日宽度间隔为w字符，l是每星期行数。
                     </span>
@@ -560,6 +576,7 @@
                 <li>
                     calendar<a href="">.month</a>(year,month,w=2,l=1)
                     <span>
+                        calendar.month(year,month,w=2,l=1) <br>
                         返回一个多行字符串格式的year年month月日历，两行标题，一周一行。 <br>
                         每日宽度间隔为w字符，l是每星期的行数。
                     </span>

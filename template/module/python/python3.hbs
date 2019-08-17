@@ -1,5 +1,20 @@
 <div class="u-col">
     <div class="u-block">
+        <h3>元组<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] 自定义元组</h4>
+            <ul>
+                <li>
+                    <a href="">namedtuple</a>(Name,['key'])
+                    <span>
+                        from collections import namedtuple <br>
+                        Point = namedtuple('Point',['x','y'])  <br>
+                        nt = Point(1,2) <br>
+                        nt.x = 1
+                    </span>
+                </li>
+            </ul>
+        </div>
         <h3>列表<span>-</span></h3>
         <div class="u-list">
             <h4>[<span>-</span>] 添加</h4>
@@ -99,9 +114,64 @@
                     </span>
                 </li>
             </ul>
+            <h4>[<span>-</span>] 双端队列</h4>
+            <ul>
+                <li>
+                    <a href="">deque</a>(list)
+                    <span>
+                        from collections import deque <br>
+                        q = deque(['a', 'b', 'c'])
+                    </span>
+                </li>
+                <li>
+                    dq<a href="">.append</a>(var)
+                    <span>
+                        在末尾插入
+                    </span>
+                </li>
+                <li>
+                    dq<a href="">.appendleft</a>(var)
+                    <span>
+                        在首部插入
+                    </span>
+                </li>
+                <li>
+                    dq<a href="">.pop</a>()
+                    <span>
+                        移除末尾项
+                    </span>
+                </li>
+                <li>
+                    dq<a href="">.popleft</a>()
+                    <span>
+                        移除最初项
+                    </span>
+                </li>
+            </ul>
         </div>
         <h3>字典<span>-</span></h3>
         <div class="u-list">
+            <h4>[<span>-</span>] 创建</h4>
+            <ul>
+                <li>
+                    <a href="">defaultdict</a>(fn)
+                    <span>
+                        from collections import defaultdict <br>
+                        dd = defaultdict(lambda: 'N/A') <br>
+                        dd['key'] # key如果不存在，返回默认值'N/A' <br>
+                        注意默认值是调用函数返回的，而函数在创建defaultdict对象时传入。 <br>
+                        除了在Key不存在时返回默认值，defaultdict的其他行为跟dict是完全一样的。
+                    </span>
+                </li>
+                <li>
+                    <a href="">OrderedDict</a>([(key,val),..])
+                    <span>
+                        from collections import OrderedDict <br>
+                        od = OrderedDict([('a', 1), ('b', 2), ('c', 3)]) <br>
+                        OrderedDict的Key会按照插入的顺序排列进行迭代
+                    </span>
+                </li>
+            </ul>
             <h4>[<span>-</span>] 添加</h4>
             <ul>
                 <li>

@@ -2,103 +2,16 @@
     <div class="u-block">
         <h3>字符串<span>-</span></h3>
         <div class="u-list">
-            <h4>[<span>+</span>] 语法</h4>
-            <ul style="display:none;">
+            <h4>[<span>-</span>] 格式化</h4>
+            <ul>
                 <li>
-                    {plh}<a href="">.format</a>(str)
+                    {plh}<a href="">.format</a>(val)
                     <span>
                         格式化
                     </span>
                 </li>
                 <li>
-                    <a href="">"""</a>
-                    <span>
-                        多行字符串/注释
-                    </span>
-                </li>
-                <li>
-                    <a href="">r</a>"str"
-                    <span>
-                        原始字符串，即通过在字符串前加r或R。 <br>
-                        如 r"this is a line with \n" 则\n会显示，并不是换行。
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>转义字符</th>
-                                    <th>描述</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>\(在行尾时)</td>
-                                    <td>续行符</td>
-                                </tr>
-                                <tr>
-                                    <td>\\</td>
-                                    <td>反斜杠符号</td>
-                                </tr>
-                                <tr>
-                                    <td>\'</td>
-                                    <td>单引号</td>
-                                </tr>
-                                <tr>
-                                    <td>\"</td>
-                                    <td>双引号</td>
-                                </tr>
-                                <tr>
-                                    <td>\a</td>
-                                    <td>响铃</td>
-                                </tr>
-                                <tr>
-                                    <td>\b</td>
-                                    <td>退格(Backspace)</td>
-                                </tr>
-                                <tr>
-                                    <td>\e</td>
-                                    <td>转义</td>
-                                </tr>
-                                <tr>
-                                    <td>\000</td>
-                                    <td>空</td>
-                                </tr>
-                                <tr>
-                                    <td>\n</td>
-                                    <td>换行</td>
-                                </tr>
-                                <tr>
-                                    <td>\v</td>
-                                    <td>纵向制表符</td>
-                                </tr>
-                                <tr>
-                                    <td>\t</td>
-                                    <td>横向制表符</td>
-                                </tr>
-                                <tr>
-                                    <td>\r</td>
-                                    <td>回车</td>
-                                </tr>
-                                <tr>
-                                    <td>\f</td>
-                                    <td>换页</td>
-                                </tr>
-                                <tr>
-                                    <td>\oyy</td>
-                                    <td>八进制数，yy代表的字符，例如：\o12代表换行</td>
-                                </tr>
-                                <tr>
-                                    <td>\xyy</td>
-                                    <td>十六进制数，yy代表的字符，例如：\x0a代表换行</td>
-                                </tr>
-                                <tr>
-                                    <td>\other</td>
-                                    <td>其它的字符以普通格式输出</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </span>
-                </li>
-                <li>
-                    <a href="">%</a>type
+                    <a href="">%s</a> % (val)
                     <span>
                         格式字符串
                         <a href="http://www.runoob.com/python3/python3-string.html">参考资料</a> <br>
@@ -452,6 +365,87 @@
                         str = 'haha' <br>
                         t = str.maketrans(intab,outtab) <br>
                         s = str.translate(t)
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="u-block">
+        <h3>编码/算法<span>-</span></h3>
+        <div class="u-list">
+            <h4>[<span>-</span>] json</h4>
+            <ul>
+                <li>
+                    <a href="">json.dumps</a>(obj)
+                    <span>
+                        将 Python 对象编码成 JSON 字符串 <br>
+                        <a href="https://docs.python.org/zh-cn/3/library/json.html#basic-usage">参考资料</a>
+                    </span>
+                </li>
+                <li>
+                    <a href="">json.loads</a>(json)
+                    <span>
+                        将已编码的 JSON 字符串解码为 Python 对象
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] base64</h4>
+            <ul>
+                <li>
+                    base64<a href="">.b64encode</a>(bin)
+                    <span>
+                        import base64 <br>
+                        将二进制数据编码为base64码
+                    </span>
+                </li>
+                <li>
+                    base64<a href="">.b64decode</a>(b64)
+                    <span>
+                        将base64码还原为二进制数据
+                    </span>
+                </li>
+                <li>
+                    base64<a href="">.urlsafe_b64encode</a>(bin)
+                    <span>
+                        把字符+和/分别变成-和_
+                    </span>
+                </li>
+                <li>
+                    base64<a href="">.urlsafe_b64decode</a>(b64)
+                    <span>
+                        解码base64编码的url
+                    </span>
+                </li>
+            </ul>
+            <h4>[<span>-</span>] hashlib</h4>
+            <ul>
+                <li>
+                    <a href="">import hashlib</a>
+                    <span>
+                        
+                    </span>
+                </li>
+                <li>
+                    hash=<a href="">hashlib.</a>hash()
+                    <span>
+                        md5 = hashlib.md5() <br>
+                        MD5是最常见的摘要算法，速度很快，生成结果是固定的128 bit字节，通常用一个32位的16进制字符串表示。 <br>
+                        sha1=hashlib.sha1() <br>
+                        SHA1的结果是160 bit字节，通常用一个40位的16进制字符串表示。
+                    </span>
+                </li>
+                <li>
+                    hash<a href="">.update</a>(txt)
+                    <span>
+                        md5.update('how to use md5 in '.encode('utf-8')) <br>
+                        sha1.update('how to use sha1 in '.encode('utf-8'))
+                    </span>
+                </li>
+                <li>
+                    hash<a href="">.hexdigest()</a>
+                    <span>
+                        md5.hexdigest() <br>
+                        sha1.hexdigest()
                     </span>
                 </li>
             </ul>
