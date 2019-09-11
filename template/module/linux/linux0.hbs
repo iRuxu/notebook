@@ -201,6 +201,13 @@
 						删除空文件夹
 					</span>
 				</li>
+				<li>
+					<a href="">chattr -i</a> file
+					<span>
+						解除锁定,删除不能删除的文件
+						chattr -i .user.ini
+					</span>
+				</li>
 			</ul>
 			<h4>[<span>-</span>] 链接</h4>
 			<ul>
@@ -224,7 +231,7 @@
 					<a href="">chmod</a> 777 item
 					<span>
 						更改文件权限 <br>
-						chmod 777 dir/ <br>
+						chmod -R 777 dir/ <br>
 						注：只有文件的所有者或者超级用户才 能更改文件或目录的模式。 
 					</span>
 				</li>
