@@ -1,11 +1,21 @@
-temp
+.DS_Store
 node_modules
-build
-css/test.css
-css/test.less
-js/test.js
-html/test.hbs
-.git
-yarn.lock
-test.js
-test.html
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

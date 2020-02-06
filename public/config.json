@@ -1,0 +1,7 @@
+{
+    "publicPath":"http://iruxu.com/notebook/",
+    "lang":"zh-cn",
+    "editDevonly":true,
+    "exportDevonly":false,
+    "dots":["#ff0000","#66d9ef","#a6e22e","#ffa500"]
+}

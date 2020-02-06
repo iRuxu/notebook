@@ -1,0 +1,96 @@
+button:focus {
+    outline: none;
+}
+.u-btn-default {
+    background-position: -1px -1px;
+    background-repeat: repeat-x;
+    background-size: 110% 110%;
+    border: 1px solid rgba(27, 31, 35, 0.2);
+    border-radius: 0.25em;
+
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+
+    font-size: 13px;
+    line-height: 16px;
+    padding: 5px 15px;
+
+    span {
+        position: relative;
+        top: 1px;
+    }
+
+    &:hover {
+        background-position: -0.5em;
+    }
+
+    &.active {
+        background-image: none;
+        border-color: rgba(27, 31, 35, 0.35);
+        cursor: default;
+    }
+}
+.u-btn-white {
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    color: @black;;
+
+    &:hover {
+        background-color: #e6ebf1;
+        background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+        border-color: rgba(27, 31, 35, 0.35);
+        color: #444;
+    }
+
+    &.active {
+        //background-color: #cecece;
+        //box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.35);
+        background-color: #ccf5ff;
+        box-shadow:0 0 5px rgba(0,0,0,.3) inset;
+        cursor: pointer;
+        color:#444;
+        border:1px solid @blue;
+        &:hover {
+            background-color: #ccf5ff;
+            background-image: none;
+            color: @black;;
+        }
+    }
+}
+.u-btn-green {
+    background-color: #28a745;
+    background-image: linear-gradient(-180deg, #34d058, #28a745 90%);
+    color: #fff;
+
+    &:hover {
+        color: #fafafa;
+        background-color: #269f42;
+        background-image: linear-gradient(-180deg, #2fcb53, #269f42 90%);
+        border-color: rgba(27, 31, 35, 0.5);
+        color: #eee;
+
+        .u-icon {
+            opacity: 0.9;
+        }
+    }
+
+    &.active {
+        background-color: lighten(#269f42, 20%);
+        box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.35);
+    }
+
+    &.disabled {
+        background-color: #94d3a2;
+        background-image: none;
+        border-color: rgba(27, 31, 35, 0.2);
+        box-shadow: none;
+        color: hsla(0, 0%, 100%, 0.75);
+        cursor: not-allowed;
+    }
+}
+.u-btn-red{
+    background: #c00;
+    color: #fff;
+    border: 1px solid #900;
+}

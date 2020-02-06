@@ -1,0 +1,69 @@
+.c-snippet{
+    h1,h2,h3,h4,h5,h6{
+        font-size: 14px;
+        line-height:1.6;
+        letter-spacing: 1px;
+    }
+    strong {
+        color: @tooltip-strong;
+    }
+    a {
+        color: @blue;
+        &:hover {
+            box-shadow: 0 1px 0 @blue;
+        }
+    }
+    hr {
+        border: none;
+        background-color: #666;
+        height: 1px;
+        margin: 10px auto;
+    }
+    ol,ul{
+        padding-left:25px;
+        margin:0;
+    }
+    ul li {
+        list-style: square;
+    }
+    .task-list-item input[type='checkbox']{
+        margin-top:4px !important;
+    }
+    table{
+        border-collapse: collapse;
+        margin:5px 0;
+        th{
+            background-color:#444;
+        }
+        th,td{
+            border:1px solid #555;
+            padding:2px 5px;
+        }
+    }
+    pre{
+        margin:5px 0;
+    }
+    code,pre{
+        font-family: "Consolas";
+        background-color: rgb(39,40,34);
+        border: 1px solid #555;
+        padding: 2px 5px;
+        border-radius:2px;
+        color:#fff;
+    }
+    pre code{
+        background:none;
+        border:none;
+        padding: 0;
+        border-radius:0;
+        color:#fff;
+    }
+    blockquote {
+        background: #555;
+        margin: 0;
+        padding: 10px;
+        border: 1px dashed #777;
+        color:#ccc;
+        border-radius: 3px;
+    }
+}
