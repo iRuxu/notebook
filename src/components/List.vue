@@ -167,6 +167,7 @@ export default {
     }
     .u-tag {
         color: @link;
+        font-weight:normal;
     }
 
     .u-dot {

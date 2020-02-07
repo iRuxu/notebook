@@ -16,15 +16,10 @@ export default {
     name: "Nav",
     computed: {
         nav: function() {
-            let arr = this.$store.state.nav
+            let arr = this.$store.getters.nav
             if(!this.$store.state.isDev){
                 arr = arr.filter(function (item,i){
                     return !item.devonly
-                })
-            }
-            if(this.$store.state.group){
-                arr = arr.filter((item,i)=>{
-                    return item.group == this.$store.state.group
                 })
             }
             return arr;

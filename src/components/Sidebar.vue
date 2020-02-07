@@ -21,7 +21,7 @@ export default {
     },
     computed: {
         isfolded : function (){
-            return this.$store.getters.screenWidth() < 767 ? !this.$store.state.sideNavShow : this.$store.state.fullscreen
+            return this.$store.getters.screenWidth < 767 ? !this.$store.state.sideNavShow : this.$store.state.fullscreen
         },
         fullscreen : function (){
             return this.$store.state.fullscreen

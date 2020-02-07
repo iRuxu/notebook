@@ -167,4 +167,10 @@ export default {
         color: #aaa;
     }
 }
+@media screen and (max-width:@phone){
+    .o-add-column{
+        box-sizing: border-box;
+        height: 300px;
+    }
+}
 </style>

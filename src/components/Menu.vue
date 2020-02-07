@@ -15,31 +15,13 @@ export default {
     name: "Menu",
     data : function (){
         return {
-            menu : this.$store.state.menu || [{name:'Home',url:"/"}],
-            activeIndex : 0
+            menu : this.$store.state.menu || [{name:'Home',url:"/"}]
         }
     },
     computed : {
-        greetingRoutes : function (){
-            if(!this.$store.state.group){
-                return []
-            }else{
-                let _map = {}
-                this.$store.state.menu.forEach(function (menu,i){
-                    if(menu.groupname) _map[menu.groupname] = ''
-                })
-                for(let group in _map){
-                    for(let j=0;j<this.$store.state.nav.length;j++){
-                        if(this.$store.state.nav[j]['group'] == group){
-                            _map[group] = this.$store.state.nav[j]['name'].toLowerCase()
-                            break
-                        }
-                    }
-                }
-                return _map
-            }
-            
-        },
+        activeIndex : function (){
+            return this.$store.state.currentTab
+        }
     },
     methods : {
         menuEvent : function (e,item,index){
@@ -47,14 +29,10 @@ export default {
                 e.preventDefault()
                 this.$store.commit('changeGroup',item.groupname)
                 this.activeIndex = index
-                this.$router.push({name:this.greetingRoutes[item.groupname]})
+                this.$router.push({name:this.$store.getters.nav[0]['name'].toLowerCase()})
             }
-
             this.$store.state.topMenuShow = false;
-            this.$store.state.currentGroup = item.name;
         }
-    },
-    mounted : function (){
     }
 };
 </script>

@@ -6,7 +6,10 @@
         </p>
         <p v-if="type=='Block' || type=='List'">
             <label>{{ $root.lang.fold }}</label>
-            <Miniswitch :fold="form.fold" @switched="switchFold"/>
+            <i class="w-switch" @click="switchFold(form.fold)" :class="{ on: form.fold }">
+                <i class="u-status">≡</i>
+                <input type="hidden" v-model="form.fold" />
+            </i>
         </p>
         <p v-if="type=='Block'">
             <label>{{ $root.lang.barcolor }}</label>
@@ -82,7 +85,6 @@ const formTemplate = {
     reference : '',
     dot : ''
 }
-import Miniswitch from "./Miniswitch.vue";
 export default {
     name: "Input",
     props : ['dbname'],
@@ -247,7 +249,7 @@ export default {
             this.isFullscreen = !this.isFullscreen
         },
         switchFold : function (status){
-            this.form.fold = status
+            this.form.fold = !status
         }
     },
     watch : {
@@ -287,9 +289,6 @@ export default {
             }
         }
     },
-    components : {
-        Miniswitch
-    }
 };
 </script>
 
@@ -302,7 +301,7 @@ export default {
     }
 
     position: fixed;
-    z-index: 201;
+    z-index: @mobile-dialog;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -457,13 +456,14 @@ export default {
 }
 
 .fullscreen(){
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     left: 0;
     top: 0;
     transform: translate(0);
     box-sizing: border-box;
     overflow: auto;
+    border-radius:0;
 }
 .c-input.fullscreen{
     .fullscreen();
@@ -496,5 +496,44 @@ export default {
         }
     }
     
+}
+
+.w-switch {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #c7cac7;
+    margin-right: 5px;
+    box-shadow: 0 0 2px #c7cac7 inset;
+    user-select: none;
+
+    .u-status {
+        display: block;
+        width: 27px;
+        height: 27px;
+        background-color: #fff;
+        border: 2px solid rgba(231, 236, 237);
+        border-radius: 4px;
+        text-align: center;
+        color: #999;
+        position: relative;
+        *zoom: 1;
+        top: -1px;
+        line-height: 25px;
+        -webkit-transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
+        font-style: normal;
+    }
+
+    &.on {
+        background-color: #61b872;
+        box-shadow: 0 0 2px #61b872 inset;
+
+        .u-status {
+            transform: translateX(100%);
+        }
+    }
 }
 </style>

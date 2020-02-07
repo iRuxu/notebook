@@ -79,7 +79,7 @@ export default {
             let html = "";
             arr.forEach(function(item, i) {
                 let unit = item.split("|");
-                html += `<li><a href="${unit[1]}">${
+                html += `<li><a href="${unit[1]}" target="_blank">${
                     unit[0]
                 }</a><span>${unit[2] || ""}</span></li>`;
             });

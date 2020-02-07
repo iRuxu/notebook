@@ -102,6 +102,7 @@ export default {
             line-height: 0;
             font-size: 0;
             opacity: 0;
+            height:0;
             .u-dot,
             .o-add {
                 display: none;

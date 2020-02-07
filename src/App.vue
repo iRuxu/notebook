@@ -40,6 +40,9 @@
     @import './assets/css/var.less';
     @import './assets/css/icon.less';
     @import './assets/css/btn.less';
+    .isFixed{
+        overflow:hidden;
+    }
     body{
         padding:0;
         margin:@header-height 0 0 0 ;

@@ -4,19 +4,39 @@ import Setting from "../../public/setting.json";
 
 Vue.use(Vuex);
 
+let navTree = {};
+let groups = [];
+Setting.menu.forEach(function(menu, i) {
+    if (menu.groupname) {
+        navTree[menu.groupname] = [];
+        groups.push(menu.groupname)
+    }else{
+        groups.push('')
+    }
+});
+Setting.nav.forEach(function(nav, i) {
+    navTree[nav.group].push(nav);
+});
+
 let store = {
     state: {
-        isDev: (location.hostname == "localhost" || location.hostname == "127.0.0.1") ? true : false,
+        isDev:
+            location.hostname == "localhost" || location.hostname == "127.0.0.1"
+                ? true
+                : false,
         isEditMode: false,
         fullscreen: false,
         //Navigation
         menu: Setting.menu,
-        nav: Setting.nav,
-        group: Setting.menu[0]["groupname"] || "",
-        currentGroup:Setting.menu[0]['name'],
+        groups:groups,
+        currentGroup: Setting.menu[0]["groupname"],
+        currentTab : 0,
+        navs : Setting.nav,
+        navTree : navTree,
+        //Btn
         btnGroupShow: false,
         sideNavShow: false,
-        topMenuShow : false,
+        topMenuShow: false,
         //Data
         data: {},
         current: {
@@ -60,13 +80,21 @@ let store = {
             state.mask = false;
         },
         changeGroup: function(state, g) {
-            state.group = g;
+            state.currentGroup = g;
+            for (let i=0;i<groups.length;i++){
+                if(groups[i].toLowerCase() == g){
+                    state.currentTab = i;
+                    break;
+                }
+            }
         },
         dialogOpen: function(state) {
             state.dialog = true;
+            document.getElementById('api-book').classList.add('isFixed')
         },
         dialogClose: function(state) {
             state.dialog = false;
+            document.getElementById('api-book').classList.remove('isFixed')
         },
         tipIn: function(state, v) {
             state.tooltip = v;
@@ -169,11 +197,22 @@ let store = {
         }
     },
     getters: {
-        focus: state => () => {
-            return state.sideNavShow || state.btnGroupShow || state.topMenuShow || state.dialog;
+        nav: state => {
+            return navTree[state.currentGroup];
         },
-        screenWidth : state =>()=>{
-            return window.innerWidth
+        groupname : state => {
+            return Setting.menu[state.currentTab]["name"]
+        },
+        focus: state => {
+            return (
+                state.sideNavShow ||
+                state.btnGroupShow ||
+                state.topMenuShow ||
+                state.dialog
+            );
+        },
+        screenWidth: state => {
+            return window.innerWidth;
         },
         getDB: state => name => {
             return state.data[name];
