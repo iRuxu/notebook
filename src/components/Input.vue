@@ -134,7 +134,7 @@ export default {
         item : function (){
             return {
                 prefix : this.form.prefix || '',
-                tag : this.form.tag || 'api',
+                tag : this.form.tag || ' ',
                 suffix : this.form.suffix || '',
                 desc : this.form.desc || '',
                 url : this.form.url || '',
