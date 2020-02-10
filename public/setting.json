@@ -108,8 +108,15 @@
                 "group":"be"
             },
             {
-                "name":"Rust",
-                "path":"/rust",
+                "name":"C",
+                "path":"/c",
+                "title":"",
+                "devonly":false,
+                "group":"be"
+            },
+            {
+                "name":"Java",
+                "path":"/java",
                 "title":"",
                 "devonly":false,
                 "group":"be"
@@ -122,15 +129,8 @@
                 "group":"be"
             },
             {
-                "name":"C",
-                "path":"/c",
-                "title":"",
-                "devonly":false,
-                "group":"be"
-            },
-            {
-                "name":"Java",
-                "path":"/java",
+                "name":"Rust",
+                "path":"/rust",
                 "title":"",
                 "devonly":false,
                 "group":"be"

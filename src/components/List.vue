@@ -86,8 +86,8 @@ export default {
             this.$store.commit("tipIn", {
                 show: true,
                 text: digest.desc || digest.suammary || "",
-                x: e.pageX + 12,
-                y: e.pageY + 8
+                x: e.clientX + 12,
+                y: e.clientY + 8
             });
         },
         noteBlur: function() {

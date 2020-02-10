@@ -49,7 +49,7 @@ export default {
             return (this.item && this.item.tag) || "";
         },
         suffix: function() {
-            return (this.item && this.item.sufffix) || "";
+            return (this.item && this.item.suffix) || "";
         },
         desc: function() {
             return this.item && this.item.desc
@@ -134,11 +134,6 @@ export default {
         cursor: default;
     }
 
-    .u-prefix,
-    .u-tag,
-    .u-suffix {
-        cursor: text;
-    }
     .u-prefix {
         color: lighten(@blue, 20%);
     }
@@ -175,6 +170,11 @@ export default {
     &::-webkit-resizer {
         display: none;
     }
+}
+.c-output-desc{
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 .c-output-reference {
     border: 1px solid #444;

@@ -102,7 +102,7 @@ export default {
             line-height: 0;
             font-size: 0;
             opacity: 0;
-            height:0;
+            display:none;
             .u-dot,
             .o-add {
                 display: none;
