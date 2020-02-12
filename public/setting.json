@@ -129,6 +129,13 @@
                 "group":"be"
             },
             {
+                "name":"Swift",
+                "path":"/swift",
+                "title":"",
+                "devonly":false,
+                "group":"be"
+            },
+            {
                 "name":"Database",
                 "path":"/db",
                 "title":"",
