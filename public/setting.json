@@ -87,15 +87,15 @@
                 "group":"fe"
             },
             {
-                "name":"Python",
-                "path":"/python",
+                "name":"PHP",
+                "path":"/php",
                 "title":"",
                 "devonly":false,
                 "group":"be"
             },
             {
-                "name":"PHP",
-                "path":"/php",
+                "name":"Python",
+                "path":"/python",
                 "title":"",
                 "devonly":false,
                 "group":"be"
@@ -124,13 +124,6 @@
             {
                 "name":"Go",
                 "path":"/go",
-                "title":"",
-                "devonly":false,
-                "group":"be"
-            },
-            {
-                "name":"Rust",
-                "path":"/rust",
                 "title":"",
                 "devonly":false,
                 "group":"be"
