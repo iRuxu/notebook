@@ -28,7 +28,6 @@ export default {
             if(!item.url){
                 e.preventDefault()
                 this.$store.commit('changeGroup',item.groupname)
-                this.activeIndex = index
                 this.$router.push({name:this.$store.getters.nav[0]['name'].toLowerCase()})
             }
             this.$store.state.topMenuShow = false;

@@ -31,8 +31,15 @@
                 "group":"fe"
             },
             {
-                "name":"BOM",
-                "path":"/bom",
+                "name":"JS",
+                "path":"/js",
+                "title":"",
+                "devonly":false,
+                "group":"fe"
+            },
+            {
+                "name":"Lib",
+                "path":"/lib",
                 "title":"",
                 "devonly":false,
                 "group":"fe"
@@ -40,6 +47,13 @@
             {
                 "name":"DOM",
                 "path":"/dom",
+                "title":"",
+                "devonly":false,
+                "group":"fe"
+            },
+            {
+                "name":"BOM",
+                "path":"/bom",
                 "title":"",
                 "devonly":false,
                 "group":"fe"
@@ -54,13 +68,6 @@
             {
                 "name":"Vue",
                 "path":"/vue",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"JS",
-                "path":"/js",
                 "title":"",
                 "devonly":false,
                 "group":"fe"
@@ -111,28 +118,28 @@
                 "name":"C",
                 "path":"/c",
                 "title":"",
-                "devonly":false,
+                "devonly":true,
                 "group":"be"
             },
             {
                 "name":"Java",
                 "path":"/java",
                 "title":"",
-                "devonly":false,
+                "devonly":true,
                 "group":"be"
             },
             {
                 "name":"Go",
                 "path":"/go",
                 "title":"",
-                "devonly":false,
+                "devonly":true,
                 "group":"be"
             },
             {
                 "name":"Swift",
                 "path":"/swift",
                 "title":"",
-                "devonly":false,
+                "devonly":true,
                 "group":"be"
             },
             {
