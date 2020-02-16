@@ -115,29 +115,8 @@
                 "group":"be"
             },
             {
-                "name":"C",
-                "path":"/c",
-                "title":"",
-                "devonly":true,
-                "group":"be"
-            },
-            {
-                "name":"Java",
+                "name":"Other",
                 "path":"/java",
-                "title":"",
-                "devonly":true,
-                "group":"be"
-            },
-            {
-                "name":"Go",
-                "path":"/go",
-                "title":"",
-                "devonly":true,
-                "group":"be"
-            },
-            {
-                "name":"Swift",
-                "path":"/swift",
                 "title":"",
                 "devonly":true,
                 "group":"be"
