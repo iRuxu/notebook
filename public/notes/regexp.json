@@ -1,5 +1,1 @@
-{
-    "version":1577292216582,
-    "name":"regexp",
-    "data":[]
-}
+{"version":1582035482961,"name":"regexp","data":[{"column":[{"title":"参考资料","barcolor":"","fold":false,"box":[{"title":"教程","fold":false,"list":[{"prefix":"","tag":"匹配规则","suffix":"","desc":"","url":"https://wangdoc.com/javascript/stdlib/regexp.html#%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99","summary":"","reference":"","dot":""}]},{"title":"工具","fold":false,"list":[{"prefix":"","tag":"正则表达式可视化","suffix":"","desc":"","url":"https://jex.im/regulex/","summary":"","reference":"","dot":""},{"prefix":"","tag":"正则表达式测试","suffix":"","desc":"","url":"https://tool.oschina.net/regex","summary":"","reference":"","dot":""},{"prefix":"","tag":"正则表达式简易推演","suffix":"","desc":"","url":"https://npm.runkit.com/regexgen","summary":"","reference":"","dot":""}]}]}]}]}

@@ -87,7 +87,7 @@
                 "group":"fe"
             },
             {
-                "name":"regExp",
+                "name":"RegExp",
                 "path":"/reg",
                 "title":"",
                 "devonly":false,
