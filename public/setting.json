@@ -10,12 +10,8 @@
     },
     "menu":[
         {
-            "name":"FrontEnd",
-            "groupname":"fe"
-        },
-        {
-            "name":"BackEnd",
-            "groupname":"be"
+            "name":"API",
+            "groupname":"code"
         },
         {
             "name":"Github",
@@ -24,116 +20,116 @@
     ],
     "nav":[
             {
-                "name":"CSS",
-                "path":"/",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
-            },
-            {
                 "name":"JS",
                 "path":"/js",
                 "title":"",
                 "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"Lib",
-                "path":"/lib",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"DOM",
-                "path":"/dom",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"BOM",
-                "path":"/bom",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"jQuery",
-                "path":"/jquery",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"Vue",
-                "path":"/vue",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
+                "group":"code"
             },
             {
                 "name":"Node",
                 "path":"/node",
                 "title":"",
                 "devonly":false,
-                "group":"fe"
+                "group":"code"
             },
             {
-                "name":"Git",
-                "path":"/git",
+                "name":"Lib",
+                "path":"/lib",
                 "title":"",
                 "devonly":false,
-                "group":"fe"
-            },
-            {
-                "name":"RegExp",
-                "path":"/reg",
-                "title":"",
-                "devonly":false,
-                "group":"fe"
+                "group":"code"
             },
             {
                 "name":"PHP",
                 "path":"/php",
                 "title":"",
                 "devonly":false,
-                "group":"be"
+                "group":"code"
             },
             {
                 "name":"Python",
                 "path":"/python",
                 "title":"",
                 "devonly":false,
-                "group":"be"
+                "group":"code"
             },
             {
                 "name":"Lua",
                 "path":"/lua",
                 "title":"",
                 "devonly":false,
-                "group":"be"
+                "group":"code"
             },
             {
                 "name":"Other",
                 "path":"/java",
                 "title":"",
                 "devonly":true,
-                "group":"be"
+                "group":"code"
+            },
+            {
+                "name":"CSS",
+                "path":"/",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"DOM",
+                "path":"/dom",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"BOM",
+                "path":"/bom",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"jQuery",
+                "path":"/jquery",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Vue",
+                "path":"/vue",
+                "title":"",
+                "devonly":false,
+                "group":"code"
             },
             {
                 "name":"Database",
                 "path":"/db",
                 "title":"",
+                "devonly":true,
+                "group":"code"
+            },
+            {
+                "name":"Git",
+                "path":"/git",
+                "title":"",
                 "devonly":false,
-                "group":"be"
+                "group":"code"
             },
             {
                 "name":"Linux",
                 "path":"/linux",
                 "title":"",
                 "devonly":false,
-                "group":"be"
+                "group":"code"
+            },
+            {
+                "name":"RegExp",
+                "path":"/reg",
+                "title":"",
+                "devonly":false,
+                "group":"code"
             }
     ],
     "footer":{
