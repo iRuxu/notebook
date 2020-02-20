@@ -21,7 +21,7 @@
     "nav":[
             {
                 "name":"JS",
-                "path":"/js",
+                "path":"/",
                 "title":"",
                 "devonly":false,
                 "group":"code"
@@ -70,7 +70,7 @@
             },
             {
                 "name":"CSS",
-                "path":"/",
+                "path":"/css",
                 "title":"",
                 "devonly":false,
                 "group":"code"
@@ -90,15 +90,15 @@
                 "group":"code"
             },
             {
-                "name":"jQuery",
-                "path":"/jquery",
+                "name":"Vue",
+                "path":"/vue",
                 "title":"",
                 "devonly":false,
                 "group":"code"
             },
             {
-                "name":"Vue",
-                "path":"/vue",
+                "name":"jQuery",
+                "path":"/jquery",
                 "title":"",
                 "devonly":false,
                 "group":"code"
