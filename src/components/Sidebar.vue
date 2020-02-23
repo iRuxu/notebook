@@ -40,6 +40,7 @@ export default {
 .c-sidebar {
     width: @sidebar-width;
     position: fixed;
+    z-index:@base-z;
     top: @header-height;
     bottom: 0;
     background-color: @sidebar-bg;

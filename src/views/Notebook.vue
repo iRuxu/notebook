@@ -117,4 +117,28 @@ export default {
 <style lang="less">
 @import "../assets/css/var.less";
 @import '../assets/css/snippet.less';
+.c-main {
+    margin-left: @sidebar-width;
+    transition: 0.5s ease-in-out;
+    &.isExpanded {
+        margin-left: 0;
+    }
+
+    padding: 10px;
+}
+@media screen and (max-width:@phone){
+    .c-main{
+        margin-left:0 !important;
+    }
+}
+.c-main-primary {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+@media screen and (max-width:@phone){
+    .c-main-primary{
+        display: block;
+    }
+}
 </style>

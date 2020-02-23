@@ -27,13 +27,6 @@
                 "group":"code"
             },
             {
-                "name":"Node",
-                "path":"/node",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
                 "name":"Lib",
                 "path":"/lib",
                 "title":"",
@@ -62,10 +55,10 @@
                 "group":"code"
             },
             {
-                "name":"Other",
-                "path":"/java",
+                "name":"Node",
+                "path":"/node",
                 "title":"",
-                "devonly":true,
+                "devonly":false,
                 "group":"code"
             },
             {
@@ -129,6 +122,13 @@
                 "path":"/reg",
                 "title":"",
                 "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Other",
+                "path":"/java",
+                "title":"",
+                "devonly":true,
                 "group":"code"
             }
     ],
