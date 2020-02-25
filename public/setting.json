@@ -27,13 +27,6 @@
                 "group":"code"
             },
             {
-                "name":"Lib",
-                "path":"/lib",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
                 "name":"PHP",
                 "path":"/php",
                 "title":"",
@@ -43,20 +36,6 @@
             {
                 "name":"Python",
                 "path":"/python",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Lua",
-                "path":"/lua",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Node",
-                "path":"/node",
                 "title":"",
                 "devonly":false,
                 "group":"code"
@@ -92,6 +71,13 @@
             {
                 "name":"jQuery",
                 "path":"/jquery",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Node",
+                "path":"/node",
                 "title":"",
                 "devonly":false,
                 "group":"code"

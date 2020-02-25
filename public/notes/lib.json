@@ -1,1 +1,513 @@
-{"version":1582434809178,"name":"lib","data":[{"column":[{"title":"常用链接","barcolor":"","fold":false,"box":[{"title":"Utils","fold":false,"list":[{"prefix":"","tag":"Lodash","suffix":"","desc":"npm install lodash","url":"https://www.lodashjs.com/docs/latest","summary":"","reference":"","dot":""}]}]},{"title":"数据类型","barcolor":"","fold":false,"box":[{"title":"检测","fold":false,"list":[{"prefix":"","tag":"_.isArray","suffix":"(val)","desc":"检查 value 是否是 Array 类对象。","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.isArrayLikeObject","suffix":"(val)","desc":"检查是否为一个类数组对象","url":"","summary":"```javascript\n_.isArrayLikeObject(document.body.children);\n// => true\n```","reference":"","dot":""}]}]}]},{"column":[{"title":"数值","barcolor":"","fold":false,"box":[{"title":"值","fold":false,"list":[{"prefix":"","tag":"_.clamp","suffix":"(n,[min],max)","desc":"返回限制在 lower 和 upper 之间的值。","url":"","summary":"","reference":"","dot":""}]}]},{"title":"数学","barcolor":"","fold":false,"box":[{"title":"随机数","fold":false,"list":[{"prefix":"","tag":"_.inRange","suffix":"(n,[start=0],end)","desc":"检查 n 是否在 start 与 end 之间，但不包括 end，返回布尔值\n如果 end 没有指定，那么 start 设置为0。 \n如果 start 大于 end，那么参数会交换以便支持负范围。","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.random","suffix":"([lower=0],[upper=1],[floating])","desc":"产生一个包括 lower 与 upper 之间的数。 \n如果只提供一个参数返回一个0到提供数之间的数。 \n如果 floating 设为 true，或者 lower 或 upper 是浮点数，结果返回浮点数。","url":"","summary":"","reference":"","dot":""}]},{"title":"常用方法","fold":false,"list":[{"prefix":"","tag":"_.round","suffix":"(val,fix)","desc":"根据 precision（精度） 四舍五入 number。","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.maxBy|minBy","suffix":"(arr,fn)","desc":"```javascript\n_.maxBy(objects, function(o) { return o.n; });\n// => { 'n': 2 }\n```","url":"https://www.lodashjs.com/docs/latest#_maxbyarray-iteratee_identity","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.mean","suffix":"(arr)","desc":"计算 array 的平均值。","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.sum","suffix":"(arr)","desc":"计算 array 中值的总和","url":"","summary":"","reference":"","dot":""}]}]},{"title":"日期和时间","barcolor":"","fold":false,"box":[{"title":"Lodash","fold":false,"list":[{"prefix":"","tag":"_.now()","suffix":"","desc":"等同于创建一个Date.now()","url":"","summary":"","reference":"","dot":""}]},{"title":"Moment","fold":false,"list":[{"prefix":"","tag":"moment","suffix":"","desc":"npm install moment","url":"http://momentjs.cn/","summary":"","reference":"","dot":""},{"prefix":"","tag":"moment","suffix":"([val])","desc":"解析一个时间对象或使用当前时间","url":"","summary":"","reference":"参考资料|http://momentjs.cn/docs/#/parsing/defaults/","dot":""},{"prefix":"moment.","tag":"get|set","suffix":"([val])","desc":"取值/赋值\n星期从星期天0开始，日期从1开始，月份从0开始","url":"","summary":"","reference":"参考资料|http://momentjs.cn/docs/#/get-set/get/","dot":""},{"prefix":"moment.","tag":"add|subtract","suffix":"(n,unit)","desc":"加减\n```moment().add(7, 'd');```\n<table class=\"table table-striped table-bordered\">\n  <tbody>\n    <tr>\n      <th>键</th>\n      <th>快捷键</th>\n    </tr>\n    <tr>\n      <td>years</td>\n      <td>y</td>\n    </tr>\n    <tr>\n      <td>quarters</td>\n      <td>Q</td>\n    </tr>\n    <tr>\n      <td>months</td>\n      <td>M</td>\n    </tr>\n    <tr>\n      <td>weeks</td>\n      <td>w</td>\n    </tr>\n    <tr>\n      <td>days</td>\n      <td>d</td>\n    </tr>\n    <tr>\n      <td>hours</td>\n      <td>h</td>\n    </tr>\n    <tr>\n      <td>minutes</td>\n      <td>m</td>\n    </tr>\n    <tr>\n      <td>seconds</td>\n      <td>s</td>\n    </tr>\n    <tr>\n      <td>milliseconds</td>\n      <td>ms</td>\n    </tr>\n  </tbody>\n</table>","url":"","summary":"","reference":"参考资料|http://momentjs.cn/docs/#/manipulating/add/","dot":""},{"prefix":"moment.","tag":"format","suffix":"(YYYY-MM-DD)","desc":"符号|说明|补充\n---|:--:|---:\nYYYY|年份|\nM MM|月份数字|MMMM 语言环境中的月份\nD DD|日期|\nE|星期几|e 语言环境的星期几\nH HH|24 小时制|h hh 12 小时制\nm mm|分钟|\ns ss|秒钟|\nQ|季度|\nDDDD|年的某天|\nWW|年的第几周|","url":"","summary":"","reference":"参考资料|http://momentjs.cn/docs/#/displaying/format/","dot":""},{"prefix":"moment.","tag":"fromNow()","suffix":"","desc":"```moment([2007, 0, 29]).fromNow(); // 4 年前```","url":"","summary":"","reference":"参考资料|http://momentjs.cn/docs/#/displaying/fromnow/","dot":""},{"prefix":"","tag":"moment.locale('zh-cn')","suffix":"","desc":"","url":"","summary":"```javascript\nimport moment from 'moment'\n// 里面的字符可以根据自己的需要进行调整\nmoment.locale('zh-cn', {\n    months: '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),\n    monthsShort: '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),\n    weekdays: '星期日_星期一_星期二_星期三_星期四_星期五_星期六'.split('_'),\n    weekdaysShort: '周日_周一_周二_周三_周四_周五_周六'.split('_'),\n    weekdaysMin: '日_一_二_三_四_五_六'.split('_'),\n    longDateFormat: {\n        LT: 'HH:mm',\n        LTS: 'HH:mm:ss',\n        L: 'YYYY-MM-DD',\n        LL: 'YYYY年MM月DD日',\n        LLL: 'YYYY年MM月DD日Ah点mm分',\n        LLLL: 'YYYY年MM月DD日ddddAh点mm分',\n        l: 'YYYY-M-D',\n        ll: 'YYYY年M月D日',\n        lll: 'YYYY年M月D日 HH:mm',\n        llll: 'YYYY年M月D日dddd HH:mm'\n    },\n    meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,\n    meridiemHour: function (hour, meridiem) {\n        if (hour === 12) {\n            hour = 0;\n        }\n        if (meridiem === '凌晨' || meridiem === '早上' ||\n            meridiem === '上午') {\n            return hour;\n        } else if (meridiem === '下午' || meridiem === '晚上') {\n            return hour + 12;\n        } else {\n            // '中午'\n            return hour >= 11 ? hour : hour + 12;\n        }\n    },\n    meridiem: function (hour, minute, isLower) {\n        const hm = hour * 100 + minute;\n        if (hm < 600) {\n            return '凌晨';\n        } else if (hm < 900) {\n            return '早上';\n        } else if (hm < 1130) {\n            return '上午';\n        } else if (hm < 1230) {\n            return '中午';\n        } else if (hm < 1800) {\n            return '下午';\n        } else {\n            return '晚上';\n        }\n    },\n    calendar: {\n        sameDay: '[今天]LT',\n        nextDay: '[明天]LT',\n        nextWeek: '[下]ddddLT',\n        lastDay: '[昨天]LT',\n        lastWeek: '[上]ddddLT',\n        sameElse: 'L'\n    },\n    dayOfMonthOrdinalParse: /\\d{1,2}(日|月|周)/,\n    ordinal: function (number, period) {\n        switch (period) {\n            case 'd':\n            case 'D':\n            case 'DDD':\n                return number + '日';\n            case 'M':\n                return number + '月';\n            case 'w':\n            case 'W':\n                return number + '周';\n            default:\n                return number;\n        }\n    },\n    relativeTime: {\n        future: '%s内',\n        past: '%s前',\n        s: '几秒',\n        ss: '%d秒',\n        m: '1分钟',\n        mm: '%d分钟',\n        h: '1小时',\n        hh: '%d小时',\n        d: '1天',\n        dd: '%d天',\n        M: '1个月',\n        MM: '%d个月',\n        y: '1年',\n        yy: '%d年'\n    },\n    week: {\n        // GB/T 7408-1994《数据元和交换格式·信息交换·日期和时间表示法》与ISO 8601:1988等效\n        dow: 1, // Monday is the first day of the week.\n        doy: 4  // The week that contains Jan 4th is the first week of the year.\n    }\n})\n```","reference":"参考资料|https://www.jianshu.com/p/5715f4bad95c","dot":""}]}]}]},{"column":[{"title":"字符串","barcolor":"","fold":false,"box":[{"title":"转换","fold":false,"list":[{"prefix":"","tag":"_.camelCase","suffix":"(str)","desc":"转换为驼峰写法","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.kebabCase","suffix":"(str)","desc":"转为连接线","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.snakeCase","suffix":"(str)","desc":"转为下划线","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.capitalize","suffix":"(str)","desc":"首字母为大写，剩下为小写。","url":"","summary":"","reference":"","dot":""}]},{"title":"模板","fold":false,"list":[{"prefix":"","tag":"_.escape","suffix":"(str)","desc":"转义string中的 \"&\", \"<\", \">\", '\"', \"'\", 和 \"`\" 字符为HTML实体字符。","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.unescape","suffix":"(str)","desc":"将html实体转为html标签","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.truncate","suffix":"(str,opt)","desc":"length=30 (number): 允许的最大长度。\nomission='...' (string): 超出后的代替字符。\nseparator (RegExp|string): 截断点。","url":"","summary":"","reference":"参考资料|https://www.lodashjs.com/docs/latest#_truncatestring-options","dot":""}]}]}]},{"column":[{"title":"数组","barcolor":"","fold":false,"box":[{"title":"增删改查","fold":false,"list":[{"prefix":"","tag":"_.uniq","suffix":"(arr)","desc":"去重","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.compact","suffix":"(arr)","desc":"去假","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.pull","suffix":"(arr,val..)","desc":"移除与val相等的元素\n**改变原数组**","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.without","suffix":"(arr,val..)","desc":"移除与val相等的元素\n不改变原数组，返回新数组","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.remove","suffix":"(arr,fn(val))","desc":"移除回调返回true的元素","url":"","summary":"","reference":"","dot":""}]},{"title":"集合","fold":false,"list":[{"prefix":"","tag":"_.difference","suffix":"(arr,arrs..)","desc":"不存在于其它数组的","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.xor","suffix":"(arr..)","desc":"所有数组中唯一的元素集合","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.intersection","suffix":"(arrs..)","desc":"返回多个数组的交集","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.union","suffix":"(arrs..)","desc":"返回去重后的并集","url":"","summary":"","reference":"","dot":""}]},{"title":"其它","fold":false,"list":[{"prefix":"","tag":"_.chunk","suffix":"(arr,n)","desc":"以n为块切割再拼接成二维数组\n```javascript\n_.chunk(['a', 'b', 'c', 'd'], 2);\n// => [['a', 'b'], ['c', 'd']]\n```","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.zip","suffix":"(arr..)","desc":"打包，子数组相同索引位置的重新拼合一个新数组\n```javascript\n_.zip(['fred', 'barney'], [30, 40], [true, false]);\n// => [['fred', 30, true], ['barney', 40, false]]\n```","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.fromPairs","suffix":"(arr..)","desc":"将二维数组转为对象\n```javascript\n_.fromPairs([['fred', 30], ['barney', 40]]);\n// => { 'fred': 30, 'barney': 40 }\n```","url":"","summary":"","reference":"","dot":""},{"prefix":"","tag":"_.zipObject","suffix":"(arr..)","desc":"打包对象\n```javascript\n_.zipObject(['a', 'b'], [1, 2]);\n// => { 'a': 1, 'b': 2 }\n```","url":"","summary":"","reference":"","dot":""}]}]}]}]}
+{
+    "version": 1582501679882,
+    "name": "lib",
+    "data": [
+        {
+            "column": [
+                {
+                    "title": "常用链接",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "Utils",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "Lodash",
+                                    "suffix": "",
+                                    "desc": "npm install lodash",
+                                    "url": "https://www.lodashjs.com/docs/latest",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "数据类型",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "检测",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.isArray",
+                                    "suffix": "(val)",
+                                    "desc": "检查 value 是否是 Array 类对象。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.isArrayLikeObject",
+                                    "suffix": "(val)",
+                                    "desc": "检查是否为一个类数组对象",
+                                    "url": "",
+                                    "summary": "```javascript\n_.isArrayLikeObject(document.body.children);\n// => true\n```",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "title": "数值",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "值",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.clamp",
+                                    "suffix": "(n,[min],max)",
+                                    "desc": "返回限制在 lower 和 upper 之间的值。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "数学",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "随机数",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.inRange",
+                                    "suffix": "(n,[start=0],end)",
+                                    "desc": "检查 n 是否在 start 与 end 之间，但不包括 end，返回布尔值\n如果 end 没有指定，那么 start 设置为0。 \n如果 start 大于 end，那么参数会交换以便支持负范围。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.random",
+                                    "suffix": "([lower=0],[upper=1],[floating])",
+                                    "desc": "产生一个包括 lower 与 upper 之间的数。 \n如果只提供一个参数返回一个0到提供数之间的数。 \n如果 floating 设为 true，或者 lower 或 upper 是浮点数，结果返回浮点数。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "常用方法",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.round",
+                                    "suffix": "(val,fix)",
+                                    "desc": "根据 precision（精度） 四舍五入 number。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.maxBy|minBy",
+                                    "suffix": "(arr,fn)",
+                                    "desc": "```javascript\n_.maxBy(objects, function(o) { return o.n; });\n// => { 'n': 2 }\n```",
+                                    "url": "https://www.lodashjs.com/docs/latest#_maxbyarray-iteratee_identity",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.mean",
+                                    "suffix": "(arr)",
+                                    "desc": "计算 array 的平均值。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.sum",
+                                    "suffix": "(arr)",
+                                    "desc": "计算 array 中值的总和",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "日期和时间",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "Lodash",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.now()",
+                                    "suffix": "",
+                                    "desc": "等同于创建一个Date.now()",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Moment",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "moment",
+                                    "suffix": "",
+                                    "desc": "npm install moment",
+                                    "url": "http://momentjs.cn/",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "moment",
+                                    "suffix": "([val])",
+                                    "desc": "解析一个时间对象或使用当前时间",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|http://momentjs.cn/docs/#/parsing/defaults/",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "moment.",
+                                    "tag": "get|set",
+                                    "suffix": "([val])",
+                                    "desc": "取值/赋值\n星期从星期天0开始，日期从1开始，月份从0开始",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|http://momentjs.cn/docs/#/get-set/get/",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "moment.",
+                                    "tag": "add|subtract",
+                                    "suffix": "(n,unit)",
+                                    "desc": "加减\n```moment().add(7, 'd');```\n<table class=\"table table-striped table-bordered\">\n  <tbody>\n    <tr>\n      <th>键</th>\n      <th>快捷键</th>\n    </tr>\n    <tr>\n      <td>years</td>\n      <td>y</td>\n    </tr>\n    <tr>\n      <td>quarters</td>\n      <td>Q</td>\n    </tr>\n    <tr>\n      <td>months</td>\n      <td>M</td>\n    </tr>\n    <tr>\n      <td>weeks</td>\n      <td>w</td>\n    </tr>\n    <tr>\n      <td>days</td>\n      <td>d</td>\n    </tr>\n    <tr>\n      <td>hours</td>\n      <td>h</td>\n    </tr>\n    <tr>\n      <td>minutes</td>\n      <td>m</td>\n    </tr>\n    <tr>\n      <td>seconds</td>\n      <td>s</td>\n    </tr>\n    <tr>\n      <td>milliseconds</td>\n      <td>ms</td>\n    </tr>\n  </tbody>\n</table>",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|http://momentjs.cn/docs/#/manipulating/add/",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "moment.",
+                                    "tag": "format",
+                                    "suffix": "(YYYY-MM-DD)",
+                                    "desc": "符号|说明|补充\n---|:--:|---:\nYYYY|年份|\nM MM|月份数字|MMMM 语言环境中的月份\nD DD|日期|\nE|星期几|e 语言环境的星期几\nH HH|24 小时制|h hh 12 小时制\nm mm|分钟|\ns ss|秒钟|\nQ|季度|\nDDDD|年的某天|\nWW|年的第几周|",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|http://momentjs.cn/docs/#/displaying/format/",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "moment.",
+                                    "tag": "fromNow()",
+                                    "suffix": "",
+                                    "desc": "```moment([2007, 0, 29]).fromNow(); // 4 年前```",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|http://momentjs.cn/docs/#/displaying/fromnow/",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "moment.locale('zh-cn')",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "",
+                                    "summary": "```javascript\nimport moment from 'moment'\n// 里面的字符可以根据自己的需要进行调整\nmoment.locale('zh-cn', {\n    months: '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),\n    monthsShort: '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),\n    weekdays: '星期日_星期一_星期二_星期三_星期四_星期五_星期六'.split('_'),\n    weekdaysShort: '周日_周一_周二_周三_周四_周五_周六'.split('_'),\n    weekdaysMin: '日_一_二_三_四_五_六'.split('_'),\n    longDateFormat: {\n        LT: 'HH:mm',\n        LTS: 'HH:mm:ss',\n        L: 'YYYY-MM-DD',\n        LL: 'YYYY年MM月DD日',\n        LLL: 'YYYY年MM月DD日Ah点mm分',\n        LLLL: 'YYYY年MM月DD日ddddAh点mm分',\n        l: 'YYYY-M-D',\n        ll: 'YYYY年M月D日',\n        lll: 'YYYY年M月D日 HH:mm',\n        llll: 'YYYY年M月D日dddd HH:mm'\n    },\n    meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,\n    meridiemHour: function (hour, meridiem) {\n        if (hour === 12) {\n            hour = 0;\n        }\n        if (meridiem === '凌晨' || meridiem === '早上' ||\n            meridiem === '上午') {\n            return hour;\n        } else if (meridiem === '下午' || meridiem === '晚上') {\n            return hour + 12;\n        } else {\n            // '中午'\n            return hour >= 11 ? hour : hour + 12;\n        }\n    },\n    meridiem: function (hour, minute, isLower) {\n        const hm = hour * 100 + minute;\n        if (hm < 600) {\n            return '凌晨';\n        } else if (hm < 900) {\n            return '早上';\n        } else if (hm < 1130) {\n            return '上午';\n        } else if (hm < 1230) {\n            return '中午';\n        } else if (hm < 1800) {\n            return '下午';\n        } else {\n            return '晚上';\n        }\n    },\n    calendar: {\n        sameDay: '[今天]LT',\n        nextDay: '[明天]LT',\n        nextWeek: '[下]ddddLT',\n        lastDay: '[昨天]LT',\n        lastWeek: '[上]ddddLT',\n        sameElse: 'L'\n    },\n    dayOfMonthOrdinalParse: /\\d{1,2}(日|月|周)/,\n    ordinal: function (number, period) {\n        switch (period) {\n            case 'd':\n            case 'D':\n            case 'DDD':\n                return number + '日';\n            case 'M':\n                return number + '月';\n            case 'w':\n            case 'W':\n                return number + '周';\n            default:\n                return number;\n        }\n    },\n    relativeTime: {\n        future: '%s内',\n        past: '%s前',\n        s: '几秒',\n        ss: '%d秒',\n        m: '1分钟',\n        mm: '%d分钟',\n        h: '1小时',\n        hh: '%d小时',\n        d: '1天',\n        dd: '%d天',\n        M: '1个月',\n        MM: '%d个月',\n        y: '1年',\n        yy: '%d年'\n    },\n    week: {\n        // GB/T 7408-1994《数据元和交换格式·信息交换·日期和时间表示法》与ISO 8601:1988等效\n        dow: 1, // Monday is the first day of the week.\n        doy: 4  // The week that contains Jan 4th is the first week of the year.\n    }\n})\n```",
+                                    "reference": "参考资料|https://www.jianshu.com/p/5715f4bad95c",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "title": "字符串",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "转换",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.camelCase",
+                                    "suffix": "(str)",
+                                    "desc": "转换为驼峰写法",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.kebabCase",
+                                    "suffix": "(str)",
+                                    "desc": "转为连接线",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.snakeCase",
+                                    "suffix": "(str)",
+                                    "desc": "转为下划线",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.capitalize",
+                                    "suffix": "(str)",
+                                    "desc": "首字母为大写，剩下为小写。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "模板",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.escape",
+                                    "suffix": "(str)",
+                                    "desc": "转义string中的 \"&\", \"<\", \">\", '\"', \"'\", 和 \"`\" 字符为HTML实体字符。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.unescape",
+                                    "suffix": "(str)",
+                                    "desc": "将html实体转为html标签",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.truncate",
+                                    "suffix": "(str,opt)",
+                                    "desc": "length=30 (number): 允许的最大长度。\nomission='...' (string): 超出后的代替字符。\nseparator (RegExp|string): 截断点。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|https://www.lodashjs.com/docs/latest#_truncatestring-options",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "title": "数组",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "增删改查",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.uniq",
+                                    "suffix": "(arr)",
+                                    "desc": "去重",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.compact",
+                                    "suffix": "(arr)",
+                                    "desc": "去假",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.pull",
+                                    "suffix": "(arr,val..)",
+                                    "desc": "移除与val相等的元素\n**改变原数组**",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.without",
+                                    "suffix": "(arr,val..)",
+                                    "desc": "移除与val相等的元素\n不改变原数组，返回新数组",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.remove",
+                                    "suffix": "(arr,fn(val))",
+                                    "desc": "移除回调返回true的元素",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "集合",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.difference",
+                                    "suffix": "(arr,arrs..)",
+                                    "desc": "不存在于其它数组的",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.xor",
+                                    "suffix": "(arr..)",
+                                    "desc": "所有数组中唯一的元素集合",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.intersection",
+                                    "suffix": "(arrs..)",
+                                    "desc": "返回多个数组的交集",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.union",
+                                    "suffix": "(arrs..)",
+                                    "desc": "返回去重后的并集",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "其它",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "_.chunk",
+                                    "suffix": "(arr,n)",
+                                    "desc": "以n为块切割再拼接成二维数组\n```javascript\n_.chunk(['a', 'b', 'c', 'd'], 2);\n// => [['a', 'b'], ['c', 'd']]\n```",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.zip",
+                                    "suffix": "(arr..)",
+                                    "desc": "打包，子数组相同索引位置的重新拼合一个新数组\n```javascript\n_.zip(['fred', 'barney'], [30, 40], [true, false]);\n// => [['fred', 30, true], ['barney', 40, false]]\n```",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "_.zipObject",
+                                    "suffix": "(arr..)",
+                                    "desc": "打包对象\n```javascript\n_.zipObject(['a', 'b'], [1, 2]);\n// => { 'a': 1, 'b': 2 }\n```",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
