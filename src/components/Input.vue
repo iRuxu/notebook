@@ -343,6 +343,11 @@ export default {
         border-radius: 2px;
         box-shadow: 0 0 3px rgba(88, 88, 88, 0.1) inset;
     }
+
+    textarea{
+        resize: vertical;
+    }
+
     input {
         width: 240px;
 
