@@ -27,15 +27,15 @@
                 "group":"code"
             },
             {
-                "name":"PHP",
-                "path":"/php",
+                "name":"Python",
+                "path":"/python",
                 "title":"",
                 "devonly":false,
                 "group":"code"
             },
             {
-                "name":"Python",
-                "path":"/python",
+                "name":"PHP",
+                "path":"/php",
                 "title":"",
                 "devonly":false,
                 "group":"code"
