@@ -62,13 +62,6 @@
                 "group":"code"
             },
             {
-                "name":"Vue",
-                "path":"/vue",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
                 "name":"jQuery",
                 "path":"/jquery",
                 "title":"",
@@ -76,9 +69,16 @@
                 "group":"code"
             },
             {
+                "name":"Vue",
+                "path":"/vue",
+                "title":"Vue生态,Webpack",
+                "devonly":false,
+                "group":"code"
+            },
+            {
                 "name":"Node",
                 "path":"/node",
-                "title":"",
+                "title":"Node模块,python模块",
                 "devonly":false,
                 "group":"code"
             },
@@ -90,15 +90,15 @@
                 "group":"code"
             },
             {
-                "name":"Git",
-                "path":"/git",
+                "name":"Linux",
+                "path":"/linux",
                 "title":"",
                 "devonly":false,
                 "group":"code"
             },
             {
-                "name":"Linux",
-                "path":"/linux",
+                "name":"Git",
+                "path":"/git",
                 "title":"",
                 "devonly":false,
                 "group":"code"
