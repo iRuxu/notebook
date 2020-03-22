@@ -44,8 +44,8 @@ export default {
                 this.dbdata.version = version
                 //console.log(version)
 
-                if(this.$root.config.editDevonly && !this.$store.state.isDev) return
-                this.syncIDB(this.dbname,this.dbdata)
+                // if(this.$root.config.editDevonly && !this.$store.state.isDev) return
+                // this.syncIDB(this.dbname,this.dbdata)
             },
             deep: true,
         }
