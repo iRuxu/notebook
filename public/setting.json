@@ -41,6 +41,20 @@
                 "group":"code"
             },
             {
+                "name":"Node",
+                "path":"/node",
+                "title":"Node模块,python模块",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Database",
+                "path":"/db",
+                "title":"",
+                "devonly":true,
+                "group":"code"
+            },
+            {
                 "name":"CSS",
                 "path":"/css",
                 "title":"",
@@ -73,20 +87,6 @@
                 "path":"/vue",
                 "title":"Vue生态,Webpack",
                 "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Node",
-                "path":"/node",
-                "title":"Node模块,python模块",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Database",
-                "path":"/db",
-                "title":"",
-                "devonly":true,
                 "group":"code"
             },
             {
