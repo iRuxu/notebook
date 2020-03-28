@@ -38,17 +38,17 @@ export default {
         $route: function(to, from) {
             this.dbname = this.$route.name
         },
-        dbdata : { 
-            handler : function (newdata){
-                let version = new Date().getTime()
-                this.dbdata.version = version
-                //console.log(version)
+        // dbdata : { 
+        //     handler : function (newdata){
+        //         let version = new Date().getTime()
+        //         this.dbdata.version = version
+        //         //console.log(version)
 
-                // if(this.$root.config.editDevonly && !this.$store.state.isDev) return
-                // this.syncIDB(this.dbname,this.dbdata)
-            },
-            deep: true,
-        }
+        //         // if(this.$root.config.editDevonly && !this.$store.state.isDev) return
+        //         // this.syncIDB(this.dbname,this.dbdata)
+        //     },
+        //     deep: true,
+        // }
     },
     mounted : function (){
         this.localGroup(this.$route.name)

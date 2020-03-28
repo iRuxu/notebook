@@ -41,15 +41,22 @@
                 "group":"code"
             },
             {
-                "name":"Node",
-                "path":"/node",
-                "title":"Node模块,python模块",
+                "name":"Std",
+                "path":"/std",
+                "title":"",
                 "devonly":false,
                 "group":"code"
             },
             {
-                "name":"Database",
-                "path":"/db",
+                "name":"Web",
+                "path":"/web",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Data",
+                "path":"/data",
                 "title":"",
                 "devonly":true,
                 "group":"code"
@@ -62,15 +69,15 @@
                 "group":"code"
             },
             {
-                "name":"DOM",
-                "path":"/dom",
+                "name":"BOM",
+                "path":"/bom",
                 "title":"",
                 "devonly":false,
                 "group":"code"
             },
             {
-                "name":"BOM",
-                "path":"/bom",
+                "name":"DOM",
+                "path":"/dom",
                 "title":"",
                 "devonly":false,
                 "group":"code"
