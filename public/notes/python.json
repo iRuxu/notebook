@@ -1759,46 +1759,6 @@
                                     "dot": ""
                                 }
                             ]
-                        },
-                        {
-                            "title": "字节",
-                            "fold": false,
-                            "list": [{
-                                "prefix": "",
-                                "tag": "bytes",
-                                "suffix": "(source,[encoding])",
-                                "desc": "返回一个新的 bytes 对象，该对象是一个 0 <= x < 256 区间内的整数不可变序列。它是 bytearray 的不可变版本。",
-                                "url": "https://www.runoob.com/python3/python3-func-bytes.html",
-                                "summary": "",
-                                "reference": "",
-                                "dot": ""
-                            },
-                            {
-                                "prefix": "",
-                                "tag": "compile",
-                                "suffix": "(str)",
-                                "desc": "将一个字符串编译为字节代码",
-                                "url": "https://www.runoob.com/python/python-func-compile.html",
-                                "summary": "",
-                                "reference": "",
-                                "dot": ""
-                            }]
-                        },
-                        {
-                            "title": "HASH",
-                            "fold": false,
-                            "list": [
-                                {
-                                    "prefix": "",
-                                    "tag": "hash",
-                                    "suffix": "(o)",
-                                    "desc": "返回对象的哈希值",
-                                    "url": "",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                }
-                            ]
                         }
                     ]
                 }
