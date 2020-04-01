@@ -93,7 +93,7 @@
                                     "prefix": "",
                                     "tag": "Content-Type",
                                     "suffix": "",
-                                    "desc": "`<meta http-equiv=\"Content-Type\" content=\"Type=text/html; charset=utf-8\">`\n设置编码和MIME类型",
+                                    "desc": "`<meta http-equiv=\"Content-Type\" content=\"Type=text/html; charset=utf-8\">`\n设置编码和MIME类型\nhttp-equiv属性用来覆盖 HTTP 回应的头信息字段，content属性是该字段的内容",
                                     "url": "",
                                     "summary": "",
                                     "reference": "",
@@ -128,8 +128,8 @@
                             ]
                         },
                         {
-                            "title": "style",
-                            "fold": false,
+                            "title": "前端",
+                            "fold": true,
                             "list": [
                                 {
                                     "prefix": "",
@@ -150,74 +150,12 @@
                                     "summary": "",
                                     "reference": "",
                                     "dot": ""
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Script",
-                            "fold": false,
-                            "list": [
+                                },
                                 {
                                     "prefix": "",
                                     "tag": "script",
                                     "suffix": "",
-                                    "desc": "`<script src=\"\"></script>`\n推荐放在底部加载,避免阻塞渲染",
-                                    "url": "",
-                                    "summary": "type : 如果type属性的值，浏览器不认识，那么它不会执行其中的代码。\nintegrity : 指定了外部脚本Hash签名，一旦有人改了这个脚本，导致签名不匹配，浏览器就会拒绝加载。",
-                                    "reference": "",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "defer",
-                                    "suffix": "",
-                                    "desc": "defer要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行；\n如果有多个defer脚本，会按照它们在页面出现的顺序加载",
-                                    "url": "",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "async",
-                                    "suffix": "",
-                                    "desc": "async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。\n多个async脚本是不能保证加载顺序的",
-                                    "url": "",
-                                    "summary": "一般来说，如果脚本之间没有依赖关系，就使用async属性，如果脚本之间有依赖关系，就使用defer属性。如果同时使用async和defer属性，后者不起作用，浏览器行为由async属性决定。",
-                                    "reference": "",
-                                    "dot": ""
-                                }
-                            ]
-                        },
-                        {
-                            "title": "缓存",
-                            "fold": false,
-                            "list": [
-                                {
-                                    "prefix": "",
-                                    "tag": "Cache-Control",
-                                    "suffix": "",
-                                    "desc": "`<meta http-equiv=\"Cache-Control\" content=\"no-cache\" />`\nhttp-equiv属性用来覆盖 HTTP 回应的头信息字段，content属性是该字段的内容",
-                                    "url": "",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "Pragma",
-                                    "suffix": "",
-                                    "desc": "`<meta http-equiv=\"Pragma\" content=\"no-cache\" />`\n禁止缓存和脱机浏览",
-                                    "url": "",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "Expires",
-                                    "suffix": "",
-                                    "desc": "`<meta http-equiv=\"Expires\" content=\"0\" />`\n设置过期时间",
+                                    "desc": "`<script src=\"\"></script>`\n推荐放在底部加载,避免阻塞渲染\n# type\n如果type属性的值，浏览器不认识，那么它不会执行其中的代码。\n# defer\ndefer要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行；\n如果有多个defer脚本，会按照它们在页面出现的顺序加载\n# async\nasync一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。\n多个async脚本是不能保证加载顺序的\n一般来说，如果脚本之间没有依赖关系，就使用async属性，如果脚本之间有依赖关系，就使用defer属性。如果同时使用async和defer属性，后者不起作用，浏览器行为由async属性决定。\n# integrity\n指定了外部脚本Hash签名，一旦有人改了这个脚本，导致签名不匹配，浏览器就会拒绝加载。",
                                     "url": "",
                                     "summary": "",
                                     "reference": "",
@@ -253,7 +191,7 @@
                         },
                         {
                             "title": "厂商",
-                            "fold": false,
+                            "fold": true,
                             "list": [
                                 {
                                     "prefix": "",
@@ -280,73 +218,10 @@
                     ]
                 },
                 {
-                    "title": "参考",
-                    "barcolor": "",
-                    "fold": false,
-                    "box": [
-                        {
-                            "title": "参考资料",
-                            "fold": false,
-                            "list": [
-                                {
-                                    "prefix": "",
-                                    "tag": " MDN Element",
-                                    "suffix": "",
-                                    "desc": "",
-                                    "url": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "HEAD",
-                                    "suffix": "",
-                                    "desc": "",
-                                    "url": "https://www.awesomes.cn/repo/joshbuchea/HEAD",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "column": [
-                {
                     "title": "Body",
                     "barcolor": "",
                     "fold": false,
                     "box": [
-                        {
-                            "title": "通用",
-                            "fold": false,
-                            "list": [
-                                {
-                                    "prefix": "",
-                                    "tag": "Emoji",
-                                    "suffix": "",
-                                    "desc": "",
-                                    "url": "http://getemoji.com/",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "contenteditable",
-                                    "suffix": "",
-                                    "desc": "contenteditable属性允许用户修改内容\n+ true或空字符串：内容可以编辑\n+ false：不可以编辑",
-                                    "url": "",
-                                    "summary": "",
-                                    "reference": "",
-                                    "dot": ""
-                                }
-                            ]
-                        },
                         {
                             "title": "a",
                             "fold": false,
@@ -404,42 +279,6 @@
                             ]
                         },
                         {
-                            "title": "img",
-                            "fold": false,
-                            "list": [
-                                {
-                                    "prefix": "",
-                                    "tag": "loading",
-                                    "suffix": "=lazy",
-                                    "desc": "图片img属性\nauto：浏览器默认行为，等同于不使用loading属性。\nlazy：启用懒加载。\neager：立即加载资源，无论它在页面上的哪个位置。",
-                                    "url": "",
-                                    "summary": "",
-                                    "reference": "参考资料MDN|https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "srcset sizes",
-                                    "suffix": "",
-                                    "desc": "简单的响应式图片\na. 根据不同的像素密度,使用不同的图片.\nb. 计算sizes占据屏幕的比例,得到实际的宽度,取srcset中最接近的值的图.\nx. 没有匹配时使用默认的src.",
-                                    "url": "",
-                                    "summary": "# 根据像素密度\n根据不同的像素密度,使用不同的图片.\n```\n<img srcset=\"foo-320w.jpg,\n             foo-480w.jpg 1.5x,\n             foo-640w.jpg 2x\"\n     src=\"foo-640w.jpg\">\n```\n\n# 根据换算结果最接近\n计算sizes占据屏幕的比例,得到实际的宽度,取srcset中最接近的值的图\n```\n<img srcset=\"foo-160.jpg 160w,\n             foo-320.jpg 320w,\n             foo-640.jpg 640w,\n             foo-1280.jpg 1280w\"\n     sizes=\"(max-width: 440px) 100vw,\n            (max-width: 900px) 33vw,\n            254px\"\n     src=\"foo-1280.jpg\">\n```",
-                                    "reference": "参考资料|https://wangdoc.com/html/image.html#srcset%E5%B1%9E%E6%80%A7",
-                                    "dot": ""
-                                },
-                                {
-                                    "prefix": "",
-                                    "tag": "picture",
-                                    "suffix": "",
-                                    "desc": "复杂的响应式图片",
-                                    "url": "",
-                                    "summary": "同时考虑media屏幕尺寸和像素比\n```html\n<picture>\n  <source srcset=\"homepage-person@desktop.png,\n                  homepage-person@desktop-2x.png 2x\"\n          media=\"(min-width: 990px)\">\n  <source srcset=\"homepage-person@tablet.png,\n                  homepage-person@tablet-2x.png 2x\"\n          media=\"(min-width: 750px)\">\n  <img srcset=\"homepage-person@mobile.png,\n               homepage-person@mobile-2x.png 2x\"\n       alt=\"Shopify Merchant, Corrine Anestopoulos\">\n</picture>\n```\ntype类型降级\n```html\n<picture>\n  <source type=\"image/svg+xml\" srcset=\"logo.xml\">\n  <source type=\"image/webp\" srcset=\"logo.webp\"> \n  <img src=\"logo.png\" alt=\"ACME Corp\">\n</picture>\n```",
-                                    "reference": "参考资料|https://wangdoc.com/html/image.html#picture",
-                                    "dot": ""
-                                }
-                            ]
-                        },
-                        {
                             "title": "table",
                             "fold": false,
                             "list": [
@@ -490,26 +329,164 @@
                                     "dot": ""
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    "title": "参考",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
                         {
-                            "title": "form",
+                            "title": "参考资料",
                             "fold": false,
                             "list": [
                                 {
                                     "prefix": "",
-                                    "tag": "enctype",
+                                    "tag": " MDN Element",
                                     "suffix": "",
-                                    "desc": "当method属性等于post时，该属性指定提交给服务器的 MIME 类型。可能的值为:\n+ application/x-www-form-urlencoded（默认值）\n+ multipart/form-data（文件上传的情况）\n+ text/plain",
-                                    "url": "",
+                                    "desc": "",
+                                    "url": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element",
                                     "summary": "",
-                                    "reference": "参考资料|https://wangdoc.com/html/form.html",
+                                    "reference": "",
                                     "dot": ""
                                 },
                                 {
                                     "prefix": "",
-                                    "tag": "accept",
+                                    "tag": "HEAD",
                                     "suffix": "",
-                                    "desc": "input type=\"file\"的accept属性表示允许选择的文件类型，使用逗号分隔，可以使用 MIME 类型（比如image/jpeg），也可以使用后缀名（比如.doc），还可以使用audio/*（任何音频文件）、video/*（任何视频文件）、image/*（任何图像文件）等表示法。",
+                                    "desc": "",
+                                    "url": "https://www.awesomes.cn/repo/joshbuchea/HEAD",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "其它",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "Emoji",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "http://getemoji.com/",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "title": "Screen",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "渲染",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "screen",
+                                    "tag": ".pixelDepth",
+                                    "suffix": "",
+                                    "desc": "整数，表示屏幕的色彩位数，比如24表示屏幕提供24位色彩。",
+                                    "url": "",
+                                    "summary": "screen.colorDepth：screen.pixelDepth的别名。\n严格地说，colorDepth 表示应用程序的颜色深度，pixelDepth 表示屏幕的颜色深度，绝大多数情况下，它们都是同一件事。",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "window",
+                                    "tag": ".devicePixelRatio",
+                                    "suffix": "",
+                                    "desc": "返回一个数值，表示一个 CSS 像素的大小与一个物理像素的大小之间的比率。",
+                                    "url": "",
+                                    "summary": "也就是说，它表示一个 CSS 像素由多少个物理像素组成。它可以用于判断用户的显示环境，如果这个比率较大，就表示用户正在使用高清屏幕，因此可以显示较大像素的图片。",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "方向",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "screen",
+                                    "tag": ".orientation",
+                                    "suffix": "",
+                                    "desc": "返回一个对象，表示屏幕的方向。\n# type\n该对象的type属性是一个字符串，表示屏幕的具体方向，\n+ landscape-primary表示横放\n+ landscape-secondary表示颠倒的横放\n+ portrait-primary表示竖放\n+ portrait-secondary\n\n# angle\n角度\n\n# onchange\n当发生变化时",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "on",
+                                    "tag": "deviceorientation",
+                                    "suffix": "",
+                                    "desc": "旋转屏幕事件 `window.ondeviceorientation`\n# 事件对象\n+ beta 一个表示设备绕x轴旋转（范围在－180到180之间）的数字，从前到后的方向为正方向。\n+ gamma 一个表示设备绕y轴旋转（范围在－90到90之间）的数字，从左向右为正方向。\n+ alpha 一个表示设备绕z轴旋转的角度（范围在0-360之间）的数字\n+ absolute 用来说明设备是提供的旋转数据是否是绝对定位的布尔值。\n",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "尺寸",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "screen",
+                                    "tag": ".width|height",
+                                    "suffix": "",
+                                    "desc": "屏幕的宽度/高度（单位像素）",
+                                    "url": "",
+                                    "summary": "除非调整显示器的分辨率，否则这个值可以看作常量，不会发生变化。显示器的分辨率与浏览器设置无关，缩放网页并不会改变分辨率。",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "screen",
+                                    "tag": ".availWidth|availHeight",
+                                    "suffix": "",
+                                    "desc": "浏览器窗口可用的屏幕高度（单位像素）。\n因为部分空间可能不可用，比如系统的任务栏或者 Mac 系统屏幕底部的 Dock 区，这个属性等于height减去那些被系统组件的高度。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "指针",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "e",
+                                    "tag": ".screenX|Y",
+                                    "suffix": "",
+                                    "desc": "数值，鼠标相对于屏幕的水平垂直位置（单位像素），默认值为0",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "e",
+                                    "tag": ".movementX|Y",
+                                    "suffix": "",
+                                    "desc": "返回当前位置与上一个mousemove事件之间的水平|垂直距离（单位像素）\n等同`currentEvent.movementX = currentEvent.screenX - previousEvent.screenX`",
                                     "url": "",
                                     "summary": "",
                                     "reference": "",
@@ -520,32 +497,188 @@
                     ]
                 },
                 {
-                    "title": "其它",
+                    "title": "Window",
                     "barcolor": "",
                     "fold": false,
                     "box": [
                         {
-                            "title": "其它",
+                            "title": "尺寸",
                             "fold": false,
                             "list": [
                                 {
-                                    "prefix": "",
-                                    "tag": "MathML",
+                                    "prefix": "window",
+                                    "tag": ".outerWidth|Height",
+                                    "suffix": "",
+                                    "desc": "返回浏览器窗口的高度和宽度，包括浏览器菜单和边框（单位像素）。这两个属性只读。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "位置",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "window",
+                                    "tag": ".screenX|Y",
+                                    "suffix": "",
+                                    "desc": "返回浏览器窗口左上角相对于当前屏幕左上角的水平距离和垂直距离（单位像素）。这两个属性只读。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "指针",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "e",
+                                    "tag": ".clientX|Y",
+                                    "suffix": "",
+                                    "desc": "数值，鼠标相对于浏览器窗口的水平垂直位置（单位像素），默认值为0",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Document",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "尺寸",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "window",
+                                    "tag": ".innerWidth|Height",
+                                    "suffix": "",
+                                    "desc": "返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport）的大小（单位像素）。这两个属性只读。\n用户放大网页的时候（比如将网页从100%的大小放大为200%），这两个属性会变小。因为这时网页的像素大小不变（比如宽度还是960像素），只是每个像素占据的屏幕空间变大了，因为可见部分（视口）就变小了。\n注意，这两个属性值包括滚动条的高度和宽度。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "滚动",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "window",
+                                    "tag": ".scrollX|Y",
+                                    "suffix": "",
+                                    "desc": "返回页面的水平/垂直滚动距离,这两个属性只读。\nwindow.pageXOffset属性和window.pageYOffset属性，是window.scrollX和window.scrollY别名。",
+                                    "url": "",
+                                    "summary": "注意，这两个属性的返回值不是整数，而是双精度浮点数。如果页面没有滚动，它们的值就是0。举例来说，如果用户向下拉动了垂直滚动条75像素，那么window.scrollY就是75左右。用户水平向右拉动水平滚动条200像素，window.scrollX就是200左右。",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "window",
+                                    "tag": ".scrollTo",
+                                    "suffix": "(x,y)",
+                                    "desc": "将文档滚动到指定位置。\n也可以接受一个配置对象作为参数\nwindow.scroll()方法是window.scrollTo()方法的别名。",
+                                    "url": "",
+                                    "summary": "配置对象options有三个属性。\ntop：滚动后页面左上角的垂直坐标，即 y 坐标。\nleft：滚动后页面左上角的水平坐标，即 x 坐标。\nbehavior：字符串，表示滚动的方式，有三个可能值（smooth、instant、auto），默认值为auto。\n```\nwindow.scrollTo({\n  top: 1000,\n  behavior: 'smooth'\n});\n```",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "window",
+                                    "tag": ".scrollBy",
+                                    "suffix": "(+x,+y)",
+                                    "desc": "将网页滚动指定距离（单位像素）。\n它接受两个参数：水平向右滚动的像素，垂直向下滚动的像素。\n`window.scrollBy(0, window.innerHeight)` 将网页向下滚动一屏",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "指针",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "e",
+                                    "tag": ".pageX|Y",
+                                    "suffix": "",
+                                    "desc": "返回鼠标位置与文档左|上侧边缘的距离（单位像素）\n它们的返回值都包括文档不可见的部分",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Element",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "滚动",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "ele.",
+                                    "tag": "scrollTop",
                                     "suffix": "",
                                     "desc": "",
-                                    "url": "https://wiki.developer.mozilla.org/zh-CN/docs/Web/MathML/Element",
+                                    "url": "",
                                     "summary": "",
                                     "reference": "",
                                     "dot": ""
                                 },
                                 {
-                                    "prefix": "",
-                                    "tag": "SVG",
+                                    "prefix": "ele",
+                                    "tag": ".scrollLeft",
                                     "suffix": "",
                                     "desc": "",
                                     "url": "",
                                     "summary": "",
-                                    "reference": "MDN|https://wiki.developer.mozilla.org/zh-CN/docs/Web/SVG\n简易教程|https://www.w3cschool.cn/svg/svg-tutorial.html",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "ele",
+                                    "tag": ".scrollIntoView()",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "指针",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "e",
+                                    "tag": ".offsetX|Y",
+                                    "suffix": "",
+                                    "desc": "返回鼠标位置与目标节点左|上侧的padding边缘的水平距离（单位像素）",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
                                     "dot": ""
                                 }
                             ]
@@ -555,7 +688,51 @@
             ]
         },
         {
-            "column": []
+            "column": [
+                {
+                    "title": "Image",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "img",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "loading",
+                                    "suffix": "=lazy",
+                                    "desc": "图片img属性\nauto：浏览器默认行为，等同于不使用loading属性。\nlazy：启用懒加载。\neager：立即加载资源，无论它在页面上的哪个位置。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料MDN|https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "srcset sizes",
+                                    "suffix": "",
+                                    "desc": "简单的响应式图片\na. 根据不同的像素密度,使用不同的图片.\nb. 计算sizes占据屏幕的比例,得到实际的宽度,取srcset中最接近的值的图.\nx. 没有匹配时使用默认的src.",
+                                    "url": "",
+                                    "summary": "# 根据像素密度\n根据不同的像素密度,使用不同的图片.\n```\n<img srcset=\"foo-320w.jpg,\n             foo-480w.jpg 1.5x,\n             foo-640w.jpg 2x\"\n     src=\"foo-640w.jpg\">\n```\n\n# 根据换算结果最接近\n计算sizes占据屏幕的比例,得到实际的宽度,取srcset中最接近的值的图\n```\n<img srcset=\"foo-160.jpg 160w,\n             foo-320.jpg 320w,\n             foo-640.jpg 640w,\n             foo-1280.jpg 1280w\"\n     sizes=\"(max-width: 440px) 100vw,\n            (max-width: 900px) 33vw,\n            254px\"\n     src=\"foo-1280.jpg\">\n```",
+                                    "reference": "参考资料|https://wangdoc.com/html/image.html#srcset%E5%B1%9E%E6%80%A7",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "picture",
+                                    "suffix": "",
+                                    "desc": "复杂的响应式图片",
+                                    "url": "",
+                                    "summary": "同时考虑media屏幕尺寸和像素比\n```html\n<picture>\n  <source srcset=\"homepage-person@desktop.png,\n                  homepage-person@desktop-2x.png 2x\"\n          media=\"(min-width: 990px)\">\n  <source srcset=\"homepage-person@tablet.png,\n                  homepage-person@tablet-2x.png 2x\"\n          media=\"(min-width: 750px)\">\n  <img srcset=\"homepage-person@mobile.png,\n               homepage-person@mobile-2x.png 2x\"\n       alt=\"Shopify Merchant, Corrine Anestopoulos\">\n</picture>\n```\ntype类型降级\n```html\n<picture>\n  <source type=\"image/svg+xml\" srcset=\"logo.xml\">\n  <source type=\"image/webp\" srcset=\"logo.webp\"> \n  <img src=\"logo.png\" alt=\"ACME Corp\">\n</picture>\n```",
+                                    "reference": "参考资料|https://wangdoc.com/html/image.html#picture",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "column": [
@@ -586,6 +763,43 @@
                                     "url": "",
                                     "summary": "",
                                     "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "title": "其它",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "其它",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "MathML",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "https://wiki.developer.mozilla.org/zh-CN/docs/Web/MathML/Element",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "SVG",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "MDN|https://wiki.developer.mozilla.org/zh-CN/docs/Web/SVG\n简易教程|https://www.w3cschool.cn/svg/svg-tutorial.html",
                                     "dot": ""
                                 }
                             ]
