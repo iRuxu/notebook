@@ -875,7 +875,7 @@
                                     "suffix": "",
                                     "desc": "+ ctx.request  请求对象\n+ ctx.response 响应对象\n+ ctx.cookies.get|set(name,[val]) cookie",
                                     "url": "",
-                                    "summary": "+ ctx.req Node 的 request 对象.\n+ ctx.res Node 的 response 对象.\n",
+                                    "summary": "+ ctx.req Node 的 request 对象.\n+ ctx.res Node 的 response 对象.\n+ ctx.params => router :arg\n+ ctx.query => ?get查询参数数据 (axios通过params发送)\n+ ctx.request.body => post提交数据 （axios通过data发送）\n",
                                     "reference": "参考资料|https://koa.bootcss.com",
                                     "dot": ""
                                 },
