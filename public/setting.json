@@ -48,8 +48,8 @@
                 "group":"code"
             },
             {
-                "name":"Web",
-                "path":"/web",
+                "name":"Net",
+                "path":"/net",
                 "title":"",
                 "devonly":false,
                 "group":"code"

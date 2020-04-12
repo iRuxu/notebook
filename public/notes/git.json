@@ -1,5 +1,427 @@
 {
-    "version":1577292216582,
-    "name":"git",
-    "data":[]
+    "version": 1577292216582,
+    "name": "git",
+    "data": [
+        {
+            "column": [
+                {
+                    "title": "创建",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "账号",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "config --global user",
+                                    "suffix": ".option val",
+                                    "desc": "git config --global user.name \"username\"\ngit config --global user.email user@example.com\n使用了 --global 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 --global 选项的命令来配置。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": ".gitignore",
+                                    "suffix": "",
+                                    "desc": "需要被忽略的文件",
+                                    "url": "",
+                                    "summary": ".gitignore 的格式规范如下：\n所有空行或者以 ＃ 开头的行都会被 Git 忽略。\n可以使用标准的 glob 模式匹配。\n匹配模式可以以（/）开头防止递归。\n匹配模式可以以（/）结尾指定目录。\n要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。\n所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。\n星号（*）匹配零个或多个任意字符；\n[abc] 匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；\n问号（?）只匹配一个任意字符；\n如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 [0-9] 表示匹配所有 0 到 9 的数字）。\n使用两个星号（*) 表示匹配任意中间目录，比如`a/**/z` 可以匹配 a/z, a/b/z 或 `a/b/c/z`等。",
+                                    "reference": "教程|http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html\n资料|https://rgb-24bit.github.io/blog/2018/glob.html",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "初始化",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "init",
+                                    "suffix": "",
+                                    "desc": "使用当前目录初始化一个项目",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "init ",
+                                    "suffix": "<path>",
+                                    "desc": "`git init dirname` 使用指定目录初始化一个项目",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "fork",
+                                    "tag": " ",
+                                    "suffix": "",
+                                    "desc": "从别人的项目分支一个版本至你的git服务器仓库",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "克隆",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "clone ",
+                                    "suffix": "<url>",
+                                    "desc": "`git clone xxx` dir缺省时，会创建一个和项目同名的目录\nurl支持多种数据传输协议，url可以为https:// 、git:// 、git@ 、user@server:path/to/repo.git等。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "clone ",
+                                    "suffix": "<url> <path>",
+                                    "desc": "`git clone xxx dirname` 指定dir时生成对应的文件夹名\n`git clone xxx .` 直接克隆到当前目录下,不再生成项目名目录",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "其它",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "设置",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "config",
+                                    "tag": " ",
+                                    "suffix": "",
+                                    "desc": "# /etc/gitconfig\n系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。\n# ~/.gitconfig\n用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。\n# .git/config\n当前项目的 Git 目录中的配置文件（也就是工作目录中的）\n这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "config --global",
+                                    "suffix": " $key $val",
+                                    "desc": "git config --global <配置名称> <配置的值>",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "config --list",
+                                    "suffix": "",
+                                    "desc": "查看各项设置值",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Misc",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "--version",
+                                    "suffix": "",
+                                    "desc": "查看版本号",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git <verb> ",
+                                    "tag": "--help",
+                                    "suffix": "",
+                                    "desc": "命令帮助",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "参考资料",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "",
+                                    "tag": "官方手册",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "https://git-scm.com/docs",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "",
+                                    "tag": "Pro Git中文版",
+                                    "suffix": "",
+                                    "desc": "",
+                                    "url": "https://www.progit.cn/",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "title": "修改",
+                    "barcolor": "",
+                    "fold": false,
+                    "box": [
+                        {
+                            "title": "添加",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "add ",
+                                    "suffix": "<file> <file>",
+                                    "desc": "跟踪新文件，加入缓存区INDEX\n`git add file` 加入单个文件\n`git add file1 file2 file3` 加入多个文件\n",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "add ",
+                                    "suffix": "<glob>",
+                                    "desc": "加入指定匹配\n`git add *.js` \n`git add *`",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "提交",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "commit",
+                                    "suffix": "",
+                                    "desc": "git commit 这种方式会启动文本编辑器以便输入本次提交的说明。\n默认会启用 shell 的环境变量 $EDITOR 所指定的软件，一般都是 vim 或 emacs。\n当然也可以按照 起步 介绍的方式，使用 git config --global core.editor 命令设定你喜欢的编辑软件。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "commit ",
+                                    "suffix": "-m \"msg\"",
+                                    "desc": "提交修改，将缓存区内容添加到仓库中\n`git commit -m \"message\"`",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "commit ",
+                                    "suffix": "-a -m \"msg\"",
+                                    "desc": "跳过使用暂存区域直接提交（但不包含新建文件，仅修改与删除）\n`git commit -a -m \"message\"`",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "commit ",
+                                    "suffix": "--amend",
+                                    "desc": "撤销重做提交（覆盖上一次提交，由于遗漏某些文件等） `git commit --amend` ",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|https://www.progit.cn/#_undoing",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "删除",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "rm ",
+                                    "suffix": "<file>",
+                                    "desc": "`git rm file` 将文件从暂存区和你的硬盘中(工作目录)删除\n`git rm -r dirname` 删除目录及目录内容,当该目录没有stage时，无法进行该操作，直接执行shell命令rm操作即可。",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "rm -f ",
+                                    "suffix": "<file>",
+                                    "desc": "`git rm -f file` 强制删除，删除之前修改过并且已经放到暂存区域的",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "rm --cached ",
+                                    "suffix": "<file>",
+                                    "desc": "只从缓存区中移除，工作目录中保存\n`git rm --cached file`",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "mv ",
+                                    "suffix": "from to",
+                                    "desc": "同linux mv命令，自动判定执行“移动”或“重命名”操作。\ngit mv 文件名 文件名 : 将源文件名改为目标文件名\ngit mv 文件名 目录名 : 将文件移动到目标目录\ngit mv 目录名 目录名 : 目标目录已存在，将源目录移动到目标目录；目标目录不存在则改名（当源文件为空时不可移动）\ngit mv 目录名 文件名 : 出错",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "查看",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "status",
+                                    "suffix": "",
+                                    "desc": "检查状态 `git status`\n",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "参考资料|https://git-scm.com/docs/git-status",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "status ",
+                                    "suffix": "-s",
+                                    "desc": "简易查看 `git status -s` ",
+                                    "url": "",
+                                    "summary": "新添加的未跟踪文件前面有 ?? 标记\n新添加到暂存区中的文件前面有 A 标记\n修改过的文件前面有 M 标记。\n出现在右边的 M 表示该文件被修改了但是还没放入暂存区\n出现在靠左边的 M 表示该文件被修改了并放入了暂存区。\nAM状态的意思是，这个文件在我们将它添加到缓存之后又有改动",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "对比",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "diff",
+                                    "suffix": "",
+                                    "desc": "git diff : 尚未缓存的改动",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "diff ",
+                                    "suffix": "--cached",
+                                    "desc": "git diff --cached : 查看已缓存的改动 (同git diff --staged [1.6+])\ngit diff HEAD : 查看已缓存的与未缓存的所有改动\ngit diff --stat : 显示摘要而非整个 diff",
+                                    "url": "",
+                                    "summary": "\n\n",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        },
+                        {
+                            "title": "历史",
+                            "fold": false,
+                            "list": [
+                                {
+                                    "prefix": "git ",
+                                    "tag": "log",
+                                    "suffix": "",
+                                    "desc": "显示全部提交记录",
+                                    "url": "",
+                                    "summary": "<table id=\"log_options\" class=\"tableblock frame-all grid-all stretch\">\n<caption class=\"title\">Table 2. <code>git log</code> 的常用选项</caption>\n<colgroup>\n<col style=\"width: 20%;\">\n<col style=\"width: 80%;\">\n</colgroup>\n<thead>\n<tr>\n<th class=\"tableblock halign-left valign-top\">选项</th>\n<th class=\"tableblock halign-left valign-top\">说明</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>-p</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">按补丁格式显示每个更新之间的差异。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--stat</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">显示每次更新的文件修改统计信息。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--shortstat</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">只显示 --stat 中最后的行数修改添加移除统计。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--name-only</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅在提交信息后显示已修改的文件清单。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--name-status</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">显示新增、修改、删除的文件清单。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--abbrev-commit</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--relative-date</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">使用较短的相对时间显示（比如，“2 weeks ago”）。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--graph</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">显示 ASCII 图形表示的分支合并历史。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--pretty</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。</p></td>\n</tr>\n</tbody>\n</table>",
+                                    "reference": "参考资料|https://www.progit.cn/#_viewing_history",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "log ",
+                                    "suffix": "-<n>",
+                                    "desc": "最近若干次记录",
+                                    "url": "",
+                                    "summary": "<table id=\"limit_options\" class=\"tableblock frame-all grid-all stretch\">\n<caption class=\"title\">Table 3. 限制 <code>git log</code> 输出的选项</caption>\n<colgroup>\n<col style=\"width: 33.3333%;\">\n<col style=\"width: 66.6667%;\">\n</colgroup>\n<thead>\n<tr>\n<th class=\"tableblock halign-left valign-top\">选项</th>\n<th class=\"tableblock halign-left valign-top\">说明</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>-(n)</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示最近的 n 条提交</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--since</code>, <code>--after</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示指定时间之后的提交。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--until</code>, <code>--before</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示指定时间之前的提交。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--author</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示指定作者相关的提交。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--committer</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示指定提交者相关的提交。</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>--grep</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示含指定关键字的提交</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>-S</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">仅显示添加或移除了某个关键字的提交</p></td>\n</tr>\n</tbody>\n</table>",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "log ",
+                                    "suffix": "--pretty=oneline",
+                                    "desc": "简化单行显示`git log --pretty=oneline`\n图形化 `git log --graph`",
+                                    "url": "",
+                                    "summary": "`git log --pretty=<format>`\n<table id=\"pretty_format\" class=\"tableblock frame-all grid-all stretch\">\n<caption class=\"title\">Table 1. <code>git log --pretty=format</code> 常用的选项</caption>\n<colgroup>\n<col style=\"width: 20%;\">\n<col style=\"width: 80%;\">\n</colgroup>\n<thead>\n<tr>\n<th class=\"tableblock halign-left valign-top\">选项</th>\n<th class=\"tableblock halign-left valign-top\">说明</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%H</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交对象（commit）的完整哈希字串</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%h</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交对象的简短哈希字串</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%T</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">树对象（tree）的完整哈希字串</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%t</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">树对象的简短哈希字串</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%P</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">父对象（parent）的完整哈希字串</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%p</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">父对象的简短哈希字串</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%an</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">作者（author）的名字</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%ae</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">作者的电子邮件地址</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%ad</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">作者修订日期（可以用 --date= 选项定制格式）</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%ar</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">作者修订日期，按多久以前的方式显示</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%cn</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交者（committer）的名字</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%ce</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交者的电子邮件地址</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%cd</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交日期</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%cr</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交日期，按多久以前的方式显示</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\"><code>%s</code></p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">提交说明</p></td>\n</tr>\n</tbody>\n</table>",
+                                    "reference": "",
+                                    "dot": ""
+                                },
+                                {
+                                    "prefix": "git ",
+                                    "tag": "reflog",
+                                    "suffix": "",
+                                    "desc": "查看每一次命令",
+                                    "url": "",
+                                    "summary": "",
+                                    "reference": "",
+                                    "dot": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

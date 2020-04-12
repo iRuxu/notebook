@@ -7,6 +7,7 @@ import Setting from "../../public/setting.json"
 
 Vue.use(VueRouter);
 
+
 let routes = []
 Setting.nav.forEach((nav,i) => {
     routes[i] = {
