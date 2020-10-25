@@ -41,6 +41,13 @@
                 "group":"code"
             },
             {
+                "name":"Lua",
+                "path":"/lua",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
                 "name":"Std",
                 "path":"/std",
                 "title":"",
