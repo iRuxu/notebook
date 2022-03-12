@@ -20,52 +20,10 @@
     ],
     "nav":[
             {
-                "name":"JS",
+                "name":"Javascript",
                 "path":"/",
                 "title":"",
                 "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Python",
-                "path":"/python",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"PHP",
-                "path":"/php",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Lua",
-                "path":"/lua",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Std",
-                "path":"/std",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Net",
-                "path":"/net",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Data",
-                "path":"/data",
-                "title":"",
-                "devonly":true,
                 "group":"code"
             },
             {
@@ -90,6 +48,20 @@
                 "group":"code"
             },
             {
+                "name":"Vue",
+                "path":"/vue",
+                "title":"Vue生态,Vite",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"React",
+                "path":"/react",
+                "title":"React,Webpack",
+                "devonly":false,
+                "group":"code"
+            },
+            {
                 "name":"jQuery",
                 "path":"/jquery",
                 "title":"",
@@ -97,15 +69,43 @@
                 "group":"code"
             },
             {
-                "name":"Vue",
-                "path":"/vue",
-                "title":"Vue生态,Webpack",
-                "devonly":false,
+                "name":"Database",
+                "path":"/database",
+                "title":"",
+                "devonly":true,
                 "group":"code"
             },
             {
                 "name":"Linux",
                 "path":"/linux",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Node",
+                "path":"/node",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Python",
+                "path":"/python",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"PHP",
+                "path":"/php",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Lua",
+                "path":"/lua",
                 "title":"",
                 "devonly":false,
                 "group":"code"
