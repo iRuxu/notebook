@@ -1,5 +1,5 @@
 {
-    "publicPath":"http://iruxu.com/notebook/",
+    "publicPath":"/",
     "lang":"zh-cn",
     "editDevonly":true,
     "exportDevonly":false,
