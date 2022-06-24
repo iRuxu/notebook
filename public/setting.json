@@ -69,20 +69,6 @@
                 "group":"code"
             },
             {
-                "name":"Database",
-                "path":"/database",
-                "title":"",
-                "devonly":true,
-                "group":"code"
-            },
-            {
-                "name":"Linux",
-                "path":"/linux",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
                 "name":"Node",
                 "path":"/node",
                 "title":"",
@@ -106,6 +92,27 @@
             {
                 "name":"Lua",
                 "path":"/lua",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Rust",
+                "path":"/rust",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Database",
+                "path":"/database",
+                "title":"",
+                "devonly":true,
+                "group":"code"
+            },
+            {
+                "name":"Linux",
+                "path":"/linux",
                 "title":"",
                 "devonly":false,
                 "group":"code"
