@@ -97,6 +97,20 @@
                 "group":"code"
             },
             {
+                "name":"C",
+                "path":"/c",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Go",
+                "path":"/go",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
                 "name":"Rust",
                 "path":"/rust",
                 "title":"",
