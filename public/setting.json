@@ -27,6 +27,27 @@
                 "group":"code"
             },
             {
+                "name":"Node",
+                "path":"/node",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"Python",
+                "path":"/python",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"C",
+                "path":"/c",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
                 "name":"CSS",
                 "path":"/css",
                 "title":"",
@@ -62,34 +83,6 @@
                 "group":"code"
             },
             {
-                "name":"React",
-                "path":"/react",
-                "title":"React,Webpack",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"jQuery",
-                "path":"/jquery",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Node",
-                "path":"/node",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"Python",
-                "path":"/python",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
                 "name":"PHP",
                 "path":"/php",
                 "title":"",
@@ -99,13 +92,6 @@
             {
                 "name":"Lua",
                 "path":"/lua",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
-                "name":"C",
-                "path":"/c",
                 "title":"",
                 "devonly":false,
                 "group":"code"
