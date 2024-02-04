@@ -34,6 +34,13 @@
                 "group":"code"
             },
             {
+                "name":"CSharp",
+                "path":"/csharp",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
                 "name":"Python",
                 "path":"/python",
                 "title":"",
@@ -64,6 +71,13 @@
             {
                 "name":"DOM",
                 "path":"/dom",
+                "title":"",
+                "devonly":false,
+                "group":"code"
+            },
+            {
+                "name":"WebAPI",
+                "path":"/webapi",
                 "title":"",
                 "devonly":false,
                 "group":"code"
