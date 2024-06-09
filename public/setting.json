@@ -34,13 +34,6 @@
                 "group":"code"
             },
             {
-                "name":"CSharp",
-                "path":"/csharp",
-                "title":"",
-                "devonly":false,
-                "group":"code"
-            },
-            {
                 "name":"Python",
                 "path":"/python",
                 "title":"",
